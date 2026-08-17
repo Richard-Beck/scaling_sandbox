@@ -1,0 +1,356 @@
+---
+title: "Sedlack-inspired 3D single-cell oxygen model"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+source("../R/oxygen_model.R")
+source("../R/oxygen_model_3d.R")
+source("../scenarios/sedlack_single_cell_oxygen.R")
+scenario <- sedlack_single_cell_oxygen_scenario()
+cell_colours <- c(`1x volume` = "#0072B2", `2x volume` = "#D55E00")
+report_theme <- theme_minimal(base_size = 11) + theme(legend.position = "bottom")
+```
+
+## Scope
+
+This report implements a minimal 3D Cartesian analogue of Sedlack et al.
+(2022). It retains the transport features relevant to cell-size scaling while
+removing the reconstructed mitochondrial geometry:
+
+- a 150-um-high medium box containing one cell in a repeating monolayer;
+- a flattened half-ellipsoidal cell on an impermeable glass substrate;
+- domain-specific oxygen diffusion and a finite-permeability plasma membrane;
+- uniform intracellular Michaelis-Menten oxygen consumption; and
+- fixed oxygen at the top, with no-flux bottom and lateral boundaries.
+
+The model cannot predict a distinct mitochondrial pO2. Its purpose is to
+separate cell-scale geometry and surface-area-to-volume effects from
+subcellular mitochondrial localization.
+
+## Equations and membrane coupling
+
+At steady state,
+
+\[
+0=\nabla\cdot(D\nabla c)-R(c).
+\]
+
+The extracellular medium has `R = 0`. Inside the cell,
+
+\[
+R(c)=V_{\max,\mathrm{eff}}\frac{c}{K_m+c}.
+\]
+
+At each voxel face crossing the plasma membrane, the two half-voxel diffusion
+resistances and the membrane resistance are placed in series. Because Sedlack
+assigns equal aqueous oxygen solubility to medium and cytoplasm, the face flux
+can be written
+
+\[
+J=\frac{c_{\rm medium}-c_{\rm cell}}
+{\Delta_m/(2D_m)+1/P+\Delta_c/(2D_c)}.
+\]
+
+The same flux enters one voxel and leaves the other, so mass is conserved. The
+large baseline permeability makes membrane resistance nearly negligible, but
+retaining it makes that assumption testable.
+
+## Geometry, boundaries, and parameters
+
+The domain is
+
+\[
+x,y\in[-L/2,L/2],\qquad z\in[0,150\ \mu\mathrm m],
+\]
+
+and the cell occupies
+
+\[
+\frac{x^2}{a_x^2}+\frac{y^2}{a_y^2}+\frac{z^2}{h^2}\le1,
+\qquad z\ge0.
+\]
+
+The baseline axes are `(30, 30, 12) um`. The top face is fixed at applied pO2,
+the glass at `z = 0` is no flux, and lateral no-flux faces represent symmetry
+between identical cells spaced by `L`.
+
+```{r parameter-table, results='asis'}
+parameter_table <- data.frame(
+  quantity = c(
+    "Medium diffusion", "Cytoplasmic diffusion", "Aqueous solubility",
+    "Membrane permeability", "Mitochondrial-domain Vmax (extreme)",
+    "Homogenized Vmax (3D calibrated baseline)", "Km", "Cell axes",
+    "Medium height", "Calibration spacing", "Voxel size (x,y,z)"
+  ),
+  value = c(
+    scenario$transport$diffusion_medium_um2_s,
+    scenario$transport$diffusion_cytoplasm_um2_s,
+    scenario$transport$solubility_medium_mol_m3_mmhg,
+    scenario$transport$membrane_permeability_um_s,
+    scenario$consumption$vmax_mito_mol_m3_s,
+    scenario$consumption$vmax_effective_mol_m3_s,
+    scenario$consumption$km_mol_m3,
+    paste(scenario$geometry$cell_radii_um, collapse = ", "),
+    scenario$geometry$medium_height_um,
+    scenario$geometry$calibration_spacing_um,
+    paste(c(scenario$geometry$grid_dx_um, scenario$geometry$grid_dx_um,
+            scenario$geometry$grid_dz_um), collapse = ", ")
+  ),
+  units = c(
+    "um^2/s", "um^2/s", "mol/m^3/mmHg", "um/s", "mol/m^3/s",
+    "mol/m^3/s", "mol/m^3", "um", "um", "um", "um"
+  )
+)
+knitr::kable(parameter_table, row.names = FALSE)
+```
+
+Sedlack's `10 mol/m^3/s` applies only inside explicitly reconstructed
+mitochondria and was chosen as an extreme upper bound. Multiplying it by an
+invented mitochondrial fraction is not a defensible baseline. The
+homogenized rate is instead calibrated once in this 3D geometry. The former
+`1 mol/m^3/s` homogenized setting remains available only as an extreme
+sensitivity case. Source values and comparison data are from the
+[Sedlack et al. open-access article](https://pmc.ncbi.nlm.nih.gov/articles/PMC9604273/).
+
+## One-time 3D calibration
+
+The calibration condition is 5% applied O2, 100-um cell spacing, and a target
+mean cytoplasmic pO2 of 21.4 mmHg. Only `Vmax_eff` is fitted. It is then frozen
+for all validation and size-scaling runs.
+
+```{r calibrate-3d}
+calibration_grid <- build_oxygen_grid_3d(
+  spacing_um = scenario$geometry$calibration_spacing_um,
+  medium_height_um = scenario$geometry$medium_height_um,
+  cell_axes_um = scenario$geometry$cell_radii_um,
+  dx_um = scenario$geometry$grid_dx_um,
+  dz_um = scenario$geometry$grid_dz_um
+)
+calibration_transport <- assemble_oxygen_transport_3d(
+  calibration_grid, scenario,
+  scenario$boundary_conditions$screening_po2_mmhg
+)
+calibrated_vmax <- calibrate_oxygen_vmax_3d(
+  calibration_grid, calibration_transport, scenario,
+  target_mean_po2_mmhg = scenario$consumption$calibration_target_cytoplasm_po2_mmhg,
+  bracket_mol_m3_s = c(0, 0.15)
+)
+scenario$consumption$vmax_effective_mol_m3_s <- calibrated_vmax
+calibration_fit <- solve_oxygen_steady_3d(
+  calibration_grid, calibration_transport, scenario,
+  vmax_effective_mol_m3_s = calibrated_vmax
+)
+calibration_summary <- data.frame(
+  calibrated_vmax_mol_m3_s = calibrated_vmax,
+  target_mean_cytoplasmic_po2_mmhg = scenario$consumption$calibration_target_cytoplasm_po2_mmhg,
+  fitted_mean_cytoplasmic_po2_mmhg = calibration_fit$mean_cell_po2_mmhg,
+  fitted_total_ocr_fmol_s = calibration_fit$total_ocr_fmol_s,
+  represented_cell_volume_um3 = calibration_grid$represented_cell_volume_um3,
+  solver_converged = calibration_fit$converged
+)
+knitr::kable(calibration_summary, digits = 4)
+```
+
+This coarse-grid calibration gives approximately `0.0987 mol/m^3/s` and a
+whole-cell OCR of approximately `2.24 fmol/s`. The value is specific to this
+geometry and discretization; it should eventually be checked against measured
+whole-cell OCR and a grid-refinement study.
+
+## Validation against conditions not used for calibration
+
+```{r validate-3d, fig.width=7, fig.height=5}
+validation <- data.frame(
+  spacing_um = c(70, 100, 200, 70),
+  applied_po2_mmhg = c(38, 38, 38, 3.8),
+  observed_mean_cytoplasmic_po2_mmhg = c(7.09, 21.4, 28.3, 0.23),
+  condition = c("5% O2, 70 um", "5% O2, 100 um (calibration)",
+                "5% O2, 200 um", "0.5% O2, 70 um")
+)
+validation$predicted_mean_cytoplasmic_po2_mmhg <- NA_real_
+validation$predicted_ocr_fmol_s <- NA_real_
+
+for (row in seq_len(nrow(validation))) {
+  grid <- build_oxygen_grid_3d(
+    validation$spacing_um[row], scenario$geometry$medium_height_um,
+    scenario$geometry$cell_radii_um,
+    dx_um = scenario$geometry$grid_dx_um,
+    dz_um = scenario$geometry$grid_dz_um
+  )
+  transport <- assemble_oxygen_transport_3d(
+    grid, scenario, validation$applied_po2_mmhg[row]
+  )
+  fit <- if (validation$applied_po2_mmhg[row] < 10) {
+    solve_oxygen_continuation_3d(grid, transport, scenario, calibrated_vmax)
+  } else {
+    solve_oxygen_steady_3d(grid, transport, scenario, calibrated_vmax)
+  }
+  validation$predicted_mean_cytoplasmic_po2_mmhg[row] <- fit$mean_cell_po2_mmhg
+  validation$predicted_ocr_fmol_s[row] <- fit$total_ocr_fmol_s
+}
+
+ggplot(validation,
+       aes(observed_mean_cytoplasmic_po2_mmhg,
+           predicted_mean_cytoplasmic_po2_mmhg, label = condition)) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", colour = "grey50") +
+  geom_point(size = 2.5, colour = "#0072B2") +
+  geom_text(nudge_y = 1.2, size = 3, check_overlap = TRUE) +
+  coord_equal() +
+  labs(title = "Validation of the frozen 3D calibration",
+       x = "Sedlack mean cytoplasmic pO2 (mmHg)",
+       y = "Homogenized-model mean cytoplasmic pO2 (mmHg)") +
+  report_theme
+
+knitr::kable(validation, digits = 3)
+```
+
+The 200-um-spacing prediction is close without further fitting. The model
+overpredicts pO2 at 70-um spacing under 5% O2 and strongly over-depletes the
+cell at 0.5% O2. Those discrepancies are validation results, not parameters to
+tune away. They identify effects that the homogeneous, coarse Cartesian model
+does not yet reproduce—potentially mitochondrial localization, detailed cell
+geometry, the square-array medium field, or numerical resolution near anoxic
+regions.
+
+## 1x versus 2x cell volume
+
+For the size comparison, all three half-ellipsoid axes scale by `V^(1/3)`.
+Consumption capacity per cell volume remains fixed at the one calibrated value,
+so maximum total OCR scales with cell volume. Cell spacing stays at 100 um.
+The baseline 38-mmHg medium boundary is compared with a hypoxic boundary of
+3.8 mmHg—10% of the baseline oxygen concentration.
+
+```{r size-scaling-3d, fig.width=10, fig.height=5}
+volume_conditions <- c(`1x volume` = 1, `2x volume` = 2)
+oxygen_conditions <- c(`Baseline: 38 mmHg` = 38, `Hypoxia: 3.8 mmHg` = 3.8)
+slice_data <- data.frame()
+size_summary <- data.frame()
+
+for (oxygen_name in names(oxygen_conditions)) {
+  for (volume_name in names(volume_conditions)) {
+    scale <- volume_conditions[[volume_name]] ^ (1 / 3)
+    axes <- scenario$geometry$cell_radii_um * scale
+    grid <- build_oxygen_grid_3d(
+      spacing_um = 100, medium_height_um = scenario$geometry$medium_height_um,
+      cell_axes_um = axes, dx_um = scenario$geometry$grid_dx_um,
+      dz_um = scenario$geometry$grid_dz_um
+    )
+    transport <- assemble_oxygen_transport_3d(
+      grid, scenario, oxygen_conditions[[oxygen_name]]
+    )
+    fit <- if (oxygen_conditions[[oxygen_name]] < 10) {
+      solve_oxygen_continuation_3d(grid, transport, scenario, calibrated_vmax)
+    } else {
+      solve_oxygen_steady_3d(grid, transport, scenario, calibrated_vmax)
+    }
+    y_slice <- grid$y_um[which.min(abs(grid$y_um))]
+    keep <- grid$coordinates$y_um == y_slice
+    slice_data <- rbind(
+      slice_data,
+      data.frame(
+        oxygen_condition = oxygen_name,
+        volume = volume_name,
+        x_um = grid$coordinates$x_um[keep],
+        z_um = grid$coordinates$z_um[keep],
+        region = ifelse(grid$is_cell[keep], "Cell", "Medium"),
+        po2_mmhg = fit$po2_mmhg[keep],
+        consumption_mol_m3_s = ifelse(
+          grid$is_cell[keep], fit$consumption_mol_m3_s[keep], NA_real_
+        )
+      )
+    )
+    size_summary <- rbind(
+      size_summary,
+      data.frame(
+        oxygen_condition = oxygen_name,
+        volume = volume_name,
+        represented_cell_volume_um3 = grid$represented_cell_volume_um3,
+        mean_cytoplasmic_po2_mmhg = fit$mean_cell_po2_mmhg,
+        consumption_per_volume_mol_m3_s = fit$mean_cell_consumption_mol_m3_s,
+        total_ocr_fmol_s = fit$total_ocr_fmol_s,
+        converged = fit$converged
+      )
+    )
+  }
+}
+
+ggplot(slice_data, aes(x_um, z_um, fill = po2_mmhg)) +
+  geom_raster() +
+  geom_contour(data = slice_data,
+               aes(x = x_um, y = z_um, z = as.numeric(region == "Cell")),
+               inherit.aes = FALSE, breaks = 0.5,
+               colour = "white", linewidth = 0.4) +
+  facet_grid(oxygen_condition ~ volume) +
+  coord_equal() +
+  scale_fill_viridis_c(option = "C") +
+  labs(title = "Central 3D-model slice: intra- and extracellular oxygen",
+       x = "x (um)", y = "z above glass (um)", fill = "pO2\n(mmHg)",
+       caption = "White contour: voxelized plasma membrane. Fill scales are shared across panels.") +
+  report_theme
+```
+
+```{r size-scaling-consumption-3d, fig.width=10, fig.height=4}
+ggplot(slice_data, aes(x_um, z_um, fill = consumption_mol_m3_s)) +
+  geom_raster() +
+  geom_contour(data = slice_data,
+               aes(x = x_um, y = z_um, z = as.numeric(region == "Cell")),
+               inherit.aes = FALSE, breaks = 0.5,
+               colour = "white", linewidth = 0.4) +
+  facet_grid(oxygen_condition ~ volume) +
+  coord_equal() +
+  scale_fill_viridis_c(option = "B", na.value = "grey92") +
+  labs(title = "Uniform-field intracellular oxygen consumption",
+       x = "x (um)", y = "z above glass (um)",
+       fill = "Consumption\n(mol/m3/s)",
+       caption = "Grey: extracellular medium, where consumption is zero.") +
+  report_theme
+
+ggplot(size_summary,
+       aes(volume, consumption_per_volume_mol_m3_s,
+           colour = oxygen_condition, group = oxygen_condition)) +
+  geom_line(linewidth = 0.8) +
+  geom_point(size = 2.5) +
+  labs(title = "Integrated oxygen consumption per cell volume",
+       x = "Cell size", y = "Consumption (mol/m3/s)",
+       colour = "Medium oxygen") +
+  report_theme
+
+ggplot(size_summary,
+       aes(volume, total_ocr_fmol_s,
+           colour = oxygen_condition, group = oxygen_condition)) +
+  geom_line(linewidth = 0.8) +
+  geom_point(size = 2.5) +
+  labs(title = "Total whole-cell oxygen consumption",
+       x = "Cell size", y = "Total OCR (fmol/s)",
+       colour = "Medium oxygen") +
+  report_theme
+
+knitr::kable(size_summary, digits = 4)
+```
+
+Under the baseline boundary condition, mean cytoplasmic pO2 falls strongly in
+the 2x cell, but almost all intracellular voxels remain well above the very low
+Michaelis-Menten `Km`. Consumption per volume therefore changes by less than
+1%, and total OCR approximately doubles with volume.
+
+Under the 3.8-mmHg boundary, the model crosses into the oxygen-limited kinetic
+regime. Mean cytoplasmic pO2 is only about 0.034 mmHg in the 1x cell and 0.015
+mmHg in the 2x cell, both below the 0.078-mmHg half-saturation pO2. Consumption
+per volume falls from about 0.0238 to 0.0129 mol/m3/s when volume doubles—a 46%
+decrease. Consequently, doubling the consuming volume increases total OCR only
+from about 0.54 to 0.60 fmol/s, rather than doubling it. In this regime, the
+oxygen gradient has a direct functional consequence for respiration.
+
+## Numerical limitations and next checks
+
+This is a deliberately minimal voxel model. The current 10 × 10 × 3 um grid
+staircases the cell surface and overestimates the analytic half-ellipsoid volume
+slightly. The calibration therefore belongs to this discretization. Before
+interpreting small effects, repeat it at finer resolution and quantify changes
+in calibrated `Vmax_eff`, mean pO2, and OCR.
+
+The next biological checks are independent whole-cell OCR calibration,
+alternative OCR-versus-volume scaling, substrate oxygen permeability, and
+comparison of the homogenized sink with a localized-sink sensitivity model.

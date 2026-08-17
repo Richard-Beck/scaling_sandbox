@@ -1,0 +1,357 @@
+---
+title: "Cell-size scaling: boundary-flux scenarios"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+source("../R/scaling.R")
+source("../R/diffusion.R")
+source("../R/plotting.R")
+source("../scenarios/external_supply.R")
+source("../scenarios/nuclear_processing.R")
+
+volume_multipliers <- c(`1x volume` = 1, `2x volume` = 2)
+volume_colours <- c(`1x volume` = "#0072B2", `2x volume` = "#D55E00")
+volume_linetypes <- c(`1x volume` = "solid", `2x volume` = "dashed")
+plot_theme <- theme_minimal(base_size = 11) + theme(legend.position = "bottom")
+```
+
+## External boundary: fixed input per cell volume
+
+Total external influx is proportional to cell volume. Consequently, a larger
+cell needs a larger flux density at its membrane (`J = input × volume / area`).
+Dotted vertical lines mark the plasma membrane, making the distinct 1× and 2×
+radii directly auditable.
+
+```{r external-profiles, fig.width=10, fig.height=8}
+external <- external_supply_scenario()
+external_profiles <- data.frame()
+external_boundaries <- data.frame()
+external_consumption_summary <- data.frame()
+
+for (consumer_name in names(external$parameters$consumers)) {
+  consumer <- external$parameters$consumers[[consumer_name]]
+  for (rate_name in names(external$parameters$input_rates_uM_s)) {
+    rate <- external$parameters$input_rates_uM_s[[rate_name]]
+    for (volume_name in names(volume_multipliers)) {
+      geometry <- spherical_geometry(external$geometry$cell_radius_um,
+                                     volume_multipliers[[volume_name]])
+      grid <- radial_grid(geometry$radius_um, n_cells = 120)
+      surface_flux <- rate * geometry$volume_um3 / geometry$area_um2
+      reaction <- if (identical(consumer_name, "michaelis_menten")) {
+        function(time_s, concentration) {
+          consumer$vmax_uM_s * concentration / (consumer$km_uM + concentration)
+        }
+      } else NULL
+      concentration <- simulate_radial_diffusion(
+        grid, external$parameters$diffusion_um2_s, initial = 0, duration_s = 500,
+        loss_s = if (identical(consumer_name, "first_order")) consumer$loss_s else 0,
+        reaction = reaction,
+        outer_boundary = list(type = "fixed_inward_flux", value = surface_flux)
+      )
+      consumption <- if (identical(consumer_name, "first_order")) {
+        consumer$loss_s * concentration
+      } else {
+        consumer$vmax_uM_s * concentration / (consumer$km_uM + concentration)
+      }
+      external_profiles <- rbind(
+        external_profiles,
+        data.frame(consumer = consumer$label, input = tools::toTitleCase(rate_name),
+                   volume = volume_name, radius_um = grid$centers_um,
+                   quantity = "Concentration (uM)", value = concentration),
+        data.frame(consumer = consumer$label, input = tools::toTitleCase(rate_name),
+                   volume = volume_name, radius_um = grid$centers_um,
+                   quantity = "Consumption (uM/s)", value = consumption)
+      )
+      external_boundaries <- rbind(
+        external_boundaries,
+        data.frame(consumer = consumer$label, input = tools::toTitleCase(rate_name),
+                   volume = volume_name, cell_radius_um = geometry$radius_um)
+      )
+      external_consumption_summary <- rbind(
+        external_consumption_summary,
+        data.frame(consumer = consumer$label, input = tools::toTitleCase(rate_name),
+                   volume = volume_name,
+                   consumption_per_volume_uM_s = volume_weighted_mean(consumption, grid))
+      )
+    }
+  }
+}
+
+plot_external_consumer <- function(consumer_label) {
+  ggplot(subset(external_profiles, consumer == consumer_label),
+         aes(radius_um, value, colour = volume, linetype = volume)) +
+    geom_line(linewidth = 0.8) +
+    geom_vline(data = subset(external_boundaries, consumer == consumer_label),
+               aes(xintercept = cell_radius_um, colour = volume),
+               linetype = "dotted", linewidth = 0.5, show.legend = FALSE) +
+    facet_grid(quantity ~ input, scales = "free_y") +
+    scale_colour_manual(values = volume_colours) +
+    scale_linetype_manual(values = volume_linetypes) +
+    labs(title = consumer_label, x = "Radius (um)", y = NULL,
+         colour = "Cell size", linetype = "Cell size",
+         caption = "Dotted lines: plasma-membrane position.") +
+    plot_theme
+}
+
+plot_external_consumer("First-order consumption")
+```
+
+```{r external-saturable-profiles, fig.width=10, fig.height=8}
+plot_external_consumer("Saturable consumption")
+```
+
+The first figure uses a linear first-order sink; the second uses a saturable
+Michaelis-Menten sink. Both retain the same boundary-input convention, making
+the different concentration and consumption gradients attributable to the
+reaction term rather than to a changed flux assumption.
+
+### Interpretation and limits of the fixed-flux assumption
+
+At steady state, integrated consumption per cell volume equals the imposed
+input per cell volume in these scenarios: there is no accumulation, no export,
+and the selected sinks retain sufficient capacity. The broader concentration
+range in the larger cell is still meaningful. If the volume-normalized input
+is `q`, the required membrane flux density is `J = qR/3`; characteristic
+diffusive concentration differences therefore scale approximately as
+`JR/D = qR^2/(3D)`. Doubling volume increases this geometric term by
+`2^(2/3)`, even while total consumption per volume stays fixed.
+
+The exterior-shell plots use the same far-field concentration `C_bulk` for
+both cell sizes. They do **not** make the far-field concentration size
+dependent. Rather, for a no-consumption spherical exterior,
+`C_bulk - C_surface = JR/D_external = qR^2/(3D_external)`: maintaining the
+specified flux requires a larger depletion near the membrane as cells grow or
+external diffusion slows. Conversely, if surface concentration were fixed,
+the far-field concentration needed to sustain this flux would increase with
+`R^2/D_external`. A specified flux can therefore become infeasible when it
+would require a negative surface concentration.
+
+The plasma membrane is presently a flux-clamp boundary: the prescribed flux
+is imposed on the cell side and removed from the external shell, conserving
+mass but allowing a concentration jump across the membrane. It has no
+explicit thickness, permeability, partition coefficient, or transporter
+kinetics. This is a useful limiting case for strongly regulated or active
+uptake, but it is not a passive-membrane model. With fixed transporter density,
+capacity would usually scale with membrane area, not cell volume. The separate
+Sedlack-inspired oxygen report introduces a permeability-coupled membrane
+formulation in which flux is an outcome rather than an input.
+
+```{r external-integrated-consumption, fig.width=8, fig.height=4}
+ggplot(external_consumption_summary,
+       aes(input, consumption_per_volume_uM_s, colour = volume, linetype = volume,
+           group = volume)) +
+  geom_line(linewidth = 0.8) +
+  geom_point(size = 2) +
+  facet_wrap(~ consumer) +
+  scale_colour_manual(values = volume_colours) +
+  scale_linetype_manual(values = volume_linetypes) +
+  labs(title = "Integrated cellular consumption: external-boundary scenarios",
+       x = "Input rate per cell volume", y = "Consumption per cell volume (uM/s)",
+       colour = "Cell size", linetype = "Cell size") +
+  plot_theme
+```
+
+## Cell plus exterior medium
+
+The next figure shows the cell interior and an extracellular shell. Flux is
+fixed at the membrane and the external medium has no consumption. The outer
+shell uses the spherical far-field condition `C -> C_bulk` and `dC/dr -> 0`
+as `r -> infinity`, implemented at a finite radius with the corresponding
+Robin condition.
+
+```{r interior-exterior, fig.width=10, fig.height=5}
+rate <- external$parameters$input_rates_uM_s[["high"]]
+# Keep intracellular diffusion fixed. Only the extracellular medium changes.
+media <- list(
+  `External diffusion slower` = c(inside = 20, outside = 5),
+  `External diffusion faster` = c(inside = 20, outside = 50)
+)
+combined_profiles <- data.frame()
+medium_boundaries <- data.frame()
+medium_consumption_summary <- data.frame()
+
+for (medium_name in names(media)) {
+  for (volume_name in names(volume_multipliers)) {
+    geometry <- spherical_geometry(external$geometry$cell_radius_um,
+                                   volume_multipliers[[volume_name]])
+    flux <- rate * geometry$volume_um3 / geometry$area_um2
+    inside_grid <- radial_grid(geometry$radius_um, 120)
+    inside <- simulate_radial_diffusion(
+      inside_grid, media[[medium_name]][["inside"]], 0, 500,
+      loss_s = external$parameters$consumers$first_order$loss_s,
+      outer_boundary = list(type = "fixed_inward_flux", value = flux)
+    )
+    outside_grid <- radial_grid(external$parameters$external_medium_radius_um,
+                                180, inner_radius_um = geometry$radius_um)
+    outside <- simulate_radial_diffusion(
+      outside_grid, media[[medium_name]][["outside"]],
+      initial = external$parameters$external_bulk_concentration_uM, duration_s = 10000,
+      inner_boundary = list(type = "fixed_outward_flux", value = -flux),
+      outer_boundary = list(type = "infinite_reservoir",
+                            value = external$parameters$external_bulk_concentration_uM)
+    )
+    combined_profiles <- rbind(
+      combined_profiles,
+      data.frame(medium = medium_name, volume = volume_name, region = "Cell interior",
+                 radius_um = inside_grid$centers_um, concentration_uM = inside),
+      data.frame(medium = medium_name, volume = volume_name, region = "External medium",
+                 radius_um = outside_grid$centers_um, concentration_uM = outside)
+    )
+    medium_boundaries <- rbind(
+      medium_boundaries,
+      data.frame(medium = medium_name, volume = volume_name,
+                 cell_radius_um = geometry$radius_um)
+    )
+    medium_consumption_summary <- rbind(
+      medium_consumption_summary,
+      data.frame(medium = medium_name, volume = volume_name,
+                 consumption_per_volume_uM_s = volume_weighted_mean(
+                   external$parameters$consumers$first_order$loss_s * inside, inside_grid
+                 ))
+    )
+  }
+}
+
+ggplot(combined_profiles,
+       aes(radius_um, concentration_uM, colour = volume, linetype = volume,
+           group = interaction(volume, region))) +
+  geom_line(linewidth = 0.8) +
+  geom_vline(data = medium_boundaries,
+             aes(xintercept = cell_radius_um, colour = volume),
+             linetype = "dotted", linewidth = 0.5, show.legend = FALSE) +
+  facet_wrap(~ medium) +
+  scale_colour_manual(values = volume_colours) +
+  scale_linetype_manual(values = volume_linetypes) +
+  labs(title = "Internal and external concentration gradients",
+       x = "Radius from cell centre (um)", y = "Concentration (uM)",
+       colour = "Cell size", linetype = "Cell size",
+       caption = "Dotted lines: plasma membrane. Each line breaks at the membrane.") +
+  plot_theme
+```
+
+```{r interior-exterior-integrated-consumption, fig.width=7, fig.height=4}
+ggplot(medium_consumption_summary,
+       aes(volume, consumption_per_volume_uM_s, colour = medium, group = medium)) +
+  geom_line(linewidth = 0.8) +
+  geom_point(size = 2) +
+  labs(title = "Integrated cellular consumption: exterior-medium scenarios",
+       x = "Cell size", y = "Consumption per cell volume (uM/s)",
+       colour = "External diffusion condition") +
+  plot_theme
+```
+
+## Internal boundary: nuclear export with two cytoplasmic sinks
+
+Nuclear export supplies the diffusing species at the nuclear envelope. It is
+removed through two distinct cytoplasmic processes: saturable consumption
+`Vmax × C / (Km + C)` and first-order degradation `k × C`. The plots below
+show the final state after the prescribed degradation-rate change. Dotted
+vertical lines mark the nuclear envelope and dashed lines mark the plasma
+membrane. Their locations scale with `V^(1/3)`.
+
+```{r nuclear-processing, fig.width=8, fig.height=5}
+nuclear <- nuclear_processing_scenario()
+cytoplasmic_profiles <- data.frame()
+cytoplasmic_boundaries <- data.frame()
+cytoplasmic_consumption_summary <- data.frame()
+cytoplasmic_sink_profiles <- data.frame()
+for (volume_name in names(volume_multipliers)) {
+  whole_cell <- spherical_geometry(nuclear$geometry$cell_radius_um,
+                                  volume_multipliers[[volume_name]])
+  nuclear_radius <- whole_cell$radius_um * nuclear$geometry$nucleus_radius_fraction
+  grid <- radial_grid(whole_cell$radius_um, 120, inner_radius_um = nuclear_radius)
+  cytoplasm_volume <- sum(grid$volumes_um3)
+  nuclear_area <- 4 * pi * nuclear_radius ^ 2
+  export_flux <- nuclear$parameters$source_rate * cytoplasm_volume / nuclear_area
+  degradation <- function(time_s) {
+    ifelse(time_s < nuclear$parameters$degradation_transition_s,
+           nuclear$parameters$initial_degradation_s,
+           nuclear$parameters$final_degradation_s)
+  }
+  concentration <- simulate_radial_diffusion(
+    grid, nuclear$parameters$diffusion_um2_s, 0, 200,
+    loss_s = degradation,
+    reaction = function(time_s, concentration) {
+      nuclear$parameters$consumption_vmax_uM_s * concentration /
+        (nuclear$parameters$consumption_km_uM + concentration)
+    },
+    inner_boundary = list(type = "fixed_outward_flux", value = export_flux)
+  )
+  consumption_rate <- nuclear$parameters$consumption_vmax_uM_s * concentration /
+    (nuclear$parameters$consumption_km_uM + concentration)
+  degradation_rate <- nuclear$parameters$final_degradation_s * concentration
+  cytoplasmic_profiles <- rbind(
+    cytoplasmic_profiles,
+    data.frame(volume = volume_name, radius_um = grid$centers_um,
+               concentration_uM = concentration)
+  )
+  cytoplasmic_boundaries <- rbind(
+    cytoplasmic_boundaries,
+    data.frame(volume = volume_name, boundary = "Nuclear envelope", radius_um = nuclear_radius),
+    data.frame(volume = volume_name, boundary = "Plasma membrane", radius_um = whole_cell$radius_um)
+  )
+  cytoplasmic_consumption_summary <- rbind(
+    cytoplasmic_consumption_summary,
+    data.frame(
+      volume = volume_name,
+      consumption_per_volume_uM_s = volume_weighted_mean(consumption_rate, grid)
+    )
+  )
+  cytoplasmic_sink_profiles <- rbind(
+    cytoplasmic_sink_profiles,
+    data.frame(volume = volume_name, radius_um = grid$centers_um,
+               process = "Saturable consumption", rate_uM_s = consumption_rate),
+    data.frame(volume = volume_name, radius_um = grid$centers_um,
+               process = "First-order degradation", rate_uM_s = degradation_rate)
+  )
+}
+
+ggplot(cytoplasmic_profiles,
+       aes(radius_um, concentration_uM, colour = volume, linetype = volume)) +
+  geom_line(linewidth = 0.8) +
+  geom_vline(data = subset(cytoplasmic_boundaries, boundary == "Nuclear envelope"),
+             aes(xintercept = radius_um, colour = volume),
+             linetype = "dotted", linewidth = 0.5, show.legend = FALSE) +
+  geom_vline(data = subset(cytoplasmic_boundaries, boundary == "Plasma membrane"),
+             aes(xintercept = radius_um, colour = volume),
+             linetype = "dashed", linewidth = 0.5, show.legend = FALSE) +
+  scale_colour_manual(values = volume_colours) +
+  scale_linetype_manual(values = volume_linetypes) +
+  labs(title = "Final cytoplasmic concentration", x = "Radius (um)",
+       y = "Concentration (uM)", colour = "Cell size", linetype = "Cell size",
+       caption = "Dotted: nuclear envelope. Dashed: plasma membrane.") +
+  plot_theme
+```
+
+```{r nuclear-sink-profiles, fig.width=8, fig.height=5}
+ggplot(cytoplasmic_sink_profiles,
+       aes(radius_um, rate_uM_s, colour = volume, linetype = volume)) +
+  geom_line(linewidth = 0.8) +
+  geom_vline(data = subset(cytoplasmic_boundaries, boundary == "Nuclear envelope"),
+             aes(xintercept = radius_um, colour = volume),
+             linetype = "dotted", linewidth = 0.5, show.legend = FALSE) +
+  geom_vline(data = subset(cytoplasmic_boundaries, boundary == "Plasma membrane"),
+             aes(xintercept = radius_um, colour = volume),
+             linetype = "dashed", linewidth = 0.5, show.legend = FALSE) +
+  facet_wrap(~ process, scales = "free_y") +
+  scale_colour_manual(values = volume_colours) +
+  scale_linetype_manual(values = volume_linetypes) +
+  labs(title = "Separate cytoplasmic sink-rate profiles", x = "Radius (um)",
+       y = "Removal rate (uM/s)", colour = "Cell size", linetype = "Cell size",
+       caption = "Dotted: nuclear envelope. Dashed: plasma membrane.") +
+  plot_theme
+```
+
+```{r nuclear-integrated-consumption, fig.width=6, fig.height=4}
+ggplot(cytoplasmic_consumption_summary,
+       aes(volume, consumption_per_volume_uM_s, group = 1)) +
+  geom_line(linewidth = 0.8, colour = "#009E73") +
+  geom_point(size = 2, colour = "#009E73") +
+  labs(title = "Integrated saturable cytoplasmic consumption",
+       x = "Cell size", y = "Consumption per cytoplasmic volume (uM/s)",
+       caption = "Includes only the saturable consumption term; first-order degradation is excluded.") +
+  plot_theme
+```
