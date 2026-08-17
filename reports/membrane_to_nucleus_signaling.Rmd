@@ -1,0 +1,398 @@
+---
+title: "Membrane-to-nucleus signalling: competition between distributed and localized sinks"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+library(ggplot2)
+source("../R/scaling.R")
+source("../R/diffusion.R")
+source("../scenarios/membrane_to_nucleus.R")
+
+scenario <- membrane_to_nucleus_scenario()
+volume_colours <- c(`1x volume` = "#0072B2", `2x volume` = "#D55E00")
+diffusion_colours <- c(`3` = "#CC79A7", `30` = "#E69F00", `300` = "#009E73")
+plot_theme <- theme_minimal(base_size = 11) + theme(legend.position = "bottom")
+
+trapezoid <- function(x, y) {
+  sum(diff(x) * (head(y, -1) + tail(y, -1)) / 2)
+}
+
+run_delivery_model <- function(volume_multiplier, diffusion_um2_s,
+                               pde_multiplier = 1,
+                               capture_permeability_um_s =
+                                 scenario$boundary$nuclear_capture_permeability_um_s,
+                               source_scaling = "fixed flux density",
+                               duration_s = scenario$parameters$duration_s,
+                               n_cells = 80L) {
+  length_scale <- volume_multiplier ^ (1 / 3)
+  cell_radius <- scenario$geometry$cell_radius_um * length_scale
+  nucleus_radius <- scenario$geometry$nucleus_radius_um * length_scale
+  grid <- radial_grid(cell_radius, n_cells, nucleus_radius)
+  membrane_flux <- scenario$boundary$membrane_flux_uM_um_s
+  if (identical(source_scaling, "total production proportional to volume")) {
+    membrane_flux <- membrane_flux * length_scale
+  }
+  pde_rate <- function(concentration) {
+    pde_multiplier * scenario$parameters$pde_vmax_uM_s * concentration /
+      (scenario$parameters$pde_km_uM + concentration)
+  }
+  trajectory <- simulate_radial_diffusion(
+    grid = grid,
+    diffusion_um2_s = diffusion_um2_s,
+    initial = scenario$parameters$initial_concentration_uM,
+    duration_s = duration_s,
+    reaction = function(time_s, concentration) pde_rate(concentration),
+    inner_boundary = list(type = "reactive_sink",
+                          value = capture_permeability_um_s),
+    outer_boundary = list(type = "fixed_inward_flux", value = membrane_flux),
+    save_times = seq(0, duration_s, by = 1)
+  )
+  concentrations <- trajectory$concentration_uM
+  nuclear_boundary <- reactive_inner_boundary(
+    concentrations[, 1], grid, diffusion_um2_s, capture_permeability_um_s
+  )
+  nuclear_area <- 4 * pi * nucleus_radius ^ 2
+  membrane_area <- 4 * pi * cell_radius ^ 2
+  capture_rate <- nuclear_boundary$flux_uM_um_s * nuclear_area
+  pde_total_rate <- rowSums(pde_rate(concentrations) *
+                              matrix(grid$volumes_um3, nrow(concentrations),
+                                     length(grid$volumes_um3), byrow = TRUE))
+  production_rate <- membrane_flux * membrane_area
+  produced <- production_rate * duration_s
+  captured <- trapezoid(trajectory$time_s, capture_rate)
+  hydrolyzed <- trapezoid(trajectory$time_s, pde_total_rate)
+  inventory <- as.numeric(concentrations %*% grid$volumes_um3)
+  accumulated <- tail(inventory, 1) - inventory[1]
+  fractions <- c(
+    `Nuclear capture` = captured / produced,
+    `PDE hydrolysis` = hydrolyzed / produced,
+    `Net accumulation` = accumulated / produced
+  )
+  list(
+    grid = grid,
+    trajectory = trajectory,
+    summary = data.frame(
+      volume_multiplier = volume_multiplier,
+      diffusion_um2_s = diffusion_um2_s,
+      pde_multiplier = pde_multiplier,
+      capture_permeability_um_s = capture_permeability_um_s,
+      source_scaling = source_scaling,
+      nuclear_capture_fraction = unname(fractions["Nuclear capture"]),
+      pde_fraction = unname(fractions["PDE hydrolysis"]),
+      accumulation_fraction = unname(fractions["Net accumulation"]),
+      mass_balance_error = sum(fractions) - 1,
+      cell_radius_um = cell_radius,
+      nucleus_radius_um = nucleus_radius,
+      membrane_flux_uM_um_s = membrane_flux
+    )
+  )
+}
+```
+
+## Model and parameterization
+
+A signal is produced uniformly at the plasma membrane, diffuses through a
+spherical cytoplasmic shell, and faces two competing fates:
+
+\[
+\frac{\partial C}{\partial t}=D\nabla^2 C-
+\frac{V_{\max}C}{K_m+C}.
+\]
+
+The outer boundary supplies a fixed inward flux density, (J_{mem}=\beta).
+The nuclear envelope is a partially absorbing Robin boundary,
+(J_{nuc}=P_{nuc}C(R_{nuc})). Nuclear capture is counted as productive;
+cytoplasmic PDE hydrolysis is lost. The main outcome is the integrated nuclear
+capture divided by integrated membrane production.
+
+The baseline geometry and cAMP parameters come from published PMVEC models:
+(R_{cell}=9.34\) um, (R_{nuc}=5.26\) um, (C_0=0.05\) uM,
+(\beta=0.3611\) uM um/s, (V_{max}=0.295\) uM/s, (K_m=2\) uM, and
+(D=300,30,3\) um2/s. The membrane flux was derived in that work from AC
+activity and the spherical geometry. [Feinstein et al. (2012)](https://pmc.ncbi.nlm.nih.gov/articles/PMC3311237/)
+and a later [finite-element reproduction](https://pmc.ncbi.nlm.nih.gov/articles/PMC8773462/)
+provide the biological and numerical basis. The latter assumes no transport
+between cytoplasm and nucleus, so (P_{nuc}) here is deliberately an abstract
+productive-capture parameter, not an empirical cAMP permeability.
+
+The baseline (P_{nuc}=0.03\) um/s is the geometric midpoint of a
+0.003--0.3 um/s sensitivity range. Both radii scale with (V^{1/3}); the
+1x-to-2x shell thickness therefore changes from 4.08 to 5.14 um.
+
+At low concentration, (k_{eff}=V_{max}/K_m=0.1475\) /s and the survival
+length (\sqrt{D/k_{eff}}) is 45.1, 14.3, or 4.51 um. This anticipates weak
+transport limitation at high diffusion and a stronger opportunity for sink
+competition as diffusion falls.
+
+## Radial signal profiles at 300 seconds
+
+```{r profiles, fig.width=9, fig.height=5}
+base_runs <- list()
+signal_profiles <- data.frame()
+profile_boundaries <- data.frame()
+signal_fate <- data.frame()
+
+for (diffusion in scenario$parameters$diffusion_um2_s) {
+  for (volume_multiplier in c(1, 2)) {
+    key <- paste(diffusion, volume_multiplier, sep = "_")
+    result <- run_delivery_model(volume_multiplier, diffusion)
+    base_runs[[key]] <- result
+    volume_label <- paste0(volume_multiplier, "x volume")
+    signal_profiles <- rbind(signal_profiles, data.frame(
+      diffusion_um2_s = diffusion,
+      volume = volume_label,
+      radius_um = result$grid$centers_um,
+      concentration_uM = result$trajectory$concentration_uM[
+        nrow(result$trajectory$concentration_uM), ]
+    ))
+    profile_boundaries <- rbind(profile_boundaries,
+      data.frame(diffusion_um2_s = diffusion, volume = volume_label,
+                 boundary = "Nuclear envelope",
+                 radius_um = result$summary$nucleus_radius_um),
+      data.frame(diffusion_um2_s = diffusion, volume = volume_label,
+                 boundary = "Plasma membrane",
+                 radius_um = result$summary$cell_radius_um)
+    )
+    signal_fate <- rbind(signal_fate,
+      data.frame(diffusion_um2_s = diffusion, volume = volume_label,
+                 fate = "Nuclear capture",
+                 fraction = result$summary$nuclear_capture_fraction),
+      data.frame(diffusion_um2_s = diffusion, volume = volume_label,
+                 fate = "PDE hydrolysis", fraction = result$summary$pde_fraction),
+      data.frame(diffusion_um2_s = diffusion, volume = volume_label,
+                 fate = "Net accumulation",
+                 fraction = result$summary$accumulation_fraction)
+    )
+  }
+}
+
+ggplot(signal_profiles,
+       aes(radius_um, concentration_uM, colour = volume, linetype = volume)) +
+  geom_line(linewidth = 0.8) +
+  geom_vline(data = subset(profile_boundaries, boundary == "Nuclear envelope"),
+             aes(xintercept = radius_um, colour = volume), linetype = "dotted",
+             linewidth = 0.45, show.legend = FALSE) +
+  geom_vline(data = subset(profile_boundaries, boundary == "Plasma membrane"),
+             aes(xintercept = radius_um, colour = volume), linetype = "dashed",
+             linewidth = 0.45, show.legend = FALSE) +
+  facet_wrap(~ diffusion_um2_s, labeller = label_bquote(D == .(diffusion_um2_s))) +
+  scale_colour_manual(values = volume_colours) +
+  labs(title = "Membrane-to-nucleus signal profiles at 300 seconds",
+       x = "Radius (um)", y = "Signal concentration (uM)", colour = "Cell size",
+       linetype = "Cell size",
+       caption = "Dotted: nuclear envelope. Dashed: plasma membrane.") +
+  plot_theme
+```
+
+## Signal fate
+
+```{r fate, fig.width=9, fig.height=5}
+signal_fate$fate <- factor(signal_fate$fate,
+                           levels = c("Nuclear capture", "PDE hydrolysis",
+                                      "Net accumulation"))
+ggplot(signal_fate, aes(volume, fraction, fill = fate)) +
+  geom_col() +
+  facet_wrap(~ diffusion_um2_s, labeller = label_bquote(D == .(diffusion_um2_s))) +
+  scale_fill_manual(values = c("#0072B2", "#D55E00", "#999999")) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+  labs(title = "Fate of membrane-produced signal over 300 seconds",
+       x = "Cell size", y = "Fraction of integrated production", fill = "Fate") +
+  plot_theme
+```
+
+The three fractions close the mass balance: capture plus hydrolysis plus the
+net change in cytoplasmic inventory equals membrane production. The largest
+absolute numerical closure error across these runs is
+`r format(max(abs(vapply(base_runs, function(x) x$summary$mass_balance_error, numeric(1)))), digits = 2)`.
+
+## Nuclear delivery across cell sizes
+
+```{r scaling, fig.width=8, fig.height=5}
+delivery_scaling <- data.frame()
+for (diffusion in scenario$parameters$diffusion_um2_s) {
+  for (volume_multiplier in c(0.5, 1, 2, 4, 8)) {
+    result <- if (volume_multiplier %in% c(1, 2)) {
+      base_runs[[paste(diffusion, volume_multiplier, sep = "_")]]
+    } else run_delivery_model(volume_multiplier, diffusion)
+    delivery_scaling <- rbind(delivery_scaling, data.frame(
+      diffusion_um2_s = factor(diffusion), volume_multiplier = volume_multiplier,
+      nuclear_capture_fraction = result$summary$nuclear_capture_fraction
+    ))
+  }
+}
+
+ggplot(delivery_scaling,
+       aes(volume_multiplier, nuclear_capture_fraction,
+           colour = diffusion_um2_s, group = diffusion_um2_s)) +
+  geom_line(linewidth = 0.8) + geom_point(size = 2) +
+  scale_x_log10(breaks = c(0.5, 1, 2, 4, 8)) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+  scale_colour_manual(values = diffusion_colours) +
+  labs(title = "Productive nuclear delivery declines with cell volume",
+       x = "Cell-volume multiplier", y = "Nuclear capture / membrane production",
+       colour = "D (um2/s)") + plot_theme
+```
+
+The high-diffusion curve still has a clear size effect. Fast mixing removes
+most of the travel-distance penalty, but not the geometric mismatch between a
+distributed PDE capacity that scales with cytoplasmic volume and a nuclear
+capture boundary that scales with area. Lower diffusion adds a further spatial
+penalty rather than creating the entire effect.
+
+## Sensitivity to the abstract nuclear capture parameter
+
+```{r capture-sensitivity, fig.width=8, fig.height=5}
+capture_sensitivity <- data.frame()
+for (diffusion in scenario$parameters$diffusion_um2_s) {
+  for (permeability in scenario$parameters$nuclear_capture_sweep_um_s) {
+    one <- run_delivery_model(1, diffusion,
+                              capture_permeability_um_s = permeability)
+    two <- run_delivery_model(2, diffusion,
+                              capture_permeability_um_s = permeability)
+    capture_sensitivity <- rbind(capture_sensitivity, data.frame(
+      diffusion_um2_s = factor(diffusion),
+      capture_permeability_um_s = permeability,
+      fraction_1x = one$summary$nuclear_capture_fraction,
+      fraction_2x = two$summary$nuclear_capture_fraction,
+      log2_size_effect = log2(two$summary$nuclear_capture_fraction /
+                               one$summary$nuclear_capture_fraction)
+    ))
+  }
+}
+
+ggplot(capture_sensitivity,
+       aes(capture_permeability_um_s, log2_size_effect,
+           colour = diffusion_um2_s, group = diffusion_um2_s)) +
+  geom_hline(yintercept = 0, colour = "grey60", linetype = "dashed") +
+  geom_line(linewidth = 0.8) + geom_point(size = 1.8) +
+  scale_x_log10() + scale_colour_manual(values = diffusion_colours) +
+  labs(title = "The size effect across nuclear-capture efficiencies",
+       x = "Nuclear capture permeability (um/s)",
+       y = "log2[nuclear delivery at 2V / delivery at V]",
+       colour = "D (um2/s)") + plot_theme
+```
+
+## Parameter regimes in which a 2x-volume change matters
+
+```{r regime-heatmap, fig.width=8, fig.height=6}
+regime_heatmap <- data.frame()
+diffusion_grid <- 10 ^ seq(log10(3), log10(300), length.out = 9)
+pde_grid <- 2 ^ seq(-2, 2, length.out = 9)
+for (diffusion in diffusion_grid) {
+  for (pde_multiplier in pde_grid) {
+    one <- run_delivery_model(1, diffusion, pde_multiplier = pde_multiplier)
+    two <- run_delivery_model(2, diffusion, pde_multiplier = pde_multiplier)
+    regime_heatmap <- rbind(regime_heatmap, data.frame(
+      diffusion_um2_s = diffusion, pde_multiplier = pde_multiplier,
+      fraction_1x = one$summary$nuclear_capture_fraction,
+      fraction_2x = two$summary$nuclear_capture_fraction,
+      log2_size_effect = log2(two$summary$nuclear_capture_fraction /
+                               one$summary$nuclear_capture_fraction)
+    ))
+  }
+}
+
+ggplot(regime_heatmap,
+       aes(diffusion_um2_s, pde_multiplier, fill = log2_size_effect)) +
+  geom_tile() + scale_x_log10() + scale_y_log10() +
+  scale_fill_gradient2(low = "#3B4CC0", mid = "white", high = "#B40426",
+                       midpoint = 0) +
+  labs(title = "Size-dependent nuclear delivery is a parameter-regime result",
+       x = "Diffusion coefficient (um2/s)",
+       y = "PDE activity multiplier",
+       fill = "log2(2V / V)") + plot_theme
+```
+
+## Mechanistic control: remove the distributed sink
+
+```{r pde-control, fig.width=9, fig.height=5}
+pde_zero_control <- data.frame()
+for (diffusion in scenario$parameters$diffusion_um2_s) {
+  for (volume_multiplier in c(1, 2)) {
+    result <- run_delivery_model(volume_multiplier, diffusion, pde_multiplier = 0)
+    pde_zero_control <- rbind(pde_zero_control,
+      data.frame(diffusion_um2_s = diffusion,
+                 volume = paste0(volume_multiplier, "x volume"),
+                 fate = "Nuclear capture",
+                 fraction = result$summary$nuclear_capture_fraction),
+      data.frame(diffusion_um2_s = diffusion,
+                 volume = paste0(volume_multiplier, "x volume"),
+                 fate = "Net accumulation",
+                 fraction = result$summary$accumulation_fraction)
+    )
+  }
+}
+
+ggplot(pde_zero_control, aes(volume, fraction, fill = fate)) +
+  geom_col() +
+  facet_wrap(~ diffusion_um2_s, labeller = label_bquote(D == .(diffusion_um2_s))) +
+  scale_fill_manual(values = c("#0072B2", "#999999")) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+  labs(title = "Without PDE, uncaptured signal remains available",
+       subtitle = "At 300 seconds, size changes transient capture versus inventory, not irreversible loss",
+       x = "Cell size", y = "Fraction of integrated production", fill = "Fate") +
+  plot_theme
+```
+
+Removing PDE eliminates the competing irreversible fate. Any signal not yet
+captured at 300 seconds remains in the cytoplasmic inventory and can be
+captured later. This distinguishes persistent sink allocation from a simple
+transport delay.
+
+## Source-scaling control
+
+```{r source-control, fig.width=9, fig.height=5}
+source_scaling_control <- data.frame()
+for (source_scaling in c("fixed flux density",
+                         "total production proportional to volume")) {
+  for (diffusion in scenario$parameters$diffusion_um2_s) {
+    for (volume_multiplier in c(1, 2)) {
+      result <- run_delivery_model(volume_multiplier, diffusion,
+                                   source_scaling = source_scaling)
+      source_scaling_control <- rbind(source_scaling_control, data.frame(
+        source_scaling = source_scaling, diffusion_um2_s = factor(diffusion),
+        volume = paste0(volume_multiplier, "x volume"),
+        nuclear_capture_fraction = result$summary$nuclear_capture_fraction
+      ))
+    }
+  }
+}
+
+ggplot(source_scaling_control,
+       aes(volume, nuclear_capture_fraction, colour = diffusion_um2_s,
+           group = diffusion_um2_s)) +
+  geom_line(linewidth = 0.8) + geom_point(size = 2) +
+  facet_wrap(~ source_scaling) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+  scale_colour_manual(values = diffusion_colours) +
+  labs(title = "Source scaling changes loading but not the geometric question",
+       x = "Cell size", y = "Nuclear capture / membrane production",
+       colour = "D (um2/s)") + plot_theme
+```
+
+The primary model holds AC-like flux density fixed, so total production scales
+with membrane area. The control increases flux density as (V^{1/3}), making
+total production proportional to volume. Because PDE is saturable, this can
+change its loading as well as the surface-to-volume relationship.
+
+## Interpretation and limits
+
+Increasing cell size need not merely slow intracellular transport. When a
+membrane-generated signal can either be intercepted by a distributed
+cytoplasmic sink or reach a localized nuclear target, changing cell scale can
+alter the fraction of signalling flux assigned to those two fates.
+
+This is a deliberately minimal radial model. It assumes concentric spherical
+geometry, uniform membrane production, uniform PDE, and a phenomenological
+nuclear capture boundary. It does not represent cAMP buffering, PDE/AC
+nanodomains, nuclear pores, or downstream biochemical amplification. The
+capture sweep is therefore more informative than any single fitted-looking
+value of (P_{nuc}).
+
+The same geometry could later support an ERK-like first-order model. Classic
+[reaction--diffusion theory](https://pubmed.ncbi.nlm.nih.gov/10970807/) found
+substantial diffusion control for membrane kinase opposed by cytoplasmic
+phosphatase, and live-cell measurements place GFP-ERK1 diffusion near
+6--8 um2/s ([live-cell FCS study](https://pmc.ncbi.nlm.nih.gov/articles/PMC2823437/)).

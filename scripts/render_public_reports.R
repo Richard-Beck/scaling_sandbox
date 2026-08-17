@@ -24,7 +24,8 @@ if (!rmarkdown::pandoc_available()) stop("rmarkdown could not use Pandoc.")
 output_directory <- file.path("docs", "reports")
 dir.create(output_directory, recursive = TRUE, showWarnings = FALSE)
 for (report in c("reports/size_scaling_overview.Rmd",
-                 "reports/sedlack_single_cell_oxygen.Rmd")) {
+                 "reports/sedlack_single_cell_oxygen.Rmd",
+                 "reports/membrane_to_nucleus_signaling.Rmd")) {
   output <- rmarkdown::render(report, output_dir = output_directory, quiet = TRUE)
   message("Rendered ", output)
 }

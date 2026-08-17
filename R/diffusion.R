@@ -20,9 +20,11 @@ radial_grid <- function(radius_um, n_cells = 100L, inner_radius_um = 0) {
 #' finite-volume transport calculation and `deSolve::ode()` chooses adaptive,
 #' stiff-capable time steps. Boundary fluxes are expressed per unit boundary area. An outer
 #' `fixed_inward_flux` adds material to the cell; an inner `fixed_outward_flux`
-#' exports material from the nucleus to the cytoplasm. `loss_s` may be a scalar
-#' or a function of time in seconds. Units must be mutually consistent, e.g.
-#' um, seconds, and uM.
+#' exports material from the nucleus to the cytoplasm. An inner `reactive_sink`
+#' removes material with permeability `value` (um/s). Its Robin condition is
+#' evaluated at the boundary face, including the half-cell diffusion resistance.
+#' `loss_s` may be a scalar or a function of time in seconds. Units must be
+#' mutually consistent, e.g. um, seconds, and uM.
 simulate_radial_diffusion <- function(grid, diffusion_um2_s, initial,
                                       duration_s, source = 0, demand = 0,
                                       loss_s = 0, reaction = NULL,
@@ -52,6 +54,15 @@ simulate_radial_diffusion <- function(grid, diffusion_um2_s, initial,
   derivative <- function(time_s, concentration, parameters) {
     flux_up <- if (identical(inner_boundary$type, "fixed_outward_flux")) {
       inner_boundary$value
+    } else if (identical(inner_boundary$type, "reactive_sink")) {
+      permeability_um_s <- inner_boundary$value
+      if (length(permeability_um_s) != 1L || !is.finite(permeability_um_s) ||
+          permeability_um_s < 0) {
+        stop("reactive_sink permeability must be one non-negative finite value")
+      }
+      boundary_concentration <- concentration[1] /
+        (1 + permeability_um_s * grid$dr_um / (2 * diffusion_um2_s))
+      -permeability_um_s * boundary_concentration
     } else if (identical(inner_boundary$type, "no_flux")) {
       NULL
     } else {
@@ -103,4 +114,19 @@ simulate_radial_diffusion <- function(grid, diffusion_um2_s, initial,
 #' Volume-weighted mean concentration.
 volume_weighted_mean <- function(values, grid) {
   weighted.mean(values, grid$volumes_um3)
+}
+
+#' Concentration and removal flux at a reactive inner boundary.
+#'
+#' Converts the first cell-centre concentration to the boundary-face value for
+#' the same Robin discretization used by `simulate_radial_diffusion()`.
+reactive_inner_boundary <- function(first_cell_concentration_uM, grid,
+                                    diffusion_um2_s, permeability_um_s) {
+  stopifnot(diffusion_um2_s > 0, permeability_um_s >= 0)
+  boundary_concentration <- first_cell_concentration_uM /
+    (1 + permeability_um_s * grid$dr_um / (2 * diffusion_um2_s))
+  list(
+    concentration_uM = boundary_concentration,
+    flux_uM_um_s = permeability_um_s * boundary_concentration
+  )
 }

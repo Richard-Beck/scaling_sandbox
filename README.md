@@ -61,6 +61,9 @@ Generated HTML, figures, and other rendered material should go in
 - `reports/sedlack_single_cell_oxygen.Rmd` runs a Sedlack-inspired 3D Cartesian
   oxygen model with a flattened adherent cell, finite-permeability membrane,
   uniform cytoplasmic sink, one-time calibration, and 1x/2x volume comparison.
+- `reports/membrane_to_nucleus_signaling.Rmd` tests whether distributed PDE
+  hydrolysis redirects a membrane-generated cAMP-like signal away from a
+  localized, partially absorbing nuclear target as cell volume increases.
 
 ## Publishing
 

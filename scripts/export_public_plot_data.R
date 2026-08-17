@@ -53,3 +53,21 @@ write_public_csv(oxygen$slice_data,
                  "sedlack_single_cell_oxygen/central_slice_profiles.csv")
 write_public_csv(oxygen$size_summary,
                  "sedlack_single_cell_oxygen/size_scaling_summary.csv")
+
+membrane_to_nucleus <- run_report("reports/membrane_to_nucleus_signaling.Rmd")
+write_public_csv(membrane_to_nucleus$signal_profiles,
+                 "membrane_to_nucleus_signaling/signal_profiles.csv")
+write_public_csv(membrane_to_nucleus$profile_boundaries,
+                 "membrane_to_nucleus_signaling/profile_boundaries.csv")
+write_public_csv(membrane_to_nucleus$signal_fate,
+                 "membrane_to_nucleus_signaling/signal_fate.csv")
+write_public_csv(membrane_to_nucleus$delivery_scaling,
+                 "membrane_to_nucleus_signaling/nuclear_delivery_scaling.csv")
+write_public_csv(membrane_to_nucleus$capture_sensitivity,
+                 "membrane_to_nucleus_signaling/capture_sensitivity.csv")
+write_public_csv(membrane_to_nucleus$regime_heatmap,
+                 "membrane_to_nucleus_signaling/parameter_regime_heatmap.csv")
+write_public_csv(membrane_to_nucleus$pde_zero_control,
+                 "membrane_to_nucleus_signaling/pde_zero_control.csv")
+write_public_csv(membrane_to_nucleus$source_scaling_control,
+                 "membrane_to_nucleus_signaling/source_scaling_control.csv")
