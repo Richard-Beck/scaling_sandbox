@@ -61,3 +61,9 @@ Generated HTML, figures, and other rendered material should go in
 - `reports/sedlack_single_cell_oxygen.Rmd` runs a Sedlack-inspired 3D Cartesian
   oxygen model with a flattened adherent cell, finite-permeability membrane,
   uniform cytoplasmic sink, one-time calibration, and 1x/2x volume comparison.
+
+## Publishing
+
+GitHub Actions builds the Pages artifact from `docs/` on each push to `main`.
+The workflow regenerates the report HTML and plot-level CSVs, but those derived
+files under `docs/data/` and `docs/reports/` are deliberately untracked.
