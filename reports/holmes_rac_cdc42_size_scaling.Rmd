@@ -1,0 +1,1128 @@
+---
+title: "Cell enlargement can desensitize a Rac/Cdc42 polarity circuit"
+subtitle: "A Holmes et al. (2012) membrane-cytosol scaling experiment"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  fig.align = "center"
+)
+
+library(ggplot2)
+library(deSolve)
+
+volume_colours <- c(`1x volume` = "#0072B2", `2x volume` = "#D55E00")
+
+plot_theme <- theme_minimal(base_size = 11) +
+  theme(
+    legend.position = "bottom",
+    panel.grid.minor = element_blank()
+  )
+```
+
+The exact data used in every plot are exported to `docs/data/` when this report
+is rendered inside the project repository.
+
+# Question
+
+If a mammalian cell doubles in volume while maintaining the concentrations of
+its polarity proteins, can geometry alone make it harder to establish a
+Rac/Cdc42 front?
+
+This report adapts the experimentally motivated model of:
+
+> Holmes WR, Lin B, Levchenko A, Edelstein-Keshet L. **Modelling Cell
+> Polarization Driven by Synthetic Spatially Graded Rac Activation.**
+> *PLoS Computational Biology* 8:e1002366 (2012).
+> DOI: 10.1371/journal.pcbi.1002366.
+
+The original study was built around HeLa cells in microfluidic channels. A
+linear rapamycin gradient recruited the Rac GEF Tiam1 to the plasma membrane,
+allowing Rac activation to be stimulated directly. The experiments showed
+threshold-like polarization, and the model was constructed to reproduce that
+behavior.
+
+Holmes et al. also introduced a geometric effect that is particularly useful
+for cell-size scaling: inactive Rac, Cdc42, and Rho exchange between the
+cytosol and plasma membrane, but GEFs can activate only the membrane-bound
+fraction. Their model therefore makes signaling sensitivity depend on the
+ratio of membrane area to cytoplasmic volume.
+
+The original paper considered **flattening at approximately fixed volume**:
+surface-area:volume increased and polarization became easier. Here we ask the
+reverse scaling question relevant to cell enlargement:
+
+> For geometrically similar cells, does the fall in surface-area:volume at
+> larger volume reduce membrane accessibility enough to change the response to
+> the same Rac-GEF gradient?
+
+This is an extension of the Holmes model, not an experiment performed in the
+paper.
+
+# 1. The Holmes GTPase model
+
+Holmes et al. represent each GTPase with a slowly diffusing active
+membrane-bound form \(G\) and a composite inactive form \(G_i\), which combines
+inactive membrane-bound and cytosolic material. After assuming that
+membrane/cytosol exchange is fast, their reduced equations are
+
+\[
+\frac{\partial G}{\partial t}
+=
+I_G\,\bar c\,\frac{G_i}{G_t}
+-
+\delta_G G
++
+D_m \frac{\partial^2 G}{\partial x^2},
+\]
+
+\[
+\frac{\partial G_i}{\partial t}
+=
+-
+I_G\,\bar c\,\frac{G_i}{G_t}
++
+\delta_G G
++
+D_{mc}\frac{\partial^2 G_i}{\partial x^2}.
+\]
+
+Here \(G_t\) is the total level of that GTPase and
+
+\[
+\bar c=\frac{c}{c_0}
+\]
+
+is the membrane-accessibility factor relative to a baseline geometry.
+
+The underlying fraction of inactive GTPase that is membrane bound is
+
+\[
+c
+=
+\frac{k_{\rm on}}
+{k_{\rm on} + (V/L)k_{\rm off}},
+\]
+
+where \(V/L\) represents the cross-sectional volume associated with a unit
+length of the one-dimensional cell representation.
+
+This term is the important part for the current scaling exercise. The GEF
+activation term is multiplied by \(\bar c\), because GEFs can access only the
+membrane-bound fraction of the inactive pool.
+
+Holmes et al. report that geometry-dependent changes in the effective inactive
+diffusion coefficient have relatively little effect on the polarity regimes,
+whereas changing the membrane-accessible fraction has a substantial effect.
+
+## Model 4: Cdc42, Rac, and Rho
+
+We use the GTPase layer of their final Model 4, without phosphoinositide
+feedback. This matches the geometry analysis in their Figure 8, for which
+\(f_1=0\).
+
+The activation rates are
+
+\[
+I_C
+=
+\frac{\hat I_C}
+{1+(\rho/a_1)^n},
+\]
+
+\[
+I_R
+=
+\hat I_{R1}
++
+aC
++
+S(x),
+\]
+
+\[
+I_\rho
+=
+\frac{\hat I_\rho}
+{1+(R/a_2)^n},
+\]
+
+where \(C\), \(R\), and \(\rho\) denote active Cdc42, Rac, and Rho
+respectively.
+
+Thus Rho inhibits Cdc42, Cdc42 promotes Rac, and Rac inhibits Rho. This
+mutually coupled circuit has bistable regimes in which a sufficiently
+asymmetric Rac-GEF stimulus can push one end of the cell across a threshold and
+generate a polarized state.
+
+The signal is represented as a spatial Rac-GEF gradient,
+
+\[
+S(x)
+=
+s_{\rm mean}
++
+s_{\rm grad}
+\left(2x/L-1\right),
+\]
+
+so `s_mean` controls the background stimulus while `s_grad` controls the
+front/back asymmetry. The mean signal is held fixed when cell size changes.
+
+# 2. Published parameters
+
+The core parameters below come from Table 1 of Holmes et al. The Cdc42-to-Rac
+feedback strength is set to \(a=0.55~{\rm s^{-1}}\), the value used in their
+Figure 8 geometry analysis rather than the Table 1 default of 0.65.
+
+```{r parameter-table}
+pars <- list(
+  L0_um = 20,
+  Ct = 2.4,
+  Rt = 7.5,
+  rhot = 3.1,
+  IC_hat = 2.95,
+  IR1_hat = 0.2,
+  Irho_hat = 6.6,
+  a1 = 1.25,
+  a2 = 1,
+  n = 3,
+  a = 0.55,
+  delta_C = 1,
+  delta_R = 1,
+  delta_rho = 1,
+  Dm = 0.1,
+  Dmc0 = 50
+)
+
+parameter_table <- data.frame(
+  Parameter = c(
+    "Baseline cell length L0",
+    "Total Cdc42, Rac, Rho",
+    "I_C, I_R1, I_rho",
+    "a1, a2",
+    "Hill coefficient n",
+    "Cdc42 -> Rac feedback a",
+    "GAP inactivation rates",
+    "Active membrane diffusion Dm",
+    "Baseline composite inactive diffusion Dmc"
+  ),
+  Value = c(
+    "20 um",
+    "2.4, 7.5, 3.1 uM",
+    "2.95, 0.2, 6.6 uM/s",
+    "1.25, 1 uM",
+    "3",
+    "0.55 /s",
+    "1 /s",
+    "0.1 um^2/s",
+    "50 um^2/s"
+  ),
+  Source = c(
+    rep("Holmes Table 1", 5),
+    "Holmes Figure 8",
+    rep("Holmes Table 1", 3)
+  )
+)
+
+knitr::kable(parameter_table, align = c("l", "l", "l"))
+```
+
+The authors explicitly state that \(k_{\rm on}\), \(k_{\rm off}\), cytosolic
+diffusion, and the baseline membrane fraction were not sufficiently determined
+to assign unique numerical values. They therefore varied the composite
+quantity \(\bar c\) directly.
+
+That uncertainty is retained here. We do **not** assume that there is one
+known membrane-bound fraction of Rac/Cdc42/Rho. Instead we repeat the scaling
+exercise for baseline membrane fractions ranging from 0.1 to 0.8.
+
+# 3. Mapping 1x -> 2x volume onto membrane accessibility
+
+For geometrically similar cells,
+
+\[
+L(v)=L_0 v^{1/3},
+\]
+
+and
+
+\[
+\frac{V}{L}\propto v^{2/3}.
+\]
+
+Let \(c_0\) be the membrane-bound fraction in the 1x cell. Eliminating the
+unknown ratio \(k_{\rm off}/k_{\rm on}\) gives
+
+\[
+c(v)
+=
+\frac{1}
+{1+
+\left(\frac{1-c_0}{c_0}\right)v^{2/3}
+}.
+\]
+
+Therefore
+
+\[
+\bar c(v)=\frac{c(v)}{c_0}.
+\]
+
+This is the WGD-oriented extrapolation. Holmes et al. derived the same
+membrane/cytosol partitioning relationship, but used it for a cell that
+elongated and flattened at approximately fixed volume. Here the geometry is
+instead scaled isotropically with volume.
+
+```{r geometry-functions}
+membrane_fraction <- function(volume_multiplier, baseline_fraction) {
+  1 / (
+    1 +
+      ((1 - baseline_fraction) / baseline_fraction) *
+      volume_multiplier^(2 / 3)
+  )
+}
+
+accessibility_ratio <- function(volume_multiplier, baseline_fraction) {
+  membrane_fraction(volume_multiplier, baseline_fraction) / baseline_fraction
+}
+
+cytosolic_diffusion_from_baseline <- function(baseline_fraction) {
+  (
+    pars$Dmc0 -
+      baseline_fraction * pars$Dm
+  ) / (1 - baseline_fraction)
+}
+
+inactive_diffusion <- function(volume_multiplier, baseline_fraction) {
+  c_now <- membrane_fraction(volume_multiplier, baseline_fraction)
+  Dc <- cytosolic_diffusion_from_baseline(baseline_fraction)
+
+  c_now * pars$Dm + (1 - c_now) * Dc
+}
+
+baseline_fractions <- c(0.1, 0.2, 0.5, 0.8)
+volume_grid <- exp(seq(log(0.5), log(4), length.out = 100))
+
+geometry_scaling <- do.call(
+  rbind,
+  lapply(baseline_fractions, function(c0) {
+    data.frame(
+      volume_multiplier = volume_grid,
+      baseline_fraction = factor(c0),
+      membrane_fraction = membrane_fraction(volume_grid, c0),
+      accessibility_ratio = accessibility_ratio(volume_grid, c0)
+    )
+  })
+)
+```
+
+```{r geometry-scaling-plot, fig.width=8, fig.height=5}
+ggplot(
+  geometry_scaling,
+  aes(
+    volume_multiplier,
+    accessibility_ratio,
+    colour = baseline_fraction
+  )
+) +
+  geom_line(linewidth = 0.9) +
+  geom_vline(xintercept = c(1, 2), linetype = c("solid", "dashed")) +
+  scale_x_log10(
+    breaks = c(0.5, 1, 2, 4),
+    labels = c("0.5x", "1x", "2x", "4x")
+  ) +
+  labs(
+    title = "Larger cells expose less of the inactive GTPase pool to membrane GEFs",
+    subtitle = "Holmes membrane/cytosol partitioning under isotropic cell scaling",
+    x = "Cell-volume multiplier",
+    y = "Membrane accessibility relative to 1x",
+    colour = "1x membrane\nfraction"
+  ) +
+  plot_theme
+```
+
+For a 2x-volume cell the linear dimension increases by only
+\(2^{1/3}\approx1.26\), but the cross-sectional term \(V/L\) increases by
+\(2^{2/3}\approx1.59\). The resulting fall in membrane accessibility depends
+on the unknown baseline partitioning.
+
+```{r geometry-summary}
+geometry_summary <- data.frame(
+  baseline_membrane_fraction = baseline_fractions,
+  one_x_accessibility = 1,
+  two_x_membrane_fraction =
+    vapply(
+      baseline_fractions,
+      function(c0) membrane_fraction(2, c0),
+      numeric(1)
+    ),
+  two_x_relative_accessibility =
+    vapply(
+      baseline_fractions,
+      function(c0) accessibility_ratio(2, c0),
+      numeric(1)
+    )
+)
+
+knitr::kable(geometry_summary, digits = 3)
+```
+
+Across this deliberately broad range of baseline membrane fractions, doubling
+cell volume reduces the GEF-accessible inactive pool per total GTPase pool by
+approximately
+`r sprintf("%.0f", 100 * (1 - max(geometry_summary$two_x_relative_accessibility)))`--
+`r sprintf("%.0f", 100 * (1 - min(geometry_summary$two_x_relative_accessibility)))`%.
+
+Unlike the Buttenschön dilution example, this effect remains even if the
+**total concentrations of Cdc42, Rac, and Rho are maintained perfectly** as
+the cell enlarges.
+
+# 4. Numerical implementation
+
+We discretize the one-dimensional cell with a cell-centred finite-difference
+grid and no-flux boundaries. The method-of-lines system is integrated with
+`deSolve::lsodes`.
+
+The original paper used an implicit-diffusion, explicit-reaction scheme. Thus
+the equations and parameterization are taken from Holmes et al., but the
+numerical integrator is not identical.
+
+```{r solver-functions}
+laplacian_no_flux <- function(u, dx) {
+  n <- length(u)
+  ans <- numeric(n)
+
+  ans[1] <- (u[2] - u[1]) / dx^2
+  ans[n] <- (u[n - 1] - u[n]) / dx^2
+
+  if (n > 2) {
+    ans[2:(n - 1)] <-
+      (
+        u[1:(n - 2)] -
+          2 * u[2:(n - 1)] +
+          u[3:n]
+      ) / dx^2
+  }
+
+  ans
+}
+
+reaction_terms <- function(C, Rac, Rho, Ci, Raci, Rhoi,
+                           accessibility, signal) {
+  I_C <-
+    pars$IC_hat /
+    (1 + (Rho / pars$a1)^pars$n)
+
+  I_Rac <-
+    pars$IR1_hat +
+    pars$a * C +
+    signal
+
+  I_Rho <-
+    pars$Irho_hat /
+    (1 + (Rac / pars$a2)^pars$n)
+
+  f_C <-
+    I_C * accessibility * Ci / pars$Ct -
+    pars$delta_C * C
+
+  f_Rac <-
+    I_Rac * accessibility * Raci / pars$Rt -
+    pars$delta_R * Rac
+
+  f_Rho <-
+    I_Rho * accessibility * Rhoi / pars$rhot -
+    pars$delta_rho * Rho
+
+  list(C = f_C, Rac = f_Rac, Rho = f_Rho)
+}
+
+hss_cache <- new.env(parent = emptyenv())
+
+relax_homogeneous_state <- function(accessibility, duration_s = 300) {
+  key <- sprintf("%.8f", accessibility)
+
+  if (exists(key, envir = hss_cache, inherits = FALSE)) {
+    return(get(key, envir = hss_cache, inherits = FALSE))
+  }
+
+  initial <- c(
+    C = 0.1,
+    Rac = 0.1,
+    Rho = 0.1,
+    Ci = pars$Ct - 0.1,
+    Raci = pars$Rt - 0.1,
+    Rhoi = pars$rhot - 0.1
+  )
+
+  rhs <- function(time_s, state, parameters) {
+    rxn <- reaction_terms(
+      state[["C"]],
+      state[["Rac"]],
+      state[["Rho"]],
+      state[["Ci"]],
+      state[["Raci"]],
+      state[["Rhoi"]],
+      accessibility = accessibility,
+      signal = 0
+    )
+
+    list(c(
+      C = rxn$C,
+      Rac = rxn$Rac,
+      Rho = rxn$Rho,
+      Ci = -rxn$C,
+      Raci = -rxn$Rac,
+      Rhoi = -rxn$Rho
+    ))
+  }
+
+  out <- ode(
+    y = initial,
+    times = c(0, duration_s),
+    func = rhs,
+    parms = NULL,
+    method = "lsodes",
+    rtol = 1e-9,
+    atol = 1e-11
+  )
+
+  result <- as.numeric(out[nrow(out), -1])
+  names(result) <- names(initial)
+
+  assign(key, result, envir = hss_cache)
+  result
+}
+
+simulate_holmes <- function(
+    length_um,
+    accessibility,
+    D_inactive,
+    signal_mean = 0.3,
+    signal_half_range = 0.1,
+    duration_s = 300,
+    n_cells = 41,
+    save_times = NULL) {
+
+  dx <- length_um / n_cells
+  x <- (seq_len(n_cells) - 0.5) * dx
+
+  signal <-
+    signal_mean +
+    signal_half_range * (2 * x / length_um - 1)
+
+  if (any(signal < 0)) {
+    stop("Signal became negative; increase signal_mean or reduce signal_half_range.")
+  }
+
+  hss <- relax_homogeneous_state(accessibility)
+
+  state0 <- c(
+    setNames(rep(hss[["C"]], n_cells), paste0("C_", seq_len(n_cells))),
+    setNames(rep(hss[["Rac"]], n_cells), paste0("Rac_", seq_len(n_cells))),
+    setNames(rep(hss[["Rho"]], n_cells), paste0("Rho_", seq_len(n_cells))),
+    setNames(rep(hss[["Ci"]], n_cells), paste0("Ci_", seq_len(n_cells))),
+    setNames(rep(hss[["Raci"]], n_cells), paste0("Raci_", seq_len(n_cells))),
+    setNames(rep(hss[["Rhoi"]], n_cells), paste0("Rhoi_", seq_len(n_cells)))
+  )
+
+  rhs <- function(time_s, state, parameters) {
+    idx <- seq_len(n_cells)
+
+    C <- state[idx]
+    Rac <- state[n_cells + idx]
+    Rho <- state[2 * n_cells + idx]
+    Ci <- state[3 * n_cells + idx]
+    Raci <- state[4 * n_cells + idx]
+    Rhoi <- state[5 * n_cells + idx]
+
+    rxn <- reaction_terms(
+      C, Rac, Rho, Ci, Raci, Rhoi,
+      accessibility = accessibility,
+      signal = signal
+    )
+
+    dC <-
+      pars$Dm * laplacian_no_flux(C, dx) +
+      rxn$C
+
+    dRac <-
+      pars$Dm * laplacian_no_flux(Rac, dx) +
+      rxn$Rac
+
+    dRho <-
+      pars$Dm * laplacian_no_flux(Rho, dx) +
+      rxn$Rho
+
+    dCi <-
+      D_inactive * laplacian_no_flux(Ci, dx) -
+      rxn$C
+
+    dRaci <-
+      D_inactive * laplacian_no_flux(Raci, dx) -
+      rxn$Rac
+
+    dRhoi <-
+      D_inactive * laplacian_no_flux(Rhoi, dx) -
+      rxn$Rho
+
+    list(c(dC, dRac, dRho, dCi, dRaci, dRhoi))
+  }
+
+  if (is.null(save_times)) {
+    save_times <- c(0, duration_s)
+  }
+
+  save_times <- sort(unique(c(0, save_times, duration_s)))
+
+  out <- as.data.frame(
+    ode(
+      y = state0,
+      times = save_times,
+      func = rhs,
+      parms = NULL,
+      method = "lsodes",
+      rtol = 2e-6,
+      atol = 1e-8,
+      maxsteps = 100000
+    )
+  )
+
+  final <- out[nrow(out), -1]
+  idx <- seq_len(n_cells)
+
+  C <- as.numeric(final[idx])
+  Rac <- as.numeric(final[n_cells + idx])
+  Rho <- as.numeric(final[2 * n_cells + idx])
+  Ci <- as.numeric(final[3 * n_cells + idx])
+  Raci <- as.numeric(final[4 * n_cells + idx])
+  Rhoi <- as.numeric(final[5 * n_cells + idx])
+
+  contrast <- function(z) {
+    (max(z) - min(z)) / (max(z) + min(z) + 1e-12)
+  }
+
+  list(
+    x_um = x,
+    signal = signal,
+    output = out,
+    profiles = data.frame(
+      x_um = rep(x, 3),
+      species = rep(c("Cdc42", "Rac", "Rho"), each = n_cells),
+      active = c(C, Rac, Rho)
+    ),
+    summary = data.frame(
+      length_um = length_um,
+      accessibility = accessibility,
+      D_inactive = D_inactive,
+      signal_mean = signal_mean,
+      signal_half_range = signal_half_range,
+      Cdc42_contrast = contrast(C),
+      Rac_contrast = contrast(Rac),
+      Rho_contrast = contrast(Rho),
+      Rac_min = min(Rac),
+      Rac_max = max(Rac),
+      Cdc42_min = min(C),
+      Cdc42_max = max(C),
+      Rho_min = min(Rho),
+      Rho_max = max(Rho),
+      mean_Cdc42_total = mean(C + Ci),
+      mean_Rac_total = mean(Rac + Raci),
+      mean_Rho_total = mean(Rho + Rhoi)
+    )
+  )
+}
+```
+
+# 5. Decomposing the 2x-volume effect
+
+Before scanning stimulus thresholds, it is useful to separate two consequences
+of cell enlargement:
+
+1. **longer physical domain**, which changes diffusion distance;
+2. **lower membrane accessibility**, which changes how much inactive GTPase the
+   GEF reactions can use.
+
+For this decomposition we use a baseline membrane-bound inactive fraction of
+0.2. This is an illustrative value, not a measured Holmes parameter.
+
+The signal mean is 0.3 model concentration/time units and the half-range of the
+gradient is 0.1. Thus the same signal runs from 0.2 to 0.4 across every model
+cell.
+
+```{r decomposition-runs}
+default_c0 <- 0.2
+L1 <- pars$L0_um
+L2 <- pars$L0_um * 2^(1 / 3)
+
+cbar_2 <- accessibility_ratio(2, default_c0)
+Dmc_2 <- inactive_diffusion(2, default_c0)
+
+decomposition_conditions <- list(
+  `1x baseline` = list(
+    length_um = L1,
+    accessibility = 1,
+    D_inactive = pars$Dmc0
+  ),
+  `2x: length only` = list(
+    length_um = L2,
+    accessibility = 1,
+    D_inactive = pars$Dmc0
+  ),
+  `2x: accessibility only` = list(
+    length_um = L1,
+    accessibility = cbar_2,
+    D_inactive = Dmc_2
+  ),
+  `2x: full scaling` = list(
+    length_um = L2,
+    accessibility = cbar_2,
+    D_inactive = Dmc_2
+  )
+)
+
+decomposition_results <- lapply(
+  decomposition_conditions,
+  function(z) {
+    simulate_holmes(
+      length_um = z$length_um,
+      accessibility = z$accessibility,
+      D_inactive = z$D_inactive,
+      signal_mean = 0.3,
+      signal_half_range = 0.1,
+      duration_s = 300,
+      n_cells = 61
+    )
+  }
+)
+
+decomposition_summary <- do.call(
+  rbind,
+  lapply(names(decomposition_results), function(label) {
+    x <- decomposition_results[[label]]$summary
+    x$condition <- label
+    x
+  })
+)
+
+decomposition_summary$condition <- factor(
+  decomposition_summary$condition,
+  levels = names(decomposition_conditions)
+)
+```
+
+```{r decomposition-plot, fig.width=8, fig.height=4.5}
+ggplot(
+  decomposition_summary,
+  aes(condition, Rac_contrast)
+) +
+  geom_col(width = 0.7) +
+  geom_hline(yintercept = 0.4, linetype = "dotted") +
+  labs(
+    title = "The size effect comes from membrane accessibility, not diffusion distance",
+    subtitle = "Same Rac-GEF gradient in every condition; dotted line is an operational strong-polarity threshold",
+    x = NULL,
+    y = "Final Rac front/back contrast"
+  ) +
+  plot_theme +
+  theme(axis.text.x = element_text(angle = 20, hjust = 1))
+```
+
+In this example, increasing linear cell size by \(2^{1/3}\) **without**
+changing membrane accessibility has little effect on the Rac response. In
+contrast, applying the Holmes membrane/cytosol partitioning change largely
+removes the amplified Rac front.
+
+The 1x Rac contrast is
+`r sprintf("%.2f", decomposition_summary$Rac_contrast[decomposition_summary$condition == "1x baseline"])`,
+whereas the full 2x-volume analogue is
+`r sprintf("%.2f", decomposition_summary$Rac_contrast[decomposition_summary$condition == "2x: full scaling"])`.
+
+This reproduces the qualitative conclusion of Holmes et al. from the opposite
+direction: changing geometry matters primarily because it changes the fraction
+of inactive GTPase that membrane GEFs can access.
+
+# 6. What do the actual polarity profiles look like?
+
+```{r example-profiles}
+profile_cases <- c("1x baseline", "2x: full scaling")
+
+example_profiles <- do.call(
+  rbind,
+  lapply(profile_cases, function(label) {
+    x <- decomposition_results[[label]]$profiles
+    x$volume <- ifelse(label == "1x baseline", "1x volume", "2x volume")
+    x$relative_position <-
+      x$x_um /
+      decomposition_results[[label]]$summary$length_um
+    x
+  })
+)
+
+example_profiles$volume <- factor(
+  example_profiles$volume,
+  levels = c("1x volume", "2x volume")
+)
+```
+
+```{r example-profiles-plot, fig.width=9, fig.height=6}
+ggplot(
+  example_profiles,
+  aes(
+    relative_position,
+    active,
+    colour = volume,
+    linetype = volume
+  )
+) +
+  geom_line(linewidth = 0.9) +
+  facet_wrap(~ species, scales = "free_y", ncol = 1) +
+  scale_colour_manual(values = volume_colours) +
+  scale_linetype_manual(
+    values = c(`1x volume` = "solid", `2x volume` = "dashed")
+  ) +
+  labs(
+    title = "Same Rac-GEF gradient, different polarity response",
+    subtitle = "Cdc42 and Rac mark the front; Rho becomes complementary",
+    x = "Relative position across cell",
+    y = "Active GTPase",
+    colour = "Cell size",
+    linetype = "Cell size"
+  ) +
+  plot_theme
+```
+
+The 1x cell exhibits nonlinear amplification of the imposed Rac-GEF gradient:
+Rac and Cdc42 accumulate toward the stimulated end while Rho becomes
+complementary.
+
+The 2x-volume analogue receives the **same mean signal and the same fractional
+gradient across the cell**, and total Cdc42/Rac/Rho concentrations are
+unchanged. Nevertheless, the lower membrane-accessible fraction leaves the
+system much closer to a weak graded response.
+
+This is the qualitative effect that was missing from the simpler size-only
+wave-pinning example.
+
+# 7. Does enlargement shift the polarization threshold?
+
+The most useful readout is not one arbitrarily selected stimulus. We therefore
+scan the strength of the Rac-GEF gradient while keeping its mean fixed at 0.3.
+
+For each run we quantify final Rac asymmetry as
+
+\[
+P_R
+=
+\frac{R_{\max}-R_{\min}}
+{R_{\max}+R_{\min}}.
+\]
+
+This is a continuous response measure. For a compact summary we also define
+\(P_R\ge0.4\) as an **operational** strong-polarity threshold. The value 0.4 is
+not from Holmes et al.; it is only used to compare the response curves.
+
+```{r gradient-sweep}
+gradient_values <- seq(0, 0.30, by = 0.02)
+
+sweep_rows <- list()
+row_index <- 1
+
+for (c0 in baseline_fractions) {
+  for (volume_name in names(c(`1x volume` = 1, `2x volume` = 2))) {
+    v <- c(`1x volume` = 1, `2x volume` = 2)[[volume_name]]
+
+    L <- pars$L0_um * v^(1 / 3)
+    cb <- accessibility_ratio(v, c0)
+    D_inactive <- inactive_diffusion(v, c0)
+
+    for (g in gradient_values) {
+      run <- simulate_holmes(
+        length_um = L,
+        accessibility = cb,
+        D_inactive = D_inactive,
+        signal_mean = 0.3,
+        signal_half_range = g,
+        duration_s = 300,
+        n_cells = 31
+      )
+
+      sweep_rows[[row_index]] <- data.frame(
+        baseline_membrane_fraction = c0,
+        volume = volume_name,
+        volume_multiplier = v,
+        signal_half_range = g,
+        Rac_contrast = run$summary$Rac_contrast
+      )
+
+      row_index <- row_index + 1
+    }
+  }
+}
+
+gradient_sweep <- do.call(rbind, sweep_rows)
+
+gradient_sweep$volume <- factor(
+  gradient_sweep$volume,
+  levels = c("1x volume", "2x volume")
+)
+```
+
+```{r gradient-sweep-plot, fig.width=9, fig.height=7}
+ggplot(
+  gradient_sweep,
+  aes(
+    signal_half_range,
+    Rac_contrast,
+    colour = volume,
+    linetype = volume
+  )
+) +
+  geom_hline(yintercept = 0.4, linetype = "dotted") +
+  geom_line(linewidth = 0.85) +
+  geom_point(size = 1.5) +
+  facet_wrap(
+    ~ baseline_membrane_fraction,
+    labeller = labeller(
+      baseline_membrane_fraction =
+        function(x) paste0("1x membrane fraction = ", x)
+    )
+  ) +
+  scale_colour_manual(values = volume_colours) +
+  scale_linetype_manual(
+    values = c(`1x volume` = "solid", `2x volume` = "dashed")
+  ) +
+  labs(
+    title = "Cell enlargement shifts the Rac-gradient response curve",
+    subtitle = "Mean Rac-GEF stimulation is fixed; only gradient strength is varied",
+    x = "Rac-GEF gradient half-range",
+    y = "Final Rac contrast",
+    colour = "Cell size",
+    linetype = "Cell size"
+  ) +
+  plot_theme
+```
+
+```{r threshold-summary}
+strong_threshold <- 0.4
+
+threshold_summary <- do.call(
+  rbind,
+  lapply(
+    split(
+      gradient_sweep,
+      interaction(
+        gradient_sweep$baseline_membrane_fraction,
+        gradient_sweep$volume,
+        drop = TRUE
+      )
+    ),
+    function(x) {
+      x <- x[order(x$signal_half_range), ]
+
+      crossing <- x$signal_half_range[
+        x$Rac_contrast >= strong_threshold
+      ]
+
+      data.frame(
+        baseline_membrane_fraction =
+          x$baseline_membrane_fraction[1],
+        volume = as.character(x$volume[1]),
+        threshold_gradient =
+          if (length(crossing) == 0) NA_real_ else min(crossing)
+      )
+    }
+  )
+)
+
+threshold_wide <- merge(
+  subset(
+    threshold_summary,
+    volume == "1x volume",
+    select = c(
+      baseline_membrane_fraction,
+      threshold_gradient
+    )
+  ),
+  subset(
+    threshold_summary,
+    volume == "2x volume",
+    select = c(
+      baseline_membrane_fraction,
+      threshold_gradient
+    )
+  ),
+  by = "baseline_membrane_fraction",
+  suffixes = c("_1x", "_2x")
+)
+
+threshold_wide$fold_increase <-
+  threshold_wide$threshold_gradient_2x /
+  threshold_wide$threshold_gradient_1x
+
+knitr::kable(threshold_wide, digits = 2)
+```
+
+Within this model regime, the size effect is not confined to one specially
+chosen membrane fraction. Across the tested baseline partitioning values, the
+2x-volume analogue requires a substantially larger imposed Rac-GEF asymmetry
+to reach the same strong-polarity criterion.
+
+For baseline membrane fractions where both thresholds are reached within the
+scan, the required gradient increases by approximately
+`r sprintf("%.1f", min(threshold_wide$fold_increase, na.rm = TRUE))`--
+`r sprintf("%.1f", max(threshold_wide$fold_increase, na.rm = TRUE))` fold.
+
+The exact numbers should **not** be interpreted as quantitative predictions for
+WGD cells. The baseline membrane-bound fraction is unknown, and the Holmes
+stimulus units are not calibrated here to an experimental rapamycin
+concentration. The robust result is the direction and potential magnitude of
+the threshold shift.
+
+# 8. Why this is more interesting than the previous size examples
+
+This exercise has three useful properties.
+
+First, the effect survives **concentration homeostasis**. Total Cdc42, Rac, and
+Rho concentrations are identical in the 1x and 2x simulations. The larger cell
+is not being penalized by arbitrarily holding protein amount fixed.
+
+Second, the dominant mechanism is a genuine **surface/volume consequence**.
+For a larger geometrically similar cell, more inactive GTPase resides in the
+cytoplasmic reservoir relative to the membrane, reducing the fraction that
+membrane GEFs can activate.
+
+Third, the output is migration-relevant. The model does not merely change
+concentration slightly: it can move the same signaling network from a strongly
+amplified front/back response toward a weak graded response, or equivalently
+raise the Rac-GEF gradient needed to polarize.
+
+A concise interpretation is therefore:
+
+> **If the membrane/cytosol partitioning logic of Holmes et al. applies across
+> WGD-associated cell sizes, maintaining total Rac/Cdc42/Rho concentration is
+> not sufficient to preserve polarity sensitivity. Larger cells can contain
+> proportionally more inaccessible cytosolic GTPase and require a stronger
+> spatial cue to establish the same front/back state.**
+
+# 9. What is published and what is extrapolated?
+
+## Directly from Holmes et al.
+
+- Rac, Cdc42, and Rho are represented as active membrane forms plus composite
+  inactive membrane/cytosol pools.
+- GEF activation acts only on the membrane-accessible fraction of inactive
+  GTPase.
+- The membrane fraction depends on cell geometry through
+  \(c=k_{\rm on}/[k_{\rm on}+(V/L)k_{\rm off}]\).
+- Increasing membrane accessibility sensitizes the polarity system.
+- In their HeLa geometry, cell elongation/flattening raises surface-area:volume
+  and can remove hysteresis and stabilize polarization.
+- Their Figure 8 geometry analysis uses Model 4 without PI feedback and
+  \(a=0.55~{\rm s^{-1}}\).
+
+## Added here
+
+- The cell is enlarged isotropically from 1x to 2x volume.
+- Total GTPase **concentrations**, rather than total molecular amounts, are held
+  fixed between the two established cell states.
+- The unknown baseline membrane fraction is treated as a sensitivity parameter.
+- A fixed-mean Rac-GEF gradient is applied to both sizes.
+- Rac contrast of 0.4 is used as an operational strong-polarity threshold.
+
+These distinctions matter. The report demonstrates a plausible consequence of
+the published geometry mechanism, not a quantitatively validated prediction
+that WGD doubles or triples the Rac-gradient threshold in a real cancer cell.
+
+# 10. Limitations
+
+1. **One-dimensional cell.** The Holmes model was designed for HeLa cells
+   confined in narrow channels. A freely migrating mammalian cell has a much
+   more complex 2D/3D shape.
+2. **Unknown membrane cycling constants.** This is the largest uncertainty.
+   Holmes et al. explicitly did not assign unique values to \(k_{\rm on}\),
+   \(k_{\rm off}\), or the baseline membrane fraction.
+3. **No phosphoinositide feedback here.** We deliberately set \(f_1=0\) to
+   isolate the same geometry mechanism emphasized in their Figure 8.
+4. **No cytoskeletal or adhesion feedback.** Rac/Cdc42/Rho polarity is treated
+   as the endpoint rather than being coupled to actual migration.
+5. **Isotropic WGD scaling is a null geometry.** Real WGD-associated size
+   changes need not preserve shape.
+6. **No experimental WGD calibration.** Protein partitioning, GEF/GAP
+   abundance, membrane density, and Rac/Cdc42 activity have not been fitted to
+   the relevant high- and low-ploidy cell lines.
+
+# Export plot data
+
+```{r export-data, include=FALSE}
+data_dir <- "../docs/data"
+
+if (dir.exists("../docs")) {
+  dir.create(data_dir, recursive = TRUE, showWarnings = FALSE)
+
+  write.csv(
+    geometry_scaling,
+    file.path(data_dir, "holmes_geometry_accessibility.csv"),
+    row.names = FALSE
+  )
+
+  write.csv(
+    geometry_summary,
+    file.path(data_dir, "holmes_geometry_summary.csv"),
+    row.names = FALSE
+  )
+
+  write.csv(
+    decomposition_summary,
+    file.path(data_dir, "holmes_size_effect_decomposition.csv"),
+    row.names = FALSE
+  )
+
+  write.csv(
+    example_profiles,
+    file.path(data_dir, "holmes_example_polarity_profiles.csv"),
+    row.names = FALSE
+  )
+
+  write.csv(
+    gradient_sweep,
+    file.path(data_dir, "holmes_gradient_response_sweep.csv"),
+    row.names = FALSE
+  )
+
+  write.csv(
+    threshold_wide,
+    file.path(data_dir, "holmes_gradient_thresholds.csv"),
+    row.names = FALSE
+  )
+}
+```
+
+# References
+
+Holmes WR, Lin B, Levchenko A, Edelstein-Keshet L.
+**Modelling Cell Polarization Driven by Synthetic Spatially Graded Rac
+Activation.** *PLoS Computational Biology* 8:e1002366 (2012).
+DOI: 10.1371/journal.pcbi.1002366.
+
+Lin B, Holmes WR, Wang CJ, et al.
+**Synthetic spatially graded Rac activation drives cell polarization and
+movement.** *Proceedings of the National Academy of Sciences USA*
+109:E3668-E3677 (2012). DOI: 10.1073/pnas.1210295109.
+
+Jilkine A, Marée AFM, Edelstein-Keshet L.
+**Mathematical model for spatial segregation of the Rho-family GTPases based
+on inhibitory crosstalk.** *Bulletin of Mathematical Biology*
+69:1943-1978 (2007).
+
+Mori Y, Jilkine A, Edelstein-Keshet L.
+**Wave-pinning and cell polarity from a bistable reaction-diffusion system.**
+*Biophysical Journal* 94:3684-3697 (2008).
