@@ -1,10 +1,10 @@
 ---
-title: "Membrane-to-nucleus signalling: competition between distributed and localized sinks"
+title: "Cell enlargement shifts membrane-generated signal away from nuclear capture"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 library(ggplot2)
 source("../R/scaling.R")
 source("../R/diffusion.R")
@@ -91,6 +91,10 @@ run_delivery_model <- function(volume_multiplier, diffusion_um2_s,
 }
 ```
 
+The exact data used in every plot can be downloaded from the project landing
+page, and the complete report and model source is available in the
+[repository](https://github.com/Richard-Beck/scaling_sandbox).
+
 ## Model and parameterization
 
 A signal is produced uniformly at the plasma membrane, diffuses through a
@@ -101,28 +105,28 @@ spherical cytoplasmic shell, and faces two competing fates:
 \frac{V_{\max}C}{K_m+C}.
 \]
 
-The outer boundary supplies a fixed inward flux density, (J_{mem}=\beta).
+The outer boundary supplies a fixed inward flux density, \(J_{\rm mem}=\beta\).
 The nuclear envelope is a partially absorbing Robin boundary,
-(J_{nuc}=P_{nuc}C(R_{nuc})). Nuclear capture is counted as productive;
+\(J_{\rm nuc}=P_{\rm nuc}C(R_{\rm nuc})\). Nuclear capture is counted as productive;
 cytoplasmic PDE hydrolysis is lost. The main outcome is the integrated nuclear
 capture divided by integrated membrane production.
 
 The baseline geometry and cAMP parameters come from published PMVEC models:
-(R_{cell}=9.34\) um, (R_{nuc}=5.26\) um, (C_0=0.05\) uM,
-(\beta=0.3611\) uM um/s, (V_{max}=0.295\) uM/s, (K_m=2\) uM, and
-(D=300,30,3\) um2/s. The membrane flux was derived in that work from AC
+\(R_{\rm cell}=9.34\) um, \(R_{\rm nuc}=5.26\) um, \(C_0=0.05\) uM,
+\(\beta=0.3611\) uM um/s, \(V_{\max}=0.295\) uM/s, \(K_m=2\) uM, and
+\(D=300,30,3\) um2/s. The membrane flux was derived in that work from AC
 activity and the spherical geometry. [Feinstein et al. (2012)](https://pmc.ncbi.nlm.nih.gov/articles/PMC3311237/)
 and a later [finite-element reproduction](https://pmc.ncbi.nlm.nih.gov/articles/PMC8773462/)
 provide the biological and numerical basis. The latter assumes no transport
-between cytoplasm and nucleus, so (P_{nuc}) here is deliberately an abstract
+between cytoplasm and nucleus, so \(P_{\rm nuc}\) here is deliberately an abstract
 productive-capture parameter, not an empirical cAMP permeability.
 
-The baseline (P_{nuc}=0.03\) um/s is the geometric midpoint of a
-0.003--0.3 um/s sensitivity range. Both radii scale with (V^{1/3}); the
+The baseline \(P_{\rm nuc}=0.03\) um/s is the geometric midpoint of a
+0.003--0.3 um/s sensitivity range. Both radii scale with \(V^{1/3}\); the
 1x-to-2x shell thickness therefore changes from 4.08 to 5.14 um.
 
-At low concentration, (k_{eff}=V_{max}/K_m=0.1475\) /s and the survival
-length (\sqrt{D/k_{eff}}) is 45.1, 14.3, or 4.51 um. This anticipates weak
+At low concentration, \(k_{\rm eff}=V_{\max}/K_m=0.1475\) /s and the survival
+length \(\sqrt{D/k_{\rm eff}}\) is 45.1, 14.3, or 4.51 um. This anticipates weak
 transport limitation at high diffusion and a stronger opportunity for sink
 competition as diffusion falls.
 
@@ -186,6 +190,16 @@ ggplot(signal_profiles,
   plot_theme
 ```
 
+At \(D=300\) um2/s, the 1x profile spans about 1.685--1.688 uM and the 2x
+profile 1.164--1.168 uM: both are nearly uniform. At \(D=3\) um2/s, the 1x
+profile rises from about 1.559 uM at the nuclear side to 1.851 uM at the
+membrane, while the 2x profile rises from 1.013 to 1.363 uM. Low diffusion thus
+creates a visible transport gradient that is larger in the enlarged cell. The
+high-diffusion result is especially informative: a strong size effect on
+nuclear delivery survives even when cytoplasmic concentration is nearly
+uniform. Long diffusion distance is therefore not its sole cause; lower
+diffusion adds a genuine spatial transport penalty.
+
 ## Signal fate
 
 ```{r fate, fig.width=9, fig.height=5}
@@ -206,6 +220,17 @@ The three fractions close the mass balance: capture plus hydrolysis plus the
 net change in cytoplasmic inventory equals membrane production. The largest
 absolute numerical closure error across these runs is
 `r format(max(abs(vapply(base_runs, function(x) x$summary$mass_balance_error, numeric(1)))), digits = 2)`.
+
+At \(D=300\) um2/s, the 1x cell assigns 4.20% of production to nuclear capture,
+91.94% to PDE hydrolysis, and 3.86% to net accumulation; the 2x values are
+2.94%, 93.74%, and 3.32%. Doubling volume therefore reduces productive capture
+by 30.1% relative. The corresponding reductions are 30.5% at \(D=30\) and
+34.3% at \(D=3\) um2/s. Most of the size effect already exists in the
+well-mixed limit: lowering diffusion by 100-fold increases the penalty only
+from about 30% to 34%. In this parameterization, competition between the
+area-localized nuclear target and volume-distributed PDE sink dominates, while
+finite diffusion strengthens the effect. Mass-balance closure is better than
+\(4\times10^{-5}\) in every baseline run.
 
 ## Nuclear delivery across cell sizes
 
@@ -235,11 +260,12 @@ ggplot(delivery_scaling,
        colour = "D (um2/s)") + plot_theme
 ```
 
-The high-diffusion curve still has a clear size effect. Fast mixing removes
-most of the travel-distance penalty, but not the geometric mismatch between a
-distributed PDE capacity that scales with cytoplasmic volume and a nuclear
-capture boundary that scales with area. Lower diffusion adds a further spatial
-penalty rather than creating the entire effect.
+At \(D=300\) um2/s, nuclear capture declines monotonically from 6.26% to 4.20%,
+2.94%, 2.12%, and 1.57% as volume increases from 0.5x through 1x, 2x, 4x, and
+8x. The 8x cell therefore captures about 63% less signal per unit membrane
+production than the 1x cell. At \(D=3\) um2/s, the 1x-to-8x decline is from
+3.87% to 1.05%, about 73%. The effect is not peculiar to the 1x/2x comparison;
+slower diffusion progressively steepens the scaling at large sizes.
 
 ## Sensitivity to the abstract nuclear capture parameter
 
@@ -274,6 +300,13 @@ ggplot(capture_sensitivity,
        colour = "D (um2/s)") + plot_theme
 ```
 
+Across the full \(P_{\rm nuc}=0.003\)--0.3 um/s sweep, the 2x cell always has a
+lower delivery fraction. At \(D=300\) um2/s, the penalty ranges from about 32%
+at weak capture to 20% at strong capture; at \(D=3\), it ranges from about 36%
+to 27%. Increasing capture efficiency raises absolute productive delivery and
+partially buffers the size effect, but does not reverse it in the explored
+range.
+
 ## Parameter regimes in which a 2x-volume change matters
 
 ```{r regime-heatmap, fig.width=8, fig.height=6}
@@ -305,6 +338,11 @@ ggplot(regime_heatmap,
        fill = "log2(2V / V)") + plot_theme
 ```
 
+All 81 combinations of \(D=3\)--300 um2/s and PDE multiplier 0.25--4 have a
+negative \(\log_2(2V/V)\). The 2x capture fraction is 61--77% of the 1x value,
+with no sign reversal in the grid. This supports robustness to the tested
+diffusion and PDE activity region, not universality beyond it.
+
 ## Mechanistic control: remove the distributed sink
 
 ```{r pde-control, fig.width=9, fig.height=5}
@@ -330,16 +368,19 @@ ggplot(pde_zero_control, aes(volume, fraction, fill = fate)) +
   facet_wrap(~ diffusion_um2_s, labeller = label_bquote(D == .(diffusion_um2_s))) +
   scale_fill_manual(values = c("#0072B2", "#999999")) +
   scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
-  labs(title = "Without PDE, uncaptured signal remains available",
-       subtitle = "At 300 seconds, size changes transient capture versus inventory, not irreversible loss",
+  labs(title = "Without PDE, uncaptured signal remains intracellular",
+       subtitle = "At 300 seconds, size changes capture versus inventory rather than irreversible loss",
        x = "Cell size", y = "Fraction of integrated production", fill = "Fate") +
   plot_theme
 ```
 
-Removing PDE eliminates the competing irreversible fate. Any signal not yet
-captured at 300 seconds remains in the cytoplasmic inventory and can be
-captured later. This distinguishes persistent sink allocation from a simple
-transport delay.
+At \(D=300\) um2/s, nuclear capture by 300 s is 39.8% for 1x and 33.7% for 2x;
+at \(D=3\), it is 39.3% and 33.1%. Removing PDE therefore does not eliminate
+the finite-time size effect: the larger cell captures about 15--16% less by
+300 s. The remainder is retained as cytoplasmic inventory rather than
+hydrolyzed. With PDE present, enlargement changes signal fate as well as
+delivery timing. The current 300-s control does not establish the subsequent
+trajectory of that retained inventory.
 
 ## Source-scaling control
 
@@ -367,29 +408,38 @@ ggplot(source_scaling_control,
   facet_wrap(~ source_scaling) +
   scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
   scale_colour_manual(values = diffusion_colours) +
-  labs(title = "Source scaling changes loading but not the geometric question",
+  labs(title = "Source scaling changes the magnitude of the size effect",
        x = "Cell size", y = "Nuclear capture / membrane production",
        colour = "D (um2/s)") + plot_theme
 ```
 
 The primary model holds AC-like flux density fixed, so total production scales
-with membrane area. The control increases flux density as (V^{1/3}), making
-total production proportional to volume. Because PDE is saturable, this can
-change its loading as well as the surface-to-volume relationship.
+with membrane area. The control increases flux density as \(V^{1/3}\), making
+total production proportional to volume. With fixed flux density, the 2x
+capture penalty is 30.1% at \(D=300\) and 34.3% at \(D=3\) um2/s. When total
+production is proportional to volume, those penalties are 19.5% and 22.9%.
+Source scaling substantially attenuates but does not eliminate the effect; its
+magnitude depends materially on how membrane production scales.
 
 ## Interpretation and limits
 
-Increasing cell size need not merely slow intracellular transport. When a
-membrane-generated signal can either be intercepted by a distributed
-cytoplasmic sink or reach a localized nuclear target, changing cell scale can
-alter the fraction of signalling flux assigned to those two fates.
+Together, the simulations separate two mechanisms. Enlargement produces a
+modest finite-time transport/capture disadvantage even without PDE, but the
+larger effect arises when a target scaling with nuclear surface area competes
+with an irreversible sink distributed throughout cytoplasmic volume. Doubling
+volume reduces nuclear capture by about 30% even at \(D=300\) um2/s, where
+spatial gradients are negligible; lowering diffusion raises that penalty to
+about 34%. The effect remains negative throughout the tested capture, PDE, and
+diffusion ranges and persists, although weakened, when production scales with
+volume. The model therefore demonstrates a plausible mechanism by which cell
+enlargement changes signalling allocation rather than merely diffusion time.
 
 This is a deliberately minimal radial model. It assumes concentric spherical
 geometry, uniform membrane production, uniform PDE, and a phenomenological
 nuclear capture boundary. It does not represent cAMP buffering, PDE/AC
 nanodomains, nuclear pores, or downstream biochemical amplification. The
 capture sweep is therefore more informative than any single fitted-looking
-value of (P_{nuc}).
+value of \(P_{\rm nuc}\).
 
 The same geometry could later support an ERK-like first-order model. Classic
 [reaction--diffusion theory](https://pubmed.ncbi.nlm.nih.gov/10970807/) found

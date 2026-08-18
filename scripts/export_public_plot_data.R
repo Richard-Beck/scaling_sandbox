@@ -41,6 +41,8 @@ write_public_csv(size_scaling$cytoplasmic_boundaries,
                  "size_scaling_overview/nuclear_export_boundaries.csv")
 write_public_csv(size_scaling$cytoplasmic_consumption_summary,
                  "size_scaling_overview/nuclear_export_consumption_summary.csv")
+write_public_csv(size_scaling$cytoplasmic_sink_summary,
+                 "size_scaling_overview/nuclear_export_sink_summary.csv")
 
 oxygen <- run_report("reports/sedlack_single_cell_oxygen.Rmd")
 write_public_csv(oxygen$kinetics,
@@ -53,6 +55,8 @@ write_public_csv(oxygen$slice_data,
                  "sedlack_single_cell_oxygen/central_slice_profiles.csv")
 write_public_csv(oxygen$size_summary,
                  "sedlack_single_cell_oxygen/size_scaling_summary.csv")
+write_public_csv(oxygen$po2_distribution_summary,
+                 "sedlack_single_cell_oxygen/po2_distribution_summary.csv")
 
 membrane_to_nucleus <- run_report("reports/membrane_to_nucleus_signaling.Rmd")
 write_public_csv(membrane_to_nucleus$signal_profiles,

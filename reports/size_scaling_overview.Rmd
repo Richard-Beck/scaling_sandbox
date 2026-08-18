@@ -1,10 +1,10 @@
 ---
-title: "Cell-size scaling: boundary-flux scenarios"
+title: "Cell-size scaling under imposed flux: spatial gradients without lost throughput"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 library(ggplot2)
 source("../R/scaling.R")
 source("../R/diffusion.R")
@@ -17,6 +17,10 @@ volume_colours <- c(`1x volume` = "#0072B2", `2x volume` = "#D55E00")
 volume_linetypes <- c(`1x volume` = "solid", `2x volume` = "dashed")
 plot_theme <- theme_minimal(base_size = 11) + theme(legend.position = "bottom")
 ```
+
+The exact data used in every plot can be downloaded from the project landing
+page, and the complete report and model source is available in the
+[repository](https://github.com/Richard-Beck/scaling_sandbox).
 
 ## External boundary: fixed input per cell volume
 
@@ -103,21 +107,36 @@ plot_external_consumer("First-order consumption")
 plot_external_consumer("Saturable consumption")
 ```
 
-The first figure uses a linear first-order sink; the second uses a saturable
-Michaelis-Menten sink. Both retain the same boundary-input convention, making
-the different concentration and consumption gradients attributable to the
-reaction term rather than to a changed flux assumption.
+With first-order consumption, doubling cell volume leaves the volume-averaged
+concentration unchanged: 1.00 uM at high input and 0.20 uM at low input. The
+radial range nevertheless grows by about 58%. At high input it widens from
+approximately 0.975--1.016 uM in the 1x cell to 0.961--1.026 uM in the 2x cell;
+at both sizes, integrated consumption remains 0.050 uM/s per cell volume. At
+low input, it likewise remains 0.010 uM/s per volume. Doubling volume therefore
+does not reduce throughput in this flux-clamped model. Instead, the larger cell
+pays a spatial cost: a larger membrane-to-centre concentration difference is
+required to sustain the same consumption per unit volume. The approximately
+58% increase is the expected \(2^{2/3}\simeq1.59\) scaling of the
+diffusion-associated concentration difference.
+
+The saturable sink responds differently in space. At high input, the range
+widens from 0.0299--0.0662 uM to 0.0219--0.0755 uM (about 47%), while integrated
+consumption remains exactly 0.050 uM/s per volume. At low input, the respective
+ranges are 0.00243--0.00830 uM and 0.00158--0.00958 uM, with consumption fixed
+at 0.010 uM/s per volume. The enlarged-cell centre operates at lower local
+concentration and reaction rate while the membrane-adjacent region operates at
+higher values; this spatial redistribution lets the integrated sink match the
+imposed source. This does not show that saturable consumption is immune to cell
+size: it shows that, while the imposed source remains below total sink capacity,
+the concentration field can reorganize to accommodate that flux.
 
 ### Interpretation and limits of the fixed-flux assumption
 
 At steady state, integrated consumption per cell volume equals the imposed
-input per cell volume in these scenarios: there is no accumulation, no export,
-and the selected sinks retain sufficient capacity. The broader concentration
-range in the larger cell is still meaningful. If the volume-normalized input
-is `q`, the required membrane flux density is `J = qR/3`; characteristic
-diffusive concentration differences therefore scale approximately as
-`JR/D = qR^2/(3D)`. Doubling volume increases this geometric term by
-`2^(2/3)`, even while total consumption per volume stays fixed.
+input per cell volume: there is no accumulation or alternative fate, and the
+selected sinks retain sufficient capacity. If the volume-normalized input is
+\(q\), the required membrane flux density is \(J=qR/3\); characteristic
+diffusive concentration differences scale as \(JR/D=qR^2/(3D)\).
 
 The exterior-shell plots use the same far-field concentration `C_bulk` for
 both cell sizes. They do **not** make the far-field concentration size
@@ -126,8 +145,10 @@ dependent. Rather, for a no-consumption spherical exterior,
 specified flux requires a larger depletion near the membrane as cells grow or
 external diffusion slows. Conversely, if surface concentration were fixed,
 the far-field concentration needed to sustain this flux would increase with
-`R^2/D_external`. A specified flux can therefore become infeasible when it
-would require a negative surface concentration.
+\(R^2/D_{\rm ext}\). These parameter choices remain feasible, but the analytic
+relation implies that sufficiently large \(R\), low \(D_{\rm ext}\), or high
+imposed flux would eventually require an unphysical negative surface
+concentration.
 
 The plasma membrane is presently a flux-clamp boundary: the prescribed flux
 is imposed on the cell side and removed from the external shell, conserving
@@ -153,6 +174,12 @@ ggplot(external_consumption_summary,
        colour = "Cell size", linetype = "Cell size") +
   plot_theme
 ```
+
+The overlap of the 1x and 2x curves is a mass-balance/control result, not an
+independent biological finding. At numerical steady state, with no other fate
+for substrate, integrated consumption must equal imposed influx. The
+informative size effect is therefore the spatial concentration field rather
+than total throughput.
 
 ## Cell plus exterior medium
 
@@ -232,6 +259,18 @@ ggplot(combined_profiles,
   plot_theme
 ```
 
+At high input, the concentration immediately outside the membrane is about
+0.967 uM (1x) and 0.948 uM (2x) when \(D_{\rm ext}=50\) um2/s, but only 0.675
+and 0.481 uM when \(D_{\rm ext}=5\) um2/s. Despite this large extracellular
+difference, intracellular profiles are effectively identical between media,
+and consumption remains 0.050 uM/s per volume for both sizes. Slower external
+transport therefore amplifies the depletion required to support the imposed
+flux, especially in the larger cell. Because influx is prescribed rather than
+concentration-dependent, that depletion cannot feed back onto uptake. This
+exercise identifies the extracellular concentration cost of maintaining a
+volume-scaled flux; it does not model extracellular diffusion limitation of
+uptake.
+
 ```{r interior-exterior-integrated-consumption, fig.width=7, fig.height=4}
 ggplot(medium_consumption_summary,
        aes(volume, consumption_per_volume_uM_s, colour = medium, group = medium)) +
@@ -257,6 +296,7 @@ nuclear <- nuclear_processing_scenario()
 cytoplasmic_profiles <- data.frame()
 cytoplasmic_boundaries <- data.frame()
 cytoplasmic_consumption_summary <- data.frame()
+cytoplasmic_sink_summary <- data.frame()
 cytoplasmic_sink_profiles <- data.frame()
 for (volume_name in names(volume_multipliers)) {
   whole_cell <- spherical_geometry(nuclear$geometry$cell_radius_um,
@@ -299,6 +339,16 @@ for (volume_name in names(volume_multipliers)) {
       volume = volume_name,
       consumption_per_volume_uM_s = volume_weighted_mean(consumption_rate, grid)
     )
+  )
+  saturable_mean <- volume_weighted_mean(consumption_rate, grid)
+  degradation_mean <- volume_weighted_mean(degradation_rate, grid)
+  cytoplasmic_sink_summary <- rbind(
+    cytoplasmic_sink_summary,
+    data.frame(volume = volume_name,
+               process = c("Saturable consumption", "First-order degradation"),
+               removal_per_volume_uM_s = c(saturable_mean, degradation_mean)),
+    data.frame(volume = volume_name, process = "Total removal",
+               removal_per_volume_uM_s = saturable_mean + degradation_mean)
   )
   cytoplasmic_sink_profiles <- rbind(
     cytoplasmic_sink_profiles,
@@ -345,13 +395,34 @@ ggplot(cytoplasmic_sink_profiles,
   plot_theme
 ```
 
-```{r nuclear-integrated-consumption, fig.width=6, fig.height=4}
-ggplot(cytoplasmic_consumption_summary,
-       aes(volume, consumption_per_volume_uM_s, group = 1)) +
-  geom_line(linewidth = 0.8, colour = "#009E73") +
-  geom_point(size = 2, colour = "#009E73") +
-  labs(title = "Integrated saturable cytoplasmic consumption",
-       x = "Cell size", y = "Consumption per cytoplasmic volume (uM/s)",
-       caption = "Includes only the saturable consumption term; first-order degradation is excluded.") +
+```{r nuclear-integrated-consumption, fig.width=7, fig.height=4}
+ggplot(cytoplasmic_sink_summary,
+       aes(volume, removal_per_volume_uM_s, colour = process, group = process)) +
+  geom_line(linewidth = 0.8) +
+  geom_point(size = 2) +
+  labs(title = "Integrated cytoplasmic removal at the final state",
+       x = "Cell size", y = "Removal per cytoplasmic volume (uM/s)",
+       colour = "Removal term",
+       caption = "Total removal is the sum of saturable consumption and first-order degradation.") +
   plot_theme
+
+knitr::kable(cytoplasmic_sink_summary, digits = 6)
 ```
+
+Nuclear radius grows from 4.50 to 5.67 um and cell radius from 10.0 to 12.60
+um. Concentration beside the nuclear envelope rises from about 0.0778 to 0.0972
+uM (+25%), whereas concentration near the plasma membrane falls from 0.0384 to
+0.0356 uM. The nuclear-to-membrane difference consequently grows from roughly
+0.0394 to 0.0616 uM, about 56%, although the volume-averaged concentration
+changes by only about 1.8%.
+
+Enlargement substantially steepens the profile but produces essentially no
+loss of total processing under the assumed volume-proportional source and sink
+capacity. Saturable processing changes from 0.028198 to 0.028166 uM/s per
+cytoplasmic volume (about -0.11%); first-order degradation changes from about
+0.001802 to 0.001834 uM/s. Total removal is therefore approximately 0.0300
+uM/s per cytoplasmic volume in both cells, matching the normalized source.
+This is a geometrical scaling effect that creates spatial heterogeneity without
+an obvious global functional deficit. The degradation switch at 75 s is a
+numerical protocol for reaching the final removal regime; no biological claim
+is made about that transient here.

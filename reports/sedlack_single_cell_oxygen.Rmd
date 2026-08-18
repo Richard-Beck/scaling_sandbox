@@ -1,10 +1,10 @@
 ---
-title: "Sedlack-inspired 3D single-cell oxygen model"
+title: "Cell-size scaling of oxygen transport: oxygen-replete versus oxygen-limited regimes"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 library(ggplot2)
 source("../R/oxygen_model.R")
 source("../R/oxygen_model_3d.R")
@@ -13,6 +13,10 @@ scenario <- sedlack_single_cell_oxygen_scenario()
 cell_colours <- c(`1x volume` = "#0072B2", `2x volume` = "#D55E00")
 report_theme <- theme_minimal(base_size = 11) + theme(legend.position = "bottom")
 ```
+
+The exact data used in every plot can be downloaded from the project landing
+page, and the complete report and model source is available in the
+[repository](https://github.com/Richard-Beck/scaling_sandbox).
 
 ## Scope
 
@@ -154,10 +158,11 @@ calibration_summary <- data.frame(
 knitr::kable(calibration_summary, digits = 4)
 ```
 
-This coarse-grid calibration gives approximately `0.0987 mol/m^3/s` and a
-whole-cell OCR of approximately `2.24 fmol/s`. The value is specific to this
-geometry and discretization; it should eventually be checked against measured
-whole-cell OCR and a grid-refinement study.
+The calibrated \(V_{\max,\mathrm{eff}}\) is 0.09869 mol/m3/s. The fitted mean
+is 21.4001 mmHg against a 21.4-mmHg target, with a corresponding whole-cell OCR
+of 2.242 fmol/s. This exact agreement is one fitted datum, not validation. The
+value is specific to this geometry and discretization and should eventually be
+checked against measured whole-cell OCR and a grid-refinement study.
 
 ## Validation against conditions not used for calibration
 
@@ -171,6 +176,8 @@ validation <- data.frame(
 )
 validation$predicted_mean_cytoplasmic_po2_mmhg <- NA_real_
 validation$predicted_ocr_fmol_s <- NA_real_
+validation$point_type <- ifelse(grepl("calibration", validation$condition),
+                                "Calibration", "Held out")
 
 for (row in seq_len(nrow(validation))) {
   grid <- build_oxygen_grid_3d(
@@ -191,28 +198,39 @@ for (row in seq_len(nrow(validation))) {
   validation$predicted_ocr_fmol_s[row] <- fit$total_ocr_fmol_s
 }
 
+validation$residual_mmhg <- validation$predicted_mean_cytoplasmic_po2_mmhg -
+  validation$observed_mean_cytoplasmic_po2_mmhg
+validation$relative_error_percent <- 100 * validation$residual_mmhg /
+  validation$observed_mean_cytoplasmic_po2_mmhg
+
 ggplot(validation,
        aes(observed_mean_cytoplasmic_po2_mmhg,
            predicted_mean_cytoplasmic_po2_mmhg, label = condition)) +
   geom_abline(slope = 1, intercept = 0, linetype = "dashed", colour = "grey50") +
-  geom_point(size = 2.5, colour = "#0072B2") +
+  geom_point(aes(shape = point_type, colour = point_type), size = 3) +
   geom_text(nudge_y = 1.2, size = 3, check_overlap = TRUE) +
   coord_equal() +
   labs(title = "Validation of the frozen 3D calibration",
        x = "Sedlack mean cytoplasmic pO2 (mmHg)",
-       y = "Homogenized-model mean cytoplasmic pO2 (mmHg)") +
+       y = "Homogenized-model mean cytoplasmic pO2 (mmHg)",
+       shape = "Point type", colour = "Point type") +
+  scale_colour_manual(values = c(Calibration = "#D55E00", `Held out` = "#0072B2")) +
   report_theme
 
 knitr::kable(validation, digits = 3)
 ```
 
-The 200-um-spacing prediction is close without further fitting. The model
-overpredicts pO2 at 70-um spacing under 5% O2 and strongly over-depletes the
-cell at 0.5% O2. Those discrepancies are validation results, not parameters to
-tune away. They identify effects that the homogeneous, coarse Cartesian model
-does not yet reproduce—potentially mitochondrial localization, detailed cell
-geometry, the square-array medium field, or numerical resolution near anoxic
-regions.
+At 5% O2, the 70-um held-out condition is predicted at 8.97 rather than 7.09
+mmHg (residual +1.88 mmHg, +26.6%), while the 200-um condition is predicted at
+29.01 rather than 28.3 mmHg (+0.71 mmHg, +2.5%). At 0.5% O2 and 70-um spacing,
+the model predicts only 0.0145 mmHg against 0.23 mmHg (about -94%). Thus the
+model closely reproduces the 200-um held-out condition and gets the qualitative
+5%-O2 spacing trend, but performs poorly under severe hypoxia. The low-oxygen
+size simulations below are therefore a mechanistic demonstration of this
+model's oxygen-limited regime, not a quantitatively validated prediction of
+cellular pO2 or OCR under severe hypoxia. Possible missing effects include
+mitochondrial localization, detailed geometry, the square-array medium field,
+and resolution near anoxic regions.
 
 ## 1x versus 2x cell volume
 
@@ -227,6 +245,7 @@ volume_conditions <- c(`1x volume` = 1, `2x volume` = 2)
 oxygen_conditions <- c(`Baseline: 38 mmHg` = 38, `Hypoxia: 3.8 mmHg` = 3.8)
 slice_data <- data.frame()
 size_summary <- data.frame()
+po2_distribution_summary <- data.frame()
 
 for (oxygen_name in names(oxygen_conditions)) {
   for (volume_name in names(volume_conditions)) {
@@ -273,8 +292,47 @@ for (oxygen_name in names(oxygen_conditions)) {
         converged = fit$converged
       )
     )
+    cell_po2 <- fit$po2_mmhg[grid$is_cell]
+    km_po2_mmhg <- scenario$consumption$km_mol_m3 /
+      scenario$transport$solubility_medium_mol_m3_mmhg
+    analytic_volume_um3 <- 2 * pi / 3 * prod(axes)
+    po2_distribution_summary <- rbind(
+      po2_distribution_summary,
+      data.frame(
+        oxygen_condition = oxygen_name, volume = volume_name,
+        min_po2_mmhg = min(cell_po2),
+        q05_po2_mmhg = unname(quantile(cell_po2, 0.05)),
+        median_po2_mmhg = median(cell_po2),
+        q95_po2_mmhg = unname(quantile(cell_po2, 0.95)),
+        max_po2_mmhg = max(cell_po2),
+        fraction_voxels_below_km = mean(cell_po2 < km_po2_mmhg),
+        km_po2_mmhg = km_po2_mmhg,
+        analytic_cell_volume_um3 = analytic_volume_um3,
+        represented_cell_volume_um3 = grid$represented_cell_volume_um3,
+        represented_volume_error_percent = 100 *
+          (grid$represented_cell_volume_um3 / analytic_volume_um3 - 1)
+      )
+    )
   }
 }
+
+kinetics_curve <- data.frame(
+  series = "Michaelis-Menten curve",
+  po2_mmhg = exp(seq(log(0.001), log(50), length.out = 300))
+)
+kinetics_curve$relative_rate <- kinetics_curve$po2_mmhg /
+  (km_po2_mmhg + kinetics_curve$po2_mmhg)
+kinetics_curve$oxygen_condition <- NA_character_
+kinetics_curve$volume <- NA_character_
+kinetics_points <- data.frame(
+  series = "Size-scaling means",
+  po2_mmhg = size_summary$mean_cytoplasmic_po2_mmhg,
+  relative_rate = size_summary$mean_cytoplasmic_po2_mmhg /
+    (km_po2_mmhg + size_summary$mean_cytoplasmic_po2_mmhg),
+  oxygen_condition = size_summary$oxygen_condition,
+  volume = size_summary$volume
+)
+kinetics <- rbind(kinetics_curve, kinetics_points)
 
 ggplot(slice_data, aes(x_um, z_um, fill = po2_mmhg)) +
   geom_raster() +
@@ -290,6 +348,30 @@ ggplot(slice_data, aes(x_um, z_um, fill = po2_mmhg)) +
        caption = "White contour: voxelized plasma membrane. Fill scales are shared across panels.") +
   report_theme
 ```
+
+## Oxygen kinetics explain when the gradient matters
+
+```{r oxygen-kinetics, fig.width=8, fig.height=5}
+ggplot() +
+  geom_line(data = kinetics_curve, aes(po2_mmhg, relative_rate), linewidth = 0.9) +
+  geom_vline(xintercept = km_po2_mmhg, linetype = "dashed", colour = "grey50") +
+  geom_point(data = kinetics_points,
+             aes(po2_mmhg, relative_rate, colour = oxygen_condition, shape = volume),
+             size = 3) +
+  scale_x_log10() +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+  labs(title = "Oxygen-consumption kinetics and simulated mean pO2",
+       x = "Mean cytoplasmic pO2 (mmHg, log scale)",
+       y = expression(R/V[max]), colour = "Medium oxygen", shape = "Cell size",
+       caption = "Dashed line: Michaelis-Menten half-saturation pO2.") +
+  report_theme
+```
+
+The half-saturation concentration corresponds to about 0.0775 mmHg. Baseline
+mean pO2 is 21.40 mmHg (about 276x this scale) in the 1x cell and 7.35 mmHg
+(95x) in the 2x cell. The hypoxic means are instead 0.0342 mmHg (0.44x) and
+0.0147 mmHg (0.19x). This kinetic position, rather than gradient magnitude
+alone, explains why the baseline and hypoxic functional responses differ.
 
 ```{r size-scaling-consumption-3d, fig.width=10, fig.height=4}
 ggplot(slice_data, aes(x_um, z_um, fill = consumption_mol_m3_s)) +
@@ -330,26 +412,34 @@ ggplot(size_summary,
 knitr::kable(size_summary, digits = 4)
 ```
 
-Under the baseline boundary condition, mean cytoplasmic pO2 falls strongly in
-the 2x cell, but almost all intracellular voxels remain well above the very low
-Michaelis-Menten `Km`. Consumption per volume therefore changes by less than
-1%, and total OCR approximately doubles with volume.
+Under the baseline boundary, represented cell volume increases from 22,800 to
+46,800 um3 (+105%; voxelization makes this 2.053x rather than exactly 2x).
+Mean cytoplasmic pO2 falls from 21.40 to 7.35 mmHg (-66%), yet consumption per
+volume falls only from 0.09833 to 0.09753 mol/m3/s (-0.82%) and OCR rises from
+2.242 to 4.564 fmol/s (+104%). Both means remain orders of magnitude above the
+kinetic half-saturation scale. A large concentration gradient is therefore not
+automatically a functional limitation; its location on the kinetic response
+curve matters. Full-volume distribution statistics, including the fraction of
+intracellular voxels below \(K_m\), are exported with the plotting data.
 
-Under the 3.8-mmHg boundary, the model crosses into the oxygen-limited kinetic
-regime. Mean cytoplasmic pO2 is only about 0.034 mmHg in the 1x cell and 0.015
-mmHg in the 2x cell, both below the 0.078-mmHg half-saturation pO2. Consumption
-per volume falls from about 0.0238 to 0.0129 mol/m3/s when volume doubles—a 46%
-decrease. Consequently, doubling the consuming volume increases total OCR only
-from about 0.54 to 0.60 fmol/s, rather than doubling it. In this regime, the
-oxygen gradient has a direct functional consequence for respiration.
+Under the 3.8-mmHg boundary, mean pO2 falls from 0.0342 to 0.0147 mmHg (-57%)
+and consumption per volume from 0.02384 to 0.01288 mol/m3/s (-46%). OCR rises
+only from 0.5436 to 0.6027 fmol/s (+10.9%) despite roughly doubling consuming
+volume. Once oxygen falls below half-saturation, the geometric deficit becomes
+functionally consequential: added consuming volume is nearly offset by lower
+respiration per unit volume. Because the corresponding low-O2 validation case
+is severely over-depleted, this is a mechanistic regime result, not a
+quantitatively validated severe-hypoxia prediction.
 
 ## Numerical limitations and next checks
 
-This is a deliberately minimal voxel model. The current 10 × 10 × 3 um grid
-staircases the cell surface and overestimates the analytic half-ellipsoid volume
-slightly. The calibration therefore belongs to this discretization. Before
-interpreting small effects, repeat it at finer resolution and quantify changes
-in calibrated `Vmax_eff`, mean pO2, and OCR.
+This is a deliberately minimal voxel model. The current 10 x 10 x 3 um grid
+staircases the cell surface. The analytic 1x half-ellipsoid is about 22,619 um3
+versus 22,800 um3 represented (+0.8%); the nominal 2x analytic volume is about
+45,239 um3 versus 46,800 um3 represented (+3.5%). Thus the simulated comparison
+is 2.053x represented voxel volume. The calibration belongs to this
+discretization, and small effects such as the -0.82% baseline change in
+consumption per volume should not be overinterpreted before grid refinement.
 
 The next biological checks are independent whole-cell OCR calibration,
 alternative OCR-versus-volume scaling, substrate oxygen permeability, and
