@@ -68,6 +68,12 @@ Generated HTML, figures, and other rendered material should go in
   matched polymer density, detects transport-relevant 3D junctions, and tests
   simple cargo delivery in 1x/2x cells. Generate its cached simulation data
   with `Rscript scripts/generate_mt_transport_results.R` before rendering.
+- `reports/wave_pinning_polarity.Rmd` tests domain-size effects in a minimal
+  mass-conserved wave-pinning model.
+- `reports/holmes_rac_cdc42_size_scaling.Rmd` examines membrane-accessibility
+  scaling in a Rac/Cdc42 polarity circuit adapted from Holmes et al.
+- `reports/buttenschoen_cell_size_rac_polarity.Rmd` reproduces and extends a
+  moving-domain Rac polarity model with explicit size and dilution effects.
 
 ## Publishing
 

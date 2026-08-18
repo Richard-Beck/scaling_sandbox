@@ -26,10 +26,9 @@ dir.create(output_directory, recursive = TRUE, showWarnings = FALSE)
 if (!file.exists("reports/output/mt_transport_results.rds")) {
   source("scripts/generate_mt_transport_results.R")
 }
-for (report in c("reports/size_scaling_overview.Rmd",
-                 "reports/sedlack_single_cell_oxygen.Rmd",
-                 "reports/membrane_to_nucleus_signaling.Rmd",
-                 "reports/mt_polymer_density_networks.Rmd")) {
+reports <- sort(list.files("reports", pattern = "\\.Rmd$", full.names = TRUE))
+if (!length(reports)) stop("No R Markdown reports were found in reports/.")
+for (report in reports) {
   output <- rmarkdown::render(report, output_dir = output_directory, quiet = TRUE)
   message("Rendered ", output)
 }
