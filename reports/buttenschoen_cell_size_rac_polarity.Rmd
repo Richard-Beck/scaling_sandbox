@@ -1,0 +1,1062 @@
+---
+title: "Cell size, dilution, and Rac polarity"
+subtitle: "Reproducing Buttenschön, Liu & Edelstein-Keshet (2020)"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  fig.align = "center"
+)
+
+library(ggplot2)
+library(deSolve)
+
+plot_theme <- theme_minimal(base_size = 11) +
+  theme(
+    legend.position = "bottom",
+    panel.grid.minor = element_blank()
+  )
+```
+
+The exact data used in the plots are exported to `docs/data/` when this report
+is rendered inside the project repository.
+
+# Question
+
+How can changing cell size alter a Rac-like polarity system even if the
+underlying biochemical reaction rates do not change?
+
+This report reimplements the model in:
+
+> Buttenschön A, Liu Y, Edelstein-Keshet L. **Cell Size, Mechanical Tension,
+> and GTPase Signaling in the Single Cell.** *Bulletin of Mathematical
+> Biology* 82, 28 (2020). DOI: 10.1007/s11538-020-00702-5.
+
+The paper extends a mass-conserved wave-pinning GTPase model to a deforming
+one-dimensional cell. It is unusually relevant to cell-size scaling because
+size enters the signaling equations in two distinct ways:
+
+1. the effective diffusion terms scale as \(1/R^2\) after mapping a cell of
+   radius \(R(t)\) onto a fixed computational domain; and
+2. expansion or contraction introduces an explicit dilution/concentration term
+   \(-G\dot R/R\).
+
+The paper then couples local GTPase activity to protrusive Rac-like or
+contractile Rho-like forces at the cell ends.
+
+The first two sections below reproduce model variants for which the manuscript
+provides sufficiently complete parameter sets. The final section is a
+**WGD-oriented extension**, not a result from the paper.
+
+# 1. Published moving-domain GTPase model
+
+## Reaction-diffusion system
+
+The active, slowly diffusing membrane-associated GTPase is \(G\), while
+\(G_i\) is the faster-diffusing inactive form. On the physical cell domain,
+
+\[
+\frac{\partial G}{\partial t}
+=
+D\nabla^2G + A(G)G_i - IG,
+\]
+
+\[
+\frac{\partial G_i}{\partial t}
+=
+D_i\nabla^2G_i - A(G)G_i + IG,
+\]
+
+with
+
+\[
+A(G)=\beta+\gamma\frac{G^n}{1+G^n}.
+\]
+
+No-flux boundaries conserve GTPase material.
+
+For a changing 1D cell, the authors map the physical interval to the fixed
+coordinate \(\bar x\in[-1,1]\). If the cell radius is \(R(t)\), their Eq. (5)
+becomes
+
+\[
+\frac{\partial G}{\partial t}
+=
+\frac{D}{R(t)^2}
+\frac{\partial^2G}{\partial\bar x^2}
++
+A(G)G_i-IG
+-
+G\frac{\dot R}{R},
+\]
+
+\[
+\frac{\partial G_i}{\partial t}
+=
+\frac{D_i}{R(t)^2}
+\frac{\partial^2G_i}{\partial\bar x^2}
+-
+A(G)G_i+IG
+-
+G_i\frac{\dot R}{R}.
+\]
+
+The conserved physical one-dimensional amount is
+
+\[
+M
+=
+R(t)\int_{-1}^{1}(G+G_i)\,d\bar x.
+\]
+
+This formulation makes the scaling mechanism explicit. Expansion both changes
+the physical diffusion distance and dilutes the local concentrations.
+
+## Numerical implementation
+
+The paper used a cell-centred finite-difference method and a stiff
+method-of-lines integrator. Here the same transformed PDE is discretized on a
+cell-centred grid and integrated with `deSolve::lsodes`.
+
+```{r model-functions}
+laplacian_neumann <- function(u, dx) {
+  n <- length(u)
+  ans <- numeric(n)
+
+  ans[1] <- (u[2] - u[1]) / dx^2
+  ans[n] <- (u[n - 1] - u[n]) / dx^2
+
+  if (n > 2) {
+    ans[2:(n - 1)] <-
+      (u[1:(n - 2)] - 2 * u[2:(n - 1)] + u[3:n]) / dx^2
+  }
+
+  ans
+}
+
+paper_chemistry <- list(
+  beta = 0.1,
+  gamma = 2,
+  I = 1,
+  n = 4,
+  D = 0.01,
+  Di = 1,
+  L0_um = 55,
+  k_s = 1e-3
+)
+
+simulate_prescribed_size <- function(
+    mode = c("static", "growing", "shrinking"),
+    mean_total_initial = 2.5,
+    chemistry = paper_chemistry,
+    n_cells = 81,
+    duration_s = 2000,
+    output_dt_s = 5,
+    initial_state = NULL) {
+
+  mode <- match.arg(mode)
+
+  dx <- 2 / n_cells
+  xbar <- -1 + (seq_len(n_cells) - 0.5) * dx
+  R0 <- chemistry$L0_um / 2
+
+  size_sign <- switch(
+    mode,
+    static = 0,
+    growing = 1,
+    shrinking = -1
+  )
+
+  radius_at <- function(time_s) {
+    R0 * exp(size_sign * chemistry$k_s * time_s)
+  }
+
+  dilution_at <- function(time_s) {
+    size_sign * chemistry$k_s
+  }
+
+  if (is.null(initial_state)) {
+    # The manuscript does not numerically specify the initial profile used in
+    # Fig. 4. We use an edge-biased step while preserving the requested mean
+    # total concentration. This is an implementation choice, not a published
+    # parameter.
+    G0 <- ifelse(xbar <= -0.75, 1.5, 0.1)
+    Gi0 <- rep(mean_total_initial - mean(G0), n_cells)
+
+    if (any(Gi0 <= 0)) {
+      stop("Initial inactive concentration is non-positive.")
+    }
+
+    initial_state <- c(G0, Gi0)
+  }
+
+  names(initial_state) <- c(
+    sprintf("G_%03d", seq_len(n_cells)),
+    sprintf("Gi_%03d", seq_len(n_cells))
+  )
+
+  rhs <- function(time_s, state, parms) {
+    G <- state[seq_len(n_cells)]
+    Gi <- state[n_cells + seq_len(n_cells)]
+
+    R <- radius_at(time_s)
+    dilution <- dilution_at(time_s)
+
+    activation <-
+      chemistry$beta +
+      chemistry$gamma * G^chemistry$n / (1 + G^chemistry$n)
+
+    reaction <- activation * Gi - chemistry$I * G
+
+    dG <-
+      chemistry$D / R^2 * laplacian_neumann(G, dx) +
+      reaction -
+      dilution * G
+
+    dGi <-
+      chemistry$Di / R^2 * laplacian_neumann(Gi, dx) -
+      reaction -
+      dilution * Gi
+
+    list(c(dG, dGi))
+  }
+
+  times <- seq(0, duration_s, by = output_dt_s)
+
+  out <- as.data.frame(
+    ode(
+      y = initial_state,
+      times = times,
+      func = rhs,
+      parms = NULL,
+      method = "lsodes",
+      rtol = 2e-6,
+      atol = 1e-8,
+      maxsteps = 100000
+    )
+  )
+
+  G_cols <- grep("^G_", names(out))
+  Gi_cols <- grep("^Gi_", names(out))
+
+  summary <- do.call(
+    rbind,
+    lapply(seq_len(nrow(out)), function(i) {
+      G <- as.numeric(out[i, G_cols])
+      Gi <- as.numeric(out[i, Gi_cols])
+      R <- radius_at(out$time[i])
+
+      physical_amount <-
+        R * sum(G + Gi) * dx
+
+      data.frame(
+        time_s = out$time[i],
+        radius_um = R,
+        length_um = 2 * R,
+        mean_total = physical_amount / (2 * R),
+        physical_amount = physical_amount,
+        active_min = min(G),
+        active_max = max(G),
+        polarity_score =
+          (max(G) - min(G)) / (max(G) + min(G) + 1e-12)
+      )
+    })
+  )
+
+  profiles <- do.call(
+    rbind,
+    lapply(seq_len(nrow(out)), function(i) {
+      G <- as.numeric(out[i, G_cols])
+      R <- radius_at(out$time[i])
+
+      data.frame(
+        time_s = out$time[i],
+        xbar = xbar,
+        x_um = xbar * R,
+        active_G = G
+      )
+    })
+  )
+
+  list(
+    mode = mode,
+    xbar = xbar,
+    raw = out,
+    summary = summary,
+    profiles = profiles,
+    final_state = as.numeric(out[nrow(out), -1])
+  )
+}
+```
+
+# 2. Reproduction: prescribed growth and shrinkage
+
+Figure 4 of Buttenschön et al. uses:
+
+```{r fig4-parameters}
+fig4_parameters <- data.frame(
+  quantity = c(
+    "Initial cell length",
+    "Hill coefficient n",
+    "Inactive diffusion Di",
+    "Active diffusion D",
+    "Autoactivation gamma",
+    "Basal activation beta",
+    "Inactivation I",
+    "Initial total level reported as GT",
+    "Growth/shrinkage rate k"
+  ),
+  value = c(
+    "55 um",
+    "4",
+    "1 um^2/s",
+    "0.01 um^2/s",
+    "2 /s",
+    "0.1 /s",
+    "1 /s",
+    "2.5",
+    "0.001 /s"
+  )
+)
+
+knitr::kable(fig4_parameters, align = c("l", "l"))
+```
+
+There is one notation/reproducibility wrinkle. Earlier in the paper \(G_T\) is
+defined as the **conserved total amount**, but the Figure 4 caption says that
+\(G_T\) rises as the cell shrinks and falls as it grows. That statement can
+only refer to a concentration-like total level rather than the conserved
+material amount.
+
+For numerical consistency with the paper's own mass-balance equations, this
+report therefore interprets the Figure 4 value `2.5` as the **initial mean
+total concentration**. The physical one-dimensional amount is then conserved
+as the domain changes.
+
+The numerical initial profile used for Figure 4 is not specified in the
+manuscript. We use the same edge-biased profile for all three conditions. This
+means the qualitative phenomenon is the appropriate reproduction target; the
+exact transition time should not be treated as a pixel-for-pixel recreation of
+Figure 4.
+
+```{r prescribed-runs}
+prescribed_runs <- lapply(
+  c("shrinking", "static", "growing"),
+  function(mode) {
+    simulate_prescribed_size(
+      mode = mode,
+      mean_total_initial = 2.5,
+      duration_s = 2000,
+      output_dt_s = 5
+    )
+  }
+)
+names(prescribed_runs) <- c("Shrinking", "Static", "Growing")
+
+prescribed_summary <- do.call(
+  rbind,
+  lapply(names(prescribed_runs), function(label) {
+    x <- prescribed_runs[[label]]$summary
+    x$condition <- label
+    x
+  })
+)
+
+prescribed_profiles <- do.call(
+  rbind,
+  lapply(names(prescribed_runs), function(label) {
+    x <- prescribed_runs[[label]]$profiles
+    x$condition <- label
+    x
+  })
+)
+```
+
+```{r prescribed-kymographs, fig.width=10, fig.height=7}
+ggplot(
+  prescribed_profiles,
+  aes(time_s, xbar, fill = active_G)
+) +
+  geom_raster() +
+  facet_wrap(~ condition, ncol = 1) +
+  scale_fill_viridis_c() +
+  labs(
+    title = "Moving-domain wave-pinning model",
+    subtitle = "Active GTPase on the transformed cell coordinate",
+    x = "Time (s)",
+    y = "Normalized position across cell",
+    fill = "Active G"
+  ) +
+  plot_theme
+```
+
+```{r prescribed-summary-plot, fig.width=9, fig.height=6}
+prescribed_long <- rbind(
+  data.frame(
+    prescribed_summary[, c("time_s", "condition")],
+    quantity = "Cell length (um)",
+    value = prescribed_summary$length_um
+  ),
+  data.frame(
+    prescribed_summary[, c("time_s", "condition")],
+    quantity = "Mean total GTPase",
+    value = prescribed_summary$mean_total
+  ),
+  data.frame(
+    prescribed_summary[, c("time_s", "condition")],
+    quantity = "Polarity score",
+    value = prescribed_summary$polarity_score
+  )
+)
+
+ggplot(
+  prescribed_long,
+  aes(time_s, value, colour = condition)
+) +
+  geom_line(linewidth = 0.8) +
+  facet_wrap(~ quantity, scales = "free_y", ncol = 1) +
+  labs(
+    title = "Why changing size eventually changes the signaling state",
+    x = "Time (s)",
+    y = NULL,
+    colour = "Domain"
+  ) +
+  plot_theme
+```
+
+The static cell retains a polarized active-GTPase profile. In the shrinking
+cell, the conserved GTPase pool becomes progressively concentrated; in the
+growing cell it becomes progressively diluted. In either direction, a large
+enough size excursion can move the chemistry out of the wave-pinning regime.
+
+This reproduces the paper's principal qualitative result: **both growth and
+shrinkage can destroy polarity, but for different concentration states**.
+The authors report an abrupt collapse at approximately 800 s in their Figure 4.
+The precise timing in this implementation can differ because the paper does
+not provide the numerical initial profile.
+
+The conserved-amount check is:
+
+```{r mass-check}
+mass_check <- do.call(
+  rbind,
+  lapply(names(prescribed_runs), function(label) {
+    x <- prescribed_runs[[label]]$summary
+    data.frame(
+      condition = label,
+      relative_mass_error =
+        max(abs(x$physical_amount - x$physical_amount[1])) /
+        x$physical_amount[1]
+    )
+  })
+)
+
+knitr::kable(mass_check, digits = 3)
+```
+
+# 3. Reproduction: dilution-induced Rac/size oscillations
+
+The paper next couples a spatially uniform Rac-like GTPase to protrusive
+mechanics. With \(L\) denoting cell length,
+
+\[
+\frac{dL}{dt}
+=
+\frac{-2E(L-L_0)+F_T(G)}{\mu+2\eta},
+\]
+
+\[
+F_T(G)
+=
+2F_{\max}
+\frac{G^m}{G_c^m+G^m},
+\]
+
+and
+
+\[
+\frac{dG}{dt}
+=
+\left(
+\beta+\gamma\frac{G^n}{1+G^n}
+\right)
+\left(
+\frac{G_T}{L}-G
+\right)
+-
+IG
+-
+G\frac{\dot L}{L}.
+\]
+
+The last term is again the dilution term. Rac activation pushes the cell
+outward; expansion then dilutes Rac, providing a negative feedback around a
+locally self-activating signaling system.
+
+For the Rac bifurcation example in Figure 8, the manuscript gives the
+dimensionless mechanical combinations directly:
+
+\[
+\frac{2E}{\mu+2\eta}=5,
+\qquad
+\frac{2F_{\max}}{\mu+2\eta}=55.
+\]
+
+It reports a Rac limit-cycle regime around \(G_T=65\) and
+\(3.2<\gamma<3.6\). We use \(\gamma=3.4\), the midpoint of that reported
+interval.
+
+```{r uniform-rac-functions}
+uniform_rac_parameters <- list(
+  beta = 1,
+  gamma = 3.4,
+  I = 10,
+  n = 8,
+  m = 8,
+  L0 = 5.5,
+  elastic_rate = 5,
+  force_rate = 55,
+  Gc = 0.85,
+  GT = 65
+)
+
+simulate_uniform_rac <- function(
+    parameters = uniform_rac_parameters,
+    duration_s = 100,
+    output_dt_s = 0.05,
+    initial_G = parameters$GT / parameters$L0) {
+
+  rhs <- function(time_s, state, parms) {
+    L <- state[["L"]]
+    G <- state[["G"]]
+
+    force_switch <-
+      G^parameters$m /
+      (parameters$Gc^parameters$m + G^parameters$m)
+
+    dL <-
+      -parameters$elastic_rate * (L - parameters$L0) +
+      parameters$force_rate * force_switch
+
+    activation <-
+      parameters$beta +
+      parameters$gamma * G^parameters$n /
+      (1 + G^parameters$n)
+
+    dG <-
+      activation * (parameters$GT / L - G) -
+      parameters$I * G -
+      G * dL / L
+
+    list(c(dL, dG))
+  }
+
+  times <- seq(0, duration_s, by = output_dt_s)
+
+  as.data.frame(
+    ode(
+      y = c(L = parameters$L0, G = initial_G),
+      times = times,
+      func = rhs,
+      parms = NULL,
+      method = "lsoda",
+      rtol = 1e-9,
+      atol = 1e-11
+    )
+  )
+}
+
+uniform_rac <- simulate_uniform_rac()
+```
+
+```{r uniform-rac-plot, fig.width=9, fig.height=6}
+uniform_rac_long <- rbind(
+  data.frame(
+    time_s = uniform_rac$time,
+    quantity = "Cell length",
+    value = uniform_rac$L
+  ),
+  data.frame(
+    time_s = uniform_rac$time,
+    quantity = "Active Rac-like GTPase",
+    value = uniform_rac$G
+  )
+)
+
+ggplot(uniform_rac_long, aes(time_s, value)) +
+  geom_line(linewidth = 0.8) +
+  facet_wrap(~ quantity, scales = "free_y", ncol = 1) +
+  labs(
+    title = "Dilution-induced Rac/size oscillation",
+    subtitle = "Figure 8 Rac parameter regime, gamma = 3.4 and GT = 65",
+    x = "Time",
+    y = NULL
+  ) +
+  plot_theme
+```
+
+After transients, the system enters the behavior described by the paper:
+Rac-driven expansion increases cell length, which lowers \(G_T/L\) and dilutes
+active Rac; reduced Rac force then allows the elastic cell to retract, which
+concentrates the signaling pool again. The result is a self-sustained
+mechanochemical oscillation.
+
+This is a stronger size-dependent mechanism than merely changing diffusion
+distance. **Cell size feeds back directly onto the concentration of the
+signaling machinery.**
+
+# 4. Full spatial mechanochemical model
+
+For completeness, the paper's full single-GTPase model combines the moving
+reaction-diffusion system with endpoint mechanics:
+
+\[
+\dot x_c=\frac{F_1+F_2}{2\mu},
+\]
+
+\[
+\dot R=
+\frac{
+F_2-F_1-2E(2R-L_0)
+}{
+2(\mu+2\eta)
+}.
+\]
+
+For protrusive Rac, outward forces are
+
+\[
+F_1
+=
+-F_{\max}
+\frac{G(-1)^m}{G_c^m+G(-1)^m},
+\qquad
+F_2
+=
++F_{\max}
+\frac{G(1)^m}{G_c^m+G(1)^m}.
+\]
+
+The code below implements Eqs. (12a-e) directly.
+
+```{r full-spatial-rac-solver}
+simulate_spatial_rac_mechanics <- function(
+    chemistry,
+    mechanics,
+    mean_total_initial,
+    n_cells = 81,
+    duration_s = 1000,
+    output_dt_s = 5,
+    edge = c("right", "left")) {
+
+  edge <- match.arg(edge)
+
+  dx <- 2 / n_cells
+  xbar <- -1 + (seq_len(n_cells) - 0.5) * dx
+
+  G0 <- rep(0.1, n_cells)
+  if (edge == "right") {
+    G0[xbar >= 0.75] <- 1.5
+  } else {
+    G0[xbar <= -0.75] <- 1.5
+  }
+
+  Gi0 <- rep(mean_total_initial - mean(G0), n_cells)
+
+  if (any(Gi0 <= 0)) {
+    stop("Initial inactive concentration is non-positive.")
+  }
+
+  state0 <- c(
+    G0,
+    Gi0,
+    xc = 0,
+    R = mechanics$L0_um / 2
+  )
+
+  names(state0)[seq_len(n_cells)] <-
+    sprintf("G_%03d", seq_len(n_cells))
+  names(state0)[n_cells + seq_len(n_cells)] <-
+    sprintf("Gi_%03d", seq_len(n_cells))
+
+  rhs <- function(time_s, state, parms) {
+    G <- state[seq_len(n_cells)]
+    Gi <- state[n_cells + seq_len(n_cells)]
+    xc <- state[2 * n_cells + 1]
+    R <- state[2 * n_cells + 2]
+
+    if (R <= 0) {
+      stop("Cell radius became non-positive.")
+    }
+
+    hill_force <- function(g) {
+      g^mechanics$m /
+        (mechanics$Gc^mechanics$m + g^mechanics$m)
+    }
+
+    # Outward protrusive Rac force:
+    F1 <- -mechanics$Fmax * hill_force(G[1])
+    F2 <-  mechanics$Fmax * hill_force(G[n_cells])
+
+    dxc <- (F1 + F2) / (2 * mechanics$mu)
+
+    dR <-
+      (
+        F2 - F1 -
+        2 * mechanics$E * (2 * R - mechanics$L0_um)
+      ) /
+      (2 * (mechanics$mu + 2 * mechanics$eta))
+
+    dilution <- dR / R
+
+    activation <-
+      chemistry$beta +
+      chemistry$gamma * G^chemistry$n /
+      (1 + G^chemistry$n)
+
+    reaction <- activation * Gi - chemistry$I * G
+
+    dG <-
+      chemistry$D / R^2 * laplacian_neumann(G, dx) +
+      reaction -
+      dilution * G
+
+    dGi <-
+      chemistry$Di / R^2 * laplacian_neumann(Gi, dx) -
+      reaction -
+      dilution * Gi
+
+    list(c(dG, dGi, dxc, dR))
+  }
+
+  times <- seq(0, duration_s, by = output_dt_s)
+
+  as.data.frame(
+    ode(
+      y = state0,
+      times = times,
+      func = rhs,
+      parms = NULL,
+      method = "lsodes",
+      rtol = 2e-6,
+      atol = 1e-8,
+      maxsteps = 100000
+    )
+  )
+}
+```
+
+The manuscript reports that a stiff Rac-driven cell can maintain a tight
+polarity gradient and move, whereas a softer cell can stretch until the Rac
+gradient collapses. However, the Figure 9 caption does **not** provide the full
+numerical parameter set needed to recreate those panels uniquely: it identifies
+the total GTPase levels and says stiffness \(E\) is varied, but the precise
+mechanical parameter combination and numerical initial step are not all
+specified.
+
+Accordingly, this report includes the full solver but does not present an
+arbitrarily tuned Figure 9 imitation as though it were an exact reproduction.
+
+# 5. WGD-oriented extension: size versus dilution
+
+The paper's dramatic size effects arise partly because the **total amount of
+GTPase is conserved while cell size changes**. That is appropriate for an
+individual cell undergoing relatively rapid expansion or contraction without
+new protein synthesis.
+
+For WGD-associated size differences between established cell states, however,
+that assumption is not obviously the correct null. A larger cell may contain
+more total Rac/Cdc42 machinery while maintaining an approximately similar
+concentration.
+
+We can separate these effects with a deliberately simple counterfactual.
+
+For geometrically similar cells,
+
+\[
+L_{2V}=2^{1/3}L_{1V}\approx1.26L_{1V}.
+\]
+
+We compare static 1x and 2x-volume analogue domains under two one-dimensional
+scaling rules:
+
+- **fixed amount:** total GTPase material is unchanged, so mean concentration
+  falls as \(1/L\);
+- **concentration-preserving:** total 1D GTPase amount scales with \(L\), so
+  mean concentration remains unchanged.
+
+This is explicitly an extension of the paper. It is **not** a full 3D
+membrane/cytosol scaling model.
+
+```{r static-size-function}
+simulate_static_domain <- function(
+    length_um,
+    mean_total,
+    chemistry = paper_chemistry,
+    n_cells = 81,
+    duration_s = 1200,
+    output_dt_s = 5) {
+
+  chemistry_use <- chemistry
+  chemistry_use$L0_um <- length_um
+
+  simulate_prescribed_size(
+    mode = "static",
+    mean_total_initial = mean_total,
+    chemistry = chemistry_use,
+    n_cells = n_cells,
+    duration_s = duration_s,
+    output_dt_s = output_dt_s
+  )
+}
+
+L1 <- paper_chemistry$L0_um
+L2 <- L1 * 2^(1 / 3)
+baseline_mean <- 2.5
+
+wgd_conditions <- list(
+  `1x | fixed amount` = list(
+    length_um = L1,
+    mean_total = baseline_mean,
+    volume = "1x volume",
+    rule = "Fixed amount"
+  ),
+  `2x | fixed amount` = list(
+    length_um = L2,
+    mean_total = baseline_mean * L1 / L2,
+    volume = "2x volume",
+    rule = "Fixed amount"
+  ),
+  `1x | concentration-preserving` = list(
+    length_um = L1,
+    mean_total = baseline_mean,
+    volume = "1x volume",
+    rule = "Concentration-preserving"
+  ),
+  `2x | concentration-preserving` = list(
+    length_um = L2,
+    mean_total = baseline_mean,
+    volume = "2x volume",
+    rule = "Concentration-preserving"
+  )
+)
+
+wgd_runs <- lapply(
+  wgd_conditions,
+  function(z) {
+    simulate_static_domain(
+      length_um = z$length_um,
+      mean_total = z$mean_total
+    )
+  }
+)
+
+wgd_final_profiles <- do.call(
+  rbind,
+  lapply(names(wgd_runs), function(label) {
+    run <- wgd_runs[[label]]
+    meta <- wgd_conditions[[label]]
+
+    final_time <- max(run$profiles$time_s)
+    x <- subset(run$profiles, time_s == final_time)
+
+    data.frame(
+      rule = meta$rule,
+      volume = meta$volume,
+      length_um = meta$length_um,
+      mean_total_initial = meta$mean_total,
+      x_fraction = (x$xbar + 1) / 2,
+      x_um_from_left = (x$xbar + 1) * meta$length_um / 2,
+      active_G = x$active_G
+    )
+  })
+)
+
+wgd_summary <- do.call(
+  rbind,
+  lapply(names(wgd_runs), function(label) {
+    run <- wgd_runs[[label]]
+    meta <- wgd_conditions[[label]]
+    final <- run$summary[nrow(run$summary), ]
+
+    data.frame(
+      rule = meta$rule,
+      volume = meta$volume,
+      length_um = meta$length_um,
+      initial_mean_total = meta$mean_total,
+      final_active_min = final$active_min,
+      final_active_max = final$active_max,
+      final_polarity_score = final$polarity_score
+    )
+  })
+)
+```
+
+```{r wgd-profiles, fig.width=9, fig.height=5}
+ggplot(
+  wgd_final_profiles,
+  aes(
+    x_fraction,
+    active_G,
+    colour = volume,
+    linetype = volume
+  )
+) +
+  geom_line(linewidth = 0.9) +
+  facet_wrap(~ rule) +
+  labs(
+    title = "A 2x-volume analogue: geometry alone versus dilution",
+    subtitle = "Same kinetics; static domains differing only in size and GTPase scaling rule",
+    x = "Relative position across cell",
+    y = "Final active GTPase",
+    colour = "Cell size",
+    linetype = "Cell size"
+  ) +
+  plot_theme
+```
+
+```{r wgd-summary-table}
+knitr::kable(
+  wgd_summary,
+  digits = 3,
+  align = c("l", "l", "r", "r", "r", "r", "r")
+)
+```
+
+The comparison isolates an important point.
+
+Under **fixed total amount**, making the one-dimensional cell 26% longer lowers
+the mean GTPase concentration by about 21%. The polarized profile can therefore
+change substantially even though no reaction rate has changed.
+
+Under the **concentration-preserving** rule, much of that difference disappears:
+the larger domain experiences a longer diffusion distance, but it no longer
+pays the imposed dilution penalty.
+
+So the model supports two separate statements:
+
+1. **Size can matter directly** through transport distance and the
+   reaction/diffusion length scale.
+2. **Size can matter much more strongly when molecular abundance fails to scale
+   with size**, because dilution moves the signaling network through its
+   nonlinear state space.
+
+For WGD, distinguishing these mechanisms is essential. A prediction obtained
+by holding total Rac/Cdc42 abundance fixed should not automatically be
+interpreted as a purely geometric consequence of increased cell size.
+
+# Interpretation for the scaling sandbox
+
+Buttenschön et al. provide a substantially more useful size-scaling example
+than a static wave-pinning model because they make the **mass-balance
+consequence of changing size explicit**.
+
+The central scaling question is not merely:
+
+> Does a longer cell polarize differently?
+
+It is:
+
+> When cell size changes, which quantities remain fixed -- molecular amount,
+> concentration, membrane density, or some combination -- and does that scaling
+> rule preserve the polarity regime?
+
+That is directly relevant to a WGD scaling framework. However, the paper does
+not answer the WGD question itself.
+
+## Limits of the analogy
+
+1. **The cell is one-dimensional.** It is a transect across a cell, not a 2D
+   membrane coupled to a 3D cytosol.
+2. **The single-GTPase model is intentionally minimal.** Mammalian front/rear
+   polarity involves Rac, Cdc42, Rho, GEFs, GAPs, phosphoinositides,
+   cytoskeletal feedback, adhesions, and mechanics.
+3. **The moving-domain model assumes cytosol and membrane compartment sizes
+   change proportionately in 1D.** The authors explicitly discuss this as a
+   simplifying assumption.
+4. **The WGD comparison above changes a 1D length by \(2^{1/3}\).** A true WGD
+   bulk/surface model would separately represent \(V\), membrane area, and the
+   cytosolic reservoir.
+5. **No parameters here are fitted to WGD cancer cells.** This is a mechanistic
+   scaling demonstration, not a quantitative prediction of a migration
+   phenotype.
+6. **Figure 9 is not uniquely reproducible from the manuscript alone.** The
+   full equations are specified, but not every numerical choice used for those
+   spatial/mechanical panels is given.
+
+# Export plot data
+
+```{r export-data, include=FALSE}
+data_dir <- "../docs/data"
+
+if (dir.exists("../docs")) {
+  dir.create(data_dir, recursive = TRUE, showWarnings = FALSE)
+
+  write.csv(
+    prescribed_profiles,
+    file.path(data_dir, "buttenschoen_prescribed_size_profiles.csv"),
+    row.names = FALSE
+  )
+
+  write.csv(
+    prescribed_summary,
+    file.path(data_dir, "buttenschoen_prescribed_size_summary.csv"),
+    row.names = FALSE
+  )
+
+  write.csv(
+    uniform_rac,
+    file.path(data_dir, "buttenschoen_uniform_rac_oscillation.csv"),
+    row.names = FALSE
+  )
+
+  write.csv(
+    wgd_final_profiles,
+    file.path(data_dir, "buttenschoen_wgd_scaling_profiles.csv"),
+    row.names = FALSE
+  )
+
+  write.csv(
+    wgd_summary,
+    file.path(data_dir, "buttenschoen_wgd_scaling_summary.csv"),
+    row.names = FALSE
+  )
+}
+```
+
+# Reproducibility notes
+
+The authors used a cell-centred finite-difference discretization with a stiff
+ROWMAP integrator. This report uses the same fixed-domain equations and
+cell-centred spatial discretization, but integrates the resulting ODE system
+with `deSolve::lsodes`. Numerical trajectories therefore need not match the
+authors' implementation to machine precision.
+
+The manuscript is the source of truth for equations and published parameter
+sets. Where a numerical choice is not supplied by the manuscript -- most
+notably the exact Figure 4 initial profile and the complete Figure 9 parameter
+combination -- the report says so rather than silently treating an inferred
+choice as published.
+
+# References
+
+Buttenschön A, Liu Y, Edelstein-Keshet L. **Cell Size, Mechanical Tension,
+and GTPase Signaling in the Single Cell.** *Bulletin of Mathematical Biology*
+82, 28 (2020). DOI: 10.1007/s11538-020-00702-5. Preprint:
+arXiv:1908.10840.
+
+Mori Y, Jilkine A, Edelstein-Keshet L. **Wave-Pinning and Cell Polarity from
+a Bistable Reaction-Diffusion System.** *Biophysical Journal* 94:3684-3697
+(2008). DOI: 10.1529/biophysj.107.120824.
+
+Mori Y, Jilkine A, Edelstein-Keshet L. **Asymptotic and Bifurcation Analysis
+of Wave-Pinning in a Reaction-Diffusion Model for Cell Polarization.**
+*SIAM Journal on Applied Mathematics* 71:1401-1427 (2011).
+DOI: 10.1137/10079118X.
