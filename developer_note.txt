@@ -1,447 +1,427 @@
-Yes. I read all three rendered reports, inspected the deployed CSVs behind every plot, and checked the relevant scenario/source code. The overall modelling logic is coherent, but the reports are currently **much more implementation-heavy than result-heavy**. The right revision is to hide essentially all R code, retain equations/assumptions/parameter tables, and make each modelling exercise answer explicitly: **what happened, how large was the effect, why did it happen in this model, and what does/doesn’t it establish?**
+Yes — **that is basically the right algorithm**, but I'd tighten it into something the coding agent can implement without inventing biology.
 
-One important outcome of the audit: the oxygen report needs a stronger qualification of its hypoxic result, whereas the membrane-to-nucleus result is actually more robust than the current prose makes obvious.
+The biggest correction is that I would not literally “generate (N) nucleation sites” scattered through the cytoplasm. Start with defined MTOCs — initially **one centrosome**, optionally a Golgi/perinuclear nucleation region — and generate *nucleation events through time*. Golgi membranes genuinely can nucleate interphase MTs, but for the very first pass I would actually be happy with centrosome-only if the purpose is debugging the dynamics. ([PubMed Central (PMC)][1])
 
-## Changes common to all three reports
+## Algorithm I would use for V1
 
-Set the report chunks to `echo = FALSE`. The size-scaling and signalling reports currently explicitly use `echo = TRUE`; the implementation should remain in the source Rmd/GitHub, not occupy most of the rendered report.
+### 1. Geometry
 
-Each modelling section should follow approximately:
+Have:
 
-**Question / setup → figure → quantitative result → interpretation → limitation.**
+* cell boundary;
+* nucleus as an excluded obstacle;
+* centrosome just outside the nucleus;
+* optionally a Golgi nucleation zone near the centrosome.
 
-Keep equations where they explain the model. Keep compact parameter tables where useful. Add a short sentence near the top saying that the exact plotting data are downloadable from the landing page and source code is available in the repository.
+At (t=0), nucleate some number of MTs from the centrosome with initial directions sampled approximately uniformly over the accessible solid angle.
 
-Crucially, distinguish three kinds of statements:
+**Make them initially straight.** Don't use a persistent random walk. MT persistence lengths measured in vitro are millimetres—orders of magnitude larger than a cell—and substantial intracellular curvature arises from nonthermal forces rather than Brownian bending. ([PubMed Central (PMC)][2])
 
-* **Observed model result:** give numbers from the output.
-* **Mechanistic interpretation:** explain why the model produces that result, based on its equations/geometry.
-* **Extrapolation/biological implication:** label it as such rather than presenting it as something demonstrated by the simulation.
-
----
-
-# 1. `size_scaling_overview`
-
-### Overall message should become clearer
-
-I would retitle/reframe this report around something like:
-
-**Cell-size scaling under imposed flux: larger cells develop stronger spatial gradients without necessarily losing throughput**
-
-That is what the exercises collectively show.
-
-The current report correctly explains the imposed-flux setup, but it largely leaves the reader to interpret the plots themselves. The nuclear-export section in particular ends immediately after the figures with essentially no result interpretation.
-
-### External boundary: first-order consumption
-
-Immediately after the first figure, add a quantitative interpretation.
-
-The key result is:
-
-* With first-order consumption, doubling cell volume leaves the **volume-averaged concentration unchanged**: 1.00 µM at high input and 0.20 µM at low input.
-* But the radial concentration range increases by about **58%**.
-* At high input, the 1× cell spans approximately **0.975–1.016 µM**, whereas the 2× cell spans **0.961–1.026 µM**.
-* The corresponding integrated consumption remains **0.050 µM/s per cell volume** in both sizes.
-* The same happens at low input: integrated consumption remains **0.010 µM/s per volume**.
-
-The interpretation should explicitly say:
-
-> Doubling volume therefore does not reduce throughput in this flux-clamped model. Instead, the larger cell pays a spatial cost: a larger membrane-to-centre concentration difference is required to sustain the same consumption per unit volume.
-
-That is a much better statement of what the model demonstrates than simply saying that the concentration range is “broader.”
-
-The ~58% increase is almost exactly the expected (2^{2/3}\approx1.59) scaling of the diffusion-associated concentration difference. So this is a nice place to connect the numerical result back to the (R^2/D) argument already in the report.
-
-### External boundary: saturable consumption
-
-Add a separate interpretation because the nonlinear sink behaves substantially differently.
-
-At high input:
-
-* 1× concentration spans **0.0299–0.0662 µM**.
-* 2× spans **0.0219–0.0755 µM**.
-* The range grows by about **47%**.
-* Yet integrated consumption remains exactly **0.050 µM/s per volume**.
-
-At low input:
-
-* 1× spans **0.00243–0.00830 µM**.
-* 2× spans **0.00158–0.00958 µM**.
-* Again, integrated consumption remains **0.010 µM/s per volume**.
-
-This is more interesting than the linear case because the local reaction rate varies strongly across the cell. The centre of the enlarged cell operates at lower concentration/rate while the membrane-adjacent region operates at higher concentration/rate; spatial redistribution allows the **volume-integrated sink to continue matching the imposed source**.
-
-The report should say explicitly that this is **not evidence that saturable consumption is immune to cell size**. Rather, the imposed source remains below total sink capacity, so the solution can reorganize spatially and still accommodate the required flux.
-
-That distinction matters.
-
-### Integrated consumption figure
-
-Keep this figure, but explicitly describe it as a **mass-balance/control result**, not an independent biological finding.
-
-Something like:
-
-> The overlap of the 1× and 2× curves is expected under these conditions: at the numerical steady state, with no other fate for substrate, integrated consumption must equal the imposed influx. The informative size effect is therefore in the spatial concentration field, not total throughput.
-
-That makes the purpose of the plot immediately clear.
-
-### Cell + exterior medium
-
-This exercise currently needs much stronger interpretation.
-
-The most important result is that changing extracellular diffusion **dramatically changes the extracellular concentration field but does nothing to intracellular consumption**, because flux is clamped.
-
-For the high-input case:
-
-* With external (D=50), concentration immediately outside the membrane is about **0.967 µM** for 1× and **0.948 µM** for 2×.
-* With external (D=5), those values fall to approximately **0.675 µM** and **0.481 µM**, respectively.
-* Despite that enormous difference outside the cell, the intracellular profiles are effectively identical between the two external-diffusion conditions.
-* Consumption remains **0.050 µM/s per volume** for both sizes and both media.
-
-This should become the principal interpretation:
-
-> Slower extracellular transport strongly amplifies the depletion required to support the imposed flux, particularly for the larger cell. However, because membrane influx is prescribed rather than concentration-dependent, this depletion cannot feed back onto uptake: intracellular concentration and consumption are unchanged. The exercise therefore identifies the extracellular concentration cost of maintaining a volume-scaled flux, but it does **not** model extracellular diffusion limitation of uptake.
-
-That is a very useful result because it tells the reader exactly what this boundary condition can and cannot answer.
-
-Also modify the current “negative surface concentration” discussion. None of these simulations reaches that point—the lowest current value is still about **0.481 µM**. So phrase it as a mathematical implication:
-
-> These parameter choices remain feasible, but the analytic relation implies that sufficiently large (R), low (D_{\rm ext}), or high imposed flux would eventually require an unphysical negative surface concentration.
-
-That avoids presenting a theoretical boundary as an observed result.
-
-### Nuclear export with cytoplasmic sinks
-
-This is currently the most underinterpreted section.
-
-The actual result strongly supports the interpretation we discussed previously: **there is substantial spatial restructuring but essentially no overall processing deficit under this null scaling assumption.**
-
-Quantitatively:
-
-* Nuclear radius grows from **4.50 to 5.67 µm**; cell radius from **10.0 to 12.60 µm**.
-* Concentration next to the nuclear envelope rises from about **0.0778 to 0.0972 µM** (+25%).
-* Concentration near the plasma membrane instead falls from **0.0384 to 0.0356 µM**.
-* Thus the radial concentration difference grows from roughly **0.0394 to 0.0616 µM**, about **56% larger**.
-* Yet volume-averaged concentration changes only about **1.8%**.
-* Integrated saturable processing changes from **0.028198 to 0.028166 µM/s per cytoplasmic volume**, only about **−0.11%**.
-
-I reconstructed the volume-weighted degradation term from the exported profiles:
-
-* first-order degradation ≈ **0.001802** at 1×;
-* ≈ **0.001834 µM/s** at 2×.
-
-Thus total removal is essentially **0.0300 µM/s per cytoplasmic volume in both cells**, exactly matching the volume-normalized source.
-
-That should be the conclusion:
-
-> Enlargement substantially steepens the nuclear-to-cytoplasmic concentration profile, but under the assumed volume-proportional source and volume-proportional sink capacity it produces essentially no loss of total processing throughput. The saturable sink changes by only ~0.1%, with a small compensatory change in first-order degradation. This is therefore an example of a geometrical scaling effect that creates spatial heterogeneity without generating an obvious global functional deficit.
-
-That is considerably more informative than what is there now.
-
-I would also change the final integrated-consumption figure. It currently plots only the saturable term. Add either a small stacked plot or a compact table showing **saturable consumption + first-order degradation + total**, because the mass balance is the important result. Export this as something like `nuclear_export_sink_summary.csv`.
-
-Finally, the degradation switch at 75 s is not actually being interpreted. Either explain why that transient is biologically relevant, or de-emphasize it. The endpoint has essentially equilibrated to the final removal regime, and that is what the report currently discusses.
+That alone may dramatically improve the appearance.
 
 ---
 
-# 2. `sedlack_single_cell_oxygen`
+### 2. Every MT has a dynamic state
 
-This report needs the most careful revision because there is a very important distinction between the **baseline** and **hypoxic** conclusions.
-
-A good interpretive title would be:
-
-**Cell-size scaling of oxygen transport: weak under oxygen-replete conditions, strong once consumption becomes oxygen-limited**
-
-But the report must immediately qualify that the low-O₂ quantitative predictions are not well validated by the current Sedlack comparison.
-
-### Calibration
-
-Keep the calibration table but remove the large code block.
-
-Add an explicit interpretation:
-
-* Calibrated (V_{\max,\mathrm{eff}}) = **0.09869 mol/m³/s**.
-* The calibration target is 21.4 mmHg and the model returns **21.4001 mmHg**.
-* Corresponding OCR = **2.242 fmol/s**.
-
-Make very clear this is **one fitted datum**, not model validation.
-
-The calibration point should also look visually different from genuinely held-out points in the validation figure.
-
-### Validation
-
-This section should report actual residuals. They are informative:
-
-At 5% O₂:
-
-* **70 µm spacing:** observed 7.09, predicted **8.97 mmHg** → +1.88 mmHg, **+26.6%**.
-* **100 µm:** calibration point, 21.4 → **21.4001**.
-* **200 µm:** observed 28.3, predicted **29.01 mmHg** → +0.71 mmHg, **+2.5%**.
-
-At 0.5% O₂ / 70 µm:
-
-* observed **0.23 mmHg**;
-* predicted **0.0145 mmHg**;
-* error ≈ **−94%**.
-
-The existing prose correctly notes the poor low-O₂ agreement, but this needs to be made much more consequential:
-
-> The model reproduces the 200-µm held-out condition closely and gives the correct qualitative direction at 70 µm under 5% O₂, although with appreciable error. It performs poorly at 0.5% O₂, predicting almost complete depletion. Consequently, low-oxygen size-scaling simulations below should be interpreted as a mechanistic demonstration of what this model can do when it enters the oxygen-limited regime, **not as a quantitatively validated prediction of cellular pO₂ or OCR under severe hypoxia**.
-
-That is probably the most important change in all three reports.
-
-Add residual and relative-error columns to `validation.csv` or calculate them in the displayed table.
-
-### Add the missing oxygen-kinetics figure
-
-There is an actual data/export defect here. `export_public_plot_data.R` attempts to export `oxygen$kinetics`,  but the deployed `oxygen_kinetics.csv` contains no observations.
-
-Rather than merely deleting it, I would make it useful.
-
-Add a simple plot of
+Each MT is:
 
 [
-R/V_{\max}=c/(K_m+c)
+S_i(t)\in{\text{growing},\text{shrinking}}.
 ]
 
-against pO₂ and mark the four size-scaling mean pO₂ values. This gives a very intuitive explanation of the result.
+Growing MT:
 
-Given the model parameters, (K_m=10^{-4}) mol/m³ corresponds to approximately **0.0775 mmHg**.
+[
+L_i(t+\Delta t)=L_i(t)+v_g\Delta t.
+]
 
-Then the reader can immediately see:
+Shrinking MT:
 
-* baseline 1× mean = **21.4 mmHg** ≈ 276× (K_m);
-* baseline 2× = **7.35 mmHg** ≈ 95× (K_m);
-* hypoxic 1× = **0.0342 mmHg** ≈ 0.44× (K_m);
-* hypoxic 2× = **0.0147 mmHg** ≈ 0.19× (K_m).
+[
+L_i(t+\Delta t)=L_i(t)-v_s\Delta t.
+]
 
-That explains nearly the entire size-scaling result.
+A catastrophe switches:
 
-### Baseline 38-mmHg size scaling
+[
+\text{grow}\rightarrow\text{shrink}
+]
 
-Replace the fairly qualitative existing description with numbers:
+and a rescue switches:
 
-* voxelized represented cell volume increases from **22,800 to 46,800 µm³** (+105%, because of voxelization rather than exactly 100%);
-* mean cytoplasmic pO₂ falls from **21.40 to 7.35 mmHg** (−66%);
-* consumption per volume falls only from **0.09833 to 0.09753 mol/m³/s** (−0.82%);
-* OCR rises from **2.242 to 4.564 fmol/s** (+104%).
+[
+\text{shrink}\rightarrow\text{grow}.
+]
 
-The interpretation should be:
-
-> Cell enlargement produces a very large oxygen concentration change without materially changing respiration because both mean concentrations remain orders of magnitude above the Michaelis-Menten half-saturation scale. Thus a large concentration gradient is not automatically a functional limitation: what matters is where that gradient lies relative to the kinetic response curve.
-
-That is a particularly useful conceptual result.
-
-The present sentence saying “almost all intracellular voxels remain well above (K_m)” should either be softened to the mean-based statement above, **or additional full-volume distribution data should be exported**. The current public CSVs contain a central slice, not the complete 3D voxel distribution, so that exact all-voxels claim is presently not publicly auditable.
-
-Best solution: add a `po2_distribution_summary.csv` with minimum, median, quantiles and fraction of intracellular voxels below (K_m) for every condition.
-
-### Hypoxic size scaling
-
-Quantify it:
-
-* mean pO₂: **0.0342 → 0.0147 mmHg** (−57%);
-* consumption per volume: **0.02384 → 0.01288 mol/m³/s** (−46%);
-* OCR: **0.5436 → 0.6027 fmol/s**, only **+10.9%**, despite roughly doubling consuming volume.
-
-That is a striking result.
-
-Interpret it as:
-
-> Once oxygen concentrations fall below the kinetic half-saturation scale, the geometric oxygen deficit becomes functionally consequential. The additional consuming volume is nearly offset by a decline in respiration per unit volume, so doubling nominal cell volume produces only an ~11% increase in total OCR rather than an approximately twofold increase.
-
-Then immediately repeat the validation qualification: this is a **mechanistic regime result**, because the model substantially over-depletes oxygen in the corresponding low-O₂ validation condition.
-
-### Voxelization limitation
-
-Quantify this rather than merely saying “slightly.”
-
-The analytic 1× half-ellipsoid is about **22,619 µm³** versus **22,800 µm³ represented** (+0.8%). The nominal 2× analytic volume is about **45,239 µm³**, but the grid represents **46,800 µm³** (+3.5%).
-
-Thus the simulated “2×” comparison is actually **2.053× represented voxel volume**.
-
-Put that explicitly in the numerical-limitations section. Small effects such as the −0.82% baseline consumption-per-volume difference should therefore **not** be overinterpreted before grid refinement.
+If it shrinks all the way back to the MTOC, delete it; the centrosome can subsequently nucleate another MT.
 
 ---
 
-# 3. `membrane_to_nucleus_signaling`
+# 3. Compute **two different local densities**
 
-This is the strongest report conceptually. The data support the central conclusion quite well, and the revision should make that obvious.
+This is an important refinement.
 
-I would frame it as:
+The literature actually supports two somewhat different density effects.
 
-**Cell enlargement shifts membrane-generated signal away from nuclear capture when a volume-distributed sink competes with an area-localized target**
+### A. Local MT-lattice density around the growing tip
 
-The model itself is explicitly a membrane source, distributed Michaelis-Menten PDE sink, and reactive nuclear boundary.
+At every growing plus end (x_i), calculate something like
 
-### First fix a formatting problem
+[
+\rho_{\rm MT}(x_i)
+==================
 
-Several equations/parameter values are mangled in the rendered page—the membrane flux is displayed as `J_mem=` with the value missing, and some other mathematical expressions have disappeared. The Rmd has malformed delimiters such as `(R_{cell}=9.34\)` rather than `\(R_{cell}=9.34\)`.
+\sum_j\int_{\mathrm{MT}*j}
+K!\left(
+\frac{|x_i-r_j(s)|}{\ell*{\rm cat}}
+\right)ds.
+]
 
-Fix all of those while editing.
+So this is basically **how much existing MT polymer is nearby**.
 
-### Radial profiles
+Use a Gaussian kernel if convenient:
 
-This figure deserves much more interpretation.
+[
+K(d)=e^{-d^2/2\ell^2}.
+]
 
-At (D=300):
+Then make catastrophe probability increase with this quantity:
 
-* 1× profile ≈ **1.685–1.688 µM**;
-* 2× ≈ **1.164–1.168 µM**.
+[
+f_{\rm cat}(x)
+==============
 
-Both are almost spatially uniform. Yet, as the subsequent fate analysis shows, nuclear delivery still falls substantially with size.
+f_{\rm cat,0},
+g[\rho_{\rm MT}(x)].
+]
 
-At (D=3):
+The exact (g) should initially be a simple saturating monotonic function rather than something elaborate.
 
-* 1× rises from about **1.559 µM at the nuclear side to 1.851 µM at the membrane**;
-* 2× rises from **1.013 to 1.363 µM**.
-
-Thus low diffusion generates a visible transport gradient, and that gradient is larger in the enlarged cell.
-
-The key interpretive sentence should be:
-
-> The high-(D) case is particularly informative: a strong size effect on nuclear delivery survives even when the cytoplasmic concentration is almost spatially uniform. A long diffusion distance is therefore not the sole cause of the effect. Lower diffusion subsequently adds a genuine spatial transport penalty.
-
-### Signal fate
-
-Put actual percentages in the text.
-
-At (D=300):
-
-* 1×: nuclear capture **4.20%**, PDE hydrolysis **91.94%**, net accumulation **3.86%**.
-* 2×: nuclear capture **2.94%**, PDE hydrolysis **93.74%**, accumulation **3.32%**.
-
-So doubling volume reduces productive nuclear capture by **30.1% relative**.
-
-At (D=30), the reduction is **30.5%**.
-
-At (D=3), it is **34.3%**.
-
-This yields a very strong interpretation:
-
-> Most of the size effect already exists in the well-mixed limit: reducing diffusion from 300 to 3 µm²/s increases the relative nuclear-delivery penalty only from ~30% to ~34%. In this parameterization, the area-versus-volume competition between the nuclear target and distributed PDE sink is therefore the dominant effect, while finite diffusion strengthens it.
-
-That is much sharper than the current qualitative paragraph.
-
-Mass-balance closure is already excellent (<(4\times10^{-5})); keep that as a one-sentence numerical check rather than a large discussion.
-
-### Nuclear delivery across 0.5×–8× volume
-
-Describe the monotonicity and magnitude.
-
-For (D=300):
-
-**6.26% → 4.20% → 2.94% → 2.12% → 1.57%**
-
-as volume goes 0.5× → 1× → 2× → 4× → 8×.
-
-Thus 8× cells capture about **63% less** signal per unit membrane production than 1× cells.
-
-For (D=3), 1× → 8× falls from **3.87% to 1.05%**, about **73%**.
-
-Interpretation:
-
-> The effect is monotonic across the tested eightfold range rather than being peculiar to the 1×/2× comparison. Slower diffusion steepens this scaling progressively at large sizes.
-
-### Nuclear-capture sensitivity
-
-This is a robustness result and should be described as such.
-
-Across the entire (P_{\rm nuc}=0.003)–0.3 µm/s sweep, the 2× cell always has lower nuclear-delivery fraction.
-
-At (D=300):
-
-* weak capture: 2× is about **32% lower**;
-* strong capture: about **20% lower**.
-
-At (D=3):
-
-* the penalty ranges roughly **36% to 27%**.
+This corresponds most closely to the cellular observation: plus ends entering MT-poor cytoplasm grew persistently, while the same regions began showing catastrophes once MT density increased. The study demonstrated **local-density-dependent catastrophe**, although it did not establish a precise sensing radius. ([PubMed Central (PMC)][3])
 
 So:
 
-> Increasing nuclear capture efficiency raises absolute productive delivery and partially buffers the size effect, but it does not reverse it anywhere in the explored range.
+[
+\boxed{\text{dense region}\Rightarrow\text{higher catastrophe}}
+]
 
-Do not imply universality outside that range.
-
-### Parameter-regime heatmap
-
-This is stronger than its current text makes obvious.
-
-Across **all 81 combinations** of (D=3)–300 µm²/s and PDE multiplier 0.25–4:
-
-* `log2(2V/V)` is negative.
-* The 2× capture fraction is only about **61–77%** of the 1× fraction.
-* There is **no sign reversal anywhere in the scanned parameter grid**.
-
-That should be written directly.
-
-This is good evidence that the conclusion is not tuned to one precise (D) or PDE activity, while still correctly saying “within the parameter region tested.”
-
-### PDE-zero control
-
-I would change the existing interpretation slightly.
-
-At (D=300), without PDE:
-
-* nuclear capture at 300 s = **39.8%** for 1×;
-* **33.7%** for 2×.
-
-At (D=3):
-
-* **39.3% → 33.1%**.
-
-So even without the distributed sink, enlargement produces about a **15–16% finite-time capture deficit**.
-
-But the remainder is retained cytoplasmic inventory, not hydrolyzed.
-
-Therefore write:
-
-> Removing PDE does not eliminate the finite-time size effect: by 300 s the larger cell has captured ~15–16% less of the produced signal. However, the missing fraction remains as intracellular inventory rather than being transferred to an irreversible competing sink. With PDE present, enlargement therefore changes signal fate as well as delivery timing.
-
-I would **remove the current assertion that the uncaptured signal “can be captured later” unless you actually run a longer-time/asymptotic control**. The model structure makes that plausible, but the current 300-s dataset does not demonstrate the future trajectory.
-
-An even better implementation would add a long-duration PDE-zero run showing convergence explicitly.
-
-### Source-scaling control
-
-Quantify this because it reveals an important dependence.
-
-With fixed flux density:
-
-* 2× nuclear capture is **30.1% lower** at (D=300);
-* **34.3% lower** at (D=3).
-
-When total production is instead forced proportional to volume:
-
-* corresponding penalties become **19.5%** and **22.9%**.
-
-So the correct conclusion is:
-
-> Making source production scale with volume substantially attenuates the size effect, but does not eliminate it. The qualitative result is therefore robust to these two source-scaling conventions, while its magnitude depends materially on how membrane production itself scales with cell size.
-
-That is more precise than “changes loading but not the geometric question.”
-
-### Final interpretation
-
-The last section should synthesize the controls rather than repeat the premise.
-
-Something close to:
-
-> Together, the simulations separate two mechanisms. Enlargement produces a modest finite-time transport/capture disadvantage even without PDE, but the larger effect arises when a target whose capacity scales with nuclear surface area competes with an irreversible sink distributed throughout cytoplasmic volume. Under the baseline parameters, doubling volume reduces nuclear capture by ~30% even at (D=300) µm²/s, where spatial gradients are negligible; lowering diffusion increases that penalty to ~34%. The effect remains negative across the tested capture-efficiency, PDE-activity and diffusion ranges, and persists—although weakened—when membrane production is rescaled with volume. The model therefore demonstrates a plausible mechanism by which cell enlargement can alter signalling **allocation**, rather than merely increasing diffusion time.
-
-Then preserve the existing biological limitations: spherical geometry, uniform AC/PDE, abstract nuclear sink, no nanodomains/buffering/downstream amplification. The scenario source itself makes clear that (P_{\rm nuc}) is a modelling capture parameter, not an empirical nuclear cAMP permeability.
+becomes the principal **space-filling feedback**.
 
 ---
 
-## Bottom line for the coding agent
+### B. Local density of *growing plus ends*
 
-The three reports should ultimately tell three distinct stories:
+Separately define
 
-**Boundary-flux report:** *larger geometry can create much stronger concentration gradients while throughput remains preserved if source and sink capacity are allowed to scale with volume.*
+[
+\rho_{+}(x_i)
+=============
 
-**Oxygen report:** *a larger concentration gradient only becomes functionally important when it moves the system onto the oxygen-sensitive part of the consumption curve; however, the current severe-hypoxia prediction is not quantitatively validated.*
+\sum_{j\neq i,;j\text{ growing}}
+K\left(\frac{|x_i-x_j|}{\ell_g}\right).
+]
 
-**Membrane-to-nucleus report:** *when an area-localized productive sink competes with a volume-distributed irreversible sink, enlargement can change the fraction of signal reaching the target even without strong diffusion gradients; slower diffusion strengthens that effect.*
+Then optionally make growth velocity decrease with (\rho_+):
 
-Those are all supported by the deployed numerical outputs. I would make those three conclusions impossible to miss.
+[
+v_g(x)
+======
+
+\frac{v_{g,0}}
+{1+\alpha_g\rho_+(x)}.
+]
+
+There is quantitative experimental support for this: in confined Xenopus cytoplasm, nearby growing MT ends reduced growth velocity, with the strongest relationship at the shortest tested neighborhoods, around **2 µm**, and effects still examined over a few-micron range. The proposed mechanism was local competition for a relatively scarce growth-promoting factor rather than simple tubulin depletion. ([PubMed Central (PMC)][4])
+
+So your intuition:
+
+> inverse density-dependent growth
+
+is legitimate, but it's specifically **growing-tip density → slower plus-end growth**, whereas the catastrophe study is more like **existing MT-rich region → more catastrophe**.
+
+### However…
+
+For the **very first working version**, I would actually switch the growth-density feedback **off**.
+
+Use:
+
+[
+v_g=v_{g,0}
+]
+
+and only implement density-dependent catastrophe.
+
+Otherwise if the output looks odd we won't know whether catastrophe feedback or growth-rate feedback caused it.
+
+Once the network looks sensible, add the second mechanism.
+
+---
+
+# 4. The nucleus: definitely **not** reduced catastrophe by default
+
+This is the main place I'd change your proposal.
+
+I would treat the nucleus primarily as a **physical obstacle**.
+
+Suppose a growing MT segment would intersect it.
+
+Calculate its incidence angle.
+
+### Grazing encounter
+
+If it approaches approximately tangentially:
+
+[
+\theta < \theta_{\rm slide}
+]
+
+allow its growing direction to be projected onto the nuclear tangent plane:
+
+[
+\mathbf d_{\rm new}
+===================
+
+\mathbf d-
+(\mathbf d\cdot\mathbf n)\mathbf n.
+]
+
+Then continue growth along the surface.
+
+That gives you naturally occurring **MTs curving around the nucleus**.
+
+### Head-on encounter
+
+If it hits more normally:
+
+> stop forward extension → accumulate compressive load → elevated catastrophe probability.
+
+So perhaps:
+
+[
+f_{\rm cat,nuc}
+===============
+
+m_{\rm stall},f_{\rm cat},
+\qquad m_{\rm stall}>1.
+]
+
+Growing MTs experimentally become more catastrophe-prone when their plus ends are mechanically stalled against barriers. ([PubMed Central (PMC)][3])
+
+So conceptually:
+
+**glancing collision → deflect/slide**
+
+**head-on collision → stall → likely catastrophe**
+
+rather than
+
+**nuclear contact → stabilization.**
+
+There *is* documented dynein/dynactin-dependent stabilization of MTs around the nuclear envelope, but the strong evidence we discussed is from **late prophase**, which is exactly the wrong state to generalize into our ordinary interphase migration model. ([PubMed Central (PMC)][5])
+
+If later we discover interphase nuclear-envelope capture in our relevant cancer system, add it as an explicit alternative rule.
+
+---
+
+# 5. Cell cortex should work similarly
+
+When the plus end reaches the plasma membrane:
+
+**near-normal contact**
+
+→ stall/compression
+→ elevated catastrophe.
+
+**shallow-angle contact**
+
+→ permit cortical sliding.
+
+Actual cellular MTs have been observed contacting the cortex, sliding along it, slowing/stalling and then undergoing catastrophe; the geometry of contact influences the behavior. ([PubMed Central (PMC)][6])
+
+Again: don't tell the MT to “follow the membrane.” Let a contact rule make tangential continuation mechanically possible.
+
+---
+
+# 6. Run all MTs simultaneously
+
+This is another thing I'd make explicit to the coding agent.
+
+Don't:
+
+> generate MT 1 to completion → generate MT 2 → generate MT 3 …
+
+because the density feedback then depends arbitrarily on generation order.
+
+Instead:
+
+```text
+initialize MTOC
+nucleate initial MT population
+
+for each timestep:
+
+    possibly nucleate new MTs
+
+    calculate current local MT density field
+
+    calculate current growing-plus-end density field
+
+    for every MT simultaneously:
+
+        if growing:
+            calculate proposed extension
+
+            if extension hits nucleus:
+                apply nucleus contact rule
+
+            if extension hits cortex:
+                apply cortex contact rule
+
+            otherwise:
+                extend straight ahead
+
+            calculate local catastrophe rate
+            stochastic catastrophe yes/no
+
+        if shrinking:
+            retract plus end along existing MT path
+            stochastic rescue yes/no
+
+            if length reaches zero:
+                remove MT
+
+    update density fields
+```
+
+Run until basic network statistics reach stationarity and then take snapshots.
+
+---
+
+## 7. What should make the network space filling?
+
+This is the part I now like.
+
+Suppose one sector happens by chance to contain very few MTs:
+
+[
+\rho_{\rm MT}\downarrow
+]
+
+so MTs entering it have:
+
+[
+f_{\rm cat}\downarrow.
+]
+
+They therefore tend to **keep growing farther into that region**.
+
+Eventually:
+
+[
+\rho_{\rm MT}\uparrow
+]
+
+and consequently:
+
+[
+f_{\rm cat}\uparrow.
+]
+
+Growth into that sector stops being exceptionally persistent.
+
+Meanwhile overcrowded sectors destroy growing extensions more readily.
+
+You therefore get:
+
+[
+\boxed{
+\text{local negative feedback}
+\rightarrow
+\text{approximately space-filling global network}
+}
+]
+
+without ever programming:
+
+> “find an empty part of the cell.”
+
+That's exactly what I think we want to test.
+
+---
+
+# 8. One thing I would absolutely show the coding agent
+
+The desired network should initially look roughly like:
+
+```text
+                \    |   /
+                 \   |  /
+        -----------\ | /---------
+                     ● centrosome
+                 ___/ \___
+               /           \
+              /   nucleus    \
+             /               \
+              \             /
+               \___________/
+             /  /       \   \
+           /   /         \    \
+         /    /           \     \
+```
+
+Not:
+
+```text
+~~~~~\_/~~\/~~~~\
+ /~~~~\/\~~~~~~
+~~~~\/~~~~\/~~~~~
+```
+
+The **default MT should be long and nearly straight**.
+
+Curvature should be visually concentrated where there is a reason for it:
+
+* grazing nucleus;
+* grazing cortex;
+* explicit mechanical force;
+* perhaps later interactions with actomyosin/other structures.
+
+If the coding agent's original implementation looked like a plate of spaghetti, I suspect the random-direction update/persistence rule was a major culprit.
+
+---
+
+## So the minimal version I'd build first
+
+I would genuinely start with only:
+
+[
+\boxed{
+\begin{aligned}
+&\text{centrosomal nucleation}\
+&+\text{straight plus-end growth}\
+&+\text{constant }v_g,v_s\
+&+\text{density-dependent catastrophe}\
+&+\text{constant rescue}\
+&+\text{nuclear/cortical collision rules}
+\end{aligned}}
+]
+
+Get that looking sane.
+
+Then in order add:
+
+1. **plus-end-density-dependent growth speed** over a ~2 µm kernel; ([PubMed Central (PMC)][4])
+2. Golgi nucleation;
+3. externally generated bending/curvature;
+4. track transport;
+5. finally dynamic transport on a network that itself turns over.
+
+That progression should make it much easier to tell whether an ugly result is a bug, an unfortunate parameter choice, or an actual emergent property of the model.
+
+[1]: https://pmc.ncbi.nlm.nih.gov/articles/PMC55652/?utm_source=chatgpt.com "The Golgi Complex Is a Microtubule-organizing Organelle - PMC"
+[2]: https://pmc.ncbi.nlm.nih.gov/articles/PMC2200075/?utm_source=chatgpt.com "Flexural rigidity of microtubules and actin filaments measured from thermal fluctuations in shape - PMC"
+[3]: https://pmc.ncbi.nlm.nih.gov/articles/PMC8098851/?utm_source=chatgpt.com "Persistent growth of microtubules at low density - PMC"
+[4]: https://pmc.ncbi.nlm.nih.gov/articles/PMC7416492/?utm_source=chatgpt.com "Microtubule growth rates are sensitive to global and local changes in microtubule plus-end density - PMC"
+[5]: https://pmc.ncbi.nlm.nih.gov/articles/PMC151569/?utm_source=chatgpt.com "Organization and Dynamics of Growing Microtubule Plus Ends during Early Mitosis - PMC"
+[6]: https://pmc.ncbi.nlm.nih.gov/articles/PMC2820583/?utm_source=chatgpt.com "ESTABLISHING NEW SITES OF POLARIZATION BY MICROTUBULES - PMC"
+

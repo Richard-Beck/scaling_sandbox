@@ -1,0 +1,321 @@
+---
+title: "Microtubule generation and transport in 1x and 2x cells"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE,
+                      fig.align = "center", dpi = 110)
+library(ggplot2)
+library(gridExtra)
+source("../R/mt_network.R")
+source("../R/mt_transport.R")
+cache_path <- "output/mt_transport_results.rds"
+if (!file.exists(cache_path)) {
+  stop("Generate report data first: Rscript scripts/generate_mt_transport_results.R")
+}
+results <- readRDS(cache_path)
+network_sets <- results$network_sets
+network_summary <- results$network_summary
+transport_summary <- results$transport_summary
+junction_sensitivity <- results$junction_sensitivity
+membrane_bins <- results$membrane_bins
+membrane_metrics <- results$membrane_metrics
+membrane_size_divergence <- results$membrane_size_divergence
+variant_order <- names(network_sets)
+size_order <- c("1x volume", "2x volume")
+for (object_name in c("network_summary", "transport_summary", "junction_sensitivity",
+                      "membrane_bins", "membrane_metrics")) {
+  object <- get(object_name)
+  object$variant <- factor(object$variant, variant_order)
+  object$size <- factor(object$size, size_order)
+  assign(object_name, object)
+}
+membrane_size_divergence$variant <- factor(membrane_size_divergence$variant,
+                                            variant_order)
+cargo_results <- do.call(rbind, lapply(variant_order, function(variant) {
+  do.call(rbind, lapply(size_order, function(size) {
+    transform(results$transport[[variant]][[size]], variant = variant, size = size)
+  }))
+}))
+row.names(cargo_results) <- NULL
+cargo_results$variant <- factor(cargo_results$variant, variant_order)
+cargo_results$size <- factor(cargo_results$size, size_order)
+size_colours <- c(`1x volume` = "#126782", `2x volume` = "#E07A2D")
+plot_theme <- theme_minimal(base_size = 10) +
+  theme(legend.position = "bottom", panel.grid.minor = element_blank())
+```
+
+## Network generators
+
+All networks are generated in a flattened three-dimensional ellipsoid containing
+an excluded nuclear ellipsoid and one perinuclear centrosome. The displayed
+`xy` panels are projections of 3D paths, so MTs can populate the projected
+nuclear shadow by passing above or below the nucleus.
+
+Four generation protocols are compared:
+
+1. **Unpruned Shariff:** 0.2-um persistent steps constrained to the cytosol.
+2. **Integrated-density pruning:** ten passes remove up to 50% of MTs, weighted
+   by mean Gaussian-smoothed density along each entire path, then refill.
+3. **Distal-tip pruning:** the same procedure, scoring only plus-end density.
+4. **Li rebound/regeneration:** blocked paths can relax their turn constraint;
+   anti-hairpin checks reject pathological paths, and complete trajectories are
+   retried rather than retained at truncated length.
+
+The basic growth model follows
+[Shariff, Murphy and Rohde (2010)](https://pmc.ncbi.nlm.nih.gov/articles/PMC2901542/),
+and the rebound/regeneration rules follow
+[Li et al. (2012)](https://pmc.ncbi.nlm.nih.gov/articles/PMC3508979/).
+Within every generator, the 2x network is independently generated to match the
+realized 1x polymer length per cytoplasmic volume. Pruning refills to that same
+target after every pass.
+
+```{r network-panels, fig.width=10.5, fig.height=16}
+network_plots <- list()
+plot_id <- 0L
+for (variant in variant_order) for (size in size_order) {
+  plot_id <- plot_id + 1L
+  network_plots[[plot_id]] <- plot_mt_network(
+    network_sets[[variant]][[size]], "xy", paste(variant, size, sep = " — "),
+    max_filaments = 100, seed = 200 + plot_id)
+}
+do.call(grid.arrange, c(network_plots, ncol = 2))
+```
+
+Only a reproducible random subset of at most 100 MTs is drawn per panel. All
+MTs are retained for density, junction and transport calculations.
+
+```{r network-summary}
+network_display <- network_summary[, c("variant", "size", "filament_count",
+  "total_length_um", "achieved_density", "mean_realized_length_um",
+  "junction_count", "mean_junction_multiplicity",
+  "high_multiplicity_fraction", "bundle_count")]
+network_display$total_length_um <- round(network_display$total_length_um, 1)
+network_display$achieved_density <- round(network_display$achieved_density, 4)
+network_display$mean_realized_length_um <- round(network_display$mean_realized_length_um, 2)
+network_display$mean_junction_multiplicity <- round(network_display$mean_junction_multiplicity, 2)
+network_display$high_multiplicity_fraction <- round(network_display$high_multiplicity_fraction, 3)
+names(network_display) <- c("Generator", "Cell size", "MTs", "Polymer (um)",
+  "Polymer density", "Mean MT length (um)", "Junctions",
+  "Mean multiplicity", "Fraction >5 MTs", "Bundles")
+knitr::kable(network_display)
+```
+
+## Three-dimensional junctions
+
+An intersection is a close encounter between MT centrelines, not a projected
+line crossing. Segment midpoints provide a fast spatial shortlist, after which
+the closest points and minimum 3D separation are calculated. The default
+encounter radius is 0.25 um. Pairwise encounters within 0.5 um are merged into
+one junction, whose strength is the number of distinct MTs. The shared
+centrosomal origin is excluded. Near-parallel MT pairs that remain close for at
+least 1 um are recorded as bundles rather than junctions.
+
+Each junction stores its position, participating MT identities, multiplicity,
+minimum separation, crossing angles and arc-length position on every member MT.
+The latter lets transport encounter junctions in route order.
+
+The 3D definition is motivated by observations that intersecting tracks can
+have axial separations from approximately 200 nm to below 1 um, and that cargo
+behavior depends on separation and angle
+([Gao et al., 2018](https://pmc.ncbi.nlm.nih.gov/articles/PMC6026372/)).
+Multiplicity classes are `2`, `3–5`, and `>5` MTs, following
+[Chen et al. (2023)](https://www.nature.com/articles/s41467-023-38452-2).
+
+```{r junction-sensitivity, fig.width=10, fig.height=6}
+ggplot(junction_sensitivity,
+       aes(encounter_radius_um, junction_count, colour = size, group = size)) +
+  geom_line(linewidth = 0.7) + geom_point(size = 2) +
+  facet_wrap(~ variant, scales = "free_y") +
+  scale_colour_manual(values = size_colours) +
+  labs(title = "Junction count depends on the 3D encounter radius",
+       x = "Encounter radius (um)", y = "Merged junctions", colour = "Cell size") +
+  plot_theme
+```
+
+```{r junction-complexity, fig.width=9, fig.height=5}
+ggplot(network_summary, aes(variant, high_multiplicity_fraction, fill = size)) +
+  geom_col(position = position_dodge(width = 0.72), width = 0.68) +
+  scale_fill_manual(values = size_colours) +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+  labs(title = "Fraction of junctions containing more than five MTs",
+       x = NULL, y = "High-multiplicity junction fraction", fill = "Cell size") +
+  plot_theme + theme(axis.text.x = element_text(angle = 18, hjust = 1))
+```
+
+## Minimal cargo transport protocol
+
+For each of 250 cargos per network:
+
+1. Sample a source in a 0.75-um sphere around the perinuclear centrosome.
+2. Capture the nearest MT if it is within 0.4 um.
+3. Move plus-endward at 1 um/s.
+4. Deliver upon coming within 0.3 um of the cell cortex.
+5. At an interior MT end, search within 0.5 um for another MT, add a 1-s
+   search cost, hop, and continue. If none is available, fail.
+6. Fail if delivery exceeds 120 s.
+
+At every junction, cargo pauses with probability 0.5. Delay depends only on
+multiplicity: two-MT junctions have a short lognormal delay (median 1.5 s),
+3–5-MT junctions draw uniformly from 3–10 s, and >5-MT junctions use a
+heavy-tailed lognormal delay (median 20 s). These illustrative distributions
+reflect the reported shift from approximately two-second passage at simple
+junctions, through several-to-ten-second delays at intermediate junctions, to
+occasional delays exceeding a minute at complex junctions
+([Chen et al., 2023](https://www.nature.com/articles/s41467-023-38452-2)).
+They are not fitted kinetic parameters.
+
+The model has no dynein, motor switching, endosomal sorting or dynamic MT
+turnover.
+
+## Transport results
+
+```{r transport-plots, fig.width=11, fig.height=9}
+delivery_plot <- ggplot(subset(cargo_results, success),
+  aes(size, delivery_time_s, fill = size)) +
+  geom_boxplot(outlier.alpha = 0.25, width = 0.65) +
+  facet_wrap(~ variant, scales = "free_y") +
+  scale_fill_manual(values = size_colours, guide = "none") +
+  labs(title = "Delivery time among successful cargos", x = NULL,
+       y = "Delivery time (s)") + plot_theme
+success_plot <- ggplot(transport_summary,
+  aes(variant, success_probability, fill = size)) +
+  geom_col(position = position_dodge(width = 0.72), width = 0.68) +
+  scale_fill_manual(values = size_colours) +
+  scale_y_continuous(limits = c(0, 1), labels = scales::percent_format()) +
+  labs(title = "Delivery success before 120 s", x = NULL,
+       y = "Success probability", fill = "Cell size") + plot_theme +
+  theme(axis.text.x = element_text(angle = 18, hjust = 1))
+hops_plot <- ggplot(transport_summary, aes(variant, mean_hops, fill = size)) +
+  geom_col(position = position_dodge(width = 0.72), width = 0.68) +
+  scale_fill_manual(values = size_colours) +
+  labs(title = "MT-to-MT transfers", x = NULL, y = "Mean hops per cargo",
+       fill = "Cell size") + plot_theme +
+  theme(axis.text.x = element_text(angle = 18, hjust = 1))
+inefficiency_plot <- ggplot(subset(cargo_results, success),
+  aes(size, route_inefficiency, fill = size)) +
+  geom_boxplot(outlier.alpha = 0.25, width = 0.65) +
+  facet_wrap(~ variant, scales = "free_y") +
+  scale_fill_manual(values = size_colours, guide = "none") +
+  labs(title = "Route inefficiency among successful cargos", x = NULL,
+       y = "Path length / straight-line distance") + plot_theme
+grid.arrange(delivery_plot, success_plot, hops_plot, inefficiency_plot, ncol = 2)
+```
+
+```{r transport-table}
+transport_display <- transport_summary[, c("variant", "size",
+  "success_probability", "median_delivery_time_s", "mean_hops",
+  "median_route_inefficiency")]
+transport_display$success_probability <- round(transport_display$success_probability, 3)
+transport_display$median_delivery_time_s <- round(transport_display$median_delivery_time_s, 2)
+transport_display$mean_hops <- round(transport_display$mean_hops, 3)
+transport_display$median_route_inefficiency <- round(transport_display$median_route_inefficiency, 3)
+names(transport_display) <- c("Generator", "Cell size", "P(success)",
+  "Median delivery time (s)", "Mean hops", "Median path/straight")
+knitr::kable(transport_display)
+```
+
+Across all four generators, the 2x cell has longer median delivery times and
+lower deadline success than its matched-density 1x counterpart. The enlarged
+networks also contain more junctions. For the unpruned Shariff network, the
+fraction of >5-MT junctions rises from about 5.9% to 12.0%; pruning attenuates
+but does not eliminate that increase. These are outputs of this illustrative
+static model, not biological estimates.
+
+Route inefficiency changes less consistently than delivery time because the
+ratio is conditional on successful cargo. Long, inefficient routes that miss
+the deadline are excluded, so it must be interpreted alongside success.
+
+## Membrane distribution of delivered cargo
+
+Successful delivery sites are mapped onto the ellipsoidal cell membrane and
+binned into 12 azimuth sectors by four equal-solid-angle latitude bands. The
+reference distribution is uniform per unit **membrane area**, with correction
+for the ellipsoid surface Jacobian. Thus, zero log2 enrichment means the cargo
+occupies that patch as often as expected under uniform membrane delivery;
+positive and negative values mark enriched and depleted patches.
+
+```{r membrane-enrichment, fig.width=10.5, fig.height=10}
+ggplot(membrane_bins,
+       aes(azimuth_mid * 180 / pi, equal_area_latitude_mid,
+           fill = log2_enrichment)) +
+  geom_tile() +
+  facet_grid(variant ~ size) +
+  scale_fill_gradient2(low = "#2166AC", mid = "white", high = "#B2182B",
+                       midpoint = 0, limits = c(-2, 2),
+                       oob = scales::squish) +
+  scale_x_continuous(breaks = c(-180, -90, 0, 90, 180)) +
+  labs(title = "Delivered-cargo enrichment across the membrane",
+       subtitle = "Successful deliveries; colour is relative to uniform membrane area",
+       x = "Azimuth (degrees)", y = "sin(latitude)",
+       fill = "log2 enrichment") +
+  plot_theme
+```
+
+Total variation is the directly interpretable nonuniformity score: zero is a
+uniform membrane distribution and one is maximal concentration. The
+polarization resultant measures whether delivery is biased toward one side of
+the cell (zero for balanced directions, one if all delivery is at one point).
+Jensen--Shannon divergence quantifies how much the full delivery pattern changes
+between matched-density 1x and 2x networks.
+
+```{r membrane-metrics, fig.width=11, fig.height=4.8}
+nonuniformity_plot <- ggplot(membrane_metrics,
+  aes(variant, total_variation_from_uniform, fill = size)) +
+  geom_col(position = position_dodge(width = 0.72), width = 0.68) +
+  scale_fill_manual(values = size_colours) +
+  scale_y_continuous(limits = c(0, 1)) +
+  labs(title = "Departure from uniform membrane delivery",
+       x = NULL, y = "Total variation from uniform", fill = "Cell size") +
+  plot_theme + theme(axis.text.x = element_text(angle = 18, hjust = 1))
+
+polarization_plot <- ggplot(membrane_metrics,
+  aes(variant, polarization_resultant, fill = size)) +
+  geom_col(position = position_dodge(width = 0.72), width = 0.68) +
+  scale_fill_manual(values = size_colours) +
+  scale_y_continuous(limits = c(0, 1)) +
+  labs(title = "One-sided polarization of delivery sites",
+       x = NULL, y = "Directional resultant", fill = "Cell size") +
+  plot_theme + theme(axis.text.x = element_text(angle = 18, hjust = 1))
+
+size_divergence_plot <- ggplot(membrane_size_divergence,
+  aes(variant, js_between_sizes_bits, fill = variant)) +
+  geom_col(width = 0.68, show.legend = FALSE) +
+  labs(title = "Change in membrane pattern from 1x to 2x",
+       x = NULL, y = "Jensen-Shannon divergence (bits)") +
+  plot_theme + theme(axis.text.x = element_text(angle = 18, hjust = 1))
+
+grid.arrange(nonuniformity_plot, polarization_plot, size_divergence_plot,
+             ncol = 3)
+```
+
+```{r membrane-table}
+membrane_display <- membrane_metrics[, c("variant", "size", "n_delivered",
+  "total_variation_from_uniform", "js_from_uniform_bits",
+  "polarization_resultant")]
+membrane_display$total_variation_from_uniform <-
+  round(membrane_display$total_variation_from_uniform, 3)
+membrane_display$js_from_uniform_bits <- round(membrane_display$js_from_uniform_bits, 3)
+membrane_display$polarization_resultant <- round(membrane_display$polarization_resultant, 3)
+names(membrane_display) <- c("Generator", "Cell size", "Delivered",
+  "TV from uniform", "JS from uniform (bits)", "Polarization")
+knitr::kable(membrane_display)
+```
+
+These estimates are conditional on successful delivery and use only 250 cargo
+trials per network. The half-count pseudocount stabilizes empty bins; replicate
+networks and more cargos are required before interpreting fine spatial patches.
+
+## Limitations and next checks
+
+The largest uncertainties are the encounter radius, junction merging, pause
+kinetics, capture/hop radii and cortex criterion. Junction-radius sensitivity is
+shown above, but transport should also be rerun across those values. Replicate
+network realizations are needed before treating 1x–2x differences as robust
+generator-level effects. This comparison isolates static network geometry; it
+does not model motor detachment kinetics, bidirectionality, MT turnover or
+cargo-specific biology.

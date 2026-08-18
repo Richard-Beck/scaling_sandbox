@@ -31,7 +31,7 @@ models use `ReacTran` for finite-volume diffusion and `deSolve` for adaptive
 method-of-lines integration. Install them once if necessary:
 
 ```r
-install.packages(c("deSolve", "ReacTran", "ggplot2", "rmarkdown"))
+install.packages(c("deSolve", "ReacTran", "ggplot2", "gridExtra", "RANN", "rmarkdown"))
 ```
 
 To work interactively, source the reusable functions and then a scenario:
@@ -64,6 +64,10 @@ Generated HTML, figures, and other rendered material should go in
 - `reports/membrane_to_nucleus_signaling.Rmd` tests whether distributed PDE
   hydrolysis redirects a membrane-generated cAMP-like signal away from a
   localized, partially absorbing nuclear target as cell volume increases.
+- `reports/mt_polymer_density_networks.Rmd` compares four 3D MT generators at
+  matched polymer density, detects transport-relevant 3D junctions, and tests
+  simple cargo delivery in 1x/2x cells. Generate its cached simulation data
+  with `Rscript scripts/generate_mt_transport_results.R` before rendering.
 
 ## Publishing
 

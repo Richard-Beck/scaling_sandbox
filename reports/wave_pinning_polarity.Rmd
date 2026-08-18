@@ -1,0 +1,609 @@
+---
+title: "Cell size and wave-pinning polarity"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+library(ggplot2)
+library(deSolve)
+
+volume_colours <- c(`1x volume` = "#0072B2", `2x volume` = "#D55E00")
+plot_theme <- theme_minimal(base_size = 11) +
+  theme(
+    legend.position = "bottom",
+    panel.grid.minor = element_blank()
+  )
+```
+
+The exact data used in every plot are exported to `docs/data/` when this report
+is rendered inside the project repository. The complete report source is
+intended to live in `reports/`.
+
+# Question
+
+Can changing cell size alone alter the ability of an otherwise unchanged
+intracellular polarity network to generate and maintain a polarized state?
+
+This report uses the minimal **wave-pinning** reaction--diffusion model
+introduced by Mori, Jilkine, and Edelstein-Keshet. The model represents a
+generic Rho-family GTPase that cycles between a slowly diffusing active,
+membrane-associated state and a rapidly diffusing inactive, cytosolic state.
+Positive feedback in activation creates bistable local kinetics; conservation
+of the total GTPase pool and the large diffusion-rate difference allow an
+activation wave to advance and then stall, leaving a persistent front/back
+pattern.
+
+The model is useful here because cell size enters directly through the spatial
+domain. We therefore change **only domain length**, keeping concentrations,
+reaction rates, diffusion coefficients, and the initiating stimulus fixed.
+
+This is a deliberately stripped-down scaling test. It is not a model of
+whole-cell migration.
+
+# Model
+
+We use a one-dimensional domain \(0 < x < L\), interpreted as a strip across a
+cell diameter. The active form \(a(x,t)\) diffuses slowly and the inactive form
+\(b(x,t)\) diffuses rapidly:
+
+\[
+\frac{\partial a}{\partial t}
+=
+D_a\frac{\partial^2 a}{\partial x^2}
++
+f(a,b;x,t)
+\]
+
+\[
+\frac{\partial b}{\partial t}
+=
+D_b\frac{\partial^2 b}{\partial x^2}
+-
+f(a,b;x,t).
+\]
+
+The interconversion term is
+
+\[
+f(a,b;x,t)
+=
+b\left[
+k_0
++
+\gamma\frac{a^2}{K^2+a^2}
++
+k_s(x,t)
+\right]
+-
+\delta a.
+\]
+
+The Hill term gives positive feedback: active GTPase promotes further
+activation. The transient stimulus \(k_s(x,t)\) locally increases activation at
+the left edge of the cell but neither creates nor destroys total GTPase.
+No-flux boundary conditions are imposed at both ends, so the spatially
+integrated \(a+b\) pool is conserved.
+
+The parameter set below follows the commonly used dimensional wave-pinning
+regime reported in the original Mori model and subsequent deterministic
+implementations.
+
+```{r parameters}
+pars <- list(
+  D_a = 0.1,        # um^2 / s
+  D_b = 10,         # um^2 / s
+  k0 = 0.067,       # 1 / s
+  gamma = 1,        # 1 / s
+  K = 1,            # uM
+  delta = 1,        # 1 / s
+  a0 = 0.2683,      # uM
+  b0 = 2,           # uM
+  stimulus_rate = 10,      # 1 / s
+  stimulus_start = 50,     # s
+  stimulus_end = 70,       # s
+  stimulus_width_um = 0.4, # um
+  baseline_length_um = 10, # um
+  end_time_s = 300
+)
+
+parameter_table <- data.frame(
+  Parameter = c(
+    "D_a", "D_b", "k0", "gamma", "K", "delta",
+    "a(x,0)", "b(x,0)", "stimulus", "stimulus window",
+    "stimulated region", "baseline L"
+  ),
+  Value = c(
+    "0.1 um^2/s", "10 um^2/s", "0.067 /s", "1 /s", "1 uM", "1 /s",
+    "0.2683 uM", "2 uM", "10 /s", "50-70 s",
+    "0-0.4 um", "10 um"
+  )
+)
+
+knitr::kable(parameter_table, align = c("l", "l"))
+```
+
+## Numerical implementation
+
+The PDE is discretized by a cell-centred finite-volume method. Zero diffusive
+flux is imposed at the two boundaries, and the resulting method-of-lines
+system is integrated with `deSolve::lsodes`. The finite-volume stencil is
+conservative: diffusion redistributes material between neighboring bins but
+does not change the total amount.
+
+```{r solver}
+laplacian_no_flux <- function(y, dx) {
+  n <- length(y)
+  out <- numeric(n)
+
+  out[1] <- (y[2] - y[1]) / dx^2
+  out[n] <- (y[n - 1] - y[n]) / dx^2
+
+  if (n > 2) {
+    out[2:(n - 1)] <-
+      (y[1:(n - 2)] - 2 * y[2:(n - 1)] + y[3:n]) / dx^2
+  }
+
+  out
+}
+
+simulate_wave_pinning <- function(
+    length_um,
+    parameters = pars,
+    n_cells = 81,
+    output_times = seq(0, parameters$end_time_s, by = 1)) {
+
+  dx <- length_um / n_cells
+  x <- (seq_len(n_cells) - 0.5) * dx
+
+  state0 <- c(
+    setNames(rep(parameters$a0, n_cells), sprintf("a_%03d", seq_len(n_cells))),
+    setNames(rep(parameters$b0, n_cells), sprintf("b_%03d", seq_len(n_cells)))
+  )
+
+  rhs <- function(time, state, controls) {
+    a <- state[seq_len(n_cells)]
+    b <- state[n_cells + seq_len(n_cells)]
+
+    stimulus <- if (controls$stimulus_on) {
+      ifelse(x <= parameters$stimulus_width_um,
+             parameters$stimulus_rate, 0)
+    } else {
+      rep(0, n_cells)
+    }
+
+    hill <- a^2 / (parameters$K^2 + a^2)
+    reaction <-
+      b * (parameters$k0 + parameters$gamma * hill + stimulus) -
+      parameters$delta * a
+
+    da <-
+      parameters$D_a * laplacian_no_flux(a, dx) +
+      reaction
+
+    db <-
+      parameters$D_b * laplacian_no_flux(b, dx) -
+      reaction
+
+    list(c(da, db))
+  }
+
+  run_stage <- function(state, times, stimulus_on) {
+    times <- sort(unique(times))
+    if (length(times) < 2) {
+      stop("Each integration stage must contain at least two time points.")
+    }
+
+    ode(
+      y = state,
+      times = times,
+      func = rhs,
+      parms = list(stimulus_on = stimulus_on),
+      method = "lsodes",
+      rtol = 1e-7,
+      atol = 1e-9
+    )
+  }
+
+  add_bounds <- function(values, lower, upper) {
+    sort(unique(c(lower, values[values > lower & values < upper], upper)))
+  }
+
+  t0 <- 0
+  ts <- parameters$stimulus_start
+  te <- parameters$stimulus_end
+  tf <- max(output_times)
+
+  times_1 <- add_bounds(output_times, t0, ts)
+  stage_1 <- run_stage(state0, times_1, FALSE)
+
+  state_1 <- as.numeric(stage_1[nrow(stage_1), -1])
+  names(state_1) <- names(state0)
+
+  times_2 <- add_bounds(output_times, ts, te)
+  stage_2 <- run_stage(state_1, times_2, TRUE)
+
+  state_2 <- as.numeric(stage_2[nrow(stage_2), -1])
+  names(state_2) <- names(state0)
+
+  times_3 <- add_bounds(output_times, te, tf)
+  stage_3 <- run_stage(state_2, times_3, FALSE)
+
+  combined <- rbind(
+    stage_1,
+    stage_2[-1, , drop = FALSE],
+    stage_3[-1, , drop = FALSE]
+  )
+
+  combined <- as.data.frame(combined)
+  combined <- combined[combined$time %in% output_times, , drop = FALSE]
+
+  a_cols <- grep("^a_", names(combined))
+  b_cols <- grep("^b_", names(combined))
+
+  total_mean <- rowMeans(combined[, a_cols, drop = FALSE]) +
+    rowMeans(combined[, b_cols, drop = FALSE])
+
+  mass_error <- max(abs(total_mean - total_mean[1]))
+
+  list(
+    length_um = length_um,
+    x_um = x,
+    dx_um = dx,
+    result = combined,
+    a_cols = a_cols,
+    b_cols = b_cols,
+    mass_error = mass_error
+  )
+}
+
+profile_data <- function(simulation, times = NULL) {
+  result <- simulation$result
+  if (!is.null(times)) {
+    result <- result[result$time %in% times, , drop = FALSE]
+  }
+
+  do.call(
+    rbind,
+    lapply(seq_len(nrow(result)), function(i) {
+      data.frame(
+        time_s = result$time[i],
+        x_um = simulation$x_um,
+        active_uM = as.numeric(result[i, simulation$a_cols]),
+        inactive_uM = as.numeric(result[i, simulation$b_cols])
+      )
+    })
+  )
+}
+
+polarity_score <- function(simulation, front_fraction = 0.2) {
+  result <- simulation$result
+  final_a <- as.numeric(result[nrow(result), simulation$a_cols])
+  x <- simulation$x_um
+  L <- simulation$length_um
+
+  front <- mean(final_a[x <= front_fraction * L])
+  back <- mean(final_a[x >= (1 - front_fraction) * L])
+
+  (front - back) / (front + back)
+}
+```
+
+# 1. Wave pinning in the reference 10-um cell
+
+The first simulation is simply a sanity check that the implementation exhibits
+the intended behavior. The cell starts spatially uniform. A local activation
+pulse is applied from 50 to 70 s over the leftmost 0.4 um. Active GTPase rises
+locally, the high-activity region advances, and after the stimulus is removed
+the front stalls rather than relaxing back to a homogeneous state.
+
+```{r reference-simulation}
+reference_times <- seq(0, pars$end_time_s, by = 1)
+
+reference_sim <- simulate_wave_pinning(
+  length_um = pars$baseline_length_um,
+  output_times = reference_times
+)
+
+stopifnot(reference_sim$mass_error < 1e-5)
+
+display_times <- c(0, 50, 55, 70, 100, 200, 300)
+reference_profiles <- profile_data(reference_sim, display_times)
+
+reference_profiles$time_label <- factor(
+  paste0(reference_profiles$time_s, " s"),
+  levels = paste0(display_times, " s")
+)
+```
+
+```{r reference-plot, fig.width=9, fig.height=6}
+ggplot(reference_profiles, aes(x_um, active_uM)) +
+  geom_line(linewidth = 0.85) +
+  facet_wrap(~ time_label, ncol = 4) +
+  labs(
+    title = "A transient local stimulus produces a pinned polarity front",
+    subtitle = "Active membrane-associated GTPase",
+    x = "Position across cell (um)",
+    y = "Active GTPase (uM)"
+  ) +
+  plot_theme
+```
+
+The important feature is persistence after the stimulus disappears. The
+stimulus ends at 70 s, but the final state at 300 s remains strongly
+asymmetric. The front/back polarity score in the reference simulation is
+`r sprintf("%.3f", polarity_score(reference_sim))`.
+
+This is the wave-pinning mechanism: local positive feedback launches an
+activation front, while depletion and rapid redistribution of the inactive
+pool prevent the front from consuming the whole domain.
+
+# 2. Doubling cell volume
+
+For geometrically similar cells, length scales with the cube root of volume:
+
+\[
+L(V) = L_0 V^{1/3}.
+\]
+
+A 2x-volume cell is therefore only \(2^{1/3} \approx 1.26\) times longer along
+each linear dimension. Starting from the 10-um reference cell gives a
+2x-volume domain of approximately 12.6 um.
+
+Nothing else changes. Initial concentrations, total concentration per unit
+volume, kinetic parameters, diffusion coefficients, and the physical 0.4-um
+stimulus width are identical.
+
+```{r volume-comparison}
+volume_multipliers <- c(`1x volume` = 1, `2x volume` = 2)
+
+comparison_sims <- lapply(
+  volume_multipliers,
+  function(v) {
+    simulate_wave_pinning(
+      length_um = pars$baseline_length_um * v^(1 / 3),
+      output_times = c(0, pars$stimulus_start, pars$stimulus_end, pars$end_time_s)
+    )
+  }
+)
+
+comparison_profiles <- do.call(
+  rbind,
+  lapply(names(comparison_sims), function(label) {
+    sim <- comparison_sims[[label]]
+    final <- profile_data(sim, pars$end_time_s)
+    final$volume <- label
+    final$cell_length_um <- sim$length_um
+    final$relative_position <- final$x_um / sim$length_um
+    final
+  })
+)
+
+comparison_scores <- data.frame(
+  volume = names(comparison_sims),
+  volume_multiplier = unname(volume_multipliers),
+  cell_length_um = vapply(comparison_sims, function(x) x$length_um, numeric(1)),
+  polarity_score = vapply(comparison_sims, polarity_score, numeric(1))
+)
+```
+
+```{r volume-comparison-plot, fig.width=8, fig.height=5}
+ggplot(
+  comparison_profiles,
+  aes(x_um, active_uM, colour = volume, linetype = volume)
+) +
+  geom_line(linewidth = 0.9) +
+  scale_colour_manual(values = volume_colours) +
+  scale_linetype_manual(values = c(`1x volume` = "solid", `2x volume` = "dashed")) +
+  labs(
+    title = "Final pinned polarity profile: 1x versus 2x cell volume",
+    x = "Physical position across cell (um)",
+    y = "Active GTPase (uM)",
+    colour = "Cell size",
+    linetype = "Cell size"
+  ) +
+  plot_theme
+```
+
+The 1x cell has a final polarity score of
+`r sprintf("%.3f", comparison_scores$polarity_score[comparison_scores$volume == "1x volume"])`;
+the 2x-volume cell has a score of
+`r sprintf("%.3f", comparison_scores$polarity_score[comparison_scores$volume == "2x volume"])`.
+
+Under this published parameter regime, **both cells are comfortably
+polarizable**. Doubling volume does not qualitatively switch the system into a
+new state. The larger domain slightly strengthens the spatial separation, but
+the effect is modest compared with the existence of wave pinning itself.
+
+That is an important null result for the WGD scaling question. A simple
+1.26-fold increase in linear size is not automatically sufficient to disrupt
+or radically reorganize this canonical polarity circuit.
+
+# 3. Size sweep
+
+The more informative scaling exercise is to ask where changing domain size
+actually becomes consequential. We therefore sweep cell volume over more than
+two orders of magnitude while holding the molecular system fixed.
+
+The plotted score compares the mean active GTPase in the front 20% of the cell
+with that in the back 20%:
+
+\[
+P =
+\frac{\bar a_{\rm front} - \bar a_{\rm back}}
+     {\bar a_{\rm front} + \bar a_{\rm back}}.
+\]
+
+A score near zero is unpolarized; larger positive values indicate stronger
+front/back segregation.
+
+```{r size-sweep}
+sweep_volumes <- sort(unique(c(
+  exp(seq(log(0.01), log(4), length.out = 34)),
+  1,
+  2
+)))
+
+sweep_rows <- lapply(sweep_volumes, function(v) {
+  L <- pars$baseline_length_um * v^(1 / 3)
+
+  sim <- simulate_wave_pinning(
+    length_um = L,
+    output_times = c(0, pars$stimulus_start, pars$stimulus_end, pars$end_time_s)
+  )
+
+  data.frame(
+    volume_multiplier = v,
+    cell_length_um = L,
+    polarity_score = polarity_score(sim),
+    mass_error = sim$mass_error
+  )
+})
+
+size_sweep <- do.call(rbind, sweep_rows)
+
+stopifnot(max(size_sweep$mass_error) < 1e-5)
+```
+
+```{r size-sweep-plot, fig.width=8, fig.height=5}
+ggplot(size_sweep, aes(volume_multiplier, polarity_score)) +
+  geom_line(linewidth = 0.85) +
+  geom_point(size = 1.8) +
+  geom_vline(
+    xintercept = c(1, 2),
+    linetype = c("solid", "dashed"),
+    linewidth = 0.55
+  ) +
+  scale_x_log10(
+    breaks = c(0.01, 0.03, 0.1, 0.3, 1, 2, 4),
+    labels = c("0.01x", "0.03x", "0.1x", "0.3x", "1x", "2x", "4x")
+  ) +
+  labs(
+    title = "Fixed polarity kinetics impose a cell-size dependence",
+    subtitle = "Vertical lines mark the 1x and 2x-volume cells",
+    x = "Cell-volume multiplier",
+    y = "Final front/back polarity score"
+  ) +
+  plot_theme
+```
+
+The sweep exposes a regime in which sufficiently small domains cannot sustain
+the same spatial separation. The reason is straightforward: diffusion operates
+over a characteristic time proportional to \(L^2/D\), whereas the local
+reaction timescale is fixed. Shrinking the cell therefore makes membrane
+diffusion increasingly effective at erasing spatial differences before the
+reaction network can maintain them.
+
+Equivalently, increasing volume from 1x to 2x increases the characteristic
+membrane diffusion time across the cell by
+
+\[
+\left(2^{1/3}\right)^2 = 2^{2/3} \approx 1.59.
+\]
+
+Thus cell size changes the relative balance between spatial mixing and local
+reaction kinetics even though no molecular parameter itself is changed.
+
+This general mechanism is consistent with later work showing that several
+mass-conserved polarity networks, including wave pinning, possess a critical
+polarizable system size when their reaction and diffusion parameters fail to
+scale with cell size.
+
+# What this does -- and does not -- imply for WGD
+
+This minimal example establishes a useful physical principle:
+
+> A fixed reaction--diffusion polarity circuit is not scale invariant. Changing
+> cell size changes the ratio of diffusion and reaction timescales and can,
+> in principle, move the same molecular network between weakly polarized and
+> strongly polarized regimes.
+
+However, the specific 1x-to-2x WGD-like comparison in this parameterization is
+not dramatic. Both the 10-um and 12.6-um domains lie well inside the polarized
+regime. The model therefore **does not by itself support a claim that WGD
+should strongly impair polarity or generate multiple fronts**.
+
+To make that connection biologically, at least one additional ingredient would
+be needed, for example:
+
+- a polarity network whose physiological operating point lies closer to a
+  size-dependent bifurcation;
+- explicit membrane-to-cytosol geometry and surface-to-volume scaling;
+- multiple interacting polarity species;
+- coupling to actin, protrusions, or cell shape;
+- or experimental evidence that a relevant polarity length scale fails to
+  increase with WGD-associated cell size.
+
+Those extensions are deliberately outside this sandbox demo.
+
+# Numerical and biological limitations
+
+1. **One-dimensional geometry.** The model is a strip across a static cell, not
+   a deforming 2D or 3D membrane.
+2. **No mechanics or migration.** A polarized signaling profile is not itself a
+   migration trajectory.
+3. **No explicit membrane/bulk geometry.** Active and inactive species are
+   represented as 1D concentration fields with different diffusion
+   coefficients rather than as a true membrane--cytosol bulk/surface PDE.
+4. **Concentration homeostasis is assumed.** Initial concentrations are held
+   fixed as size changes, so total molecular abundance scales with the
+   unmodeled cross-sectional size of the cell.
+5. **The stimulus is fixed in physical width.** The leftmost 0.4 um is
+   stimulated at every cell size. This isolates domain-size scaling but is only
+   one possible biological assumption.
+6. **Parameters are illustrative, not fitted to WGD cells.** The purpose is to
+   expose the scaling mechanism, not to predict a particular cancer cell line.
+
+# Export plot data
+
+```{r export-data, include=FALSE}
+data_dir <- "../docs/data"
+
+if (dir.exists("../docs")) {
+  dir.create(data_dir, recursive = TRUE, showWarnings = FALSE)
+
+  write.csv(
+    reference_profiles,
+    file.path(data_dir, "wave_pinning_timecourse.csv"),
+    row.names = FALSE
+  )
+
+  write.csv(
+    comparison_profiles,
+    file.path(data_dir, "wave_pinning_volume_comparison.csv"),
+    row.names = FALSE
+  )
+
+  write.csv(
+    size_sweep,
+    file.path(data_dir, "wave_pinning_size_sweep.csv"),
+    row.names = FALSE
+  )
+}
+```
+
+# References
+
+Mori Y, Jilkine A, Edelstein-Keshet L. **Wave-Pinning and Cell Polarity from a
+Bistable Reaction-Diffusion System.** *Biophysical Journal* 94:3684-3697
+(2008). DOI: 10.1529/biophysj.107.120824.
+
+Mori Y, Jilkine A, Edelstein-Keshet L. **Asymptotic and Bifurcation Analysis
+of Wave-Pinning in a Reaction-Diffusion Model for Cell Polarization.**
+*SIAM Journal on Applied Mathematics* 71:1401-1427 (2011).
+DOI: 10.1137/10079118X.
+
+Walther GR, Marée AFM, Edelstein-Keshet L, Grieneisen VA.
+**Deterministic Versus Stochastic Cell Polarisation Through Wave-Pinning.**
+*Bulletin of Mathematical Biology* 74:2570-2599 (2012).
+DOI: 10.1007/s11538-012-9766-5. The explicit localized transient stimulus,
+initial concentrations, domain length, and dimensional parameter values used
+here follow the deterministic implementation reported in this study.
+
+Hubatsch L, Peglion F, Reich JD, et al. **A cell size threshold limits cell
+polarity and asymmetric division potential.** *Nature Physics* 15:1078-1085
+(2019). DOI: 10.1038/s41567-019-0601-x.

@@ -19,19 +19,24 @@ trapezoid <- function(x, y) {
   sum(diff(x) * (head(y, -1) + tail(y, -1)) / 2)
 }
 
+cumulative_trapezoid <- function(x, y) {
+  c(0, cumsum(diff(x) * (head(y, -1) + tail(y, -1)) / 2))
+}
+
 run_delivery_model <- function(volume_multiplier, diffusion_um2_s,
                                pde_multiplier = 1,
                                capture_permeability_um_s =
                                  scenario$boundary$nuclear_capture_permeability_um_s,
-                               source_scaling = "fixed flux density",
+                               source_scaling = "constant production per unit volume",
                                duration_s = scenario$parameters$duration_s,
+                               save_interval_s = 1,
                                n_cells = 80L) {
   length_scale <- volume_multiplier ^ (1 / 3)
   cell_radius <- scenario$geometry$cell_radius_um * length_scale
   nucleus_radius <- scenario$geometry$nucleus_radius_um * length_scale
   grid <- radial_grid(cell_radius, n_cells, nucleus_radius)
   membrane_flux <- scenario$boundary$membrane_flux_uM_um_s
-  if (identical(source_scaling, "total production proportional to volume")) {
+  if (identical(source_scaling, "constant production per unit volume")) {
     membrane_flux <- membrane_flux * length_scale
   }
   pde_rate <- function(concentration) {
@@ -47,7 +52,7 @@ run_delivery_model <- function(volume_multiplier, diffusion_um2_s,
     inner_boundary = list(type = "reactive_sink",
                           value = capture_permeability_um_s),
     outer_boundary = list(type = "fixed_inward_flux", value = membrane_flux),
-    save_times = seq(0, duration_s, by = 1)
+    save_times = unique(c(seq(0, duration_s, by = save_interval_s), duration_s))
   )
   concentrations <- trajectory$concentration_uM
   nuclear_boundary <- reactive_inner_boundary(
@@ -61,8 +66,11 @@ run_delivery_model <- function(volume_multiplier, diffusion_um2_s,
                                      length(grid$volumes_um3), byrow = TRUE))
   production_rate <- membrane_flux * membrane_area
   produced <- production_rate * duration_s
-  captured <- trapezoid(trajectory$time_s, capture_rate)
-  hydrolyzed <- trapezoid(trajectory$time_s, pde_total_rate)
+  cumulative_produced <- production_rate * trajectory$time_s
+  cumulative_captured <- cumulative_trapezoid(trajectory$time_s, capture_rate)
+  cumulative_hydrolyzed <- cumulative_trapezoid(trajectory$time_s, pde_total_rate)
+  captured <- tail(cumulative_captured, 1)
+  hydrolyzed <- tail(cumulative_hydrolyzed, 1)
   inventory <- as.numeric(concentrations %*% grid$volumes_um3)
   accumulated <- tail(inventory, 1) - inventory[1]
   fractions <- c(
@@ -73,6 +81,19 @@ run_delivery_model <- function(volume_multiplier, diffusion_um2_s,
   list(
     grid = grid,
     trajectory = trajectory,
+    fate_trajectory = data.frame(
+      time_s = trajectory$time_s,
+      cumulative_nuclear_capture_fraction = ifelse(
+        cumulative_produced > 0, cumulative_captured / cumulative_produced, NA_real_
+      ),
+      cumulative_pde_fraction = ifelse(
+        cumulative_produced > 0, cumulative_hydrolyzed / cumulative_produced, NA_real_
+      ),
+      cumulative_accumulation_fraction = ifelse(
+        cumulative_produced > 0, (inventory - inventory[1]) / cumulative_produced, NA_real_
+      ),
+      instantaneous_nuclear_capture_fraction = capture_rate / production_rate
+    ),
     summary = data.frame(
       volume_multiplier = volume_multiplier,
       diffusion_um2_s = diffusion_um2_s,
@@ -105,7 +126,13 @@ spherical cytoplasmic shell, and faces two competing fates:
 \frac{V_{\max}C}{K_m+C}.
 \]
 
-The outer boundary supplies a fixed inward flux density, \(J_{\rm mem}=\beta\).
+The default analysis holds total membrane production constant per unit cell
+volume. Because membrane area scales as \(V^{2/3}\), its inward flux density is
+\(J_{\rm mem}=\beta V^{1/3}\), where \(\beta\) is the 1x reference flux. Total
+production therefore scales in direct proportion to cell volume.
+In the reaction term, \(V_{\max}\) is the local maximum PDE hydrolysis rate per
+unit cytoplasmic volume (uM/s); the realized local rate is
+\(V_{\max}C/(K_m+C)\).
 The nuclear envelope is a partially absorbing Robin boundary,
 \(J_{\rm nuc}=P_{\rm nuc}C(R_{\rm nuc})\). Nuclear capture is counted as productive;
 cytoplasmic PDE hydrolysis is lost. The main outcome is the integrated nuclear
@@ -137,6 +164,7 @@ base_runs <- list()
 signal_profiles <- data.frame()
 profile_boundaries <- data.frame()
 signal_fate <- data.frame()
+signal_fate_time <- data.frame()
 
 for (diffusion in scenario$parameters$diffusion_um2_s) {
   for (volume_multiplier in c(1, 2)) {
@@ -169,6 +197,21 @@ for (diffusion in scenario$parameters$diffusion_um2_s) {
                  fate = "Net accumulation",
                  fraction = result$summary$accumulation_fraction)
     )
+    signal_fate_time <- rbind(
+      signal_fate_time,
+      data.frame(diffusion_um2_s = diffusion, volume = volume_label,
+                 time_s = result$fate_trajectory$time_s,
+                 fate = "Nuclear capture",
+                 fraction = result$fate_trajectory$cumulative_nuclear_capture_fraction),
+      data.frame(diffusion_um2_s = diffusion, volume = volume_label,
+                 time_s = result$fate_trajectory$time_s,
+                 fate = "PDE hydrolysis",
+                 fraction = result$fate_trajectory$cumulative_pde_fraction),
+      data.frame(diffusion_um2_s = diffusion, volume = volume_label,
+                 time_s = result$fate_trajectory$time_s,
+                 fate = "Net accumulation",
+                 fraction = result$fate_trajectory$cumulative_accumulation_fraction)
+    )
   }
 }
 
@@ -191,9 +234,9 @@ ggplot(signal_profiles,
 ```
 
 At \(D=300\) um2/s, the 1x profile spans about 1.685--1.688 uM and the 2x
-profile 1.164--1.168 uM: both are nearly uniform. At \(D=3\) um2/s, the 1x
+profile 1.712--1.717 uM: both are nearly uniform. At \(D=3\) um2/s, the 1x
 profile rises from about 1.559 uM at the nuclear side to 1.851 uM at the
-membrane, while the 2x profile rises from 1.013 to 1.363 uM. Low diffusion thus
+membrane, while the 2x profile rises from 1.519 to 1.970 uM. Low diffusion thus
 creates a visible transport gradient that is larger in the enlarged cell. The
 high-diffusion result is especially informative: a strong size effect on
 nuclear delivery survives even when cytoplasmic concentration is nearly
@@ -202,17 +245,24 @@ diffusion adds a genuine spatial transport penalty.
 
 ## Signal fate
 
-```{r fate, fig.width=9, fig.height=5}
-signal_fate$fate <- factor(signal_fate$fate,
-                           levels = c("Nuclear capture", "PDE hydrolysis",
-                                      "Net accumulation"))
-ggplot(signal_fate, aes(volume, fraction, fill = fate)) +
-  geom_col() +
-  facet_wrap(~ diffusion_um2_s, labeller = label_bquote(D == .(diffusion_um2_s))) +
-  scale_fill_manual(values = c("#0072B2", "#D55E00", "#999999")) +
+```{r fate, fig.width=9, fig.height=8}
+signal_fate_time$fate <- factor(
+  signal_fate_time$fate,
+  levels = c("Nuclear capture", "PDE hydrolysis", "Net accumulation")
+)
+ggplot(subset(signal_fate_time, time_s > 0),
+       aes(time_s, fraction, colour = volume, linetype = volume)) +
+  geom_line(linewidth = 0.8) +
+  facet_grid(fate ~ diffusion_um2_s, scales = "free_y",
+             labeller = labeller(diffusion_um2_s = function(x) {
+               paste0("D = ", x, " um2/s")
+             })) +
+  scale_colour_manual(values = volume_colours) +
   scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
-  labs(title = "Fate of membrane-produced signal over 300 seconds",
-       x = "Cell size", y = "Fraction of integrated production", fill = "Fate") +
+  labs(title = "Cumulative fate of membrane-produced signal",
+       subtitle = "Each fate has its own vertical scale so nuclear capture remains visible",
+       x = "Time (s)", y = "Fraction of cumulative production",
+       colour = "Cell size", linetype = "Cell size") +
   plot_theme
 ```
 
@@ -220,14 +270,18 @@ The three fractions close the mass balance: capture plus hydrolysis plus the
 net change in cytoplasmic inventory equals membrane production. The largest
 absolute numerical closure error across these runs is
 `r format(max(abs(vapply(base_runs, function(x) x$summary$mass_balance_error, numeric(1)))), digits = 2)`.
+The separate row scales reveal the otherwise small productive-capture signal:
+early production initially enters cytoplasmic inventory, PDE hydrolysis becomes
+dominant over time, and cumulative nuclear capture gradually approaches its
+300-s value.
 
 At \(D=300\) um2/s, the 1x cell assigns 4.20% of production to nuclear capture,
 91.94% to PDE hydrolysis, and 3.86% to net accumulation; the 2x values are
-2.94%, 93.74%, and 3.32%. Doubling volume therefore reduces productive capture
-by 30.1% relative. The corresponding reductions are 30.5% at \(D=30\) and
-34.3% at \(D=3\) um2/s. Most of the size effect already exists in the
+3.38%, 92.69%, and 3.93%. Doubling volume therefore reduces productive capture
+by 19.5% relative. The corresponding reductions are 19.8% at \(D=30\) and
+22.9% at \(D=3\) um2/s. Most of the size effect already exists in the
 well-mixed limit: lowering diffusion by 100-fold increases the penalty only
-from about 30% to 34%. In this parameterization, competition between the
+from about 19% to 23%. In this parameterization, competition between the
 area-localized nuclear target and volume-distributed PDE sink dominates, while
 finite diffusion strengthens the effect. Mass-balance closure is better than
 \(4\times10^{-5}\) in every baseline run.
@@ -260,11 +314,11 @@ ggplot(delivery_scaling,
        colour = "D (um2/s)") + plot_theme
 ```
 
-At \(D=300\) um2/s, nuclear capture declines monotonically from 6.26% to 4.20%,
-2.94%, 2.12%, and 1.57% as volume increases from 0.5x through 1x, 2x, 4x, and
-8x. The 8x cell therefore captures about 63% less signal per unit membrane
+At \(D=300\) um2/s, nuclear capture declines monotonically from 5.19% to 4.20%,
+3.38%, 2.71%, and 2.17% as volume increases from 0.5x through 1x, 2x, 4x, and
+8x. The 8x cell therefore captures about 48% less signal per unit membrane
 production than the 1x cell. At \(D=3\) um2/s, the 1x-to-8x decline is from
-3.87% to 1.05%, about 73%. The effect is not peculiar to the 1x/2x comparison;
+3.87% to 1.61%, about 58%. The effect is not peculiar to the 1x/2x comparison;
 slower diffusion progressively steepens the scaling at large sizes.
 
 ## Sensitivity to the abstract nuclear capture parameter
@@ -301,13 +355,13 @@ ggplot(capture_sensitivity,
 ```
 
 Across the full \(P_{\rm nuc}=0.003\)--0.3 um/s sweep, the 2x cell always has a
-lower delivery fraction. At \(D=300\) um2/s, the penalty ranges from about 32%
-at weak capture to 20% at strong capture; at \(D=3\), it ranges from about 36%
-to 27%. Increasing capture efficiency raises absolute productive delivery and
+lower delivery fraction. At \(D=300\) um2/s, the penalty ranges from about 21%
+at weak capture to 14% at strong capture; at \(D=3\), it ranges from about 24%
+to 19%. Increasing capture efficiency raises absolute productive delivery and
 partially buffers the size effect, but does not reverse it in the explored
 range.
 
-## Parameter regimes in which a 2x-volume change matters
+## Parameter regimes: diffusion and maximum PDE hydrolysis rate
 
 ```{r regime-heatmap, fig.width=8, fig.height=6}
 regime_heatmap <- data.frame()
@@ -319,6 +373,7 @@ for (diffusion in diffusion_grid) {
     two <- run_delivery_model(2, diffusion, pde_multiplier = pde_multiplier)
     regime_heatmap <- rbind(regime_heatmap, data.frame(
       diffusion_um2_s = diffusion, pde_multiplier = pde_multiplier,
+      pde_vmax_uM_s = pde_multiplier * scenario$parameters$pde_vmax_uM_s,
       fraction_1x = one$summary$nuclear_capture_fraction,
       fraction_2x = two$summary$nuclear_capture_fraction,
       log2_size_effect = log2(two$summary$nuclear_capture_fraction /
@@ -328,66 +383,107 @@ for (diffusion in diffusion_grid) {
 }
 
 ggplot(regime_heatmap,
-       aes(diffusion_um2_s, pde_multiplier, fill = log2_size_effect)) +
-  geom_tile() + scale_x_log10() + scale_y_log10() +
+       aes(diffusion_um2_s, pde_vmax_uM_s, fill = log2_size_effect)) +
+  geom_tile() +
+  geom_hline(yintercept = scenario$parameters$pde_vmax_uM_s,
+             colour = "black", linetype = "dashed", linewidth = 0.45) +
+  scale_x_log10() + scale_y_log10() +
   scale_fill_gradient2(low = "#3B4CC0", mid = "white", high = "#B40426",
                        midpoint = 0) +
-  labs(title = "Size-dependent nuclear delivery is a parameter-regime result",
+  labs(title = "Size effect across diffusion and PDE hydrolysis capacity",
        x = "Diffusion coefficient (um2/s)",
-       y = "PDE activity multiplier",
-       fill = "log2(2V / V)") + plot_theme
+       y = "PDE Vmax (uM/s per cytoplasmic volume)",
+       fill = "log2(2V / V)",
+       caption = "Dashed line: baseline PDE Vmax = 0.295 uM/s.") + plot_theme
 ```
 
-All 81 combinations of \(D=3\)--300 um2/s and PDE multiplier 0.25--4 have a
-negative \(\log_2(2V/V)\). The 2x capture fraction is 61--77% of the 1x value,
+The vertical axis is the \(V_{\max}\) in the PDE term of the first equation:
+it is the maximum local hydrolysis rate per cytoplasmic volume, not the
+concentration-dependent realized rate. The scan covers 0.0738--1.18 uM/s,
+equivalent to 0.25--4 times the baseline \(V_{\max}=0.295\) uM/s. All 81
+diffusion--PDE combinations have a
+negative \(\log_2(2V/V)\). The 2x capture fraction is 63--85% of the 1x value,
 with no sign reversal in the grid. This supports robustness to the tested
 diffusion and PDE activity region, not universality beyond it.
 
 ## Mechanistic control: remove the distributed sink
 
-```{r pde-control, fig.width=9, fig.height=5}
+```{r pde-control, fig.width=9, fig.height=6}
 pde_zero_control <- data.frame()
+pde_zero_control_time <- data.frame()
+pde_zero_duration_s <- 3000
 for (diffusion in scenario$parameters$diffusion_um2_s) {
   for (volume_multiplier in c(1, 2)) {
-    result <- run_delivery_model(volume_multiplier, diffusion, pde_multiplier = 0)
+    result <- run_delivery_model(
+      volume_multiplier, diffusion, pde_multiplier = 0,
+      duration_s = pde_zero_duration_s, save_interval_s = 5
+    )
+    volume_label <- paste0(volume_multiplier, "x volume")
     pde_zero_control <- rbind(pde_zero_control,
       data.frame(diffusion_um2_s = diffusion,
-                 volume = paste0(volume_multiplier, "x volume"),
+                 volume = volume_label,
                  fate = "Nuclear capture",
                  fraction = result$summary$nuclear_capture_fraction),
       data.frame(diffusion_um2_s = diffusion,
-                 volume = paste0(volume_multiplier, "x volume"),
+                 volume = volume_label,
                  fate = "Net accumulation",
                  fraction = result$summary$accumulation_fraction)
+    )
+    pde_zero_control_time <- rbind(
+      pde_zero_control_time,
+      data.frame(
+        diffusion_um2_s = diffusion, volume = volume_label,
+        time_s = result$fate_trajectory$time_s,
+        metric = "Instantaneous nuclear capture / production",
+        fraction = result$fate_trajectory$instantaneous_nuclear_capture_fraction
+      ),
+      data.frame(
+        diffusion_um2_s = diffusion, volume = volume_label,
+        time_s = result$fate_trajectory$time_s,
+        metric = "Cumulative nuclear capture / production",
+        fraction = result$fate_trajectory$cumulative_nuclear_capture_fraction
+      )
     )
   }
 }
 
-ggplot(pde_zero_control, aes(volume, fraction, fill = fate)) +
-  geom_col() +
-  facet_wrap(~ diffusion_um2_s, labeller = label_bquote(D == .(diffusion_um2_s))) +
-  scale_fill_manual(values = c("#0072B2", "#999999")) +
+ggplot(subset(pde_zero_control_time, time_s > 0),
+       aes(time_s, fraction, colour = volume, linetype = volume)) +
+  geom_hline(yintercept = 1, colour = "grey60", linetype = "dotted") +
+  geom_vline(xintercept = 300, colour = "grey60", linetype = "dashed") +
+  geom_line(linewidth = 0.8) +
+  facet_grid(metric ~ diffusion_um2_s,
+             labeller = labeller(diffusion_um2_s = function(x) {
+               paste0("D = ", x, " um2/s")
+             })) +
+  scale_x_sqrt(breaks = c(0, 300, 1000, 3000)) +
+  scale_colour_manual(values = volume_colours) +
   scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
-  labs(title = "Without PDE, uncaptured signal remains intracellular",
-       subtitle = "At 300 seconds, size changes capture versus inventory rather than irreversible loss",
-       x = "Cell size", y = "Fraction of integrated production", fill = "Fate") +
+  labs(title = "Without PDE, the finite-time size effect vanishes at steady state",
+       subtitle = "Dashed vertical line: the original 300-s endpoint; dotted horizontal line: input-output balance",
+       x = "Time (s; square-root scale)", y = "Nuclear capture fraction",
+       colour = "Cell size", linetype = "Cell size") +
   plot_theme
 ```
 
-At \(D=300\) um2/s, nuclear capture by 300 s is 39.8% for 1x and 33.7% for 2x;
-at \(D=3\), it is 39.3% and 33.1%. Removing PDE therefore does not eliminate
-the finite-time size effect: the larger cell captures about 15--16% less by
-300 s. The remainder is retained as cytoplasmic inventory rather than
-hydrolyzed. With PDE present, enlargement changes signal fate as well as
-delivery timing. The current 300-s control does not establish the subsequent
-trajectory of that retained inventory.
+The upper row shows the instantaneous capture rate divided by the production
+rate; the lower row shows capture integrated from time zero divided by
+cumulative production. At 300 s and \(D=300\) um2/s, instantaneous capture is
+67.3% for 1x and 58.8% for 2x, while cumulative capture is only 39.8% and 33.7%.
+The previously reported deficit is therefore a transient inventory effect. By
+3000 s, instantaneous capture exceeds 99.98% in both sizes, demonstrating that
+at steady state nuclear capture is the only outlet and must equal membrane
+production. Cumulative capture is then 91.1% and 88.7% and converges more slowly
+because it retains the history of early accumulation. The same behavior occurs
+at lower diffusion. PDE therefore converts a timing/inventory difference into
+persistent allocation to an irreversible competing sink.
 
 ## Source-scaling control
 
 ```{r source-control, fig.width=9, fig.height=5}
 source_scaling_control <- data.frame()
-for (source_scaling in c("fixed flux density",
-                         "total production proportional to volume")) {
+for (source_scaling in c("constant production per unit volume",
+                         "constant flux per unit membrane area")) {
   for (diffusion in scenario$parameters$diffusion_um2_s) {
     for (volume_multiplier in c(1, 2)) {
       result <- run_delivery_model(volume_multiplier, diffusion,
@@ -400,6 +496,11 @@ for (source_scaling in c("fixed flux density",
     }
   }
 }
+source_scaling_control$source_scaling <- factor(
+  source_scaling_control$source_scaling,
+  levels = c("constant production per unit volume",
+             "constant flux per unit membrane area")
+)
 
 ggplot(source_scaling_control,
        aes(volume, nuclear_capture_fraction, colour = diffusion_um2_s,
@@ -413,13 +514,15 @@ ggplot(source_scaling_control,
        colour = "D (um2/s)") + plot_theme
 ```
 
-The primary model holds AC-like flux density fixed, so total production scales
-with membrane area. The control increases flux density as \(V^{1/3}\), making
-total production proportional to volume. With fixed flux density, the 2x
-capture penalty is 30.1% at \(D=300\) and 34.3% at \(D=3\) um2/s. When total
-production is proportional to volume, those penalties are 19.5% and 22.9%.
-Source scaling substantially attenuates but does not eliminate the effect; its
-magnitude depends materially on how membrane production scales.
+The primary model makes total membrane production proportional to cell volume
+by scaling flux density as \(V^{1/3}\). The control instead holds flux per unit
+membrane area constant, so total production scales with membrane area. Source
+scaling changes PDE loading as well as the surface-to-volume relationship, so
+the comparison tests how strongly the size effect depends on this assumption.
+Under the volume-normalized default, the 2x capture penalty is 19.5% at
+\(D=300\) and 22.9% at \(D=3\) um2/s. Under constant flux per membrane area,
+the corresponding penalties increase to 30.1% and 34.3%. The qualitative size
+effect persists, but its magnitude depends materially on source scaling.
 
 ## Interpretation and limits
 
@@ -427,11 +530,12 @@ Together, the simulations separate two mechanisms. Enlargement produces a
 modest finite-time transport/capture disadvantage even without PDE, but the
 larger effect arises when a target scaling with nuclear surface area competes
 with an irreversible sink distributed throughout cytoplasmic volume. Doubling
-volume reduces nuclear capture by about 30% even at \(D=300\) um2/s, where
+volume reduces nuclear capture by about 19% even at \(D=300\) um2/s, where
 spatial gradients are negligible; lowering diffusion raises that penalty to
-about 34%. The effect remains negative throughout the tested capture, PDE, and
-diffusion ranges and persists, although weakened, when production scales with
-volume. The model therefore demonstrates a plausible mechanism by which cell
+about 23%. The effect remains negative throughout the tested capture, PDE, and
+diffusion ranges and becomes stronger when flux per membrane area, rather than
+production per cell volume, is held constant. The model therefore demonstrates
+a plausible mechanism by which cell
 enlargement changes signalling allocation rather than merely diffusion time.
 
 This is a deliberately minimal radial model. It assumes concentric spherical
