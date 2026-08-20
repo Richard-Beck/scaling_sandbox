@@ -79,3 +79,19 @@ write_public_csv(membrane_to_nucleus$pde_zero_control_time,
                  "membrane_to_nucleus_signaling/pde_zero_control_time.csv")
 write_public_csv(membrane_to_nucleus$source_scaling_control,
                  "membrane_to_nucleus_signaling/source_scaling_control.csv")
+
+# WGD spatial report data come from a committed, checksummed snapshot. Loading
+# this snapshot is intentionally independent of the expensive PDE generator.
+source("R/wgd_spatial_analysis.R")
+wgd_spatial <- read_wgd_snapshot("reports/assets/wgd_spatial/v1")
+validate_wgd_snapshot_values(wgd_spatial)
+write_public_csv(wgd_spatial$summary,
+                 "wgd_spatial_scaling/summary_metrics.csv")
+write_public_csv(wgd_spatial$dynamics,
+                 "wgd_spatial_scaling/dynamic_metrics.csv")
+write_public_csv(wgd_spatial$conservation,
+                 "wgd_spatial_scaling/conservation_summary.csv")
+write_public_csv(subset(wgd_spatial$longitudinal, time %in% c(10, 50, 200)),
+                 "wgd_spatial_scaling/longitudinal_profiles.csv")
+write_public_csv(subset(wgd_spatial$spatial, time == 200),
+                 "wgd_spatial_scaling/spatial_fields.csv")

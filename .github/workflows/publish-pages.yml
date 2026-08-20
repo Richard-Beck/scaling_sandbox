@@ -33,6 +33,9 @@ jobs:
             any::deSolve
             any::Matrix
             any::rootSolve
+            any::digest
+      - name: Verify reports cannot invoke WGD simulations
+        run: Rscript scripts/check_reports_do_not_simulate.R
       - name: Generate plot-level data
         run: Rscript scripts/export_public_plot_data.R
       - name: Render reports

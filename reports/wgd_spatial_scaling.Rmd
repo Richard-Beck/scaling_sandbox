@@ -1,0 +1,155 @@
+---
+title: "Cell size and spatial Rac/Cdc42 polarity after genome doubling"
+subtitle: "Matched-volume reaction--diffusion experiments in two cell shapes"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE,
+                      fig.align = "center", dpi = 110)
+library(ggplot2)
+library(gridExtra)
+source("../R/wgd_spatial_analysis.R")
+snapshot <- read_wgd_snapshot("assets/wgd_spatial/v1")
+validate_wgd_snapshot_values(snapshot)
+summary_table <- snapshot$summary
+metrics <- snapshot$dynamics
+conservation <- snapshot$conservation
+boundary_profiles <- snapshot$boundary
+longitudinal_profiles <- snapshot$longitudinal
+spatial_fields <- snapshot$spatial
+geometry_colours <- wgd_geometry_colours()
+plot_theme <- theme_minimal(base_size = 11) +
+  theme(panel.grid.minor = element_blank(), legend.position = "bottom",
+        plot.title = element_text(face = "bold"))
+```
+
+The exact plot-level data used here are exported to `docs/data/` during the
+site build. The completed numerical experiment is stored as a small,
+checksummed reporting snapshot. Rebuilding this page validates and reads that
+snapshot; it does not compile the numerical kernel or execute the PDE solver.
+
+# Question
+
+Does cell enlargement alone change the dynamics or stability of a spatial
+Rac/Cdc42/Rho polarity circuit when concentrations, kinetic constants,
+diffusion coefficients, shape, and relative stimulus position are otherwise
+held fixed?
+
+# Experimental design
+
+Six simulations cross two teardrop aspect ratios with three implied 3D volume
+classes. Linear dimensions scale with the cube root of volume. The original
+VCML cell mask is stretched onto an 80 by 80 mesh, while physical diffusion
+coefficients and reaction parameters remain unchanged.
+
+```{r design-table}
+knitr::kable(
+  summary_table[c("geometry", "size", "length_um", "width_um", "aspect_ratio")],
+  col.names = c("Geometry", "Volume", "Length (um)", "Width (um)", "Aspect ratio"),
+  digits = 2, row.names = FALSE
+)
+```
+
+The system was integrated from 0 to 200 s with a 0.02 s timestep. A spatial
+input is present through 10 s and then becomes uniform. Thus later structure
+tests whether the network maintains or reorganizes the induced polarity.
+
+# Polarization dynamics
+
+```{r dynamics, fig.width=11, fig.height=7}
+contrast_long <- rbind(
+  data.frame(metrics[c("geometry", "time")], species = "Cdc42",
+             contrast = metrics$cdc42_contrast),
+  data.frame(metrics[c("geometry", "time")], species = "Rac",
+             contrast = metrics$rac_contrast)
+)
+p_contrast <- ggplot(contrast_long,
+  aes(time, contrast, colour = geometry)) +
+  geom_vline(xintercept = 10, linetype = 3, colour = "grey45") +
+  geom_line(linewidth = 0.8) + facet_wrap(~species, ncol = 1, scales = "free_y") +
+  scale_colour_manual(values = geometry_colours) +
+  labs(title = "Front--back polarization dynamics",
+       subtitle = "Dotted line: spatial stimulus becomes uniform",
+       x = "Time (s)", y = "(front - back) / (front + back)", colour = NULL) +
+  plot_theme
+
+p_separation <- ggplot(metrics,
+  aes(time, rho_separation, colour = geometry)) +
+  geom_vline(xintercept = 10, linetype = 3, colour = "grey45") +
+  geom_line(linewidth = 0.8) + scale_colour_manual(values = geometry_colours) +
+  labs(title = "Cdc42--Rho spatial separation", x = "Time (s)",
+       y = "Centroid separation (cell lengths)", colour = NULL) + plot_theme
+
+gridExtra::grid.arrange(p_contrast, p_separation, ncol = 2, widths = c(1.15, 1))
+```
+
+The larger cells establish polarity later. More importantly, the two 2x-volume
+geometries retain multiple Cdc42 peaks for most of the post-stimulus interval,
+whereas the smaller cells settle into one peak.
+
+```{r result-table}
+display_summary <- summary_table[c(
+  "geometry", "time_to_90pct_cdc42_polarity_s",
+  "final_cdc42_front_back", "final_rho_separation_cell_lengths",
+  "cdc42_multi_peak_duration_s", "unique_state_stable"
+)]
+knitr::kable(display_summary,
+  col.names = c("Geometry", "90% polarity (s)", "Final Cdc42 front:back",
+                "Cdc42--Rho separation", "Multi-peak duration (s)",
+                "Stable unique state"),
+  digits = 3, row.names = FALSE)
+```
+
+# Spatial organization
+
+```{r final-fields, fig.width=11, fig.height=11}
+final_fields <- subset(spatial_fields, time == 200)
+final_fields$species <- factor(final_fields$species,
+  levels = c("cdc42_act", "Rac_act", "Rho_act"),
+  labels = c("Cdc42 active", "Rac active", "Rho active"))
+ggplot(final_fields, aes(x, y, fill = value)) +
+  geom_tile(aes(width = dx, height = dy)) + coord_fixed() +
+  facet_grid(geometry ~ species) + scale_fill_viridis_c(option = "magma") +
+  labs(title = "Spatial fields at 200 s", x = "x (um)", y = "y (um)",
+       fill = "uM") + plot_theme + theme(legend.position = "right")
+```
+
+```{r longitudinal, fig.width=12, fig.height=7}
+profile_plot_data <- subset(longitudinal_profiles, time %in% c(10, 50, 200))
+profile_plot_data$species <- factor(profile_plot_data$species,
+  levels = c("cdc42_act", "Rac_act", "Rho_act"),
+  labels = c("Cdc42 active", "Rac active", "Rho active"))
+ggplot(profile_plot_data,
+  aes(relative_x, value, colour = geometry)) +
+  geom_line(linewidth = 0.7) + facet_grid(species ~ time, scales = "free_y") +
+  scale_colour_manual(values = geometry_colours) +
+  labs(title = "Long-axis concentration profiles",
+       x = "Relative position from rear to front", y = "Mean concentration (uM)",
+       colour = NULL) + plot_theme
+```
+
+# Numerical checks and interpretation
+
+The maximum relative drift in each conserved GTPase pool is below
+`r format(max(conservation$max_relative_drift), scientific = TRUE, digits = 2)`.
+This makes numerical mass loss an implausible explanation for the size-dependent
+states.
+
+Within this model, enlargement does more than slow the approach to the same
+solution: it changes the spatial state selected after stimulation. Both tested
+2x-volume geometries retain two late Cdc42 peaks and fail the predefined stable
+unique-state criterion. Because this is a model-port experiment, that result is
+a mechanistic prediction rather than direct evidence that genome-doubled cells
+must behave this way in vivo.
+
+# Reproducibility boundary
+
+The report snapshot schema is version `r snapshot$manifest$schema_version` and
+was generated at `r snapshot$manifest$generated_utc`. Its VCML source SHA-256 is
+`r snapshot$manifest$source_vcml_sha256`. Full solver checkpoints are excluded
+from the repository because they are hundreds of megabytes; the committed
+snapshot contains all values needed to reproduce the plots and tables above.

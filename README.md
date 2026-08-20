@@ -16,8 +16,8 @@ For a process with source `S` and capacity `K`, we make its scaling assumption
 explicit:
 
 ```
-S \u221d V^alpha
-K \u221d V^beta
+S ∝ V^alpha
+K ∝ V^beta
 ```
 
 The relative loading therefore scales as `V^(alpha - beta)`. Geometry can add
@@ -74,6 +74,29 @@ Generated HTML, figures, and other rendered material should go in
   scaling in a Rac/Cdc42 polarity circuit adapted from Holmes et al.
 - `reports/buttenschoen_cell_size_rac_polarity.Rmd` reproduces and extends a
   moving-domain Rac polarity model with explicit size and dilution effects.
+- `reports/wgd_spatial_scaling.Rmd` compares matched 0.5x/1x/2x spatial
+  Rac/Cdc42/Rho simulations in two shapes. It reads a committed, checksummed
+  reporting snapshot and never launches the PDE solver during rendering.
+
+## Expensive WGD spatial workflow
+
+The WGD spatial model has an explicit two-stage workflow. Regenerate its full
+checkpoints only when the model or scenario changes, then publish a compact
+snapshot for the report:
+
+```text
+Rscript scripts/generate_wgd_spatial_results.R
+Rscript scripts/publish_wgd_snapshot.R
+```
+
+Pass `--reuse` to the generation script to retain completed worker checkpoints
+and run only missing conditions.
+
+Full checkpoints are written under `reports/output/wgd_spatial_scale/raw/` and
+remain untracked. Versioned, plot-ready files under
+`reports/assets/wgd_spatial/v1/` are tracked and are the only inputs used by
+page builds. A missing or invalid snapshot stops the build instead of falling
+back to a simulation.
 
 ## Publishing
 
