@@ -3,10 +3,10 @@
 This directory is a committed, plot-ready scientific result. Public report builds
 read these files and never invoke the PDE solver.
 
-Generated (UTC): 2026-08-20 18:31:08 UTC
-Source base commit: `8e8209a49a94c68bc1b8ee84967084b0bc9a41aa`
+Generated (UTC): 2026-08-20 18:44:04 UTC
+Source base commit: `4d079a2ea1433a67a34a72faf68925361e8e1c70`
 Source worktree was dirty: `TRUE`
-VCML SHA-256: `4f10480157528759eda015c4d10899bb68c707c6c6eed42041a30a67594d040b`
+VCML SHA-256: `fb08f6c76ce90d899c8d81048e5455f627d0448da713ff307a4490c28a21acb1`
 
 Refresh explicitly with:
 

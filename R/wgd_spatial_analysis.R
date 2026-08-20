@@ -9,6 +9,23 @@ wgd_snapshot_required_files <- function() {
   )
 }
 
+wgd_sha256_file <- function(path) {
+  if (!requireNamespace("digest", quietly = TRUE)) {
+    stop("SHA-256 validation requires the digest package.")
+  }
+  extension <- tolower(tools::file_ext(path))
+  if (extension %in% c("csv", "md", "r", "rmd", "cpp", "vcml")) {
+    bytes <- readBin(path, what = "raw", n = file.info(path)$size)
+    # Git commonly stores text as LF but checks it out as CRLF on Windows.
+    # Hash canonical LF bytes so a scientific snapshot validates identically
+    # on Windows, macOS, and Linux without weakening binary-file validation.
+    crlf <- bytes == as.raw(13L) & c(bytes[-1L] == as.raw(10L), FALSE)
+    if (any(crlf)) bytes <- bytes[!crlf]
+    return(digest::digest(bytes, algo = "sha256", serialize = FALSE))
+  }
+  digest::digest(path, algo = "sha256", file = TRUE)
+}
+
 read_wgd_snapshot <- function(path = "reports/assets/wgd_spatial/v1",
                               validate = TRUE) {
   manifest_path <- file.path(path, "manifest.rds")
@@ -26,7 +43,7 @@ read_wgd_snapshot <- function(path = "reports/assets/wgd_spatial/v1",
       stop("Snapshot validation requires the digest package.")
     }
     actual <- vapply(required, function(name) {
-      digest::digest(file.path(path, name), algo = "sha256", file = TRUE)
+      wgd_sha256_file(file.path(path, name))
     }, character(1))
     expected <- unlist(manifest$file_sha256[required], use.names = TRUE)
     if (!identical(actual, expected)) stop("WGD report snapshot checksum validation failed.")

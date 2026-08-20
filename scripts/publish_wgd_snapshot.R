@@ -91,7 +91,7 @@ saveRDS(spatial, file.path(snapshot_dir, "spatial_fields.rds"), compress = "xz")
 source_files <- c("R/vcell_vcml.R", "R/vcell_spatial.R", "R/vcell_model.cpp",
                   "R/wgd_spatial_analysis.R", "scenarios/wgd_spatial_scale.R",
                   "scenarios/wgd_spatial_scale.vcml", "scripts/generate_wgd_spatial_results.R")
-sha256 <- function(path) digest::digest(path, algo = "sha256", file = TRUE)
+sha256 <- wgd_sha256_file
 git_commit <- tryCatch(system2("git", c("rev-parse", "HEAD"), stdout = TRUE),
                        error = function(e) NA_character_)
 git_status <- tryCatch(system2("git", c("status", "--porcelain", "--", source_files),
