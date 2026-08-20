@@ -1,105 +1,69 @@
 # Cell-size scaling sandbox
 
-This sandbox is a small, reproducible workspace for asking how cellular
-processes change as cell size changes. It is intentionally organized around a
-separation of concerns:
+**[Browse the rendered scientific report catalogue](https://richard-beck.github.io/scaling_sandbox/)**
 
-- `R/` contains reusable geometry, diffusion, scaling, and plotting functions.
-- `scenarios/` defines named model instances: their geometry, boundary
-  conditions, sources, sinks, and scaling assumptions.
-- `reports/` contains R Markdown analyses that load one or more scenarios and
-  present their results.
+This repository asks how cellular transport, signalling, polarity, and intracellular organization change as cell size changes. The landing page is the primary entry point: it identifies each source model, what was modified, the main result, and whether the analysis is a reproduction, port, extension, or exploratory mechanism.
 
-## Core question
+## What is here
 
-For a process with source `S` and capacity `K`, we make its scaling assumption
-explicit:
+- Literature-derived polarity models from Mori, Holmes, Buttenschön, and the Eroumé implementation of the Marée Cdc42/Rac/Rho–phosphoinositide system.
+- Transport studies of oxygen, membrane-to-nucleus signalling, and microtubule-mediated cargo delivery.
+- Generic radial scenarios that isolate source, sink, geometry, and capacity scaling assumptions.
+- Rendered reports with downloadable plot-level data and explicit limitations.
 
-```
+The compact literature and implementation catalogue is maintained in [`MODEL_REGISTRY.md`](MODEL_REGISTRY.md).
+
+## Scaling question
+
+For a process with source `S` and capacity `K`, the sandbox makes the assumed exponents explicit:
+
+```text
 S ∝ V^alpha
 K ∝ V^beta
 ```
 
-The relative loading therefore scales as `V^(alpha - beta)`. Geometry can add
-an independent transport constraint: for geometrically similar spherical
-cells, surface area scales as `V^(2/3)` and radius as `V^(1/3)`.
+Relative loading scales as `V^(alpha - beta)`. For similar cells, surface area scales as `V^(2/3)` and length as `V^(1/3)`. Each report states which quantities are held fixed and which are allowed to scale.
 
-## Quick start
+## Repository organization
 
-Open `reports/size_scaling_overview.Rmd` in RStudio and knit it. The spatial
-models use `ReacTran` for finite-volume diffusion and `deSolve` for adaptive
-method-of-lines integration. Install them once if necessary:
+- `R/` contains reusable geometry, diffusion, model, and plotting functions.
+- `scenarios/` defines geometry, boundaries, parameters, and scaling choices.
+- `reports/` contains the scientific narratives and analyses.
+- `reports/assets/` contains small, versioned report snapshots where a full simulation is too expensive for a page build.
+- `docs/` is the GitHub Pages site root.
+- `scripts/` contains rendering, data export, and expensive-generation tools.
+
+## Build the public reports
+
+Install R packages once:
 
 ```r
-install.packages(c("deSolve", "ReacTran", "ggplot2", "gridExtra", "RANN", "rmarkdown"))
+install.packages(c("deSolve", "ReacTran", "ggplot2", "gridExtra", "RANN", "rmarkdown", "Matrix", "rootSolve", "digest"))
 ```
 
-To work interactively, source the reusable functions and then a scenario:
+From the repository root:
 
-```r
-source("R/scaling.R")
-source("R/diffusion.R")
-source("R/plotting.R")
-source("scenarios/external_supply.R")
-
-scenario <- external_supply_scenario()
+```text
+Rscript scripts/check_reports_do_not_simulate.R
+Rscript scripts/export_public_plot_data.R
+Rscript scripts/render_public_reports.R
 ```
 
-## Adding a scenario
+GitHub Actions runs the same public build on pushes to `main`. Generated HTML and plot CSVs under `docs/reports/` and `docs/data/` are intentionally untracked.
 
-Create a descriptive file in `scenarios/`. It should return a list with a
-name, geometry, boundary condition, and a `parameters` list. Keep numerical
-choices and biological assumptions there; keep numerical methods in `R/`.
+## WGD / Eroumé spatial snapshot
 
-Generated HTML, figures, and other rendered material should go in
-`reports/output/`, which is excluded from version control.
+The WGD report ports the exact nine-PDE reaction system from the public Eroumé et al. VCell model, which descends from Marée et al. It then performs a new 0.5×/1×/2× geometry experiment; that size experiment is not attributed to Eroumé et al.
 
-## Reports
-
-- `reports/size_scaling_overview.Rmd` documents the exploratory radial
-  boundary-flux scenarios and their limitations.
-- `reports/sedlack_single_cell_oxygen.Rmd` runs a Sedlack-inspired 3D Cartesian
-  oxygen model with a flattened adherent cell, finite-permeability membrane,
-  uniform cytoplasmic sink, one-time calibration, and 1x/2x volume comparison.
-- `reports/membrane_to_nucleus_signaling.Rmd` tests whether distributed PDE
-  hydrolysis redirects a membrane-generated cAMP-like signal away from a
-  localized, partially absorbing nuclear target as cell volume increases.
-- `reports/mt_polymer_density_networks.Rmd` compares four 3D MT generators at
-  matched polymer density, detects transport-relevant 3D junctions, and tests
-  simple cargo delivery in 1x/2x cells. Generate its cached simulation data
-  with `Rscript scripts/generate_mt_transport_results.R` before rendering.
-- `reports/wave_pinning_polarity.Rmd` tests domain-size effects in a minimal
-  mass-conserved wave-pinning model.
-- `reports/holmes_rac_cdc42_size_scaling.Rmd` examines membrane-accessibility
-  scaling in a Rac/Cdc42 polarity circuit adapted from Holmes et al.
-- `reports/buttenschoen_cell_size_rac_polarity.Rmd` reproduces and extends a
-  moving-domain Rac polarity model with explicit size and dilution effects.
-- `reports/wgd_spatial_scaling.Rmd` compares matched 0.5x/1x/2x spatial
-  Rac/Cdc42/Rho simulations in two shapes. It reads a committed, checksummed
-  reporting snapshot and never launches the PDE solver during rendering.
-
-## Expensive WGD spatial workflow
-
-The WGD spatial model has an explicit two-stage workflow. Regenerate its full
-checkpoints only when the model or scenario changes, then publish a compact
-snapshot for the report:
+Public builds never run this expensive PDE solver. They validate and read the committed, checksummed files in `reports/assets/wgd_spatial/v1/`. Regenerate the full checkpoints and publish a new compact snapshot only when the model or scenario changes:
 
 ```text
 Rscript scripts/generate_wgd_spatial_results.R
 Rscript scripts/publish_wgd_snapshot.R
 ```
 
-Pass `--reuse` to the generation script to retain completed worker checkpoints
-and run only missing conditions.
+Pass `--reuse` to the generation script to retain completed worker checkpoints. Full raw results remain untracked under `reports/output/wgd_spatial_scale/raw/`; a missing or invalid public snapshot stops the build rather than silently rerunning or substituting a simulation.
 
-Full checkpoints are written under `reports/output/wgd_spatial_scale/raw/` and
-remain untracked. Versioned, plot-ready files under
-`reports/assets/wgd_spatial/v1/` are tracked and are the only inputs used by
-page builds. A missing or invalid snapshot stops the build instead of falling
-back to a simulation.
+## Add a scenario
 
-## Publishing
-
-GitHub Actions builds the Pages artifact from `docs/` on each push to `main`.
-The workflow regenerates the report HTML and plot-level CSVs, but those derived
-files under `docs/data/` and `docs/reports/` are deliberately untracked.
+Create a descriptive file in `scenarios/` that returns a list containing its name, geometry, boundary conditions, and parameters. Keep biological and scaling assumptions in the scenario and numerical methods in `R/`. Add a report that states the source model, modification, status, result, and limits, then register it in `MODEL_REGISTRY.md` and the landing page.

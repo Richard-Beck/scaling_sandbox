@@ -1,6 +1,10 @@
 ---
 title: "Cell enlargement shifts membrane-generated signal away from nuclear capture"
-output: html_document
+subtitle: "Published cAMP transport baseline with an abstract nuclear-capture extension"
+output:
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
@@ -111,6 +115,14 @@ run_delivery_model <- function(volume_multiplier, diffusion_um2_s,
   )
 }
 ```
+
+[&larr; Report catalogue](../index.html)
+
+> **Status: literature-derived baseline + abstract extension.** Published
+> PMVEC models motivate the geometry, cAMP transport, membrane production, and
+> PDE parameters. The partially absorbing nuclear target and its size sweep
+> are deliberate abstractions introduced here, not a reproduction of a
+> published nuclear-capture model.
 
 The exact data used in every plot can be downloaded from the project landing
 page, and the complete report and model source is available in the

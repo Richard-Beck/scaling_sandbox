@@ -1,6 +1,10 @@
 ---
-title: "Cell-size scaling under imposed flux: spatial gradients without lost throughput"
-output: html_document
+title: "Exploratory cell-size scaling under imposed flux"
+subtitle: "Generic radial scenarios, not a literature-model reproduction"
+output:
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
@@ -17,6 +21,12 @@ volume_colours <- c(`1x volume` = "#0072B2", `2x volume` = "#D55E00")
 volume_linetypes <- c(`1x volume` = "solid", `2x volume` = "dashed")
 plot_theme <- theme_minimal(base_size = 11) + theme(legend.position = "bottom")
 ```
+
+[&larr; Report catalogue](../index.html)
+
+> **Status: exploratory / generic.** These radial scenarios were constructed
+> to expose scaling assumptions. They do not reproduce a specific published
+> biological model or claim organism-specific parameterization.
 
 The exact data used in every plot can be downloaded from the project landing
 page, and the complete report and model source is available in the

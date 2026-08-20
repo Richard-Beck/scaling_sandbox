@@ -1,6 +1,9 @@
 ---
 title: "Cell-size scaling of oxygen transport: oxygen-replete versus oxygen-limited regimes"
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
@@ -13,6 +16,13 @@ scenario <- sedlack_single_cell_oxygen_scenario()
 cell_colours <- c(`1x volume` = "#0072B2", `2x volume` = "#D55E00")
 report_theme <- theme_minimal(base_size = 11) + theme(legend.position = "bottom")
 ```
+
+[&larr; Report catalogue](../index.html)
+
+> **Status: literature-derived simplification + new size experiment.** Sedlack
+> et al. supply the oxygen-transport motivation and parameter targets; this
+> report replaces their reconstructed mitochondrial geometry with a uniform
+> cytoplasmic sink. The 1x/2x comparison is performed here.
 
 The exact data used in every plot can be downloaded from the project landing
 page, and the complete report and model source is available in the

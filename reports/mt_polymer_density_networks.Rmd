@@ -49,6 +49,25 @@ plot_theme <- theme_minimal(base_size = 10) +
   theme(legend.position = "bottom", panel.grid.minor = element_blank())
 ```
 
+[&larr; Report catalogue](../index.html)
+
+> **Status: literature-derived network components + custom transport model.**
+> Shariff et al. motivate persistent constrained MT growth; Li et al. motivate
+> rebound/regeneration rules. Density matching, pruning variants, junction
+> detection, cargo hopping, pause distributions, and the 1x/2x experiment are
+> modelling assumptions implemented here.
+
+# Question and source-model boundary
+
+At matched microtubule polymer length per cytoplasmic volume, does doubling
+cell volume alter network junction structure, cargo delivery time, deadline
+success, or the spatial distribution of successful membrane delivery?
+
+This is a comparative computational experiment, not a reproduction of any one
+paper. Published work informs particular network-growth and junction ideas;
+the assembled static-network transport system and its quantitative outputs are
+custom to this repository.
+
 ## Network generators
 
 All networks are generated in a flattened three-dimensional ellipsoid containing

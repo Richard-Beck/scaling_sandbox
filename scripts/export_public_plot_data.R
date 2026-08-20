@@ -95,3 +95,5 @@ write_public_csv(subset(wgd_spatial$longitudinal, time %in% c(10, 50, 200)),
                  "wgd_spatial_scaling/longitudinal_profiles.csv")
 write_public_csv(subset(wgd_spatial$spatial, time == 200),
                  "wgd_spatial_scaling/spatial_fields.csv")
+write_public_csv(wgd_spatial$boundary,
+                 "wgd_spatial_scaling/boundary_profiles.csv")

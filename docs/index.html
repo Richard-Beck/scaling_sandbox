@@ -1,94 +1,43 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Scaling Sandbox</title>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cell-size scaling model catalogue</title>
   <style>
-    body { max-width: 48rem; margin: 3rem auto; padding: 0 1.25rem; font: 16px/1.55 system-ui, sans-serif; color: #1f2933; }
-    h1 { margin-bottom: 0.2rem; } h2 { margin-top: 2rem; } ul { padding-left: 1.25rem; }
-    a { color: #0969da; } code { background: #f3f4f6; padding: 0.1rem 0.25rem; }
+    :root{--ink:#17212b;--muted:#52606d;--line:#d9e2ec;--paper:#fff;--wash:#f5f8fa;--accent:#175b6d;--warm:#9b4d25;--green:#246b49}*{box-sizing:border-box}body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--wash)}main,header{max-width:72rem;margin:auto;padding:0 1.4rem}header{padding-top:4rem;padding-bottom:2.3rem}h1{max-width:55rem;margin:0 0 .7rem;font:700 clamp(2.1rem,5vw,3.6rem)/1.08 Georgia,serif}h2{margin:2.8rem 0 1rem;font:700 1.75rem/1.2 Georgia,serif}h3{margin:.2rem 0 .45rem;font-size:1.13rem}p{margin:.45rem 0 1rem}a{color:var(--accent)}code{background:#e9eff3;padding:.1rem .28rem}.lede{max-width:52rem;font-size:1.15rem;color:var(--muted)}.actions{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:1.4rem}.button{display:inline-block;padding:.58rem .9rem;border:1px solid var(--accent);border-radius:.35rem;text-decoration:none;font-weight:650}.button.primary{color:#fff;background:var(--accent)}.note{background:#e9f2f3;border-left:4px solid var(--accent);padding:.85rem 1rem;margin:1.2rem 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));gap:1rem}.card{background:var(--paper);border:1px solid var(--line);border-radius:.55rem;padding:1.15rem;box-shadow:0 1px 2px #102a4312}.tag{display:inline-block;margin:0 .25rem .5rem 0;padding:.15rem .48rem;border-radius:1rem;background:#e7f2ec;color:var(--green);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em}.tag.extension{background:#f8ece5;color:var(--warm)}.result{color:#334e58}details{margin-top:.8rem}summary{cursor:pointer;color:var(--accent);font-weight:650}details ul{margin:.45rem 0 0;padding-left:1.25rem}table{width:100%;border-collapse:collapse;background:#fff;font-size:.92rem}th,td{padding:.65rem;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:#eaf0f4}.table-wrap{overflow-x:auto}footer{margin:3rem 0 0;padding:1.7rem 0 3rem;border-top:1px solid var(--line);color:var(--muted)}
   </style>
 </head>
 <body>
-  <h1>Cell Size Scaling Sandbox</h1>
-  <p>Public reports and plot-level data for the modelling sandbox. Each CSV is the exact data frame used to draw a report plot.</p>
+<header>
+  <span class="tag">Scientific model catalogue</span>
+  <h1>How does cell enlargement change transport, signalling, and polarity?</h1>
+  <p class="lede">A reproducible collection of controlled size-scaling experiments. Each report identifies the source model, the modification made here, the resulting behaviour, and the boundary between published evidence and new computation.</p>
+  <div class="actions"><a class="button primary" href="#reports">Browse reports</a><a class="button" href="https://github.com/Richard-Beck/scaling_sandbox">View repository</a><a class="button" href="https://github.com/Richard-Beck/scaling_sandbox/blob/main/MODEL_REGISTRY.md">Model registry</a></div>
+</header>
+<main>
+  <section><h2>Scientific premise</h2><p>Doubling volume does not merely make a cell “more of the same.” For similar shapes, length grows as <em>V</em><sup>1/3</sup> and surface area as <em>V</em><sup>2/3</sup>. Sources, sinks, molecular pools, membrane access, and transport distances can therefore scale differently. These reports hold selected biochemical quantities fixed while changing geometry or pool scaling so the responsible mechanism remains auditable.</p><div class="note"><strong>How to read the catalogue.</strong> “Reproduction” reconstructs a published formulation; “ported” transfers a released model; “extension” marks an experiment or assumption added here; “exploratory” marks a generic mechanism rather than a paper reproduction.</div></section>
 
-  <h2>Size Scaling Overview</h2>
-  <p><a href="reports/size_scaling_overview.html">View report</a></p>
-  <ul>
-    <li><a href="data/size_scaling_overview/external_profiles.csv">External-boundary concentration and consumption profiles</a></li>
-    <li><a href="data/size_scaling_overview/external_boundaries.csv">External-boundary positions</a></li>
-    <li><a href="data/size_scaling_overview/external_consumption_summary.csv">External-boundary integrated consumption</a></li>
-    <li><a href="data/size_scaling_overview/interior_exterior_profiles.csv">Interior/exterior medium profiles</a></li>
-    <li><a href="data/size_scaling_overview/interior_exterior_boundaries.csv">Interior/exterior boundary positions</a></li>
-    <li><a href="data/size_scaling_overview/interior_exterior_consumption_summary.csv">Interior/exterior integrated consumption</a></li>
-    <li><a href="data/size_scaling_overview/nuclear_export_concentration_profiles.csv">Nuclear-export concentration profiles</a></li>
-    <li><a href="data/size_scaling_overview/nuclear_export_sink_profiles.csv">Nuclear-export sink profiles</a></li>
-    <li><a href="data/size_scaling_overview/nuclear_export_boundaries.csv">Nuclear-export boundary positions</a></li>
-    <li><a href="data/size_scaling_overview/nuclear_export_consumption_summary.csv">Nuclear-export integrated consumption</a></li>
-    <li><a href="data/size_scaling_overview/nuclear_export_sink_summary.csv">Nuclear-export removal mass balance</a></li>
-  </ul>
+  <section id="reports"><h2>Polarity and GTPase signalling</h2><div class="grid">
+    <article class="card"><span class="tag">Ported</span><span class="tag extension">New size extension</span><h3>Eroumé–Marée Rac/Cdc42/Rho polarity</h3><p><strong>Model.</strong> Exact nine-PDE reaction system parsed from the Eroumé et al. VCell model, descended from Marée et al.; fixed shape omits the parent cytoskeletal module.</p><p><strong>Changed here.</strong> Two teardrop aspect ratios at matched 0.5×, 1×, and 2× implied volumes; concentrations, kinetics, diffusion, and relative stimulus position are fixed.</p><p class="result"><strong>Main result.</strong> Larger cells polarize later, and both tested 2× geometries retain two late Cdc42 peaks rather than meeting the predefined stable unique-state criterion.</p><p><a href="reports/wgd_spatial_scaling.html">Read report</a></p><details><summary>Download plot data</summary><ul><li><a href="data/wgd_spatial_scaling/summary_metrics.csv">Summary metrics</a></li><li><a href="data/wgd_spatial_scaling/dynamic_metrics.csv">Dynamic metrics</a></li><li><a href="data/wgd_spatial_scaling/conservation_summary.csv">Conservation checks</a></li><li><a href="data/wgd_spatial_scaling/longitudinal_profiles.csv">Longitudinal profiles</a></li><li><a href="data/wgd_spatial_scaling/spatial_fields.csv">Spatial fields</a></li><li><a href="data/wgd_spatial_scaling/boundary_profiles.csv">Boundary profiles</a></li></ul></details></article>
+    <article class="card"><span class="tag">Adapted</span><span class="tag extension">New size extension</span><h3>Holmes Rac/Cdc42 membrane accessibility</h3><p><strong>Model.</strong> Holmes et al. Rac/Cdc42/Rho circuit with membrane–cytosol exchange and membrane-restricted activation.</p><p><strong>Changed here.</strong> Geometrically similar enlargement reverses the paper's fixed-volume flattening question.</p><p class="result"><strong>Main result.</strong> Falling surface-area:volume reduces membrane accessibility and can desensitize polarity to a fixed relative Rac-GEF gradient.</p><p><a href="reports/holmes_rac_cdc42_size_scaling.html">Read report</a></p><details><summary>Download plot data</summary><ul><li><a href="data/holmes_geometry_accessibility.csv">Geometry and accessibility</a></li><li><a href="data/holmes_size_effect_decomposition.csv">Size-effect decomposition</a></li><li><a href="data/holmes_gradient_response_sweep.csv">Gradient-response sweep</a></li><li><a href="data/holmes_example_polarity_profiles.csv">Polarity profiles</a></li></ul></details></article>
+    <article class="card"><span class="tag">Reproduced</span><span class="tag extension">WGD extension</span><h3>Buttenschön cell size, dilution, and Rac polarity</h3><p><strong>Model.</strong> Published moving-domain, mass-conserved GTPase formulation with size-dependent diffusion and dilution.</p><p><strong>Changed here.</strong> A final controlled comparison separates size from dilution.</p><p class="result"><strong>Main result.</strong> Geometry-dependent spatial dynamics and pool dilution are distinct: “larger” and “more dilute” are not interchangeable perturbations.</p><p><a href="reports/buttenschoen_cell_size_rac_polarity.html">Read report</a></p><details><summary>Download plot data</summary><ul><li><a href="data/buttenschoen_prescribed_size_summary.csv">Prescribed-size summary</a></li><li><a href="data/buttenschoen_uniform_rac_oscillation.csv">Rac oscillation</a></li><li><a href="data/buttenschoen_wgd_scaling_summary.csv">WGD scaling summary</a></li><li><a href="data/buttenschoen_wgd_scaling_profiles.csv">WGD profiles</a></li></ul></details></article>
+    <article class="card"><span class="tag">Published minimal model</span><span class="tag extension">New sweep</span><h3>Wave-pinning polarity</h3><p><strong>Model.</strong> Mori–Jilkine–Edelstein-Keshet mass-conserved wave-pinning mechanism.</p><p><strong>Changed here.</strong> Domain length is swept while biochemical assumptions and stimulus are fixed.</p><p class="result"><strong>Main result.</strong> Size alone can move the nonlinear system between polarization regimes; this stripped-down model is not a whole-cell migration model.</p><p><a href="reports/wave_pinning_polarity.html">Read report</a></p><details><summary>Download plot data</summary><ul><li><a href="data/wave_pinning_timecourse.csv">Reference time course</a></li><li><a href="data/wave_pinning_volume_comparison.csv">Volume comparison</a></li><li><a href="data/wave_pinning_size_sweep.csv">Size sweep</a></li></ul></details></article>
+  </div></section>
 
-  <h2>Single-Cell Oxygen Model</h2>
-  <p><a href="reports/sedlack_single_cell_oxygen.html">View report</a></p>
-  <ul>
-    <li><a href="data/sedlack_single_cell_oxygen/oxygen_kinetics.csv">Oxygen kinetic curve</a></li>
-    <li><a href="data/sedlack_single_cell_oxygen/calibration_summary.csv">3D calibration summary</a></li>
-    <li><a href="data/sedlack_single_cell_oxygen/validation.csv">Sedlack comparison data</a></li>
-    <li><a href="data/sedlack_single_cell_oxygen/central_slice_profiles.csv">3D central-slice oxygen and consumption fields</a></li>
-    <li><a href="data/sedlack_single_cell_oxygen/size_scaling_summary.csv">Normoxic and hypoxic size-scaling summary</a></li>
-    <li><a href="data/sedlack_single_cell_oxygen/po2_distribution_summary.csv">Full-volume intracellular pO2 distribution summary</a></li>
-  </ul>
+  <section><h2>Transport and intracellular organization</h2><div class="grid">
+    <article class="card"><span class="tag">Literature-derived</span><span class="tag extension">Simplified here</span><h3>Single-cell oxygen transport</h3><p><strong>Model.</strong> Sedlack-inspired 3D oxygen transport with medium, flattened adherent cell, membrane, and Michaelis–Menten consumption.</p><p><strong>Changed here.</strong> Reconstructed mitochondrial geometry is replaced by a calibrated uniform sink; 1×/2× scaling is new.</p><p class="result"><strong>Main result.</strong> Enlargement matters little when oxygen is replete but exposes stronger gradients and limitation in hypoxic/high-demand regimes.</p><p><a href="reports/sedlack_single_cell_oxygen.html">Read report</a></p><details><summary>Download plot data</summary><ul><li><a href="data/sedlack_single_cell_oxygen/calibration_summary.csv">Calibration</a></li><li><a href="data/sedlack_single_cell_oxygen/validation.csv">Validation</a></li><li><a href="data/sedlack_single_cell_oxygen/size_scaling_summary.csv">Size-scaling summary</a></li><li><a href="data/sedlack_single_cell_oxygen/po2_distribution_summary.csv">pO2 distributions</a></li></ul></details></article>
+    <article class="card"><span class="tag">Published baseline</span><span class="tag extension">Abstract extension</span><h3>Membrane-to-nucleus signalling</h3><p><strong>Model.</strong> PMVEC-inspired spherical cAMP transport and PDE hydrolysis.</p><p><strong>Changed here.</strong> A partially absorbing nuclear target competes with a distributed PDE sink across sizes.</p><p class="result"><strong>Main result.</strong> Doubling volume lowers nuclear capture by about 19–23% under default source scaling; most of the penalty persists near the well-mixed regime.</p><p><a href="reports/membrane_to_nucleus_signaling.html">Read report</a></p><details><summary>Download plot data</summary><ul><li><a href="data/membrane_to_nucleus_signaling/signal_profiles.csv">Signal profiles</a></li><li><a href="data/membrane_to_nucleus_signaling/signal_fate.csv">Signal fate</a></li><li><a href="data/membrane_to_nucleus_signaling/nuclear_delivery_scaling.csv">Nuclear-delivery scaling</a></li><li><a href="data/membrane_to_nucleus_signaling/parameter_regime_heatmap.csv">Parameter regimes</a></li></ul></details></article>
+    <article class="card"><span class="tag">Component-derived</span><span class="tag extension">Custom transport</span><h3>Microtubule networks and cargo delivery</h3><p><strong>Model.</strong> Shariff-derived growth and Li-derived rebound/regeneration components in static matched-density 3D networks.</p><p><strong>Changed here.</strong> Pruning, junctions, cargo rules, and 1×/2× comparison are custom assumptions.</p><p class="result"><strong>Main result.</strong> All four generators give longer delivery times and lower deadline success in 2× cells, with more junctions; outputs are illustrative, not biological estimates.</p><p><a href="reports/mt_polymer_density_networks.html">Read report</a></p></article>
+    <article class="card"><span class="tag extension">Exploratory</span><h3>Generic imposed-flux scaling</h3><p><strong>Model.</strong> Generic radial diffusion–reaction scenarios for external supply and nuclear export.</p><p><strong>Changed here.</strong> Alternative source/sink scaling assumptions are exposed rather than fitted to a paper.</p><p class="result"><strong>Main result.</strong> Total throughput can be preserved while enlargement still changes gradients and local concentrations.</p><p><a href="reports/size_scaling_overview.html">Read report</a></p><details><summary>Download plot data</summary><ul><li><a href="data/size_scaling_overview/external_profiles.csv">External-supply profiles</a></li><li><a href="data/size_scaling_overview/interior_exterior_profiles.csv">Cell + medium profiles</a></li><li><a href="data/size_scaling_overview/nuclear_export_concentration_profiles.csv">Nuclear-export profiles</a></li><li><a href="data/size_scaling_overview/nuclear_export_sink_summary.csv">Sink summary</a></li></ul></details></article>
+  </div></section>
 
-  <h2>Membrane-to-Nucleus Signalling</h2>
-  <p><a href="reports/membrane_to_nucleus_signaling.html">View report</a></p>
-  <ul>
-    <li><a href="data/membrane_to_nucleus_signaling/signal_profiles.csv">Radial signal profiles</a></li>
-    <li><a href="data/membrane_to_nucleus_signaling/profile_boundaries.csv">Radial-profile boundary positions</a></li>
-    <li><a href="data/membrane_to_nucleus_signaling/signal_fate.csv">Integrated signal fates</a></li>
-    <li><a href="data/membrane_to_nucleus_signaling/signal_fate_time.csv">Cumulative signal-fate time courses</a></li>
-    <li><a href="data/membrane_to_nucleus_signaling/nuclear_delivery_scaling.csv">Nuclear delivery across cell volumes</a></li>
-    <li><a href="data/membrane_to_nucleus_signaling/capture_sensitivity.csv">Nuclear-capture sensitivity</a></li>
-    <li><a href="data/membrane_to_nucleus_signaling/parameter_regime_heatmap.csv">Diffusion and PDE parameter regimes</a></li>
-    <li><a href="data/membrane_to_nucleus_signaling/pde_zero_control.csv">PDE-free mechanistic control</a></li>
-    <li><a href="data/membrane_to_nucleus_signaling/pde_zero_control_time.csv">PDE-free capture dynamics</a></li>
-    <li><a href="data/membrane_to_nucleus_signaling/source_scaling_control.csv">Source-scaling control</a></li>
-  </ul>
+  <section><h2>Model lineage and implementation status</h2><div class="table-wrap"><table><thead><tr><th>Source</th><th>Role here</th><th>Status</th></tr></thead><tbody>
+    <tr><td>Marée et al. (2012), <a href="https://doi.org/10.1371/journal.pcbi.1002402">DOI</a></td><td>Foundational Cdc42/Rac/Rho–phosphoinositide–shape model; parent of Eroumé.</td><td>Foundational; not separately reimplemented</td></tr>
+    <tr><td>Eroumé et al. (2021), <a href="https://doi.org/10.1371/journal.pone.0248293">DOI</a></td><td>Public fixed-shape VCell nine-PDE model supplies the exact WGD-report reaction system and parameters.</td><td>Ported; size experiment added here</td></tr>
+    <tr><td>De Belly et al. (2026), <a href="https://doi.org/10.1038/s41556-026-01965-1">DOI</a></td><td>Mechanochemical alternative: local Rac/Rho inhibition and long-range mutual activation through protrusion, tension, contraction, and cortical flow.</td><td>Considered/evaluated; not implemented</td></tr>
+    <tr><td>Holmes et al. (2012)</td><td>Rac/Cdc42/Rho membrane-accessibility model.</td><td>Adapted; enlargement experiment added</td></tr><tr><td>Buttenschön et al. (2020)</td><td>Moving-domain GTPase model with dilution and mechanics.</td><td>Reproduced in part; WGD extension added</td></tr><tr><td>Mori et al.</td><td>Minimal wave-pinning model.</td><td>Reimplemented; size sweep added</td></tr><tr><td>Sedlack et al. (2022)</td><td>Single-cell oxygen reference.</td><td>Simplified analogue; size experiment added</td></tr><tr><td>Feinstein et al. and later reproduction</td><td>PMVEC cAMP transport baseline.</td><td>Adapted; nuclear capture abstract</td></tr><tr><td>Shariff et al.; Li et al.</td><td>Microtubule growth and regeneration components.</td><td>Components adapted; transport custom</td></tr>
+  </tbody></table></div></section>
 
-  <h2>Microtubule Networks and Cargo Transport</h2>
-  <p>Matched-density 3D microtubule generators, transport junctions, cargo delivery, and membrane-delivery uniformity in 1x and 2x cells.</p>
-  <p><a href="reports/mt_polymer_density_networks.html">View report</a></p>
-
-  <h2>Wave-Pinning Polarity</h2>
-  <p><a href="reports/wave_pinning_polarity.html">View report</a></p>
-  <ul>
-    <li><a href="data/wave_pinning_timecourse.csv">Reference time course</a></li>
-    <li><a href="data/wave_pinning_volume_comparison.csv">Cell-volume comparison</a></li>
-    <li><a href="data/wave_pinning_size_sweep.csv">Cell-size sweep</a></li>
-  </ul>
-
-  <h2>Holmes Rac/Cdc42 Size Scaling</h2>
-  <p><a href="reports/holmes_rac_cdc42_size_scaling.html">View report</a></p>
-  <ul>
-    <li><a href="data/holmes_geometry_accessibility.csv">Geometry and membrane accessibility</a></li>
-    <li><a href="data/holmes_geometry_summary.csv">Geometry summary</a></li>
-    <li><a href="data/holmes_size_effect_decomposition.csv">Size-effect decomposition</a></li>
-    <li><a href="data/holmes_example_polarity_profiles.csv">Example polarity profiles</a></li>
-    <li><a href="data/holmes_gradient_response_sweep.csv">Gradient-response sweep</a></li>
-    <li><a href="data/holmes_gradient_thresholds.csv">Gradient thresholds</a></li>
-  </ul>
-
-  <h2>Buttenschön Cell-Size and Rac Polarity</h2>
-  <p><a href="reports/buttenschoen_cell_size_rac_polarity.html">View report</a></p>
-  <ul>
-    <li><a href="data/buttenschoen_prescribed_size_profiles.csv">Prescribed-size profiles</a></li>
-    <li><a href="data/buttenschoen_prescribed_size_summary.csv">Prescribed-size summary</a></li>
-    <li><a href="data/buttenschoen_uniform_rac_oscillation.csv">Uniform Rac oscillation</a></li>
-    <li><a href="data/buttenschoen_wgd_scaling_profiles.csv">WGD scaling profiles</a></li>
-    <li><a href="data/buttenschoen_wgd_scaling_summary.csv">WGD scaling summary</a></li>
-  </ul>
-
-  <p>Analysis source is maintained in <a href="https://github.com/Richard-Beck/scaling_sandbox"><code>reports/</code> in the repository</a>.</p>
-</body>
-</html>
+  <section><h2>Synthesis</h2><p>Across these models, size acts through longer diffusion distance, declining membrane-area:volume, competition between area-localized targets and volume-distributed sinks, nonlinear spatial-state selection, dilution, and increased path/junction complexity. The shared conclusion is not one universal enlargement phenotype: the scaling assigned to each source, sink, pool, and geometry determines which constraint appears.</p><p>The strongest current mechanistic result is the Eroumé-derived port: under tightly controlled biochemical assumptions, the 2× geometries select persistent multi-peak Cdc42 states. The main unresolved extension is mechanics. De Belly et al. provides a distinct long-range mechanochemical mechanism; it is documented as a candidate, not blended into the biochemical port.</p></section>
+  <footer>Source, scenarios, build instructions, and report snapshots are in the <a href="https://github.com/Richard-Beck/scaling_sandbox">GitHub repository</a>. Plot-level CSVs are the data frames used by the reports.</footer>
+</main></body></html>

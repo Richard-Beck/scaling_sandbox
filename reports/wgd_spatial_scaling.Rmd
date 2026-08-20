@@ -1,6 +1,6 @@
 ---
-title: "Cell size and spatial Rac/Cdc42 polarity after genome doubling"
-subtitle: "Matched-volume reaction--diffusion experiments in two cell shapes"
+title: "An Eroumé--Marée polarity model under cell-size scaling"
+subtitle: "Exact VCML reaction-system port with a new 0.5x/1x/2x geometry experiment"
 output:
   html_document:
     toc: true
@@ -27,6 +27,13 @@ plot_theme <- theme_minimal(base_size = 11) +
         plot.title = element_text(face = "bold"))
 ```
 
+[&larr; Report catalogue](../index.html)
+
+> **Status: published VCell model ported + WGD-oriented size extension.** The
+> nine-PDE reaction system and parameters are from the Eroumé et al. public
+> VCell model; changing cell size while holding concentrations and kinetics
+> fixed is a new experiment in this repository.
+
 The exact plot-level data used here are exported to `docs/data/` during the
 site build. The completed numerical experiment is stored as a small,
 checksummed reporting snapshot. Rebuilding this page validates and reads that
@@ -38,6 +45,27 @@ Does cell enlargement alone change the dynamics or stability of a spatial
 Rac/Cdc42/Rho polarity circuit when concentrations, kinetic constants,
 diffusion coefficients, shape, and relative stimulus position are otherwise
 held fixed?
+
+# Model provenance: what is published and what is new
+
+Marée et al. (2012) developed the parent polarity model: active and inactive
+Cdc42, Rac, and Rho interact with PIP, PIP2, and PIP3 feedback and, in the full
+model, cytoskeletal and cell-shape dynamics. That paper is the foundational
+lineage; it is not separately reimplemented here.
+
+Eroumé et al. (2021) implemented the Marée signalling system in Virtual Cell
+to study polarization on fixed cell shapes. Because shape was prescribed,
+they omitted the cytoskeletal module. Their extended fixed-shape model has
+nine PDE variables: active and inactive Cdc42, Rac, and Rho, plus PIP, PIP2,
+and PIP3. Eroumé et al. state that its parameter values are those of Marée et
+al. and released the VCell models publicly, including
+`Kerbai_PLoSone_2021_teardrop_polarization_extended`.
+
+For this repository, that Eroumé VCML model was obtained and parsed, and its
+reaction system was ported without redesigning the biochemical network. The
+new contribution is the controlled size experiment below: geometrically
+matched 0.5x, 1x, and 2x implied volumes at two aspect ratios. Eroumé et al.
+studied shape; they did **not** report this size-scaling experiment.
 
 # Experimental design
 
@@ -146,6 +174,17 @@ unique-state criterion. Because this is a model-port experiment, that result is
 a mechanistic prediction rather than direct evidence that genome-doubled cells
 must behave this way in vivo.
 
+# Limitations
+
+This is a fixed-shape, two-dimensional numerical experiment interpreted using
+implied three-dimensional volume scaling. It omits the cytoskeletal and shape
+feedback present in the full Marée model, and it does not model genome doubling
+itself, gene dosage, growth history, mechanics, or parameter adaptation. The
+tested teardrop geometries and stimulus protocol span only a small part of the
+possible shape and parameter space. Multiple late peaks are therefore a model
+prediction under the stated controls, not evidence that enlarged or
+genome-doubled cells generally become multipolar.
+
 # Reproducibility boundary
 
 The report snapshot schema is version `r snapshot$manifest$schema_version` and
@@ -153,3 +192,22 @@ was generated at `r snapshot$manifest$generated_utc`. Its VCML source SHA-256 is
 `r snapshot$manifest$source_vcml_sha256`. Full solver checkpoints are excluded
 from the repository because they are hundreds of megabytes; the committed
 snapshot contains all values needed to reproduce the plots and tables above.
+
+# References
+
+Marée AFM, Grieneisen VA, Edelstein-Keshet L (2012). How Cells Integrate
+Complex Stimuli: The Effect of Feedback from Phosphoinositides and Cell Shape
+on Cell Polarization and Motility. *PLoS Computational Biology* 8(3): e1002402.
+[doi:10.1371/journal.pcbi.1002402](https://doi.org/10.1371/journal.pcbi.1002402).
+
+Eroumé K, Vasilevich A, Vermeulen S, de Boer J, Carlier A (2021). On the
+influence of cell shape on dynamic reaction-diffusion polarization patterns.
+*PLoS ONE* 16(3): e0248293.
+[doi:10.1371/journal.pone.0248293](https://doi.org/10.1371/journal.pone.0248293).
+
+De Belly H, Gallén AF, Strickland E, et al. (2026). Long-range mutual
+activation establishes Rho and Rac polarity during cell migration. *Nature
+Cell Biology* 28:1244--1257.
+[doi:10.1038/s41556-026-01965-1](https://doi.org/10.1038/s41556-026-01965-1).
+This mechanochemical alternative has been evaluated conceptually but is not
+implemented here.
