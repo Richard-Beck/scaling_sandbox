@@ -1,0 +1,21 @@
+Use `dev/debelly/` as the local reference copy of the authors' released code, but **the committed implementation must be completely independent of that directory**.
+
+Create a self-contained Julia implementation in the tracked repository by copying/adapting the relevant upstream code, including both:
+
+* the **1D mechanochemical model** and its key example protocols;
+* the **2D axisymmetric mechanochemical model** and at least one representative supplied example.
+
+Preserve the authors' Julia/Gridap implementation rather than porting it to another language.
+
+Add a simple runner mechanism so that, from the repository alone, we can invoke representative published-model reproductions—for example baseline polarization, mechanochemical versus local-inhibition optogenetic perturbation, and a representative axisymmetric simulation.
+
+During development, actually run these cases and confirm that they behave sensibly and reproduce the expected published qualitative behavior. Generated figures/data may be used for verification locally, but **do not commit those outputs**.
+
+Keep the committed additions focused on:
+
+* the necessary Julia model source;
+* its Julia environment/dependencies;
+* runner script(s);
+* minimal documentation needed to run the reproductions.
+
+Do not perform any WGD or cell-size experiments yet, and do not artificially restrict the work to the 1D implementation.

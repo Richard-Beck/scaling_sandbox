@@ -32,6 +32,15 @@ Relative loading scales as `V^(alpha - beta)`. For similar cells, surface area s
 - `reports/assets/` contains small, versioned report snapshots where a full simulation is too expensive for a page build.
 - `docs/` is the GitHub Pages site root.
 - `scripts/` contains rendering, data export, and expensive-generation tools.
+- `python/giese_wp/` contains the coupled 2D-bulk/1D-membrane finite-element
+  implementation of the native Giese wave-pinning model.
+- `python/taniguchi/` contains the triangular-lattice fixed-circle and
+  square-lattice deformable-cell PIP2/PIP3 excitable-wave model. Its
+  [acceptance report](reports/taniguchi_excitable_waves.md) includes generated
+  figures and explicitly excludes a size experiment.
+
+Python finite-element workflows use the project-specific `scaling_sandbox`
+Conda environment described by `environment.yml`.
 
 ## Build the public reports
 

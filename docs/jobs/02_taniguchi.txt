@@ -1,0 +1,372 @@
+Great — the SI removes the parameter-access problem. We now have the complete equations and parameter sets, so the coding agent should **not need to search the literature at all**. The relevant material is SI Eqs. S3–S9 and Table S1.  
+
+I would give the coding agent roughly the following implementation specification.
+
+### Scope
+
+Port the **Taniguchi et al. 2013 PIP2/PIP3 excitable-wave model**, prioritizing the **2D deformable-cell version corresponding to Fig. 4F–I**. Also implement the simpler fixed circular-domain version as a validation layer. Do not add WGD/size modifications until the published model produces the expected excitable waves.
+
+The reduced model has two spatial fields:
+
+[
+U=[PIP2],\qquad V=[PIP3].
+]
+
+PI3K and PTEN are assumed to equilibrate rapidly between cytoplasm and membrane. Their cytoplasmic concentrations are spatially uniform, and their total amounts are conserved. This reduction creates the global integral terms in the (U,V) equations. 
+
+## 1. Fixed-domain reaction-diffusion model
+
+On a 2D domain (\Omega) of area (A),
+
+[
+\frac{\partial U}{\partial t}
+=============================
+
+## D_U\Delta U
+
+\frac{\alpha UV^2}
+{K_K+A^{-1}\int_\Omega V^2,dx}
++
+\frac{\beta UV}
+{K_P+A^{-1}\int_\Omega U,dx}
++S-\gamma U
+]
+
+and
+
+[
+\frac{\partial V}{\partial t}
+=============================
+
+D_V\Delta V
++
+\frac{\alpha UV^2}
+{K_K+A^{-1}\int_\Omega V^2,dx}
+------------------------------
+
+\frac{\beta UV}
+{K_P+A^{-1}\int_\Omega U,dx}
+-\mu V.
+]
+
+These are exactly SI Eq. S6. 
+
+Interpretation:
+
+* (U\rightarrow V): PI3K-mediated PIP2 phosphorylation.
+* (V\rightarrow U): PTEN-mediated PIP3 dephosphorylation.
+* (V^2) in the forward reaction gives PIP3-dependent positive feedback through PI3K.
+* Depletion of (U)/PTEN-mediated recovery provides the inhibitory/refractory component.
+* (S) continuously supplies PIP2.
+* (\gamma,\mu) degrade PIP2/PIP3.
+
+Taniguchi explicitly identifies the resting state as approximately
+
+[
+(U,V)=\left(\frac{1}{\gamma},0\right),
+]
+
+and shows that intermediate feedback gives excitability: suprathreshold (V) produces a large excursion and then returns to rest. Too weak a feedback gives no excitation; too strong a feedback creates a second stable state and destroys excitability. 
+
+### Boundary condition
+
+For the fixed circular domain,
+
+[
+-D_U\nabla U\cdot n-\chi_uU=0,
+]
+
+[
+-D_V\nabla V\cdot n-\chi_vV=0.
+]
+
+For (\chi_u=\chi_v=0), these reduce to zero-flux Neumann conditions. 
+
+### Stochastic excitation
+
+Add stochastic PIP3 synthesis and subtract exactly the same amount from PIP2.
+
+Events occur as a spatial Poisson process at rate (\theta) **per unit area**. Each event is centered at a random intracellular position (x_c) and has profile
+
+[
+N(x)=N_0
+\exp\left[-\frac{|x-x_c|^2}{2d^2}\right],
+]
+
+where (N_0) is sampled from an exponential distribution with mean (\sigma).
+
+For each event:
+
+[
+V\leftarrow V+N(x),
+\qquad
+U\leftarrow U-N(x).
+]
+
+The SI specifies the event rate, spatial profile and exponential amplitude distribution but does **not explicitly state whether its numerical implementation treats the event as an instantaneous field increment or a one-step source term**. I would implement it as an instantaneous Poisson impulse, which is the most literal interpretation, and record this as an implementation reconstruction rather than pretending it is stated by the authors. 
+
+## 2. Published fixed-circle reproduction
+
+Use:
+
+[
+R=5.0
+]
+
+and computational units of **1 length unit = 1 µm; 1 time unit = 10 s**. The authors used
+
+[
+\Delta x=5/31,\qquad
+\Delta t=5\times10^{-4}
+]
+
+with second-order Runge-Kutta. They describe a triangular lattice and second-difference diffusion. 
+
+Common parameters:
+
+| parameter       |              value |
+| --------------- | -----------------: |
+| (D_U)           |               0.05 |
+| (D_V)           |               0.20 |
+| (\alpha)        |                8.0 |
+| (\beta)         |                2.0 |
+| (K_P)           |                5.0 |
+| (S)             |                1.0 |
+| (\gamma)        |               0.15 |
+| (\mu)           |                1.0 |
+| (\chi_u,\chi_v) |                  0 |
+| (\theta)        | (1.5\times10^{-2}) |
+| (d)             |                0.2 |
+| (\sigma)        |                0.5 |
+
+Only (K_K) changes across Fig. 4A–D:
+
+[
+K_K=(6.0,\ 5.7,\ 4.2,\ 2.5).
+]
+
+These values are stated explicitly in the SI. 
+
+The physical diffusion coefficients are therefore
+
+[
+D_U=0.5~\mu{\rm m}^2/s,\qquad
+D_V=2.0~\mu{\rm m}^2/s.
+]
+
+Use the resting state (U=1/\gamma,\ V=0) initially unless reproduction shows that a short pre-equilibration is preferable. The SI establishes this resting state but does not separately state the exact numerical initialization used for every movie/figure.
+
+---
+
+# 3. Deforming 2D cell — main target
+
+Introduce a phase field
+
+[
+\phi(x,t)\approx
+\begin{cases}
+1 & \text{inside cell}\
+0 & \text{outside cell}.
+\end{cases}
+]
+
+Cell area is
+
+[
+A=\int \phi,dx.
+]
+
+The chemical equations become
+
+[
+\frac{\partial(\phi U)}{\partial t}
+===================================
+
+D_U\nabla\cdot(\phi\nabla U)
++
+\phi
+\left[
+-\frac{\alpha UV^2}
+{K_K+A^{-1}\int\phi V^2dx}
++
+\frac{\beta UV}
+{K_P+A^{-1}\int\phi Udx}
++S-\gamma U
+\right]
+-------
+
+\chi_u
+\frac{U|\nabla\phi|^2}
+{\int|\nabla\phi|^2dx},
+]
+
+[
+\frac{\partial(\phi V)}{\partial t}
+===================================
+
+D_V\nabla\cdot(\phi\nabla V)
++
+\phi
+\left[
+\frac{\alpha UV^2}
+{K_K+A^{-1}\int\phi V^2dx}
+--------------------------
+
+\frac{\beta UV}
+{K_P+A^{-1}\int\phi Udx}
+-\mu V
+\right]
+-------
+
+\chi_v
+\frac{V|\nabla\phi|^2}
+{\int|\nabla\phi|^2dx}.
+]
+
+That's Eq. S8. 
+
+The phase field obeys
+
+[
+\tau\frac{\partial\phi}{\partial t}
+===================================
+
+\eta
+\left[
+\Delta\phi-\epsilon^{-2}G'(\phi)
+\right]
+-------
+
+M
+\left(
+\int\phi dx-A_0
+\right)
+|\nabla\phi|
++
+(aV-bU)|\nabla\phi|,
+]
+
+with
+
+[
+G(\phi)=18\phi^2(1-\phi)^2.
+]
+
+The terms respectively represent effective surface tension, area-restoring pressure, and chemical control of protrusion/retraction: PIP3 pushes outward and PIP2 promotes retraction. 
+
+Stochastic (U\rightarrow V) firing should also be included in the deforming-domain simulations using the same Poisson/Gaussian mechanism above; Table S1 supplies (\theta,d,\sigma) for these simulations.
+
+## 4. Numerical scheme for deforming cell
+
+Use exactly the stated discretization initially:
+
+[
+\Delta x=0.1,\qquad
+\Delta t=8\times10^{-5}.
+]
+
+Use a regular 2D square lattice, central differences for spatial derivatives and second-order Runge-Kutta. 
+
+I would write this in **Python with NumPy + Numba**, not R: the tiny explicit timestep and repeated 2D stencil operations make compiled loops/vectorized arrays much more appropriate.
+
+Initialize (\phi) as a smooth circular diffuse interface enclosing area (A_0). The SI does not state the exact initialization profile. A sensible explicit reconstruction is
+
+[
+\phi(r)=\frac12\left[
+1-\tanh\left(\frac{r-R_0}{\sqrt2\epsilon}\right)
+\right]
+]
+
+with (R_0=\sqrt{A_0/\pi}=5). Allow it to relax briefly before introducing stochastic excitation. Mark that initialization as ours, not something attributed to Taniguchi.
+
+## 5. Exact Fig. 4F–I parameters
+
+Fixed for all four:
+
+[
+D_U=0.05,\quad D_V=0.20,\quad S=1.0,
+]
+
+[
+\tau=0.83,\quad
+\epsilon=1.0,\quad
+\eta=1.0,\quad
+M=0.5,
+]
+
+[
+A_0=5.0^2\pi=25\pi.
+]
+
+The rendered Table S1 makes the (5.0^2\pi) exponent clear; this is easy to misread in extracted PDF text. 
+
+Then:
+
+| parameter |             Fig 4F |             Fig 4G |             Fig 4H |              Fig 4I |
+| --------- | -----------------: | -----------------: | -----------------: | ------------------: |
+| (\alpha)  |                8.0 |               12.0 |               12.0 |                12.0 |
+| (\beta)   |                4.8 |                3.0 |                4.0 |                 5.0 |
+| (K_K)     |                3.5 |                5.8 |                6.0 |                 6.0 |
+| (K_P)     |                5.2 |                3.0 |                3.0 |                 2.8 |
+| (\gamma)  |               0.15 |               0.28 |               0.15 |                0.20 |
+| (\mu)     |                1.0 |                1.0 |                1.0 |                 1.0 |
+| (\chi_u)  |                 50 |                 80 |                 50 |                  50 |
+| (\chi_v)  |                 50 |                 80 |                 50 |                  50 |
+| (a)       |                 10 |                 14 |                 12 |                  12 |
+| (b)       |              0.030 |              0.030 |              0.030 |               0.035 |
+| (\theta)  | (1.0\times10^{-3}) | (1.0\times10^{-3}) | (1.0\times10^{-3}) | (0.85\times10^{-3}) |
+| (d)       |               0.07 |               0.06 |               0.07 |                0.10 |
+| (\sigma)  |                5.7 |                7.3 |                5.7 |                 4.0 |
+
+These are the complete original Table S1 values. 
+
+There is also a **Movie S3 parameterization** giving three additional published dynamical examples — transient waves, collision behavior and spiral formation. Those are extremely useful independent validation cases after Fig. 4F–I. The SI gives all three complete sets. 
+
+## 6. Acceptance tests before doing any size scaling
+
+I would require the port to demonstrate, in this order:
+
+1. Homogeneous resting state remains stable without stochastic firing.
+2. A sufficiently large imposed PIP3 perturbation gives the expected excitable excursion and refractory recovery.
+3. Stochastic firing generates propagating PIP3 domains rather than merely isolated flashes.
+4. PIP2 and PIP3 waves are approximately anticorrelated.
+5. Waves can collide/annihilate and under suitable parameters form rotating/spiral structures.
+6. With phase-field coupling turned on, arrival of PIP3 at the boundary causes protrusion while PIP2-rich regions retract.
+7. At least one Fig. 4F–I parameter set and preferably one Movie S3 set qualitatively resembles the published morphology/wave dynamics.
+8. Repeat with half (\Delta t) and finer (\Delta x) to make sure the qualitative regime is not a numerical artifact.
+
+I **wouldn't demand pixel-for-pixel reproduction**, because the model is stochastic and the SI does not provide random seeds or the exact initial diffuse-interface field.
+
+## 7. Only then add the sandbox size experiment
+
+Keep this explicitly separate from the Taniguchi reproduction.
+
+The natural first perturbation is:
+
+[
+L_{2x}=2^{1/3}L_{1x},
+]
+
+so for the phase-field target area,
+
+[
+A_{0,2x}
+========
+
+2^{2/3} A_{0,1x}
+\approx1.587A_{0,1x}.
+]
+
+Keep all local reaction rates, diffusion coefficients and noise rate **per unit area** unchanged. Because (\theta) is specified per area, the larger cell will naturally experience about 1.59× as many stochastic nucleation attempts per unit time. That is biologically and mathematically distinct from forcing the same total number of events per cell, so I would eventually compare both.
+
+Useful outputs would be number of simultaneous PIP3 domains, wave area and lifetime, wave speed, spiral/phase-singularity count, fraction of cell in the refractory/high-PIP2 state, collision frequency, total stochastic firing rate, shape anisotropy, centroid displacement and persistence of a dominant protrusive direction.
+
+One especially interesting feature for our scaling question is already baked into Taniguchi: the global PI3K/PTEN terms use **area-normalized integrals** such as
+
+[
+A^{-1}\int V^2dx.
+]
+
+So enlarging the cell doesn't trivially change those terms just because there is more area; it changes them through the *spatial organization* of the waves. That makes this quite a nice complement to the mass-conserved polarity models.
+
+This is enough information for the coding agent to implement the model without opening either the paper or SI. The only two implementation details that are genuinely not specified exactly by Taniguchi are the **initial diffuse phase-field profile** and the **precise timestep interpretation of a stochastic firing event**; I'd make the choices above explicit in the report rather than conceal them.

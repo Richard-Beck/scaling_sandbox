@@ -1,0 +1,92 @@
+Yes. I’d implement **only the Giese wave-pinning branch initially**, with the explicit goal of reproducing their published cell-size result before adding anything WGD-specific.
+
+1. **Implement the exact Giese bulk–surface WP equations.** Use a 2D circular cytoplasmic domain (\Omega) with the 1D circumference (\Gamma) as membrane:
+
+[
+\partial_t u=D_m\Delta_\Gamma u+f(u,v)
+]
+
+[
+\partial_t v=D_c\Delta v
+]
+
+[
+-D_c\nabla v\cdot n=f(u,v)\quad\text{on }\Gamma
+]
+
+with
+
+[
+f(u,v)=v\left(k_0+\gamma\frac{u^2}{K^2+u^2}+k_S(x,t)\right)-\delta u.
+]
+
+This is genuinely mass-conserving: the same reaction flux is added to the membrane and removed from the cytoplasm. Giese explicitly formulated (u) as a surface concentration and (v) as a bulk concentration, rather than the same-dimensional variables of original Mori. ([WIAS Berlin Archive][1])
+
+Use their WP parameters exactly: (k_0=0.067,\mu\mathrm m/s), (\gamma=1,\mu\mathrm m/s), (K=0.1,\mu\mathrm m,\mu\mathrm M), (\delta=1,s^{-1}), initial (u_0=0.026,\mu\mathrm m,\mu\mathrm M), (v_0=0.2,\mu\mathrm M), and their consensus diffusivities (D_m=0.015) and (D_c=3,\mu\mathrm m^2/s). ([WIAS Berlin Archive][1])
+
+2. **Use a genuine 2D bulk + 1D boundary numerical solver.** I would do this in Python rather than force it into the existing R PDE machinery. The paper used first-order conforming FEM on triangular meshes, with (u) solved on boundary elements and (v) in the triangular bulk. ([WIAS Berlin Archive][1]) A lightweight implementation using `scikit-fem` + SciPy would fit very well: it currently supports triangular FE assembly and boundary/facet forms. ([scikit-fem][2])
+
+The crucial numerical feature is to assemble the membrane/cytosol reaction flux **once** and insert it with opposite signs into the two equations. That should make mass conservation an explicit validation check rather than something we hope emerges numerically.
+
+I would also keep approximately constant **physical mesh resolution in µm across cell sizes**. Otherwise a 15-µm cell being represented much more coarsely than a 3-µm cell could masquerade as a size effect.
+
+3. **First validation: homogeneous dynamics and conservation.** Before polarization simulations, demonstrate that the published ((u_0,v_0)) state remains homogeneous with no stimulus, that total
+
+[
+M=\int_\Gamma u,ds+\int_\Omega v,dA
+]
+
+stays constant to tight numerical tolerance, and that positive membrane flux produces an exactly corresponding loss from the bulk. Giese's formulation is explicitly designed around that conservation law. ([WIAS Berlin Archive][1])
+
+Then do mesh/time-step convergence so we're not interpreting solver artifacts.
+
+4. **Reproduce the native Giese size experiment — this is the main acceptance test.** Circular cells span roughly **1.5–15 µm diameter**. Giese tests both a single localized stimulus and two opposing stimuli; stimulus areas are scaled with circumference so that their relative extent is constant with size. ([WIAS Berlin Archive][1])
+
+For the two-site experiment, each stimulus covers 5% of the membrane, the stronger and weaker stimuli are (0.44) and (0.40,\mu\mathrm m/s), and both last 10 s. ([WIAS Berlin Archive][1])
+
+Implement their original outputs too: **POL**, **PF**, and polarization time defined as reaching 90% of the final/maximal PF. ([WIAS Berlin Archive][1])
+
+The reproduction should be considered successful only if we recover the important qualitative and approximate quantitative results: no WP polarization below ~3 µm; single-stimulus polarization slowing from about 17 s at 3 µm to 80 s at 15 µm; two-site competition slowing from about 43 s at 3 µm to 953 s at 6 µm; and no unique site within 2000 s for diameters above 6 µm. ([WIAS Berlin Archive][1])
+
+I'd additionally save membrane profiles and 2D cytoplasmic concentration fields at selected times. Those will tell us *why* competition slows rather than merely reproduce Figure 4.
+
+5. **Only after that, add a WGD-oriented adapter.** I would keep this absolutely separate from the reproduction, as with Chiou.
+
+A 2× 3D volume increase maps to
+
+[
+R_{2x}=2^{1/3}R_{1x}.
+]
+
+So if we choose, say, a 10-µm baseline diameter, WGD corresponds to only 12.6 µm—not the enormous diameter changes in Giese's published sweep.
+
+There's a subtlety here worth handling carefully: Giese is a **2D slice model**, so its conserved mass is amount per unit height. The paper explicitly notes this. ([WIAS Berlin Archive][1]) I would therefore avoid pretending its 2D mass is literally whole-cell protein abundance.
+
+Instead I'd initially compare two extremely clean cases:
+
+**native concentration scaling:** keep (u_0,v_0) fixed exactly as Giese does and change radius by (2^{1/3});
+
+**controlled abundance scaling:** define an explicit extruded-cell interpretation and choose target total abundance, then solve for the corresponding homogeneous (f(u,v)=0) starting state rather than arbitrarily multiplying (u) and (v).
+
+That second experiment deserves some thought before coding because membrane and cytoplasmic pools naturally scale differently.
+
+6. **Make two-site competition the main WGD endpoint.** In addition to Giese's PF/POL, I'd calculate winner-selection time, peak count, winner/loser membrane mass, active membrane fraction, bulk concentration heterogeneity, membrane/cytosol mass partition, and whether a unique polarity site exists by a declared biological observation time.
+
+That directly connects Giese to the Chiou and Eroumé results already in the sandbox, but without contaminating the reproduction itself.
+
+7. **Fit it into the repo the same way as the expensive spatial model.** I would envisage something like a Python solver module, a native-Giese reproduction script, a WGD-extension script, compact versioned snapshots under `reports/assets/giese_wp/v1/`, and an Rmd report that reads those snapshots rather than solving FEM during the public build. That matches the repository's existing separation of models/scenarios/reports and its committed-snapshot approach for expensive PDEs.
+
+The eventual report should have a very explicit break:
+
+**Part I — Giese et al. 2015 reproduction**
+Figure-4-style native diameter sweep.
+
+**Part II — cell-enlargement experiment**
+1× versus 2× volume mapping plus controlled molecular scaling assumptions.
+
+I would **not** initially implement their GOR/Turing model, protrusions, organelles, diffusion barriers, or linear-stability analysis. Those are useful later, but none is necessary to answer the immediate question: *does explicit membrane–cytoplasm coupling produce an interesting WGD-sized polarity/competition effect?*
+
+The first milestone I'd want is therefore very concrete: **reproduce the Giese WP Figure 4 size curves and representative membrane/bulk fields, with demonstrated mass and mesh convergence.** If that works, the WGD experiment becomes quite small and scientifically interpretable.
+
+[1]: https://archive.wias-berlin.de/servlets/MCRFileNodeServlet/wias_derivate_00000088/Giese_2015_Phys._Biol._12_066014.pdf "Influence of cell shape, inhomogeneities and diffusion barriers in cell polarization models"
+[2]: https://scikit-fem.readthedocs.io/en/stable/advanced.html?utm_source=chatgpt.com "Advanced topics — scikit-fem 12.0.2 documentation"
