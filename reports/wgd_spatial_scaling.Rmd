@@ -39,12 +39,23 @@ site build. The completed numerical experiment is stored as a small,
 checksummed reporting snapshot. Rebuilding this page validates and reads that
 snapshot; it does not compile the numerical kernel or execute the PDE solver.
 
-# Question
+# Question and answer
 
-Does cell enlargement alone change the dynamics or stability of a spatial
-Rac/Cdc42/Rho polarity circuit when concentrations, kinetic constants,
-diffusion coefficients, shape, and relative stimulus position are otherwise
-held fixed?
+Does cell enlargement alone cause a spatial Rac/Cdc42/Rho polarity circuit to
+establish more concentration peaks, particularly along the cell boundary, when
+concentrations, kinetic constants, diffusion coefficients, shape, and relative
+stimulus position are otherwise held fixed?
+
+**In these simulations, yes--but the boundary result is partly transient and
+shape-dependent.** The 0.5x- and 1x-volume cells never exceed one longitudinal
+Cdc42 peak after the stimulus, whereas both 2x cells reach three, end with two,
+and remain multi-peaked for 166--168 s. Along the boundary-adjacent trace, both
+2x cells also establish a third local Cdc42 maximum at 50 and 100 s, compared
+with two flanking maxima in the smaller cells. At 200 s, that extra boundary
+maximum remains in the aspect-ratio 1.00 cell but has merged away in the
+aspect-ratio 1.29 cell. Enlargement therefore permits and prolongs additional
+spatial domains; it does not guarantee a permanently larger number of membrane
+boundary peaks in every shape.
 
 # Model provenance: what is published and what is new
 
@@ -115,20 +126,24 @@ p_separation <- ggplot(metrics,
 gridExtra::grid.arrange(p_contrast, p_separation, ncol = 2, widths = c(1.15, 1))
 ```
 
-The larger cells establish polarity later. More importantly, the two 2x-volume
-geometries retain multiple Cdc42 peaks for most of the post-stimulus interval,
-whereas the smaller cells settle into one peak.
+The larger cells establish polarity later: the 90% time increases from
+20--23 s in the 0.5x and 1x cells to 25 s in both 2x cells. More importantly,
+the two 2x-volume geometries retain multiple *longitudinal* Cdc42 peaks for
+most of the post-stimulus interval, whereas the smaller cells never establish
+more than one. These peak counts are computed from the concentration averaged
+across each transverse slice; the boundary-specific evidence is shown in the
+next section.
 
 ```{r result-table}
 display_summary <- summary_table[c(
   "geometry", "time_to_90pct_cdc42_polarity_s",
-  "final_cdc42_front_back", "final_rho_separation_cell_lengths",
+  "max_cdc42_peaks_after_stimulus", "final_cdc42_peaks",
   "cdc42_multi_peak_duration_s", "unique_state_stable"
 )]
 knitr::kable(display_summary,
-  col.names = c("Geometry", "90% polarity (s)", "Final Cdc42 front:back",
-                "Cdc42--Rho separation", "Multi-peak duration (s)",
-                "Stable unique state"),
+  col.names = c("Geometry", "90% polarity (s)",
+                "Maximum longitudinal peaks", "Final longitudinal peaks",
+                "Multi-peak duration (s)", "Stable unique state"),
   digits = 3, row.names = FALSE)
 ```
 
@@ -145,6 +160,48 @@ ggplot(final_fields, aes(x, y, fill = value)) +
   labs(title = "Spatial fields at 200 s", x = "x (um)", y = "y (um)",
        fill = "uM") + plot_theme + theme(legend.position = "right")
 ```
+
+## Concentration along the membrane boundary
+
+The next plot is the direct test of the membrane-boundary part of the
+question. It follows active Cdc42 in the grid cells immediately adjacent to
+the membrane. Relative perimeter 0 is the rear tip, the trace proceeds
+clockwise, and the front tip is near 0.5. These are boundary-adjacent samples
+of a spatial concentration field, not a separately modelled membrane-bound
+species.
+
+```{r membrane-boundary, fig.width=12, fig.height=6.5}
+boundary_cdc42 <- subset(
+  boundary_profiles,
+  species == "cdc42_act" & time %in% c(50, 100, 200)
+)
+boundary_cdc42$size <- factor(boundary_cdc42$size,
+  levels = c("0.5x", "1x", "2x"))
+boundary_cdc42$time <- factor(boundary_cdc42$time,
+  levels = c(50, 100, 200), labels = c("50 s", "100 s", "200 s"))
+size_colours <- c(`0.5x` = "#2166AC", `1x` = "#7B3294", `2x` = "#D73027")
+
+ggplot(boundary_cdc42,
+  aes(relative_perimeter, concentration_uM, colour = size)) +
+  geom_vline(xintercept = 0.5, linetype = 3, colour = "grey60") +
+  geom_line(linewidth = 0.85) +
+  facet_grid(pair ~ time) +
+  scale_colour_manual(values = size_colours, drop = FALSE) +
+  scale_x_continuous(breaks = seq(0, 1, by = 0.25)) +
+  labs(title = "Active Cdc42 concentration along the cell perimeter",
+       subtitle = "Dotted line marks the front tip; distance begins at the rear and proceeds clockwise",
+       x = "Relative distance along perimeter", y = "Boundary-adjacent concentration (uM)",
+       colour = "Relative volume") + plot_theme
+```
+
+The smaller cells show two perimeter maxima, one on either flank of the broad
+front domain. At 50 and 100 s, the 2x cells show an additional maximum at the
+front tip: three boundary-adjacent maxima rather than two. The extra maximum
+persists through 200 s for aspect ratio 1.00. For aspect ratio 1.29 it merges
+into the front domain between 100 and 150 s, leaving two boundary maxima at
+200 s even though the whole-cell longitudinal profile remains multi-peaked.
+Thus enlargement clearly increases the *capacity* and lifetime of additional
+peaks, but final boundary peak number also depends on shape.
 
 ```{r longitudinal, fig.width=12, fig.height=7}
 profile_plot_data <- subset(longitudinal_profiles, time %in% c(10, 50, 200))
@@ -168,11 +225,16 @@ This makes numerical mass loss an implausible explanation for the size-dependent
 states.
 
 Within this model, enlargement does more than slow the approach to the same
-solution: it changes the spatial state selected after stimulation. Both tested
-2x-volume geometries retain two late Cdc42 peaks and fail the predefined stable
-unique-state criterion. Because this is a model-port experiment, that result is
-a mechanistic prediction rather than direct evidence that genome-doubled cells
-must behave this way in vivo.
+solution: it changes the number and persistence of the spatial domains selected
+after stimulation. Both tested 2x-volume geometries reach three longitudinal
+Cdc42 peaks, end with two, and fail the predefined stable unique-state
+criterion; no smaller cell exceeds one longitudinal peak. On the boundary,
+both larger cells transiently establish a third Cdc42 maximum, but only one
+shape retains it to 200 s. The conclusion is therefore that added cell size
+supports extra polarity domains, including extra boundary structure, while
+shape influences whether a boundary peak persists. Because this is a
+model-port experiment, that result is a mechanistic prediction rather than
+direct evidence that genome-doubled cells must behave this way in vivo.
 
 # Limitations
 
@@ -181,7 +243,10 @@ implied three-dimensional volume scaling. It omits the cytoskeletal and shape
 feedback present in the full Marée model, and it does not model genome doubling
 itself, gene dosage, growth history, mechanics, or parameter adaptation. The
 tested teardrop geometries and stimulus protocol span only a small part of the
-possible shape and parameter space. Multiple late peaks are therefore a model
+possible shape and parameter space. The peak-count result also depends on the
+stated operational definitions: longitudinal peaks are counted after transverse
+averaging, while the membrane plot samples boundary-adjacent grid cells and
+shows local perimeter maxima. Multiple late peaks are therefore a model
 prediction under the stated controls, not evidence that enlarged or
 genome-doubled cells generally become multipolar.
 

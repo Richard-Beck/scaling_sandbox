@@ -1,0 +1,276 @@
+Scaling Sandbox: Polarity and Migration Modelling — Steering Direction
+1. Purpose
+
+The modelling component of the scaling sandbox should develop into a systematic comparative framework for asking how WGD-associated cellular enlargement alters polarity and, ultimately, migration.
+
+The objective is not to accumulate every published polarity model. It is to represent the major mechanistic classes of the literature with well-chosen canonical or experimentally grounded models, reproduce those models faithfully, and then subject them to a common set of explicitly defined WGD/size-scaling experiments.
+
+This modelling programme should ultimately generate experimentally testable predictions that can be evaluated using the planned size-resolved imaging and migration work. This fits the broader WGDsize objective of treating WGD as a biophysical scaling event, although migration remains a developing rather than immediately dominant experimental workstream.
+
+2. Working taxonomy of the literature
+
+A useful organizing hierarchy is:
+
+reaction–diffusion polarity chemistry
+→ + explicit membrane/cytoplasmic geometry
+→ + shape/mechanical/adhesion feedback
+→ actual migration dynamics
+
+Two important dynamical branches cut across this hierarchy:
+
+mass conservation / competition / abundance scaling
+
+and
+
+excitability / oscillations / multiple spatial modes.
+
+This is preferable to organizing the literature simply paper-by-paper because the models differ principally in which physical or biological mechanism they add. The literature review supports these as the major distinguishable mechanism classes.
+
+A. Core reaction–diffusion / mass-conserved polarity
+
+Local activation and spatial transport generate symmetry breaking and stable polarity. Wave-pinning is the canonical example.
+
+Covered: Mori et al. wave-pinning.
+
+B. Pool competition and abundance scaling
+
+Multiple polarity sites compete for shared molecular pools. Domain size, total protein abundance and concentration can have distinct—even opposing—effects.
+
+Covered: Chiou et al., alongside the conserved-pool behaviour already present in Mori and Buttenschön.
+
+This is particularly important for WGD because increased cell size may be accompanied by increased total molecular abundance rather than simple dilution. The literature identifies this distinction as central.
+
+C. Richer multi-GTPase reaction–diffusion networks
+
+Rac, Rho and Cdc42 interactions, phosphoinositides and feedback generate multiple possible polarized states and richer spatial behaviour.
+
+Covered: Holmes 2012 and Eroumé/Marée lineage.
+
+These provide much greater biological specificity than minimal wave-pinning.
+
+D. Domain growth, dilution and geometry
+
+Changing domain dimensions can alter diffusion distances, concentrations, mode selection and polarization dynamics.
+
+Covered: Buttenschön; Eroumé shape experiments; Holmes geometry effects.
+
+E. Explicit bulk–surface / membrane–cytoplasm systems
+
+Membrane reactions occur on a surface coupled to diffusible cytosolic species in a separate bulk compartment. Surface area and cytoplasmic volume therefore scale independently.
+
+Not yet adequately covered.
+
+This is an important gap for WGD because a 2× increase in volume produces only ~1.59× membrane area under isotropic scaling. A genuine bulk–surface model is the cleanest way to represent that distinction.
+
+Preferred representative: likely Cusseddu et al. 2019, with Paquin-Lefebvre et al. 2020 as an alternative/richer model.
+
+F. Excitable / oscillatory polarity
+
+Rather than converging to a single stationary front, signaling networks generate pulses, waves, refractory behaviour and repeated local activation events. These can govern reorientation, exploration and turning.
+
+Not yet covered by a dedicated representative.
+
+This is a sufficiently distinct theoretical lineage that it should be represented. The review identifies substantial experimental support for cortical waves, local excitable Cdc42 events, Rac negative feedback and excitability-dependent switching of migration modes.
+
+A sensible minimum would be one excitable model. An ideal library might contain two complementary representatives:
+
+a canonical LEGI/excitable-network implementation such as Xiong et al. 2010; and/or
+the more recent, experimentally constrained Town/Algorta Rac-negative-feedback lineage, which is especially attractive for predictions concerning turning and reorientation.
+G. Mechanochemical polarity
+
+Biochemical polarity interacts with membrane tension, cortical flow, actomyosin mechanics or related cell-spanning mechanical processes.
+
+Not yet implemented.
+
+The targeted scaling audit now gives a strong preferred representative: De Belly et al. 2026. Its mechanics use strain/stress, viscosity, membrane–cortex friction and a physical communication length
+
+λ=
+η/(χρ
+0
+	​
+
+)
+	​
+
+,
+
+so enlargement changes the ratio L/λ even when local material properties are held constant. This makes it substantially more defensible for WGD scaling than phenomenological absolute-extension models such as Zmurchok.
+
+Recommendation: port De Belly.
+
+H. Polarity → deforming cell → migration
+
+Signaling drives protrusion/contraction, adhesion and cell deformation, which in turn feed back on signaling and generate actual trajectories and migration-state transitions.
+
+Not yet adequately covered.
+
+Candidate lineages include full Marée, Holmes 2017, Rens 2021 and related deforming-boundary/adhesion models. The literature shows these can generate persistent migration, flipping, oscillation and irregular migration.
+
+These should probably be treated as a later extension, once the upstream polarity scaling results identify mechanisms worth translating into motion.
+
+3. Desired model-library end state
+
+I would aim for a small but defensibly comprehensive library, approximately:
+
+Mechanism	Representative
+Minimal mass-conserved polarity	Mori ✓
+Competition / abundance	Chiou ✓
+Experimentally grounded multi-GTPase network	Holmes ✓
+Rich spatial Rac/Rho/Cdc42/PI network	Eroumé ✓
+Growth/dilution/moving domain	Buttenschön ✓
+Explicit bulk–surface geometry	Cusseddu or equivalent
+Excitable polarity	1–2 representative models
+Mechanochemical long-range polarity	De Belly 2026
+Polarity-to-migration coupling	one model later, if warranted
+
+At that point I would stop expanding the library by default. Additional models should only be added if they test a mechanism not represented above or resolve an ambiguity exposed by the scaling analysis.
+
+4. Desired scientific end state
+
+The eventual project should not merely say:
+
+“Here are several models and what happens when we make them bigger.”
+
+It should answer:
+
+Which classes of polarity mechanism are intrinsically sensitive to WGD-scale enlargement, through which physical scaling mismatch, and which predicted effects actually occur in enlarged mammalian cells?
+
+The computational output should distinguish at least:
+
+pure spatial-distance effects;
+conserved-pool dilution;
+increased total molecular abundance;
+membrane-area versus cytoplasmic-volume scaling;
+spatial-mode/excitability effects;
+mechanical communication-length effects;
+shape and geometry effects.
+
+Ideally this leads to a cross-model synthesis such as:
+
+size perturbation → affected dimensionless/mechanistic quantity → polarity consequence → migration prediction → experimental test.
+
+The literature review already indicates that there is no universal expectation that larger cells polarize worse; different mechanisms predict qualitatively different outcomes.
+
+5. High-level work packages
+WP1 — Complete representative model coverage
+
+Finish the finite model library before undertaking the large comparative scaling exercise.
+
+Immediate targets:
+
+bulk–surface model → excitable model(s) → De Belly mechanochemical model.
+
+Each port should reproduce key published results before any WGD modification and record model provenance, equations, parameters and departures from the source.
+
+WP2 — Define a common WGD scaling framework
+
+Develop a shared specification for what “make the cell larger” means across models.
+
+At minimum separate:
+
+geometry;
+total abundance;
+concentration;
+membrane density;
+cytosolic abundance;
+shape/aspect ratio;
+mechanical material properties.
+
+Define the standard WGD perturbation from volume:
+
+V:1→2,L:1→2
+1/3
+,A:1→2
+2/3
+,
+
+while allowing alternative experimentally measured scaling relationships later.
+
+The important principle is that model-specific assumptions must not silently define the apparent size effect.
+
+WP3 — Perform systematic cross-model WGD experiments
+
+Once the model library is frozen, subject all appropriate models to a common hierarchy of scaling assumptions.
+
+The goal is not identical equations or identical outputs, but comparable questions:
+
+Does polarization fail?
+Is polarization delayed?
+Do multiple fronts coexist?
+Does competition slow?
+Do oscillations/waves become more common?
+Does cue sensitivity change?
+Does long-range Rac/Rho communication degrade?
+Which effect comes from geometry versus abundance versus mechanics?
+
+This should generate the central computational synthesis/paper.
+
+WP4 — Replace idealized scaling with empirical WGD geometry and molecular scaling
+
+Use the planned volume measurements to replace generic 1×/2× cells with empirically observed WGD size distributions and shapes. The broader project already identifies direct volume measurement and 2D-to-3D calibration as an active priority.
+
+Where possible, incorporate empirical abundance scaling for important model species rather than assuming either fixed total amount or fixed concentration.
+
+WP5 — Translate model predictions into imaging observables
+
+Identify the small number of discriminating measurements capable of distinguishing the predicted mechanisms.
+
+Likely candidates include:
+
+Rac/Cdc42/Rho spatial distributions;
+number and lifetime of competing fronts;
+front width;
+polarization/repolarization time;
+local signaling events/waves;
+cue-response threshold;
+distal Rac/Rho activation latency;
+turning and front-switching frequency.
+
+The review emphasizes that direct mammalian size manipulations combined with spatial Rac/Rho/Cdc42 measurements are currently a major empirical gap.
+
+WP6 — Experimental model discrimination
+
+Use matched low/high-ploidy cells and, importantly, size variation within or across ploidy states to test the model predictions.
+
+The first experiments need not reproduce every model variable. They should distinguish among mechanisms. For example:
+
+stable single fronts versus persistent competing domains;
+altered excitability/event frequency;
+degraded or delayed long-range Rac/Rho communication.
+
+The models should determine which assay is worth building, rather than the imaging programme trying to measure everything.
+
+WP7 — Extend from polarity to migration
+
+Once a size-dependent polarity mechanism has survived experimental testing, connect it to actual migration.
+
+This can proceed in two complementary ways:
+
+experimentally: trajectory imaging measuring speed, persistence, turning, morphological states and polarity simultaneously;
+computationally: port one suitable deforming-boundary/adhesion model and propagate the established polarity perturbation through to migration behaviour.
+
+Only at this stage would I invest heavily in Holmes 2017/Rens/Marée-style migration models. The targeted audit actually argues against using Holmes/Rens as primary WGD mechanics models, while retaining them as useful downstream tools for converting an established polarity signal into migration states.
+
+WP8 — Synthesis and publication
+
+The final computational/experimental project should synthesize the results around mechanisms of scale robustness and scale failure, rather than around individual models.
+
+A plausible eventual structure is:
+
+literature taxonomy → representative model reproductions → standardized WGD scaling → mechanistic cross-model synthesis → experimentally discriminating predictions → imaging/migration validation.
+
+That could support a standalone paper considerably stronger than either a modelling survey or a WGD migration phenotype alone.
+
+Near-term direction
+
+Given Chiou is now implemented, I’d make the immediate model-development sequence:
+
+1. Bulk–surface representative
+2. Excitable representative
+3. De Belly 2026
+4. Freeze the upstream model library
+5. Design the common WGD scaling framework
+
+I would put actual migration models after that freeze, rather than letting them delay the systematic polarity analysis. They become the next layer once we know which upstream size effects are worth propagating into cell motion.
+
+That gives the sandbox a finite destination while still leaving a clear route toward the larger K25 migration programme.
