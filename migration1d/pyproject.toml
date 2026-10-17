@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "migration1d"
+version = "0.1.0"
+description = "Endpoint-driven mechanochemical migration on a moving 1D interval"
+requires-python = ">=3.10"
+dependencies = ["numpy", "scipy", "matplotlib"]
+
+[project.scripts]
+migration1d-run = "migration1d.runner:main"
+migration1d-report = "migration1d.single_species.report:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

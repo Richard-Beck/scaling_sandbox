@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "python": "/home/4473331/.conda/envs/cpose/bin/python",
+  "model": "/home/4473331/.cellpose/models/cpsam",
+  "segmentation": {
+    "diameter": null,
+    "normalize": true,
+    "flow_threshold": 0.4,
+    "cellprob_threshold": 0.0,
+    "min_size": 15,
+    "max_size_fraction": 0.4,
+    "do_3D": false,
+    "augment": false,
+    "batch_size": 8,
+    "bsize": 256,
+    "tile_overlap": 0.1,
+    "resample": true
+  },
+  "rfp_normalization": {
+    "normalize": true,
+    "tile_norm_blocksize": 128,
+    "percentile": [
+      1,
+      99
+    ]
+  },
+  "matching": {
+    "max_gap_px": 15.0,
+    "margin_px": 3.0
+  },
+  "isolation": {
+    "min_frames": 10,
+    "clearance_px": 10.0,
+    "unknown_neighbor_guard_px": 50.0
+  },
+  "qc": {
+    "seed": 4473331,
+    "overview_per_field": 2,
+    "target_clips_per_field": 1,
+    "max_target_clips_report": 20,
+    "clip_frames": 12,
+    "crop_margin_px": 80
+  },
+  "profiles": {
+    "smoke": {
+      "fields": [
+        "hek293/FLD_2",
+        "mcf10a/FLD_102",
+        "mdamb/FLD_1",
+        "u87/FLD_1"
+      ],
+      "overview_per_field": 3
+    },
+    "pilot": {
+      "fields": [
+        "hek293/FLD_2",
+        "mcf10a/FLD_102",
+        "mdamb/FLD_1",
+        "u87/FLD_1"
+      ]
+    },
+    "full": {
+      "fields": "all"
+    }
+  },
+  "source_mapping_overrides": {
+    "u87/FLD_1": {
+      "expected_suffix_count": 289,
+      "skip_suffixes": [
+        1
+      ],
+      "reason": "Provisional visual alignment: XML 0 matches suffix 0; XML 1,144,287 match suffix 2,145,288. RFP suffix 1 is anomalous. Same time mapping applied to both channels; qualify adjacent frames before full processing."
+    }
+  }
+}

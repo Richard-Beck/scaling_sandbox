@@ -1,0 +1,654 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<MorpheusModel version="4">
+    <Description>
+        <Title>Reduced deBelly CPM (R, H, bound MCA M, T)</Title>
+        <Details>M is effective bound attachment density; fb is transport mobility. No explicit unbound pool.</Details>
+    </Description>
+    <Global>
+        <Field symbol="prot" value="0" />
+        <Constant symbol="DH" value="0.09945304488688282" />
+        <Constant symbol="D_R" value="0.25613824294083093" />
+        <Constant symbol="D_eff" value="1.5650977669344297" />
+        <Constant symbol="H0" value="0.417920368343753" />
+        <Constant symbol="KH" value="0.7114427207326953" />
+        <Constant symbol="KM" value="1.209476237920687" />
+        <Constant symbol="KQ" value="0.12644251896670544" />
+        <Constant symbol="KR" value="0.3005165237134978" />
+        <Constant symbol="KT" value="0.045107745616039356" />
+        <Constant symbol="M0" value="1.28" />
+        <Constant symbol="Mwidth" value="0.13840590029246752" />
+        <Constant symbol="PI3K_activity" value="1" />
+        <Constant symbol="R0" value="0.04539638208775508" />
+        <Constant symbol="Rac_input" value="0.11844644335164246" />
+        <Constant symbol="Rho_input" value="0.2998011343796087" />
+        <Constant symbol="T0" value="0.0" />
+        <Constant symbol="alpha0" value="0.05211118441915247" />
+        <Constant symbol="alphaM" value="0.019886708241300108" />
+        <Constant symbol="beta0" value="0.41794919784358964" />
+        <Constant symbol="betaT" value="0.5655774561843965" />
+        <Constant symbol="contractile_flow_activity" value="1" />
+        <Constant symbol="d_H" value="0.02831576545072618" />
+        <Constant symbol="d_R" value="0.0737936514407223" />
+        <Constant symbol="eta_c" value="451.44781032018795" />
+        <Constant symbol="external_tension" value="0.0" />
+        <Constant symbol="fb" value="0.78125" />
+        <Constant symbol="init_mode" value="1" />
+        <Constant symbol="kP" value="2.8958277191418325" />
+        <Constant symbol="lengthscale" value="0.2" />
+        <Constant symbol="mTORC2_activity" value="1" />
+        <Constant symbol="mechanical_duration" value="90.0" />
+        <Constant symbol="mechanical_start" value="50.0" />
+        <Constant symbol="nH" value="2.50271431085455" />
+        <Constant symbol="nQ" value="0.9850097238062606" />
+        <Constant symbol="nR" value="5.069465873227739" />
+        <Constant symbol="nT" value="4.094628604486605" />
+        <Constant symbol="protrusion_activity" value="1" />
+        <Constant symbol="pulse2_H" value="0" />
+        <Constant symbol="pulse2_angle" value="3.141592653589793" />
+        <Constant symbol="pulse2_duration" value="180.0" />
+        <Constant symbol="pulse2_start" value="150.0" />
+        <Constant symbol="pulse_H" value="0" />
+        <Constant symbol="pulse_R" value="0" />
+        <Constant symbol="pulse_angle" value="0.0" />
+        <Constant symbol="pulse_duration" value="90.0" />
+        <Constant symbol="pulse_kappa" value="20.0" />
+        <Constant symbol="pulse_start" value="50.0" />
+        <Constant symbol="q_R" value="15.056877020658712" />
+        <Constant symbol="tau_T" value="39.292917096644274" />
+        <Constant symbol="xi" value="0.4915560636602861" />
+        <Constant symbol="zeta_linear" value="1559.0853461821164" />
+        <Constant symbol="loading_gain" value="0.006926197596376494" />
+        <Constant symbol="noise_R" value="0.0017439970291278507" />
+        <Constant symbol="noise_H" value="0.0" />
+        <Constant symbol="chem_gradient" value="0.0" />
+        <Constant symbol="noise_M1" value="0.0" />
+        <Constant symbol="noise_M2" value="0.0" />
+        <Constant symbol="noise_M3" value="0.0" />
+        <Constant symbol="noise_M4" value="0.0" />
+        <Constant symbol="noise_M5" value="0.0" />
+        <Constant symbol="noise_M6" value="0.0" />
+        <Constant symbol="noise_M7" value="0.0" />
+        <Constant symbol="noise_M8" value="0.0" />
+        <Constant symbol="noise_M9" value="0.0" />
+        <Constant symbol="noise_M10" value="0.0" />
+        <Constant symbol="noise_M11" value="0.0" />
+        <Constant symbol="noise_M12" value="0.0" />
+        <Constant symbol="noise_M13" value="0.0" />
+        <Constant symbol="noise_M14" value="0.0" />
+        <Constant symbol="noise_M15" value="0.0" />
+        <Constant symbol="noise_M16" value="0.0" />
+    </Global>
+    <Space>
+        <Lattice class="square">
+            <Size symbol="lattice" value="600, 600, 0" />
+            <BoundaryConditions>
+                <Condition type="periodic" boundary="x" />
+                <Condition type="periodic" boundary="y" />
+            </BoundaryConditions>
+            <NodeLength value="1.0" />
+            <Neighborhood>
+                <Distance>2.0</Distance>
+            </Neighborhood>
+        </Lattice>
+        <SpaceSymbol symbol="l" />
+        <MembraneLattice>
+            <Resolution symbol="memsize" value="256" />
+            <SpaceSymbol symbol="m" />
+        </MembraneLattice>
+    </Space>
+    <Time>
+        <StartTime value="0" />
+        <StopTime value="3000" />
+        <SaveInterval value="0" />
+        <RandomSeed value="2026106001" />
+        <TimeSymbol symbol="time" />
+    </Time>
+    <CellTypes>
+        <CellType class="biological" name="cells">
+            <VolumeConstraint target="4800" strength="0.5841671285338682" />
+            <SurfaceConstraint target="1.017261566221714" strength="2.5817894677439623" mode="aspherity" />
+            <StarConvex retraction="false" membrane="Q" protrusion="true" strength="1.0" />
+            <MembraneProperty symbol="R" value="R0">
+                <Diffusion rate="(D_R/lengthscale^2)*1" />
+            </MembraneProperty>
+            <MembraneProperty symbol="H" value="H0">
+                <Diffusion rate="(DH/lengthscale^2)*1" />
+            </MembraneProperty>
+            <Property symbol="T" value="T0" />
+            <Property symbol="Pbaseline" value="cell.surface" />
+            <Property symbol="Mpositive" value="M0" />
+            <MembraneProperty symbol="V" value="0" />
+            <Function symbol="u">
+                <Expression>R</Expression>
+            </Function>
+            <Function symbol="Q">
+                <Expression>53.44467975066925*protrusion_activity*max(0,R)^nQ/(KQ^nQ+max(0,R)^nQ)</Expression>
+            </Function>
+            <Function symbol="sigmaA">
+                <Expression>contractile_flow_activity*zeta_linear*H</Expression>
+            </Function>
+            <Function symbol="pulse_profile">
+                <Expression>exp(pulse_kappa*(cos(m.phi-pulse_angle)-1))*(time&gt;=pulse_start)*(time&lt;pulse_start+pulse_duration)</Expression>
+            </Function>
+            <Function symbol="pulse2_profile">
+                <Expression>exp(pulse_kappa*(cos(m.phi-pulse2_angle)-1))*(time&gt;=pulse2_start)*(time&lt;pulse2_start+pulse2_duration)</Expression>
+            </Function>
+            <Function symbol="RacM">
+                <Expression>alphaM*PI3K_activity*0.5*(1-tanh((M-KM)/Mwidth))/(1+(max(0,H)/KH)^nH)</Expression>
+            </Function>
+            <System name="Minimal Rac-Rho chemistry" time-step="0.05" time-scaling="1" solver="Euler [fixed, O(1)]">
+                <DiffEqn symbol-ref="R">
+                    <Expression>d_R*((alpha0+alphaM*PI3K_activity*0.5*(1-tanh((M-KM)/Mwidth))+Rac_input*pulse_R*pulse_profile)/(1+(max(0,H)/KH)^nH)-R)+rand_norm(0,noise_R)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="H">
+                    <Expression>d_H*((beta0+betaT*mTORC2_activity*max(0,T)^nT/(KT^nT+max(0,T)^nT)+Rho_input*(pulse_H*pulse_profile+pulse2_H*pulse2_profile))/(1+(max(0,R)/KR)^nR)-H)+rand_norm(0,noise_H)</Expression>
+                </DiffEqn>
+            </System>
+            <System name="Deformation-derived tension" time-step="0.25" time-scaling="1" solver="Runge-Kutta [fixed, O(4)]">
+                <DiffEqn symbol-ref="T">
+                    <Expression>(2.8958277191418325*max(0,cell.surface/256.5668885793652-1)-T)/39.292917096644274</Expression>
+                </DiffEqn>
+            </System>
+            <System name="Conservative bound MCA Galerkin transport" time-step="0.05" time-scaling="1" solver="Euler [fixed, O(1)]">
+                <DiffEqn symbol-ref="MA1">
+                    <Expression>(-fb*2*1*FS1/(cell.surface/(2*pi))-D_eff*1^2*MA1/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M1)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MB1">
+                    <Expression>(fb*2*1*FC1/(cell.surface/(2*pi))-D_eff*1^2*MB1/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M1)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MA2">
+                    <Expression>(-fb*2*2*FS2/(cell.surface/(2*pi))-D_eff*2^2*MA2/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M2)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MB2">
+                    <Expression>(fb*2*2*FC2/(cell.surface/(2*pi))-D_eff*2^2*MB2/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M2)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MA3">
+                    <Expression>(-fb*2*3*FS3/(cell.surface/(2*pi))-D_eff*3^2*MA3/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M3)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MB3">
+                    <Expression>(fb*2*3*FC3/(cell.surface/(2*pi))-D_eff*3^2*MB3/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M3)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MA4">
+                    <Expression>(-fb*2*4*FS4/(cell.surface/(2*pi))-D_eff*4^2*MA4/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M4)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MB4">
+                    <Expression>(fb*2*4*FC4/(cell.surface/(2*pi))-D_eff*4^2*MB4/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M4)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MA5">
+                    <Expression>(-fb*2*5*FS5/(cell.surface/(2*pi))-D_eff*5^2*MA5/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M5)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MB5">
+                    <Expression>(fb*2*5*FC5/(cell.surface/(2*pi))-D_eff*5^2*MB5/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M5)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MA6">
+                    <Expression>(-fb*2*6*FS6/(cell.surface/(2*pi))-D_eff*6^2*MA6/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M6)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MB6">
+                    <Expression>(fb*2*6*FC6/(cell.surface/(2*pi))-D_eff*6^2*MB6/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M6)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MA7">
+                    <Expression>(-fb*2*7*FS7/(cell.surface/(2*pi))-D_eff*7^2*MA7/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M7)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MB7">
+                    <Expression>(fb*2*7*FC7/(cell.surface/(2*pi))-D_eff*7^2*MB7/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M7)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MA8">
+                    <Expression>(-fb*2*8*FS8/(cell.surface/(2*pi))-D_eff*8^2*MA8/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M8)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MB8">
+                    <Expression>(fb*2*8*FC8/(cell.surface/(2*pi))-D_eff*8^2*MB8/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M8)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MA9">
+                    <Expression>(-fb*2*9*FS9/(cell.surface/(2*pi))-D_eff*9^2*MA9/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M9)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MB9">
+                    <Expression>(fb*2*9*FC9/(cell.surface/(2*pi))-D_eff*9^2*MB9/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M9)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MA10">
+                    <Expression>(-fb*2*10*FS10/(cell.surface/(2*pi))-D_eff*10^2*MA10/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M10)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MB10">
+                    <Expression>(fb*2*10*FC10/(cell.surface/(2*pi))-D_eff*10^2*MB10/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M10)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MA11">
+                    <Expression>(-fb*2*11*FS11/(cell.surface/(2*pi))-D_eff*11^2*MA11/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M11)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MB11">
+                    <Expression>(fb*2*11*FC11/(cell.surface/(2*pi))-D_eff*11^2*MB11/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M11)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MA12">
+                    <Expression>(-fb*2*12*FS12/(cell.surface/(2*pi))-D_eff*12^2*MA12/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M12)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MB12">
+                    <Expression>(fb*2*12*FC12/(cell.surface/(2*pi))-D_eff*12^2*MB12/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M12)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MA13">
+                    <Expression>(-fb*2*13*FS13/(cell.surface/(2*pi))-D_eff*13^2*MA13/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M13)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MB13">
+                    <Expression>(fb*2*13*FC13/(cell.surface/(2*pi))-D_eff*13^2*MB13/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M13)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MA14">
+                    <Expression>(-fb*2*14*FS14/(cell.surface/(2*pi))-D_eff*14^2*MA14/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M14)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MB14">
+                    <Expression>(fb*2*14*FC14/(cell.surface/(2*pi))-D_eff*14^2*MB14/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M14)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MA15">
+                    <Expression>(-fb*2*15*FS15/(cell.surface/(2*pi))-D_eff*15^2*MA15/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M15)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MB15">
+                    <Expression>(fb*2*15*FC15/(cell.surface/(2*pi))-D_eff*15^2*MB15/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M15)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MA16">
+                    <Expression>(-fb*2*16*FS16/(cell.surface/(2*pi))-D_eff*16^2*MA16/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M16)</Expression>
+                </DiffEqn>
+                <DiffEqn symbol-ref="MB16">
+                    <Expression>(fb*2*16*FC16/(cell.surface/(2*pi))-D_eff*16^2*MB16/(cell.surface/(2*pi))^2)+rand_norm(0,noise_M16)</Expression>
+                </DiffEqn>
+            </System>
+            <Property symbol="MA1" value="0" />
+            <Property symbol="MB1" value="0" />
+            <Property symbol="SC1" value="0" />
+            <Property symbol="SS1" value="0" />
+            <Property symbol="FC1" value="0" />
+            <Property symbol="FS1" value="0" />
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*cos(1*m.phi)" />
+                <Output symbol-ref="SC1" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*sin(1*m.phi)" />
+                <Output symbol-ref="SS1" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*cos(1*m.phi)" />
+                <Output symbol-ref="FC1" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*sin(1*m.phi)" />
+                <Output symbol-ref="FS1" mapping="average" />
+            </Mapper>
+            <Property symbol="MA2" value="0" />
+            <Property symbol="MB2" value="0" />
+            <Property symbol="SC2" value="0" />
+            <Property symbol="SS2" value="0" />
+            <Property symbol="FC2" value="0" />
+            <Property symbol="FS2" value="0" />
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*cos(2*m.phi)" />
+                <Output symbol-ref="SC2" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*sin(2*m.phi)" />
+                <Output symbol-ref="SS2" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*cos(2*m.phi)" />
+                <Output symbol-ref="FC2" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*sin(2*m.phi)" />
+                <Output symbol-ref="FS2" mapping="average" />
+            </Mapper>
+            <Property symbol="MA3" value="0" />
+            <Property symbol="MB3" value="0" />
+            <Property symbol="SC3" value="0" />
+            <Property symbol="SS3" value="0" />
+            <Property symbol="FC3" value="0" />
+            <Property symbol="FS3" value="0" />
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*cos(3*m.phi)" />
+                <Output symbol-ref="SC3" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*sin(3*m.phi)" />
+                <Output symbol-ref="SS3" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*cos(3*m.phi)" />
+                <Output symbol-ref="FC3" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*sin(3*m.phi)" />
+                <Output symbol-ref="FS3" mapping="average" />
+            </Mapper>
+            <Property symbol="MA4" value="0" />
+            <Property symbol="MB4" value="0" />
+            <Property symbol="SC4" value="0" />
+            <Property symbol="SS4" value="0" />
+            <Property symbol="FC4" value="0" />
+            <Property symbol="FS4" value="0" />
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*cos(4*m.phi)" />
+                <Output symbol-ref="SC4" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*sin(4*m.phi)" />
+                <Output symbol-ref="SS4" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*cos(4*m.phi)" />
+                <Output symbol-ref="FC4" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*sin(4*m.phi)" />
+                <Output symbol-ref="FS4" mapping="average" />
+            </Mapper>
+            <Property symbol="MA5" value="0" />
+            <Property symbol="MB5" value="0" />
+            <Property symbol="SC5" value="0" />
+            <Property symbol="SS5" value="0" />
+            <Property symbol="FC5" value="0" />
+            <Property symbol="FS5" value="0" />
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*cos(5*m.phi)" />
+                <Output symbol-ref="SC5" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*sin(5*m.phi)" />
+                <Output symbol-ref="SS5" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*cos(5*m.phi)" />
+                <Output symbol-ref="FC5" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*sin(5*m.phi)" />
+                <Output symbol-ref="FS5" mapping="average" />
+            </Mapper>
+            <Property symbol="MA6" value="0" />
+            <Property symbol="MB6" value="0" />
+            <Property symbol="SC6" value="0" />
+            <Property symbol="SS6" value="0" />
+            <Property symbol="FC6" value="0" />
+            <Property symbol="FS6" value="0" />
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*cos(6*m.phi)" />
+                <Output symbol-ref="SC6" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*sin(6*m.phi)" />
+                <Output symbol-ref="SS6" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*cos(6*m.phi)" />
+                <Output symbol-ref="FC6" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*sin(6*m.phi)" />
+                <Output symbol-ref="FS6" mapping="average" />
+            </Mapper>
+            <Property symbol="MA7" value="0" />
+            <Property symbol="MB7" value="0" />
+            <Property symbol="SC7" value="0" />
+            <Property symbol="SS7" value="0" />
+            <Property symbol="FC7" value="0" />
+            <Property symbol="FS7" value="0" />
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*cos(7*m.phi)" />
+                <Output symbol-ref="SC7" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*sin(7*m.phi)" />
+                <Output symbol-ref="SS7" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*cos(7*m.phi)" />
+                <Output symbol-ref="FC7" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*sin(7*m.phi)" />
+                <Output symbol-ref="FS7" mapping="average" />
+            </Mapper>
+            <Property symbol="MA8" value="0" />
+            <Property symbol="MB8" value="0" />
+            <Property symbol="SC8" value="0" />
+            <Property symbol="SS8" value="0" />
+            <Property symbol="FC8" value="0" />
+            <Property symbol="FS8" value="0" />
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*cos(8*m.phi)" />
+                <Output symbol-ref="SC8" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*sin(8*m.phi)" />
+                <Output symbol-ref="SS8" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*cos(8*m.phi)" />
+                <Output symbol-ref="FC8" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*sin(8*m.phi)" />
+                <Output symbol-ref="FS8" mapping="average" />
+            </Mapper>
+            <Property symbol="MA9" value="0" />
+            <Property symbol="MB9" value="0" />
+            <Property symbol="SC9" value="0" />
+            <Property symbol="SS9" value="0" />
+            <Property symbol="FC9" value="0" />
+            <Property symbol="FS9" value="0" />
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*cos(9*m.phi)" />
+                <Output symbol-ref="SC9" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*sin(9*m.phi)" />
+                <Output symbol-ref="SS9" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*cos(9*m.phi)" />
+                <Output symbol-ref="FC9" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*sin(9*m.phi)" />
+                <Output symbol-ref="FS9" mapping="average" />
+            </Mapper>
+            <Property symbol="MA10" value="0" />
+            <Property symbol="MB10" value="0" />
+            <Property symbol="SC10" value="0" />
+            <Property symbol="SS10" value="0" />
+            <Property symbol="FC10" value="0" />
+            <Property symbol="FS10" value="0" />
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*cos(10*m.phi)" />
+                <Output symbol-ref="SC10" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*sin(10*m.phi)" />
+                <Output symbol-ref="SS10" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*cos(10*m.phi)" />
+                <Output symbol-ref="FC10" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*sin(10*m.phi)" />
+                <Output symbol-ref="FS10" mapping="average" />
+            </Mapper>
+            <Property symbol="MA11" value="0" />
+            <Property symbol="MB11" value="0" />
+            <Property symbol="SC11" value="0" />
+            <Property symbol="SS11" value="0" />
+            <Property symbol="FC11" value="0" />
+            <Property symbol="FS11" value="0" />
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*cos(11*m.phi)" />
+                <Output symbol-ref="SC11" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*sin(11*m.phi)" />
+                <Output symbol-ref="SS11" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*cos(11*m.phi)" />
+                <Output symbol-ref="FC11" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*sin(11*m.phi)" />
+                <Output symbol-ref="FS11" mapping="average" />
+            </Mapper>
+            <Property symbol="MA12" value="0" />
+            <Property symbol="MB12" value="0" />
+            <Property symbol="SC12" value="0" />
+            <Property symbol="SS12" value="0" />
+            <Property symbol="FC12" value="0" />
+            <Property symbol="FS12" value="0" />
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*cos(12*m.phi)" />
+                <Output symbol-ref="SC12" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*sin(12*m.phi)" />
+                <Output symbol-ref="SS12" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*cos(12*m.phi)" />
+                <Output symbol-ref="FC12" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*sin(12*m.phi)" />
+                <Output symbol-ref="FS12" mapping="average" />
+            </Mapper>
+            <Property symbol="MA13" value="0" />
+            <Property symbol="MB13" value="0" />
+            <Property symbol="SC13" value="0" />
+            <Property symbol="SS13" value="0" />
+            <Property symbol="FC13" value="0" />
+            <Property symbol="FS13" value="0" />
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*cos(13*m.phi)" />
+                <Output symbol-ref="SC13" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*sin(13*m.phi)" />
+                <Output symbol-ref="SS13" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*cos(13*m.phi)" />
+                <Output symbol-ref="FC13" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*sin(13*m.phi)" />
+                <Output symbol-ref="FS13" mapping="average" />
+            </Mapper>
+            <Property symbol="MA14" value="0" />
+            <Property symbol="MB14" value="0" />
+            <Property symbol="SC14" value="0" />
+            <Property symbol="SS14" value="0" />
+            <Property symbol="FC14" value="0" />
+            <Property symbol="FS14" value="0" />
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*cos(14*m.phi)" />
+                <Output symbol-ref="SC14" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*sin(14*m.phi)" />
+                <Output symbol-ref="SS14" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*cos(14*m.phi)" />
+                <Output symbol-ref="FC14" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*sin(14*m.phi)" />
+                <Output symbol-ref="FS14" mapping="average" />
+            </Mapper>
+            <Property symbol="MA15" value="0" />
+            <Property symbol="MB15" value="0" />
+            <Property symbol="SC15" value="0" />
+            <Property symbol="SS15" value="0" />
+            <Property symbol="FC15" value="0" />
+            <Property symbol="FS15" value="0" />
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*cos(15*m.phi)" />
+                <Output symbol-ref="SC15" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*sin(15*m.phi)" />
+                <Output symbol-ref="SS15" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*cos(15*m.phi)" />
+                <Output symbol-ref="FC15" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*sin(15*m.phi)" />
+                <Output symbol-ref="FS15" mapping="average" />
+            </Mapper>
+            <Property symbol="MA16" value="0" />
+            <Property symbol="MB16" value="0" />
+            <Property symbol="SC16" value="0" />
+            <Property symbol="SS16" value="0" />
+            <Property symbol="FC16" value="0" />
+            <Property symbol="FS16" value="0" />
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*cos(16*m.phi)" />
+                <Output symbol-ref="SC16" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="sigmaA*sin(16*m.phi)" />
+                <Output symbol-ref="SS16" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*cos(16*m.phi)" />
+                <Output symbol-ref="FC16" mapping="average" />
+            </Mapper>
+            <Mapper time-step="0.05">
+                <Input value="MCAFlux*sin(16*m.phi)" />
+                <Output symbol-ref="FS16" mapping="average" />
+            </Mapper>
+            <System name="Membrane cortical velocity" time-step="0.05" time-scaling="1" solver="Runge-Kutta [fixed, O(4)]">
+                <Rule symbol-ref="V">
+                    <Expression>0.1*(2*1*(SS1*cos(1*m.phi)-SC1*sin(1*m.phi))/((cell.surface/(2*pi))*(xi+eta_c*(1/(cell.surface/(2*pi)))^2))+2*2*(SS2*cos(2*m.phi)-SC2*sin(2*m.phi))/((cell.surface/(2*pi))*(xi+eta_c*(2/(cell.surface/(2*pi)))^2))+2*3*(SS3*cos(3*m.phi)-SC3*sin(3*m.phi))/((cell.surface/(2*pi))*(xi+eta_c*(3/(cell.surface/(2*pi)))^2))+2*4*(SS4*cos(4*m.phi)-SC4*sin(4*m.phi))/((cell.surface/(2*pi))*(xi+eta_c*(4/(cell.surface/(2*pi)))^2))+2*5*(SS5*cos(5*m.phi)-SC5*sin(5*m.phi))/((cell.surface/(2*pi))*(xi+eta_c*(5/(cell.surface/(2*pi)))^2))+2*6*(SS6*cos(6*m.phi)-SC6*sin(6*m.phi))/((cell.surface/(2*pi))*(xi+eta_c*(6/(cell.surface/(2*pi)))^2))+2*7*(SS7*cos(7*m.phi)-SC7*sin(7*m.phi))/((cell.surface/(2*pi))*(xi+eta_c*(7/(cell.surface/(2*pi)))^2))+2*8*(SS8*cos(8*m.phi)-SC8*sin(8*m.phi))/((cell.surface/(2*pi))*(xi+eta_c*(8/(cell.surface/(2*pi)))^2))+2*9*(SS9*cos(9*m.phi)-SC9*sin(9*m.phi))/((cell.surface/(2*pi))*(xi+eta_c*(9/(cell.surface/(2*pi)))^2))+2*10*(SS10*cos(10*m.phi)-SC10*sin(10*m.phi))/((cell.surface/(2*pi))*(xi+eta_c*(10/(cell.surface/(2*pi)))^2))+2*11*(SS11*cos(11*m.phi)-SC11*sin(11*m.phi))/((cell.surface/(2*pi))*(xi+eta_c*(11/(cell.surface/(2*pi)))^2))+2*12*(SS12*cos(12*m.phi)-SC12*sin(12*m.phi))/((cell.surface/(2*pi))*(xi+eta_c*(12/(cell.surface/(2*pi)))^2))+2*13*(SS13*cos(13*m.phi)-SC13*sin(13*m.phi))/((cell.surface/(2*pi))*(xi+eta_c*(13/(cell.surface/(2*pi)))^2))+2*14*(SS14*cos(14*m.phi)-SC14*sin(14*m.phi))/((cell.surface/(2*pi))*(xi+eta_c*(14/(cell.surface/(2*pi)))^2))+2*15*(SS15*cos(15*m.phi)-SC15*sin(15*m.phi))/((cell.surface/(2*pi))*(xi+eta_c*(15/(cell.surface/(2*pi)))^2))+2*16*(SS16*cos(16*m.phi)-SC16*sin(16*m.phi))/((cell.surface/(2*pi))*(xi+eta_c*(16/(cell.surface/(2*pi)))^2)))</Expression>
+                </Rule>
+            </System>
+            <Function symbol="Mraw">
+                <Expression>M0+MA1*cos(1*m.phi)+MB1*sin(1*m.phi)+MA2*cos(2*m.phi)+MB2*sin(2*m.phi)+MA3*cos(3*m.phi)+MB3*sin(3*m.phi)+MA4*cos(4*m.phi)+MB4*sin(4*m.phi)+MA5*cos(5*m.phi)+MB5*sin(5*m.phi)+MA6*cos(6*m.phi)+MB6*sin(6*m.phi)+MA7*cos(7*m.phi)+MB7*sin(7*m.phi)+MA8*cos(8*m.phi)+MB8*sin(8*m.phi)+MA9*cos(9*m.phi)+MB9*sin(9*m.phi)+MA10*cos(10*m.phi)+MB10*sin(10*m.phi)+MA11*cos(11*m.phi)+MB11*sin(11*m.phi)+MA12*cos(12*m.phi)+MB12*sin(12*m.phi)+MA13*cos(13*m.phi)+MB13*sin(13*m.phi)+MA14*cos(14*m.phi)+MB14*sin(14*m.phi)+MA15*cos(15*m.phi)+MB15*sin(15*m.phi)+MA16*cos(16*m.phi)+MB16*sin(16*m.phi)</Expression>
+            </Function>
+            <Mapper time-step="0.05">
+                <Input value="max(0,Mraw)" />
+                <Output symbol-ref="Mpositive" mapping="average" />
+            </Mapper>
+            <Function symbol="M">
+                <Expression>max(0,Mraw)*M0/max(Mpositive,1e-15)*Pbaseline/cell.surface</Expression>
+            </Function>
+            <Function symbol="MCAFlux">
+                <Expression>V*M*cell.surface/Pbaseline</Expression>
+            </Function>
+            <Function symbol="Mb">
+                <Expression>M</Expression>
+            </Function>
+            <Function symbol="Mlimiter">
+                <Expression>max(0,Mpositive-M0)</Expression>
+            </Function>
+        </CellType>
+    </CellTypes>
+    <CPM>
+        <Interaction default="0.0">
+            <Contact type1="cells" type2="Medium" value="0.0" />
+        </Interaction>
+        <MonteCarloSampler stepper="edgelist">
+            <MCSDuration value="0.01" />
+            <Neighborhood>
+                <Order>2</Order>
+            </Neighborhood>
+            <MetropolisKinetics yield="0.05" temperature="0.709349245982302" />
+        </MonteCarloSampler>
+        <ShapeSurface scaling="norm">
+            <Neighborhood>
+                <Order>6</Order>
+            </Neighborhood>
+        </ShapeSurface>
+    </CPM>
+    <CellPopulations>
+        <Population type="cells" size="0">
+            <InitCellObjects mode="distance">
+                <Arrangement displacements="1, 1, 0" repetitions="1, 1, 0">
+                    <Sphere radius="39.08820095223359" center="400 200 0" />
+                </Arrangement>
+            </InitCellObjects>
+        </Population>
+    </CellPopulations>
+    <Analysis><Logger time-step="10"><Input><Symbol symbol-ref="time" /><Symbol symbol-ref="cell.center.x" /><Symbol symbol-ref="cell.center.y" /><Symbol symbol-ref="cell.surface" /><Symbol symbol-ref="cell.volume" /><Symbol symbol-ref="T" /></Input><Output><TextOutput /></Output></Logger><TiffPlotter time-step="300" format="16bit" OME-header="false"><Channel symbol-ref="cell.id" celltype="cells" /></TiffPlotter></Analysis></MorpheusModel>

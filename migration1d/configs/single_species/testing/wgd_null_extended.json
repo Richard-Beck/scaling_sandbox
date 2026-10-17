@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "name": "single-testing-wgd-null-extended",
+  "chemistry_class": "single_species",
+  "stage": "testing",
+  "protocol": "wgd_null_two_seeded_domains_and_reversal",
+  "parameterization": "isometric_concentration_preserving_null",
+  "standardization_status": "wgd_null_v1",
+  "module": "migration1d.single_species.wgd_extended",
+  "output": "results/single_species/testing/wgd_null_extended_work",
+  "arguments": [
+    "--mode", "task",
+    "--report-root", "results/single_species/testing/wgd_null"
+  ],
+  "batch": {
+    "array_tasks": 8685,
+    "merge_arguments": [
+      "--mode", "merge",
+      "--report-root", "results/single_species/testing/wgd_null"
+    ],
+    "merge_resources": {"cpus": 1, "memory": "4G", "time": "00:30:00", "qos": "small"}
+  },
+  "resources": {"cpus": 1, "memory": "1G", "time": "01:00:00", "qos": "small"}
+}

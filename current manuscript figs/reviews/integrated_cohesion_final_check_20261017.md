@@ -1,0 +1,13 @@
+# Integrated framework: final bounded cohesion check
+
+Reviewed 17 October 2026 against the frozen PNG, revised [detailed discussion](../integrated_framework_candidate_20261017.md), [overview](../main_text_figure_candidates_20261017.md), and matched factorization/functional exports. The original [R1 critique](integrated_cohesion_r1.md) and author assets were not edited. No integration was performed.
+
+**Verdict: the essential revision is satisfied. The integrated figure is ready for discussion as one framework. No essential interpretation, display or navigation correction remains in this bounded check.** This does not select the final manuscript figure or establish a complete causal explanation.
+
+- **The size comparisons now agree.** B/C explicitly use each model's L19 reference while retaining all 36 L9–39 cases. The actual PNG labels Goryachev's matched cue gain as 0.654× and net repair as 3.41×, and Wave-pinning's as 1.000× and 1.06×. The former L9-based fifteenfold endpoint no longer inherits A's near-doubling comparison. Every exported L19-normalized value reproduces its raw-value/reference ratio exactly.
+- **The chemical bridge is visible.** C's 3.56× conversion annotation uses the same L19→39 pair. The linked rows give conversion 3.5644× and surplus exposure per damage 0.9548×, yielding substrate contribution 3.4032×; net repair is separately 3.4144×. All four exported coefficient×exposure products reproduce their substrate contributions exactly. The discussion defines the coefficient and identifies substrate-mediated conditional recapture, including the negative Goryachev active-field contribution at sham substrate. These distinctions make the figure substantially more explanatory without claiming generic incumbent stability.
+- **The hierarchy and navigation are coherent.** A is now titled “Incumbent organization.” D–F retain the separate Holmes intervention labels and raw histories; the overview explicitly introduces them as the interaction after challenger activation rather than a continuation of B/C. The integrated draft is the current entry point, and previous candidates are supporting components. All 29 local links in the overview and detailed discussion resolve.
+
+The standing scientific boundary remains: incumbent amount grows under an expanding total-material budget; chemical consequences are demonstrated in selected models; exact-state E→F establishes an effect of cue placement, while D→E does not isolate width causality. These limits permit the user's conditional framework and do not require a universal all-model stability claim.
+
+Frozen PNG SHA-256: `3f67f5f6b31179d8c7c64369eb1e9569980cedb7d2fe08a6ea51d19074994577`.

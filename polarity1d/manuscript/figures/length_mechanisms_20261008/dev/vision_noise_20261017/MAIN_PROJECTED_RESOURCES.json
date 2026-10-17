@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-10-17T20:25:58.593910+00:00",
+  "proposal": "T32000, scalar5,primary40,full1000",
+  "configuration_sha256": "9e8965322eab1e0d9bdc303de2f1bf645f380e29fdb402a21e2542a93d244ba1",
+  "jobs": 243,
+  "counts": {
+    "noise": 216,
+    "mean": 18,
+    "basal": 9
+  },
+  "estimated_allocated_bytes": 4038142419.321179,
+  "estimated_cpu_wall_seconds": 82678.24452200532,
+  "estimated_max_worker_seconds": 956.7047081440687,
+  "by_model": {
+    "wave_pinning": {
+      "jobs": 81,
+      "estimated_allocated_bytes": 1307321432.3569312,
+      "estimated_cpu_wall_seconds": 16243.027599748224
+    },
+    "goryachev": {
+      "jobs": 81,
+      "estimated_allocated_bytes": 1387070612.1174545,
+      "estimated_cpu_wall_seconds": 24474.41207666695
+    },
+    "holmes_model3": {
+      "jobs": 81,
+      "estimated_allocated_bytes": 1340750374.8467934,
+      "estimated_cpu_wall_seconds": 41960.804845590144
+    }
+  },
+  "method": "Per matching pilot model/strength/kind file blocks scaled by output frame counts; C40 averages C20/C60; runtime8x pilot horizon;3MB metadata/source/input overhead.",
+  "limits": "Single-pilot-seed projection; actual dynamics/compression/runtime may differ. Root owns measured DATA_MANIFEST accounting. Authorized main submitted; projection is not measured main usage.",
+  "supersedes": "MAIN_PROPOSED_CONFIGURATION_16000_SUPERSEDED.json and MAIN_PROJECTED_RESOURCES_16000_SUPERSEDED.json",
+  "configuration_path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/MAIN_CONFIGURATION.json",
+  "producer": "authorized_main_submitted_as21126522"
+}

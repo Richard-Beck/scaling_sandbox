@@ -21,14 +21,19 @@ if (is.na(pandoc_directory) || !nzchar(pandoc_directory)) {
 Sys.setenv(RSTUDIO_PANDOC = pandoc_directory)
 if (!rmarkdown::pandoc_available()) stop("rmarkdown could not use Pandoc.")
 
+source("scripts/public_report_sources.R")
+
 output_directory <- file.path("docs", "reports")
 dir.create(output_directory, recursive = TRUE, showWarnings = FALSE)
 if (!file.exists("reports/output/mt_transport_results.rds")) {
   source("scripts/generate_mt_transport_results.R")
 }
-reports <- sort(list.files("reports", pattern = "\\.Rmd$", full.names = TRUE))
-if (!length(reports)) stop("No R Markdown reports were found in reports/.")
+reports <- public_report_sources()
+output_directory <- normalizePath(output_directory, mustWork = TRUE)
+# Retain the original report-relative asset and docs/data export locations.
+report_working_directory <- normalizePath("reports", mustWork = TRUE)
 for (report in reports) {
-  output <- rmarkdown::render(report, output_dir = output_directory, quiet = TRUE)
+  output <- rmarkdown::render(report, output_dir = output_directory,
+                              knit_root_dir = report_working_directory, quiet = TRUE)
   message("Rendered ", output)
 }

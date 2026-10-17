@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "name": "three-testing-focused-motile-length-spatial-tension",
+  "chemistry_class": "three_species",
+  "stage": "testing",
+  "protocol": "motile_single_dual_and_reversal_length_sweep_spatial_tension",
+  "parameterization": "holmes_six_field_finitely_polarizable_kappa_r_0.04",
+  "standardization_status": "focused_motile_length_spatial_tension_v1",
+  "module": "migration1d.focused_motile_length",
+  "output": "results/three_species/testing/focused_motile_length_spatial_tension",
+  "arguments": [
+    "--mode", "task",
+    "--chemistry-class", "three_species",
+    "--tension-mode", "spatial",
+    "--tension-strengths", "0,5,20",
+    "--spatial-tension-diffusivity", "10",
+    "--spatial-tension-relaxation-time", "10",
+    "--spatial-tension-generation-rate", "0.01"
+  ],
+  "batch": {
+    "array_tasks": 240,
+    "merge_arguments": [
+      "--mode", "merge",
+      "--chemistry-class", "three_species",
+      "--tension-mode", "spatial",
+      "--tension-strengths", "0,5,20",
+      "--spatial-tension-diffusivity", "10",
+      "--spatial-tension-relaxation-time", "10",
+      "--spatial-tension-generation-rate", "0.01"
+    ],
+    "merge_resources": {"cpus": 1, "memory": "4G", "time": "00:30:00", "qos": "small"}
+  },
+  "resources": {"cpus": 1, "memory": "4G", "time": "04:00:00", "qos": "small"}
+}

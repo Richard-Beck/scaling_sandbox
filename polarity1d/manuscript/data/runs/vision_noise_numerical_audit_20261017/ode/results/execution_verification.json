@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-10-17T20:24:51.575224+00:00",
+  "passed": true,
+  "run": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_numerical_audit_20261017/ode",
+  "manifest_sha256": "01f5a6b5917b6fc61141a34990c9e92cb312effb314b3b0f1ee81dfd55f684ec",
+  "verifier_source_sha256": "c0719f89bc6d4b68b0020e45375da1e2b7b24e1dfcef2151e13c544a386067bb",
+  "frozen_module": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_pilot_20261017/frozen_sources/code/mechanisms/vision_noise_20261017.py",
+  "source_hashes": 22,
+  "cases": [
+    {
+      "slot": 0,
+      "model": "wave_pinning",
+      "circumference": 60,
+      "kind": "noise",
+      "mean_fraction": 0.01,
+      "passed": true,
+      "raw_moment_max_absolute_error": 1.9541186809749966e-14,
+      "sampled_pool_relative_error": 2.220446049250313e-16,
+      "accepted_step_pool_relative_error": 4.440892098500626e-16,
+      "sampled_minimum_concentration": 0.17148150849461075,
+      "accepted_step_minimum_concentration": 0.1712120680535318,
+      "runtime_seconds": 57.12341957166791,
+      "noise_regeneration_exact": true
+    },
+    {
+      "slot": 1,
+      "model": "goryachev",
+      "circumference": 60,
+      "kind": "noise",
+      "mean_fraction": 0.01,
+      "passed": true,
+      "raw_moment_max_absolute_error": 2.274846706538671e-13,
+      "sampled_pool_relative_error": 2.6645352591003757e-14,
+      "accepted_step_pool_relative_error": 2.708944180085382e-14,
+      "sampled_minimum_concentration": 2.3022974196597254e-31,
+      "accepted_step_minimum_concentration": 2.3022974196597254e-31,
+      "runtime_seconds": 78.94565945677459,
+      "noise_regeneration_exact": true
+    },
+    {
+      "slot": 2,
+      "model": "holmes_model3",
+      "circumference": 60,
+      "kind": "noise",
+      "mean_fraction": 0.01,
+      "passed": true,
+      "raw_moment_max_absolute_error": 4.973799150320701e-14,
+      "sampled_pool_relative_error": 3.3306690738754696e-16,
+      "accepted_step_pool_relative_error": 3.3306690738754696e-16,
+      "sampled_minimum_concentration": 0.33861238154981915,
+      "accepted_step_minimum_concentration": 0.32461808485068483,
+      "runtime_seconds": 161.42853196058422,
+      "noise_regeneration_exact": true
+    }
+  ],
+  "allocated_storage_bytes": 14696448,
+  "scope": "All completed job/output hashes, prescribed time grids, full final states, raw activity moments and P, sampled native budgets, exact Gaussian noise regeneration"
+}

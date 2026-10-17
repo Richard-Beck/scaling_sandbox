@@ -1,0 +1,118 @@
+{
+  "generated_at": "2026-10-02T18:54:29.065614+00:00",
+  "complete": true,
+  "passed": true,
+  "campaign_counts": {
+    "Ax_over_L": {
+      "trials": 34150,
+      "accepted_right": 20783,
+      "accepted_left": 12981,
+      "excluded_nonpolar_or_failed_gate": 386
+    },
+    "Ax": {
+      "trials": 34150,
+      "accepted_right": 23289,
+      "accepted_left": 8780,
+      "excluded_nonpolar_or_failed_gate": 2081
+    }
+  },
+  "models": [
+    {
+      "model": "wave_pinning",
+      "lengths_with_comparable_endpoints": 20,
+      "lengths_above_0_1_percent": 8,
+      "lengths_above_1_percent": 8,
+      "lengths_above_5_percent": 8,
+      "maximum_scaled_diameter": 0.7950928952319654,
+      "right_only_lengths_above_1_percent": 5,
+      "right_only_maximum_scaled_diameter": 0.7933752824116462,
+      "maximum_difference_from_reference": 0.795092895231965
+    },
+    {
+      "model": "otsuji",
+      "lengths_with_comparable_endpoints": 21,
+      "lengths_above_0_1_percent": 0,
+      "lengths_above_1_percent": 0,
+      "lengths_above_5_percent": 0,
+      "maximum_scaled_diameter": 4.682850276211308e-13,
+      "right_only_lengths_above_1_percent": 0,
+      "right_only_maximum_scaled_diameter": null,
+      "maximum_difference_from_reference": 2.4505904649796677e-13
+    },
+    {
+      "model": "goryachev",
+      "lengths_with_comparable_endpoints": 21,
+      "lengths_above_0_1_percent": 14,
+      "lengths_above_1_percent": 14,
+      "lengths_above_5_percent": 14,
+      "maximum_scaled_diameter": 0.9993723803610693,
+      "right_only_lengths_above_1_percent": 14,
+      "right_only_maximum_scaled_diameter": 0.9993723800454402,
+      "maximum_difference_from_reference": 0.9993723800263867
+    },
+    {
+      "model": "legi",
+      "lengths_with_comparable_endpoints": 18,
+      "lengths_above_0_1_percent": 18,
+      "lengths_above_1_percent": 18,
+      "lengths_above_5_percent": 17,
+      "maximum_scaled_diameter": 0.6090654073007912,
+      "right_only_lengths_above_1_percent": 18,
+      "right_only_maximum_scaled_diameter": 0.6090654073007912,
+      "maximum_difference_from_reference": 0.6054132872245654
+    },
+    {
+      "model": "debelly",
+      "lengths_with_comparable_endpoints": 12,
+      "lengths_above_0_1_percent": 11,
+      "lengths_above_1_percent": 1,
+      "lengths_above_5_percent": 0,
+      "maximum_scaled_diameter": 0.015116274168125353,
+      "right_only_lengths_above_1_percent": 1,
+      "right_only_maximum_scaled_diameter": 0.015109237325881236,
+      "maximum_difference_from_reference": 0.015130810343567397
+    },
+    {
+      "model": "holmes_model3",
+      "lengths_with_comparable_endpoints": 23,
+      "lengths_above_0_1_percent": 18,
+      "lengths_above_1_percent": 18,
+      "lengths_above_5_percent": 18,
+      "maximum_scaled_diameter": 0.5072771780646663,
+      "right_only_lengths_above_1_percent": 16,
+      "right_only_maximum_scaled_diameter": 0.5071195595717091,
+      "maximum_difference_from_reference": 0.5071789850082329
+    },
+    {
+      "model": "spring",
+      "lengths_with_comparable_endpoints": 21,
+      "lengths_above_0_1_percent": 0,
+      "lengths_above_1_percent": 0,
+      "lengths_above_5_percent": 0,
+      "maximum_scaled_diameter": 5.797330613215168e-10,
+      "right_only_lengths_above_1_percent": 0,
+      "right_only_maximum_scaled_diameter": 5.797330613215168e-10,
+      "maximum_difference_from_reference": 4.664749310929584e-10
+    }
+  ],
+  "input_file_count": 14278,
+  "methods": {
+    "comparison": "Exact maximum pairwise L-infinity difference, computed from coordinate-wise envelope; no amplitude normalization",
+    "normalization": "Existing model/length release fixed field scales",
+    "alignment": "Reverse reference/material grid for left endpoints; also report same-orientation comparisons",
+    "thresholds": [
+      0.001,
+      0.01,
+      0.05
+    ],
+    "reference": "Original verified release checkpoint; preparation records identical across campaigns"
+  },
+  "limitations": [
+    "Saved trial diagnostics contain only the final active/response field and final 500-unit orientation history, not the full final state or active-field time history.",
+    "Gate-passing differences identify candidate retained profiles, not proofs of multiple attracting equilibria.",
+    "Finite recovery horizons may leave slow transients.",
+    "For mechanical models reflection compares chemical fields on reference/material coordinates, not complete mechanically equivalent states.",
+    "Gradient endpoints have different maintained inputs and are excluded from the cue-free uniqueness comparison.",
+    "Trials sample only states reachable from the existing preparation; agreement cannot prove uniqueness."
+  ]
+}

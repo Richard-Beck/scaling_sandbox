@@ -1,27 +1,110 @@
-# R session and rendered-report artefacts
+# Local tools, language caches, and build products.
+.codex/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.coverage
 .Rhistory
 .RData
 .Ruserdata
 Rplots.pdf
-reports/output/
-reports/*_files/
-reports/*.html
-/dev/
+node_modules/
+build/
+dist/
 
-# De Belly Julia reproduction outputs
-/julia/debelly/one_d/PNG/
-/julia/debelly/one_d/VTU/
-/julia/debelly/one_d/protocols/PNG/
-/julia/debelly/one_d/protocols/VTU/
-/julia/debelly/axisymmetric/output/
-/logs/debelly-*.out
+# Scheduler output and interrupted downloads.
+*.out
+*.err
+logs/
+*.aria2
 
-# Local input data and Codex state
-data/
-.codex/
+# Raw inputs and downloaded biosensor payloads; keep acquisition scripts visible.
+/data/
+/ht1080biosensors/*
+!/ht1080biosensors/*.slurm
+!/ht1080biosensors/*.py
+!/ht1080biosensors/*.sh
+!/ht1080biosensors/*.md
 
-# Generated GitHub Pages artefacts; Actions builds and deploys these directly.
-docs/data/
-docs/reports/
-__pycache__/
-*.py[cod]
+# Historical backup location, if recreated; no backup currently exists here.
+/reorg/legacy/
+
+# Generated campaigns. Curated polarity evidence is explicitly eligible below.
+/migration1d/results/**
+!/migration1d/results/README.md
+/polarity1d/results/*
+!/polarity1d/results/README.md
+!/polarity1d/results/data/
+!/polarity1d/results/figures/
+/literature_models/*/results/**
+!/literature_models/*/results/README.md
+/literature_models/M2072/tmp/
+
+# Native Julia output inside the relocated reference implementation.
+/literature_models/debelly_2026_mechanochemical/src/debelly/axisymmetric/output/
+/literature_models/debelly_2026_mechanochemical/src/debelly/one_d/PNG/
+/literature_models/debelly_2026_mechanochemical/src/debelly/one_d/VTU/
+/literature_models/debelly_2026_mechanochemical/src/debelly/one_d/protocols/PNG/
+/literature_models/debelly_2026_mechanochemical/src/debelly/one_d/protocols/VTU/
+
+# M2072 bulk campaigns were retired; the compact retirement record is eligible.
+/literature_models/M2072/archive/
+
+# Rebuildable reports and delivery assets. Report sources remain visible.
+/reports/*.html
+/reports/*_files/
+/reports/*_assets/
+/reports/lfct_20x_contour_viewer/
+/reports/output/
+/docs/data/
+/docs/reports/
+/migration1d_writer_bundle/.figure_cache/
+
+# Publication curation (2026-10-17). Historical payload stays local; this is not
+# data retirement. Add future selected evidence with narrow exceptions.
+/tmp/
+/polarity1d/archive/**
+!/polarity1d/archive/**/
+!/polarity1d/archive/**/*.md
+!/polarity1d/archive/four_test_suite_legacy/publication_figures/assay_explanation_v2.pdf
+!/polarity1d/archive/four_test_suite_legacy/publication_figures/assay_explanation_v2.png
+!/polarity1d/archive/four_test_suite_legacy/publication_figures/ASSAY_EXPLANATION_V2_NOTES.md
+/polarity1d/four_assay/**/work/
+/polarity1d/four_assay/**/results/
+/polarity1d/four_assay/**/reference/
+/polarity1d/four_assay/retained_metadata_20261017/
+/reports/figure_revision/data/
+/reports/figure_revision/figures/*
+!/reports/figure_revision/figures/figure3.png
+!/reports/figure_revision/figures/figure3_review/
+/reports/figure_revision/figures/figure3_review/*
+!/reports/figure_revision/figures/figure3_review/*.md
+!/reports/figure_revision/figures/figure3_review/hosny_sensitivity/
+/reports/figure_revision/figures/figure3_review/hosny_sensitivity/*
+!/reports/figure_revision/figures/figure3_review/hosny_sensitivity/CAPTION.md
+!/reports/figure_revision/figures/figure3_review/hosny_sensitivity/figure_provenance.json
+!/reports/figure_revision/figures/figure3_review/hosny_sensitivity/hosny_sensitivity.png
+# Earlier exploratory OU/mechanochemical branches are not the current evidence.
+/wgd_langevin/ou_bridge/
+/wgd_langevin/logistic_feedback/
+/wgd_langevin/gaussian_hierarchy/
+/wgd_langevin/gaussian_literature/
+/wgd_langevin/poisson_literature/
+/wgd_langevin/persistence_only/*
+!/wgd_langevin/persistence_only/campaign.py
+/wgd_langevin/persistence_ordered/
+# Compiled binaries and editor backups in literature implementations.
+/literature_models/Maree_2006/maree2006_gpu
+/literature_models/M7682/bin/
+/literature_models/M7682/software/
+*.so
+*.o
+*~
+
+/wgd_langevin/hosny/results/
+/wgd_langevin/results/
+
+# Rebuilt legacy native outputs use model-local report directories.
+/literature_models/*/reports/output/
+/literature_models/*/reports/assets/

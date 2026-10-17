@@ -1,0 +1,2495 @@
+{
+  "campaign_name": "jilkine_reversal_long_conditioning_v1",
+  "created_utc": "2026-08-31T18:39:46.203039+00:00",
+  "description": "Cross-model reversal after a substantially longer conditioning phase, with explicit pre-reversal morphology and censoring.",
+  "metadata": {
+    "conditioning_policy": "max(2000, 400*(L/10)^2) s",
+    "gradient_peak": 0.1,
+    "post_reversal_policy": "max(4000, 800*(L/10)^2) s",
+    "purpose": "distinguish incomplete conditioning from reversal failure"
+  },
+  "schema_version": 1,
+  "task_count": 80,
+  "tasks": [
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.1,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 6000.0,
+        "length": 1.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "5d93f83d2709c77ccfc2eb3bdc251d868333da632229928bf8c5514f9aed43ca",
+      "task_id": "00000-5d93f83d2709",
+      "task_index": 0,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.03333333333333333,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 6000.0,
+        "length": 3.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "899091e5fafd5ec9f16ec4a2eae46113d4cc7f7ba9a4d045f381977e8f3690cf",
+      "task_id": "00001-899091e5fafd",
+      "task_index": 1,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.02,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 6000.0,
+        "length": 5.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "d0fa7c5690d77216a3395806f828cdf77006d2a874793b1b2b0ad304331110dc",
+      "task_id": "00002-d0fa7c5690d7",
+      "task_index": 2,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.014285714285714287,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 6000.0,
+        "length": 7.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "2b4912fc477086dd7bec25059b206d43a93c12365455a4109166ea87728e8f09",
+      "task_id": "00003-2b4912fc4770",
+      "task_index": 3,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.011111111111111112,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 6000.0,
+        "length": 9.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "afbf9205ed976afc908d4d19d1c6322105fa93375d5f357f97592b20bed5228d",
+      "task_id": "00004-afbf9205ed97",
+      "task_index": 4,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.009090909090909092,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 110,
+        "end_time": 6000.0,
+        "length": 11.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "08e4ddcdeb03f925967370e6db8482f19aa2209ca80354e2450ced1cf40af915",
+      "task_id": "00005-08e4ddcdeb03",
+      "task_index": 5,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.007692307692307693,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 130,
+        "end_time": 6000.0,
+        "length": 13.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "cf02010746160e5494eee791d6eaa8c372412b0589ccea616fd3fff82bf83dd2",
+      "task_id": "00006-cf0201074616",
+      "task_index": 6,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.006666666666666667,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 6000.0,
+        "length": 15.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "ee090b91cf4a555dd00d249b2daacc9aa032cbef90b1f18ec2b722f141017c1c",
+      "task_id": "00007-ee090b91cf4a",
+      "task_index": 7,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.0058823529411764705,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 170,
+        "end_time": 6000.0,
+        "length": 17.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "1d236fd6c339c6d440f5045be3087a20fe6f020d68facbcf6eba202c5f6b0071",
+      "task_id": "00008-1d236fd6c339",
+      "task_index": 8,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.005263157894736842,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 190,
+        "end_time": 6000.0,
+        "length": 19.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "34d6bb5648ddc74eed475ed5cb6cf2ba89b351d3515b9712745deeae9db586b1",
+      "task_id": "00009-34d6bb5648dd",
+      "task_index": 9,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.004761904761904762,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 210,
+        "end_time": 6000.0,
+        "length": 21.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "6d1969af3473578e625edc151bd155ed538f5960fb996de7a070aa00a10ae7ae",
+      "task_id": "00010-6d1969af3473",
+      "task_index": 10,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2115.9999999999995,
+        "sustained_duration": 21.159999999999997
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2115.9999999999995,
+        "slope": 0.004347826086956522,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 230,
+        "end_time": 6347.999999999998,
+        "length": 23.0,
+        "max_step": 10.0,
+        "output_interval": 2.644999999999999
+      },
+      "task_digest": "e5ad9411128cb0d3bbd38482ac476fb420e51a97972198b0d7dad13cfcf91f2b",
+      "task_id": "00011-e5ad9411128c",
+      "task_index": 11,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2500.0,
+        "sustained_duration": 25.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2500.0,
+        "slope": 0.004,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 7500.0,
+        "length": 25.0,
+        "max_step": 10.0,
+        "output_interval": 3.125
+      },
+      "task_digest": "c9498988eaddeff2b1b4de20e1043f12dd801f63445a8040d2f20cf38d3f38f2",
+      "task_id": "00012-c9498988eadd",
+      "task_index": 12,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2916.0000000000005,
+        "sustained_duration": 29.160000000000004
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2916.0000000000005,
+        "slope": 0.003703703703703704,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 270,
+        "end_time": 8748.000000000002,
+        "length": 27.0,
+        "max_step": 10.0,
+        "output_interval": 3.645000000000001
+      },
+      "task_digest": "20c4d9cbf12865a1c0a0860e7f59680af71ce130c055987a929bd513aa0b6c56",
+      "task_id": "00013-20c4d9cbf128",
+      "task_index": 13,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 3364.0,
+        "sustained_duration": 33.64
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 3364.0,
+        "slope": 0.003448275862068966,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 290,
+        "end_time": 10092.0,
+        "length": 29.0,
+        "max_step": 10.0,
+        "output_interval": 4.205
+      },
+      "task_digest": "2a9d9b5fe201f6911930cd23c4b4e4155cf509fe4ac385731deb3311eeb346a5",
+      "task_id": "00014-2a9d9b5fe201",
+      "task_index": 14,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 3844.0000000000005,
+        "sustained_duration": 38.440000000000005
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 3844.0000000000005,
+        "slope": 0.0032258064516129032,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 310,
+        "end_time": 11532.000000000002,
+        "length": 31.0,
+        "max_step": 10.0,
+        "output_interval": 4.805000000000001
+      },
+      "task_digest": "b06c4aee1d2fa81cb944a91d95e27bd6ee5370d40afe7a30f31b09356f8bd8fb",
+      "task_id": "00015-b06c4aee1d2f",
+      "task_index": 15,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 4355.999999999999,
+        "sustained_duration": 43.55999999999999
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 4355.999999999999,
+        "slope": 0.0030303030303030303,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 330,
+        "end_time": 13067.999999999996,
+        "length": 33.0,
+        "max_step": 10.0,
+        "output_interval": 5.4449999999999985
+      },
+      "task_digest": "589c0d3e336e91ed1d209d0fbbb453ece0c2a878ee096764a58f6a8e6dafbb7f",
+      "task_id": "00016-589c0d3e336e",
+      "task_index": 16,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 4900.0,
+        "sustained_duration": 49.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 4900.0,
+        "slope": 0.002857142857142857,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 350,
+        "end_time": 14700.0,
+        "length": 35.0,
+        "max_step": 10.0,
+        "output_interval": 6.125
+      },
+      "task_digest": "aecbc09a0b54bbfb1cef3858d6fd657bdbc0c3b9adfbf13a391c6624424f0d77",
+      "task_id": "00017-aecbc09a0b54",
+      "task_index": 17,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 5476.000000000001,
+        "sustained_duration": 54.76000000000001
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 5476.000000000001,
+        "slope": 0.002702702702702703,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 370,
+        "end_time": 16428.000000000004,
+        "length": 37.0,
+        "max_step": 10.0,
+        "output_interval": 6.8450000000000015
+      },
+      "task_digest": "4e9f88a43bfe95ef4fec103fd7fd72515016cc8179d0862c94439bda5da3d34e",
+      "task_id": "00018-4e9f88a43bfe",
+      "task_index": 18,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 6084.0,
+        "sustained_duration": 60.84
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 6084.0,
+        "slope": 0.002564102564102564,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 18252.0,
+        "length": 39.0,
+        "max_step": 10.0,
+        "output_interval": 7.605
+      },
+      "task_digest": "416bd4fbe3408068803d6e8fe54cb9729b6170499587979e81c5d3bc0e002669",
+      "task_id": "00019-416bd4fbe340",
+      "task_index": 19,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.1,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 6000.0,
+        "length": 1.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "9548cc37de55c1931dc13ae8c6f2a8510bcc71808b95b66c6768be7c4d5a1735",
+      "task_id": "00020-9548cc37de55",
+      "task_index": 20,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.03333333333333333,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 6000.0,
+        "length": 3.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "afd68d63b1458a089af975e3c310d8838ad824b0df52745d5c87bd74a623600f",
+      "task_id": "00021-afd68d63b145",
+      "task_index": 21,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.02,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 6000.0,
+        "length": 5.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "c8a9bffb2cde5bcae1490704f776bc740aa878362763f1446aacb986d76d6132",
+      "task_id": "00022-c8a9bffb2cde",
+      "task_index": 22,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.014285714285714287,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 6000.0,
+        "length": 7.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "9c96643a07205933e7457793659109988346704f984863ec13d2b82b5aa14822",
+      "task_id": "00023-9c96643a0720",
+      "task_index": 23,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.011111111111111112,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 6000.0,
+        "length": 9.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "3a69e4625c0a482b0feaa96fcd12a33cbfa2a1f4d55e305107ef75bda411ff5f",
+      "task_id": "00024-3a69e4625c0a",
+      "task_index": 24,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.009090909090909092,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 110,
+        "end_time": 6000.0,
+        "length": 11.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "8f10a9b29baa675c5a30abda0d422e352407bfa0fea7ab6ddefb0de12fe4ac3a",
+      "task_id": "00025-8f10a9b29baa",
+      "task_index": 25,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.007692307692307693,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 130,
+        "end_time": 6000.0,
+        "length": 13.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "7b1f0502638e53992e92c6c56f99cad943fa0d8c5dd2807c5de03138cad3bd19",
+      "task_id": "00026-7b1f0502638e",
+      "task_index": 26,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.006666666666666667,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 6000.0,
+        "length": 15.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "2ec418cb41682e6d7666e189a45309d55aae89ea5bfa837f1457262fc266ec78",
+      "task_id": "00027-2ec418cb4168",
+      "task_index": 27,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.0058823529411764705,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 170,
+        "end_time": 6000.0,
+        "length": 17.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "577ca4fe05b605ad7402392d9ccfcc60c39c8f82962b5553e854f0d53954b2ea",
+      "task_id": "00028-577ca4fe05b6",
+      "task_index": 28,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.005263157894736842,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 190,
+        "end_time": 6000.0,
+        "length": 19.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "3696d98f0a132f3c0f98c379133e50346640008b18894114fa10f8dd0f59d3b2",
+      "task_id": "00029-3696d98f0a13",
+      "task_index": 29,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.004761904761904762,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 210,
+        "end_time": 6000.0,
+        "length": 21.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "771c42d4716a9860ccdd424a424ee1cbc99cfe116d3df1d9c2b03a0acc1aa521",
+      "task_id": "00030-771c42d4716a",
+      "task_index": 30,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2115.9999999999995,
+        "sustained_duration": 21.159999999999997
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2115.9999999999995,
+        "slope": 0.004347826086956522,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 230,
+        "end_time": 6347.999999999998,
+        "length": 23.0,
+        "max_step": 10.0,
+        "output_interval": 2.644999999999999
+      },
+      "task_digest": "73021b79c4b924b3d45f71564a1581ea00074685ce12f21b7d88dae8cd982a1e",
+      "task_id": "00031-73021b79c4b9",
+      "task_index": 31,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2500.0,
+        "sustained_duration": 25.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2500.0,
+        "slope": 0.004,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 7500.0,
+        "length": 25.0,
+        "max_step": 10.0,
+        "output_interval": 3.125
+      },
+      "task_digest": "4f784ac935445f10828005f6d3f74f99c92230d1f33b29153207f7f17c753dc7",
+      "task_id": "00032-4f784ac93544",
+      "task_index": 32,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2916.0000000000005,
+        "sustained_duration": 29.160000000000004
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2916.0000000000005,
+        "slope": 0.003703703703703704,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 270,
+        "end_time": 8748.000000000002,
+        "length": 27.0,
+        "max_step": 10.0,
+        "output_interval": 3.645000000000001
+      },
+      "task_digest": "ff12924fcf2f4a92d878c3e9ff9d1f13289abdb802466923f8a1236921ccf49e",
+      "task_id": "00033-ff12924fcf2f",
+      "task_index": 33,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 3364.0,
+        "sustained_duration": 33.64
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 3364.0,
+        "slope": 0.003448275862068966,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 290,
+        "end_time": 10092.0,
+        "length": 29.0,
+        "max_step": 10.0,
+        "output_interval": 4.205
+      },
+      "task_digest": "08e0ed3117e7babbb2001e1020e6aee934f70ca0ef0d4f736caebed69aac4b6e",
+      "task_id": "00034-08e0ed3117e7",
+      "task_index": 34,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 3844.0000000000005,
+        "sustained_duration": 38.440000000000005
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 3844.0000000000005,
+        "slope": 0.0032258064516129032,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 310,
+        "end_time": 11532.000000000002,
+        "length": 31.0,
+        "max_step": 10.0,
+        "output_interval": 4.805000000000001
+      },
+      "task_digest": "d2f6e1e3cdeae8ab735fc6ed2cfb545b7f49cb7a068be5eb2486cb6224f0e784",
+      "task_id": "00035-d2f6e1e3cdea",
+      "task_index": 35,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 4355.999999999999,
+        "sustained_duration": 43.55999999999999
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 4355.999999999999,
+        "slope": 0.0030303030303030303,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 330,
+        "end_time": 13067.999999999996,
+        "length": 33.0,
+        "max_step": 10.0,
+        "output_interval": 5.4449999999999985
+      },
+      "task_digest": "43af2a6bd5645c179a81be72cae607327b66602c6f9f7894fb147cb8a569c918",
+      "task_id": "00036-43af2a6bd564",
+      "task_index": 36,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 4900.0,
+        "sustained_duration": 49.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 4900.0,
+        "slope": 0.002857142857142857,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 350,
+        "end_time": 14700.0,
+        "length": 35.0,
+        "max_step": 10.0,
+        "output_interval": 6.125
+      },
+      "task_digest": "daa0d62b7208a99d601d430575542c156821e06440041135a9b5e302d5bb2e59",
+      "task_id": "00037-daa0d62b7208",
+      "task_index": 37,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 5476.000000000001,
+        "sustained_duration": 54.76000000000001
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 5476.000000000001,
+        "slope": 0.002702702702702703,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 370,
+        "end_time": 16428.000000000004,
+        "length": 37.0,
+        "max_step": 10.0,
+        "output_interval": 6.8450000000000015
+      },
+      "task_digest": "9c9105ca8997af41c52e7d8148d5d7c528fa8af1fb1550a7d04ba1752ed68957",
+      "task_id": "00038-9c9105ca8997",
+      "task_index": 38,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 6084.0,
+        "sustained_duration": 60.84
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 6084.0,
+        "slope": 0.002564102564102564,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 18252.0,
+        "length": 39.0,
+        "max_step": 10.0,
+        "output_interval": 7.605
+      },
+      "task_digest": "d68433c2d36eee8cec94b2fb8967fe46260ea7e9350284d905887bb4b86942df",
+      "task_id": "00039-d68433c2d36e",
+      "task_index": 39,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.1,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 6000.0,
+        "length": 1.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "8d4ed838ff7f988b8a9d261e0ce2d27ad1f1b37800782fead978562c1d1e1093",
+      "task_id": "00040-8d4ed838ff7f",
+      "task_index": 40,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.03333333333333333,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 6000.0,
+        "length": 3.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "59783da06be7253cf2e858f249edca863f591bd8ae1c2c0f111aac03894d070c",
+      "task_id": "00041-59783da06be7",
+      "task_index": 41,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.02,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 6000.0,
+        "length": 5.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "3eef391a3c8c6d4348a0f49e430c3bad05cbc96fb2b4c8087b7bb400c8a9730f",
+      "task_id": "00042-3eef391a3c8c",
+      "task_index": 42,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.014285714285714287,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 6000.0,
+        "length": 7.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "8330fcd9f3ddcc09e67864ed07b5fca31d256f62f344c11181b6ec9142ffbbc0",
+      "task_id": "00043-8330fcd9f3dd",
+      "task_index": 43,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.011111111111111112,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 6000.0,
+        "length": 9.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "4fdd5f06201a80bfa1aa417116044872900f17d7c251fe55e6f590bd45fbffc7",
+      "task_id": "00044-4fdd5f06201a",
+      "task_index": 44,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.009090909090909092,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 110,
+        "end_time": 6000.0,
+        "length": 11.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "dd308442276473a2f92847c6a645bc461e9ef3ef0e419904b0f3f113e23d5086",
+      "task_id": "00045-dd3084422764",
+      "task_index": 45,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.007692307692307693,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 130,
+        "end_time": 6000.0,
+        "length": 13.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "59713ecffefc54c0d11f3e7c5b919c67997e644b8eba67daa975d97d5688b527",
+      "task_id": "00046-59713ecffefc",
+      "task_index": 46,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.006666666666666667,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 6000.0,
+        "length": 15.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "86cca365fb2879155a87b0978d91af7bb56a74ba37a271f281a08c96c80b0006",
+      "task_id": "00047-86cca365fb28",
+      "task_index": 47,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.0058823529411764705,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 170,
+        "end_time": 6000.0,
+        "length": 17.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "edc90ab982e250c2d56aab1b471906ef17c75862f070b0406a81aa66653a52e2",
+      "task_id": "00048-edc90ab982e2",
+      "task_index": 48,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.005263157894736842,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 190,
+        "end_time": 6000.0,
+        "length": 19.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "0a02bcf04cf27c18fd05985b85feac9b5ca34cb2c3ec80644275c8d7d6c19847",
+      "task_id": "00049-0a02bcf04cf2",
+      "task_index": 49,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.004761904761904762,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 210,
+        "end_time": 6000.0,
+        "length": 21.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "37c750e16d11968976bed5f0e8856e7193e382631cd43a8d4ba07fb14b7832b0",
+      "task_id": "00050-37c750e16d11",
+      "task_index": 50,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2115.9999999999995,
+        "sustained_duration": 21.159999999999997
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2115.9999999999995,
+        "slope": 0.004347826086956522,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 230,
+        "end_time": 6347.999999999998,
+        "length": 23.0,
+        "max_step": 10.0,
+        "output_interval": 2.644999999999999
+      },
+      "task_digest": "686ca65a7af6e00fae1bb0ef9fbb118a6772d842a0762d57aa405b10d078bc55",
+      "task_id": "00051-686ca65a7af6",
+      "task_index": 51,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2500.0,
+        "sustained_duration": 25.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2500.0,
+        "slope": 0.004,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 7500.0,
+        "length": 25.0,
+        "max_step": 10.0,
+        "output_interval": 3.125
+      },
+      "task_digest": "efa2f10c1f4824662a57cf544274ed52daf906e5821c88c0af34d8a51eb087a3",
+      "task_id": "00052-efa2f10c1f48",
+      "task_index": 52,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2916.0000000000005,
+        "sustained_duration": 29.160000000000004
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2916.0000000000005,
+        "slope": 0.003703703703703704,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 270,
+        "end_time": 8748.000000000002,
+        "length": 27.0,
+        "max_step": 10.0,
+        "output_interval": 3.645000000000001
+      },
+      "task_digest": "5d2744262b79c2291f0094b5d4114f10663e7a1412a42535614cf57cc45fb41c",
+      "task_id": "00053-5d2744262b79",
+      "task_index": 53,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 3364.0,
+        "sustained_duration": 33.64
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 3364.0,
+        "slope": 0.003448275862068966,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 290,
+        "end_time": 10092.0,
+        "length": 29.0,
+        "max_step": 10.0,
+        "output_interval": 4.205
+      },
+      "task_digest": "451f7dc6861f847299d37c07b1b2365bcd519b55bef0e41720cb5f94b89a0042",
+      "task_id": "00054-451f7dc6861f",
+      "task_index": 54,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 3844.0000000000005,
+        "sustained_duration": 38.440000000000005
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 3844.0000000000005,
+        "slope": 0.0032258064516129032,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 310,
+        "end_time": 11532.000000000002,
+        "length": 31.0,
+        "max_step": 10.0,
+        "output_interval": 4.805000000000001
+      },
+      "task_digest": "7287fccf4a06e5fd8861c8b28d46f143dd8a3f9effcaad9fed6a0da5299ceb83",
+      "task_id": "00055-7287fccf4a06",
+      "task_index": 55,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 4355.999999999999,
+        "sustained_duration": 43.55999999999999
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 4355.999999999999,
+        "slope": 0.0030303030303030303,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 330,
+        "end_time": 13067.999999999996,
+        "length": 33.0,
+        "max_step": 10.0,
+        "output_interval": 5.4449999999999985
+      },
+      "task_digest": "dd7bcc449504e70dea65443d84c6b3697d707abbef7c726441e598a9c226848b",
+      "task_id": "00056-dd7bcc449504",
+      "task_index": 56,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 4900.0,
+        "sustained_duration": 49.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 4900.0,
+        "slope": 0.002857142857142857,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 350,
+        "end_time": 14700.0,
+        "length": 35.0,
+        "max_step": 10.0,
+        "output_interval": 6.125
+      },
+      "task_digest": "cdcdc325246e8351a9666013077af2421f3c91391032fa9e53dff30d0f0ca2fa",
+      "task_id": "00057-cdcdc325246e",
+      "task_index": 57,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 5476.000000000001,
+        "sustained_duration": 54.76000000000001
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 5476.000000000001,
+        "slope": 0.002702702702702703,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 370,
+        "end_time": 16428.000000000004,
+        "length": 37.0,
+        "max_step": 10.0,
+        "output_interval": 6.8450000000000015
+      },
+      "task_digest": "529bde1e77be6f7e28142b99fcd02f298ed0066baa22e73bae3ea576c4fa1079",
+      "task_id": "00058-529bde1e77be",
+      "task_index": 58,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 6084.0,
+        "sustained_duration": 60.84
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 6084.0,
+        "slope": 0.002564102564102564,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 18252.0,
+        "length": 39.0,
+        "max_step": 10.0,
+        "output_interval": 7.605
+      },
+      "task_digest": "4ec9111542eb66d3eda9cbb64d395d8825b9eab1dc772940c75bcc9f05633299",
+      "task_id": "00059-4ec9111542eb",
+      "task_index": 59,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.1,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 6000.0,
+        "length": 1.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "8363739df59a5120c387d6b4d62ed7be17ffdf1aab34450f6d3cdb5fa4b9c967",
+      "task_id": "00060-8363739df59a",
+      "task_index": 60,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.03333333333333333,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 6000.0,
+        "length": 3.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "090afcee3f0edb70167746f46d442d9744a92818c76267695f37ac64e7a6a059",
+      "task_id": "00061-090afcee3f0e",
+      "task_index": 61,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.02,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 6000.0,
+        "length": 5.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "ac447689b6111e48d731428bdd7277031516728adf5938e070054df39a7e01f8",
+      "task_id": "00062-ac447689b611",
+      "task_index": 62,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.014285714285714287,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 6000.0,
+        "length": 7.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "03a333678081eae03c0509b8e1f96629232d79eae9643ed0bd4192207fada0eb",
+      "task_id": "00063-03a333678081",
+      "task_index": 63,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.011111111111111112,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 6000.0,
+        "length": 9.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "e8f96201d47782f61056c972c0ae507369791d92e6b5636570f87c88432a2b8b",
+      "task_id": "00064-e8f96201d477",
+      "task_index": 64,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.009090909090909092,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 110,
+        "end_time": 6000.0,
+        "length": 11.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "ffb3939e21d7fcec4c9ee6bb6d6d64481e497b2289387c400dd595ae7af13c35",
+      "task_id": "00065-ffb3939e21d7",
+      "task_index": 65,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.007692307692307693,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 130,
+        "end_time": 6000.0,
+        "length": 13.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "c6614a75e8a412cc7bae1bbd58fbc5ea702ea43c0e7264373c97de32ef7b7226",
+      "task_id": "00066-c6614a75e8a4",
+      "task_index": 66,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.006666666666666667,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 6000.0,
+        "length": 15.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "21bf11e8a4adcc7a5246caca1e248d4b9f7022d1707347683ddbf3e5d6ab00b2",
+      "task_id": "00067-21bf11e8a4ad",
+      "task_index": 67,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.0058823529411764705,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 170,
+        "end_time": 6000.0,
+        "length": 17.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "50c7902a9971c7aa95eab988e64609f94a49a174865aedb7ab40a2ff556c3d27",
+      "task_id": "00068-50c7902a9971",
+      "task_index": 68,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.005263157894736842,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 190,
+        "end_time": 6000.0,
+        "length": 19.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "789321e2efaefe0578b050deec6e40045bc1e210001a8e9d582e7f79c17076d4",
+      "task_id": "00069-789321e2efae",
+      "task_index": 69,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2000.0,
+        "sustained_duration": 20.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2000.0,
+        "slope": 0.004761904761904762,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 210,
+        "end_time": 6000.0,
+        "length": 21.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "c9e394756fc35686b79d9b7d153d61138326bf4ace72e827f00f4528e5f81d73",
+      "task_id": "00070-c9e394756fc3",
+      "task_index": 70,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2115.9999999999995,
+        "sustained_duration": 21.159999999999997
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2115.9999999999995,
+        "slope": 0.004347826086956522,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 230,
+        "end_time": 6347.999999999998,
+        "length": 23.0,
+        "max_step": 10.0,
+        "output_interval": 2.644999999999999
+      },
+      "task_digest": "e0bd3f919c0d5384e758f1752a8cc88d107bc7d963f8619ad9e38b41ddf65afe",
+      "task_id": "00071-e0bd3f919c0d",
+      "task_index": 71,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2500.0,
+        "sustained_duration": 25.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2500.0,
+        "slope": 0.004,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 7500.0,
+        "length": 25.0,
+        "max_step": 10.0,
+        "output_interval": 3.125
+      },
+      "task_digest": "76fa7ea1151b8a7d1b153a135593ea997842198553bf3af9027c5b0908f928fa",
+      "task_id": "00072-76fa7ea1151b",
+      "task_index": 72,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2916.0000000000005,
+        "sustained_duration": 29.160000000000004
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2916.0000000000005,
+        "slope": 0.003703703703703704,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 270,
+        "end_time": 8748.000000000002,
+        "length": 27.0,
+        "max_step": 10.0,
+        "output_interval": 3.645000000000001
+      },
+      "task_digest": "77c2c06c9585cdbaffa25c0f968705f1b6f096ba8528f95c9bb53140ab21408d",
+      "task_id": "00073-77c2c06c9585",
+      "task_index": 73,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 3364.0,
+        "sustained_duration": 33.64
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 3364.0,
+        "slope": 0.003448275862068966,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 290,
+        "end_time": 10092.0,
+        "length": 29.0,
+        "max_step": 10.0,
+        "output_interval": 4.205
+      },
+      "task_digest": "6453da7a5690682ee3c7a0bd79f971c4879e78a5bab065bceb16fbdec94de324",
+      "task_id": "00074-6453da7a5690",
+      "task_index": 74,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 3844.0000000000005,
+        "sustained_duration": 38.440000000000005
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 3844.0000000000005,
+        "slope": 0.0032258064516129032,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 310,
+        "end_time": 11532.000000000002,
+        "length": 31.0,
+        "max_step": 10.0,
+        "output_interval": 4.805000000000001
+      },
+      "task_digest": "6b78fbeb9873555a6899c1d957efa063c453a2c493eaef0f2ac3a5f67e42685a",
+      "task_id": "00075-6b78fbeb9873",
+      "task_index": 75,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 4355.999999999999,
+        "sustained_duration": 43.55999999999999
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 4355.999999999999,
+        "slope": 0.0030303030303030303,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 330,
+        "end_time": 13067.999999999996,
+        "length": 33.0,
+        "max_step": 10.0,
+        "output_interval": 5.4449999999999985
+      },
+      "task_digest": "30666279dd0cc04664bcc490dbd07b0e6c8e5c33034c1433848128483ca943b1",
+      "task_id": "00076-30666279dd0c",
+      "task_index": 76,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 4900.0,
+        "sustained_duration": 49.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 4900.0,
+        "slope": 0.002857142857142857,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 350,
+        "end_time": 14700.0,
+        "length": 35.0,
+        "max_step": 10.0,
+        "output_interval": 6.125
+      },
+      "task_digest": "90f3f2036bffb8cf4ac319180cc43b6907f9303662d7b0a937bf21df70bb688b",
+      "task_id": "00077-90f3f2036bff",
+      "task_index": 77,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 5476.000000000001,
+        "sustained_duration": 54.76000000000001
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 5476.000000000001,
+        "slope": 0.002702702702702703,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 370,
+        "end_time": 16428.000000000004,
+        "length": 37.0,
+        "max_step": 10.0,
+        "output_interval": 6.8450000000000015
+      },
+      "task_digest": "f8d8bc6fbf365ce6547015bfa0753d04ce9adbd7df7ad6d8658dfd3ce1a012ee",
+      "task_id": "00078-f8d8bc6fbf36",
+      "task_index": 78,
+      "tier": "revision_audit"
+    },
+    {
+      "assay": "gradient_reversal_long_conditioning",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 6084.0,
+        "sustained_duration": 60.84
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 6084.0,
+        "slope": 0.002564102564102564,
+        "transition": 20.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 18252.0,
+        "length": 39.0,
+        "max_step": 10.0,
+        "output_interval": 7.605
+      },
+      "task_digest": "f6a9a7967c1b79b6151b71cb640cba22fd64706766fd6d7c8f483732145f4ee2",
+      "task_id": "00079-f6a9a7967c1b",
+      "task_index": 79,
+      "tier": "revision_audit"
+    }
+  ]
+}

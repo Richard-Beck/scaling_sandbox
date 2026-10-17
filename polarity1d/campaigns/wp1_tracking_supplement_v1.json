@@ -1,0 +1,88 @@
+{
+  "campaign_name": "wp1_tracking_supplement_v1",
+  "created_utc": "2026-09-04T12:33:09.632686+00:00",
+  "description": "Retained L=15 um wave-pinning tracking trajectories at T=100 and 400 s.",
+  "metadata": {
+    "length_um": 15.0,
+    "periods_s": [
+      100.0,
+      400.0
+    ]
+  },
+  "schema_version": 1,
+  "task_count": 2,
+  "tasks": [
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 25.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 100.0,
+        "slope": 0.006666666666666667,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 600.0,
+        "length": 15.0,
+        "max_step": 5.0,
+        "output_interval": 1.25
+      },
+      "task_digest": "fb03b492a6053df9f89dece20be7fcd2bc3345f7c5520471ce915ae270897f4d",
+      "task_id": "00000-fb03b492a605",
+      "task_index": 0,
+      "tier": "figure_supplement",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 100.0,
+        "start": 100.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 100.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 400.0,
+        "slope": 0.006666666666666667,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 2400.0,
+        "length": 15.0,
+        "max_step": 5.0,
+        "output_interval": 5.0
+      },
+      "task_digest": "d3d8927fabe15d2754bd35519cfb109f1ecf3cdbddb72f4ed707a5740b1119c9",
+      "task_id": "00001-d3d8927fabe1",
+      "task_index": 1,
+      "tier": "figure_supplement",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 400.0,
+        "start": 400.0
+      }
+    }
+  ]
+}

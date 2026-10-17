@@ -18,6 +18,8 @@ ESTABLISHMENT=n.DATA/'establishment_basal'
 GRID=n.DATA/'inputs/reversal_duration_grids.json'
 DEFINITIONS=['orientation','full_polarity']
 RECOVERY=10000.;STEP=2.5;TAIL=500.;MAX_ROUNDS=12
+RUNNER=Path(__file__).resolve()
+RENDERER=n.ROOT/'code/figure_builder.py'
 
 
 def write(path,value):
@@ -122,6 +124,12 @@ def jobs(out,round):
     return read(path)
 
 
+def response_cue(case):
+    """Construct the response without changing preparation or recovery."""
+    return e.Patch(case['amplitude'],case['width'],side='right',width_mode=case['width_mode'],
+                   fraction=case['width_fraction_at_reference'],background=case.get('background_stimulus',0.))
+
+
 def trial(case,duration):
     checkpoint=n.ROOT/case['checkpoint']
     if n.sha(checkpoint)!=case['checkpoint_sha256']:raise RuntimeError('Checkpoint changed')
@@ -129,8 +137,7 @@ def trial(case,duration):
     pulse=None
     if duration>0:
         # Integrate through the left limit, then restart under basal withdrawal.
-        cue=e.Patch(case['amplitude'],case['width'],side='right',width_mode=case['width_mode'],
-                    fraction=case['width_fraction_at_reference'],background=case.get('background_stimulus',0.))
+        cue=response_cue(case)
         pulse=n.run(case['model'],case['length'],state,cue,duration,interval=min(STEP,duration/20),n=case['cells'])
         state=pulse.state
     recovery=n.run(case['model'],case['length'],state,e.withdrawal(case),RECOVERY,interval=STEP,n=case['cells'])
@@ -259,12 +266,13 @@ def _publish_locked(out,stage,complete=False):
                 completed_trials=sum(len(t) for t in groups.values()),status_counts=dict(Counter(r['status'] for r in rows)),
                 figure_state='Final figures only after complete audit; interim data remain explicit.')
     write(results/'status.json',status)
-    (results/'index.html').write_text(f'<!doctype html><html><head><meta charset="utf-8"><title>Corrected matched reversal</title></head><body><h1>Five-model matched basal countercue</h1><p>Data generated {stamp}; producer {status["producer"]}; stage {stage}.</p><p>{len(cases)} conditions; {status["completed_trials"]} completed independent trials; {len(pending)} pending chunks; {len(errors)} execution errors.</p><p>Same exact corrected basal endpoints, nominal peak, three current widths. Scalar response and native-field stability are separate. No universal scaling law is assumed.</p><a href="endpoints.csv">Current endpoints</a> · <a href="status.json">Status</a> · <a href="../manifest.json">Frozen experiment</a></body></html>')
+    description='Same exact corrected basal endpoints; finite g*x countergradient, one physical slope per model across all lengths and preparation widths.' if manifest.get('experiment')=='fixed_physical_slope_countergradient' else 'Same exact corrected basal endpoints, nominal peak, three current widths.'
+    (results/'index.html').write_text(f'<!doctype html><html><head><meta charset="utf-8"><title>Corrected reversal</title></head><body><h1>Five-model basal countercue</h1><p>Data generated {stamp}; producer {status["producer"]}; stage {stage}.</p><p>{len(cases)} conditions; {status["completed_trials"]} completed independent trials; {len(pending)} pending chunks; {len(errors)} execution errors.</p><p>{description} Scalar response and native-field stability are separate. No universal scaling law is assumed.</p><a href="endpoints.csv">Current endpoints</a> · <a href="status.json">Status</a> · <a href="../manifest.json">Frozen experiment</a></body></html>')
     return status
 
 
 def submit(out,action,round,offset=0,array=None,dependency=None):
-    command='export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1; '+shlex.join([sys.executable,str(Path(__file__).resolve()),action,'--out',str(out),'--round',str(round),'--offset',str(offset)])
+    command='export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1; '+shlex.join([sys.executable,str(RUNNER),action,'--out',str(out),'--round',str(round),'--offset',str(offset)])
     if array:command+=' --slot "$SLURM_ARRAY_TASK_ID"'
     opts=['sbatch','--parsable','--qos=small','--ntasks=1','--cpus-per-task=1','--mem=3G','--time=18:00:00' if action=='monitor' else '--time=12:00:00' if action=='worker' else '--time=01:00:00',
           '--job-name=corrected-reversal-'+action,'--chdir='+str(n.ROOT),
@@ -316,7 +324,7 @@ def explanation(out,cases):
     state,prep=n.read_checkpoint(n.ROOT/case['checkpoint'],case['model'])
     arrays=dict(passing_duration=passing,failed_duration=failed,establishment_case_index=case['establishment_case_index'])
     for label,d in [('passing',passing),('failed',failed)]:
-        cue=e.Patch(case['amplitude'],case['width'],side='right',width_mode=case['width_mode'],fraction=case['width_fraction_at_reference'],background=case.get('background_stimulus',0.))
+        cue=response_cue(case)
         pulse=n.run(case['model'],case['length'],state,cue,d,interval=min(STEP,d/20),n=case['cells']) if d>0 else None
         recovery=n.run(case['model'],case['length'],pulse.state if pulse else state,e.withdrawal(case),RECOVERY,interval=STEP,n=case['cells'])
         full=n.concatenate(pulse,recovery,d) if pulse else recovery
@@ -367,7 +375,7 @@ def advance(out,round):
     explanation(out,cases)
     write(out/'launch.json',dict(generated_at=n.now(),stage='complete',round=round,arrays=[]))
     publish(out,'complete',complete=True)
-    subprocess.run([sys.executable,str(n.ROOT/'code/figure_builder.py'),'--campaign',str(out)],check=True)
+    subprocess.run([sys.executable,str(RENDERER),'--campaign',str(out)],check=True)
 
 
 def main():

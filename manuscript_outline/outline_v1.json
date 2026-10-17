@@ -1,0 +1,489 @@
+{
+  "title": "Cell enlargement, polarity competition and migration persistence",
+  "subtitle": "Vision-aligned manuscript outline with proposed main figures and detailed legends",
+  "date": "17 October 2026",
+  "stage": "Initial integrated checkpoint",
+  "overview": [
+    "Working hypothesis: WGD-associated enlargement changes how established polarity is organized and replaced; these changes may provide a physical basis for greater migration persistence. The theoretical contribution tests size under unchanged local kinetic parameters. Length differs between model cells to represent WGD-associated enlargement, rather than elongation during a turn. Existing migration observations supply empirical motivation; new paired WGD motility results retain a substantial, explicitly reserved contribution.",
+    "Proposed argument: first establish model- and stimulus-dependent size effects in finite polarity replacement, then explain them through local input response, recovery and site competition. Supported rings test circumference and separation, and stochastic ring experiments examine activity-polarity memory directly. Published migration summaries are evaluated separately, with OU interpretation clearly conditional. The new WGD assay closes the empirical gap when results arrive.",
+    "This is an outline, not a completed manuscript or a claim that all figures are publication-final. The order of the mechanism and existing-migration components remains an editorial choice. Six proposed main figures are numbered here for navigation; source artwork may retain earlier working numbers. Mechanism-linked experimental validation is proposed, and Figure 6 remains wholly unmeasured.",
+    "Suggested introduction: distinguish migration persistence from speed; describe why WGD-associated enlargement motivates a geometric polarity question; introduce established biochemical and mechanochemical models as complementary hypotheses; explain the need to connect mechanisms to measurable activity/protrusion behaviour without assuming a cell-velocity law.",
+    "Suggested discussion: retain nonmonotone, null and opposite responses as informative model differences; separate deterministic cue resistance, noisy activity memory and velocity memory; identify concrete experiments; discuss finite horizons, stimulus geometry, conservation conventions and native times. The conclusions should remain conditional until the new motility and mechanism-validation experiments are obtained."
+  ],
+  "sections": [
+    {
+      "id": "figure1",
+      "title": "Figure 1. Enlargement changes the cue duration required for lasting polarity replacement",
+      "role": "Comparative theoretical foundation: five established models, three finite challenges, and two distinct scalar replacement gates.",
+      "assets": [
+        {
+          "path": "polarity1d/manuscript/figures/main_polarity.png",
+          "caption": "Current canonical comparison, 10 October Spearman revision; corrected independent-endpoint deBelly."
+        }
+      ],
+      "legend": [
+        "A, Example wave-pinning preparation from a homogeneous state using a finite left patch. The cue ends at 0.773 native time units, whereas the subsequent basal relaxation establishes the polarized profile later (reported establishment arrival about 116). Coloured profiles and orientation samples distinguish input duration from autonomous development. The grey late interval is verification, not additional stimulation. Profiles are scaled for display.",
+        "B, Three rightward finite challenges restart the identical qualifying nominal-amplitude, relative-20% basal checkpoint at each model and length: fixed physical support 3 (Spring 0.2 native length units), relative support 20%, and a linear ramp with constant physical slope. Patch peaks remain fixed within each model; a fixed-slope ramp has a larger peak in a longer domain. Goryachev patches use the independently selected, length-independent multiplier K=64 (peak 6.4), which makes this a response-permissive comparison rather than a calibrated equal biochemical dose across models.",
+        "C, Spearman rank correlation between length and the shortest tested passing pulse duration, separately for orientation replacement and strength replacement, across Wave-pinning, Goryachev, corrected deBelly, Holmes 3 and Spring. Each cell reports the correlation and included successful-length count. All audited scalar successes enter, including those failing the separate native-field tail criterion. At least four distinct successful lengths and nonconstant durations are required; censored and preparation-ineligible cases receive no invented time. The companion duration curves retain all lengths and field-status markers.",
+        "After each positive pulse, input returns to the native basal value for 10,000 native time units. Orientation requires all 201 final-500 samples to have scalar orientation above 0.05 and contrast at least 0.05, with orientation range below 0.005. Strength additionally requires every tail orientation to be within 1% of the absolute initial leftward scalar orientation; it does not compare individual pole heights or amounts. The separate native-field tail flag requires pointwise range and projected 500-unit drift within 0.1% of frozen field scales. The reported duration excludes preparation and recovery. It is the shortest passing tested duration, with sampled fail/pass boundaries refined to 1%; narrower unobserved intervals are not excluded.",
+        "deBelly uses independently commanded corrected endpoints, rather than the deprecated in-loop centered extension. Spring length and time retain native units and are not silently converted to micrometres or seconds. Model-specific axes and stimulus definitions prevent interpreting cross-model amplitudes or clocks as biologically calibrated equivalents."
+      ],
+      "narrative": [
+        "Fixed-width and relative-width patches show perfectly increasing rank order among observed successes in Wave-pinning, Goryachev, Holmes 3 and Spring; enlargement often increases the finite stimulation required for a retained response.",
+        "The response depends on the cue geometry and model. Spring has a negative constant-slope association (Spearman correlation -0.874 for both gates), while Holmes orientation under the constant-slope cue is nearly unassociated with length (0.047).",
+        "Corrected deBelly curves are nonmonotone despite moderate positive rank correlations. The full duration curves and eligibility ranges are essential to the result.",
+        "These are deterministic polarity-replacement experiments. They motivate, but do not measure, spontaneous polarity memory or migration persistence."
+      ],
+      "measurements": [
+        "Mechanism-linked cellular follow-up would match local input support, amplitude and duration, track the original and challenged activity regions through stimulation and withdrawal, and distinguish orientation replacement from recovered activity strength. This validation is proposed and has no experimental results in this outline."
+      ],
+      "limitations": [
+        "Correlations are conditional on observed scalar success, rather than an unbiased summary of all possible sizes or a universal scaling law. Ineligible starts are distinct from responses unobserved by the finite horizon.",
+        "A retained scalar response can coexist with a changing native field. Only 13 of the 72 corrected deBelly scalar successes pass the separate native-field tail flag. Resolution checks from the earlier centered-deBelly campaign cannot qualify the corrected replacement thresholds."
+      ],
+      "sources": [
+        {
+          "label": "Three-test protocol and Spearman rule",
+          "path": "polarity1d/manuscript/THREE_TESTS.md"
+        },
+        {
+          "label": "Correlation table",
+          "path": "polarity1d/manuscript/data/derived/length_correlations.csv"
+        },
+        {
+          "label": "Corrected endpoint method",
+          "path": "polarity1d/manuscript/DEBELLY_BOUNDARIES.md"
+        },
+        {
+          "label": "Current duration curves",
+          "path": "polarity1d/manuscript/figures/supplement_width_response.png"
+        }
+      ]
+    },
+    {
+      "id": "figure2",
+      "title": "Figure 2. Incumbent enlargement changes local response and sustained competition in five linear models",
+      "role": "Mechanistic explanation joined to specific activity measurements: organization, input gain, conditional local recovery and actual finite competition in the established linear framework.",
+      "assets": [
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/vision_aligned_figure1_linear.png",
+          "caption": "Delivered checkpoint Figure 1, preserved as proposed manuscript Figure 2. All-five established linear results; native ring values are excluded."
+        }
+      ],
+      "legend": [
+        "A, Larger/smaller ratios of incumbent excess-active amount, half-contrast core width and absolute peak concentration. Pairs are L19→39, Holmes L20→40 and Spring resting L₀1→2. Amount is the above-background integral in the incumbent core; it is not an exact width × peak product. Goryachev mainly raises concentration, while the other models predominantly broaden the incumbent. deBelly uses corrected independent endpoints; Spring uses its actual physical domain.",
+        "B, Cue-weighted incremental primary-activity production per unit native opposing input, shown for all 97 qualifying basal checkpoints. Native gain is inactive substrate for Wave-pinning/Goryachev/Spring, inactive Rac divided by 7.5 for Holmes and 0.04/(1+Rho²) for deBelly, which has no explicit inactive Rac pool. Gain and nominal size are divided by each model's reference: L19, Holmes L20 or Spring L₀1. The shared logarithmic gain axis preserves nearly unchanged responses.",
+        "C, Sham-relative deficit restoration after the same small active-deactivation perturbation at every qualified size. Remove 0.5% of a smooth compact taper of the frozen basal incumbent excess profile; 0.1%/1% amplitudes check linearity. Transfer removed material pointwise to the explicit inactive pool where present; deBelly changes Rac alone, initially preserving MCA/mechanical/controller states. All native fields then evolve without an opposing cue. Integrate the deficit between sham and probe in the fixed original core and measure its repaired fraction at one fixed clock per model. Plot that fraction relative to the same reference as B. Native clocks are 0.1778279410 for Wave-pinning/Holmes, 0.00562341325 for Goryachev, 5 for deBelly and 0.01778279410 for Spring. These clocks do not calibrate biochemical rates across models.",
+        "D, Every qualifying size after a fixed opposing cue and 13,000 cue-free units. Endpoint raised-cosine support is 3 (Spring 0.2), peaks are 0.1/6.4/3.6/1/4 for Wave-pinning/Goryachev/deBelly/Holmes/Spring, and duration is 1000 native units (Spring 50), unchanged across sizes. Original and mirrored core excess amounts use the frozen basal background and divide by initial incumbent excess. One final-stage y scale retains signed values; negative excess means activity below basal background, not negative concentration. Open circles flag cue/core overlap. Coverage is 97 qualified states and 13 preparation-ineligible sizes; no response is invented for an ineligible start.",
+        "E1–E5, Exact native histories at the prespecified largest qualifying size of each model: L39/L39/L39/L50/Spring L₀2.6. Squares in D identify these choices. Horizontal coordinate is fractional native position, with Spring in material coordinates; time is divided by each native cue duration. Cyan marks withdrawal. The displayed history covers 0–4 cue durations, whereas D uses the complete 13,000-unit follow-up. Zero-based activity color scales are model-specific. Fixed-support sequences do not replace the previously specified relative-20% deBelly illustrations.",
+        "All 97 original full-span recovery archives qualify at their fixed clocks, with numerical sensitivity, amplitude-linearity and unsaturated-prefix checks. The separate Spring early-window amendment is additional validation and is unused by the main collection. The finite campaign contains 97 primary branches plus 30 prespecified half/double-duration anchors. The new histories reproduce all original 10,000-unit orientation, scalar-strength and field-tail flags; those are distinct finite-window diagnostics."
+      ],
+      "equations": [
+        {
+          "math": "D(t)=A_{\\mathrm{sham},\\Omega_0}(t)-A_{\\mathrm{probe},\\Omega_0}(t)",
+          "number": "1",
+          "description": "The amount is integrated over the frozen original incumbent core; Spring uses each trajectory's physical length with fixed material-coordinate membership."
+        },
+        {
+          "math": "F_\\tau=\\frac{D(0)-D(\\tau)}{D(0)},\\qquad K_\\tau=\\frac{F_\\tau}{\\tau}",
+          "number": "2",
+          "description": "The figure shows restored fraction relative to its model-specific reference. A positive fraction means that one regional perturbation-induced deficit shrank relative to sham."
+        }
+      ],
+      "narrative": [
+        "All five models acquire more incumbent material, while its organization and functional consequences differ. Near-doubling gain folds are 0.65361 for Goryachev and 0.84570 for corrected deBelly; the other three are approximately one.",
+        "The corresponding common-recovery folds are 1.02562 for Wave-pinning, 3.43942 for Goryachev, 1.10175 for deBelly, 1.00871 for Holmes and 1.60800 for Spring. These are within-model size effects along a declared active-loss disturbance, rather than cross-model stability rankings.",
+        "Finite stimulation separates activation from later survival. At the longest intervals Wave-pinning and Holmes retain two threshold-defined regions, whereas Goryachev restores the original incumbent after transient challenger activity. All retained deBelly and Spring primary branches end right-oriented.",
+        "deBelly exposes why cue-on amplitude and orientation alone are insufficient: L18 mirrored-core excess falls from about 7.99 initial-incumbent units during the cue to about 1.013 afterward. At 3000 cue-free units, 12/12 branches pass orientation, 5/12 scalar strength and 0/12 the field-tail flag, compared with 12/11/12 at 8000–13,000."
+      ],
+      "measurements": [
+        "Measure incumbent physical extent, peak and excess integrated reporter signal against measured cell size. Molecular-amount interpretation requires calibration; spatial broadening and increased concentration-like signal should remain separate.",
+        "Apply a characterized local input and measure early challenger activation separately from its later establishment. Use a specified incumbent-targeted activity reduction and paired sham to measure actual local loss/rebound and shrinking sham-relative deficit over a declared window.",
+        "Track both sites during substantial fixed stimulation and after withdrawal, retaining extinction, return, merger, replacement and coexistence histories. Record local protrusion independently to test activity–protrusion correspondence; these experiments are proposed."
+      ],
+      "limitations": [
+        "A positive regional recovery coefficient does not establish generic stability or resistance to an actual challenger; deBelly's Rac-only kick leaves slower organization initially intact. Fixed cores do not uniquely track site identity.",
+        "Native clocks, length scales and input channels are not biological dose/time calibrations. Goryachev L39's core contains only four native cell centers; solver checks do not establish spatial convergence.",
+        "Half/double-duration controls establish bounded sensitivity, not a universal commitment threshold. Field-tail flags and finite retained patterns do not prove attractors or a cell-velocity law."
+      ],
+      "sources": [
+        {
+          "label": "Frozen initial checkpoint intake",
+          "path": "manuscript_outline/checkpoint_intake_v1.md"
+        },
+        {
+          "label": "All-five actual results and measurements",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_linear_20261017/RESULTS.md"
+        },
+        {
+          "label": "Complete normalized linear gain",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/supporting/data/vision_aligned_linear_gain.csv"
+        },
+        {
+          "label": "Complete qualified linear recovery",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/supporting/data/vision_aligned_linear_recovery.csv"
+        },
+        {
+          "label": "Finite competition and duration checks",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_linear_20261017/supporting/metadata/FINITE_RESULTS.md"
+        },
+        {
+          "label": "Compact exact native display histories",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/supporting/data/vision_aligned_linear_native_display.npz"
+        },
+        {
+          "label": "Assembly provenance",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/supporting/metadata/vision_aligned_checkpoint.manifest.json"
+        }
+      ]
+    },
+    {
+      "id": "figure3",
+      "title": "Figure 3. Challenger placement changes sustained competition and global activity polarity on supported rings",
+      "role": "Extend the established chemical models to a declared closed geometry, check interval/ring correspondence and connect local responses and site histories to measurable global activity asymmetry.",
+      "assets": [
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/vision_aligned_figure2_response.png",
+          "caption": "Delivered checkpoint Figure 2, continued sheet 1: matched native organization, input gain and conditional response."
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/vision_aligned_figure2_competition.png",
+          "caption": "Delivered checkpoint Figure 2, continued sheet 2: complete finite-pattern maps, linked histories and activity vectors. Preserved as one proposed manuscript figure across two review sheets."
+        }
+      ],
+      "legend": [
+        "A, Actual independently prepared interval L15 and ring C30 primary-activity profiles in Wave-pinning, Goryachev and Holmes. The interval is reflected for display. Across all 13 matched C=2L pairs, ring core width and excess-active amount are about twice the interval values; peak, matched gain and common recovery correspond closely. Maximum native recovery discrepancies are 0.04767%, 1.01636% and 0.000225% respectively. These are different native meshes and independent preparations, rather than identical reflected states or a continuum-convergence result. Matching endpoint support 3 requires full ring support 6; the finite ring challenges below use full support 3.",
+        "B, Initial local gain versus circumference C and shorter-route fraction d/C, divided by each model's C30 antipodal gain on one shared 0–3 scale. Rows are discrete sampled circumferences. C, The same active-deactivation assay as Figure 2 applied at exactly 10 native units after cue onset, with the same cue continuing in sham and probe. Divide the repaired fraction by that circumference's basal value, measured once per size. Frozen original core, perturbation direction, native clocks and complete coupled evolution remain unchanged. The ratio map does not remove the basal size trend; the linked raw basal curves retain it.",
+        "All maps preserve 867 planned cells: 652 complete challenges, 198 cue/core overlap exclusions shown by crosses and 17 unavailable Holmes C80 preparations shown in dark gray. The numerical recovery audit covers 50 basal and 652 challenged states and all 7020 branches. Eight early states lack a distinct old-associated site and their measurements concern the original region rather than a uniquely resolved incumbent.",
+        "D, Complete local-pattern geography after a full-support-3 raised-cosine cue for 1000 native units and 13,000 cue-free units. Peaks remain 0.1/6.4/1 for Wave-pinning/Goryachev/Holmes. Classes distinguish a sole old-associated maximum with unresolved identity, cue-associated peak, distinct old/cue peaks, one spanning region and shifted/unresolved patterns. Endpoint geography alone does not establish a site's lineage or an asymptotic branch.",
+        "The three numbered Holmes histories correspond exactly to displayed map cells: 1, C30 d12 develops a cue-associated single survivor; 2, C40 d12 forms a merged/bridged region; 3, C40 d16 retains distinct sites. They share a raw Rac scale and linear time from onset to 4000; cyan marks withdrawal at 1000. The periodic display keeps the original site at zero intact; gray padding lies outside C30. Only 2→3 changes cue placement in the identical complete basal state. Comparison 1→2 jointly changes material, architecture, both routes and cue angle (144°→108°); 2→3 changes cue angle from 108° to 144°.",
+        "The lower plots use the exact same histories to show the normalized complex activity moment in activity-vector space and its magnitude versus time. Initial vector is (1,0), squares mark withdrawal and triangles mark t=4000. Magnitude may exceed one. The antipodal Holmes safeguard has two active sites and nearly unchanged total active Rac despite a near-zero first moment. Direction is unavailable below relative magnitude 0.1; 0.05/0.2 sensitivity gates, total activity and first/second harmonic ratios remain linked. A second harmonic is not a unique site count.",
+        "Nine selected half/double-duration anchors keep their local endpoint class, but vector magnitude and angle can change. Full-grid readouts retain 18 class changes from 3000 to 13,000 cue-free units and four changes from 8000 to 13,000. Thus the main maps are declared finite observation slices, not a universal settling or duration-independent phase diagram."
+      ],
+      "equations": [
+        {
+          "math": "M_k(t)=\\int_0^C u(s,t)e^{2\\pi i k(s-s_0)/C}\\,\\mathrm{d}s",
+          "number": "3",
+          "description": "Circular activity moments retain physical boundary weighting. The same fixed origin is used throughout a history; uniform background cancels from the first moment."
+        },
+        {
+          "math": "P(t)=\\frac{M_1(t)}{M_1(0)},\\qquad R(t)=|P(t)|,\\qquad q_k(t)=\\frac{|M_k(t)|}{M_0(t)}",
+          "number": "4",
+          "description": "Relative activity magnitude and mass-normalized harmonic magnitudes remain distinct. The complex division aligns the initial first moment to (1,0)."
+        }
+      ],
+      "narrative": [
+        "Initial local gain varies by less than 0.09% across qualified placements at fixed circumference, while sustained competition produces sharply different local patterns. Input gain alone therefore does not determine later site fate.",
+        "Every challenged conditional repaired fraction is positive even though the actual unperturbed original core loses active material during the same window. Challenged/basal ratios span 0.469–1.000 in Wave-pinning, 0.798–1.000 in Goryachev and 0.921–0.999 in Holmes.",
+        "The complete finite maps contain 81 Wave-pinning and 82 Holmes distinct-old-plus-cue outcomes, while Goryachev has none in this finite grid. Its native C40/C80 antipodal histories instead distinguish replacement from old-region return/retention.",
+        "Local patterns and global activity are complementary. Opposing active sites can cancel the first moment without loss of local activity; conversely, a strong moment does not identify a unique site or distinguish a merger from a shifted peak."
+      ],
+      "measurements": [
+        "Vary stimulation location at fixed measured size and initial reporter organization; record physical center separation, site extent, edge gaps, both available boundary routes and input overlap.",
+        "Follow incumbent and challenger activity, extinction/merger, distinct-site lifetimes and local loss/rebound alongside the whole-boundary reporter-polarity vector, magnitude and direction. A fixed-region loss can be redistribution, so retain tracked sites and neighboring signal.",
+        "For irregular cell boundaries, declare registration, physical arclength weights and vector embedding. Pair activity with local boundary extension/retraction to test protrusion correspondence without assuming a velocity law."
+      ],
+      "limitations": [
+        "Moving a cue in a fixed basal changes both routes and local cortical context; it does not isolate transport distance. Cross-size comparisons also change material, architecture and angular input.",
+        "Common local-recovery responses and finite outcomes are different measurements, with no demonstrated causal allocation of reversal time. Near-zero vector magnitude must not be assigned a meaningful heading.",
+        "Native amplitudes and times are not cross-calibrated, and ring circumference is not silently equated to cell diameter. Finite deterministic vectors do not estimate stochastic polarity persistence or migration."
+      ],
+      "sources": [
+        {
+          "label": "Frozen initial checkpoint intake",
+          "path": "manuscript_outline/checkpoint_intake_v1.md"
+        },
+        {
+          "label": "Actual supported-ring report",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_ring_20261017/RESULTS.md"
+        },
+        {
+          "label": "Common-assay ring recovery results",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_ring_20261017/supporting/metadata/RECOVERY_RESULTS.md"
+        },
+        {
+          "label": "Native interval/ring display profiles",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/supporting/data/vision_aligned_matched_native_profiles.csv"
+        },
+        {
+          "label": "Complete conditional ring recovery",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/supporting/data/vision_aligned_ring_conditional_recovery.csv"
+        },
+        {
+          "label": "Recovery and vector methods",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_ring_20261017/supporting/metadata/MOMENT_AND_RECOVERY_METHODS.md"
+        },
+        {
+          "label": "Actual-result scientific critique",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_ring_20261017/supporting/metadata/FRESH_RESULT_CRITIQUE.md"
+        },
+        {
+          "label": "Assembly provenance",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/supporting/metadata/vision_aligned_checkpoint.manifest.json"
+        }
+      ]
+    },
+    {
+      "id": "figure4",
+      "title": "Figure 4. Replicated local fluctuations reveal model- and size-dependent activity-polarity memory",
+      "role": "A direct stochastic polarity-memory test, separated from deterministic cue resistance and from conditional OU velocity-memory estimates in the migration evidence.",
+      "assets": [
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/vision_aligned_figure3_noise.png",
+          "caption": "Delivered checkpoint Figure 3, preserved as proposed manuscript Figure 4. Replicated supported-ring experiments with declared local noise and deterministic controls."
+        }
+      ],
+      "legend": [
+        "A, Ensemble mean initial-axis memory, the real part of the first activity moment divided by its own initial complex value, for Wave-pinning/Goryachev/Holmes rings at circumferences 20/40/60. Each model/size/strength has 12 independent declared seeds, followed for 32,000 native units. Colors denote circumference; dashed/solid curves denote mean input fractions 0.001/0.01 of the model's native cue peak. Bands are 95% seed-bootstrap intervals. Time origins within a trace are not independent experimental replicates.",
+        "The positive native activation input is lognormal, with unit-variance Gaussian field, physical spatial correlation parameter 1.5, temporal OU-knot correlation time 50 and knot spacing 5. Linear interpolation is divided by its analytic marginal standard deviation. The law is a normalized interpolated stochastic process, not an exact continuous-time OU path. Mean fraction and local spatial/temporal statistics are fixed across sizes within each model; amplitudes and times are not cross-model biochemical calibrations. No realization is demeaned, clipped, circumference-normalized or renormalized around its own realized mean. Larger rings contain more fluctuating boundary, so total input and whole-ring angular forcing modes can differ.",
+        "B, Mean relative moment magnitude at the higher strength, with the corresponding deterministic uniform-mean and zero-input controls. Both strengths and all controls remain in the linked evidence. A uniform input rate can alter activity moments through the patterned inactive substrate and can change the forced state even when its own input harmonic is zero. A diminished first moment must be read with raw local activity, total amount and higher harmonics.",
+        "C, Full-window uncentered vector lag correlation through common lag 8000, retaining magnitude fluctuations and weak resultants. Equal-seed averages of within-seed time-origin products are normalized by both endpoint energies. Replicate bootstrap recomputes that ratio. Full-, first-half and last-half windows, endpoint energies and magnitude-gated direction coverage remain linked. The signed restricted integral through 8000 is a finite-window descriptor; no forced exponential fit or unobserved persistence time is assigned.",
+        "D, Exact C20, high-strength local histories for the within-condition medoids in Wave-pinning, Goryachev and Holmes, plus the Goryachev deterministic equal-mean control. Medoids minimize the declared standardized distance to within-condition descriptor medians among 12 seeds, using final initial-axis memory, minimum and mean magnitude, and multiregion fraction; ties follow the case identifier. They are individual selected histories, not ensemble-average fields. The periodic cut keeps the initial peak intact. Native color scales start at zero; the two Goryachev histories share a scale.",
+        "Independent audits check native source/input/output hashes, exact basal starts, complete scalar/profile time grids, moments, site descriptors, pool behavior and prescribed coverage. A separately reviewed numerical amendment evaluates the same frozen correlation estimator using positive suffix energies and direct products when tiny-tail FFT calculations are unresolved; the original frozen source is preserved. Undefined zero-energy correlations stay undefined. Weak endpoint RMS is flagged and is not promoted to a heading. The validation-only flat-centroid amendment preserves strict agreement on all nonflat saved profiles (maximum error zero across the completed audit); all 697 flat saved frames carry separately checked cache labels and are ineligible for physical site claims."
+      ],
+      "equations": [
+        {
+          "math": "I(s,t)=f A_m\\exp\\!\\left[Z(s,t)-\\frac{1}{2}\\right]",
+          "number": "5",
+          "description": "The ensemble local input mean is f Aₘ; f is 0.001 or 0.01 and Aₘ is the native cue peak 0.1, 6.4 or 1 for Wave-pinning, Goryachev or Holmes."
+        },
+        {
+          "math": "C_W(\\lambda)=\\frac{\\left\\langle\\mathrm{Re}[P(t+\\lambda)P(t)^*]\\right\\rangle_W}{\\sqrt{\\left\\langle|P(t)|^2\\right\\rangle_W\\left\\langle|P(t+\\lambda)|^2\\right\\rangle_W}}",
+          "number": "6",
+          "description": "Brackets denote equal-realization averages of within-realization sampled origins whose two endpoints lie in W. No mean vector is subtracted."
+        },
+        {
+          "math": "T_W^{\\mathrm{restricted}}=\\int_0^{8000} C_W(\\lambda)\\,\\mathrm{d}\\lambda",
+          "number": "7",
+          "description": "The raw signed correlation is integrated on the prescribed 5-unit lag grid. This descriptor retains negative values and is not extrapolated beyond the measured horizon."
+        }
+      ],
+      "narrative": [
+        "Under the declared higher-strength input, larger rings retain more vector lag memory in all three models. The full-window restricted areas at C20/C40/C60 are approximately 6257/7627/7885 for Wave-pinning and 4304/6332/7103 for Holmes. These measured finite-window descriptors support a size-dependent activity-memory hypothesis under this forcing.",
+        "Wave-pinning retains mean magnitude near one while initial-axis memory changes; Holmes also retains substantial magnitude while its axis changes. At the lower strength, most lag curves remain close to one through lag 8000, so their apparent memory times are not resolved by this window.",
+        "Goryachev's higher-strength C20 condition belongs to a distinct forced-state regime: its deterministic mean-input control ends with essentially zero resultant, whereas C40/C60 retain substantial magnitude. Its very small C20 memory descriptor therefore cannot be attributed solely to noise-driven directional wandering around the original polarized state.",
+        "The lowest noisy resultant is about 0.00107 despite local contrast about 4.70 and a substantial second harmonic, demonstrating that global asymmetry can be weak while local activity remains. Physical site displacement, pair eligibility and native histories are required alongside angular memory."
+      ],
+      "measurements": [
+        "Measure whole-boundary activity-vector correlations alongside magnitude, total activity and local site histories in independent cells/recordings. Keep observation duration, cadence, weak-magnitude thresholds and eligible-pair coverage explicit.",
+        "Record physical site displacement separately from angular reorientation: equal physical displacement creates a smaller angle on a larger boundary. Multisite or weak-resultant intervals can make a physical single-site comparison unavailable rather than imply exceptional stability.",
+        "Compare measured activity-memory descriptors with matched motility trajectories and local protrusion, while distinguishing displacement/directness, activity correlation and fitted OU velocity memory. The planned WGD motility figure remains a separate experimental contribution."
+      ],
+      "limitations": [
+        "The forcing law is declared model input, not established cellular noise. Fixed local statistics do not imply equal total input or equal angular forcing across circumferences.",
+        "Initial-axis memory can change through magnitude or direction. Uncentered lag correlation can reflect adaptation and a nonzero average axis; half-window diagnostics and mean controls are essential.",
+        "A near-zero resultant can arise from opposed sites or activity loss. Direction-only estimates require their magnitude gate and pair coverage; finite-cadence endpoint site comparisons do not prove uninterrupted site identity.",
+        "No cell velocity law, migration trajectory or calibrated migration-persistence time is supplied. These experiments test activity-polarity memory under a specific perturbation ensemble."
+      ],
+      "sources": [
+        {
+          "label": "Frozen initial checkpoint intake",
+          "path": "manuscript_outline/checkpoint_intake_v1.md"
+        },
+        {
+          "label": "Replicated noisy-ring actual results",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/RESULTS.md"
+        },
+        {
+          "label": "Frozen noise and statistical definitions",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/DESIGN.md"
+        },
+        {
+          "label": "Complete small seed summary",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_seed_summary.csv"
+        },
+        {
+          "label": "Restricted integrals and weak-window statuses",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_persistence.csv"
+        },
+        {
+          "label": "Complete numerical and source audit",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/metadata/vision_noise_analysis_audit.json"
+        },
+        {
+          "label": "Validation-only flat-centroid correction",
+          "path": "polarity1d/manuscript/data/runs/vision_noise_main_20261017/results/statistics_centroid_amendment_20261017/AMENDMENT.md"
+        },
+        {
+          "label": "Pilot regimes and numerical checks",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_pilot_20261017/RESULTS.md"
+        },
+        {
+          "label": "Assembly provenance",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/supporting/metadata/vision_aligned_checkpoint.manifest.json"
+        }
+      ]
+    },
+    {
+      "id": "figure5",
+      "title": "Figure 5. Published migration summaries support a persistence hypothesis with conditional OU interpretation",
+      "role": "Existing empirical support, with observed migration summaries kept separate from fitted velocity-memory parameters.",
+      "assets": [
+        {
+          "path": "wgd_langevin/refined_ou_20261003/figures/main_03_migration_OU.png",
+          "caption": "Latest integrated refined-OU figure. The original image retains its source label “Figure 3”; its proposed manuscript number here is 5."
+        }
+      ],
+      "legend": [
+        "A, Published/digitized enlarged or polyploid-group to reference-group ratios for nine migration summaries, alongside primary Ornstein–Uhlenbeck (OU) fit predictions. Xuan contributes sampled mean speed and population mean-squared displacement (MSD) at the last shared lag, approximately 10.95 h; Hosny summaries are group medians. Mallin central-bar statistic is not specified by the source and retains the historical mean approximation. These distinct source summaries are not interchangeable measures of persistence.",
+        "B, Full digitized Xuan population MSD traces and fitted ensemble OU predictions on logarithmic axes. The digitized traces cross descriptively near 2.32 h; the fitted OU curves cross near 1.11 h, so their crossings are not identical. Digitized curve samples are correlated raster reconstructions of published curves, not independently measured biological observations or a recovered experimental lag grid. Both full curves are fitting targets. The early-MSD comparison overlaps these targets and is not independent validation.",
+        "C, Representative Xuan primary-fit model-generated tracks, with sampled speed, total path length and directness (net displacement divided by path length). Both groups use identical spatial scales. The tracks are simulations, not published individual-cell trajectories; a slower sampled trajectory can nevertheless have greater endpoint directness. Dashed chords illustrate the contribution of finite-time displacements.",
+        "D, With reference-group parameters fixed, vary enlarged-group persistence and velocity-noise ratios. Separate surfaces show change in the descriptive data-misfit score and in the total regularized objective; the selected fit and equal-group reference are marked. The heuristic score is not a calibrated likelihood, and the surfaces are not confidence regions.",
+        "E, Primary paired persistence and velocity-noise estimates for Xuan 2018, Mallin 2023, Jemaà 2017, Jemaà 2023 and the Hosny hypoxic baseline. F, Enlarged/reference persistence folds under the primary 10-minute prior, 5- and 20-minute alternatives and stronger/weaker pooling, with the pooled geometric mean. Priors and pooling define conditional sensitivity scenarios, not uncertainty intervals. The Jemaà comparisons constrain speed alone, leaving persistence/noise tradeoffs dependent on hierarchy and priors.",
+        "The fitted population contrasts span stable tetraploids, giant polyploids and treatment-induced polyaneuploid cancer cells (PACCs). The inherited WGD+/WGD− labels in the artwork are comparison shorthand and do not establish matched WGD-only interventions in every study. Hosny observations derive from the recovered preprint; equivalence to the journal version remains unresolved."
+      ],
+      "narrative": [
+        "Xuan combines lower sampled speed (0.64-fold) with greater late-lag population MSD (2.08-fold); Mallin combines shorter path length (0.52-fold) with greater directness (3.12-fold). Persistence-related behaviour therefore deserves analysis separately from speed.",
+        "Hosny baseline PACCs have greater median path length (1.77-fold) and directness (1.67-fold). Signed migration index is a separate directional summary.",
+        "All five primary OU comparisons infer longer velocity memory. The pooled primary persistence fold is about 15.8, and remains above one across the declared prior/pooling scenarios; this is a conditional model result.",
+        "The fit does not reproduce the complete Xuan curve shape within its raster envelope, and data-only sensitivity has rank 18 of 22. Optimization completion does not establish model adequacy or uniquely identified persistence times."
+      ],
+      "measurements": [
+        "The new WGD assay should measure matched trajectories directly, with declared sampling and observation duration, and assess speed, displacement, directness and lag-dependent MSD before considering fitted persistence. An activity-polarity memory measurement would complement these quantities without equating activity and velocity."
+      ],
+      "limitations": [
+        "Neither these heterogeneous group comparisons nor the OU fits establish that enlargement alone causes persistence. Cell identity, induction/treatment and acquisition differences require explicit treatment in the new experiments.",
+        "The 13 October user feedback requested clearer observed-versus-model encoding and visible MSD curvature/exponent behaviour. The integrated figure shown here precedes that requested panel-B revision; this is recorded for the second editorial assessment."
+      ],
+      "sources": [
+        {
+          "label": "Refined OU analysis",
+          "path": "wgd_langevin/refined_ou_20261003/README.md"
+        },
+        {
+          "label": "Original panel legend",
+          "path": "wgd_langevin/refined_ou_20261003/figures/main_03_migration_OU_caption.md"
+        },
+        {
+          "label": "Observed folds",
+          "path": "wgd_langevin/refined_ou_20261003/figures/main_03_observation_folds.csv"
+        },
+        {
+          "label": "Fit results and adequacy",
+          "path": "wgd_langevin/refined_ou_20261003/results/RESULTS.md"
+        },
+        {
+          "label": "Hosny sensitivity supplement",
+          "path": "wgd_langevin/refined_ou_20261003/figures/supp_04_Hosny_sensitivity.png"
+        }
+      ]
+    },
+    {
+      "id": "figure6",
+      "title": "Figure 6. RESERVED: new WGD motility-assay results",
+      "role": "A substantial new experimental results section and main figure. No observations are available; the panel layout is a proposal, not an experimental result.",
+      "assets": [
+        {
+          "path": "manuscript_outline/assets/planned_WGD_results.png",
+          "caption": "Explicit placeholder. Every panel is pending acquisition, analysis and author review; no mock observations are displayed."
+        }
+      ],
+      "legend": [
+        "A, Proposed experimental context: the SUM-159 chemically induced WGD+/− pair is the agreed starting pilot with the Speros collaboration. Imaging should first be optimized for that pair before expansion to additional cell lines. Ploidy/group identity, physical size and morphology need to be documented so the intended comparison is clear.",
+        "B, Reserved for representative experimental fields and trajectories under the selected acquisition conditions. The eventual panel should state sampling interval, usable duration, spatial scale, track eligibility and exclusions. Number of independent preparations and biological replicates remains to be specified.",
+        "C, Reserved for empirical motility summaries: sampled speed, accumulated path length, endpoint displacement/directness and lag-dependent MSD. The final readouts, follow-up window and analysis plan are to be settled before interpreting the data; this placeholder does not imply that all listed measurements will be technically feasible.",
+        "D, Reserved for the measured relationship between WGD-associated enlargement and migration behaviour, including size distributions and controls needed to interpret the group contrast. Any activity/protrusion measurements arising from the mechanism proposals require a separately agreed assay and should be distinguished from the basic motility pilot. Statistical models, uncertainty reporting and sample-size targets remain open."
+      ],
+      "narrative": [
+        "This major results section will test whether the planned paired experimental system exhibits the migration behaviour motivating the theoretical work.",
+        "Its conclusions must follow the acquired observations, including null or opposing results. Simulation output and literature fits cannot fill this gap.",
+        "Agreement between increased polarity resistance or activity memory and migration persistence would support the proposed connection; causal attribution requires appropriate perturbations and controls."
+      ],
+      "measurements": [
+        "Pending decisions include plating density, acquisition duration and cadence, field/condition throughput, tracking and exclusion rules, replicate structure, confirmation of WGD status, size quantification and the statistical analysis. The known throughput versus spatial/temporal resolution trade-off should be resolved by the pilot.",
+        "Mechanism validation can subsequently examine incumbent extent, early challenger growth, local loss/rebound, site fates and global activity-polarity correlation under characterized perturbations. These activity experiments are proposals alongside the theoretical mechanisms and are separate from the reserved motility-results contribution."
+      ],
+      "limitations": [
+        "No pilot acquisition, sample size, effect estimate, significance claim or experimental outcome is supplied by the available evidence."
+      ],
+      "sources": [
+        {
+          "label": "Author manuscript vision and supplied collaboration context",
+          "path": "MANUSCRIPT_VISION.md"
+        }
+      ]
+    }
+  ],
+  "supplementary": [
+    {
+      "id": "supplement1",
+      "title": "S1. Full cue-duration response curves",
+      "role": "Essential curve context for the main comparison heatmap.",
+      "assets": [
+        {
+          "path": "polarity1d/manuscript/figures/supplement_width_response.png",
+          "caption": "Canonical corrected five-model duration curves; source working number Supplement 1."
+        }
+      ],
+      "legend": [
+        "Five model rows and three finite-cue columns retain the complete sampled length dependence. Coloured curves distinguish orientation from strength replacement. Open success markers retain scalar successes that fail the separate native-field tail flag; triangles indicate no passing pulse within the tested range; crosses indicate ineligible preparations. Missing values are not zero response times. Each duration excludes preparation and the subsequent 10,000-unit basal recovery. Spring uses native length and time. See Figure 1 for exact gates and stimulus conventions."
+      ],
+      "narrative": [
+        "Corrected deBelly is nonmonotone across all three geometries. The positive rank coefficients summarize association rather than its full curve shape.",
+        "Constant-slope Spring shows the opposite association to its patch responses. Holmes orientation under that cue varies with little monotone association. Censoring and native-field flags restrict interpretation even where rank correlation is strong."
+      ],
+      "sources": [
+        {
+          "label": "Current figure legend and gate definitions",
+          "path": "polarity1d/manuscript/figures/CAPTIONS.md"
+        }
+      ]
+    },
+    {
+      "title": "S2. Numerical qualification and preparation provenance",
+      "path": "polarity1d/manuscript/THREE_TESTS.md",
+      "text": "Exact common starting states, duration-boundary audits, corrected deBelly endpoint controls and selected mesh diagnostics; source histories remain distinguishable from compact committed summaries."
+    },
+    {
+      "title": "S3. Mechanism and stochastic sensitivity",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/VISION_CHECKPOINT_REQUIREMENTS.md",
+      "text": "Complete gain/recovery grids, clock qualification, finite-cue definitions, outcome tables, site/vector diagnostics and numerical/noise controls accompany the mechanism checkpoint."
+    },
+    {
+      "id": "supplement4",
+      "title": "S4. Migration-model adequacy and Hosny sensitivity",
+      "role": "Supporting conditional sensitivity analysis; it is not an independent biological replication.",
+      "assets": [
+        {
+          "path": "wgd_langevin/refined_ou_20261003/figures/supp_04_Hosny_sensitivity.png",
+          "caption": "Existing Hosny sensitivity supplement from the refined OU analysis."
+        }
+      ],
+      "legend": [
+        "The retained supplement explores signed-drift and leave-Hosny-out sensitivity within the declared OU hierarchy. Its fitted changes and descriptive-score profiles are conditional on the model and supplied summaries, not confidence intervals. Data-only identifiability, Xuan population-curve residuals and prior/pooling assumptions remain part of the adequacy assessment. Representative movie diagnostics are separate: acquisition timing is uncertain and nuclear appearance does not establish ploidy."
+      ],
+      "sources": [
+        {
+          "label": "Original Hosny supplement caption",
+          "path": "wgd_langevin/refined_ou_20261003/figures/supp_04_Hosny_sensitivity_caption.md"
+        },
+        {
+          "label": "Sensitivity methods and results",
+          "path": "wgd_langevin/refined_ou_20261003/scripts/hosny_sensitivity/METHODS.md"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "label": "Reviewed primary literature and extraction map",
+      "path": "literature_review/migration_data/studies.csv"
+    },
+    {
+      "label": "Scientific scope and author direction",
+      "path": "MANUSCRIPT_VISION.md"
+    },
+    {
+      "label": "Direct-user preference evidence and foundational figure audit",
+      "path": "reports/manuscript_foundation_audit_20261017.md"
+    },
+    {
+      "label": "Mechanism checkpoint intake and live-producer evidence",
+      "path": "reports/manuscript_mechanism_intake_20261017.md"
+    },
+    {
+      "label": "Source checkout, evidence selection and reproduction",
+      "path": "reports/manuscript_checkout_audit_20261017.md"
+    }
+  ]
+}

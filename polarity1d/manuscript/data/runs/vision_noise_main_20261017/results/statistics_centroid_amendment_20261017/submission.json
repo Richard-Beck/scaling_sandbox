@@ -1,0 +1,21 @@
+{
+  "submitted_at": "2026-10-17T20:52:07.391178+00:00",
+  "job_id": "21126788",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--qos=small",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--mem=16G",
+    "--time=01:30:00",
+    "--job-name=vision-noise-stats-centroid",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_main_20261017/results/statistics_centroid_amendment_20261017/slurm_%j.out",
+    "--error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_main_20261017/results/statistics_centroid_amendment_20261017/slurm_%j.err",
+    "--wrap",
+    "exec env PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 /home/4473331/.conda/envs/scaling_sandbox/bin/python /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_main_20261017/results/statistics_centroid_amendment_20261017/workflow.py worker"
+  ],
+  "preparation_sha256": "66734f2dce53c646fab9baaa2e3744b158893fd1e9a173fa5fb31e479a100a53",
+  "verified_native_cases": 243,
+  "native_integrations": 0
+}

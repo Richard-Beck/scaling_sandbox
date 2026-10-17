@@ -1,5 +1,48 @@
 # Selected polarity manuscript evidence and retirement inventory
 
+## Authorized four-assay output retirement (2026-10-17)
+
+The user explicitly authorized physical removal of large outputs from the
+deprecated `polarity1d/four_assay/` tree. The
+[retirement record](../four_assay/OUTPUT_RETIREMENT_20261017.md) supersedes this
+document's older statements that complete historical originals remain untouched
+or await deletion review. Compact sources, scalar records, provenance and
+selected legacy illustration inputs remain; nonempty worker metadata/logs are
+consolidated into verified archives. Retired native-array trial coverage cannot
+be recovered from scalar records alone.
+
+Canonical selected establishment and diagnostic copies passed 5,006 SHA-256
+checks before cleanup. Data-only reconstruction of the current corrected main
+and width-response supplement reproduced both canonical PNGs exactly. Current
+manuscript data, report source arrays, model sources, new circular experiments,
+accepted v8 baseline and approved historical keeper are protected. The older
+tables below describe prior allocations and decisions, not current disk use.
+
+## Goryachev consolidation (2026-10-08)
+
+The single current mechanism report is
+`figures/Goryachev_length_mechanism/`: weaker initial equal-countercue activation
+and stronger immediate incumbent restoring response in longer cells. Its
+compact, hash-checked inputs are in
+`data/runs/goryachev_length_mechanism_20261008/`.
+
+Earlier standalone Goryachev plots and narratives are archived under
+`figures/archive/goryachev_exploration_20261008/` and
+`data/archive/goryachev_exploration_20261008/`. The depletion/transport diagnostic
+campaigns and their raw arrays and frozen sources are preserved there, but are
+outside the active mechanism presentation. Earlier exploratory scripts are
+under `code/mechanisms/archive/goryachev_exploration_20261008/`.
+The [cleanup inventory](data/runs/goryachev_length_mechanism_20261008/cleanup_inventory.json)
+maps every moved item and records preservation checks. Historical record paths
+remain original identities; the inventory resolves their archive destinations.
+
+The native five-model comparison, amplitude pilot, preparation checkpoints and
+raw 144-trial incumbent restoring experiment remain in their original locations.
+The two active Goryachev entry points are `goryachev_length_mechanism.py` for
+report regeneration and `goryachev_restoring_response.py` for new experiments.
+An unchanged `goryachev_depletion.py` remains as a compatibility dependency
+for the active Wave-pinning restoring analysis, which imports and freezes it.
+
 Decision date: 2026-10-03. `polarity1d/manuscript/` is the single working home
 for the corrected experiment, its figures, and selected intermediate data.
 The active manuscript uses corrected basal establishment and its ensuing

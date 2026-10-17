@@ -1,0 +1,3321 @@
+{
+  "passed": true,
+  "complete": true,
+  "workers": 18,
+  "max_pool_error": 5.417888360170764e-14,
+  "max_replayed_prefix_absolute_error": 5.692584181815619e-10,
+  "max_replayed_native_0_1_10_error": 0.0,
+  "collector_sha256": "f0e4a0571a4f5d724047f06ef94e5013020a150648d40efed8c0c48516fc831d",
+  "frozen_worker_sha256": "583a0809e59c6c166f64a1bee9fbaaaec8a0de93cf3de79d58786252fec44e38",
+  "statuses": [
+    {
+      "created_at": "2026-10-17T20:17:56.701578+00:00",
+      "producer": "finished",
+      "complete": true,
+      "job": {
+        "slot": 0,
+        "model": "wave_pinning",
+        "circumference": 40,
+        "cells": 800,
+        "fraction": 0.4,
+        "short_route": 16.0,
+        "cue_center_cell": 320,
+        "cue_peak": 0.1,
+        "cue_full_width": 3.0,
+        "duration": 500.0,
+        "recovery": 13000.0,
+        "input": "inputs/wave_pinning_C40.npz",
+        "input_sha256": "83cfbfcbe09748ea48e0ccb5c4c05bb22fad319f692a21d3a23443084e737159",
+        "source_cue": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/02/cue.npz",
+        "source_cue_sha256": "6ee179766a3addc0c0c599e93d4a3f63553e37b5dce7a1dc281b180fc7fb9242",
+        "source_recovery": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/02/recovery.npz",
+        "source_recovery_sha256": "aba2807ad2c3a259b7f924773cba4b95630083fe3b327c2bbc9fb2dc1c14f04a",
+        "source_worker_status": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/08/status.json",
+        "source_worker_status_sha256": "4ff1fadc7d0b7ca9f0528bfed5b7f6aa589563abb956778d9c0604ba42a51fe9"
+      },
+      "phases": [
+        {
+          "phase": "recovery",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/00/recovery.npz",
+          "sha256": "e4dbbebce3f01d6a86c0d0461f54f46e7c4f3b8510048551af35b5b5daa3afa0",
+          "minimum": 0.17400343742338462,
+          "max_pool_error": 3.3306690738754696e-16,
+          "nfev": 4953,
+          "njev": 9,
+          "nlu": 695
+        }
+      ],
+      "cue_history": {
+        "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/02/cue.npz",
+        "sha256": "6ee179766a3addc0c0c599e93d4a3f63553e37b5dce7a1dc281b180fc7fb9242",
+        "source_stop": 500.0,
+        "kind": "exact retained cue prefix",
+        "samples": 271
+      },
+      "status": "complete",
+      "readouts": [
+        {
+          "cue_free_time": 3000.0,
+          "time_from_onset": 3500.0,
+          "original_core_amount": 2.144154704832043,
+          "original_core_amount_fraction": 0.1648828103053553,
+          "Px": -0.792556611926409,
+          "Py": 0.609798341168399,
+          "R": 0.9999999999999998,
+          "angle_deg": 142.42507685328985,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 317,
+                "position": 15.875,
+                "value": 1.1245879283608218,
+                "prominence": 0.9500189626010412,
+                "distance_old": 15.850000000000001,
+                "distance_cue": 0.15000000000000213
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              317
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 0.17456896575978054,
+            "maximum": 1.1245879283608218,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 8000.0,
+          "time_from_onset": 8500.0,
+          "original_core_amount": 2.1441547048320433,
+          "original_core_amount_fraction": 0.16488281030535532,
+          "Px": -0.7925566119264088,
+          "Py": 0.6097983411683994,
+          "R": 0.9999999999999999,
+          "angle_deg": 142.42507685328982,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 317,
+                "position": 15.875,
+                "value": 1.1245879283608213,
+                "prominence": 0.9500189626010408,
+                "distance_old": 15.850000000000001,
+                "distance_cue": 0.15000000000000213
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              317
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 0.1745689657597805,
+            "maximum": 1.1245879283608213,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 13000.0,
+          "time_from_onset": 13500.0,
+          "original_core_amount": 2.144154704832043,
+          "original_core_amount_fraction": 0.1648828103053553,
+          "Px": -0.7925566119264088,
+          "Py": 0.6097983411683996,
+          "R": 1.0,
+          "angle_deg": 142.42507685328982,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 317,
+                "position": 15.875,
+                "value": 1.1245879283608216,
+                "prominence": 0.950018962601041,
+                "distance_old": 15.850000000000001,
+                "distance_cue": 0.15000000000000213
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              317
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 0.1745689657597805,
+            "maximum": 1.1245879283608216,
+            "single_region_spans_old_and_cue": false
+          }
+        }
+      ],
+      "combined_primary_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/00/primary_history.npz",
+      "combined_primary_sha256": "a7e4db798d8c9ce902425b85bb76ce3bdb63ffb42b9b4e0b1eb6b8e590bfc860",
+      "core": {
+        "peak_cell": 0,
+        "origin": 0.025,
+        "level": 0.6495785060742807,
+        "left": -6.140032170192249,
+        "right": 6.140032170192236,
+        "width": 12.280064340384484
+      },
+      "wall_seconds": 1.702160400338471
+    },
+    {
+      "created_at": "2026-10-17T20:17:56.704001+00:00",
+      "producer": "finished",
+      "complete": true,
+      "job": {
+        "slot": 1,
+        "model": "wave_pinning",
+        "circumference": 40,
+        "cells": 800,
+        "fraction": 0.4,
+        "short_route": 16.0,
+        "cue_center_cell": 320,
+        "cue_peak": 0.1,
+        "cue_full_width": 3.0,
+        "duration": 2000.0,
+        "recovery": 13000.0,
+        "input": "inputs/wave_pinning_C40.npz",
+        "input_sha256": "83cfbfcbe09748ea48e0ccb5c4c05bb22fad319f692a21d3a23443084e737159",
+        "source_cue": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/02/cue.npz",
+        "source_cue_sha256": "6ee179766a3addc0c0c599e93d4a3f63553e37b5dce7a1dc281b180fc7fb9242",
+        "source_recovery": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/02/recovery.npz",
+        "source_recovery_sha256": "aba2807ad2c3a259b7f924773cba4b95630083fe3b327c2bbc9fb2dc1c14f04a",
+        "source_worker_status": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/08/status.json",
+        "source_worker_status_sha256": "4ff1fadc7d0b7ca9f0528bfed5b7f6aa589563abb956778d9c0604ba42a51fe9"
+      },
+      "phases": [
+        {
+          "phase": "cue_new",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/01/cue_new.npz",
+          "sha256": "8032c7c029b7bd1986fa4039201ec4f2a2f189f4598dfc8d4b8b12e7097d3e96",
+          "start_from_onset": 1000.0,
+          "minimum": 0.17452878259654453,
+          "max_pool_error": 3.3306690738754696e-16,
+          "nfev": 751,
+          "njev": 3,
+          "nlu": 54
+        },
+        {
+          "phase": "recovery",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/01/recovery.npz",
+          "sha256": "eb79fe0161683ae13e1bb203f952c80c8ec198c89f2041a42f63b9e3f870fcfb",
+          "minimum": 0.1745290010839059,
+          "max_pool_error": 3.3306690738754696e-16,
+          "nfev": 3453,
+          "njev": 2,
+          "nlu": 682
+        }
+      ],
+      "cue_history": {
+        "kind": "exact retained 1000 prefix plus native continuation",
+        "prefix_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/02/cue.npz",
+        "prefix_sha256": "6ee179766a3addc0c0c599e93d4a3f63553e37b5dce7a1dc281b180fc7fb9242",
+        "extension_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/01/cue_new.npz",
+        "extension_sha256": "8032c7c029b7bd1986fa4039201ec4f2a2f189f4598dfc8d4b8b12e7097d3e96"
+      },
+      "status": "complete",
+      "readouts": [
+        {
+          "cue_free_time": 3000.0,
+          "time_from_onset": 5000.0,
+          "original_core_amount": 2.1440904717099976,
+          "original_core_amount_fraction": 0.16487787085875022,
+          "Px": -0.8000621621858605,
+          "Py": 0.5999171081395206,
+          "R": 0.9999999999999997,
+          "angle_deg": 143.13603881571285,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 318,
+                "position": 15.925,
+                "value": 1.1245880433590125,
+                "prominence": 0.9500190775992341,
+                "distance_old": 15.899999999999999,
+                "distance_cue": 0.10000000000000142
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              318
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 0.17456896575977848,
+            "maximum": 1.1245880433590125,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 8000.0,
+          "time_from_onset": 10000.0,
+          "original_core_amount": 2.1440904717099976,
+          "original_core_amount_fraction": 0.16487787085875022,
+          "Px": -0.8000621621858607,
+          "Py": 0.59991710813952,
+          "R": 0.9999999999999994,
+          "angle_deg": 143.13603881571288,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 318,
+                "position": 15.925,
+                "value": 1.1245880433590127,
+                "prominence": 0.9500190775992343,
+                "distance_old": 15.899999999999999,
+                "distance_cue": 0.10000000000000142
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              318
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 0.17456896575977848,
+            "maximum": 1.1245880433590127,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 13000.0,
+          "time_from_onset": 15000.0,
+          "original_core_amount": 2.1440904717099976,
+          "original_core_amount_fraction": 0.16487787085875022,
+          "Px": -0.8000621621858607,
+          "Py": 0.5999171081395199,
+          "R": 0.9999999999999994,
+          "angle_deg": 143.13603881571288,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 318,
+                "position": 15.925,
+                "value": 1.1245880433590127,
+                "prominence": 0.9500190775992343,
+                "distance_old": 15.899999999999999,
+                "distance_cue": 0.10000000000000142
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              318
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 0.17456896575977848,
+            "maximum": 1.1245880433590127,
+            "single_region_spans_old_and_cue": false
+          }
+        }
+      ],
+      "combined_primary_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/01/primary_history.npz",
+      "combined_primary_sha256": "1c13336d8322a78cdda55e25987788a886e43ce983ef54124d516c0aa75f69aa",
+      "core": {
+        "peak_cell": 0,
+        "origin": 0.025,
+        "level": 0.6495785060742807,
+        "left": -6.140032170192249,
+        "right": 6.140032170192236,
+        "width": 12.280064340384484
+      },
+      "wall_seconds": 1.911866550333798
+    },
+    {
+      "created_at": "2026-10-17T20:17:56.702711+00:00",
+      "producer": "finished",
+      "complete": true,
+      "job": {
+        "slot": 2,
+        "model": "goryachev",
+        "circumference": 40,
+        "cells": 800,
+        "fraction": 0.4,
+        "short_route": 16.0,
+        "cue_center_cell": 320,
+        "cue_peak": 6.4,
+        "cue_full_width": 3.0,
+        "duration": 500.0,
+        "recovery": 13000.0,
+        "input": "inputs/goryachev_C40.npz",
+        "input_sha256": "f44a19a8643ee60b94fda3eb3ac96d93312937c89c6fdfc64d86f441ecc9ca69",
+        "source_cue": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/07/cue.npz",
+        "source_cue_sha256": "0777ac387e67b0245537b45ca2b8b6f896c21dfba5acfdf1649bc71f8de3f9d4",
+        "source_recovery": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/07/recovery.npz",
+        "source_recovery_sha256": "5f2fbf4210f088a6cce5c480c95e79830c1135c5590ead13cb79d63687a62501",
+        "source_worker_status": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/25/status.json",
+        "source_worker_status_sha256": "6a34407f6fe2d06422322988c591a231f53dcb745ac94b2a0b8a08a341d5f86d"
+      },
+      "phases": [
+        {
+          "phase": "recovery",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/02/recovery.npz",
+          "sha256": "9c0e30f75ea9d7d442ec3e718e80add210fe028ab9c943f9fafe8ad382594e82",
+          "minimum": -1.740647059113128e-19,
+          "max_pool_error": 3.8191672047105385e-14,
+          "nfev": 4349,
+          "njev": 5,
+          "nlu": 702
+        }
+      ],
+      "cue_history": {
+        "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/07/cue.npz",
+        "sha256": "0777ac387e67b0245537b45ca2b8b6f896c21dfba5acfdf1649bc71f8de3f9d4",
+        "source_stop": 500.0,
+        "kind": "exact retained cue prefix",
+        "samples": 271
+      },
+      "status": "complete",
+      "readouts": [
+        {
+          "cue_free_time": 3000.0,
+          "time_from_onset": 3500.0,
+          "original_core_amount": 1.1216602983233899e-15,
+          "original_core_amount_fraction": 1.4991769376563775e-17,
+          "Px": -0.8069123592341917,
+          "Py": 0.5906711813818482,
+          "R": 0.9999999999999587,
+          "angle_deg": 143.7953482550091,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 320,
+                "position": 16.025000000000002,
+                "value": 64.89729243546375,
+                "prominence": 64.89729243546375,
+                "distance_old": 16.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              320
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 1.49297854347535e-19,
+            "maximum": 64.89729243546375,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 8000.0,
+          "time_from_onset": 8500.0,
+          "original_core_amount": 1.1224416039196663e-15,
+          "original_core_amount_fraction": 1.5002212068820517e-17,
+          "Px": -0.8069123592341917,
+          "Py": 0.5906711813818482,
+          "R": 0.9999999999999587,
+          "angle_deg": 143.7953482550091,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 320,
+                "position": 16.025000000000002,
+                "value": 64.89729243546375,
+                "prominence": 64.89729243546375,
+                "distance_old": 16.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              320
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 5.631711099731718e-20,
+            "maximum": 64.89729243546375,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 13000.0,
+          "time_from_onset": 13500.0,
+          "original_core_amount": 1.0952084996213185e-15,
+          "original_core_amount_fraction": 1.4638222704430064e-17,
+          "Px": -0.8069123592341914,
+          "Py": 0.5906711813818482,
+          "R": 0.9999999999999584,
+          "angle_deg": 143.7953482550091,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 320,
+                "position": 16.025000000000002,
+                "value": 64.89729243546374,
+                "prominence": 64.89729243546374,
+                "distance_old": 16.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              320
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 3.0874770099333786e-20,
+            "maximum": 64.89729243546374,
+            "single_region_spans_old_and_cue": false
+          }
+        }
+      ],
+      "combined_primary_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/02/primary_history.npz",
+      "combined_primary_sha256": "e8883f80b992207f41c281ee6968f9eee95a3bc7edb31831f71e246ce57a0532",
+      "core": {
+        "peak_cell": 0,
+        "origin": 0.025,
+        "level": 32.47348227872495,
+        "left": -0.7168945037605424,
+        "right": 0.7168945037605432,
+        "width": 1.4337890075210855
+      },
+      "wall_seconds": 1.6147122792899609
+    },
+    {
+      "created_at": "2026-10-17T20:17:56.708775+00:00",
+      "producer": "finished",
+      "complete": true,
+      "job": {
+        "slot": 3,
+        "model": "goryachev",
+        "circumference": 40,
+        "cells": 800,
+        "fraction": 0.4,
+        "short_route": 16.0,
+        "cue_center_cell": 320,
+        "cue_peak": 6.4,
+        "cue_full_width": 3.0,
+        "duration": 2000.0,
+        "recovery": 13000.0,
+        "input": "inputs/goryachev_C40.npz",
+        "input_sha256": "f44a19a8643ee60b94fda3eb3ac96d93312937c89c6fdfc64d86f441ecc9ca69",
+        "source_cue": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/07/cue.npz",
+        "source_cue_sha256": "0777ac387e67b0245537b45ca2b8b6f896c21dfba5acfdf1649bc71f8de3f9d4",
+        "source_recovery": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/07/recovery.npz",
+        "source_recovery_sha256": "5f2fbf4210f088a6cce5c480c95e79830c1135c5590ead13cb79d63687a62501",
+        "source_worker_status": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/25/status.json",
+        "source_worker_status_sha256": "6a34407f6fe2d06422322988c591a231f53dcb745ac94b2a0b8a08a341d5f86d"
+      },
+      "phases": [
+        {
+          "phase": "cue_new",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/03/cue_new.npz",
+          "sha256": "f886a7bf9b4e7759f3d311428719f189dd2df775310bd54af94038eb83dbdc24",
+          "start_from_onset": 1000.0,
+          "minimum": 6.082929037594622e-13,
+          "max_pool_error": 3.8191672047105385e-14,
+          "nfev": 384,
+          "njev": 1,
+          "nlu": 37
+        },
+        {
+          "phase": "recovery",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/03/recovery.npz",
+          "sha256": "e39c026c21defa7f15cdf44733b35e9cf21a31123b7054e5f698f89a5662b7d7",
+          "minimum": 3.022254706719168e-20,
+          "max_pool_error": 3.8191672047105385e-14,
+          "nfev": 3618,
+          "njev": 1,
+          "nlu": 677
+        }
+      ],
+      "cue_history": {
+        "kind": "exact retained 1000 prefix plus native continuation",
+        "prefix_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/07/cue.npz",
+        "prefix_sha256": "0777ac387e67b0245537b45ca2b8b6f896c21dfba5acfdf1649bc71f8de3f9d4",
+        "extension_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/03/cue_new.npz",
+        "extension_sha256": "f886a7bf9b4e7759f3d311428719f189dd2df775310bd54af94038eb83dbdc24"
+      },
+      "status": "complete",
+      "readouts": [
+        {
+          "cue_free_time": 3000.0,
+          "time_from_onset": 5000.0,
+          "original_core_amount": 1.0330143783068209e-15,
+          "original_core_amount_fraction": 1.3806955051720335e-17,
+          "Px": -0.809016552799195,
+          "Py": 0.5877858600688044,
+          "R": 0.9999999999999584,
+          "angle_deg": 143.99995695636827,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 320,
+                "position": 16.025000000000002,
+                "value": 64.94696455524895,
+                "prominence": 64.94696455524895,
+                "distance_old": 16.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              320
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 3.022255887847066e-20,
+            "maximum": 64.94696455524895,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 8000.0,
+          "time_from_onset": 10000.0,
+          "original_core_amount": 1.0330143771058443e-15,
+          "original_core_amount_fraction": 1.3806955035668447e-17,
+          "Px": -0.8090165527991953,
+          "Py": 0.5877858600688044,
+          "R": 0.9999999999999586,
+          "angle_deg": 143.99995695636827,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 320,
+                "position": 16.025000000000002,
+                "value": 64.94696455524895,
+                "prominence": 64.94696455524895,
+                "distance_old": 16.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              320
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 3.022254720118035e-20,
+            "maximum": 64.94696455524895,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 13000.0,
+          "time_from_onset": 15000.0,
+          "original_core_amount": 1.0330143771086368e-15,
+          "original_core_amount_fraction": 1.3806955035705773e-17,
+          "Px": -0.8090165527991954,
+          "Py": 0.5877858600688045,
+          "R": 0.9999999999999587,
+          "angle_deg": 143.99995695636827,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 320,
+                "position": 16.025000000000002,
+                "value": 64.94696455524897,
+                "prominence": 64.94696455524897,
+                "distance_old": 16.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              320
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 3.022254795014096e-20,
+            "maximum": 64.94696455524897,
+            "single_region_spans_old_and_cue": false
+          }
+        }
+      ],
+      "combined_primary_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/03/primary_history.npz",
+      "combined_primary_sha256": "424e0b6f6971f14aeced390309b3043e150b94739aa774f86123120d2ac37ae5",
+      "core": {
+        "peak_cell": 0,
+        "origin": 0.025,
+        "level": 32.47348227872495,
+        "left": -0.7168945037605424,
+        "right": 0.7168945037605432,
+        "width": 1.4337890075210855
+      },
+      "wall_seconds": 1.7642907304689288
+    },
+    {
+      "created_at": "2026-10-17T20:17:56.705365+00:00",
+      "producer": "finished",
+      "complete": true,
+      "job": {
+        "slot": 4,
+        "model": "holmes_model3",
+        "circumference": 40,
+        "cells": 800,
+        "fraction": 0.4,
+        "short_route": 16.0,
+        "cue_center_cell": 320,
+        "cue_peak": 1.0,
+        "cue_full_width": 3.0,
+        "duration": 500.0,
+        "recovery": 13000.0,
+        "input": "inputs/holmes_model3_C40.npz",
+        "input_sha256": "ce127dc44526d91c01b874462569789d9336a4f6f3190564e517388a5b72696e",
+        "source_cue": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/11/cue.npz",
+        "source_cue_sha256": "53df03f0e6d0e48881b000aff6d44788af76dd7b7f714f77c6db59b0ae4ed8c1",
+        "source_recovery": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/11/recovery.npz",
+        "source_recovery_sha256": "1c8a0957ed9d5a6ad395fefa7bd784125318051ae0551e2f847dbf0ba1469361",
+        "source_worker_status": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/42/status.json",
+        "source_worker_status_sha256": "ea1a53f3ef73c9a03bef3fdccddf2d632ba57a9792ea510db71686bc87eeea6c"
+      },
+      "phases": [
+        {
+          "phase": "recovery",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/04/recovery.npz",
+          "sha256": "f4902724a2cb30dd0c126ec6ed682396f200f7ffc093b129dbeab20771edd8fd",
+          "minimum": 0.1734891419178153,
+          "max_pool_error": 2.220446049250313e-16,
+          "nfev": 3502,
+          "njev": 2,
+          "nlu": 486
+        }
+      ],
+      "cue_history": {
+        "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/11/cue.npz",
+        "sha256": "53df03f0e6d0e48881b000aff6d44788af76dd7b7f714f77c6db59b0ae4ed8c1",
+        "source_stop": 500.0,
+        "kind": "exact retained cue prefix",
+        "samples": 271
+      },
+      "status": "complete",
+      "readouts": [
+        {
+          "cue_free_time": 3000.0,
+          "time_from_onset": 3500.0,
+          "original_core_amount": 16.493837849347905,
+          "original_core_amount_fraction": 0.6917037270528229,
+          "Px": 0.24875359957983575,
+          "Py": 0.3140942584978853,
+          "R": 0.40066639056110215,
+          "angle_deg": 51.621790952397554,
+          "spatial": {
+            "resolved_peak_count": 2,
+            "all_peaks": [
+              {
+                "cell": 320,
+                "position": 16.025000000000002,
+                "value": 1.4838388292118871,
+                "prominence": 1.1184144881185154,
+                "distance_old": 16.0,
+                "distance_cue": 0.0
+              },
+              {
+                "cell": 798,
+                "position": 39.925000000000004,
+                "value": 1.4848317272582632,
+                "prominence": 1.1199834483388373,
+                "distance_old": 0.09999999999999432,
+                "distance_cue": 16.099999999999994
+              }
+            ],
+            "location_association": "distinct peaks associated with old core and cue patch",
+            "old_core_peak_cells": [
+              798
+            ],
+            "cue_patch_peak_cells": [
+              320
+            ],
+            "distinct_old_peak_available": true,
+            "frozen_half_contrast_components": 2,
+            "minimum": 0.3648482789194259,
+            "maximum": 1.4848317272582632,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 8000.0,
+          "time_from_onset": 8500.0,
+          "original_core_amount": 16.496754865528885,
+          "original_core_amount_fraction": 0.6918260582520676,
+          "Px": 0.24907563166189323,
+          "Py": 0.31405316939002126,
+          "R": 0.40083420948278414,
+          "angle_deg": 51.5820588806809,
+          "spatial": {
+            "resolved_peak_count": 2,
+            "all_peaks": [
+              {
+                "cell": 320,
+                "position": 16.025000000000002,
+                "value": 1.483835818250706,
+                "prominence": 1.118411018942142,
+                "distance_old": 16.0,
+                "distance_cue": 0.0
+              },
+              {
+                "cell": 798,
+                "position": 39.925000000000004,
+                "value": 1.4848320269228443,
+                "prominence": 1.1199837467510454,
+                "distance_old": 0.09999999999999432,
+                "distance_cue": 16.099999999999994
+              }
+            ],
+            "location_association": "distinct peaks associated with old core and cue patch",
+            "old_core_peak_cells": [
+              798
+            ],
+            "cue_patch_peak_cells": [
+              320
+            ],
+            "distinct_old_peak_available": true,
+            "frozen_half_contrast_components": 2,
+            "minimum": 0.36484828017179893,
+            "maximum": 1.4848320269228443,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 13000.0,
+          "time_from_onset": 13500.0,
+          "original_core_amount": 16.49968815347359,
+          "original_core_amount_fraction": 0.6919490718418945,
+          "Px": 0.24939935943557473,
+          "Py": 0.31401157587862405,
+          "R": 0.40100288062887013,
+          "angle_deg": 51.542125537204534,
+          "spatial": {
+            "resolved_peak_count": 2,
+            "all_peaks": [
+              {
+                "cell": 320,
+                "position": 16.025000000000002,
+                "value": 1.4838327816053607,
+                "prominence": 1.118407518506904,
+                "distance_old": 16.0,
+                "distance_cue": 0.0
+              },
+              {
+                "cell": 798,
+                "position": 39.925000000000004,
+                "value": 1.4848323273799136,
+                "prominence": 1.1199840459383337,
+                "distance_old": 0.09999999999999432,
+                "distance_cue": 16.099999999999994
+              }
+            ],
+            "location_association": "distinct peaks associated with old core and cue patch",
+            "old_core_peak_cells": [
+              798
+            ],
+            "cue_patch_peak_cells": [
+              320
+            ],
+            "distinct_old_peak_available": true,
+            "frozen_half_contrast_components": 2,
+            "minimum": 0.3648482814415798,
+            "maximum": 1.4848323273799136,
+            "single_region_spans_old_and_cue": false
+          }
+        }
+      ],
+      "combined_primary_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/04/primary_history.npz",
+      "combined_primary_sha256": "2dba332c56cc9548b61a364718e9bd7751487229f191fceff33f3763d796a4f0",
+      "core": {
+        "peak_cell": 0,
+        "origin": 0.025,
+        "level": 0.9247087777700924,
+        "left": -8.26894111710684,
+        "right": 8.268941117106836,
+        "width": 16.537882234213676
+      },
+      "wall_seconds": 3.0964609449729323
+    },
+    {
+      "created_at": "2026-10-17T20:17:56.706447+00:00",
+      "producer": "finished",
+      "complete": true,
+      "job": {
+        "slot": 5,
+        "model": "holmes_model3",
+        "circumference": 40,
+        "cells": 800,
+        "fraction": 0.4,
+        "short_route": 16.0,
+        "cue_center_cell": 320,
+        "cue_peak": 1.0,
+        "cue_full_width": 3.0,
+        "duration": 2000.0,
+        "recovery": 13000.0,
+        "input": "inputs/holmes_model3_C40.npz",
+        "input_sha256": "ce127dc44526d91c01b874462569789d9336a4f6f3190564e517388a5b72696e",
+        "source_cue": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/11/cue.npz",
+        "source_cue_sha256": "53df03f0e6d0e48881b000aff6d44788af76dd7b7f714f77c6db59b0ae4ed8c1",
+        "source_recovery": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/11/recovery.npz",
+        "source_recovery_sha256": "1c8a0957ed9d5a6ad395fefa7bd784125318051ae0551e2f847dbf0ba1469361",
+        "source_worker_status": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/42/status.json",
+        "source_worker_status_sha256": "ea1a53f3ef73c9a03bef3fdccddf2d632ba57a9792ea510db71686bc87eeea6c"
+      },
+      "phases": [
+        {
+          "phase": "cue_new",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/05/cue_new.npz",
+          "sha256": "e62c53a763f59d5b89668f45f80cf62184c50c07683cd0a41c421559891fc0b6",
+          "start_from_onset": 1000.0,
+          "minimum": 0.17277093928722628,
+          "max_pool_error": 2.220446049250313e-16,
+          "nfev": 347,
+          "njev": 2,
+          "nlu": 26
+        },
+        {
+          "phase": "recovery",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/05/recovery.npz",
+          "sha256": "e088df475a2a6f98e5ae609dbceeba37b14c7373da1bdeed0103f4db80e54eed",
+          "minimum": 0.17277093928722628,
+          "max_pool_error": 2.220446049250313e-16,
+          "nfev": 3520,
+          "njev": 2,
+          "nlu": 606
+        }
+      ],
+      "cue_history": {
+        "kind": "exact retained 1000 prefix plus native continuation",
+        "prefix_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/11/cue.npz",
+        "prefix_sha256": "53df03f0e6d0e48881b000aff6d44788af76dd7b7f714f77c6db59b0ae4ed8c1",
+        "extension_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/05/cue_new.npz",
+        "extension_sha256": "e62c53a763f59d5b89668f45f80cf62184c50c07683cd0a41c421559891fc0b6"
+      },
+      "status": "complete",
+      "readouts": [
+        {
+          "cue_free_time": 3000.0,
+          "time_from_onset": 5000.0,
+          "original_core_amount": 14.762970716784398,
+          "original_core_amount_fraction": 0.6191161790507826,
+          "Px": 0.06723444506013355,
+          "Py": 0.37457325026600974,
+          "R": 0.38055957538523044,
+          "angle_deg": 79.82399289433863,
+          "spatial": {
+            "resolved_peak_count": 2,
+            "all_peaks": [
+              {
+                "cell": 320,
+                "position": 16.025000000000002,
+                "value": 1.4847224357983166,
+                "prominence": 1.1198743514302607,
+                "distance_old": 16.0,
+                "distance_cue": 0.0
+              },
+              {
+                "cell": 798,
+                "position": 39.925000000000004,
+                "value": 1.4843877086651673,
+                "prominence": 1.118970991103015,
+                "distance_old": 0.09999999999999432,
+                "distance_cue": 16.099999999999994
+              }
+            ],
+            "location_association": "distinct peaks associated with old core and cue patch",
+            "old_core_peak_cells": [
+              798
+            ],
+            "cue_patch_peak_cells": [
+              320
+            ],
+            "distinct_old_peak_available": true,
+            "frozen_half_contrast_components": 2,
+            "minimum": 0.3648480843680559,
+            "maximum": 1.4847224357983166,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 8000.0,
+          "time_from_onset": 10000.0,
+          "original_core_amount": 14.762344220719623,
+          "original_core_amount_fraction": 0.6190899056226729,
+          "Px": 0.0671907774260432,
+          "Py": 0.37465792259595104,
+          "R": 0.3806352053279225,
+          "angle_deg": 79.83271441530029,
+          "spatial": {
+            "resolved_peak_count": 2,
+            "all_peaks": [
+              {
+                "cell": 320,
+                "position": 16.025000000000002,
+                "value": 1.484722563631518,
+                "prominence": 1.1198744794215973,
+                "distance_old": 16.0,
+                "distance_cue": 0.0
+              },
+              {
+                "cell": 798,
+                "position": 39.925000000000004,
+                "value": 1.484387391548993,
+                "prominence": 1.1189702659650755,
+                "distance_old": 0.09999999999999432,
+                "distance_cue": 16.099999999999994
+              }
+            ],
+            "location_association": "distinct peaks associated with old core and cue patch",
+            "old_core_peak_cells": [
+              798
+            ],
+            "cue_patch_peak_cells": [
+              320
+            ],
+            "distinct_old_peak_available": true,
+            "frozen_half_contrast_components": 2,
+            "minimum": 0.36484808420992054,
+            "maximum": 1.484722563631518,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 13000.0,
+          "time_from_onset": 15000.0,
+          "original_core_amount": 14.76171671703355,
+          "original_core_amount_fraction": 0.619063589937848,
+          "Px": 0.06714703902262485,
+          "Py": 0.3747427211756486,
+          "R": 0.3807109558754986,
+          "angle_deg": 79.84144630563223,
+          "spatial": {
+            "resolved_peak_count": 2,
+            "all_peaks": [
+              {
+                "cell": 320,
+                "position": 16.025000000000002,
+                "value": 1.4847226914708944,
+                "prominence": 1.1198746074192392,
+                "distance_old": 16.0,
+                "distance_cue": 0.0
+              },
+              {
+                "cell": 798,
+                "position": 39.925000000000004,
+                "value": 1.4843870734366107,
+                "prominence": 1.1189695387298815,
+                "distance_old": 0.09999999999999432,
+                "distance_cue": 16.099999999999994
+              }
+            ],
+            "location_association": "distinct peaks associated with old core and cue patch",
+            "old_core_peak_cells": [
+              798
+            ],
+            "cue_patch_peak_cells": [
+              320
+            ],
+            "distinct_old_peak_available": true,
+            "frozen_half_contrast_components": 2,
+            "minimum": 0.3648480840516553,
+            "maximum": 1.4847226914708944,
+            "single_region_spans_old_and_cue": false
+          }
+        }
+      ],
+      "combined_primary_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/05/primary_history.npz",
+      "combined_primary_sha256": "a5eaecd0891ad8e5938d3cc4f43cf57984ec41e1b2c4d98d69304f8ff9736766",
+      "core": {
+        "peak_cell": 0,
+        "origin": 0.025,
+        "level": 0.9247087777700924,
+        "left": -8.26894111710684,
+        "right": 8.268941117106836,
+        "width": 16.537882234213676
+      },
+      "wall_seconds": 3.781547913327813
+    },
+    {
+      "created_at": "2026-10-17T20:17:56.707701+00:00",
+      "producer": "finished",
+      "complete": true,
+      "job": {
+        "slot": 6,
+        "model": "holmes_model3",
+        "circumference": 40,
+        "cells": 800,
+        "fraction": 0.3,
+        "short_route": 12.0,
+        "cue_center_cell": 240,
+        "cue_peak": 1.0,
+        "cue_full_width": 3.0,
+        "duration": 500.0,
+        "recovery": 13000.0,
+        "input": "inputs/holmes_model3_C40.npz",
+        "input_sha256": "ce127dc44526d91c01b874462569789d9336a4f6f3190564e517388a5b72696e",
+        "source_cue": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/10/cue.npz",
+        "source_cue_sha256": "84a3b7a4234a9384d9fcaab4077cfd2ddaf4b08f74ee5f34ef196ed308a0f987",
+        "source_recovery": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/10/recovery.npz",
+        "source_recovery_sha256": "e9a69de4c7ac04733b9867f60b52c8b66ae64d68f58c99b112846c78aacab97c",
+        "source_worker_status": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/42/status.json",
+        "source_worker_status_sha256": "ea1a53f3ef73c9a03bef3fdccddf2d632ba57a9792ea510db71686bc87eeea6c"
+      },
+      "phases": [
+        {
+          "phase": "recovery",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/06/recovery.npz",
+          "sha256": "d0133c17498f3f06c62335a5d9aca312194b76b5443a3efbedc272340a638a96",
+          "minimum": 0.17350705249317275,
+          "max_pool_error": 2.220446049250313e-16,
+          "nfev": 4898,
+          "njev": 9,
+          "nlu": 734
+        }
+      ],
+      "cue_history": {
+        "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/10/cue.npz",
+        "sha256": "84a3b7a4234a9384d9fcaab4077cfd2ddaf4b08f74ee5f34ef196ed308a0f987",
+        "source_stop": 500.0,
+        "kind": "exact retained cue prefix",
+        "samples": 271
+      },
+      "status": "complete",
+      "readouts": [
+        {
+          "cue_free_time": 3000.0,
+          "time_from_onset": 3500.0,
+          "original_core_amount": 18.504500925213044,
+          "original_core_amount_fraction": 0.7760251055049819,
+          "Px": 0.6605324835903419,
+          "Py": 0.7507974681110574,
+          "R": 0.9999999999999998,
+          "angle_deg": 48.6595043319585,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 108,
+                "position": 5.425000000000001,
+                "value": 1.4843509742604615,
+                "prominence": 1.1192843929864262,
+                "distance_old": 5.399999999999999,
+                "distance_cue": 6.6
+              }
+            ],
+            "location_association": "one connected region spanning old and cue (merged or bridged)",
+            "old_core_peak_cells": [
+              108
+            ],
+            "cue_patch_peak_cells": [],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 0.3650665812740352,
+            "maximum": 1.4843509742604615,
+            "single_region_spans_old_and_cue": true
+          }
+        },
+        {
+          "cue_free_time": 8000.0,
+          "time_from_onset": 8500.0,
+          "original_core_amount": 18.504500925213044,
+          "original_core_amount_fraction": 0.7760251055049819,
+          "Px": 0.6605324835903422,
+          "Py": 0.7507974681110574,
+          "R": 1.0,
+          "angle_deg": 48.65950433195849,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 108,
+                "position": 5.425000000000001,
+                "value": 1.4843509742604615,
+                "prominence": 1.1192843929864262,
+                "distance_old": 5.399999999999999,
+                "distance_cue": 6.6
+              }
+            ],
+            "location_association": "one connected region spanning old and cue (merged or bridged)",
+            "old_core_peak_cells": [
+              108
+            ],
+            "cue_patch_peak_cells": [],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 0.3650665812740352,
+            "maximum": 1.4843509742604615,
+            "single_region_spans_old_and_cue": true
+          }
+        },
+        {
+          "cue_free_time": 13000.0,
+          "time_from_onset": 13500.0,
+          "original_core_amount": 18.504500925213044,
+          "original_core_amount_fraction": 0.7760251055049819,
+          "Px": 0.6605324835903422,
+          "Py": 0.7507974681110574,
+          "R": 1.0,
+          "angle_deg": 48.65950433195849,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 108,
+                "position": 5.425000000000001,
+                "value": 1.4843509742604615,
+                "prominence": 1.1192843929864262,
+                "distance_old": 5.399999999999999,
+                "distance_cue": 6.6
+              }
+            ],
+            "location_association": "one connected region spanning old and cue (merged or bridged)",
+            "old_core_peak_cells": [
+              108
+            ],
+            "cue_patch_peak_cells": [],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 0.3650665812740352,
+            "maximum": 1.4843509742604615,
+            "single_region_spans_old_and_cue": true
+          }
+        }
+      ],
+      "combined_primary_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/06/primary_history.npz",
+      "combined_primary_sha256": "18706b04ac16c470429ac47ff2358385cc1e809c1efbe3b4ff0f0b5ac5138195",
+      "core": {
+        "peak_cell": 0,
+        "origin": 0.025,
+        "level": 0.9247087777700924,
+        "left": -8.26894111710684,
+        "right": 8.268941117106836,
+        "width": 16.537882234213676
+      },
+      "wall_seconds": 4.069716054946184
+    },
+    {
+      "created_at": "2026-10-17T20:17:56.821619+00:00",
+      "producer": "finished",
+      "complete": true,
+      "job": {
+        "slot": 7,
+        "model": "holmes_model3",
+        "circumference": 40,
+        "cells": 800,
+        "fraction": 0.3,
+        "short_route": 12.0,
+        "cue_center_cell": 240,
+        "cue_peak": 1.0,
+        "cue_full_width": 3.0,
+        "duration": 2000.0,
+        "recovery": 13000.0,
+        "input": "inputs/holmes_model3_C40.npz",
+        "input_sha256": "ce127dc44526d91c01b874462569789d9336a4f6f3190564e517388a5b72696e",
+        "source_cue": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/10/cue.npz",
+        "source_cue_sha256": "84a3b7a4234a9384d9fcaab4077cfd2ddaf4b08f74ee5f34ef196ed308a0f987",
+        "source_recovery": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/10/recovery.npz",
+        "source_recovery_sha256": "e9a69de4c7ac04733b9867f60b52c8b66ae64d68f58c99b112846c78aacab97c",
+        "source_worker_status": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/42/status.json",
+        "source_worker_status_sha256": "ea1a53f3ef73c9a03bef3fdccddf2d632ba57a9792ea510db71686bc87eeea6c"
+      },
+      "phases": [
+        {
+          "phase": "cue_new",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/07/cue_new.npz",
+          "sha256": "deed90b8d984bf7aa866490fb1790826add73e40e85fe10b890108a291a9a1a0",
+          "start_from_onset": 1000.0,
+          "minimum": 0.17293298256899556,
+          "max_pool_error": 2.220446049250313e-16,
+          "nfev": 409,
+          "njev": 6,
+          "nlu": 32
+        },
+        {
+          "phase": "recovery",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/07/recovery.npz",
+          "sha256": "88507311471a694e55fc3648ca5123ad9e940022b42b267f17ba7c8d84f67d21",
+          "minimum": 0.17309621427418598,
+          "max_pool_error": 2.220446049250313e-16,
+          "nfev": 4435,
+          "njev": 5,
+          "nlu": 730
+        }
+      ],
+      "cue_history": {
+        "kind": "exact retained 1000 prefix plus native continuation",
+        "prefix_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/10/cue.npz",
+        "prefix_sha256": "84a3b7a4234a9384d9fcaab4077cfd2ddaf4b08f74ee5f34ef196ed308a0f987",
+        "extension_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/07/cue_new.npz",
+        "extension_sha256": "deed90b8d984bf7aa866490fb1790826add73e40e85fe10b890108a291a9a1a0"
+      },
+      "status": "complete",
+      "readouts": [
+        {
+          "cue_free_time": 3000.0,
+          "time_from_onset": 5000.0,
+          "original_core_amount": 17.444586531423187,
+          "original_core_amount_fraction": 0.7315753695952547,
+          "Px": 0.5419692914488501,
+          "Py": 0.84039829076839,
+          "R": 1.0,
+          "angle_deg": 57.18220206875322,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 127,
+                "position": 6.375,
+                "value": 1.4843509742644871,
+                "prominence": 1.1192843929904552,
+                "distance_old": 6.350000000000001,
+                "distance_cue": 5.65
+              }
+            ],
+            "location_association": "one connected region spanning old and cue (merged or bridged)",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 0.3650665812740318,
+            "maximum": 1.4843509742644871,
+            "single_region_spans_old_and_cue": true
+          }
+        },
+        {
+          "cue_free_time": 8000.0,
+          "time_from_onset": 10000.0,
+          "original_core_amount": 17.444586531423184,
+          "original_core_amount_fraction": 0.7315753695952546,
+          "Px": 0.5419692914488499,
+          "Py": 0.84039829076839,
+          "R": 0.9999999999999999,
+          "angle_deg": 57.18220206875323,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 127,
+                "position": 6.375,
+                "value": 1.4843509742644871,
+                "prominence": 1.1192843929904552,
+                "distance_old": 6.350000000000001,
+                "distance_cue": 5.65
+              }
+            ],
+            "location_association": "one connected region spanning old and cue (merged or bridged)",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 0.3650665812740318,
+            "maximum": 1.4843509742644871,
+            "single_region_spans_old_and_cue": true
+          }
+        },
+        {
+          "cue_free_time": 13000.0,
+          "time_from_onset": 15000.0,
+          "original_core_amount": 17.44458653142318,
+          "original_core_amount_fraction": 0.7315753695952545,
+          "Px": 0.5419692914488499,
+          "Py": 0.84039829076839,
+          "R": 0.9999999999999999,
+          "angle_deg": 57.18220206875323,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 127,
+                "position": 6.375,
+                "value": 1.4843509742644871,
+                "prominence": 1.1192843929904552,
+                "distance_old": 6.350000000000001,
+                "distance_cue": 5.65
+              }
+            ],
+            "location_association": "one connected region spanning old and cue (merged or bridged)",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 0.3650665812740318,
+            "maximum": 1.4843509742644871,
+            "single_region_spans_old_and_cue": true
+          }
+        }
+      ],
+      "combined_primary_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/07/primary_history.npz",
+      "combined_primary_sha256": "b881adcdb38158844e171b42b6bbd13a8d0dd3141d13d47d638d667cd6dbc750",
+      "core": {
+        "peak_cell": 0,
+        "origin": 0.025,
+        "level": 0.9247087777700924,
+        "left": -8.26894111710684,
+        "right": 8.268941117106836,
+        "width": 16.537882234213676
+      },
+      "wall_seconds": 4.8280976340174675
+    },
+    {
+      "created_at": "2026-10-17T20:17:56.808001+00:00",
+      "producer": "finished",
+      "complete": true,
+      "job": {
+        "slot": 8,
+        "model": "holmes_model3",
+        "circumference": 30,
+        "cells": 600,
+        "fraction": 0.4,
+        "short_route": 12.0,
+        "cue_center_cell": 240,
+        "cue_peak": 1.0,
+        "cue_full_width": 3.0,
+        "duration": 500.0,
+        "recovery": 13000.0,
+        "input": "inputs/holmes_model3_C30.npz",
+        "input_sha256": "90883e22f4953c0c2857a03ae06de80bfb24db35942b3cedaf87a3f48d9bb736",
+        "source_cue": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_20261017/workers/09/f0.4/cue.npz",
+        "source_cue_sha256": "8745431a2ba28b9c677906e94074ad3838e056f3ce34323d8822af9728fcd908",
+        "source_recovery": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_20261017/workers/09/f0.4/recovery.npz",
+        "source_recovery_sha256": "de9da4b6f0a19598183d7eb4c3248164772d34478d9e2a5266ce23d3dba30ebe",
+        "source_worker_status": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/39/status.json",
+        "source_worker_status_sha256": "4099f6733f2d76ef47748d8862303290ad97d23a4ef97870dca96e7d56bd6d56"
+      },
+      "phases": [
+        {
+          "phase": "recovery",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/08/recovery.npz",
+          "sha256": "8a200f6fe58d58f4b5e7f4d5a97e5ebe2e884aab16f308a351eddf56fdacbc8d",
+          "minimum": 0.17360967870351438,
+          "max_pool_error": 2.220446049250313e-16,
+          "nfev": 5088,
+          "njev": 12,
+          "nlu": 381
+        }
+      ],
+      "cue_history": {
+        "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_20261017/workers/09/f0.4/cue.npz",
+        "sha256": "8745431a2ba28b9c677906e94074ad3838e056f3ce34323d8822af9728fcd908",
+        "source_stop": 500.0,
+        "kind": "exact retained cue prefix",
+        "samples": 271
+      },
+      "status": "complete",
+      "readouts": [
+        {
+          "cue_free_time": 3000.0,
+          "time_from_onset": 3500.0,
+          "original_core_amount": 10.07667774787439,
+          "original_core_amount_fraction": 0.570086646450474,
+          "Px": -0.06847721252475243,
+          "Py": 0.4214134334463573,
+          "R": 0.42694075762827743,
+          "angle_deg": 99.22955900517893,
+          "spatial": {
+            "resolved_peak_count": 2,
+            "all_peaks": [
+              {
+                "cell": 240,
+                "position": 12.025,
+                "value": 1.4844777878767272,
+                "prominence": 1.1197451071827806,
+                "distance_old": 12.0,
+                "distance_cue": 0.0
+              },
+              {
+                "cell": 599,
+                "position": 29.975,
+                "value": 1.474541990193618,
+                "prominence": 1.1052967562480391,
+                "distance_old": 0.04999999999999716,
+                "distance_cue": 12.049999999999997
+              }
+            ],
+            "location_association": "distinct peaks associated with old core and cue patch",
+            "old_core_peak_cells": [
+              599
+            ],
+            "cue_patch_peak_cells": [
+              240
+            ],
+            "distinct_old_peak_available": true,
+            "frozen_half_contrast_components": 2,
+            "minimum": 0.36473268069394654,
+            "maximum": 1.4844777878767272,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 8000.0,
+          "time_from_onset": 8500.0,
+          "original_core_amount": 9.680734110300241,
+          "original_core_amount_fraction": 0.5476861900524649,
+          "Px": -0.12195637114668549,
+          "Py": 0.44356074311923765,
+          "R": 0.4600211835337134,
+          "angle_deg": 105.37350916106921,
+          "spatial": {
+            "resolved_peak_count": 2,
+            "all_peaks": [
+              {
+                "cell": 239,
+                "position": 11.975000000000001,
+                "value": 1.4847673462694575,
+                "prominence": 1.1200071680350971,
+                "distance_old": 11.950000000000003,
+                "distance_cue": 0.049999999999998934
+              },
+              {
+                "cell": 599,
+                "position": 29.975,
+                "value": 1.4695912798530995,
+                "prominence": 1.1000797686812844,
+                "distance_old": 0.04999999999999716,
+                "distance_cue": 12.049999999999997
+              }
+            ],
+            "location_association": "distinct peaks associated with old core and cue patch",
+            "old_core_peak_cells": [
+              599
+            ],
+            "cue_patch_peak_cells": [
+              239
+            ],
+            "distinct_old_peak_available": true,
+            "frozen_half_contrast_components": 2,
+            "minimum": 0.3647601782343604,
+            "maximum": 1.4847673462694575,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 13000.0,
+          "time_from_onset": 13500.0,
+          "original_core_amount": 5.22801073162006,
+          "original_core_amount_fraction": 0.2957739822755639,
+          "Px": -0.7946479792694117,
+          "Py": 0.6070704965523908,
+          "R": 0.9999999993706628,
+          "angle_deg": 142.62201908582685,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 238,
+                "position": 11.925,
+                "value": 1.4845431874670303,
+                "prominence": 1.1195494056358113,
+                "distance_old": 11.899999999999999,
+                "distance_cue": 0.09999999999999964
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              238
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 0.3649937818312189,
+            "maximum": 1.4845431874670303,
+            "single_region_spans_old_and_cue": false
+          }
+        }
+      ],
+      "combined_primary_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/08/primary_history.npz",
+      "combined_primary_sha256": "dba425ab2229c0e15993478b99bf63c9aba12cdc3e364655733158330c994457",
+      "core": {
+        "peak_cell": 0,
+        "origin": 0.025,
+        "level": 0.9247684854738316,
+        "left": -6.189992866430886,
+        "right": 6.1899928664308685,
+        "width": 12.379985732861755
+      },
+      "wall_seconds": 3.008821022696793
+    },
+    {
+      "created_at": "2026-10-17T20:17:56.818301+00:00",
+      "producer": "finished",
+      "complete": true,
+      "job": {
+        "slot": 9,
+        "model": "holmes_model3",
+        "circumference": 30,
+        "cells": 600,
+        "fraction": 0.4,
+        "short_route": 12.0,
+        "cue_center_cell": 240,
+        "cue_peak": 1.0,
+        "cue_full_width": 3.0,
+        "duration": 2000.0,
+        "recovery": 13000.0,
+        "input": "inputs/holmes_model3_C30.npz",
+        "input_sha256": "90883e22f4953c0c2857a03ae06de80bfb24db35942b3cedaf87a3f48d9bb736",
+        "source_cue": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_20261017/workers/09/f0.4/cue.npz",
+        "source_cue_sha256": "8745431a2ba28b9c677906e94074ad3838e056f3ce34323d8822af9728fcd908",
+        "source_recovery": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_20261017/workers/09/f0.4/recovery.npz",
+        "source_recovery_sha256": "de9da4b6f0a19598183d7eb4c3248164772d34478d9e2a5266ce23d3dba30ebe",
+        "source_worker_status": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/39/status.json",
+        "source_worker_status_sha256": "4099f6733f2d76ef47748d8862303290ad97d23a4ef97870dca96e7d56bd6d56"
+      },
+      "phases": [
+        {
+          "phase": "cue_new",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/09/cue_new.npz",
+          "sha256": "d4006aaa5b5c13186a08480d17b584c9e70d4c1f30eb006ab023d7f9ce333eb5",
+          "start_from_onset": 1000.0,
+          "minimum": 0.1670701826464251,
+          "max_pool_error": 2.220446049250313e-16,
+          "nfev": 1723,
+          "njev": 9,
+          "nlu": 96
+        },
+        {
+          "phase": "recovery",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/09/recovery.npz",
+          "sha256": "932fac5e50c5241f34260d431bb0f3a05b4d22e4c4be7c97f011d4970e60d447",
+          "minimum": 0.17292241415556175,
+          "max_pool_error": 2.220446049250313e-16,
+          "nfev": 3639,
+          "njev": 3,
+          "nlu": 694
+        }
+      ],
+      "cue_history": {
+        "kind": "exact retained 1000 prefix plus native continuation",
+        "prefix_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_20261017/workers/09/f0.4/cue.npz",
+        "prefix_sha256": "8745431a2ba28b9c677906e94074ad3838e056f3ce34323d8822af9728fcd908",
+        "extension_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/09/cue_new.npz",
+        "extension_sha256": "d4006aaa5b5c13186a08480d17b584c9e70d4c1f30eb006ab023d7f9ce333eb5"
+      },
+      "status": "complete",
+      "readouts": [
+        {
+          "cue_free_time": 3000.0,
+          "time_from_onset": 5000.0,
+          "original_core_amount": 5.165188705678582,
+          "original_core_amount_fraction": 0.29221983486822456,
+          "Px": -0.8042577420096563,
+          "Py": 0.5942806444917492,
+          "R": 0.9999999999999998,
+          "angle_deg": 143.53863214990122,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 239,
+                "position": 11.975000000000001,
+                "value": 1.4845431881215678,
+                "prominence": 1.1195494066155005,
+                "distance_old": 11.950000000000003,
+                "distance_cue": 0.049999999999998934
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              239
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 0.36499378150606737,
+            "maximum": 1.4845431881215678,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 8000.0,
+          "time_from_onset": 10000.0,
+          "original_core_amount": 5.165188705678582,
+          "original_core_amount_fraction": 0.29221983486822456,
+          "Px": -0.8042577420096558,
+          "Py": 0.5942806444917493,
+          "R": 0.9999999999999996,
+          "angle_deg": 143.5386321499012,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 239,
+                "position": 11.975000000000001,
+                "value": 1.4845431881215676,
+                "prominence": 1.1195494066155,
+                "distance_old": 11.950000000000003,
+                "distance_cue": 0.049999999999998934
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              239
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 0.3649937815060674,
+            "maximum": 1.4845431881215676,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 13000.0,
+          "time_from_onset": 15000.0,
+          "original_core_amount": 5.165188705678582,
+          "original_core_amount_fraction": 0.29221983486822456,
+          "Px": -0.8042577420096558,
+          "Py": 0.5942806444917493,
+          "R": 0.9999999999999996,
+          "angle_deg": 143.5386321499012,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 239,
+                "position": 11.975000000000001,
+                "value": 1.4845431881215676,
+                "prominence": 1.1195494066155003,
+                "distance_old": 11.950000000000003,
+                "distance_cue": 0.049999999999998934
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              239
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 0.36499378150606737,
+            "maximum": 1.4845431881215676,
+            "single_region_spans_old_and_cue": false
+          }
+        }
+      ],
+      "combined_primary_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/09/primary_history.npz",
+      "combined_primary_sha256": "7004ccb5d61937500260ba62e270daa05d5ab4fac6168c16b75179996b010398",
+      "core": {
+        "peak_cell": 0,
+        "origin": 0.025,
+        "level": 0.9247684854738316,
+        "left": -6.189992866430886,
+        "right": 6.1899928664308685,
+        "width": 12.379985732861755
+      },
+      "wall_seconds": 3.925631633028388
+    },
+    {
+      "created_at": "2026-10-17T20:17:56.813207+00:00",
+      "producer": "finished",
+      "complete": true,
+      "job": {
+        "slot": 10,
+        "model": "goryachev",
+        "circumference": 40,
+        "cells": 800,
+        "fraction": 0.5,
+        "short_route": 20.0,
+        "cue_center_cell": 400,
+        "cue_peak": 6.4,
+        "cue_full_width": 3.0,
+        "duration": 500.0,
+        "recovery": 13000.0,
+        "input": "inputs/goryachev_C40.npz",
+        "input_sha256": "f44a19a8643ee60b94fda3eb3ac96d93312937c89c6fdfc64d86f441ecc9ca69",
+        "source_cue": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/08/cue.npz",
+        "source_cue_sha256": "2628f8362025ff77b162ff4bc6eb63ef4be5265fe4c9c23ae9ca53ddfaba7ee2",
+        "source_recovery": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/08/recovery.npz",
+        "source_recovery_sha256": "d5862848e8fe88bbc447eee9bae4afd89ec8f868a503b9ca37bd4cfed8415693",
+        "source_worker_status": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/25/status.json",
+        "source_worker_status_sha256": "6a34407f6fe2d06422322988c591a231f53dcb745ac94b2a0b8a08a341d5f86d"
+      },
+      "phases": [
+        {
+          "phase": "recovery",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/10/recovery.npz",
+          "sha256": "ee133d7f752735ab19bf53e08b17d8ced9b4b3ead179d1c5ac813d5a1e8430a5",
+          "minimum": -2.931423133503513e-17,
+          "max_pool_error": 1.354472090042691e-14,
+          "nfev": 4482,
+          "njev": 5,
+          "nlu": 703
+        }
+      ],
+      "cue_history": {
+        "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/08/cue.npz",
+        "sha256": "2628f8362025ff77b162ff4bc6eb63ef4be5265fe4c9c23ae9ca53ddfaba7ee2",
+        "source_stop": 500.0,
+        "kind": "exact retained cue prefix",
+        "samples": 271
+      },
+      "status": "complete",
+      "readouts": [
+        {
+          "cue_free_time": 3000.0,
+          "time_from_onset": 3500.0,
+          "original_core_amount": -8.594310684311791e-19,
+          "original_core_amount_fraction": -1.1486893484803804e-20,
+          "Px": -1.000000000000014,
+          "Py": -1.4380977011177287e-16,
+          "R": 1.000000000000014,
+          "angle_deg": -180.0,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 400,
+                "position": 20.025000000000002,
+                "value": 64.9469645574508,
+                "prominence": 64.9469645574508,
+                "distance_old": 20.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              400
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": -9.045243255001618e-19,
+            "maximum": 64.9469645574508,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 8000.0,
+          "time_from_onset": 8500.0,
+          "original_core_amount": 2.168905667291679e-17,
+          "original_core_amount_fraction": 2.8988931508195625e-19,
+          "Px": -1.000000000000014,
+          "Py": -1.8219534805799737e-16,
+          "R": 1.000000000000014,
+          "angle_deg": -180.0,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 0,
+                "position": 0.025,
+                "value": 1.7167187950104614e-17,
+                "prominence": 1.3421798700943786e-17,
+                "distance_old": 0.0,
+                "distance_cue": 20.0
+              },
+              {
+                "cell": 400,
+                "position": 20.025000000000002,
+                "value": 64.9469645574508,
+                "prominence": 64.9469645574508,
+                "distance_old": 20.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              400
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 3.712614621968471e-18,
+            "maximum": 64.9469645574508,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 13000.0,
+          "time_from_onset": 13500.0,
+          "original_core_amount": -1.8926586738039305e-17,
+          "original_core_amount_fraction": -2.5296698464440865e-19,
+          "Px": -1.000000000000014,
+          "Py": -2.0821161117395917e-16,
+          "R": 1.000000000000014,
+          "angle_deg": -180.0,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 400,
+                "position": 20.025000000000002,
+                "value": 64.9469645574508,
+                "prominence": 64.9469645574508,
+                "distance_old": 20.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              400
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": -1.5302342522323828e-17,
+            "maximum": 64.9469645574508,
+            "single_region_spans_old_and_cue": false
+          }
+        }
+      ],
+      "combined_primary_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/10/primary_history.npz",
+      "combined_primary_sha256": "89139a570f4495c150649393e654469f5c5a5684efcd7198f2ce2a63e983cdca",
+      "core": {
+        "peak_cell": 0,
+        "origin": 0.025,
+        "level": 32.47348227872495,
+        "left": -0.7168945037605424,
+        "right": 0.7168945037605432,
+        "width": 1.4337890075210855
+      },
+      "wall_seconds": 1.6251635793596506
+    },
+    {
+      "created_at": "2026-10-17T20:17:56.816941+00:00",
+      "producer": "finished",
+      "complete": true,
+      "job": {
+        "slot": 11,
+        "model": "goryachev",
+        "circumference": 40,
+        "cells": 800,
+        "fraction": 0.5,
+        "short_route": 20.0,
+        "cue_center_cell": 400,
+        "cue_peak": 6.4,
+        "cue_full_width": 3.0,
+        "duration": 2000.0,
+        "recovery": 13000.0,
+        "input": "inputs/goryachev_C40.npz",
+        "input_sha256": "f44a19a8643ee60b94fda3eb3ac96d93312937c89c6fdfc64d86f441ecc9ca69",
+        "source_cue": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/08/cue.npz",
+        "source_cue_sha256": "2628f8362025ff77b162ff4bc6eb63ef4be5265fe4c9c23ae9ca53ddfaba7ee2",
+        "source_recovery": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/08/recovery.npz",
+        "source_recovery_sha256": "d5862848e8fe88bbc447eee9bae4afd89ec8f868a503b9ca37bd4cfed8415693",
+        "source_worker_status": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/25/status.json",
+        "source_worker_status_sha256": "6a34407f6fe2d06422322988c591a231f53dcb745ac94b2a0b8a08a341d5f86d"
+      },
+      "phases": [
+        {
+          "phase": "cue_new",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/11/cue_new.npz",
+          "sha256": "741466c04fd154a74349a729d65513ded5e292a32bdd3deb6c1810b86c7489c1",
+          "start_from_onset": 1000.0,
+          "minimum": 2.0209203112926247e-11,
+          "max_pool_error": 1.354472090042691e-14,
+          "nfev": 396,
+          "njev": 1,
+          "nlu": 38
+        },
+        {
+          "phase": "recovery",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/11/recovery.npz",
+          "sha256": "f4346277717c93ba3505b6758bf3c3441fb051a2214910bf75803d3345d858f3",
+          "minimum": 3.0222545270187076e-20,
+          "max_pool_error": 1.354472090042691e-14,
+          "nfev": 3618,
+          "njev": 1,
+          "nlu": 677
+        }
+      ],
+      "cue_history": {
+        "kind": "exact retained 1000 prefix plus native continuation",
+        "prefix_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/08/cue.npz",
+        "prefix_sha256": "2628f8362025ff77b162ff4bc6eb63ef4be5265fe4c9c23ae9ca53ddfaba7ee2",
+        "extension_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/11/cue_new.npz",
+        "extension_sha256": "741466c04fd154a74349a729d65513ded5e292a32bdd3deb6c1810b86c7489c1"
+      },
+      "status": "complete",
+      "readouts": [
+        {
+          "cue_free_time": 3000.0,
+          "time_from_onset": 5000.0,
+          "original_core_amount": 7.226417461421717e-20,
+          "original_core_amount_fraction": 9.658609131690323e-22,
+          "Px": -1.0000000000000138,
+          "Py": -1.258369691331603e-16,
+          "R": 1.0000000000000138,
+          "angle_deg": -180.0,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 400,
+                "position": 20.025000000000002,
+                "value": 64.94696455745077,
+                "prominence": 64.94696455745077,
+                "distance_old": 20.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              400
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 3.022256060365439e-20,
+            "maximum": 64.94696455745077,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 8000.0,
+          "time_from_onset": 10000.0,
+          "original_core_amount": 7.226415362985543e-20,
+          "original_core_amount_fraction": 9.658606326984545e-22,
+          "Px": -1.0000000000000135,
+          "Py": -1.6123353566576494e-16,
+          "R": 1.0000000000000135,
+          "angle_deg": -180.0,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 400,
+                "position": 20.025000000000002,
+                "value": 64.94696455745077,
+                "prominence": 64.94696455745077,
+                "distance_old": 20.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              400
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 3.0222547774658907e-20,
+            "maximum": 64.94696455745077,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 13000.0,
+          "time_from_onset": 15000.0,
+          "original_core_amount": 7.226415348909812e-20,
+          "original_core_amount_fraction": 9.658606308171353e-22,
+          "Px": -1.0000000000000135,
+          "Py": -1.4101876543758292e-16,
+          "R": 1.0000000000000135,
+          "angle_deg": -180.0,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 400,
+                "position": 20.025000000000002,
+                "value": 64.94696455745077,
+                "prominence": 64.94696455745077,
+                "distance_old": 20.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "one peak associated with cue patch",
+            "old_core_peak_cells": [],
+            "cue_patch_peak_cells": [
+              400
+            ],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 3.022254767532743e-20,
+            "maximum": 64.94696455745077,
+            "single_region_spans_old_and_cue": false
+          }
+        }
+      ],
+      "combined_primary_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/11/primary_history.npz",
+      "combined_primary_sha256": "b0ab065df6176642dc1852f1bb9898fb267423b884eeccfca4d2999b002d5009",
+      "core": {
+        "peak_cell": 0,
+        "origin": 0.025,
+        "level": 32.47348227872495,
+        "left": -0.7168945037605424,
+        "right": 0.7168945037605432,
+        "width": 1.4337890075210855
+      },
+      "wall_seconds": 1.7066009333357215
+    },
+    {
+      "created_at": "2026-10-17T20:17:06.949189+00:00",
+      "producer": "finished",
+      "complete": true,
+      "job": {
+        "slot": 12,
+        "model": "goryachev",
+        "circumference": 80,
+        "cells": 1600,
+        "fraction": 0.5,
+        "short_route": 40.0,
+        "cue_center_cell": 800,
+        "cue_peak": 6.4,
+        "cue_full_width": 3.0,
+        "duration": 500.0,
+        "recovery": 13000.0,
+        "input": "inputs/goryachev_C80.npz",
+        "input_sha256": "00b1fb2387580bfe0246eff1bf908f00c2f59208a824ee8fb925e94cda14fbdb",
+        "source_cue": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/33/f0.5/cue.npz",
+        "source_cue_sha256": "e5e2d5739114c820e69c8dbeb6d14e92f111724e29f6133c8ae04cd4b65f42ae",
+        "source_recovery": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/33/f0.5/recovery.npz",
+        "source_recovery_sha256": "2d803429a1dffebfe3d4ad9dc50a15ddeff316e5f75dfc6ae189a521d5f832d4",
+        "source_worker_status": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/33/status.json",
+        "source_worker_status_sha256": "6d64dede4c4607ab311a0068fa145849d3e83c5d97f45abbb5c0d9371a4af904"
+      },
+      "phases": [
+        {
+          "phase": "cue_new",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/12/cue_new.npz",
+          "sha256": "e091c4d06731490e4759524c38198f50af4ee8d7a79d8b2bec5372767165dea7",
+          "start_from_onset": 0.0,
+          "minimum": 1.6999332011480156e-42,
+          "max_pool_error": 5.417888360170764e-14,
+          "nfev": 1009,
+          "njev": 2,
+          "nlu": 90
+        },
+        {
+          "phase": "recovery",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/12/recovery.npz",
+          "sha256": "752ca238c61f6b3502b242b2db38e5a7b302a967729f0ccce66df7e8d2371c13",
+          "minimum": -2.9038615286058773e-22,
+          "max_pool_error": 5.3512749786932545e-14,
+          "nfev": 3949,
+          "njev": 2,
+          "nlu": 678
+        }
+      ],
+      "replayed_prefix_native_maxabs_at_0_1_10": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "replayed_primary_prefix_check": {
+        "samples": 271,
+        "end_time": 500.0,
+        "max_absolute_error": 5.692584181815619e-10,
+        "fixed_scale": 119.99178578674876,
+        "max_scaled_error": 4.744144896661982e-12
+      },
+      "cue_history": {
+        "kind": "native 500 cue from exact basal; missing full retained state at500",
+        "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/12/cue_new.npz",
+        "sha256": "e091c4d06731490e4759524c38198f50af4ee8d7a79d8b2bec5372767165dea7",
+        "source_primary_comparison_maxabs": 0.0
+      },
+      "status": "complete",
+      "readouts": [
+        {
+          "cue_free_time": 3000.0,
+          "time_from_onset": 3500.0,
+          "original_core_amount": 156.003222986556,
+          "original_core_amount_fraction": 1.0000000000000493,
+          "Px": 1.0000000000000555,
+          "Py": 1.5822842437349663e-17,
+          "R": 1.0000000000000555,
+          "angle_deg": 9.065820915605781e-16,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 0,
+                "position": 0.025,
+                "value": 119.99178578675384,
+                "prominence": 119.99178578675384,
+                "distance_old": 0.0,
+                "distance_cue": 40.0
+              },
+              {
+                "cell": 801,
+                "position": 40.075,
+                "value": 1.1597997896782527e-21,
+                "prominence": 1.1592242184505851e-21,
+                "distance_old": 39.94999999999999,
+                "distance_cue": 0.04999999999999716
+              }
+            ],
+            "location_association": "one old-core-associated peak; incumbent identity unresolved",
+            "old_core_peak_cells": [
+              0
+            ],
+            "cue_patch_peak_cells": [],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 5.755712276548805e-25,
+            "maximum": 119.99178578675384,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 8000.0,
+          "time_from_onset": 8500.0,
+          "original_core_amount": 156.003222986556,
+          "original_core_amount_fraction": 1.0000000000000493,
+          "Px": 1.0000000000000555,
+          "Py": 4.1720194951747355e-17,
+          "R": 1.0000000000000555,
+          "angle_deg": 2.3903910911979937e-15,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 0,
+                "position": 0.025,
+                "value": 119.9917857867538,
+                "prominence": 119.9917857867538,
+                "distance_old": 0.0,
+                "distance_cue": 40.0
+              },
+              {
+                "cell": 585,
+                "position": 29.275000000000002,
+                "value": 1.5483307003918977e-29,
+                "prominence": 6.425623586868228e-30,
+                "distance_old": 29.25,
+                "distance_cue": 10.750000000000004
+              },
+              {
+                "cell": 850,
+                "position": 42.525000000000006,
+                "value": 1.3171108254856841e-23,
+                "prominence": 1.319246845465641e-23,
+                "distance_old": 37.5,
+                "distance_cue": 2.5
+              }
+            ],
+            "location_association": "one old-core-associated peak; incumbent identity unresolved",
+            "old_core_peak_cells": [
+              0
+            ],
+            "cue_patch_peak_cells": [],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": -6.90409366817587e-23,
+            "maximum": 119.9917857867538,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 13000.0,
+          "time_from_onset": 13500.0,
+          "original_core_amount": 156.003222986556,
+          "original_core_amount_fraction": 1.0000000000000493,
+          "Px": 1.000000000000056,
+          "Py": 3.991727019282881e-17,
+          "R": 1.000000000000056,
+          "angle_deg": 2.2870911117323248e-15,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 0,
+                "position": 0.025,
+                "value": 119.9917857867538,
+                "prominence": 119.9917857867538,
+                "distance_old": 0.0,
+                "distance_cue": 40.0
+              },
+              {
+                "cell": 596,
+                "position": 29.825000000000003,
+                "value": 1.9788960094782917e-29,
+                "prominence": 1.2164307780472122e-29,
+                "distance_old": 29.80000000000001,
+                "distance_cue": 10.200000000000003
+              },
+              {
+                "cell": 780,
+                "position": 39.025000000000006,
+                "value": 3.947120086899478e-23,
+                "prominence": 2.6238824499073212e-23,
+                "distance_old": 39.0,
+                "distance_cue": 1.0
+              },
+              {
+                "cell": 836,
+                "position": 41.825,
+                "value": 4.5006068228802855e-23,
+                "prominence": 4.500605191711615e-23,
+                "distance_old": 38.19999999999999,
+                "distance_cue": 1.7999999999999972
+              }
+            ],
+            "location_association": "one old-core-associated peak; incumbent identity unresolved",
+            "old_core_peak_cells": [
+              0
+            ],
+            "cue_patch_peak_cells": [],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": -1.0960635123036927e-23,
+            "maximum": 119.9917857867538,
+            "single_region_spans_old_and_cue": false
+          }
+        }
+      ],
+      "combined_primary_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/12/primary_history.npz",
+      "combined_primary_sha256": "144706344689d4bfd2736ee088b52900efb4b45a90c1a1373f05b4910a382d30",
+      "core": {
+        "peak_cell": 0,
+        "origin": 0.025,
+        "level": 59.99589289337438,
+        "left": -0.8045084627764794,
+        "right": 0.80450846277648,
+        "width": 1.6090169255529594
+      },
+      "wall_seconds": 2.928674679249525
+    },
+    {
+      "created_at": "2026-10-17T20:17:56.810651+00:00",
+      "producer": "finished",
+      "complete": true,
+      "job": {
+        "slot": 13,
+        "model": "goryachev",
+        "circumference": 80,
+        "cells": 1600,
+        "fraction": 0.5,
+        "short_route": 40.0,
+        "cue_center_cell": 800,
+        "cue_peak": 6.4,
+        "cue_full_width": 3.0,
+        "duration": 2000.0,
+        "recovery": 13000.0,
+        "input": "inputs/goryachev_C80.npz",
+        "input_sha256": "00b1fb2387580bfe0246eff1bf908f00c2f59208a824ee8fb925e94cda14fbdb",
+        "source_cue": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/33/f0.5/cue.npz",
+        "source_cue_sha256": "e5e2d5739114c820e69c8dbeb6d14e92f111724e29f6133c8ae04cd4b65f42ae",
+        "source_recovery": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/33/f0.5/recovery.npz",
+        "source_recovery_sha256": "2d803429a1dffebfe3d4ad9dc50a15ddeff316e5f75dfc6ae189a521d5f832d4",
+        "source_worker_status": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/33/status.json",
+        "source_worker_status_sha256": "6d64dede4c4607ab311a0068fa145849d3e83c5d97f45abbb5c0d9371a4af904"
+      },
+      "phases": [
+        {
+          "phase": "cue_new",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/13/cue_new.npz",
+          "sha256": "fa603d85a865f3aa7913ce2e4fc837551e866458db6375ab11b9a352827d6171",
+          "start_from_onset": 1000.0,
+          "minimum": 8.983966187722833e-22,
+          "max_pool_error": 5.3290705182007514e-14,
+          "nfev": 239,
+          "njev": 1,
+          "nlu": 25
+        },
+        {
+          "phase": "recovery",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/13/recovery.npz",
+          "sha256": "3e7400c90159735b835ff0851c4991f516507f23eebaaf3ed5c0dafc3e4faada",
+          "minimum": -3.0344684632584533e-22,
+          "max_pool_error": 5.3512749786932545e-14,
+          "nfev": 4129,
+          "njev": 4,
+          "nlu": 686
+        }
+      ],
+      "cue_history": {
+        "kind": "exact retained 1000 prefix plus native continuation",
+        "prefix_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/33/f0.5/cue.npz",
+        "prefix_sha256": "e5e2d5739114c820e69c8dbeb6d14e92f111724e29f6133c8ae04cd4b65f42ae",
+        "extension_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/13/cue_new.npz",
+        "extension_sha256": "fa603d85a865f3aa7913ce2e4fc837551e866458db6375ab11b9a352827d6171"
+      },
+      "status": "complete",
+      "readouts": [
+        {
+          "cue_free_time": 3000.0,
+          "time_from_onset": 5000.0,
+          "original_core_amount": 156.0032229865567,
+          "original_core_amount_fraction": 1.0000000000000535,
+          "Px": 1.0000000000000566,
+          "Py": 1.6422067239915963e-17,
+          "R": 1.0000000000000566,
+          "angle_deg": 9.40915143727184e-16,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 0,
+                "position": 0.025,
+                "value": 119.99178578675453,
+                "prominence": 119.99178578675453,
+                "distance_old": 0.0,
+                "distance_cue": 40.0
+              },
+              {
+                "cell": 800,
+                "position": 40.025000000000006,
+                "value": 3.201998642926525e-20,
+                "prominence": 3.2015483891559647e-20,
+                "distance_old": 40.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "one old-core-associated peak; incumbent identity unresolved",
+            "old_core_peak_cells": [
+              0
+            ],
+            "cue_patch_peak_cells": [],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": 4.50253770559188e-24,
+            "maximum": 119.99178578675453,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 8000.0,
+          "time_from_onset": 10000.0,
+          "original_core_amount": 156.00322298655598,
+          "original_core_amount_fraction": 1.000000000000049,
+          "Px": 1.0000000000000555,
+          "Py": 2.4535704326278416e-17,
+          "R": 1.0000000000000555,
+          "angle_deg": 1.40579230527655e-15,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 0,
+                "position": 0.025,
+                "value": 119.99178578675378,
+                "prominence": 119.99178578675378,
+                "distance_old": 0.0,
+                "distance_cue": 40.0
+              },
+              {
+                "cell": 625,
+                "position": 31.275000000000002,
+                "value": 2.807848613383803e-27,
+                "prominence": 2.799454730474678e-27,
+                "distance_old": 31.25,
+                "distance_cue": 8.750000000000004
+              },
+              {
+                "cell": 686,
+                "position": 34.325,
+                "value": 5.458249420151278e-25,
+                "prominence": 6.008171548999621e-25,
+                "distance_old": 34.30000000000001,
+                "distance_cue": 5.700000000000003
+              },
+              {
+                "cell": 763,
+                "position": 38.175000000000004,
+                "value": 2.969651615451885e-24,
+                "prominence": 7.350179858149982e-24,
+                "distance_old": 38.150000000000006,
+                "distance_cue": 1.8500000000000014
+              },
+              {
+                "cell": 854,
+                "position": 42.725,
+                "value": 1.7577685537263048e-23,
+                "prominence": 1.9512184677093008e-23,
+                "distance_old": 37.3,
+                "distance_cue": 2.6999999999999957
+              },
+              {
+                "cell": 973,
+                "position": 48.675000000000004,
+                "value": -2.921282841326152e-28,
+                "prominence": 5.815430639904655e-29,
+                "distance_old": 31.349999999999994,
+                "distance_cue": 8.649999999999999
+              }
+            ],
+            "location_association": "one old-core-associated peak; incumbent identity unresolved",
+            "old_core_peak_cells": [
+              0
+            ],
+            "cue_patch_peak_cells": [],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": -5.043205042941655e-23,
+            "maximum": 119.99178578675378,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 13000.0,
+          "time_from_onset": 15000.0,
+          "original_core_amount": 156.003222986556,
+          "original_core_amount_fraction": 1.0000000000000493,
+          "Px": 1.0000000000000555,
+          "Py": 5.255091806034741e-17,
+          "R": 1.0000000000000555,
+          "angle_deg": 3.010945814395554e-15,
+          "spatial": {
+            "resolved_peak_count": 1,
+            "all_peaks": [
+              {
+                "cell": 0,
+                "position": 0.025,
+                "value": 119.9917857867538,
+                "prominence": 119.9917857867538,
+                "distance_old": 0.0,
+                "distance_cue": 40.0
+              },
+              {
+                "cell": 672,
+                "position": 33.625,
+                "value": 1.93335387856748e-25,
+                "prominence": 1.9334929536225074e-25,
+                "distance_old": 33.599999999999994,
+                "distance_cue": 6.400000000000006
+              },
+              {
+                "cell": 708,
+                "position": 35.425000000000004,
+                "value": -1.507106968490768e-25,
+                "prominence": 3.4633131520477407e-25,
+                "distance_old": 35.400000000000006,
+                "distance_cue": 4.600000000000001
+              },
+              {
+                "cell": 820,
+                "position": 41.025000000000006,
+                "value": 2.0636026413100053e-24,
+                "prominence": 2.06369929340191e-24,
+                "distance_old": 39.0,
+                "distance_cue": 1.0
+              }
+            ],
+            "location_association": "one old-core-associated peak; incumbent identity unresolved",
+            "old_core_peak_cells": [
+              0
+            ],
+            "cue_patch_peak_cells": [],
+            "distinct_old_peak_available": false,
+            "frozen_half_contrast_components": 1,
+            "minimum": -2.276670906328697e-24,
+            "maximum": 119.9917857867538,
+            "single_region_spans_old_and_cue": false
+          }
+        }
+      ],
+      "combined_primary_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/13/primary_history.npz",
+      "combined_primary_sha256": "f719dc6a1e62d5a6e664ebcbab82e468bb11a8468b919239995e7b76f6216511",
+      "core": {
+        "peak_cell": 0,
+        "origin": 0.025,
+        "level": 59.99589289337438,
+        "left": -0.8045084627764794,
+        "right": 0.80450846277648,
+        "width": 1.6090169255529594
+      },
+      "wall_seconds": 2.87098160199821
+    },
+    {
+      "created_at": "2026-10-17T20:17:56.809520+00:00",
+      "producer": "finished",
+      "complete": true,
+      "job": {
+        "slot": 14,
+        "model": "holmes_model3",
+        "circumference": 40,
+        "cells": 800,
+        "fraction": 0.5,
+        "short_route": 20.0,
+        "cue_center_cell": 400,
+        "cue_peak": 1.0,
+        "cue_full_width": 3.0,
+        "duration": 500.0,
+        "recovery": 13000.0,
+        "input": "inputs/holmes_model3_C40.npz",
+        "input_sha256": "ce127dc44526d91c01b874462569789d9336a4f6f3190564e517388a5b72696e",
+        "source_cue": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/12/cue.npz",
+        "source_cue_sha256": "9fc62a88cbdf6eef178acb48217d90b9a3e9695a1635b4298c420011502f418a",
+        "source_recovery": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/12/recovery.npz",
+        "source_recovery_sha256": "56750ac70060c75cadfd991b2efc8fbd2e546646ebd1bb08ab110e94165ca8b1",
+        "source_worker_status": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/42/status.json",
+        "source_worker_status_sha256": "ea1a53f3ef73c9a03bef3fdccddf2d632ba57a9792ea510db71686bc87eeea6c"
+      },
+      "phases": [
+        {
+          "phase": "recovery",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/14/recovery.npz",
+          "sha256": "8db05f8c4c485636c025d45fdd974ed585f5d16cc6ba4e6a2308c8d786623cd9",
+          "minimum": 0.17349865108141094,
+          "max_pool_error": 2.220446049250313e-16,
+          "nfev": 3503,
+          "njev": 2,
+          "nlu": 486
+        }
+      ],
+      "cue_history": {
+        "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/12/cue.npz",
+        "sha256": "9fc62a88cbdf6eef178acb48217d90b9a3e9695a1635b4298c420011502f418a",
+        "source_stop": 500.0,
+        "kind": "exact retained cue prefix",
+        "samples": 271
+      },
+      "status": "complete",
+      "readouts": [
+        {
+          "cue_free_time": 3000.0,
+          "time_from_onset": 3500.0,
+          "original_core_amount": 16.50098230949471,
+          "original_core_amount_fraction": 0.6920033449923506,
+          "Px": 0.14418461877117417,
+          "Py": -2.9927229567780094e-16,
+          "R": 0.14418461877117417,
+          "angle_deg": -1.1892419325768853e-13,
+          "spatial": {
+            "resolved_peak_count": 2,
+            "all_peaks": [
+              {
+                "cell": 0,
+                "position": 0.025,
+                "value": 1.484832522427127,
+                "prominence": 1.1199745529715053,
+                "distance_old": 0.0,
+                "distance_cue": 20.0
+              },
+              {
+                "cell": 400,
+                "position": 20.025000000000002,
+                "value": 1.4838314226411922,
+                "prominence": 1.1189734531855704,
+                "distance_old": 20.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "distinct peaks associated with old core and cue patch",
+            "old_core_peak_cells": [
+              0
+            ],
+            "cue_patch_peak_cells": [
+              400
+            ],
+            "distinct_old_peak_available": true,
+            "frozen_half_contrast_components": 2,
+            "minimum": 0.3648579694556218,
+            "maximum": 1.484832522427127,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 8000.0,
+          "time_from_onset": 8500.0,
+          "original_core_amount": 16.503916657304245,
+          "original_core_amount_fraction": 0.6921264030298349,
+          "Px": 0.14452454581610089,
+          "Py": 5.526911559439639e-16,
+          "R": 0.14452454581610089,
+          "angle_deg": 2.1911067376811e-13,
+          "spatial": {
+            "resolved_peak_count": 2,
+            "all_peaks": [
+              {
+                "cell": 0,
+                "position": 0.025,
+                "value": 1.4848328227996552,
+                "prominence": 1.1199748515332302,
+                "distance_old": 0.0,
+                "distance_cue": 20.0
+              },
+              {
+                "cell": 400,
+                "position": 20.025000000000002,
+                "value": 1.4838283762598745,
+                "prominence": 1.1189704049934492,
+                "distance_old": 20.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "distinct peaks associated with old core and cue patch",
+            "old_core_peak_cells": [
+              0
+            ],
+            "cue_patch_peak_cells": [
+              400
+            ],
+            "distinct_old_peak_available": true,
+            "frozen_half_contrast_components": 2,
+            "minimum": 0.3648579712664251,
+            "maximum": 1.4848328227996552,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 13000.0,
+          "time_from_onset": 13500.0,
+          "original_core_amount": 16.50686745627798,
+          "original_core_amount_fraction": 0.6922501509814372,
+          "Px": 0.14486637298064065,
+          "Py": -2.617084734270197e-18,
+          "R": 0.14486637298064065,
+          "angle_deg": -1.0350774083495367e-15,
+          "spatial": {
+            "resolved_peak_count": 2,
+            "all_peaks": [
+              {
+                "cell": 0,
+                "position": 0.025,
+                "value": 1.484833124037406,
+                "prominence": 1.1199751508676616,
+                "distance_old": 0.0,
+                "distance_cue": 20.0
+              },
+              {
+                "cell": 400,
+                "position": 20.025000000000002,
+                "value": 1.4838253043549519,
+                "prominence": 1.1189673311852075,
+                "distance_old": 20.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "distinct peaks associated with old core and cue patch",
+            "old_core_peak_cells": [
+              0
+            ],
+            "cue_patch_peak_cells": [
+              400
+            ],
+            "distinct_old_peak_available": true,
+            "frozen_half_contrast_components": 2,
+            "minimum": 0.3648579731697442,
+            "maximum": 1.484833124037406,
+            "single_region_spans_old_and_cue": false
+          }
+        }
+      ],
+      "combined_primary_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/14/primary_history.npz",
+      "combined_primary_sha256": "d677f0eb41d07d3589bb8cd00d2bc3d31084587aecdf9b5714e2ee5809733151",
+      "core": {
+        "peak_cell": 0,
+        "origin": 0.025,
+        "level": 0.9247087777700924,
+        "left": -8.26894111710684,
+        "right": 8.268941117106836,
+        "width": 16.537882234213676
+      },
+      "wall_seconds": 2.9977820944041014
+    },
+    {
+      "created_at": "2026-10-17T20:17:56.812054+00:00",
+      "producer": "finished",
+      "complete": true,
+      "job": {
+        "slot": 15,
+        "model": "holmes_model3",
+        "circumference": 40,
+        "cells": 800,
+        "fraction": 0.5,
+        "short_route": 20.0,
+        "cue_center_cell": 400,
+        "cue_peak": 1.0,
+        "cue_full_width": 3.0,
+        "duration": 2000.0,
+        "recovery": 13000.0,
+        "input": "inputs/holmes_model3_C40.npz",
+        "input_sha256": "ce127dc44526d91c01b874462569789d9336a4f6f3190564e517388a5b72696e",
+        "source_cue": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/12/cue.npz",
+        "source_cue_sha256": "9fc62a88cbdf6eef178acb48217d90b9a3e9695a1635b4298c420011502f418a",
+        "source_recovery": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/12/recovery.npz",
+        "source_recovery_sha256": "56750ac70060c75cadfd991b2efc8fbd2e546646ebd1bb08ab110e94165ca8b1",
+        "source_worker_status": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/42/status.json",
+        "source_worker_status_sha256": "ea1a53f3ef73c9a03bef3fdccddf2d632ba57a9792ea510db71686bc87eeea6c"
+      },
+      "phases": [
+        {
+          "phase": "cue_new",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/15/cue_new.npz",
+          "sha256": "6c0c1b0c75ccfdd49bb9d0321d494c8692cfe6c78d0c8969eb4941563fd805b3",
+          "start_from_onset": 1000.0,
+          "minimum": 0.17277276016903254,
+          "max_pool_error": 2.220446049250313e-16,
+          "nfev": 352,
+          "njev": 2,
+          "nlu": 26
+        },
+        {
+          "phase": "recovery",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/15/recovery.npz",
+          "sha256": "ea6af8af75c6a37f13eb5513e29e06db9c7c295b7954314aabb3c4f859d40be9",
+          "minimum": 0.17277276016903254,
+          "max_pool_error": 2.220446049250313e-16,
+          "nfev": 3520,
+          "njev": 2,
+          "nlu": 608
+        }
+      ],
+      "cue_history": {
+        "kind": "exact retained 1000 prefix plus native continuation",
+        "prefix_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_distance_pilot_20261017/workers/12/cue.npz",
+        "prefix_sha256": "9fc62a88cbdf6eef178acb48217d90b9a3e9695a1635b4298c420011502f418a",
+        "extension_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/15/cue_new.npz",
+        "extension_sha256": "6c0c1b0c75ccfdd49bb9d0321d494c8692cfe6c78d0c8969eb4941563fd805b3"
+      },
+      "status": "complete",
+      "readouts": [
+        {
+          "cue_free_time": 3000.0,
+          "time_from_onset": 5000.0,
+          "original_core_amount": 14.768505159818428,
+          "original_core_amount_fraction": 0.6193482775416715,
+          "Px": -0.05702887393771353,
+          "Py": -1.052796690443718e-16,
+          "R": 0.05702887393771353,
+          "angle_deg": null,
+          "spatial": {
+            "resolved_peak_count": 2,
+            "all_peaks": [
+              {
+                "cell": 0,
+                "position": 0.025,
+                "value": 1.4843909129332804,
+                "prominence": 1.1195331400419737,
+                "distance_old": 0.0,
+                "distance_cue": 20.0
+              },
+              {
+                "cell": 400,
+                "position": 20.025000000000002,
+                "value": 1.484721260534144,
+                "prominence": 1.1198634876428373,
+                "distance_old": 20.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "distinct peaks associated with old core and cue patch",
+            "old_core_peak_cells": [
+              0
+            ],
+            "cue_patch_peak_cells": [
+              400
+            ],
+            "distinct_old_peak_available": true,
+            "frozen_half_contrast_components": 2,
+            "minimum": 0.3648577728913066,
+            "maximum": 1.484721260534144,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 8000.0,
+          "time_from_onset": 10000.0,
+          "original_core_amount": 14.767892664099419,
+          "original_core_amount_fraction": 0.619322591247462,
+          "Px": -0.057100025283072765,
+          "Py": -1.9642954224472782e-16,
+          "R": 0.057100025283072765,
+          "angle_deg": null,
+          "spatial": {
+            "resolved_peak_count": 2,
+            "all_peaks": [
+              {
+                "cell": 0,
+                "position": 0.025,
+                "value": 1.4843905981298173,
+                "prominence": 1.11953282494835,
+                "distance_old": 0.0,
+                "distance_cue": 20.0
+              },
+              {
+                "cell": 400,
+                "position": 20.025000000000002,
+                "value": 1.484721386541248,
+                "prominence": 1.1198636133597808,
+                "distance_old": 20.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "distinct peaks associated with old core and cue patch",
+            "old_core_peak_cells": [
+              0
+            ],
+            "cue_patch_peak_cells": [
+              400
+            ],
+            "distinct_old_peak_available": true,
+            "frozen_half_contrast_components": 2,
+            "minimum": 0.36485777318146734,
+            "maximum": 1.484721386541248,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 13000.0,
+          "time_from_onset": 15000.0,
+          "original_core_amount": 14.767279201021825,
+          "original_core_amount_fraction": 0.6192968643850388,
+          "Px": -0.057171288892760096,
+          "Py": -8.438465085860037e-16,
+          "R": 0.057171288892760096,
+          "angle_deg": null,
+          "spatial": {
+            "resolved_peak_count": 2,
+            "all_peaks": [
+              {
+                "cell": 0,
+                "position": 0.025,
+                "value": 1.4843902826487818,
+                "prominence": 1.1195325091733954,
+                "distance_old": 0.0,
+                "distance_cue": 20.0
+              },
+              {
+                "cell": 400,
+                "position": 20.025000000000002,
+                "value": 1.4847215126753386,
+                "prominence": 1.1198637391999524,
+                "distance_old": 20.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "distinct peaks associated with old core and cue patch",
+            "old_core_peak_cells": [
+              0
+            ],
+            "cue_patch_peak_cells": [
+              400
+            ],
+            "distinct_old_peak_available": true,
+            "frozen_half_contrast_components": 2,
+            "minimum": 0.3648577734753862,
+            "maximum": 1.4847215126753386,
+            "single_region_spans_old_and_cue": false
+          }
+        }
+      ],
+      "combined_primary_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/15/primary_history.npz",
+      "combined_primary_sha256": "3fb7a910f3504e2dc6f5b04c4b54dea692480f61e27c003fb31c3fa483ddc008",
+      "core": {
+        "peak_cell": 0,
+        "origin": 0.025,
+        "level": 0.9247087777700924,
+        "left": -8.26894111710684,
+        "right": 8.268941117106836,
+        "width": 16.537882234213676
+      },
+      "wall_seconds": 3.702231775969267
+    },
+    {
+      "created_at": "2026-10-17T20:17:56.814495+00:00",
+      "producer": "finished",
+      "complete": true,
+      "job": {
+        "slot": 16,
+        "model": "wave_pinning",
+        "circumference": 80,
+        "cells": 1600,
+        "fraction": 0.5,
+        "short_route": 40.0,
+        "cue_center_cell": 800,
+        "cue_peak": 0.1,
+        "cue_full_width": 3.0,
+        "duration": 500.0,
+        "recovery": 13000.0,
+        "input": "inputs/wave_pinning_C80.npz",
+        "input_sha256": "7957c6ec461fc6a1edef1e29372ca6f0650a21c41b3ccf3a8444aabb8b6f9c62",
+        "source_cue": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/16/f0.5/cue.npz",
+        "source_cue_sha256": "7e9f67a0400e31ca743e0ac4759712429f912b5649ab5cf832e21915145ab6ed",
+        "source_recovery": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/16/f0.5/recovery.npz",
+        "source_recovery_sha256": "b69601f5545da963cf399807eb9c7a12d24bc091d07dd739004a767b0299f9ac",
+        "source_worker_status": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/16/status.json",
+        "source_worker_status_sha256": "76ab43f13189fc572ef83bbca47bc17f1dc1916846fb204344a5e922ea1bccc9"
+      },
+      "phases": [
+        {
+          "phase": "cue_new",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/16/cue_new.npz",
+          "sha256": "ef4cbc85b77482c06ea26a9a3d192c7a6e58c6ad867fe098c111322df6d1c6b4",
+          "start_from_onset": 0.0,
+          "minimum": 0.16133876224274227,
+          "max_pool_error": 2.220446049250313e-16,
+          "nfev": 1387,
+          "njev": 9,
+          "nlu": 87
+        },
+        {
+          "phase": "recovery",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/16/recovery.npz",
+          "sha256": "b994d5f488b77744d290b140550035604583b3140c2fbc51fed58571ec2b58ee",
+          "minimum": 0.17323514191553718,
+          "max_pool_error": 2.220446049250313e-16,
+          "nfev": 3372,
+          "njev": 2,
+          "nlu": 374
+        }
+      ],
+      "replayed_prefix_native_maxabs_at_0_1_10": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "replayed_primary_prefix_check": {
+        "samples": 271,
+        "end_time": 500.0,
+        "max_absolute_error": 8.016151631373702e-11,
+        "fixed_scale": 1.1247615954137247,
+        "max_scaled_error": 7.126978431749438e-11
+      },
+      "cue_history": {
+        "kind": "native 500 cue from exact basal; missing full retained state at500",
+        "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/16/cue_new.npz",
+        "sha256": "ef4cbc85b77482c06ea26a9a3d192c7a6e58c6ad867fe098c111322df6d1c6b4",
+        "source_primary_comparison_maxabs": 0.0
+      },
+      "status": "complete",
+      "readouts": [
+        {
+          "cue_free_time": 3000.0,
+          "time_from_onset": 3500.0,
+          "original_core_amount": 21.24909950694194,
+          "original_core_amount_fraction": 0.7962308739923598,
+          "Px": 0.4835583368661323,
+          "Py": 1.4589644609897402e-16,
+          "R": 0.4835583368661323,
+          "angle_deg": 1.728695375537136e-14,
+          "spatial": {
+            "resolved_peak_count": 2,
+            "all_peaks": [
+              {
+                "cell": 0,
+                "position": 0.025,
+                "value": 1.1247816832275028,
+                "prominence": 0.9502088145607595,
+                "distance_old": 0.0,
+                "distance_cue": 40.0
+              },
+              {
+                "cell": 800,
+                "position": 40.025000000000006,
+                "value": 1.1130418340377615,
+                "prominence": 0.9384689653710181,
+                "distance_old": 40.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "distinct peaks associated with old core and cue patch",
+            "old_core_peak_cells": [
+              0
+            ],
+            "cue_patch_peak_cells": [
+              800
+            ],
+            "distinct_old_peak_available": true,
+            "frozen_half_contrast_components": 2,
+            "minimum": 0.17457286866674335,
+            "maximum": 1.1247816832275028,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 8000.0,
+          "time_from_onset": 8500.0,
+          "original_core_amount": 21.359201573448235,
+          "original_core_amount_fraction": 0.8003565389229623,
+          "Px": 0.49323695283877644,
+          "Py": -4.462492213476357e-17,
+          "R": 0.49323695283877644,
+          "angle_deg": -5.1837553628258336e-15,
+          "spatial": {
+            "resolved_peak_count": 2,
+            "all_peaks": [
+              {
+                "cell": 0,
+                "position": 0.025,
+                "value": 1.1247861276849747,
+                "prominence": 0.9502125519111382,
+                "distance_old": 0.0,
+                "distance_cue": 40.0
+              },
+              {
+                "cell": 800,
+                "position": 40.025000000000006,
+                "value": 1.111991256661099,
+                "prominence": 0.9374176808872625,
+                "distance_old": 40.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "distinct peaks associated with old core and cue patch",
+            "old_core_peak_cells": [
+              0
+            ],
+            "cue_patch_peak_cells": [
+              800
+            ],
+            "distinct_old_peak_available": true,
+            "frozen_half_contrast_components": 2,
+            "minimum": 0.17457357577383645,
+            "maximum": 1.1247861276849747,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 13000.0,
+          "time_from_onset": 13500.0,
+          "original_core_amount": 21.492171398096392,
+          "original_core_amount_fraction": 0.8053390879321392,
+          "Px": 0.5049193111916369,
+          "Py": 6.678952306268742e-17,
+          "R": 0.5049193111916369,
+          "angle_deg": 7.578949155563706e-15,
+          "spatial": {
+            "resolved_peak_count": 2,
+            "all_peaks": [
+              {
+                "cell": 0,
+                "position": 0.025,
+                "value": 1.1247925433578456,
+                "prominence": 0.9502179404993366,
+                "distance_old": 0.0,
+                "distance_cue": 40.0
+              },
+              {
+                "cell": 800,
+                "position": 40.025000000000006,
+                "value": 1.1105949511482436,
+                "prominence": 0.9360203482897346,
+                "distance_old": 40.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "distinct peaks associated with old core and cue patch",
+            "old_core_peak_cells": [
+              0
+            ],
+            "cue_patch_peak_cells": [
+              800
+            ],
+            "distinct_old_peak_available": true,
+            "frozen_half_contrast_components": 2,
+            "minimum": 0.17457460285850898,
+            "maximum": 1.1247925433578456,
+            "single_region_spans_old_and_cue": false
+          }
+        }
+      ],
+      "combined_primary_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/16/primary_history.npz",
+      "combined_primary_sha256": "538ca98b41f53d46340dcdc666e6f02c0ad043ae3f77db2713b3199ed484df91",
+      "core": {
+        "peak_cell": 0,
+        "origin": 0.025,
+        "level": 0.649665279447933,
+        "left": -12.222483687585733,
+        "right": 12.222483687585756,
+        "width": 24.444967375171487
+      },
+      "wall_seconds": 2.4940053448081017
+    },
+    {
+      "created_at": "2026-10-17T20:17:56.815756+00:00",
+      "producer": "finished",
+      "complete": true,
+      "job": {
+        "slot": 17,
+        "model": "wave_pinning",
+        "circumference": 80,
+        "cells": 1600,
+        "fraction": 0.5,
+        "short_route": 40.0,
+        "cue_center_cell": 800,
+        "cue_peak": 0.1,
+        "cue_full_width": 3.0,
+        "duration": 2000.0,
+        "recovery": 13000.0,
+        "input": "inputs/wave_pinning_C80.npz",
+        "input_sha256": "7957c6ec461fc6a1edef1e29372ca6f0650a21c41b3ccf3a8444aabb8b6f9c62",
+        "source_cue": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/16/f0.5/cue.npz",
+        "source_cue_sha256": "7e9f67a0400e31ca743e0ac4759712429f912b5649ab5cf832e21915145ab6ed",
+        "source_recovery": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/16/f0.5/recovery.npz",
+        "source_recovery_sha256": "b69601f5545da963cf399807eb9c7a12d24bc091d07dd739004a767b0299f9ac",
+        "source_worker_status": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/16/status.json",
+        "source_worker_status_sha256": "76ab43f13189fc572ef83bbca47bc17f1dc1916846fb204344a5e922ea1bccc9"
+      },
+      "phases": [
+        {
+          "phase": "cue_new",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/17/cue_new.npz",
+          "sha256": "193c6db630da1edff9f39b4ecd4bc597c45158a58221bb2a837919588bfae42a",
+          "start_from_onset": 1000.0,
+          "minimum": 0.1739916174666454,
+          "max_pool_error": 2.220446049250313e-16,
+          "nfev": 336,
+          "njev": 2,
+          "nlu": 26
+        },
+        {
+          "phase": "recovery",
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/17/recovery.npz",
+          "sha256": "1062edb73b65950b53d8ac27642beabca3e47a2b3cd98a59e55630fd6f6dde13",
+          "minimum": 0.17431029799000727,
+          "max_pool_error": 4.440892098500626e-16,
+          "nfev": 3379,
+          "njev": 2,
+          "nlu": 478
+        }
+      ],
+      "cue_history": {
+        "kind": "exact retained 1000 prefix plus native continuation",
+        "prefix_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/16/f0.5/cue.npz",
+        "prefix_sha256": "7e9f67a0400e31ca743e0ac4759712429f912b5649ab5cf832e21915145ab6ed",
+        "extension_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/17/cue_new.npz",
+        "extension_sha256": "193c6db630da1edff9f39b4ecd4bc597c45158a58221bb2a837919588bfae42a"
+      },
+      "status": "complete",
+      "readouts": [
+        {
+          "cue_free_time": 3000.0,
+          "time_from_onset": 5000.0,
+          "original_core_amount": 18.966213150175143,
+          "original_core_amount_fraction": 0.7106882090676732,
+          "Px": 0.2814183443793678,
+          "Py": 3.6766382698062033e-17,
+          "R": 0.2814183443793678,
+          "angle_deg": 7.485505471249618e-15,
+          "spatial": {
+            "resolved_peak_count": 2,
+            "all_peaks": [
+              {
+                "cell": 0,
+                "position": 0.025,
+                "value": 1.124747108538071,
+                "prominence": 0.9501780207433491,
+                "distance_old": 0.0,
+                "distance_cue": 40.0
+              },
+              {
+                "cell": 800,
+                "position": 40.025000000000006,
+                "value": 1.1227744172066418,
+                "prominence": 0.94820532941192,
+                "distance_old": 40.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "distinct peaks associated with old core and cue patch",
+            "old_core_peak_cells": [
+              0
+            ],
+            "cue_patch_peak_cells": [
+              800
+            ],
+            "distinct_old_peak_available": true,
+            "frozen_half_contrast_components": 2,
+            "minimum": 0.1745690877947218,
+            "maximum": 1.124747108538071,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 8000.0,
+          "time_from_onset": 10000.0,
+          "original_core_amount": 18.969132034552516,
+          "original_core_amount_fraction": 0.7107975833900118,
+          "Px": 0.2816785559072874,
+          "Py": -7.809655655033465e-17,
+          "R": 0.2816785559072874,
+          "angle_deg": -1.5885494266420923e-14,
+          "spatial": {
+            "resolved_peak_count": 2,
+            "all_peaks": [
+              {
+                "cell": 0,
+                "position": 0.025,
+                "value": 1.1247471458251157,
+                "prominence": 0.950178057481246,
+                "distance_old": 0.0,
+                "distance_cue": 40.0
+              },
+              {
+                "cell": 800,
+                "position": 40.025000000000006,
+                "value": 1.1227699075807076,
+                "prominence": 0.9482008192368379,
+                "distance_old": 40.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "distinct peaks associated with old core and cue patch",
+            "old_core_peak_cells": [
+              0
+            ],
+            "cue_patch_peak_cells": [
+              800
+            ],
+            "distinct_old_peak_available": true,
+            "frozen_half_contrast_components": 2,
+            "minimum": 0.17456908834386975,
+            "maximum": 1.1247471458251157,
+            "single_region_spans_old_and_cue": false
+          }
+        },
+        {
+          "cue_free_time": 13000.0,
+          "time_from_onset": 15000.0,
+          "original_core_amount": 18.972064213862645,
+          "original_core_amount_fraction": 0.7109074558904461,
+          "Px": 0.28193994869821476,
+          "Py": -2.2574845791271423e-16,
+          "R": 0.28193994869821476,
+          "angle_deg": -4.587655608829697e-14,
+          "spatial": {
+            "resolved_peak_count": 2,
+            "all_peaks": [
+              {
+                "cell": 0,
+                "position": 0.025,
+                "value": 1.1247471832172944,
+                "prominence": 0.9501780943193263,
+                "distance_old": 0.0,
+                "distance_cue": 40.0
+              },
+              {
+                "cell": 800,
+                "position": 40.025000000000006,
+                "value": 1.122765367108031,
+                "prominence": 0.948196278210063,
+                "distance_old": 40.0,
+                "distance_cue": 0.0
+              }
+            ],
+            "location_association": "distinct peaks associated with old core and cue patch",
+            "old_core_peak_cells": [
+              0
+            ],
+            "cue_patch_peak_cells": [
+              800
+            ],
+            "distinct_old_peak_available": true,
+            "frozen_half_contrast_components": 2,
+            "minimum": 0.17456908889796813,
+            "maximum": 1.1247471832172944,
+            "single_region_spans_old_and_cue": false
+          }
+        }
+      ],
+      "combined_primary_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/workers/17/primary_history.npz",
+      "combined_primary_sha256": "824a9e25e30485f6578fe533eea84db6f161c87a5d120c5eac25a5eafde1f14f",
+      "core": {
+        "peak_cell": 0,
+        "origin": 0.025,
+        "level": 0.649665279447933,
+        "left": -12.222483687585733,
+        "right": 12.222483687585756,
+        "width": 24.444967375171487
+      },
+      "wall_seconds": 2.4778186632320285
+    }
+  ]
+}

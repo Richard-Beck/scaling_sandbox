@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-10-17T20:23:33.046279+00:00",
+  "scope": "Fresh-context actual-result critique: independent archived-scalar and initial-state recomputation, no integrations",
+  "passed": true,
+  "cases": 702,
+  "positive_amplitudes": 2106,
+  "hashes": 1436,
+  "initial_kicks": 4212,
+  "zero_endpoint_identities": 2808,
+  "max_prefix_E": 5.545202619305911e-07,
+  "max_prefix_absF_plusE": 0.19121823535716334,
+  "max_linearity_excess": -1.3129016259652447e-09,
+  "max_CSV_difference": 0.0,
+  "challenged_primary_epsilon": {
+    "resolved_positive_F": 652,
+    "actual_sham_core_losses": 652,
+    "actual_probe_core_losses": 311
+  },
+  "limitations": "No independent re-integration; no new spatial convergence test or endpoint RHS re-audit. Existing independent_data_audit.json covers full RHS/pool recomputation.",
+  "native_linear_archive_pairs_recomputed": 13,
+  "moment_traces_recomputed_from_M1": 652,
+  "moment_frames": 434002,
+  "readout_masks_checked": 2608,
+  "duration_verification_reviewed": {
+    "max_pool_error": 5.417888360170764e-14,
+    "max_replayed_primary_prefix_absolute_error": 5.692584181815619e-10,
+    "max_replayed_native_0_1_10_error": 0.0
+  },
+  "t10_sham_native_initial_core_rate_allocation": {
+    "negative_diffusion": 652,
+    "negative_net_rate": 652,
+    "reaction_negative": 152,
+    "reaction_positive_but_smaller_than_outward_diffusion": 500,
+    "by_model": {
+      "wave_pinning": {
+        "reaction_negative": 40,
+        "reaction_positive_but_smaller_than_outward_diffusion": 170
+      },
+      "goryachev": {
+        "reaction_negative": 79,
+        "reaction_positive_but_smaller_than_outward_diffusion": 201
+      },
+      "holmes_model3": {
+        "reaction_negative": 33,
+        "reaction_positive_but_smaller_than_outward_diffusion": 129
+      }
+    },
+    "scope": "Native instantaneous RHS allocation at the exact retained t10 sham state, not an evolved ablation or legacy recovery metric."
+  }
+}

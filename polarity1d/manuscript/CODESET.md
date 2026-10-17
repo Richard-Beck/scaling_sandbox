@@ -1,4 +1,17 @@
+> **deBelly correction (2026-10-08):** the old in-loop centered endpoint extension is flawed and deprecated. Do not use its simulations for current results. The [independent-endpoint replacement](DEBELLY_BOUNDARIES.md) regenerates all deBelly preparations and three-test responses; other four models retain unchanged audited evidence. The replacement is complete and independently audited; [current results](data/runs/debelly_corrected_three_test_20261008/README.md) supersede the historical counts and centered deBelly results below.
+
 # Minimal polarity figure codeset
+
+**Current presentation (2026-10-06):** [THREE_TESTS.md](THREE_TESTS.md) defines
+the shared-checkpoint five-model × three-test comparison. `code/build.py render`
+uses `code/three_test_figures.py` after its completed audit, and `verify` checks
+both the retained snapshot below and the new comparison. Its compact manifest,
+endpoints, audit and regression validation are retained. Native spatial replay
+and control code is under `code/mechanisms/three_test_*.py`; the complete 15-cell
+evidence table and measured trajectory summaries are retained separately.
+Rendering the mechanism PDF uses local full spatial histories. Fresh optimized
+campaigns additionally need historical native chunks/records to import exact
+unchanged trials; those bulk files remain local and are excluded from Git.
 
 Run commands from the repository root. This package reproduces the polarity
 artifacts delivered in `current manuscript figs/`: `main_polarity.png`,

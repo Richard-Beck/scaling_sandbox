@@ -1,0 +1,24 @@
+{
+  "model": "wave_pinning",
+  "protocol": {
+    "name": "localized_pulse",
+    "amplitude": 0.2,
+    "start": 0.0,
+    "stop": 40.0,
+    "taper": 20.0,
+    "width_fraction": 0.1,
+    "sides": ["left", "right"],
+    "asymmetry": 0.02
+  },
+  "simulation": {
+    "length": 10.0,
+    "cells": 101,
+    "end_time": 300.0,
+    "output_interval": 1.0,
+    "backend": "bdf"
+  },
+  "metrics": {
+    "analysis_start": 40.0
+  }
+}
+

@@ -1,0 +1,174 @@
+{
+  "created_at": "2026-10-17T20:18:14.347160+00:00",
+  "experiment": "Vision-aligned native ring noise ensemble",
+  "configuration_sha256": "86fa9f6ac13aeb84cf314f9cbde6a0fd0d6997cab96adcad0190a60472d49b23",
+  "jobs": [
+    {
+      "model": "wave_pinning",
+      "circumference": 60,
+      "kind": "noise",
+      "mean_fraction": 0.01,
+      "seed": 202610170003,
+      "replicate": 0,
+      "audit_type": "ode",
+      "pilot_slot": 3,
+      "slot": 0,
+      "input": "inputs/wave_pinning_C60.npz",
+      "input_sha256": "ae2eb910e28e1945cf6fd6c49e0da79b65d55800d763a54a2072f071b14eb2e5",
+      "cells": 1200,
+      "dx": 0.05,
+      "mean": 0.001,
+      "condition": "noise"
+    },
+    {
+      "model": "goryachev",
+      "circumference": 60,
+      "kind": "noise",
+      "mean_fraction": 0.01,
+      "seed": 202610170007,
+      "replicate": 0,
+      "audit_type": "ode",
+      "pilot_slot": 7,
+      "slot": 1,
+      "input": "inputs/goryachev_C60.npz",
+      "input_sha256": "9bd28b6b7229a2393cc384fd4d285027af63cc98d2e6acb59a6fbf2ce2b873de",
+      "cells": 1200,
+      "dx": 0.05,
+      "mean": 0.064,
+      "condition": "noise"
+    },
+    {
+      "model": "holmes_model3",
+      "circumference": 60,
+      "kind": "noise",
+      "mean_fraction": 0.01,
+      "seed": 202610170011,
+      "replicate": 0,
+      "audit_type": "ode",
+      "pilot_slot": 11,
+      "slot": 2,
+      "input": "inputs/holmes_model3_C60.npz",
+      "input_sha256": "618084daf6b9fbbe4989caf1c23163a6575c968d49fe6e4888f0e693a53c302b",
+      "cells": 1200,
+      "dx": 0.05,
+      "mean": 0.01,
+      "condition": "noise"
+    }
+  ],
+  "inputs": {
+    "wave_pinning_C60": {
+      "path": "inputs/wave_pinning_C60.npz",
+      "sha256": "ae2eb910e28e1945cf6fd6c49e0da79b65d55800d763a54a2072f071b14eb2e5",
+      "source": {
+        "model": "wave_pinning",
+        "circumference": 60,
+        "cells": 1200,
+        "dx": 0.05,
+        "checkpoint": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/wave_pinning_C60/workers/00/qualified_basal.npz",
+        "checkpoint_sha256": "ae2eb910e28e1945cf6fd6c49e0da79b65d55800d763a54a2072f071b14eb2e5",
+        "status_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/12/status.json",
+        "status_sha256": "9febc69b4d81e5da45d2067f1ffc4e9658edbf8e4c9ed6fb9b548e8c7af3203d",
+        "frozen_basal_half_contrast": 0.6496643146914584,
+        "model_peak_reference": 0.1
+      }
+    },
+    "goryachev_C60": {
+      "path": "inputs/goryachev_C60.npz",
+      "sha256": "9bd28b6b7229a2393cc384fd4d285027af63cc98d2e6acb59a6fbf2ce2b873de",
+      "source": {
+        "model": "goryachev",
+        "circumference": 60,
+        "cells": 1200,
+        "dx": 0.05,
+        "checkpoint": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/goryachev_C60/workers/00/qualified_basal.npz",
+        "checkpoint_sha256": "9bd28b6b7229a2393cc384fd4d285027af63cc98d2e6acb59a6fbf2ce2b873de",
+        "status_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/29/status.json",
+        "status_sha256": "c40edeb1e7b3f39e3aa301e4d707d0311af2669fa6a49337045ebb87b76299cb",
+        "frozen_basal_half_contrast": 47.386441297417555,
+        "model_peak_reference": 6.4
+      }
+    },
+    "holmes_model3_C60": {
+      "path": "inputs/holmes_model3_C60.npz",
+      "sha256": "618084daf6b9fbbe4989caf1c23163a6575c968d49fe6e4888f0e693a53c302b",
+      "source": {
+        "model": "holmes_model3",
+        "circumference": 60,
+        "cells": 1200,
+        "dx": 0.05,
+        "checkpoint": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/holmes_model3_C60/workers/00/qualified_basal.npz",
+        "checkpoint_sha256": "618084daf6b9fbbe4989caf1c23163a6575c968d49fe6e4888f0e693a53c302b",
+        "status_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/46/status.json",
+        "status_sha256": "34ef48a0ee9f38f1a062b9ed660aeef3dd02541ba7b39f7af07eb6ef63cb04b1",
+        "frozen_basal_half_contrast": 0.9246469423953391,
+        "model_peak_reference": 1.0
+      }
+    }
+  },
+  "noise": {
+    "ell": 1.5,
+    "tau": 50.0,
+    "knot": 5.0,
+    "coupling_knot": 2.5,
+    "sigma": 1.0
+  },
+  "horizon": 4000.0,
+  "output_interval": 5.0,
+  "primary_interval": 20.0,
+  "full_interval": 200.0,
+  "solver": {
+    "rtol": 1e-09,
+    "atol": 1e-11,
+    "max_step": 1.0
+  },
+  "diagnostics": {
+    "allowed_negative_roundoff": 5e-10,
+    "pool_relative_tolerance": 1e-07,
+    "minimum_contrast_native": 0.05,
+    "peak_prominence_native": 0.05
+  },
+  "source_sha256": {
+    "code/mechanisms/vision_noise_20261017.py": "bb52eca9e940532619d37bcfb592d54746d707feb0f7b4956e035430d772e951",
+    "code/mechanisms/ring_distance_prototype_20261017.py": "5ff9daea1f03425cfd186dd31fad7ed7d160a8dda80b1ee9c997bef7d90b1f7f",
+    "code/mechanisms/length_dev_output_layout.py": "502d61ff74519d055d133f3b72fd12afa74f75e265e4e61d676513a1e7483a9a",
+    "code/core/models/__init__.py": "8ff27edfd807aa4efeceeb1ff0abe0cd7a80ff5cc20065de975cd2757ec14f5b",
+    "code/core/models/debelly.py": "2c55b50e03a74abaaa55eeccbb4b18bb1b8594d14dc716a901c51fe678793f96",
+    "code/core/models/goryachev.py": "3729ec29ed0861b47470b8acf5bc2e5c8d59c8cfc7940aa9377166296c547887",
+    "code/core/models/holmes_model3.py": "c130081420e002c510a121811339f92576484b7287d339f971193c79ba95587e",
+    "code/core/models/legi.py": "6d82e47d9f532fdd1494182fd6ed6e8c0702b0e0bbc67e233c3967275e68827f",
+    "code/core/models/otsuji.py": "dc9f083eba40a3254fb644eb80f4cd12141c3ba74cd7c0eda900578e06cf2941",
+    "code/core/models/spring.py": "874871bfd60cb9cc94a8390625f0a57260a6578b9f310c69935dcac5b235b93f",
+    "code/core/models/wave_pinning.py": "3167366db522833c7de3ac7b7c0285d23d27a9bc53409ccb0f0798618a60b54b",
+    "code/core/src/polarity1d/__init__.py": "dca046a9ae1a83d08cae92ddae0d61a1051c5679c72ba3ec5d1538b74a4aeb79",
+    "code/core/src/polarity1d/contract.py": "8c0094a47c97a1c312c869d0224006aa2e16a67a359de7c7a960ea3db3a5ebc5",
+    "code/core/src/polarity1d/debelly.py": "b2a063232905c6124d6fb1a93c448d53627e725e502b3437d64b22af9d08c19b",
+    "code/core/src/polarity1d/holmes.py": "36a7ace580e1efbf937efa208c32ec700ccc25b49a0bbb2c111cbf3965fe77f0",
+    "code/core/src/polarity1d/initial.py": "8e56bc9dc31ce834ccf43a83b3a1d7f5efbcb6a15e85fe983ea891cbe2172690",
+    "code/core/src/polarity1d/jilkine.py": "6c51b974ecb83e8b332e19914077418ba4940d9a1b6b6f566d85e7b0c53cce4a",
+    "code/core/src/polarity1d/metrics.py": "5e67a8a7d0fa08ecb68760c6cedd28f6c578b05a633b4e079608e5dce1dd92bf",
+    "code/core/src/polarity1d/protocols.py": "f5f5c6ab52b55244492cdd47e89e08f8326330997d019c0c82f3787a33e77c10",
+    "code/core/src/polarity1d/registry.py": "41e23bff7f9827644f2a8e359344a13a908cee36994c96345072dd91cc0a32c9",
+    "code/core/src/polarity1d/simulation.py": "c20a84b2b94ca51de21b441997af7fe0f11fe683c60819ab0d5816bfd63f8ab9",
+    "code/core/src/polarity1d/solvers.py": "8db01abec7e17c51d191767b493459fd0d6a5c7135a8a40231a52b997f841dab"
+  },
+  "external_sha256": {
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/wave_pinning_C60/workers/00/qualified_basal.npz": "ae2eb910e28e1945cf6fd6c49e0da79b65d55800d763a54a2072f071b14eb2e5",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/12/status.json": "9febc69b4d81e5da45d2067f1ffc4e9658edbf8e4c9ed6fb9b548e8c7af3203d",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/goryachev_C60/workers/00/qualified_basal.npz": "9bd28b6b7229a2393cc384fd4d285027af63cc98d2e6acb59a6fbf2ce2b873de",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/29/status.json": "c40edeb1e7b3f39e3aa301e4d707d0311af2669fa6a49337045ebb87b76299cb",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/holmes_model3_C60/workers/00/qualified_basal.npz": "618084daf6b9fbbe4989caf1c23163a6575c968d49fe6e4888f0e693a53c302b",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/workers/46/status.json": "34ef48a0ee9f38f1a062b9ed660aeef3dd02541ba7b39f7af07eb6ef63cb04b1"
+  },
+  "original_configuration": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/NUMERICAL_AUDIT_ODE_CONFIGURATION.json",
+  "time_budget": {
+    "slurm_seconds": 3600,
+    "worker_soft_seconds": 3300
+  },
+  "interpretation": "Activity polarity vectors and local patterns, not cell velocity or migration trajectories",
+  "environment": {
+    "executable": "/home/4473331/.conda/envs/scaling_sandbox/bin/python",
+    "python": "3.12.14 | packaged by conda-forge | (main, Aug 21 2026, 22:48:28) [GCC 14.4.0]",
+    "numpy": "2.5.2",
+    "scipy": "1.18.0"
+  }
+}

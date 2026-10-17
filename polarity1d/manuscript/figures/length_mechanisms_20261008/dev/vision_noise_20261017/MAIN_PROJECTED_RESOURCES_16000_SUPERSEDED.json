@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-10-17T20:21:39.527393+00:00",
+  "configuration_sha256": "b8a86d44c2476065f5b2419e760785fbc516bbd3c95ae38473c920e861417ebb",
+  "jobs": 243,
+  "counts": {
+    "noise": 216,
+    "mean": 18,
+    "basal": 9
+  },
+  "estimated_allocated_bytes": 1908645178.6734385,
+  "estimated_cpu_wall_seconds": 41339.12226100266,
+  "estimated_max_worker_seconds": 478.35235407203436,
+  "by_model": {
+    "wave_pinning": {
+      "jobs": 81,
+      "estimated_allocated_bytes": 616696285.3482188,
+      "estimated_cpu_wall_seconds": 8121.513799874112,
+      "estimated_max_worker_seconds": 174.60667787119746
+    },
+    "goryachev": {
+      "jobs": 81,
+      "estimated_allocated_bytes": 653269748.2306606,
+      "estimated_cpu_wall_seconds": 12237.206038333476,
+      "estimated_max_worker_seconds": 246.15631015598774
+    },
+    "holmes_model3": {
+      "jobs": 81,
+      "estimated_allocated_bytes": 635679145.0945593,
+      "estimated_cpu_wall_seconds": 20980.402422795072,
+      "estimated_max_worker_seconds": 478.35235407203436
+    }
+  },
+  "method": "Per matching model/strength/kind pilot allocated file blocks, scaled by declared output frame counts; C40 uses C20/C60 average. Runtime assumes4x horizon cost. Source/input/metadata overhead3MB added.",
+  "limits": "One pilot noise seed per condition; compressibility and runtime can differ after more events/longer adaptation. These are projections, not measured main usage or scheduler completion times. No main run has been frozen/submitted."
+}

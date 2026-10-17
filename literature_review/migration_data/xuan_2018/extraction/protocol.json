@@ -1,0 +1,139 @@
+{
+  "study": "xuan_2018",
+  "software": {
+    "opencv": "4.12.0",
+    "numpy": "2.2.6"
+  },
+  "inputs": {
+    "source/xuan2018_movie.avi": "6f60d6fa17ac3a9e5c12b09e5c75e0f41436a1c710a3a8010e4113d8ec2ef2af",
+    "figures/xuan2018_fig4.png": "3d1a8623ace18bd85020456ebd6634c1a67208d65e77e2b9d64b018190c0194f",
+    "derived/xuan2018.txt": "872370830ac5ff747a77e792d49ba3c5ba731c24f98a69231d0982f486500eeb",
+    "derived/xuan2018_supp.txt": "5603f28dc783debab48c8f5675f04a37bcb7790d4196e37a4954f5239e4c0855"
+  },
+  "frames": 74,
+  "dimensions": [
+    1040,
+    1392
+  ],
+  "duplicate_frames": [],
+  "scale": {
+    "bar_endpoints": [
+      [
+        909.5,
+        1291
+      ],
+      [
+        987.5,
+        1291
+      ]
+    ],
+    "length_um": 25,
+    "um_per_px": 0.32051282051282054,
+    "endpoint_uncertainty_px": 1
+  },
+  "timing": {
+    "status": "unresolved",
+    "main_methods": "10 minute intervals for 12 hours",
+    "supplement": "16 hour time lapse",
+    "frame_count_note": "74 unique frames implies 73 intervals, not an exact match for 12h at 10min",
+    "physical_tracks_time": "blank",
+    "scenarios": [
+      "10min per frame",
+      "12h / 73 intervals",
+      "16h / 73 intervals"
+    ]
+  },
+  "tracking": {
+    "smoothing": "9x9 Gaussian",
+    "threshold": 45,
+    "min_area_px": 220,
+    "max_step_px": 60,
+    "area_ratio": [
+      0.5,
+      2
+    ],
+    "ambiguity_cost_margin": 10,
+    "centroid": "intensity weighted above background 30",
+    "gap_closure": false,
+    "scale_bar_exclusion": [
+      880,
+      1280,
+      1020,
+      1350
+    ],
+    "stage_drift_correction": "none; no defensible fixed image features"
+  },
+  "figure_calibration": {
+    "D": {
+      "x_scale": "log10",
+      "x_anchors": [
+        [
+          206,
+          1000
+        ],
+        [
+          347,
+          10000
+        ]
+      ],
+      "y_scale": "log10",
+      "y_anchors": [
+        [
+          1002,
+          1
+        ],
+        [
+          586,
+          10000
+        ]
+      ],
+      "crop": [
+        133,
+        586,
+        485,
+        1003
+      ]
+    },
+    "summary": "mean \u00b1 SEM; Fig4D caption n=5, 50+ cells; general methods at least 3 experiments",
+    "review_status": "candidate tracks; see METHODS and review sheets"
+  },
+  "review_status": "all 74 frames inspected in contact sheets; 8 full-window tracks accepted; other segments require further identity review",
+  "all_exact_repeated_frames": [],
+  "reviewed_full_window_ids": [
+    "N010",
+    "N015",
+    "N016",
+    "N017",
+    "N018",
+    "N021",
+    "N024",
+    "N025"
+  ],
+  "localization_uncertainty_note": "3 px is a conservative working sensitivity allowance, not a measured confidence interval",
+  "figure_panel_crops_xyxy": {
+    "B": [
+      550,
+      0,
+      1075,
+      510
+    ],
+    "C": [
+      1110,
+      0,
+      1650,
+      510
+    ],
+    "D": [
+      0,
+      510,
+      510,
+      1070
+    ],
+    "E": [
+      545,
+      510,
+      1080,
+      1070
+    ]
+  }
+}

@@ -1,0 +1,1538 @@
+{
+  "campaign_name": "otsuji_single_cue_v1",
+  "created_utc": "2026-08-31T17:54:31.514914+00:00",
+  "description": "Focused test of whether Otsuji's apparent large-cell failure under two competing cues persists for a single transient cue.",
+  "metadata": {
+    "cue_amplitudes": {
+      "figure_guided": 0.04,
+      "production_common_cue": 0.2
+    },
+    "cue_geometry": "leftmost 10% of the domain",
+    "initial_condition": "homogeneous Otsuji steady state; no stochastic perturbation",
+    "timing": "S/2 through 20 s, cosine taper to zero at 40 s"
+  },
+  "schema_version": 1,
+  "task_count": 40,
+  "tasks": [
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.04,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.04,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 2000.0,
+        "length": 1.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "58bad041308f92e58d6680f53b8d4701ac0bfc9224e1f6baf3c891550cc877d6",
+      "task_id": "00000-58bad041308f",
+      "task_index": 0,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.04,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.04,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 2000.0,
+        "length": 3.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "a5d4df3a599a38fb3cf37b42e2d9cd96490dd3d06e48fa6773cf2b87d35f5c9c",
+      "task_id": "00001-a5d4df3a599a",
+      "task_index": 1,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.04,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.04,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 2000.0,
+        "length": 5.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "4313b9daf52fe6322c50ac507f4feb7a718d8af6f5912a8ffc5070ec1ebbcd20",
+      "task_id": "00002-4313b9daf52f",
+      "task_index": 2,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.04,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.04,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 2000.0,
+        "length": 7.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "8e009ee058aaa923bd8e58828f40d23f9466d04501592d2b7b82843d16423213",
+      "task_id": "00003-8e009ee058aa",
+      "task_index": 3,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.04,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.04,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 2000.0,
+        "length": 9.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "6a482b88415d15ebbe663ab547239c33c13ed4a664ab09b0929ad24887e13d79",
+      "task_id": "00004-6a482b88415d",
+      "task_index": 4,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.04,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.04,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 110,
+        "end_time": 2000.0,
+        "length": 11.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "5d4bb7f7427fc5ad0fe1af86d64485550697c5911610c5157d05ce1cb079bd53",
+      "task_id": "00005-5d4bb7f7427f",
+      "task_index": 5,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.04,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.04,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 130,
+        "end_time": 2000.0,
+        "length": 13.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "542a5138420176b2d0766401757fa92e20f5d47784da7aa06661573e1d34bd53",
+      "task_id": "00006-542a51384201",
+      "task_index": 6,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.04,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.04,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 2000.0,
+        "length": 15.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "177ea4283032061d46be26fcb9d651a7e8e93d1a158e5ee8e041c591a59ce72f",
+      "task_id": "00007-177ea4283032",
+      "task_index": 7,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.04,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.04,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 170,
+        "end_time": 2000.0,
+        "length": 17.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "b360fd46e6a180737cb90df44c5559c4e8e3b0c8bff10fc7c557b114cb6d8324",
+      "task_id": "00008-b360fd46e6a1",
+      "task_index": 8,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.04,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.04,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 190,
+        "end_time": 2000.0,
+        "length": 19.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "1fff85641b6a2af4fa62e46360b95736e2cb70d8b9cf1ee3b462e92255fa25ee",
+      "task_id": "00009-1fff85641b6a",
+      "task_index": 9,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.04,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.04,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 210,
+        "end_time": 2205.0,
+        "length": 21.0,
+        "max_step": 10.0,
+        "output_interval": 2.75625
+      },
+      "task_digest": "b671b5e91eb52ea3b00f68eab749da3ebf0c5c823eec9327c5af241a6be58f0c",
+      "task_id": "00010-b671b5e91eb5",
+      "task_index": 10,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.04,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.04,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 230,
+        "end_time": 2644.9999999999995,
+        "length": 23.0,
+        "max_step": 10.0,
+        "output_interval": 3.3062499999999995
+      },
+      "task_digest": "deadefdac0c16d649134860031722bf1e625a6ae469e828974458108ebcbecd7",
+      "task_id": "00011-deadefdac0c1",
+      "task_index": 11,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.04,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.04,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 3125.0,
+        "length": 25.0,
+        "max_step": 10.0,
+        "output_interval": 3.90625
+      },
+      "task_digest": "76f3d1c9577255d74d97f3ce963993165a508496b9838508ddefc7d3f70c59d2",
+      "task_id": "00012-76f3d1c95772",
+      "task_index": 12,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.04,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.04,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 270,
+        "end_time": 3645.0000000000005,
+        "length": 27.0,
+        "max_step": 10.0,
+        "output_interval": 4.55625
+      },
+      "task_digest": "5b23c3b7136d4deb023b40f465aadf6d17769805be8715592e92ac983ec74d97",
+      "task_id": "00013-5b23c3b7136d",
+      "task_index": 13,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.04,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.04,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 290,
+        "end_time": 4205.0,
+        "length": 29.0,
+        "max_step": 10.0,
+        "output_interval": 5.25625
+      },
+      "task_digest": "de456f4c34d319288d3761376f82a1f96bfd47b737c1a7c05c03fd02add1df01",
+      "task_id": "00014-de456f4c34d3",
+      "task_index": 14,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.04,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.04,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 310,
+        "end_time": 4805.000000000001,
+        "length": 31.0,
+        "max_step": 10.0,
+        "output_interval": 6.006250000000001
+      },
+      "task_digest": "e9e093e2c682531f8a10c3fcd1eca2d5f7a91d685c74c7c6ee82a9b2056e4416",
+      "task_id": "00015-e9e093e2c682",
+      "task_index": 15,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.04,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.04,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 330,
+        "end_time": 5444.999999999999,
+        "length": 33.0,
+        "max_step": 10.0,
+        "output_interval": 6.806249999999999
+      },
+      "task_digest": "fba4eb83b8d6c92094c8ac30dbb81cec46cf0b3de9bf2a10355b4fab28e28ab9",
+      "task_id": "00016-fba4eb83b8d6",
+      "task_index": 16,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.04,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.04,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 350,
+        "end_time": 6125.0,
+        "length": 35.0,
+        "max_step": 10.0,
+        "output_interval": 7.65625
+      },
+      "task_digest": "9bb0788fc975a6c0c8cd11d1a9fcba6b36959f5f1a7428364ce85dc7b2b67ef7",
+      "task_id": "00017-9bb0788fc975",
+      "task_index": 17,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.04,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.04,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 370,
+        "end_time": 6845.000000000001,
+        "length": 37.0,
+        "max_step": 10.0,
+        "output_interval": 8.55625
+      },
+      "task_digest": "1b3343ea424a4f7667a71397fb2b56130c9e9f3bf3da3edb2bd8773c74bed8c1",
+      "task_id": "00018-1b3343ea424a",
+      "task_index": 18,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.04,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.04,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 7604.999999999999,
+        "length": 39.0,
+        "max_step": 10.0,
+        "output_interval": 9.50625
+      },
+      "task_digest": "75cfe80e29e79fbd6954e4b14c9128995abf62fbb08dae7d04aee381c9fe08e8",
+      "task_id": "00019-75cfe80e29e7",
+      "task_index": 19,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.2,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.2,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 2000.0,
+        "length": 1.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "8243bc410078712ad0802b9f0d22baa336284305ca315981a1b70248d61cf34f",
+      "task_id": "00020-8243bc410078",
+      "task_index": 20,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.2,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.2,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 2000.0,
+        "length": 3.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "401efded66ce5e328181a77475d8311a247926b61251885692bf8c1c2f0943c0",
+      "task_id": "00021-401efded66ce",
+      "task_index": 21,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.2,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.2,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 2000.0,
+        "length": 5.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "e08a9ac0b3041bceb83d99bc96d1cdae98e3a0b610036fac620f9ae75275ab05",
+      "task_id": "00022-e08a9ac0b304",
+      "task_index": 22,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.2,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.2,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 2000.0,
+        "length": 7.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "b69ed819c498280a46054a973cc22bf45fcb36a066d613a2b1fc723398a90607",
+      "task_id": "00023-b69ed819c498",
+      "task_index": 23,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.2,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.2,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 2000.0,
+        "length": 9.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "7d44453c10b74d7472a7f0599faf5b9efbb1c955f2b4de0acd239cd22679a8d1",
+      "task_id": "00024-7d44453c10b7",
+      "task_index": 24,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.2,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.2,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 110,
+        "end_time": 2000.0,
+        "length": 11.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "559719b48d4e7c507cf7d5cbdc754d276f3db046023531784e9d3c5719492cd4",
+      "task_id": "00025-559719b48d4e",
+      "task_index": 25,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.2,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.2,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 130,
+        "end_time": 2000.0,
+        "length": 13.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "84694cd32d4a8097d1a4e9d3a3f32145c19808168989b37803b96a1c107d3be9",
+      "task_id": "00026-84694cd32d4a",
+      "task_index": 26,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.2,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.2,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 2000.0,
+        "length": 15.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "5c48bae7997ef22b4694185ffd1acb02e7f72832124a7bf43e43be987f1fe3d4",
+      "task_id": "00027-5c48bae7997e",
+      "task_index": 27,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.2,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.2,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 170,
+        "end_time": 2000.0,
+        "length": 17.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "0c42cf244901080089df2bca4331158ce62cf7fb66bd2c8670b697c24a2a5b43",
+      "task_id": "00028-0c42cf244901",
+      "task_index": 28,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.2,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.2,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 190,
+        "end_time": 2000.0,
+        "length": 19.0,
+        "max_step": 10.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "9077cdc4985c50d6d73b97c44b78fb463550af7a8463a239c7bb95e42f42781c",
+      "task_id": "00029-9077cdc4985c",
+      "task_index": 29,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.2,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.2,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 210,
+        "end_time": 2205.0,
+        "length": 21.0,
+        "max_step": 10.0,
+        "output_interval": 2.75625
+      },
+      "task_digest": "faafa0769a819fd0a04ab02bb96526a9190b7eafbc47c2d7d06378beebb85a6f",
+      "task_id": "00030-faafa0769a81",
+      "task_index": 30,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.2,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.2,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 230,
+        "end_time": 2644.9999999999995,
+        "length": 23.0,
+        "max_step": 10.0,
+        "output_interval": 3.3062499999999995
+      },
+      "task_digest": "f8ab86452e8b8aafa173de44d0a87667ec75d38e7cdd98a8d84bc6b820ea5bf0",
+      "task_id": "00031-f8ab86452e8b",
+      "task_index": 31,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.2,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.2,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 3125.0,
+        "length": 25.0,
+        "max_step": 10.0,
+        "output_interval": 3.90625
+      },
+      "task_digest": "c03b801bda481a5f00d0a4a0d7f6072242f71ccfe5d93f5045ea643bfb4299db",
+      "task_id": "00032-c03b801bda48",
+      "task_index": 32,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.2,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.2,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 270,
+        "end_time": 3645.0000000000005,
+        "length": 27.0,
+        "max_step": 10.0,
+        "output_interval": 4.55625
+      },
+      "task_digest": "d1b645a97525cb361c76566fc21d5dc9b4a65b169457576f8c3ff6af23d7b750",
+      "task_id": "00033-d1b645a97525",
+      "task_index": 33,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.2,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.2,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 290,
+        "end_time": 4205.0,
+        "length": 29.0,
+        "max_step": 10.0,
+        "output_interval": 5.25625
+      },
+      "task_digest": "3c16044c3e6731cc01d050c62ce96b471307ae58d7f5d6f0b5ccb3c4ea0c3f37",
+      "task_id": "00034-3c16044c3e67",
+      "task_index": 34,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.2,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.2,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 310,
+        "end_time": 4805.000000000001,
+        "length": 31.0,
+        "max_step": 10.0,
+        "output_interval": 6.006250000000001
+      },
+      "task_digest": "2a4841472737381418355d7ee473b92070cd2d7de79933bbf494a28faa736bcb",
+      "task_id": "00035-2a4841472737",
+      "task_index": 35,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.2,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.2,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 330,
+        "end_time": 5444.999999999999,
+        "length": 33.0,
+        "max_step": 10.0,
+        "output_interval": 6.806249999999999
+      },
+      "task_digest": "d404106c6b1facf7b5245fbe63649f284730a4940b90a984f865495febc1c3c0",
+      "task_id": "00036-d404106c6b1f",
+      "task_index": 36,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.2,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.2,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 350,
+        "end_time": 6125.0,
+        "length": 35.0,
+        "max_step": 10.0,
+        "output_interval": 7.65625
+      },
+      "task_digest": "4df78c18dfa0917bffe159bdf0dcd8a4970e4979159884a5b611926ba7b8d509",
+      "task_id": "00037-4df78c18dfa0",
+      "task_index": 37,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.2,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.2,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 370,
+        "end_time": 6845.000000000001,
+        "length": 37.0,
+        "max_step": 10.0,
+        "output_interval": 8.55625
+      },
+      "task_digest": "9aa11debd4b5c0a781cc2d5d0aa395df331e2cf52109a08a7813cb2b07a7b048",
+      "task_id": "00038-9aa11debd4b5",
+      "task_index": 38,
+      "tier": "qualification"
+    },
+    {
+      "assay": "single_cue_polarization",
+      "input_peak": 0.2,
+      "metrics": {
+        "analysis_start": 40.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "amplitude": 0.2,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 40.0,
+        "taper": 20.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "seed": null,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 7604.999999999999,
+        "length": 39.0,
+        "max_step": 10.0,
+        "output_interval": 9.50625
+      },
+      "task_digest": "9e2c07cc4399eb9ebe166e46d1d9e60564feb3bb6b6b3c95202415ded15ca933",
+      "task_id": "00039-9e2c07cc4399",
+      "task_index": 39,
+      "tier": "qualification"
+    }
+  ]
+}

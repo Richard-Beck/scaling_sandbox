@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "name": "three-testing-wgd-null-screen",
+  "chemistry_class": "three_species",
+  "stage": "testing",
+  "protocol": "paired_wgd_null_single_stimulus",
+  "parameterization": "holmes_six_field_isometric_concentration_preserving_null",
+  "standardization_status": "three_species_wgd_null_v1",
+  "module": "migration1d.three_species.wgd",
+  "output": "results/three_species/testing/wgd_null",
+  "arguments": [
+    "--mode", "task",
+    "--volume-multipliers", "0.5,1,2",
+    "--duration", "300",
+    "--lambda-count", "13",
+    "--kappa-count", "13",
+    "--hill-values", "2,3,4"
+  ],
+  "batch": {
+    "array_tasks": 1521,
+    "merge_arguments": [
+      "--mode", "merge",
+      "--volume-multipliers", "0.5,1,2",
+      "--duration", "300",
+      "--lambda-count", "13",
+      "--kappa-count", "13",
+      "--hill-values", "2,3,4"
+    ],
+    "merge_resources": {"cpus": 1, "memory": "4G", "time": "00:30:00", "qos": "small"}
+  },
+  "resources": {"cpus": 1, "memory": "1G", "time": "01:00:00", "qos": "small"}
+}

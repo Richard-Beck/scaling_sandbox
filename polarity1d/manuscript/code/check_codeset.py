@@ -80,8 +80,39 @@ def main():
                                    rtol=1e-9, atol=1e-12)
         independently_checked += 1
     assert independently_checked == 18
+    current=BASE/'data/runs/three_test_reversal_20261006'
+    current_check={}
+    if (current/'results/validation.json').exists():
+        import three_test_figures as new
+        current_rows=new.f.read_endpoint_rows(current/'results/endpoints.csv')
+        assert len(current_rows)==660
+        manifest=read(current/'manifest.json');validation=read(current/'results/validation.json')
+        audit=read(current/'results/independent_audit.json')
+        assert validation['passed'] and audit['passed'] and audit['complete']
+        assert sha(current/'results/independent_audit.json')==validation['independent_audit_sha256']
+        original=read(BASE/'data/runs/corrected_reversal_20261003/manifest.json')
+        preps={(c['model'],c['length']):c for c in original['cases'] if c['condition']=='relative_20pct'}
+        for c in manifest['cases']:
+            prep=preps[c['model'],c['length']]
+            for key in ['checkpoint','checkpoint_sha256','initial_orientation','initial_contrast','eligible']:
+                assert c[key]==prep[key]
+            factor=64. if c['model']=='goryachev' and c['condition']!='fixed_slope' else 1.
+            assert c['response_factor']==factor and c['response_amplitude']==prep['amplitude']*factor
+        audited={(c['case_index'],c['definition']):c for c in audit['selected_readouts']}
+        for row in current_rows:
+            expected=audited[int(row['case_index']),row['definition']]
+            assert row['status']==expected['status'] and row['endpoint']==expected['endpoint']
+            if row['status']=='success':assert row['selected_field_tail_pass']==expected['selected_tail_field_pass_0_1_percent']
+        current_check=new.regression_check(current_rows,new.f.fit_summary(current_rows))
+        mechanism=BASE/'data/runs/three_test_mechanisms_20261006/results'
+        if (mechanism/'status.json').exists() and read(mechanism/'status.json').get('complete'):
+            assert read(mechanism/'spatial_audit.json')['passed']
+            cells=read(mechanism/'cell_evidence.json');assert len(cells)==15
+            assert {(c['model'],c['geometry']) for c in cells}=={(m,g) for m in models for g in new.TESTS}
+            current_check['mechanism_cells']=15
     print(json.dumps(dict(passed=True, files=len(inventory['files']), exact_checkpoints=checkpoints,
                           readouts=len(rows), independently_checked_fits=independently_checked,
+                          current_comparison=current_check,
                           scope='Shipped inputs and summary evidence; full trial audit requires rerun.')))
 
 

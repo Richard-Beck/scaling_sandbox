@@ -1,0 +1,1297 @@
+{
+  "campaign_name": "debelly_2026_opposing_cue_duration_conditioning_trial",
+  "created_utc": "2026-09-03T19:04:57.119188+00:00",
+  "description": "Conditioning-only stage for the opposing-cue duration trial: a 600-s left cue in the intact beta=1x model, followed through the settling audit.",
+  "metadata": {
+    "conditioning_stop_s": 600.0,
+    "lengths_um": [
+      1.0,
+      3.0,
+      5.0,
+      7.0,
+      9.0,
+      11.0,
+      13.0,
+      15.0,
+      17.0,
+      19.0,
+      21.0,
+      23.0,
+      25.0,
+      27.0,
+      29.0,
+      31.0,
+      33.0,
+      35.0,
+      37.0,
+      39.0
+    ],
+    "settling_confirmation_s": 1000.0,
+    "settling_deadline_s": 10600.0,
+    "settling_tolerance_fraction_L": 0.002
+  },
+  "schema_version": 1,
+  "task_count": 20,
+  "tasks": [
+    {
+      "assay": "opposing_cue_duration_conditioning",
+      "beta_multiplier": 1.0,
+      "beta_tension_feedback": 0.54,
+      "coupling_variant": "beta_1x",
+      "field_audit": true,
+      "implementation_revision": "opposing_cue_duration_trial_v1",
+      "input_peak": 2.0,
+      "metrics": {
+        "analysis_start": 600.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly_2026",
+      "model_label": "Reflection-symmetric extension of the 2026 de Belly mechanochemical model",
+      "model_parameters": {
+        "assay_mode": "reflection_symmetric_extension",
+        "initialization_mode": "algebraic_fixed_point",
+        "input_sampling_mode": "cell_centred",
+        "rac_basal_activation": 1.8,
+        "rac_mechanical_feedback": 0.54,
+        "rho_basal_activation": 1.8,
+        "rho_mechanical_feedback": 0.54
+      },
+      "protocol": {
+        "amplitude": 3.6,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 600.0,
+        "taper": 0.0,
+        "width_fraction": 0.2
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 5,
+        "end_time": 11600.0,
+        "length": 1.0,
+        "output_interval": 5.0,
+        "step": 0.5
+      },
+      "source_assay": "figure2_B_beta_sweep",
+      "source_campaign": "debelly_2026_continuous_polarity_alternatives_v1",
+      "strong_competition": {
+        "contrast_threshold": 0.3,
+        "cue_stop": 80.0,
+        "endpoint_sustain_s": 500.0,
+        "orientation_threshold": 0.25,
+        "resolution_sustain_s": 100.0,
+        "two_pole_deadline": 230.0,
+        "two_pole_strength_threshold": 0.05,
+        "two_pole_sustain_s": 20.0
+      },
+      "task_digest": "ac41c80668cff970af3cf95768ed8c9be3463c7e971d823515d281c2fe24deea",
+      "task_id": "00000-ac41c80668cf",
+      "task_index": 0,
+      "tier": "debelly_2026_opposing_cue_duration_trial"
+    },
+    {
+      "assay": "opposing_cue_duration_conditioning",
+      "beta_multiplier": 1.0,
+      "beta_tension_feedback": 0.54,
+      "coupling_variant": "beta_1x",
+      "field_audit": true,
+      "implementation_revision": "opposing_cue_duration_trial_v1",
+      "input_peak": 2.0,
+      "metrics": {
+        "analysis_start": 600.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly_2026",
+      "model_label": "Reflection-symmetric extension of the 2026 de Belly mechanochemical model",
+      "model_parameters": {
+        "assay_mode": "reflection_symmetric_extension",
+        "initialization_mode": "algebraic_fixed_point",
+        "input_sampling_mode": "cell_centred",
+        "rac_basal_activation": 1.8,
+        "rac_mechanical_feedback": 0.54,
+        "rho_basal_activation": 1.8,
+        "rho_mechanical_feedback": 0.54
+      },
+      "protocol": {
+        "amplitude": 3.6,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 600.0,
+        "taper": 0.0,
+        "width_fraction": 0.2
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 15,
+        "end_time": 11600.0,
+        "length": 3.0,
+        "output_interval": 5.0,
+        "step": 0.5
+      },
+      "source_assay": "figure2_B_beta_sweep",
+      "source_campaign": "debelly_2026_continuous_polarity_alternatives_v1",
+      "strong_competition": {
+        "contrast_threshold": 0.3,
+        "cue_stop": 80.0,
+        "endpoint_sustain_s": 500.0,
+        "orientation_threshold": 0.25,
+        "resolution_sustain_s": 100.0,
+        "two_pole_deadline": 230.0,
+        "two_pole_strength_threshold": 0.05,
+        "two_pole_sustain_s": 20.0
+      },
+      "task_digest": "c49eb036548b31106baea3da9d81b5522daa581a362df2d46a63dfd7cc41db0b",
+      "task_id": "00001-c49eb036548b",
+      "task_index": 1,
+      "tier": "debelly_2026_opposing_cue_duration_trial"
+    },
+    {
+      "assay": "opposing_cue_duration_conditioning",
+      "beta_multiplier": 1.0,
+      "beta_tension_feedback": 0.54,
+      "coupling_variant": "beta_1x",
+      "field_audit": true,
+      "implementation_revision": "opposing_cue_duration_trial_v1",
+      "input_peak": 2.0,
+      "metrics": {
+        "analysis_start": 600.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly_2026",
+      "model_label": "Reflection-symmetric extension of the 2026 de Belly mechanochemical model",
+      "model_parameters": {
+        "assay_mode": "reflection_symmetric_extension",
+        "initialization_mode": "algebraic_fixed_point",
+        "input_sampling_mode": "cell_centred",
+        "rac_basal_activation": 1.8,
+        "rac_mechanical_feedback": 0.54,
+        "rho_basal_activation": 1.8,
+        "rho_mechanical_feedback": 0.54
+      },
+      "protocol": {
+        "amplitude": 3.6,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 600.0,
+        "taper": 0.0,
+        "width_fraction": 0.2
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 25,
+        "end_time": 11600.0,
+        "length": 5.0,
+        "output_interval": 5.0,
+        "step": 0.5
+      },
+      "source_assay": "figure2_B_beta_sweep",
+      "source_campaign": "debelly_2026_continuous_polarity_alternatives_v1",
+      "strong_competition": {
+        "contrast_threshold": 0.3,
+        "cue_stop": 80.0,
+        "endpoint_sustain_s": 500.0,
+        "orientation_threshold": 0.25,
+        "resolution_sustain_s": 100.0,
+        "two_pole_deadline": 230.0,
+        "two_pole_strength_threshold": 0.05,
+        "two_pole_sustain_s": 20.0
+      },
+      "task_digest": "ba36442c3b5bd7f70938a2d53aab256e7ab219ba045720c55ab90a99a0e0f15a",
+      "task_id": "00002-ba36442c3b5b",
+      "task_index": 2,
+      "tier": "debelly_2026_opposing_cue_duration_trial"
+    },
+    {
+      "assay": "opposing_cue_duration_conditioning",
+      "beta_multiplier": 1.0,
+      "beta_tension_feedback": 0.54,
+      "coupling_variant": "beta_1x",
+      "field_audit": true,
+      "implementation_revision": "opposing_cue_duration_trial_v1",
+      "input_peak": 2.0,
+      "metrics": {
+        "analysis_start": 600.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly_2026",
+      "model_label": "Reflection-symmetric extension of the 2026 de Belly mechanochemical model",
+      "model_parameters": {
+        "assay_mode": "reflection_symmetric_extension",
+        "initialization_mode": "algebraic_fixed_point",
+        "input_sampling_mode": "cell_centred",
+        "rac_basal_activation": 1.8,
+        "rac_mechanical_feedback": 0.54,
+        "rho_basal_activation": 1.8,
+        "rho_mechanical_feedback": 0.54
+      },
+      "protocol": {
+        "amplitude": 3.6,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 600.0,
+        "taper": 0.0,
+        "width_fraction": 0.2
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 35,
+        "end_time": 11600.0,
+        "length": 7.0,
+        "output_interval": 5.0,
+        "step": 0.5
+      },
+      "source_assay": "figure2_B_beta_sweep",
+      "source_campaign": "debelly_2026_continuous_polarity_alternatives_v1",
+      "strong_competition": {
+        "contrast_threshold": 0.3,
+        "cue_stop": 80.0,
+        "endpoint_sustain_s": 500.0,
+        "orientation_threshold": 0.25,
+        "resolution_sustain_s": 100.0,
+        "two_pole_deadline": 230.0,
+        "two_pole_strength_threshold": 0.05,
+        "two_pole_sustain_s": 20.0
+      },
+      "task_digest": "c575f06a25e2fbf71d7918cdb889df779f1442e4ce1446e04127444bb4fa4099",
+      "task_id": "00003-c575f06a25e2",
+      "task_index": 3,
+      "tier": "debelly_2026_opposing_cue_duration_trial"
+    },
+    {
+      "assay": "opposing_cue_duration_conditioning",
+      "beta_multiplier": 1.0,
+      "beta_tension_feedback": 0.54,
+      "coupling_variant": "beta_1x",
+      "field_audit": true,
+      "implementation_revision": "opposing_cue_duration_trial_v1",
+      "input_peak": 2.0,
+      "metrics": {
+        "analysis_start": 600.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly_2026",
+      "model_label": "Reflection-symmetric extension of the 2026 de Belly mechanochemical model",
+      "model_parameters": {
+        "assay_mode": "reflection_symmetric_extension",
+        "initialization_mode": "algebraic_fixed_point",
+        "input_sampling_mode": "cell_centred",
+        "rac_basal_activation": 1.8,
+        "rac_mechanical_feedback": 0.54,
+        "rho_basal_activation": 1.8,
+        "rho_mechanical_feedback": 0.54
+      },
+      "protocol": {
+        "amplitude": 3.6,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 600.0,
+        "taper": 0.0,
+        "width_fraction": 0.2
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 45,
+        "end_time": 11600.0,
+        "length": 9.0,
+        "output_interval": 5.0,
+        "step": 0.5
+      },
+      "source_assay": "figure2_B_beta_sweep",
+      "source_campaign": "debelly_2026_continuous_polarity_alternatives_v1",
+      "strong_competition": {
+        "contrast_threshold": 0.3,
+        "cue_stop": 80.0,
+        "endpoint_sustain_s": 500.0,
+        "orientation_threshold": 0.25,
+        "resolution_sustain_s": 100.0,
+        "two_pole_deadline": 230.0,
+        "two_pole_strength_threshold": 0.05,
+        "two_pole_sustain_s": 20.0
+      },
+      "task_digest": "7d3360b590b5fab52e2289055071ce228cc1ec9a8d5bf3386a4d62e77a271644",
+      "task_id": "00004-7d3360b590b5",
+      "task_index": 4,
+      "tier": "debelly_2026_opposing_cue_duration_trial"
+    },
+    {
+      "assay": "opposing_cue_duration_conditioning",
+      "beta_multiplier": 1.0,
+      "beta_tension_feedback": 0.54,
+      "coupling_variant": "beta_1x",
+      "field_audit": true,
+      "implementation_revision": "opposing_cue_duration_trial_v1",
+      "input_peak": 2.0,
+      "metrics": {
+        "analysis_start": 600.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly_2026",
+      "model_label": "Reflection-symmetric extension of the 2026 de Belly mechanochemical model",
+      "model_parameters": {
+        "assay_mode": "reflection_symmetric_extension",
+        "initialization_mode": "algebraic_fixed_point",
+        "input_sampling_mode": "cell_centred",
+        "rac_basal_activation": 1.8,
+        "rac_mechanical_feedback": 0.54,
+        "rho_basal_activation": 1.8,
+        "rho_mechanical_feedback": 0.54
+      },
+      "protocol": {
+        "amplitude": 3.6,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 600.0,
+        "taper": 0.0,
+        "width_fraction": 0.2
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 55,
+        "end_time": 11600.0,
+        "length": 11.0,
+        "output_interval": 5.0,
+        "step": 0.5
+      },
+      "source_assay": "figure2_B_beta_sweep",
+      "source_campaign": "debelly_2026_continuous_polarity_alternatives_v1",
+      "strong_competition": {
+        "contrast_threshold": 0.3,
+        "cue_stop": 80.0,
+        "endpoint_sustain_s": 500.0,
+        "orientation_threshold": 0.25,
+        "resolution_sustain_s": 100.0,
+        "two_pole_deadline": 230.0,
+        "two_pole_strength_threshold": 0.05,
+        "two_pole_sustain_s": 20.0
+      },
+      "task_digest": "21aa27ea37031635b65b1824148649660c1fa7c070bab90acf786f0f9921301a",
+      "task_id": "00005-21aa27ea3703",
+      "task_index": 5,
+      "tier": "debelly_2026_opposing_cue_duration_trial"
+    },
+    {
+      "assay": "opposing_cue_duration_conditioning",
+      "beta_multiplier": 1.0,
+      "beta_tension_feedback": 0.54,
+      "coupling_variant": "beta_1x",
+      "field_audit": true,
+      "implementation_revision": "opposing_cue_duration_trial_v1",
+      "input_peak": 2.0,
+      "metrics": {
+        "analysis_start": 600.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly_2026",
+      "model_label": "Reflection-symmetric extension of the 2026 de Belly mechanochemical model",
+      "model_parameters": {
+        "assay_mode": "reflection_symmetric_extension",
+        "initialization_mode": "algebraic_fixed_point",
+        "input_sampling_mode": "cell_centred",
+        "rac_basal_activation": 1.8,
+        "rac_mechanical_feedback": 0.54,
+        "rho_basal_activation": 1.8,
+        "rho_mechanical_feedback": 0.54
+      },
+      "protocol": {
+        "amplitude": 3.6,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 600.0,
+        "taper": 0.0,
+        "width_fraction": 0.2
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 65,
+        "end_time": 11600.0,
+        "length": 13.0,
+        "output_interval": 5.0,
+        "step": 0.5
+      },
+      "source_assay": "figure2_B_beta_sweep",
+      "source_campaign": "debelly_2026_continuous_polarity_alternatives_v1",
+      "strong_competition": {
+        "contrast_threshold": 0.3,
+        "cue_stop": 80.0,
+        "endpoint_sustain_s": 500.0,
+        "orientation_threshold": 0.25,
+        "resolution_sustain_s": 100.0,
+        "two_pole_deadline": 230.0,
+        "two_pole_strength_threshold": 0.05,
+        "two_pole_sustain_s": 20.0
+      },
+      "task_digest": "31845b7ba1c792fa0c297e3255a4afa31894930230b7da601f147cdc737a8c4b",
+      "task_id": "00006-31845b7ba1c7",
+      "task_index": 6,
+      "tier": "debelly_2026_opposing_cue_duration_trial"
+    },
+    {
+      "assay": "opposing_cue_duration_conditioning",
+      "beta_multiplier": 1.0,
+      "beta_tension_feedback": 0.54,
+      "coupling_variant": "beta_1x",
+      "field_audit": true,
+      "implementation_revision": "opposing_cue_duration_trial_v1",
+      "input_peak": 2.0,
+      "metrics": {
+        "analysis_start": 600.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly_2026",
+      "model_label": "Reflection-symmetric extension of the 2026 de Belly mechanochemical model",
+      "model_parameters": {
+        "assay_mode": "reflection_symmetric_extension",
+        "initialization_mode": "algebraic_fixed_point",
+        "input_sampling_mode": "cell_centred",
+        "rac_basal_activation": 1.8,
+        "rac_mechanical_feedback": 0.54,
+        "rho_basal_activation": 1.8,
+        "rho_mechanical_feedback": 0.54
+      },
+      "protocol": {
+        "amplitude": 3.6,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 600.0,
+        "taper": 0.0,
+        "width_fraction": 0.2
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 75,
+        "end_time": 11600.0,
+        "length": 15.0,
+        "output_interval": 5.0,
+        "step": 0.5
+      },
+      "source_assay": "figure2_B_beta_sweep",
+      "source_campaign": "debelly_2026_continuous_polarity_alternatives_v1",
+      "strong_competition": {
+        "contrast_threshold": 0.3,
+        "cue_stop": 80.0,
+        "endpoint_sustain_s": 500.0,
+        "orientation_threshold": 0.25,
+        "resolution_sustain_s": 100.0,
+        "two_pole_deadline": 230.0,
+        "two_pole_strength_threshold": 0.05,
+        "two_pole_sustain_s": 20.0
+      },
+      "task_digest": "6f81e6244704136df9013eb6616c445064297fd624ed5bd7b0c3c96c34daf198",
+      "task_id": "00007-6f81e6244704",
+      "task_index": 7,
+      "tier": "debelly_2026_opposing_cue_duration_trial"
+    },
+    {
+      "assay": "opposing_cue_duration_conditioning",
+      "beta_multiplier": 1.0,
+      "beta_tension_feedback": 0.54,
+      "coupling_variant": "beta_1x",
+      "field_audit": true,
+      "implementation_revision": "opposing_cue_duration_trial_v1",
+      "input_peak": 2.0,
+      "metrics": {
+        "analysis_start": 600.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly_2026",
+      "model_label": "Reflection-symmetric extension of the 2026 de Belly mechanochemical model",
+      "model_parameters": {
+        "assay_mode": "reflection_symmetric_extension",
+        "initialization_mode": "algebraic_fixed_point",
+        "input_sampling_mode": "cell_centred",
+        "rac_basal_activation": 1.8,
+        "rac_mechanical_feedback": 0.54,
+        "rho_basal_activation": 1.8,
+        "rho_mechanical_feedback": 0.54
+      },
+      "protocol": {
+        "amplitude": 3.6,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 600.0,
+        "taper": 0.0,
+        "width_fraction": 0.2
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 85,
+        "end_time": 11600.0,
+        "length": 17.0,
+        "output_interval": 5.0,
+        "step": 0.5
+      },
+      "source_assay": "figure2_B_beta_sweep",
+      "source_campaign": "debelly_2026_continuous_polarity_alternatives_v1",
+      "strong_competition": {
+        "contrast_threshold": 0.3,
+        "cue_stop": 80.0,
+        "endpoint_sustain_s": 500.0,
+        "orientation_threshold": 0.25,
+        "resolution_sustain_s": 100.0,
+        "two_pole_deadline": 230.0,
+        "two_pole_strength_threshold": 0.05,
+        "two_pole_sustain_s": 20.0
+      },
+      "task_digest": "c6e86dddffc23dbf3e35a233ff72eec9bcd336ff7a05e9616b824679c087d9de",
+      "task_id": "00008-c6e86dddffc2",
+      "task_index": 8,
+      "tier": "debelly_2026_opposing_cue_duration_trial"
+    },
+    {
+      "assay": "opposing_cue_duration_conditioning",
+      "beta_multiplier": 1.0,
+      "beta_tension_feedback": 0.54,
+      "coupling_variant": "beta_1x",
+      "field_audit": true,
+      "implementation_revision": "opposing_cue_duration_trial_v1",
+      "input_peak": 2.0,
+      "metrics": {
+        "analysis_start": 600.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly_2026",
+      "model_label": "Reflection-symmetric extension of the 2026 de Belly mechanochemical model",
+      "model_parameters": {
+        "assay_mode": "reflection_symmetric_extension",
+        "initialization_mode": "algebraic_fixed_point",
+        "input_sampling_mode": "cell_centred",
+        "rac_basal_activation": 1.8,
+        "rac_mechanical_feedback": 0.54,
+        "rho_basal_activation": 1.8,
+        "rho_mechanical_feedback": 0.54
+      },
+      "protocol": {
+        "amplitude": 3.6,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 600.0,
+        "taper": 0.0,
+        "width_fraction": 0.2
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 95,
+        "end_time": 11600.0,
+        "length": 19.0,
+        "output_interval": 5.0,
+        "step": 0.5
+      },
+      "source_assay": "figure2_B_beta_sweep",
+      "source_campaign": "debelly_2026_continuous_polarity_alternatives_v1",
+      "strong_competition": {
+        "contrast_threshold": 0.3,
+        "cue_stop": 80.0,
+        "endpoint_sustain_s": 500.0,
+        "orientation_threshold": 0.25,
+        "resolution_sustain_s": 100.0,
+        "two_pole_deadline": 230.0,
+        "two_pole_strength_threshold": 0.05,
+        "two_pole_sustain_s": 20.0
+      },
+      "task_digest": "3fdd8ac15e9a6f724859fdaa05bdac849f077c1186b070697218d22b30562513",
+      "task_id": "00009-3fdd8ac15e9a",
+      "task_index": 9,
+      "tier": "debelly_2026_opposing_cue_duration_trial"
+    },
+    {
+      "assay": "opposing_cue_duration_conditioning",
+      "beta_multiplier": 1.0,
+      "beta_tension_feedback": 0.54,
+      "coupling_variant": "beta_1x",
+      "field_audit": true,
+      "implementation_revision": "opposing_cue_duration_trial_v1",
+      "input_peak": 2.0,
+      "metrics": {
+        "analysis_start": 600.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly_2026",
+      "model_label": "Reflection-symmetric extension of the 2026 de Belly mechanochemical model",
+      "model_parameters": {
+        "assay_mode": "reflection_symmetric_extension",
+        "initialization_mode": "algebraic_fixed_point",
+        "input_sampling_mode": "cell_centred",
+        "rac_basal_activation": 1.8,
+        "rac_mechanical_feedback": 0.54,
+        "rho_basal_activation": 1.8,
+        "rho_mechanical_feedback": 0.54
+      },
+      "protocol": {
+        "amplitude": 3.6,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 600.0,
+        "taper": 0.0,
+        "width_fraction": 0.2
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 105,
+        "end_time": 11600.0,
+        "length": 21.0,
+        "output_interval": 5.0,
+        "step": 0.5
+      },
+      "source_assay": "figure2_B_beta_sweep",
+      "source_campaign": "debelly_2026_continuous_polarity_alternatives_v1",
+      "strong_competition": {
+        "contrast_threshold": 0.3,
+        "cue_stop": 80.0,
+        "endpoint_sustain_s": 500.0,
+        "orientation_threshold": 0.25,
+        "resolution_sustain_s": 100.0,
+        "two_pole_deadline": 230.0,
+        "two_pole_strength_threshold": 0.05,
+        "two_pole_sustain_s": 20.0
+      },
+      "task_digest": "eacea8d016f7401aedeb52410bbf4c47b1ec56462d37f61822c1395727e97e8d",
+      "task_id": "00010-eacea8d016f7",
+      "task_index": 10,
+      "tier": "debelly_2026_opposing_cue_duration_trial"
+    },
+    {
+      "assay": "opposing_cue_duration_conditioning",
+      "beta_multiplier": 1.0,
+      "beta_tension_feedback": 0.54,
+      "coupling_variant": "beta_1x",
+      "field_audit": true,
+      "implementation_revision": "opposing_cue_duration_trial_v1",
+      "input_peak": 2.0,
+      "metrics": {
+        "analysis_start": 600.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly_2026",
+      "model_label": "Reflection-symmetric extension of the 2026 de Belly mechanochemical model",
+      "model_parameters": {
+        "assay_mode": "reflection_symmetric_extension",
+        "initialization_mode": "algebraic_fixed_point",
+        "input_sampling_mode": "cell_centred",
+        "rac_basal_activation": 1.8,
+        "rac_mechanical_feedback": 0.54,
+        "rho_basal_activation": 1.8,
+        "rho_mechanical_feedback": 0.54
+      },
+      "protocol": {
+        "amplitude": 3.6,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 600.0,
+        "taper": 0.0,
+        "width_fraction": 0.2
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 115,
+        "end_time": 11600.0,
+        "length": 23.0,
+        "output_interval": 5.0,
+        "step": 0.5
+      },
+      "source_assay": "figure2_B_beta_sweep",
+      "source_campaign": "debelly_2026_continuous_polarity_alternatives_v1",
+      "strong_competition": {
+        "contrast_threshold": 0.3,
+        "cue_stop": 80.0,
+        "endpoint_sustain_s": 500.0,
+        "orientation_threshold": 0.25,
+        "resolution_sustain_s": 100.0,
+        "two_pole_deadline": 230.0,
+        "two_pole_strength_threshold": 0.05,
+        "two_pole_sustain_s": 20.0
+      },
+      "task_digest": "ad40495657159596bdab0888f07a88f42825f676d968590c348c9683e4c8c296",
+      "task_id": "00011-ad4049565715",
+      "task_index": 11,
+      "tier": "debelly_2026_opposing_cue_duration_trial"
+    },
+    {
+      "assay": "opposing_cue_duration_conditioning",
+      "beta_multiplier": 1.0,
+      "beta_tension_feedback": 0.54,
+      "coupling_variant": "beta_1x",
+      "field_audit": true,
+      "implementation_revision": "opposing_cue_duration_trial_v1",
+      "input_peak": 2.0,
+      "metrics": {
+        "analysis_start": 600.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly_2026",
+      "model_label": "Reflection-symmetric extension of the 2026 de Belly mechanochemical model",
+      "model_parameters": {
+        "assay_mode": "reflection_symmetric_extension",
+        "initialization_mode": "algebraic_fixed_point",
+        "input_sampling_mode": "cell_centred",
+        "rac_basal_activation": 1.8,
+        "rac_mechanical_feedback": 0.54,
+        "rho_basal_activation": 1.8,
+        "rho_mechanical_feedback": 0.54
+      },
+      "protocol": {
+        "amplitude": 3.6,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 600.0,
+        "taper": 0.0,
+        "width_fraction": 0.2
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 125,
+        "end_time": 11600.0,
+        "length": 25.0,
+        "output_interval": 5.0,
+        "step": 0.5
+      },
+      "source_assay": "figure2_B_beta_sweep",
+      "source_campaign": "debelly_2026_continuous_polarity_alternatives_v1",
+      "strong_competition": {
+        "contrast_threshold": 0.3,
+        "cue_stop": 80.0,
+        "endpoint_sustain_s": 500.0,
+        "orientation_threshold": 0.25,
+        "resolution_sustain_s": 100.0,
+        "two_pole_deadline": 230.0,
+        "two_pole_strength_threshold": 0.05,
+        "two_pole_sustain_s": 20.0
+      },
+      "task_digest": "ca27d55e5568e72bd75070d2fe2517c5863a9e52747c8aa5d1c3cdce84f266e5",
+      "task_id": "00012-ca27d55e5568",
+      "task_index": 12,
+      "tier": "debelly_2026_opposing_cue_duration_trial"
+    },
+    {
+      "assay": "opposing_cue_duration_conditioning",
+      "beta_multiplier": 1.0,
+      "beta_tension_feedback": 0.54,
+      "coupling_variant": "beta_1x",
+      "field_audit": true,
+      "implementation_revision": "opposing_cue_duration_trial_v1",
+      "input_peak": 2.0,
+      "metrics": {
+        "analysis_start": 600.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly_2026",
+      "model_label": "Reflection-symmetric extension of the 2026 de Belly mechanochemical model",
+      "model_parameters": {
+        "assay_mode": "reflection_symmetric_extension",
+        "initialization_mode": "algebraic_fixed_point",
+        "input_sampling_mode": "cell_centred",
+        "rac_basal_activation": 1.8,
+        "rac_mechanical_feedback": 0.54,
+        "rho_basal_activation": 1.8,
+        "rho_mechanical_feedback": 0.54
+      },
+      "protocol": {
+        "amplitude": 3.6,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 600.0,
+        "taper": 0.0,
+        "width_fraction": 0.2
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 135,
+        "end_time": 11600.0,
+        "length": 27.0,
+        "output_interval": 5.0,
+        "step": 0.5
+      },
+      "source_assay": "figure2_B_beta_sweep",
+      "source_campaign": "debelly_2026_continuous_polarity_alternatives_v1",
+      "strong_competition": {
+        "contrast_threshold": 0.3,
+        "cue_stop": 80.0,
+        "endpoint_sustain_s": 500.0,
+        "orientation_threshold": 0.25,
+        "resolution_sustain_s": 100.0,
+        "two_pole_deadline": 230.0,
+        "two_pole_strength_threshold": 0.05,
+        "two_pole_sustain_s": 20.0
+      },
+      "task_digest": "fd2d382a590bc82b4e2ecd24b2b33f1967262bd4ed066ec9b71396232d4fd1a2",
+      "task_id": "00013-fd2d382a590b",
+      "task_index": 13,
+      "tier": "debelly_2026_opposing_cue_duration_trial"
+    },
+    {
+      "assay": "opposing_cue_duration_conditioning",
+      "beta_multiplier": 1.0,
+      "beta_tension_feedback": 0.54,
+      "coupling_variant": "beta_1x",
+      "field_audit": true,
+      "implementation_revision": "opposing_cue_duration_trial_v1",
+      "input_peak": 2.0,
+      "metrics": {
+        "analysis_start": 600.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly_2026",
+      "model_label": "Reflection-symmetric extension of the 2026 de Belly mechanochemical model",
+      "model_parameters": {
+        "assay_mode": "reflection_symmetric_extension",
+        "initialization_mode": "algebraic_fixed_point",
+        "input_sampling_mode": "cell_centred",
+        "rac_basal_activation": 1.8,
+        "rac_mechanical_feedback": 0.54,
+        "rho_basal_activation": 1.8,
+        "rho_mechanical_feedback": 0.54
+      },
+      "protocol": {
+        "amplitude": 3.6,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 600.0,
+        "taper": 0.0,
+        "width_fraction": 0.2
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 145,
+        "end_time": 11600.0,
+        "length": 29.0,
+        "output_interval": 5.0,
+        "step": 0.5
+      },
+      "source_assay": "figure2_B_beta_sweep",
+      "source_campaign": "debelly_2026_continuous_polarity_alternatives_v1",
+      "strong_competition": {
+        "contrast_threshold": 0.3,
+        "cue_stop": 80.0,
+        "endpoint_sustain_s": 500.0,
+        "orientation_threshold": 0.25,
+        "resolution_sustain_s": 100.0,
+        "two_pole_deadline": 230.0,
+        "two_pole_strength_threshold": 0.05,
+        "two_pole_sustain_s": 20.0
+      },
+      "task_digest": "1223168c3c26049bac765b13f8fd3075c3c9131dfaeb0afb2ef9572cdab0b801",
+      "task_id": "00014-1223168c3c26",
+      "task_index": 14,
+      "tier": "debelly_2026_opposing_cue_duration_trial"
+    },
+    {
+      "assay": "opposing_cue_duration_conditioning",
+      "beta_multiplier": 1.0,
+      "beta_tension_feedback": 0.54,
+      "coupling_variant": "beta_1x",
+      "field_audit": true,
+      "implementation_revision": "opposing_cue_duration_trial_v1",
+      "input_peak": 2.0,
+      "metrics": {
+        "analysis_start": 600.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly_2026",
+      "model_label": "Reflection-symmetric extension of the 2026 de Belly mechanochemical model",
+      "model_parameters": {
+        "assay_mode": "reflection_symmetric_extension",
+        "initialization_mode": "algebraic_fixed_point",
+        "input_sampling_mode": "cell_centred",
+        "rac_basal_activation": 1.8,
+        "rac_mechanical_feedback": 0.54,
+        "rho_basal_activation": 1.8,
+        "rho_mechanical_feedback": 0.54
+      },
+      "protocol": {
+        "amplitude": 3.6,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 600.0,
+        "taper": 0.0,
+        "width_fraction": 0.2
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 155,
+        "end_time": 11600.0,
+        "length": 31.0,
+        "output_interval": 5.0,
+        "step": 0.5
+      },
+      "source_assay": "figure2_B_beta_sweep",
+      "source_campaign": "debelly_2026_continuous_polarity_alternatives_v1",
+      "strong_competition": {
+        "contrast_threshold": 0.3,
+        "cue_stop": 80.0,
+        "endpoint_sustain_s": 500.0,
+        "orientation_threshold": 0.25,
+        "resolution_sustain_s": 100.0,
+        "two_pole_deadline": 230.0,
+        "two_pole_strength_threshold": 0.05,
+        "two_pole_sustain_s": 20.0
+      },
+      "task_digest": "38770d2ea989f13a4eabe10d1b3c4c3192abbda73a3ce8b8ca65441c02cdd970",
+      "task_id": "00015-38770d2ea989",
+      "task_index": 15,
+      "tier": "debelly_2026_opposing_cue_duration_trial"
+    },
+    {
+      "assay": "opposing_cue_duration_conditioning",
+      "beta_multiplier": 1.0,
+      "beta_tension_feedback": 0.54,
+      "coupling_variant": "beta_1x",
+      "field_audit": true,
+      "implementation_revision": "opposing_cue_duration_trial_v1",
+      "input_peak": 2.0,
+      "metrics": {
+        "analysis_start": 600.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly_2026",
+      "model_label": "Reflection-symmetric extension of the 2026 de Belly mechanochemical model",
+      "model_parameters": {
+        "assay_mode": "reflection_symmetric_extension",
+        "initialization_mode": "algebraic_fixed_point",
+        "input_sampling_mode": "cell_centred",
+        "rac_basal_activation": 1.8,
+        "rac_mechanical_feedback": 0.54,
+        "rho_basal_activation": 1.8,
+        "rho_mechanical_feedback": 0.54
+      },
+      "protocol": {
+        "amplitude": 3.6,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 600.0,
+        "taper": 0.0,
+        "width_fraction": 0.2
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 165,
+        "end_time": 11600.0,
+        "length": 33.0,
+        "output_interval": 5.0,
+        "step": 0.5
+      },
+      "source_assay": "figure2_B_beta_sweep",
+      "source_campaign": "debelly_2026_continuous_polarity_alternatives_v1",
+      "strong_competition": {
+        "contrast_threshold": 0.3,
+        "cue_stop": 80.0,
+        "endpoint_sustain_s": 500.0,
+        "orientation_threshold": 0.25,
+        "resolution_sustain_s": 100.0,
+        "two_pole_deadline": 230.0,
+        "two_pole_strength_threshold": 0.05,
+        "two_pole_sustain_s": 20.0
+      },
+      "task_digest": "03afee021f0b260032ece838f23df172b974c6654536364642a35646a774854c",
+      "task_id": "00016-03afee021f0b",
+      "task_index": 16,
+      "tier": "debelly_2026_opposing_cue_duration_trial"
+    },
+    {
+      "assay": "opposing_cue_duration_conditioning",
+      "beta_multiplier": 1.0,
+      "beta_tension_feedback": 0.54,
+      "coupling_variant": "beta_1x",
+      "field_audit": true,
+      "implementation_revision": "opposing_cue_duration_trial_v1",
+      "input_peak": 2.0,
+      "metrics": {
+        "analysis_start": 600.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly_2026",
+      "model_label": "Reflection-symmetric extension of the 2026 de Belly mechanochemical model",
+      "model_parameters": {
+        "assay_mode": "reflection_symmetric_extension",
+        "initialization_mode": "algebraic_fixed_point",
+        "input_sampling_mode": "cell_centred",
+        "rac_basal_activation": 1.8,
+        "rac_mechanical_feedback": 0.54,
+        "rho_basal_activation": 1.8,
+        "rho_mechanical_feedback": 0.54
+      },
+      "protocol": {
+        "amplitude": 3.6,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 600.0,
+        "taper": 0.0,
+        "width_fraction": 0.2
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 175,
+        "end_time": 11600.0,
+        "length": 35.0,
+        "output_interval": 5.0,
+        "step": 0.5
+      },
+      "source_assay": "figure2_B_beta_sweep",
+      "source_campaign": "debelly_2026_continuous_polarity_alternatives_v1",
+      "strong_competition": {
+        "contrast_threshold": 0.3,
+        "cue_stop": 80.0,
+        "endpoint_sustain_s": 500.0,
+        "orientation_threshold": 0.25,
+        "resolution_sustain_s": 100.0,
+        "two_pole_deadline": 230.0,
+        "two_pole_strength_threshold": 0.05,
+        "two_pole_sustain_s": 20.0
+      },
+      "task_digest": "8e917659872afbee6b939a3b9728885b4b47a6df57ebc555e851f2635e3dfdc0",
+      "task_id": "00017-8e917659872a",
+      "task_index": 17,
+      "tier": "debelly_2026_opposing_cue_duration_trial"
+    },
+    {
+      "assay": "opposing_cue_duration_conditioning",
+      "beta_multiplier": 1.0,
+      "beta_tension_feedback": 0.54,
+      "coupling_variant": "beta_1x",
+      "field_audit": true,
+      "implementation_revision": "opposing_cue_duration_trial_v1",
+      "input_peak": 2.0,
+      "metrics": {
+        "analysis_start": 600.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly_2026",
+      "model_label": "Reflection-symmetric extension of the 2026 de Belly mechanochemical model",
+      "model_parameters": {
+        "assay_mode": "reflection_symmetric_extension",
+        "initialization_mode": "algebraic_fixed_point",
+        "input_sampling_mode": "cell_centred",
+        "rac_basal_activation": 1.8,
+        "rac_mechanical_feedback": 0.54,
+        "rho_basal_activation": 1.8,
+        "rho_mechanical_feedback": 0.54
+      },
+      "protocol": {
+        "amplitude": 3.6,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 600.0,
+        "taper": 0.0,
+        "width_fraction": 0.2
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 185,
+        "end_time": 11600.0,
+        "length": 37.0,
+        "output_interval": 5.0,
+        "step": 0.5
+      },
+      "source_assay": "figure2_B_beta_sweep",
+      "source_campaign": "debelly_2026_continuous_polarity_alternatives_v1",
+      "strong_competition": {
+        "contrast_threshold": 0.3,
+        "cue_stop": 80.0,
+        "endpoint_sustain_s": 500.0,
+        "orientation_threshold": 0.25,
+        "resolution_sustain_s": 100.0,
+        "two_pole_deadline": 230.0,
+        "two_pole_strength_threshold": 0.05,
+        "two_pole_sustain_s": 20.0
+      },
+      "task_digest": "9dcfa542ae851b306ac789e4fc9dad70bb736b8c7ed785c2a4bbcc7644a50fe5",
+      "task_id": "00018-9dcfa542ae85",
+      "task_index": 18,
+      "tier": "debelly_2026_opposing_cue_duration_trial"
+    },
+    {
+      "assay": "opposing_cue_duration_conditioning",
+      "beta_multiplier": 1.0,
+      "beta_tension_feedback": 0.54,
+      "coupling_variant": "beta_1x",
+      "field_audit": true,
+      "implementation_revision": "opposing_cue_duration_trial_v1",
+      "input_peak": 2.0,
+      "metrics": {
+        "analysis_start": 600.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly_2026",
+      "model_label": "Reflection-symmetric extension of the 2026 de Belly mechanochemical model",
+      "model_parameters": {
+        "assay_mode": "reflection_symmetric_extension",
+        "initialization_mode": "algebraic_fixed_point",
+        "input_sampling_mode": "cell_centred",
+        "rac_basal_activation": 1.8,
+        "rac_mechanical_feedback": 0.54,
+        "rho_basal_activation": 1.8,
+        "rho_mechanical_feedback": 0.54
+      },
+      "protocol": {
+        "amplitude": 3.6,
+        "asymmetry": 0.0,
+        "name": "localized_pulse",
+        "sides": [
+          "left"
+        ],
+        "start": 0.0,
+        "stop": 600.0,
+        "taper": 0.0,
+        "width_fraction": 0.2
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 195,
+        "end_time": 11600.0,
+        "length": 39.0,
+        "output_interval": 5.0,
+        "step": 0.5
+      },
+      "source_assay": "figure2_B_beta_sweep",
+      "source_campaign": "debelly_2026_continuous_polarity_alternatives_v1",
+      "strong_competition": {
+        "contrast_threshold": 0.3,
+        "cue_stop": 80.0,
+        "endpoint_sustain_s": 500.0,
+        "orientation_threshold": 0.25,
+        "resolution_sustain_s": 100.0,
+        "two_pole_deadline": 230.0,
+        "two_pole_strength_threshold": 0.05,
+        "two_pole_sustain_s": 20.0
+      },
+      "task_digest": "62b25a1f087133e90284f33a8cfcdfffc4812f83dc81b0ef6c63462d7b1dbc9e",
+      "task_id": "00019-62b25a1f0871",
+      "task_index": 19,
+      "tier": "debelly_2026_opposing_cue_duration_trial"
+    }
+  ]
+}

@@ -1,4 +1,43 @@
+> **deBelly correction (2026-10-08):** the old in-loop centered endpoint extension is flawed and deprecated. Do not use its simulations for current results. The [independent-endpoint replacement](DEBELLY_BOUNDARIES.md) regenerates all deBelly preparations and three-test responses; other four models retain unchanged audited evidence. The replacement is complete and independently audited; [current results](data/runs/debelly_corrected_three_test_20261008/README.md) supersede the historical counts and centered deBelly results below.
+
 # Reproducing the corrected polarity core
+
+The current [three-test comparison](THREE_TESTS.md) supersedes the older
+three-width presentation. After the completed native audit, regenerate the
+canonical main/supplement with `code/three_test_figures.py` or `code/build.py render`.
+The current eleven-page mechanism reader uses the 9 October review revision.
+From the repository root, with the existing scaling_sandbox environment and
+single-threaded BLAS settings, rebuild its figures and attached manifests, then
+the PDF/HTML:
+
+```bash
+python polarity1d/manuscript/code/mechanisms/length_revision_20261009_figures.py
+python polarity1d/manuscript/code/mechanisms/length_debelly_review_20261009_figures.py
+python polarity1d/manuscript/code/mechanisms/length_mechanisms_report_20261008.py
+```
+
+The renderer checks exact checkpoint/archive identities, conserved totals,
+independent polarity and fully relaxed withdrawal endpoints before drawing.
+It requires the retained native histories, including the eight completed SLURM
+replays in `data/runs/length_revision_20261009/`, plus 42 corrected deBelly
+replays in `data/runs/length_debelly_review_20261009/`. The chemical renderer
+performs no integrations. The deBelly renderer performs brief native one-step
+rate-budget checks and static elliptic solves, and submits no jobs. Manifests
+and frozen executable sources record both campaigns. To rerun the latter,
+use `length_debelly_review_20261009_trials.py init --out <fresh-directory>`;
+it submits a suitable SLURM array without a concurrency throttle.
+Per-figure JSON manifests link legends, hashes, assumptions and reproduction.
+The new deBelly sources, native archives, gates, static-control mesh accuracy
+and source-rate closure are independently checked; the original reader and its
+source hashes remain preserved. The broader `code/build.py verify` currently
+stops at a pre-existing CODESET mismatch for `AGENTS.md`; this review does not
+repin that unrelated inventory. Report-specific source/data/figure checks pass. Older diagnostic spatial analysis remains available via
+`code/mechanisms/three_test_analysis.py`; historical data are not replaced.
+`code/build.py verify` checks the current compact comparison as well as the
+retained snapshot below. The optimized runner can import immutable unchanged
+native trials, so starting a fresh optimized duration campaign additionally
+requires the local original full records/chunks; compact Git summaries alone
+cannot supply those imports. Historical inputs are never overwritten.
 
 Use the existing `scaling_sandbox` Conda environment. The complete manuscript
 folder can be moved intact; runtime imports stay inside `code/core/`.

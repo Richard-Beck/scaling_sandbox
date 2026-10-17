@@ -1,4 +1,5 @@
-reports <- list.files("reports", pattern = "\\.Rmd$", full.names = TRUE)
+source("scripts/public_report_sources.R")
+reports <- public_report_sources()
 patterns <- c("simulate_vcell\\s*\\(", "compile_vcell_kernel\\s*\\(",
               "generate_wgd_spatial_results\\.R")
 for (report in reports) {

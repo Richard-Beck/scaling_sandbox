@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MorpheusModel version="4">
+  <Description>
+    <Title>deBelly minimal CPM v1: bounded Rac-Hill forcing</Title>
+    <Details>The chemical-to-mechanical interface is RacHill in [0,1]. StarConvex strength is one and deformation_drive=coupling_gain*RacHill. There is no biochemical evolution, Act-memory protrusion, or cell-medium contact energy in this model.</Details>
+  </Description>
+  <Global />
+  <Space>
+    <Lattice class="square">
+      <Size symbol="lattice" value="600, 600, 0" />
+      <BoundaryConditions>
+        <Condition type="periodic" boundary="x" />
+        <Condition type="periodic" boundary="y" />
+      </BoundaryConditions>
+      <NodeLength value="1.0" />
+      <Neighborhood><Distance>2.0</Distance></Neighborhood>
+    </Lattice>
+    <SpaceSymbol symbol="l" />
+    <MembraneLattice>
+      <Resolution symbol="memsize" value="256" />
+      <SpaceSymbol symbol="m" />
+    </MembraneLattice>
+  </Space>
+  <Time>
+    <StartTime value="0" />
+    <StopTime value="550" />
+    <SaveInterval value="0" />
+    <RandomSeed value="1" />
+    <TimeSymbol symbol="time" />
+  </Time>
+  <CellTypes>
+    <CellType class="biological" name="cells">
+      <VolumeConstraint target="4800" strength="1.0" />
+      <SurfaceConstraint target="1.06" strength="2.0" mode="aspherity" />
+      <StarConvex retraction="false" membrane="deformation_drive" protrusion="true" strength="1.0" />
+      <Function symbol="RacHill"><Expression>0.0</Expression></Function>
+      <Function symbol="deformation_drive"><Expression>100.0*RacHill</Expression></Function>
+    </CellType>
+  </CellTypes>
+  <CPM>
+    <Interaction default="0.0">
+      <Contact type1="cells" type2="Medium" value="0.0" />
+    </Interaction>
+    <MonteCarloSampler stepper="edgelist">
+      <MCSDuration value="0.01" />
+      <Neighborhood><Order>2</Order></Neighborhood>
+      <MetropolisKinetics yield="0.05" temperature="0.709349245982302" />
+    </MonteCarloSampler>
+    <ShapeSurface scaling="norm">
+      <Neighborhood><Order>6</Order></Neighborhood>
+    </ShapeSurface>
+  </CPM>
+  <CellPopulations>
+    <Population type="cells" size="0">
+      <InitCellObjects mode="distance">
+        <Arrangement displacements="1, 1, 0" repetitions="1, 1, 0">
+          <Sphere radius="39.08820095223359" center="400 200 0" />
+        </Arrangement>
+      </InitCellObjects>
+    </Population>
+  </CellPopulations>
+  <Analysis>
+    <Logger time-step="5">
+      <Input>
+        <Symbol symbol-ref="time" />
+        <Symbol symbol-ref="m.phi" />
+        <Symbol symbol-ref="RacHill" />
+        <Symbol symbol-ref="cell.surface" />
+        <Symbol symbol-ref="cell.volume" />
+      </Input>
+      <Output><TextOutput /></Output>
+    </Logger>
+  </Analysis>
+</MorpheusModel>

@@ -1,0 +1,82 @@
+{
+  "created_utc": "2026-10-03T17:54:06.107904+00:00",
+  "builder": "wgd_langevin/refined_ou_20261003/scripts/build_manuscript_figures.py",
+  "figure_png": "wgd_langevin/refined_ou_20261003/figures/main_03_migration_OU.png",
+  "canonical_png": "wgd_langevin/refined_ou_20261003/figures/main_03_migration_OU.png",
+  "caption": "A, observed and primary-fit OU-predicted WGD+ / WGD\u2212 folds for nine migration summaries (the last shared population lag summarizes the Xuan MSD fold, with native observed/predicted traces interpolated to that shared lag); Hosny uses group medians. B, full digitized population MSD curves (solid) and fitted OU ensemble MSD (dashed), on logarithmic lag and MSD axes to expose the crossover. The open circle marks the population-curve crossover interpolated between native trace samples, approximately 2.32 hours; this is a descriptive digitized crossing, not a precise population estimate. C, enlarged representative primary-fit model-generated Xuan2018 tracks. D, with WGD\u2212 fixed, relative WGD+ persistence/noise data-misfit and regularized objective surfaces. E, paired primary-fit persistence and velocity-noise estimates. F, WGD+ / WGD\u2212 persistence folds across prior/pooling scenarios, including their pooled geometric mean. Track paths are simulations, not observed individual cells. Surface scores use the model's heuristic weighted objective; their scale is not a calibrated likelihood or biological unit. Prior/pooling contrasts are conditional sensitivity analyses, not uncertainty intervals.",
+  "selected_primary_fit": "fit_01.json",
+  "selected_fit_source_hashes_recorded": true,
+  "source_sha256": {
+    "wgd_langevin/persistence_only/campaign.py": "c8cbcc70b2f3ce48a1f01dbcd949ede9be172f841a64bf857d44248d6df52585",
+    "wgd_langevin/refined_ou_20261003/scripts/main_surface.py": "a07c78a2573c962ac79fbad7736bc6c5686ade2878dd2873ca3f526716abfbcc",
+    "wgd_langevin/refined_ou_20261003/results/main_relative_surface.json": "689011bbb56947826918c0707b03864fc7327ad7d593c6959700a417e8c5d9ee",
+    "wgd_langevin/refined_ou_20261003/data/adapter.py": "2bc1b5b9cffbd0508249d09c164993752259f7ef8bd4103267dbf65ce91363c1",
+    "wgd_langevin/refined_ou_20261003/data/observations.csv": "d5c20e5f4b9229e17498b8ad72bbad847c93aef5446c68ac6676c30b3358f59e",
+    "wgd_langevin/refined_ou_20261003/data/xuan_msd_curve.csv": "b5242f312fef74e28c8ba1cc17f676294e8ffaa8fc5ae280affb215265594093",
+    "wgd_langevin/refined_ou_20261003/data/hosny_observations.csv": "dd4ec7b548eba48556af74c0805ed60356c63204e5749753d222846ee39ae0fe",
+    "wgd_langevin/refined_ou_20261003/results/fit_01.json": "3b48c3e74fd2e3c4309f991b5dc6de20d4869e02037d71e69ecbb1711e3bc63d",
+    "wgd_langevin/refined_ou_20261003/scripts/fit.py": "5eddc8b9933ca4be19857667693ee1e1d928589bc68612bb13a9c12921ec80a6",
+    "wgd_langevin/refined_ou_20261003/scripts/model.py": "54dcdaade15a8ecac876ea764dc49e2ab3a404d48cd64f9b6d9e66314b7da15d",
+    "wgd_langevin/refined_ou_20261003/results/tracks_primary.npz": "62cfaaa9a15f0f098da86586d97551662df39331ef16e3808d4b048356a42076",
+    "wgd_langevin/refined_ou_20261003/results/main_relative_surface.csv": "54b163a855c5ef7bf4fb011ddcf4426658441be411def1879af7698b37702650",
+    "wgd_langevin/refined_ou_20261003/figures/main_03_observation_folds.csv": "21cc344a74069771765d2a7ea4630cff26698431a10f3c3a3bb61e3301c9a28b",
+    "wgd_langevin/refined_ou_20261003/figures/main_03_observation_folds.json": "79d2d3c4e9a44cf67823b1dfd5441eb3c690144f59c81e13f8229973f336ea44",
+    "wgd_langevin/refined_ou_20261003/scripts/build_manuscript_figures.py": "4ad08f55f51b816a2c2512f51794a575dc2307d95ac9db9bff756e57876845a8",
+    "wgd_langevin/refined_ou_20261003/scripts/figure_panels.py": "55ec82cd9024333a4df5057113b6a50af2380ed1868a334ae6fed6f590a03b90",
+    "wgd_langevin/refined_ou_20261003/scripts/figure_tracks.py": "1375d6b073b98d9f3f4440d495b1e62cbff02c0f4e0f97d873d4061f6e5c4b2b"
+  },
+  "observation_rows": 9,
+  "track_selection_indices": {
+    "WGD\u2212": 10,
+    "WGD+": 13
+  },
+  "fitted_msd_at_final_curve_lag": {
+    "WGD\u2212": 2220.5420856970463,
+    "WGD+": 3944.98504134685
+  },
+  "final_curve_lag_h": 11.131005021301004,
+  "full_population_curves_plotted": true,
+  "panel_layout": "A folds / B MSD; C tracks / D surfaces; E parameters / F sensitivity",
+  "msd_axes": "logarithmic lag and logarithmic MSD",
+  "population_curve_crossovers_h": [
+    2.3201416609273995
+  ],
+  "fitted_ou_crossovers_h": [
+    1.114059259805547
+  ],
+  "surface_source": "wgd_langevin/refined_ou_20261003/results/main_relative_surface.csv",
+  "surface_score_scale": "shared asinh color normalization; underlying score units are the heuristic weighted objective",
+  "scenario_order": [
+    "primary",
+    "prior5",
+    "prior20",
+    "strong",
+    "weak"
+  ],
+  "scenario_fit_files": {
+    "primary": {
+      "path": "wgd_langevin/refined_ou_20261003/results/fit_01.json",
+      "sha256": "3b48c3e74fd2e3c4309f991b5dc6de20d4869e02037d71e69ecbb1711e3bc63d"
+    },
+    "prior5": {
+      "path": "wgd_langevin/refined_ou_20261003/results/fit_14.json",
+      "sha256": "0e68dd1ba7f365e544c4c3176c7f829a88921b5b2cb42ec021a322e91ffaf97e"
+    },
+    "prior20": {
+      "path": "wgd_langevin/refined_ou_20261003/results/fit_17.json",
+      "sha256": "dc856c5d4d42a24cab42272b4188e99813222241d614270dbcac4da58068a8c1"
+    },
+    "strong": {
+      "path": "wgd_langevin/refined_ou_20261003/results/fit_26.json",
+      "sha256": "d094e29c5578ffbfa564fc3f6119cf052c28252952c3b9d8d084e1bffc2f8353"
+    },
+    "weak": {
+      "path": "wgd_langevin/refined_ou_20261003/results/fit_39.json",
+      "sha256": "a5e9bab70c59a68f718ba78c00caf12c879806419e8a7dbfb5079f24eefa224d"
+    }
+  },
+  "observation_provenance": {
+    "note": "The common final overlapping-lag MSD fold is a visual summary interpolated from both native curve traces; the full native curves enter the balanced fit."
+  },
+  "notes": "PNG, PDF and SVG. Track paths are model simulations. Surface scores are not likelihoods; prior/pooling results are conditional sensitivity analyses."
+}

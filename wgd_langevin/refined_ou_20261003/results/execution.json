@@ -1,0 +1,53 @@
+{
+  "generated": "2026-10-03T17:14:57.442933+00:00",
+  "state": "complete",
+  "fit_job": "20704929",
+  "validation_job": "20704971",
+  "initial_jobs": [
+    "20704887",
+    "20704927"
+  ],
+  "metadata_hash_rerun_validation_job": "20704969",
+  "rerun_reason": "Input uncertainty metadata edited after first array launch; objective columns unchanged. Same 40 bounded starts rerun on frozen inputs rather than rewriting provenance.",
+  "environment": "/home/4473331/.conda/envs/scaling_sandbox",
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.5.2",
+    "scipy": "1.18.0",
+    "pandas": "3.0.5"
+  },
+  "budget": {
+    "scenarios": [
+      "primary",
+      "prior5",
+      "prior20",
+      "strong",
+      "weak"
+    ],
+    "starts_per_scenario": 8,
+    "max_nfev": 1200,
+    "validation_cells_per_ensemble": 16384,
+    "validation_seeds": [
+      74101,
+      92317
+    ],
+    "example_tracks_per_condition": 32
+  },
+  "slurm": {
+    "partition": "red",
+    "qos": "small",
+    "fit_cpu": 1,
+    "fit_memory_gb": 2,
+    "validation_cpu": 1,
+    "validation_memory_gb": 4,
+    "array_throttle": null
+  },
+  "provenance": {
+    "wgd_langevin/refined_ou_20261003/scripts/model.py": "54dcdaade15a8ecac876ea764dc49e2ab3a404d48cd64f9b6d9e66314b7da15d",
+    "wgd_langevin/refined_ou_20261003/scripts/fit.py": "5eddc8b9933ca4be19857667693ee1e1d928589bc68612bb13a9c12921ec80a6",
+    "wgd_langevin/refined_ou_20261003/data/adapter.py": "2bc1b5b9cffbd0508249d09c164993752259f7ef8bd4103267dbf65ce91363c1",
+    "wgd_langevin/refined_ou_20261003/data/observations.csv": "d5c20e5f4b9229e17498b8ad72bbad847c93aef5446c68ac6676c30b3358f59e",
+    "wgd_langevin/refined_ou_20261003/data/xuan_msd_curve.csv": "b5242f312fef74e28c8ba1cc17f676294e8ffaa8fc5ae280affb215265594093",
+    "wgd_langevin/refined_ou_20261003/data/hosny_observations.csv": "dd4ec7b548eba48556af74c0805ed60356c63204e5749753d222846ee39ae0fe"
+  }
+}

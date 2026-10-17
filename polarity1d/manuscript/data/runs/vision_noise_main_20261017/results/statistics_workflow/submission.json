@@ -1,0 +1,21 @@
+{
+  "submitted_at": "2026-10-17T20:37:10.056208+00:00",
+  "job_id": "21126773",
+  "dependency": "21126522",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--qos=small",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--mem=16G",
+    "--time=01:30:00",
+    "--job-name=vision-noise-stats",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_main_20261017/results/statistics_workflow/slurm_%j.out",
+    "--error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_main_20261017/results/statistics_workflow/slurm_%j.err",
+    "--dependency=afterok:21126522",
+    "--wrap",
+    "exec env PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 /home/4473331/.conda/envs/scaling_sandbox/bin/python /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_main_20261017/results/statistics_workflow/workflow.py worker --run /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_main_20261017"
+  ],
+  "preparation_sha256": "34e13af11042de1ff279281b029706035926808753ac6fa5ae0fb7478b9fe965"
+}

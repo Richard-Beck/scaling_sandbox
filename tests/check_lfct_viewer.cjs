@@ -1,0 +1,28 @@
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE || 'playwright');
+const assert=require('assert');
+(async()=>{
+ const b=await chromium.launch({headless:true,args:['--no-sandbox']});const page=await b.newPage({viewport:{width:1500,height:1000},acceptDownloads:true});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ const url=require('url').pathToFileURL(require('path').resolve(__dirname,'../reports/lfct_mcf10a_fld102_cpsam.html')).href;
+ await page.goto(url,{waitUntil:'load',timeout:120000});await page.waitForFunction(()=>window.viewerTest?.loadedKey==='phase_192');
+ assert.equal(await page.locator('#rows tr').count(),25);
+ await page.screenshot({path:'/tmp/lfct_mcf102_viewer.png',fullPage:false});
+ await page.locator('#background').selectOption('rfp');await page.waitForFunction(()=>viewerTest.loadedKey==='rfp_192');
+ await page.screenshot({path:'/tmp/lfct_mcf102_rfp.png',fullPage:false});
+ await page.locator('#frame').evaluate(el=>{el.value='384';el.dispatchEvent(new Event('input'))});await page.waitForFunction(()=>viewerTest.loadedKey==='rfp_384');assert.equal(await page.locator('#rows tr').count(),87);
+ await page.locator('#plus').click();assert.equal(await page.evaluate(()=>viewerTest.zoom),1.25);
+ await page.locator('#plus').click();let box=await page.locator('#viewport').boundingBox();await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await page.mouse.down();await page.mouse.move(box.x+box.width/2+50,box.y+box.height/2+30);await page.mouse.up();
+ await page.locator('#reset').click();assert.equal(await page.evaluate(()=>viewerTest.zoom),1);
+ await page.locator('#viewport').focus();await page.keyboard.press('Home');await page.waitForFunction(()=>viewerTest.loadedKey==='rfp_0');assert.equal(await page.locator('#rows tr').count(),0);assert.match(await page.locator('#frameFlags').innerText(),/defocused/);
+ await page.keyboard.press('ArrowRight');await page.waitForFunction(()=>viewerTest.loadedKey==='rfp_1');assert.equal(await page.locator('#rows tr').count(),4);
+ await page.locator('#background').selectOption('none');await page.waitForFunction(()=>document.querySelector('#loading').hidden);
+ box=await page.locator('#viewport').boundingBox();await page.mouse.move(box.x+100,box.y+100);await page.mouse.wheel(0,60);await page.waitForFunction(()=>viewerTest.frame===3);
+ await page.locator('#colorBy').selectOption('branch');await page.locator('#original').check();await page.locator('#unassigned').check();await page.locator('#nuclei').uncheck();
+ await page.locator('#rows tr').first().click();assert((await page.evaluate(()=>viewerTest.selected))!==null);
+ await page.locator('#issueType').selectOption('shared');await page.locator('#issueNext').click();assert(await page.evaluate(()=>viewerTest.data.frames[viewerTest.frame].spots.some(s=>s.cell.status==='shared_mask')));
+ await page.locator('#play').click();const before=await page.evaluate(()=>viewerTest.frame);await page.waitForTimeout(400);await page.locator('#play').click();assert.notEqual(await page.evaluate(()=>viewerTest.frame),before);
+ await page.locator('summary').filter({hasText:'Download assignment'}).click();const dl=page.waitForEvent('download');await page.locator('#downloadAssignments').click();assert.equal((await dl).suggestedFilename(),'assignments.csv');
+ const png=page.waitForEvent('download');await page.locator('#save').click();assert.match((await png).suggestedFilename(),/\.png$/);
+ const size=await page.evaluate(()=>({frames:viewerTest.data.frames.length,spots:viewerTest.data.frames.reduce((n,f)=>n+f.spots.length,0)}));assert.deepEqual(size,{frames:385,spots:12858});
+ assert.deepEqual(errors,[]);console.log('PASS: browser load, both backgrounds, 385 frames, centroid rows, slider, wheel, keyboard, zoom, pan, reset, layer toggles, selection, issue navigation, playback, CSV/PNG downloads; no JS errors.');
+ await b.close();
+})().catch(e=>{console.error(e);process.exit(1)});

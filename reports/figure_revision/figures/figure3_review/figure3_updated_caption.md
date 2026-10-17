@@ -1,0 +1,3 @@
+# Figure 3 caption
+
+A, observed and primary-fit OU-predicted WGD+ / WGD− folds for nine migration summaries; Hosny uses group medians. B, representative primary-fit model-generated Xuan2018 tracks and fitted OU ensemble MSD. C, with WGD− fixed, relative WGD+ persistence/noise data-misfit and regularized objective surfaces. D, paired primary-fit persistence and velocity-noise estimates. E, WGD+ / WGD− persistence folds across prior/pooling scenarios, including their pooled geometric mean. Track paths are simulations, not observed individual cells. Surface scores use the model's heuristic weighted objective; their scale is not a calibrated likelihood or biological unit. Prior/pooling contrasts are conditional sensitivity analyses, not uncertainty intervals.

@@ -1,0 +1,485 @@
+{
+  "created_utc": "2026-09-29T18:17:10.079955+00:00",
+  "source_script": "reports/figure_revision/hosny_sensitivity/build_figure.py",
+  "figure": "reports/figure_revision/figures/figure3_review/hosny_sensitivity/hosny_sensitivity.png",
+  "inputs_sha256": {
+    "reports/figure_revision/figures/figure3_review/hosny_sensitivity/hosny_surface.csv": "cd6ad9219f0ec877c0aa93e5a1d78c7c308b2da2a0719da6a0cb5c46796b227a",
+    "reports/figure_revision/figures/figure3_review/hosny_sensitivity/hosny_surface_zoom.csv": "20b765912620c0b2ac97eefaf410410b7e8d9e66229bb1226cbf297c69cef42c",
+    "reports/figure_revision/figures/figure3_review/hosny_sensitivity/hosny_surface_zoom.json": "c715108bd1553bf627fd76a590b22b288a972fe998af3f5e68ce7523b5c4d7ff",
+    "reports/figure_revision/figures/figure3_review/hosny_sensitivity/hosny_drift_profiles.csv": "9d821b51a1ab76ca5a76fcd4ca52542de758d458ac480f6709d8b0d54cefd8ff",
+    "reports/figure_revision/figures/figure3_review/hosny_sensitivity/hosny_leaveout_comparison.csv": "55adb70f68c0ed27cb934874ba6918c63bc1fa70c58f62fdf1dae83aa32b7706",
+    "reports/figure_revision/figures/figure3_review/hosny_sensitivity/hosny_analysis.json": "6b4e7291dcf9bdc9d12598b131fda8302efef39cf79b458b4a0fc82e45659144",
+    "wgd_langevin/gaussian_hierarchy/results/fit_05.json": "23cc41a78be39ec9e0e7128b41fe63cd25dd4155327627f7c84025bb22bcf262"
+  },
+  "analysis_selected_fit": null,
+  "panels": [
+    "focused fixed/refitted drift loss surfaces with broad-grid insets",
+    "drift profiles",
+    "profile tradeoffs",
+    "leave-Hosny-out fold comparison"
+  ],
+  "interpretation": "Heuristic regularized fit sensitivity; not a likelihood, confidence interval, probability, or joint parameter envelope.",
+  "numerical_note": "Hosny path summaries use stable Rice calculations; the normal asymptotic fallback is limited to the extreme high drift-to-step-noise tail and is documented in the analysis provenance.",
+  "validation": {
+    "png_only": true,
+    "all_input_files_present": true,
+    "surface_rows": 3969,
+    "zoom_surface_rows": 3721,
+    "profile_rows": 96,
+    "leaveout_rows": 11,
+    "full_fit_folds_recomputed_from_fit_05": true,
+    "selected_fit_is_zero_delta_grid_reference": true,
+    "selected_fit_is_zero_delta_zoom_reference": true,
+    "zoom_grid_metadata": {
+      "created_utc": "2026-09-29T17:54:57.283027+00:00",
+      "selected_fit": "fit_05.json",
+      "fit_sha256": "23cc41a78be39ec9e0e7128b41fe63cd25dd4155327627f7c84025bb22bcf262",
+      "analysis_script_sha256": "b79cfb5482ea941563b7b7ca950a25f7123624230aa3dbdbdfaadc0ea49873e6",
+      "refinement_script_sha256": "5ed8c0853cce3a7826e279905d0676698def1cf191fd8addd2620c5b9ffe8cb7",
+      "grid": {
+        "tau_ratio_bounds": [
+          10.0,
+          21.0
+        ],
+        "sigma_ratio_bounds": [
+          0.1,
+          0.19
+        ],
+        "tau_points": 61,
+        "sigma_points": 61,
+        "shape": [
+          61,
+          61
+        ],
+        "evaluated_points": 3721,
+        "fit_ratio": [
+          15.158309242829992,
+          0.1381073764467221
+        ]
+      },
+      "validation": {
+        "all_points_converged": true,
+        "all_values_finite": true,
+        "all_parameters_within_model_bounds": true,
+        "max_optimized_minus_fixed_total_delta": -5.684341886080801e-13,
+        "nonworsening_tolerance": 1e-07,
+        "selected_fit_scores_recomputed": {
+          "data_score": 11.473550794223446,
+          "pooling_penalty": 6.8407372170126655,
+          "persistence_penalty": 14.745799209389162,
+          "total_score": 33.06008722062528
+        }
+      },
+      "sampled_contour_bounds_by_score_and_threshold": {
+        "full_grid": {
+          "fixed_data": {
+            "1": {
+              "sampled_point_count": 2,
+              "tau_ratio_bounds": [
+                15.158309242829992,
+                15.162217176853325
+              ],
+              "sigma_ratio_bounds": [
+                0.1381073764467221,
+                0.1381073764467221
+              ]
+            },
+            "4": {
+              "sampled_point_count": 8,
+              "tau_ratio_bounds": [
+                14.162073982837956,
+                16.232991721174255
+              ],
+              "sigma_ratio_bounds": [
+                0.1337168083609858,
+                0.14219587626803534
+              ]
+            },
+            "9": {
+              "sampled_point_count": 14,
+              "tau_ratio_bounds": [
+                13.22790309332581,
+                17.3793856891845
+              ],
+              "sigma_ratio_bounds": [
+                0.12574334296829354,
+                0.15121260726661093
+              ]
+            }
+          },
+          "fixed_total": {
+            "1": {
+              "sampled_point_count": 2,
+              "tau_ratio_bounds": [
+                15.158309242829992,
+                15.162217176853325
+              ],
+              "sigma_ratio_bounds": [
+                0.1381073764467221,
+                0.1381073764467221
+              ]
+            },
+            "4": {
+              "sampled_point_count": 8,
+              "tau_ratio_bounds": [
+                14.162073982837956,
+                16.232991721174255
+              ],
+              "sigma_ratio_bounds": [
+                0.1337168083609858,
+                0.14219587626803534
+              ]
+            },
+            "9": {
+              "sampled_point_count": 14,
+              "tau_ratio_bounds": [
+                13.22790309332581,
+                17.3793856891845
+              ],
+              "sigma_ratio_bounds": [
+                0.12574334296829354,
+                0.15121260726661093
+              ]
+            }
+          },
+          "optimized_data": {
+            "1": {
+              "sampled_point_count": 2,
+              "tau_ratio_bounds": [
+                15.158309242829992,
+                15.162217176853325
+              ],
+              "sigma_ratio_bounds": [
+                0.1381073764467221,
+                0.1381073764467221
+              ]
+            },
+            "4": {
+              "sampled_point_count": 8,
+              "tau_ratio_bounds": [
+                14.162073982837956,
+                16.232991721174255
+              ],
+              "sigma_ratio_bounds": [
+                0.1337168083609858,
+                0.14219587626803534
+              ]
+            },
+            "9": {
+              "sampled_point_count": 14,
+              "tau_ratio_bounds": [
+                13.22790309332581,
+                17.3793856891845
+              ],
+              "sigma_ratio_bounds": [
+                0.12574334296829354,
+                0.15121260726661093
+              ]
+            }
+          },
+          "optimized_total": {
+            "1": {
+              "sampled_point_count": 2,
+              "tau_ratio_bounds": [
+                15.158309242829992,
+                15.162217176853325
+              ],
+              "sigma_ratio_bounds": [
+                0.1381073764467221,
+                0.1381073764467221
+              ]
+            },
+            "4": {
+              "sampled_point_count": 8,
+              "tau_ratio_bounds": [
+                14.162073982837956,
+                16.232991721174255
+              ],
+              "sigma_ratio_bounds": [
+                0.1337168083609858,
+                0.14219587626803534
+              ]
+            },
+            "9": {
+              "sampled_point_count": 14,
+              "tau_ratio_bounds": [
+                13.22790309332581,
+                17.3793856891845
+              ],
+              "sigma_ratio_bounds": [
+                0.12574334296829354,
+                0.15121260726661093
+              ]
+            }
+          }
+        },
+        "local_refinement": {
+          "fixed_data": {
+            "1": {
+              "sampled_point_count": 31,
+              "tau_ratio_bounds": [
+                14.58277984566406,
+                16.126163963129702
+              ],
+              "sigma_ratio_bounds": [
+                0.13125502305758588,
+                0.14164080740656246
+              ]
+            },
+            "4": {
+              "sampled_point_count": 106,
+              "tau_ratio_bounds": [
+                13.867396827529324,
+                17.172668684480893
+              ],
+              "sigma_ratio_bounds": [
+                0.12704044919842813,
+                0.14794045257693497
+              ]
+            },
+            "9": {
+              "sampled_point_count": 225,
+              "tau_ratio_bounds": [
+                13.187108137640081,
+                18.05856210093983
+              ],
+              "sigma_ratio_bounds": [
+                0.12163077430360089,
+                0.15284838519270244
+              ]
+            }
+          },
+          "fixed_total": {
+            "1": {
+              "sampled_point_count": 31,
+              "tau_ratio_bounds": [
+                14.400546550282039,
+                15.924643811829764
+              ],
+              "sigma_ratio_bounds": [
+                0.13414213282096624,
+                0.14319011274522309
+              ]
+            },
+            "4": {
+              "sampled_point_count": 105,
+              "tau_ratio_bounds": [
+                13.694103295774998,
+                16.746154863580426
+              ],
+              "sigma_ratio_bounds": [
+                0.1284300518826603,
+                0.14794045257693497
+              ]
+            },
+            "9": {
+              "sampled_point_count": 224,
+              "tau_ratio_bounds": [
+                13.022315814234352,
+                17.61004553877028
+              ],
+              "sigma_ratio_bounds": [
+                0.1229612045053512,
+                0.15452028203882087
+              ]
+            }
+          },
+          "optimized_data": {
+            "1": {
+              "sampled_point_count": 31,
+              "tau_ratio_bounds": [
+                14.58277984566406,
+                16.126163963129702
+              ],
+              "sigma_ratio_bounds": [
+                0.13125502305758588,
+                0.14164080740656246
+              ]
+            },
+            "4": {
+              "sampled_point_count": 106,
+              "tau_ratio_bounds": [
+                13.867396827529324,
+                17.172668684480893
+              ],
+              "sigma_ratio_bounds": [
+                0.12704044919842813,
+                0.14794045257693497
+              ]
+            },
+            "9": {
+              "sampled_point_count": 225,
+              "tau_ratio_bounds": [
+                13.187108137640081,
+                18.05856210093983
+              ],
+              "sigma_ratio_bounds": [
+                0.12163077430360089,
+                0.15284838519270244
+              ]
+            }
+          },
+          "optimized_total": {
+            "1": {
+              "sampled_point_count": 31,
+              "tau_ratio_bounds": [
+                14.400546550282039,
+                15.924643811829764
+              ],
+              "sigma_ratio_bounds": [
+                0.13414213282096624,
+                0.14319011274522309
+              ]
+            },
+            "4": {
+              "sampled_point_count": 105,
+              "tau_ratio_bounds": [
+                13.694103295774998,
+                16.746154863580426
+              ],
+              "sigma_ratio_bounds": [
+                0.1284300518826603,
+                0.14794045257693497
+              ]
+            },
+            "9": {
+              "sampled_point_count": 224,
+              "tau_ratio_bounds": [
+                13.022315814234352,
+                17.61004553877028
+              ],
+              "sigma_ratio_bounds": [
+                0.1229612045053512,
+                0.15452028203882087
+              ]
+            }
+          }
+        }
+      },
+      "interpretation": "The local surface refines the fixed/refit drift \u03941/4/9 contours around fit_05. Contour bounds are sampled-grid extents, not continuous intervals.",
+      "output_sha256": {
+        "hosny_surface_zoom.csv": "20b765912620c0b2ac97eefaf410410b7e8d9e66229bb1226cbf297c69cef42c"
+      }
+    },
+    "finite_surface_rows": 3969
+  },
+  "hosny_fit_fold": {
+    "tau_fold": 11.73623535646066,
+    "sigma_fold": 0.16941934427398195
+  },
+  "summary_results": {
+    "sampled_profile_parameter_ranges": {
+      "1": {
+        "hosny_tau_fold": [
+          11.168446555706414,
+          12.414934681628674
+        ],
+        "hosny_sigma_fold": [
+          0.15520228247064627,
+          0.18035134529364416
+        ],
+        "mu_reference": [
+          -2.666666666666668,
+          4.0
+        ],
+        "mu_wgd": [
+          0.0,
+          6.666666666666668
+        ],
+        "drift_contrast": [
+          -1.9999999999999998,
+          8.0
+        ],
+        "sampled_profile_fit_count": 20
+      },
+      "4": {
+        "hosny_tau_fold": [
+          10.729140220893871,
+          12.519775961221848
+        ],
+        "hosny_sigma_fold": [
+          0.14480282083131618,
+          0.19437114006142744
+        ],
+        "mu_reference": [
+          -5.333333333333334,
+          6.666666666666664
+        ],
+        "mu_wgd": [
+          -6.666666666666666,
+          13.333333333333336
+        ],
+        "drift_contrast": [
+          -10.0,
+          16.0
+        ],
+        "sampled_profile_fit_count": 40
+      },
+      "9": {
+        "hosny_tau_fold": [
+          9.703429737615954,
+          12.632802938731887
+        ],
+        "hosny_sigma_fold": [
+          0.12232533068439168,
+          0.19933098971929689
+        ],
+        "mu_reference": [
+          -9.333333333333334,
+          10.666666666666664
+        ],
+        "mu_wgd": [
+          -15.0,
+          21.66666666666667
+        ],
+        "drift_contrast": [
+          -18.0,
+          24.0
+        ],
+        "sampled_profile_fit_count": 64
+      }
+    },
+    "zero_fixed_drift_profile_delta": {
+      "mu_reference": {
+        "delta_objective_vs_unrestricted": 0.28496484649946296,
+        "total_score": 33.34505206700763
+      },
+      "mu_wgd": {
+        "delta_objective_vs_unrestricted": 0.6394350483668632,
+        "total_score": 33.69952226887503
+      },
+      "drift_contrast": {
+        "delta_objective_vs_unrestricted": 0.1734951385397281,
+        "total_score": 33.233582359047894
+      }
+    },
+    "pooled_fold_comparisons": {
+      "full5_allstudies": {
+        "population_tau_fold": 15.158309242829993,
+        "population_sigma_fold": 0.13810737644672214,
+        "data_score": 11.473550794223446,
+        "pooling_penalty": 6.8407372170126655,
+        "persistence_penalty": 14.745799209389162,
+        "total_score": 33.06008722062528
+      },
+      "full5_remaining4_only": {
+        "population_tau_fold": 16.159623981944062,
+        "population_sigma_fold": 0.13122915881072358,
+        "data_score": 11.169322661822381,
+        "pooling_penalty": 6.549081293048916,
+        "persistence_penalty": 12.537226840694828,
+        "total_score": 30.255630795566127
+      },
+      "leaveHosnyOut_refit": {
+        "population_tau_fold": 18.65625776001837,
+        "population_sigma_fold": 0.11571787290828436,
+        "data_score": 10.735686675753461,
+        "pooling_penalty": 5.801832556326744,
+        "persistence_penalty": 13.58758506312699,
+        "total_score": 30.125104295207198
+      }
+    },
+    "active_model_bounds_among_sampled_delta9_profile_fits": [],
+    "interpretation": "The unions summarize sampled one-dimensional profile fits only; they are not a joint uncertainty region or full parameter limits."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "name": "single-calibration-local-bistability",
+  "chemistry_class": "single_species",
+  "stage": "calibration",
+  "protocol": "local_reaction_roots",
+  "parameterization": "dimensionless_strip_wave_pinning",
+  "standardization_status": "calibration_v2",
+  "module": "migration1d.single_species.calibration",
+  "output": "results/single_species/calibration/local_bistability",
+  "arguments": ["--analysis", "local-bistability"],
+  "resources": {"cpus": 1, "memory": "2G", "time": "00:15:00", "qos": "short"}
+}

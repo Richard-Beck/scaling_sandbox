@@ -1,0 +1,19 @@
+{
+  "job_id": "21126257",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--qos=small",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--mem=3G",
+    "--time=01:00:00",
+    "--job-name=vision-ring-duration",
+    "--array=12",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/logs/%A_%a.out",
+    "--error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/logs/%A_%a.err",
+    "--wrap",
+    "exec env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 /home/4473331/.conda/envs/scaling_sandbox/bin/python /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017/frozen_sources/code/mechanisms/vision_ring_duration_20261017.py worker --run /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_ring_duration_20261017 --slot \"$SLURM_ARRAY_TASK_ID\""
+  ],
+  "manifest_sha256": "98dd4d8d4292f26dd2360c0b1d4995c9686a14ef0c638274967a60b033319c60"
+}

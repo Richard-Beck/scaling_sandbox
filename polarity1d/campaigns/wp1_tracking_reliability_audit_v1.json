@@ -1,0 +1,2323 @@
+{
+  "campaign_name": "wp1_tracking_reliability_audit_v1",
+  "created_utc": "2026-09-04T12:33:09.633252+00:00",
+  "description": "Retained trajectories for all 64 Jilkine model-by-length-by-period conditions shown in WP1 Figure 1I.",
+  "metadata": {
+    "condition_count": 64,
+    "models": [
+      "wave_pinning",
+      "otsuji",
+      "goryachev",
+      "legi"
+    ],
+    "purpose": "audit harmonic phase and reliability classification"
+  },
+  "schema_version": 1,
+  "task_count": 64,
+  "tasks": [
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 12.5
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 50.0,
+        "slope": 0.02,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 300.0,
+        "length": 5.0,
+        "max_step": 2.5,
+        "output_interval": 0.625
+      },
+      "task_digest": "4fad036dfc06dcf44193fb6e954977bf93c0f2b007e51a6fc57e5a54282022d5",
+      "task_id": "00000-4fad036dfc06",
+      "task_index": 0,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 50.0,
+        "start": 50.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 25.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 100.0,
+        "slope": 0.02,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 600.0,
+        "length": 5.0,
+        "max_step": 5.0,
+        "output_interval": 1.25
+      },
+      "task_digest": "5042ce1a0510b0937d637aa50945fefe864dcc3690d5951b73a49331b754fa65",
+      "task_id": "00001-5042ce1a0510",
+      "task_index": 1,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 100.0,
+        "start": 100.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 200.0,
+        "slope": 0.02,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 1200.0,
+        "length": 5.0,
+        "max_step": 5.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "00d7a98a51788b42f2e14591db17667e66c7382476961577b82554026d137f49",
+      "task_id": "00002-00d7a98a5178",
+      "task_index": 2,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 200.0,
+        "start": 200.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 100.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 400.0,
+        "slope": 0.02,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 2400.0,
+        "length": 5.0,
+        "max_step": 5.0,
+        "output_interval": 5.0
+      },
+      "task_digest": "a4d62b6465863f5936104780562c2aed8bcf9120728626025766815c45fb4012",
+      "task_id": "00003-a4d62b646586",
+      "task_index": 3,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 400.0,
+        "start": 400.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 12.5
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 50.0,
+        "slope": 0.006666666666666667,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 300.0,
+        "length": 15.0,
+        "max_step": 2.5,
+        "output_interval": 0.625
+      },
+      "task_digest": "c09694eea126c02abed243b783b9d83dec34b775c7f2db9c3cc58c559009e479",
+      "task_id": "00004-c09694eea126",
+      "task_index": 4,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 50.0,
+        "start": 50.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 25.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 100.0,
+        "slope": 0.006666666666666667,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 600.0,
+        "length": 15.0,
+        "max_step": 5.0,
+        "output_interval": 1.25
+      },
+      "task_digest": "cc451a04475874d5d9a2b041b035e829dea2f040c92b8d581db8ce1d4ba12eab",
+      "task_id": "00005-cc451a044758",
+      "task_index": 5,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 100.0,
+        "start": 100.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 200.0,
+        "slope": 0.006666666666666667,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 1200.0,
+        "length": 15.0,
+        "max_step": 5.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "be98b160f6b5d077b8f3933c0bac1397aa0b917702b31f8c46adff3966890ff2",
+      "task_id": "00006-be98b160f6b5",
+      "task_index": 6,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 200.0,
+        "start": 200.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 100.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 400.0,
+        "slope": 0.006666666666666667,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 2400.0,
+        "length": 15.0,
+        "max_step": 5.0,
+        "output_interval": 5.0
+      },
+      "task_digest": "a07a193eac51c8b8c940bee16947b698eff7df1509254f5d6732ad34e06f7000",
+      "task_id": "00007-a07a193eac51",
+      "task_index": 7,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 400.0,
+        "start": 400.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 12.5
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 50.0,
+        "slope": 0.004,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 300.0,
+        "length": 25.0,
+        "max_step": 2.5,
+        "output_interval": 0.625
+      },
+      "task_digest": "917515b8ce172371ba0bcc9d68b6c1aad93f1bc0bde1da1c909233dde25d3bd8",
+      "task_id": "00008-917515b8ce17",
+      "task_index": 8,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 50.0,
+        "start": 50.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 25.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 100.0,
+        "slope": 0.004,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 600.0,
+        "length": 25.0,
+        "max_step": 5.0,
+        "output_interval": 1.25
+      },
+      "task_digest": "c745ba21b77878f8b60ee20bb32e1e76f42803b938864ad1f1e34eaaa0147c84",
+      "task_id": "00009-c745ba21b778",
+      "task_index": 9,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 100.0,
+        "start": 100.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 200.0,
+        "slope": 0.004,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 1200.0,
+        "length": 25.0,
+        "max_step": 5.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "1cdde68ef712903ca2efc8a18759d4051ffddbe5cc870e726d39aa2a8ccb6952",
+      "task_id": "00010-1cdde68ef712",
+      "task_index": 10,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 200.0,
+        "start": 200.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 100.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 400.0,
+        "slope": 0.004,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 2400.0,
+        "length": 25.0,
+        "max_step": 5.0,
+        "output_interval": 5.0
+      },
+      "task_digest": "f3e4bdf51b2536f842972e49626f30b98305924b892b00a791ceca41782d5507",
+      "task_id": "00011-f3e4bdf51b25",
+      "task_index": 11,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 400.0,
+        "start": 400.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 12.5
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 50.0,
+        "slope": 0.002564102564102564,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 300.0,
+        "length": 39.0,
+        "max_step": 2.5,
+        "output_interval": 0.625
+      },
+      "task_digest": "b267c22e728edb875b1dcccbfb8c9fe24ca40405ae2755d1009fa90313ec8549",
+      "task_id": "00012-b267c22e728e",
+      "task_index": 12,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 50.0,
+        "start": 50.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 25.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 100.0,
+        "slope": 0.002564102564102564,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 600.0,
+        "length": 39.0,
+        "max_step": 5.0,
+        "output_interval": 1.25
+      },
+      "task_digest": "627586938498ad52ea06cf0a29254b6ade644674dc08444a1ab7ebb719871381",
+      "task_id": "00013-627586938498",
+      "task_index": 13,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 100.0,
+        "start": 100.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 200.0,
+        "slope": 0.002564102564102564,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 1200.0,
+        "length": 39.0,
+        "max_step": 5.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "93676ff1a84a8454df52c16445c3d68d48c27eeb922a26d71132a217af7dd361",
+      "task_id": "00014-93676ff1a84a",
+      "task_index": 14,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 200.0,
+        "start": 200.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 100.0
+      },
+      "model": "wave_pinning",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 400.0,
+        "slope": 0.002564102564102564,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 2400.0,
+        "length": 39.0,
+        "max_step": 5.0,
+        "output_interval": 5.0
+      },
+      "task_digest": "7fd66577b241204ca209b3c9df6e3aca408423083821d429055dec0cace6a072",
+      "task_id": "00015-7fd66577b241",
+      "task_index": 15,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 400.0,
+        "start": 400.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 12.5
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 50.0,
+        "slope": 0.02,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 300.0,
+        "length": 5.0,
+        "max_step": 2.5,
+        "output_interval": 0.625
+      },
+      "task_digest": "a6100d16992077e50c65513f8e88ebd7fc3ca25616cd544cc16a84b7a742ec56",
+      "task_id": "00016-a6100d169920",
+      "task_index": 16,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 50.0,
+        "start": 50.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 25.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 100.0,
+        "slope": 0.02,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 600.0,
+        "length": 5.0,
+        "max_step": 5.0,
+        "output_interval": 1.25
+      },
+      "task_digest": "d18dff55033d78c950d58b557982e2fa22f4b540d5f3eb121156b9fe2d81359d",
+      "task_id": "00017-d18dff55033d",
+      "task_index": 17,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 100.0,
+        "start": 100.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 200.0,
+        "slope": 0.02,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 1200.0,
+        "length": 5.0,
+        "max_step": 5.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "65f913df408c3e0eee7f44418f6cde40c4cdb49897d4d5549aa59c3e785339d2",
+      "task_id": "00018-65f913df408c",
+      "task_index": 18,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 200.0,
+        "start": 200.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 100.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 400.0,
+        "slope": 0.02,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 2400.0,
+        "length": 5.0,
+        "max_step": 5.0,
+        "output_interval": 5.0
+      },
+      "task_digest": "1a86bb412402a15ca6cc09321f2f8b208e26838dac68e085d58c3e8efd9641ab",
+      "task_id": "00019-1a86bb412402",
+      "task_index": 19,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 400.0,
+        "start": 400.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 12.5
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 50.0,
+        "slope": 0.006666666666666667,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 300.0,
+        "length": 15.0,
+        "max_step": 2.5,
+        "output_interval": 0.625
+      },
+      "task_digest": "9d26dc4c16ae724db526171f3aeb12e62dec48bb78d8933a760da6a9d66975e6",
+      "task_id": "00020-9d26dc4c16ae",
+      "task_index": 20,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 50.0,
+        "start": 50.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 25.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 100.0,
+        "slope": 0.006666666666666667,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 600.0,
+        "length": 15.0,
+        "max_step": 5.0,
+        "output_interval": 1.25
+      },
+      "task_digest": "5947d9fd2e159a9bd55a21bd83df0dc7ea03ca5bcd606ef91a6ac752930c261e",
+      "task_id": "00021-5947d9fd2e15",
+      "task_index": 21,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 100.0,
+        "start": 100.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 200.0,
+        "slope": 0.006666666666666667,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 1200.0,
+        "length": 15.0,
+        "max_step": 5.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "0a08165f07a67f33b3dace1eaf26fd7bdbfd5785d66074446ca24e50f2b955ce",
+      "task_id": "00022-0a08165f07a6",
+      "task_index": 22,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 200.0,
+        "start": 200.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 100.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 400.0,
+        "slope": 0.006666666666666667,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 2400.0,
+        "length": 15.0,
+        "max_step": 5.0,
+        "output_interval": 5.0
+      },
+      "task_digest": "a213e16af183347dce9d7e1162fb31e6cbaf1c7de79c48eb352fc876dd1e545c",
+      "task_id": "00023-a213e16af183",
+      "task_index": 23,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 400.0,
+        "start": 400.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 12.5
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 50.0,
+        "slope": 0.004,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 300.0,
+        "length": 25.0,
+        "max_step": 2.5,
+        "output_interval": 0.625
+      },
+      "task_digest": "e6c749b59d5bdf9ed446569cd5132686b992b40c505f84f6c55014e40b5a25a9",
+      "task_id": "00024-e6c749b59d5b",
+      "task_index": 24,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 50.0,
+        "start": 50.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 25.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 100.0,
+        "slope": 0.004,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 600.0,
+        "length": 25.0,
+        "max_step": 5.0,
+        "output_interval": 1.25
+      },
+      "task_digest": "1ba1a9dfb949c3242ed7246a0ce41866e13999dd2f3a20695627cd3eab7e5062",
+      "task_id": "00025-1ba1a9dfb949",
+      "task_index": 25,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 100.0,
+        "start": 100.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 200.0,
+        "slope": 0.004,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 1200.0,
+        "length": 25.0,
+        "max_step": 5.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "4deef15578fc570504a19c439a7ea2a38ba51d527afc4e9a2aa6113f1ec87a3a",
+      "task_id": "00026-4deef15578fc",
+      "task_index": 26,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 200.0,
+        "start": 200.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 100.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 400.0,
+        "slope": 0.004,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 2400.0,
+        "length": 25.0,
+        "max_step": 5.0,
+        "output_interval": 5.0
+      },
+      "task_digest": "a8816fc283b5f126d1c48e8ff10c619731e62e8fb1b2d6cc52b068f0a7d914c7",
+      "task_id": "00027-a8816fc283b5",
+      "task_index": 27,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 400.0,
+        "start": 400.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 12.5
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 50.0,
+        "slope": 0.002564102564102564,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 300.0,
+        "length": 39.0,
+        "max_step": 2.5,
+        "output_interval": 0.625
+      },
+      "task_digest": "73512e9590108b069892a2b7af8d0bdf36f485b531ca17a539d1d7ae2770ccbb",
+      "task_id": "00028-73512e959010",
+      "task_index": 28,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 50.0,
+        "start": 50.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 25.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 100.0,
+        "slope": 0.002564102564102564,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 600.0,
+        "length": 39.0,
+        "max_step": 5.0,
+        "output_interval": 1.25
+      },
+      "task_digest": "a60d76fd5f32a71e1e6541e79c0d9593ebc5f96a3888b9cf96420567ea39d119",
+      "task_id": "00029-a60d76fd5f32",
+      "task_index": 29,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 100.0,
+        "start": 100.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 200.0,
+        "slope": 0.002564102564102564,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 1200.0,
+        "length": 39.0,
+        "max_step": 5.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "95d29d716561076989ef875bef6fb95614c1087d2224c0bb9c8afccbfda9885c",
+      "task_id": "00030-95d29d716561",
+      "task_index": 30,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 200.0,
+        "start": 200.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 100.0
+      },
+      "model": "otsuji",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 400.0,
+        "slope": 0.002564102564102564,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 2400.0,
+        "length": 39.0,
+        "max_step": 5.0,
+        "output_interval": 5.0
+      },
+      "task_digest": "d3c2cf09565f033d2c0e83f3592f55b432aac3061cf80e8fad9127e3b93cad85",
+      "task_id": "00031-d3c2cf09565f",
+      "task_index": 31,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 400.0,
+        "start": 400.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 12.5
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 50.0,
+        "slope": 0.02,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 300.0,
+        "length": 5.0,
+        "max_step": 2.5,
+        "output_interval": 0.625
+      },
+      "task_digest": "7821099a835df1302754cebb27d2bef08d5eaf58ab086ffa2895b70ef463a849",
+      "task_id": "00032-7821099a835d",
+      "task_index": 32,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 50.0,
+        "start": 50.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 25.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 100.0,
+        "slope": 0.02,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 600.0,
+        "length": 5.0,
+        "max_step": 5.0,
+        "output_interval": 1.25
+      },
+      "task_digest": "2b3dbfc03fd62036801a20ab4e73f69e88be0d7ee260d30ab089ebdfea7cac52",
+      "task_id": "00033-2b3dbfc03fd6",
+      "task_index": 33,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 100.0,
+        "start": 100.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 200.0,
+        "slope": 0.02,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 1200.0,
+        "length": 5.0,
+        "max_step": 5.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "b0f1d56dc1a5968d8f75ae31f606c00b5782a9a4b3d84f24bd193b579456254f",
+      "task_id": "00034-b0f1d56dc1a5",
+      "task_index": 34,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 200.0,
+        "start": 200.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 100.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 400.0,
+        "slope": 0.02,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 2400.0,
+        "length": 5.0,
+        "max_step": 5.0,
+        "output_interval": 5.0
+      },
+      "task_digest": "4c2be267795856ce0b87db1ae995c1000d21b324180510e3105ca04fbf5f8681",
+      "task_id": "00035-4c2be2677958",
+      "task_index": 35,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 400.0,
+        "start": 400.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 12.5
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 50.0,
+        "slope": 0.006666666666666667,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 300.0,
+        "length": 15.0,
+        "max_step": 2.5,
+        "output_interval": 0.625
+      },
+      "task_digest": "6f27696a1813f978453c791ca8bae747072ce29a332c87a070dadba78b99f282",
+      "task_id": "00036-6f27696a1813",
+      "task_index": 36,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 50.0,
+        "start": 50.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 25.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 100.0,
+        "slope": 0.006666666666666667,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 600.0,
+        "length": 15.0,
+        "max_step": 5.0,
+        "output_interval": 1.25
+      },
+      "task_digest": "b2dd8f3c9854788d1d85177efaba087de063dfa465c9306ed9df13f4c4806987",
+      "task_id": "00037-b2dd8f3c9854",
+      "task_index": 37,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 100.0,
+        "start": 100.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 200.0,
+        "slope": 0.006666666666666667,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 1200.0,
+        "length": 15.0,
+        "max_step": 5.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "9482991bbadd1c16e81cb50edfab88473423c3dd59d3f6684902d2bb04b1212c",
+      "task_id": "00038-9482991bbadd",
+      "task_index": 38,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 200.0,
+        "start": 200.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 100.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 400.0,
+        "slope": 0.006666666666666667,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 2400.0,
+        "length": 15.0,
+        "max_step": 5.0,
+        "output_interval": 5.0
+      },
+      "task_digest": "59ed8729d4d0c9f0985bb079c0e9641dbb509da3a220bcab1ae93c1cabb93b40",
+      "task_id": "00039-59ed8729d4d0",
+      "task_index": 39,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 400.0,
+        "start": 400.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 12.5
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 50.0,
+        "slope": 0.004,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 300.0,
+        "length": 25.0,
+        "max_step": 2.5,
+        "output_interval": 0.625
+      },
+      "task_digest": "f0b0b7d595b19648ff34de22d746791a471a8f4bf1a12866d898d60996fb2167",
+      "task_id": "00040-f0b0b7d595b1",
+      "task_index": 40,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 50.0,
+        "start": 50.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 25.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 100.0,
+        "slope": 0.004,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 600.0,
+        "length": 25.0,
+        "max_step": 5.0,
+        "output_interval": 1.25
+      },
+      "task_digest": "f003067dbef8450e4790323a888cbb7034151ab4cd767e9e8dec11cd6616bdca",
+      "task_id": "00041-f003067dbef8",
+      "task_index": 41,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 100.0,
+        "start": 100.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 200.0,
+        "slope": 0.004,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 1200.0,
+        "length": 25.0,
+        "max_step": 5.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "76e95028eec167aa773af9ef331c6ead06affdf167df5b597c19b476360eeb86",
+      "task_id": "00042-76e95028eec1",
+      "task_index": 42,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 200.0,
+        "start": 200.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 100.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 400.0,
+        "slope": 0.004,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 2400.0,
+        "length": 25.0,
+        "max_step": 5.0,
+        "output_interval": 5.0
+      },
+      "task_digest": "260d6ae0a42f26304cc568670880d0be2aba6db2737e7c28b7bc1d0ab0dd649c",
+      "task_id": "00043-260d6ae0a42f",
+      "task_index": 43,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 400.0,
+        "start": 400.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 12.5
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 50.0,
+        "slope": 0.002564102564102564,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 300.0,
+        "length": 39.0,
+        "max_step": 2.5,
+        "output_interval": 0.625
+      },
+      "task_digest": "711606af818548c7a244a7427fbbf3834f048736ca7a206c5f91c455c33a3cc0",
+      "task_id": "00044-711606af8185",
+      "task_index": 44,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 50.0,
+        "start": 50.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 25.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 100.0,
+        "slope": 0.002564102564102564,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 600.0,
+        "length": 39.0,
+        "max_step": 5.0,
+        "output_interval": 1.25
+      },
+      "task_digest": "c652e58718fd54c636c4377b164dcae04db213633d90649fd1f45b2b514460ac",
+      "task_id": "00045-c652e58718fd",
+      "task_index": 45,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 100.0,
+        "start": 100.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 200.0,
+        "slope": 0.002564102564102564,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 1200.0,
+        "length": 39.0,
+        "max_step": 5.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "17682b861a284a501b030cbddf768b12d2017dd3d074479effefae2b73fb598e",
+      "task_id": "00046-17682b861a28",
+      "task_index": 46,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 200.0,
+        "start": 200.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 100.0
+      },
+      "model": "goryachev",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 400.0,
+        "slope": 0.002564102564102564,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 2400.0,
+        "length": 39.0,
+        "max_step": 5.0,
+        "output_interval": 5.0
+      },
+      "task_digest": "208e8c34b22528439f1f48db0571c7b403660b1a3b920270c14bc733d2f32cf8",
+      "task_id": "00047-208e8c34b225",
+      "task_index": 47,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 400.0,
+        "start": 400.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 12.5
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 50.0,
+        "slope": 0.02,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 300.0,
+        "length": 5.0,
+        "max_step": 2.5,
+        "output_interval": 0.625
+      },
+      "task_digest": "7152c3faaaf783a767f36ccf5601e838d490dd8338704c2e32fdc250b7937991",
+      "task_id": "00048-7152c3faaaf7",
+      "task_index": 48,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 50.0,
+        "start": 50.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 25.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 100.0,
+        "slope": 0.02,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 600.0,
+        "length": 5.0,
+        "max_step": 5.0,
+        "output_interval": 1.25
+      },
+      "task_digest": "08b3912103a38ff8ec4b3dfba27854aa32b375848658ee9f6f67798413c3d1b6",
+      "task_id": "00049-08b3912103a3",
+      "task_index": 49,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 100.0,
+        "start": 100.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 200.0,
+        "slope": 0.02,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 1200.0,
+        "length": 5.0,
+        "max_step": 5.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "0982e3835b015661e48701ec6fffd926860577dd9b8d9074cdaaf66a5cae7039",
+      "task_id": "00050-0982e3835b01",
+      "task_index": 50,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 200.0,
+        "start": 200.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 100.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 400.0,
+        "slope": 0.02,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 101,
+        "end_time": 2400.0,
+        "length": 5.0,
+        "max_step": 5.0,
+        "output_interval": 5.0
+      },
+      "task_digest": "cbbab6899533ec22a78765da9f8c360692a589952ffc9906a40ecfb7d5452d22",
+      "task_id": "00051-cbbab6899533",
+      "task_index": 51,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 400.0,
+        "start": 400.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 12.5
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 50.0,
+        "slope": 0.006666666666666667,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 300.0,
+        "length": 15.0,
+        "max_step": 2.5,
+        "output_interval": 0.625
+      },
+      "task_digest": "582cfba3bd6adf4fdec622d841982f625ac2d6c09f186a37a0cfcd23d40527d2",
+      "task_id": "00052-582cfba3bd6a",
+      "task_index": 52,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 50.0,
+        "start": 50.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 25.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 100.0,
+        "slope": 0.006666666666666667,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 600.0,
+        "length": 15.0,
+        "max_step": 5.0,
+        "output_interval": 1.25
+      },
+      "task_digest": "1ab2edeada5cbd423481011cf2c61789f0165246b992e450faa0558f8c16a312",
+      "task_id": "00053-1ab2edeada5c",
+      "task_index": 53,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 100.0,
+        "start": 100.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 200.0,
+        "slope": 0.006666666666666667,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 1200.0,
+        "length": 15.0,
+        "max_step": 5.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "1e71f4966376a9cc7a76f2fcf6bfd4954717032777c327cfaf88afe1910c7a22",
+      "task_id": "00054-1e71f4966376",
+      "task_index": 54,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 200.0,
+        "start": 200.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 100.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 400.0,
+        "slope": 0.006666666666666667,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 150,
+        "end_time": 2400.0,
+        "length": 15.0,
+        "max_step": 5.0,
+        "output_interval": 5.0
+      },
+      "task_digest": "215a01f710e5d8fc4c86f841c2fb8707a556b39412dccc60f04451471c0b77a9",
+      "task_id": "00055-215a01f710e5",
+      "task_index": 55,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 400.0,
+        "start": 400.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 12.5
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 50.0,
+        "slope": 0.004,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 300.0,
+        "length": 25.0,
+        "max_step": 2.5,
+        "output_interval": 0.625
+      },
+      "task_digest": "087599d9e6f73f9f810af11bc13caf22bfc7d6029af39c7a28be436ac20e882c",
+      "task_id": "00056-087599d9e6f7",
+      "task_index": 56,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 50.0,
+        "start": 50.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 25.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 100.0,
+        "slope": 0.004,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 600.0,
+        "length": 25.0,
+        "max_step": 5.0,
+        "output_interval": 1.25
+      },
+      "task_digest": "6c4b12ebe7221314d0d8d5bc33efe0cff198b8dc0f4bcf17d8904b789fd9f6d2",
+      "task_id": "00057-6c4b12ebe722",
+      "task_index": 57,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 100.0,
+        "start": 100.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 200.0,
+        "slope": 0.004,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 1200.0,
+        "length": 25.0,
+        "max_step": 5.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "4fc4e229d9ca1521684c3d33a58aefb1866f91589588f5057347679ff498cc06",
+      "task_id": "00058-4fc4e229d9ca",
+      "task_index": 58,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 200.0,
+        "start": 200.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 100.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 400.0,
+        "slope": 0.004,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 250,
+        "end_time": 2400.0,
+        "length": 25.0,
+        "max_step": 5.0,
+        "output_interval": 5.0
+      },
+      "task_digest": "7cc1f5304630541d1d57348461fa731fd91e15d39cc273943449bcdf3a375be1",
+      "task_id": "00059-7cc1f5304630",
+      "task_index": 59,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 400.0,
+        "start": 400.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 12.5
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 50.0,
+        "slope": 0.002564102564102564,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 300.0,
+        "length": 39.0,
+        "max_step": 2.5,
+        "output_interval": 0.625
+      },
+      "task_digest": "d7b52d75d908ba72d95792a54dac5608b603998505065d6a8df7c9aa5e8055f6",
+      "task_id": "00060-d7b52d75d908",
+      "task_index": 60,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 50.0,
+        "start": 50.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 25.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 100.0,
+        "slope": 0.002564102564102564,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 600.0,
+        "length": 39.0,
+        "max_step": 5.0,
+        "output_interval": 1.25
+      },
+      "task_digest": "1d94b3becb4e50da2eeedfd8f7638b3afbf61e386cf71cac73278fe9490cf895",
+      "task_id": "00061-1d94b3becb4e",
+      "task_index": 61,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 100.0,
+        "start": 100.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 200.0,
+        "slope": 0.002564102564102564,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 1200.0,
+        "length": 39.0,
+        "max_step": 5.0,
+        "output_interval": 2.5
+      },
+      "task_digest": "d981fb7cf3f75e282741b7aa8b3eda7693aee3ea1abf49d17180db0640505332",
+      "task_id": "00062-d981fb7cf3f7",
+      "task_index": 62,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 200.0,
+        "start": 200.0
+      }
+    },
+    {
+      "assay": "dynamic_tracking",
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 100.0
+      },
+      "model": "legi",
+      "protocol": {
+        "name": "alternating_gradient",
+        "period": 400.0,
+        "slope": 0.002564102564102564,
+        "start": 0.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "backend": "bdf",
+        "cells": 390,
+        "end_time": 2400.0,
+        "length": 39.0,
+        "max_step": 5.0,
+        "output_interval": 5.0
+      },
+      "task_digest": "2bc556dc1e189b3d8faebc48cb091573f43a29a4451666c66b71db5037dfcf20",
+      "task_id": "00063-2bc556dc1e18",
+      "task_index": 63,
+      "tier": "tracking_reliability_audit",
+      "tracking": {
+        "maximum_lag_fraction": 0.25,
+        "minimum_amplitude": 0.05,
+        "period": 400.0,
+        "start": 400.0
+      }
+    }
+  ]
+}

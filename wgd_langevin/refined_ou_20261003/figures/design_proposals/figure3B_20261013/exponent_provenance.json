@@ -1,0 +1,27 @@
+{
+  "created_utc": "2026-10-13T18:11:01.619759+00:00",
+  "status": "Separate exponent-focused design preview; manuscript and ratio preview unchanged",
+  "selected_primary_fit": "fit_01.json",
+  "upper_display_counts": [
+    12,
+    12
+  ],
+  "upper_display_rule": "Twelve display samples per raster curve, including endpoints; count is a layout choice, not experimental lag count",
+  "experimental_lag_grid": "Unknown. Display locations are not recovered author-calculated lag locations.",
+  "previous_preview_correction": "Earlier 64/66-dot display was every fourth raster column, not 64/66 recovered experimental lags. Corrected sparse display, legend, and footnote explicitly identify curve sampling.",
+  "slope_estimator": "OLS of log(MSD) versus log(lag); descriptive curve shape only",
+  "observed_slope_windows": 6,
+  "window_log10_width": 0.30378250591016553,
+  "model_slope_estimator": "Moving log-linear fit using 151 equally spaced log lags over identical window width",
+  "slope_display_extent": "Only centers for which the entire model fitting window is in the measured lag interval",
+  "uncertainty": "Raster samples are correlated. Slopes depend on window choice; no biological confidence intervals inferred.",
+  "caption": "Upper: twelve display samples of each digitized published population MSD line, with current fitted OU expectations as solid lines. The display points are a visualization choice; neither their number nor their lag locations reconstruct the original experimental MSD lag grid, which is unknown. Lower: slopes we estimated in six equal log-lag windows of the digitized curves, with matching-window moving OU exponents as solid lines. These are not author-reported local exponents. Constant exponents would appear horizontal. All native raster samples within each slope window enter the estimate; raster samples are correlated and are not independent cell observations.",
+  "validation": "Current fit SHA-256 and all native MSD predictions match manuscript; known power-law exponents recovered to 1e-12; OU window exponents remain between 1 and 2 and decrease with lag.",
+  "source_sha256": {
+    "wgd_langevin/refined_ou_20261003/results/fit_01.json": "3b48c3e74fd2e3c4309f991b5dc6de20d4869e02037d71e69ecbb1711e3bc63d",
+    "wgd_langevin/refined_ou_20261003/figures/main_03_migration_OU_provenance.json": "4b4e1fcca0a81aedc54c38db6ba13a3aa4d06573d79aa29ddbd23e753a67b046",
+    "wgd_langevin/refined_ou_20261003/figures/design_proposals/figure3B_20261013/build_exponent_preview.py": "5e038034aee0de6c59b67b2fab2c3f2212cdba5d6420412b5485dcb49e415acb",
+    "wgd_langevin/refined_ou_20261003/scripts/figure_tracks.py": "1375d6b073b98d9f3f4440d495b1e62cbff02c0f4e0f97d873d4061f6e5c4b2b",
+    "wgd_langevin/persistence_only/campaign.py": "c8cbcc70b2f3ce48a1f01dbcd949ede9be172f841a64bf857d44248d6df52585"
+  }
+}

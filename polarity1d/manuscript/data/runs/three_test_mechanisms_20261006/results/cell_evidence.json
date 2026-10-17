@@ -1,0 +1,1579 @@
+[
+  {
+    "model": "wave_pinning",
+    "geometry": "fixed_physical",
+    "n_success": 19,
+    "n_censored": 1,
+    "n_ineligible": 2,
+    "sampled_lengths": [
+      5.0,
+      21.0,
+      37.0,
+      39.0
+    ],
+    "initial_old_width_long_short_ratio": 7.3789615505362685,
+    "initial_old_amount_long_short_ratio": 10.790405825198679,
+    "front_speed_long_short_ratio": null,
+    "old_half_time_long_short_ratio": 166.24320695660316,
+    "activation_time_long_short_ratio": 1.5391732575397383,
+    "initial_inactive_right_long_short_ratio": 0.9956359715735901,
+    "initial_activation_source_long_short_ratio": 0.9933675643270045,
+    "old_excess_loss_rate_long_short_ratio": 0.06490734883390124,
+    "pulse_duration_long_short_ratio": 626.4435158186735,
+    "successful_pulses_ending_before_old_half_removed": 1,
+    "number_of_native_selected_orientation_replays": 3,
+    "shortest_duration_length": 5.0,
+    "shortest_duration": 5.906358524861767,
+    "longest_duration_length": 37.0,
+    "longest_duration": 3700.0,
+    "maximum_strength_orientation_duration_ratio": 4.881720430107527,
+    "controls": {
+      "mesh_401": [
+        {
+          "length": 39.0,
+          "duration": 5120.0,
+          "orientation_success": false,
+          "final_orientation": 0.04134553106847427,
+          "old_half_removal": 2080.0,
+          "activation_time": 5.0,
+          "old_fraction_at_cutoff": 0.4406750180914156
+        }
+      ],
+      "mobility_4x": [
+        {
+          "length": 5.0,
+          "duration": 5.906358524861767,
+          "orientation_success": true,
+          "final_orientation": 0.3549105938763738,
+          "old_half_removal": 8.406358524861767,
+          "activation_time": 4.134450967403238,
+          "old_fraction_at_cutoff": 0.554931720843595
+        },
+        {
+          "length": 21.0,
+          "duration": 122.0,
+          "orientation_success": true,
+          "final_orientation": 0.43115507752019844,
+          "old_half_removal": 72.5,
+          "activation_time": 5.0,
+          "old_fraction_at_cutoff": 0.3782469348807725
+        },
+        {
+          "length": 37.0,
+          "duration": 3700.0,
+          "orientation_success": true,
+          "final_orientation": 0.0718291373460992,
+          "old_half_removal": 855.0,
+          "activation_time": 5.0,
+          "old_fraction_at_cutoff": 0.39702368582300585
+        },
+        {
+          "length": 39.0,
+          "duration": 5120.0,
+          "orientation_success": true,
+          "final_orientation": 0.06214513762711495,
+          "old_half_removal": 1262.5,
+          "activation_time": 5.0,
+          "old_fraction_at_cutoff": 0.4096573863481733
+        }
+      ]
+    },
+    "mechanism": "Expanding domains and competition for a conserved pool",
+    "interpretation": "At larger lengths the old active domain contains more material, while the initial inactive concentration stays nearly unchanged. The cue first creates a competitor; transport and competition after withdrawal determine whether it persists. Mobility can change commitment without changing the original cue. The fixed support covers a decreasing fraction of a longer cell. The L=39 case is censored natively but passes after fourfold inactive mobility at the same maximum tested pulse; a single remeshing does not rescue it.",
+    "prediction": "Measure right activation, old-domain retreat and inactive gradients separately. Increasing inactive mobility should change long-cell cleanup or commitment more than the initial local cue source.",
+    "evidence": "Old-width long/short=7.379; old-excess amount=10.79; opposite-end inactive ratio=0.9956; initial added activation-source ratio=0.9934. Control failures at native doses: mesh_401 1/1, mobility_4x 0/4.",
+    "qualification": "Trajectory and fixed-dose evidence in this native regime. Counterfactual thresholds were not fully searched; frozen-scale field flags and mesh sensitivity remain separate from scalar success."
+  },
+  {
+    "model": "wave_pinning",
+    "geometry": "fixed_relative",
+    "n_success": 20,
+    "n_censored": 0,
+    "n_ineligible": 2,
+    "sampled_lengths": [
+      5.0,
+      21.0,
+      39.0
+    ],
+    "initial_old_width_long_short_ratio": 7.77577662021175,
+    "initial_old_amount_long_short_ratio": 11.373677557133242,
+    "front_speed_long_short_ratio": null,
+    "old_half_time_long_short_ratio": 9.5,
+    "activation_time_long_short_ratio": 0.8333333333333334,
+    "initial_inactive_right_long_short_ratio": 0.995635971573589,
+    "initial_activation_source_long_short_ratio": 0.9956359715735889,
+    "old_excess_loss_rate_long_short_ratio": 1.1972292165403413,
+    "pulse_duration_long_short_ratio": 13.6,
+    "successful_pulses_ending_before_old_half_removed": 2,
+    "number_of_native_selected_orientation_replays": 3,
+    "shortest_duration_length": 5.0,
+    "shortest_duration": 15.0,
+    "longest_duration_length": 39.0,
+    "longest_duration": 204.0,
+    "maximum_strength_orientation_duration_ratio": 3.014705882352941,
+    "controls": {
+      "mesh_401": [
+        {
+          "length": 39.0,
+          "duration": 204.0,
+          "orientation_success": true,
+          "final_orientation": 0.05099160728013552,
+          "old_half_removal": 187.5,
+          "activation_time": 5.0,
+          "old_fraction_at_cutoff": 0.4754765190618059
+        }
+      ],
+      "mobility_4x": [
+        {
+          "length": 5.0,
+          "duration": 15.0,
+          "orientation_success": true,
+          "final_orientation": 0.3549105938763944,
+          "old_half_removal": 17.5,
+          "activation_time": 6.75,
+          "old_fraction_at_cutoff": 0.6152427650406191
+        },
+        {
+          "length": 21.0,
+          "duration": 63.0,
+          "orientation_success": true,
+          "final_orientation": 0.43115507752024146,
+          "old_half_removal": 45.0,
+          "activation_time": 5.0,
+          "old_fraction_at_cutoff": 0.39062534223207246
+        },
+        {
+          "length": 39.0,
+          "duration": 204.0,
+          "orientation_success": true,
+          "final_orientation": 0.1514309751238385,
+          "old_half_removal": 95.0,
+          "activation_time": 5.0,
+          "old_fraction_at_cutoff": 0.3050728293458729
+        }
+      ]
+    },
+    "mechanism": "Expanding domains and competition for a conserved pool",
+    "interpretation": "At larger lengths the old active domain contains more material, while the initial inactive concentration stays nearly unchanged. The cue first creates a competitor; transport and competition after withdrawal determine whether it persists. Mobility can change commitment without changing the original cue. The cue keeps the same footprint fraction and peak as length grows. All eligible lengths pass orientation, but the longer-cell full-strength threshold and field stability are distinct. Mobility improves the longest sampled orientation endpoint.",
+    "prediction": "Measure right activation, old-domain retreat and inactive gradients separately. Increasing inactive mobility should change long-cell cleanup or commitment more than the initial local cue source.",
+    "evidence": "Old-width long/short=7.776; old-excess amount=11.37; opposite-end inactive ratio=0.9956; initial added activation-source ratio=0.9956. Control failures at native doses: mesh_401 0/1, mobility_4x 0/3.",
+    "qualification": "Trajectory and fixed-dose evidence in this native regime. Counterfactual thresholds were not fully searched; frozen-scale field flags and mesh sensitivity remain separate from scalar success."
+  },
+  {
+    "model": "wave_pinning",
+    "geometry": "fixed_slope",
+    "n_success": 20,
+    "n_censored": 0,
+    "n_ineligible": 2,
+    "sampled_lengths": [
+      5.0,
+      13.0,
+      21.0,
+      39.0
+    ],
+    "initial_old_width_long_short_ratio": 7.77577662021175,
+    "initial_old_amount_long_short_ratio": 11.373677557133242,
+    "front_speed_long_short_ratio": null,
+    "old_half_time_long_short_ratio": 0.38048780487804873,
+    "activation_time_long_short_ratio": 0.06675224646983312,
+    "initial_inactive_right_long_short_ratio": 0.995635971573589,
+    "initial_activation_source_long_short_ratio": 7.765960578273993,
+    "old_excess_loss_rate_long_short_ratio": 29.892357682209155,
+    "pulse_duration_long_short_ratio": 1.2682926829268293,
+    "successful_pulses_ending_before_old_half_removed": 0,
+    "number_of_native_selected_orientation_replays": 4,
+    "shortest_duration_length": 13.0,
+    "shortest_duration": 13.875,
+    "longest_duration_length": 39.0,
+    "longest_duration": 39.0,
+    "maximum_strength_orientation_duration_ratio": 1.2692307692307692,
+    "controls": {
+      "matched_gradient_peak": [
+        {
+          "length": 5.0,
+          "duration": 30.75,
+          "orientation_success": true,
+          "final_orientation": 0.35219698890083484,
+          "old_half_removal": 4.612500000000001,
+          "activation_time": 13.8375,
+          "old_fraction_at_cutoff": 0.0
+        },
+        {
+          "length": 13.0,
+          "duration": 13.875,
+          "orientation_success": true,
+          "final_orientation": 0.4206205010551007,
+          "old_half_removal": 9.7125,
+          "activation_time": 13.875,
+          "old_fraction_at_cutoff": 0.27715842585647654
+        },
+        {
+          "length": 21.0,
+          "duration": 15.875,
+          "orientation_success": false,
+          "final_orientation": -0.42873865440866044,
+          "old_half_removal": 15.875,
+          "activation_time": 28.375,
+          "old_fraction_at_cutoff": 0.4923476958742186
+        },
+        {
+          "length": 39.0,
+          "duration": 39.0,
+          "orientation_success": false,
+          "final_orientation": -0.4323396668006741,
+          "old_half_removal": 37.05,
+          "activation_time": 56.5,
+          "old_fraction_at_cutoff": 0.4760928447095069
+        }
+      ],
+      "mesh_401": [
+        {
+          "length": 39.0,
+          "duration": 39.0,
+          "orientation_success": true,
+          "final_orientation": 0.053736302288920075,
+          "old_half_removal": 5.85,
+          "activation_time": 61.5,
+          "old_fraction_at_cutoff": 0.0
+        }
+      ],
+      "mobility_4x": [
+        {
+          "length": 5.0,
+          "duration": 30.75,
+          "orientation_success": true,
+          "final_orientation": 0.35491059387637547,
+          "old_half_removal": 15.375,
+          "activation_time": 45.75,
+          "old_fraction_at_cutoff": 0.0
+        },
+        {
+          "length": 13.0,
+          "duration": 13.875,
+          "orientation_success": true,
+          "final_orientation": 0.42305572733700464,
+          "old_half_removal": 9.018749999999999,
+          "activation_time": 9.018749999999999,
+          "old_fraction_at_cutoff": 0.2098825480691853
+        },
+        {
+          "length": 21.0,
+          "duration": 15.875,
+          "orientation_success": true,
+          "final_orientation": 0.43115507752021087,
+          "old_half_removal": 6.35,
+          "activation_time": 7.9375,
+          "old_fraction_at_cutoff": 0.0
+        },
+        {
+          "length": 39.0,
+          "duration": 39.0,
+          "orientation_success": true,
+          "final_orientation": 0.4347473199474998,
+          "old_half_removal": 5.85,
+          "activation_time": 54.0,
+          "old_fraction_at_cutoff": 0.0
+        }
+      ]
+    },
+    "mechanism": "Expanding domains and competition for a conserved pool",
+    "interpretation": "At larger lengths the old active domain contains more material, while the initial inactive concentration stays nearly unchanged. The cue first creates a competitor; transport and competition after withdrawal determine whether it persists. Mobility can change commitment without changing the original cue. The ramp peak increases with length because its physical slope is fixed. A matched-reference-peak ramp fails at the native long-cell doses, while fourfold inactive mobility preserves reversal and yields stronger recovered polarity. This supports opposing input-strength and pool/domain-cleanup contributions to the nonmonotonic curve.",
+    "prediction": "Measure right activation, old-domain retreat and inactive gradients separately. Increasing inactive mobility should change long-cell cleanup or commitment more than the initial local cue source.",
+    "evidence": "Old-width long/short=7.776; old-excess amount=11.37; opposite-end inactive ratio=0.9956; initial added activation-source ratio=7.766. Control failures at native doses: matched_gradient_peak 2/4, mesh_401 0/1, mobility_4x 0/4.",
+    "qualification": "Trajectory and fixed-dose evidence in this native regime. Counterfactual thresholds were not fully searched; frozen-scale field flags and mesh sensitivity remain separate from scalar success."
+  },
+  {
+    "model": "goryachev",
+    "geometry": "fixed_physical",
+    "n_success": 21,
+    "n_censored": 0,
+    "n_ineligible": 1,
+    "sampled_lengths": [
+      3.0,
+      19.0,
+      39.0
+    ],
+    "initial_old_width_long_short_ratio": 1.0986465300338735,
+    "initial_old_amount_long_short_ratio": 27.05049673710195,
+    "front_speed_long_short_ratio": 0.00513355225987896,
+    "old_half_time_long_short_ratio": 285.0680347480677,
+    "activation_time_long_short_ratio": 1.589405917517971,
+    "initial_inactive_right_long_short_ratio": 0.0998040826922523,
+    "initial_activation_source_long_short_ratio": 0.09954829709650839,
+    "old_excess_loss_rate_long_short_ratio": 0.09489137132126424,
+    "pulse_duration_long_short_ratio": 104.9626434035233,
+    "successful_pulses_ending_before_old_half_removed": 0,
+    "number_of_native_selected_orientation_replays": 3,
+    "shortest_duration_length": 3.0,
+    "shortest_duration": 33.72628475438312,
+    "longest_duration_length": 39.0,
+    "longest_duration": 3540.0,
+    "maximum_strength_orientation_duration_ratio": 1.0,
+    "controls": {
+      "mesh_401": [
+        {
+          "length": 39.0,
+          "duration": 3540.0,
+          "orientation_success": true,
+          "final_orientation": 0.9697578358466845,
+          "old_half_removal": 3342.5,
+          "activation_time": 3732.5,
+          "old_fraction_at_cutoff": 0.46826790529922724
+        }
+      ],
+      "mobility_4x": [
+        {
+          "length": 3.0,
+          "duration": 33.72628475438312,
+          "orientation_success": true,
+          "final_orientation": 0.5709730991586233,
+          "old_half_removal": 11.804199664034094,
+          "activation_time": 973.7262847543831,
+          "old_fraction_at_cutoff": 0.093789333255498
+        },
+        {
+          "length": 19.0,
+          "duration": 377.5,
+          "orientation_success": true,
+          "final_orientation": 0.9429473750207197,
+          "old_half_removal": 135.0,
+          "activation_time": 287.5,
+          "old_fraction_at_cutoff": 0.015361599781128624
+        },
+        {
+          "length": 39.0,
+          "duration": 3540.0,
+          "orientation_success": true,
+          "final_orientation": 0.9720394667482457,
+          "old_half_removal": 1242.5,
+          "activation_time": 1630.0,
+          "old_fraction_at_cutoff": 6.16036957919746e-15
+        }
+      ]
+    },
+    "mechanism": "Mass sequestration in a concentrated self-amplifying pole",
+    "interpretation": "The incumbent pole stays about the same physical width but becomes much taller with length. Its inactive substrate at the opposite end falls sharply. The native added activation term is cue times inactive concentration, so equal patch peaks do not produce equal biochemical forcing. Slow competition and reconcentration of the conserved pool remain after cue initiation. The fixed support covers a decreasing fraction of a longer cell. The fixed K=64 amplitude rescues all eligible lengths, while the diminishing substrate still reduces initial added activation with length.",
+    "prediction": "Measure old-pole height and opposite-end inactive abundance, rather than assuming a widening domain. Restoring substrate availability or using a separate fixed-total-material preparation should reduce the length dependence of initial patch activation; this proposed test is not part of the native comparison.",
+    "evidence": "Old-width long/short=1.099; old-excess amount=27.05; opposite-end inactive ratio=0.0998; initial added activation-source ratio=0.09955. Control failures at native doses: mesh_401 0/1, mobility_4x 0/3.",
+    "qualification": "Trajectory and fixed-dose evidence in this native regime. Counterfactual thresholds were not fully searched; frozen-scale field flags and mesh sensitivity remain separate from scalar success."
+  },
+  {
+    "model": "goryachev",
+    "geometry": "fixed_relative",
+    "n_success": 21,
+    "n_censored": 0,
+    "n_ineligible": 1,
+    "sampled_lengths": [
+      3.0,
+      19.0,
+      39.0
+    ],
+    "initial_old_width_long_short_ratio": 1.0986465300338735,
+    "initial_old_amount_long_short_ratio": 27.05049673710195,
+    "front_speed_long_short_ratio": 0.020504429332118993,
+    "old_half_time_long_short_ratio": 43.67197062423501,
+    "activation_time_long_short_ratio": 2752.542372881356,
+    "initial_inactive_right_long_short_ratio": 0.0998040826922523,
+    "initial_activation_source_long_short_ratio": 0.0998040826922523,
+    "old_excess_loss_rate_long_short_ratio": 0.6194017890754566,
+    "pulse_duration_long_short_ratio": 242.25988700564972,
+    "successful_pulses_ending_before_old_half_removed": 1,
+    "number_of_native_selected_orientation_replays": 3,
+    "shortest_duration_length": 3.0,
+    "shortest_duration": 11.0625,
+    "longest_duration_length": 39.0,
+    "longest_duration": 2680.0,
+    "maximum_strength_orientation_duration_ratio": 1.0,
+    "controls": {
+      "mesh_401": [
+        {
+          "length": 39.0,
+          "duration": 2680.0,
+          "orientation_success": true,
+          "final_orientation": 0.9697578356780028,
+          "old_half_removal": 2220.0,
+          "activation_time": 3030.0,
+          "old_fraction_at_cutoff": 0.36811546888325397
+        }
+      ],
+      "mobility_4x": [
+        {
+          "length": 3.0,
+          "duration": 11.0625,
+          "orientation_success": true,
+          "final_orientation": 0.5709730991586236,
+          "old_half_removal": 51.0625,
+          "activation_time": 1.10625,
+          "old_fraction_at_cutoff": 0.8252914684373502
+        },
+        {
+          "length": 19.0,
+          "duration": 377.5,
+          "orientation_success": true,
+          "final_orientation": 0.9429473750220636,
+          "old_half_removal": 127.5,
+          "activation_time": 425.0,
+          "old_fraction_at_cutoff": 0.01249473907768919
+        },
+        {
+          "length": 39.0,
+          "duration": 2680.0,
+          "orientation_success": true,
+          "final_orientation": 0.97203946676372,
+          "old_half_removal": 747.5,
+          "activation_time": 2797.5,
+          "old_fraction_at_cutoff": 3.0217790785593434e-13
+        }
+      ]
+    },
+    "mechanism": "Mass sequestration in a concentrated self-amplifying pole",
+    "interpretation": "The incumbent pole stays about the same physical width but becomes much taller with length. Its inactive substrate at the opposite end falls sharply. The native added activation term is cue times inactive concentration, so equal patch peaks do not produce equal biochemical forcing. Slow competition and reconcentration of the conserved pool remain after cue initiation. The cue keeps the same footprint fraction and peak as length grows. All eligible lengths reverse at the fixed larger peak. Greater support helps without changing the strongly concentrated initial-pole regime.",
+    "prediction": "Measure old-pole height and opposite-end inactive abundance, rather than assuming a widening domain. Restoring substrate availability or using a separate fixed-total-material preparation should reduce the length dependence of initial patch activation; this proposed test is not part of the native comparison.",
+    "evidence": "Old-width long/short=1.099; old-excess amount=27.05; opposite-end inactive ratio=0.0998; initial added activation-source ratio=0.0998. Control failures at native doses: mesh_401 0/1, mobility_4x 0/3.",
+    "qualification": "Trajectory and fixed-dose evidence in this native regime. Counterfactual thresholds were not fully searched; frozen-scale field flags and mesh sensitivity remain separate from scalar success."
+  },
+  {
+    "model": "goryachev",
+    "geometry": "fixed_slope",
+    "n_success": 21,
+    "n_censored": 0,
+    "n_ineligible": 1,
+    "sampled_lengths": [
+      3.0,
+      19.0,
+      39.0
+    ],
+    "initial_old_width_long_short_ratio": 1.0986465300338735,
+    "initial_old_amount_long_short_ratio": 27.05049673710195,
+    "front_speed_long_short_ratio": 0.031323958856127376,
+    "old_half_time_long_short_ratio": 21.095238095238095,
+    "activation_time_long_short_ratio": 1.5357244520352975,
+    "initial_inactive_right_long_short_ratio": 0.0998040826922523,
+    "initial_activation_source_long_short_ratio": 1.29745307499928,
+    "old_excess_loss_rate_long_short_ratio": 1.2823034570635234,
+    "pulse_duration_long_short_ratio": 19.423076923076923,
+    "successful_pulses_ending_before_old_half_removed": 0,
+    "number_of_native_selected_orientation_replays": 3,
+    "shortest_duration_length": 3.0,
+    "shortest_duration": 104.0,
+    "longest_duration_length": 39.0,
+    "longest_duration": 2020.0,
+    "maximum_strength_orientation_duration_ratio": 1.00990099009901,
+    "controls": {
+      "matched_gradient_peak": [
+        {
+          "length": 3.0,
+          "duration": 104.0,
+          "orientation_success": true,
+          "final_orientation": 0.5706661576362162,
+          "old_half_removal": 25.0,
+          "activation_time": 486.5,
+          "old_fraction_at_cutoff": 0.0
+        },
+        {
+          "length": 19.0,
+          "duration": 437.5,
+          "orientation_success": false,
+          "final_orientation": -0.9417801391281562,
+          "old_half_removal": 255.0,
+          "activation_time": null,
+          "old_fraction_at_cutoff": 0.12954161828143806
+        },
+        {
+          "length": 39.0,
+          "duration": 2020.0,
+          "orientation_success": false,
+          "final_orientation": -0.969809095705278,
+          "old_half_removal": null,
+          "activation_time": null,
+          "old_fraction_at_cutoff": 0.5674366229645242
+        }
+      ],
+      "mesh_401": [
+        {
+          "length": 39.0,
+          "duration": 2020.0,
+          "orientation_success": true,
+          "final_orientation": 0.06612696942241024,
+          "old_half_removal": 1102.5,
+          "activation_time": null,
+          "old_fraction_at_cutoff": 0.0
+        }
+      ],
+      "mobility_4x": [
+        {
+          "length": 3.0,
+          "duration": 104.0,
+          "orientation_success": true,
+          "final_orientation": 0.5709730991586233,
+          "old_half_removal": 50.0,
+          "activation_time": 1649.0,
+          "old_fraction_at_cutoff": 0.09279426154981771
+        },
+        {
+          "length": 19.0,
+          "duration": 437.5,
+          "orientation_success": true,
+          "final_orientation": 0.942947374990259,
+          "old_half_removal": 122.5,
+          "activation_time": 657.5,
+          "old_fraction_at_cutoff": 0.0
+        },
+        {
+          "length": 39.0,
+          "duration": 2020.0,
+          "orientation_success": true,
+          "final_orientation": 0.9720394667528658,
+          "old_half_removal": 425.0,
+          "activation_time": 2257.5,
+          "old_fraction_at_cutoff": 0.0
+        }
+      ]
+    },
+    "mechanism": "Mass sequestration in a concentrated self-amplifying pole",
+    "interpretation": "The incumbent pole stays about the same physical width but becomes much taller with length. Its inactive substrate at the opposite end falls sharply. The native added activation term is cue times inactive concentration, so equal patch peaks do not produce equal biochemical forcing. Slow competition and reconcentration of the conserved pool remain after cue initiation. The ramp peak increases with length because its physical slope is fixed. The growing ramp partly offsets the decline in initial inactive substrate, but removal/competition still slows. Matched-reference-peak ramps fail at the middle and longest native doses. Remeshing preserves the long-cell orientation classification at the selected orientation dose, while its numerical first moment changes.",
+    "prediction": "Measure old-pole height and opposite-end inactive abundance, rather than assuming a widening domain. Restoring substrate availability or using a separate fixed-total-material preparation should reduce the length dependence of initial patch activation; this proposed test is not part of the native comparison.",
+    "evidence": "Old-width long/short=1.099; old-excess amount=27.05; opposite-end inactive ratio=0.0998; initial added activation-source ratio=1.297. Control failures at native doses: matched_gradient_peak 2/3, mesh_401 0/1, mobility_4x 0/3.",
+    "qualification": "Trajectory and fixed-dose evidence in this native regime. Counterfactual thresholds were not fully searched; frozen-scale field flags and mesh sensitivity remain separate from scalar success."
+  },
+  {
+    "model": "debelly",
+    "geometry": "fixed_physical",
+    "n_success": 12,
+    "n_censored": 0,
+    "n_ineligible": 10,
+    "sampled_lengths": [
+      18.0,
+      19.0,
+      29.0,
+      39.0
+    ],
+    "initial_old_width_long_short_ratio": 2.9417493637080914,
+    "initial_old_amount_long_short_ratio": 3.8955645338733875,
+    "front_speed_long_short_ratio": 0.242953337945308,
+    "old_half_time_long_short_ratio": 8.206796573910207,
+    "activation_time_long_short_ratio": 1.0,
+    "initial_inactive_right_long_short_ratio": null,
+    "initial_activation_source_long_short_ratio": 0.9953798115507937,
+    "old_excess_loss_rate_long_short_ratio": 0.474675410653844,
+    "pulse_duration_long_short_ratio": 3.839690324063508,
+    "successful_pulses_ending_before_old_half_removed": 2,
+    "number_of_native_selected_orientation_replays": 4,
+    "shortest_duration_length": 19.0,
+    "shortest_duration": 287.8061224489796,
+    "longest_duration_length": 39.0,
+    "longest_duration": 1696.6141863036742,
+    "maximum_strength_orientation_duration_ratio": 1.0593866335756073,
+    "controls": {
+      "mca_frozen_during_pulse": [
+        {
+          "length": 18.0,
+          "duration": 441.8622448979592,
+          "orientation_success": false,
+          "final_orientation": -0.007828477218313205,
+          "old_half_removal": 936.8622448979593,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.9929265809571308
+        },
+        {
+          "length": 19.0,
+          "duration": 287.8061224489796,
+          "orientation_success": false,
+          "final_orientation": -0.059331830242922344,
+          "old_half_removal": null,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 1.0060008612133993
+        },
+        {
+          "length": 29.0,
+          "duration": 631.2755102040817,
+          "orientation_success": false,
+          "final_orientation": -0.0699356321385698,
+          "old_half_removal": null,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 1.0313167075655008
+        },
+        {
+          "length": 39.0,
+          "duration": 1696.6141863036742,
+          "orientation_success": false,
+          "final_orientation": -0.0724700397831742,
+          "old_half_removal": null,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 1.0424434311727049
+        }
+      ],
+      "mesh_401": [
+        {
+          "length": 39.0,
+          "duration": 1696.6141863036742,
+          "orientation_success": false,
+          "final_orientation": -0.048432080865074674,
+          "old_half_removal": 1951.6141863036742,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.5620967812193878
+        }
+      ],
+      "mobility_4x": [
+        {
+          "length": 18.0,
+          "duration": 441.8622448979592,
+          "orientation_success": false,
+          "final_orientation": -5.5817536477984786e-14,
+          "old_half_removal": 145.0,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.0034941407680341183
+        },
+        {
+          "length": 19.0,
+          "duration": 287.8061224489796,
+          "orientation_success": false,
+          "final_orientation": 6.0826802572162736e-15,
+          "old_half_removal": 162.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.1630438131175382
+        },
+        {
+          "length": 29.0,
+          "duration": 631.2755102040817,
+          "orientation_success": false,
+          "final_orientation": 5.4602439168059005e-06,
+          "old_half_removal": 342.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.14572910692848473
+        },
+        {
+          "length": 39.0,
+          "duration": 1696.6141863036742,
+          "orientation_success": true,
+          "final_orientation": 0.05729611056031069,
+          "old_half_removal": 642.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.0918195684650181
+        }
+      ]
+    },
+    "mechanism": "Rewriting a spatial adhesion/mechanical imprint",
+    "interpretation": "The fast Rac profile can respond while MCA still carries the old state. Freezing MCA redistribution during the pulse makes every sampled native-successful dose fail in this geometry when native recovery resumes. Changing unbound-MCA diffusion often removes retained polarization rather than simply speeding reversal, which also shows that diffusion helps determine memory strength. The fixed support covers a decreasing fraction of a longer cell. The longest native passing dose changes outcome on a 401-point mesh, so the exact longest-length threshold remains resolution sensitive.",
+    "prediction": "At matched Rac displacement, measure the bound/unbound MCA distribution and mechanical fields at cutoff. A Rac-only transient should relapse when the adhesion imprint is not rewritten; interventions on adhesion transport can change both the reversal threshold and the existence of persistent polarity.",
+    "evidence": "Old-width long/short=2.942; old-excess amount=3.896; opposite-end inactive ratio=not observed; initial added activation-source ratio=0.9954. Control failures at native doses: mca_frozen_during_pulse 4/4, mesh_401 1/1, mobility_4x 3/4.",
+    "qualification": "Trajectory and fixed-dose evidence in this native regime. Counterfactual thresholds were not fully searched; frozen-scale field flags and mesh sensitivity remain separate from scalar success."
+  },
+  {
+    "model": "debelly",
+    "geometry": "fixed_relative",
+    "n_success": 12,
+    "n_censored": 0,
+    "n_ineligible": 10,
+    "sampled_lengths": [
+      18.0,
+      21.0,
+      29.0,
+      39.0
+    ],
+    "initial_old_width_long_short_ratio": 2.9417493637080914,
+    "initial_old_amount_long_short_ratio": 3.8955645338733875,
+    "front_speed_long_short_ratio": 0.18837029723855772,
+    "old_half_time_long_short_ratio": 6.461451247165533,
+    "activation_time_long_short_ratio": 1.0,
+    "initial_inactive_right_long_short_ratio": null,
+    "initial_activation_source_long_short_ratio": 0.997404210178846,
+    "old_excess_loss_rate_long_short_ratio": 0.6028931249124984,
+    "pulse_duration_long_short_ratio": 1.6801832143338273,
+    "successful_pulses_ending_before_old_half_removed": 3,
+    "number_of_native_selected_orientation_replays": 4,
+    "shortest_duration_length": 21.0,
+    "shortest_duration": 219.61734693877548,
+    "longest_duration_length": 39.0,
+    "longest_duration": 636.3265306122449,
+    "maximum_strength_orientation_duration_ratio": 1.0567004805125466,
+    "controls": {
+      "mca_frozen_during_pulse": [
+        {
+          "length": 18.0,
+          "duration": 378.7244897959184,
+          "orientation_success": false,
+          "final_orientation": -0.0056826857355678695,
+          "old_half_removal": 746.2244897959183,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.9895049746703108
+        },
+        {
+          "length": 21.0,
+          "duration": 219.61734693877548,
+          "orientation_success": false,
+          "final_orientation": -0.06327749849670856,
+          "old_half_removal": null,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 1.0224952268705145
+        },
+        {
+          "length": 29.0,
+          "duration": 343.36734693877554,
+          "orientation_success": false,
+          "final_orientation": -0.0699354988502053,
+          "old_half_removal": null,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 1.048843936200403
+        },
+        {
+          "length": 39.0,
+          "duration": 636.3265306122449,
+          "orientation_success": false,
+          "final_orientation": -0.07246924721406935,
+          "old_half_removal": null,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 1.0702680907598026
+        }
+      ],
+      "mesh_401": [
+        {
+          "length": 39.0,
+          "duration": 636.3265306122449,
+          "orientation_success": true,
+          "final_orientation": 0.07059987398624659,
+          "old_half_removal": 1463.8265306122448,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.7263561730450122
+        }
+      ],
+      "mobility_4x": [
+        {
+          "length": 18.0,
+          "duration": 378.7244897959184,
+          "orientation_success": false,
+          "final_orientation": -5.586865143812945e-14,
+          "old_half_removal": 140.0,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.012120952837611795
+        },
+        {
+          "length": 21.0,
+          "duration": 219.61734693877548,
+          "orientation_success": false,
+          "final_orientation": 7.396334732934434e-13,
+          "old_half_removal": 182.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.3785370133445725
+        },
+        {
+          "length": 29.0,
+          "duration": 343.36734693877554,
+          "orientation_success": false,
+          "final_orientation": 4.268779194378496e-06,
+          "old_half_removal": 297.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.39176848618563936
+        },
+        {
+          "length": 39.0,
+          "duration": 636.3265306122449,
+          "orientation_success": true,
+          "final_orientation": 0.05685889182737576,
+          "old_half_removal": 487.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.2890982014803271
+        }
+      ]
+    },
+    "mechanism": "Rewriting a spatial adhesion/mechanical imprint",
+    "interpretation": "The fast Rac profile can respond while MCA still carries the old state. Freezing MCA redistribution during the pulse makes every sampled native-successful dose fail in this geometry when native recovery resumes. Changing unbound-MCA diffusion often removes retained polarization rather than simply speeding reversal, which also shows that diffusion helps determine memory strength. The cue keeps the same footprint fraction and peak as length grows. Cue-only MCA freezing fails at every sampled length, and faster unbound-MCA diffusion removes polarization at the shorter doses.",
+    "prediction": "At matched Rac displacement, measure the bound/unbound MCA distribution and mechanical fields at cutoff. A Rac-only transient should relapse when the adhesion imprint is not rewritten; interventions on adhesion transport can change both the reversal threshold and the existence of persistent polarity.",
+    "evidence": "Old-width long/short=2.942; old-excess amount=3.896; opposite-end inactive ratio=not observed; initial added activation-source ratio=0.9974. Control failures at native doses: mca_frozen_during_pulse 4/4, mesh_401 0/1, mobility_4x 3/4.",
+    "qualification": "Trajectory and fixed-dose evidence in this native regime. Counterfactual thresholds were not fully searched; frozen-scale field flags and mesh sensitivity remain separate from scalar success."
+  },
+  {
+    "model": "debelly",
+    "geometry": "fixed_slope",
+    "n_success": 12,
+    "n_censored": 0,
+    "n_ineligible": 10,
+    "sampled_lengths": [
+      18.0,
+      23.0,
+      29.0,
+      39.0
+    ],
+    "initial_old_width_long_short_ratio": 2.9417493637080914,
+    "initial_old_amount_long_short_ratio": 3.8955645338733875,
+    "front_speed_long_short_ratio": null,
+    "old_half_time_long_short_ratio": 1.0,
+    "activation_time_long_short_ratio": 1.0,
+    "initial_inactive_right_long_short_ratio": null,
+    "initial_activation_source_long_short_ratio": 2.1610424553874994,
+    "old_excess_loss_rate_long_short_ratio": 3.8955645338733875,
+    "pulse_duration_long_short_ratio": 0.510206199833933,
+    "successful_pulses_ending_before_old_half_removed": 0,
+    "number_of_native_selected_orientation_replays": 4,
+    "shortest_duration_length": 23.0,
+    "shortest_duration": 172.8954081632653,
+    "longest_duration_length": 18.0,
+    "longest_duration": 737.3469387755102,
+    "maximum_strength_orientation_duration_ratio": 1.1202920016927636,
+    "controls": {
+      "matched_gradient_peak": [
+        {
+          "length": 18.0,
+          "duration": 737.3469387755102,
+          "orientation_success": true,
+          "final_orientation": 0.05076060494372979,
+          "old_half_removal": 2.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.0
+        },
+        {
+          "length": 23.0,
+          "duration": 172.8954081632653,
+          "orientation_success": true,
+          "final_orientation": 0.06549748023408757,
+          "old_half_removal": 5.0,
+          "activation_time": 5.0,
+          "old_fraction_at_cutoff": 0.0
+        },
+        {
+          "length": 29.0,
+          "duration": 238.90306122448982,
+          "orientation_success": true,
+          "final_orientation": 0.06991850929962737,
+          "old_half_removal": 5.0,
+          "activation_time": 5.0,
+          "old_fraction_at_cutoff": 0.0
+        },
+        {
+          "length": 39.0,
+          "duration": 376.19897959183675,
+          "orientation_success": true,
+          "final_orientation": 0.07244465809129572,
+          "old_half_removal": 5.0,
+          "activation_time": 5.0,
+          "old_fraction_at_cutoff": 0.0
+        }
+      ],
+      "mca_frozen_during_pulse": [
+        {
+          "length": 18.0,
+          "duration": 737.3469387755102,
+          "orientation_success": false,
+          "final_orientation": -0.0031379018694430486,
+          "old_half_removal": 2.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.0
+        },
+        {
+          "length": 23.0,
+          "duration": 172.8954081632653,
+          "orientation_success": false,
+          "final_orientation": -0.06568714367222447,
+          "old_half_removal": 2.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.0
+        },
+        {
+          "length": 29.0,
+          "duration": 238.90306122448982,
+          "orientation_success": false,
+          "final_orientation": -0.06993552502581195,
+          "old_half_removal": 2.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.0
+        },
+        {
+          "length": 39.0,
+          "duration": 376.19897959183675,
+          "orientation_success": false,
+          "final_orientation": -0.07246750204402855,
+          "old_half_removal": 2.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.0
+        }
+      ],
+      "mesh_401": [
+        {
+          "length": 39.0,
+          "duration": 376.19897959183675,
+          "orientation_success": true,
+          "final_orientation": 0.06943706587825435,
+          "old_half_removal": 2.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.0
+        }
+      ],
+      "mobility_4x": [
+        {
+          "length": 18.0,
+          "duration": 737.3469387755102,
+          "orientation_success": false,
+          "final_orientation": -6.22069064960692e-14,
+          "old_half_removal": 2.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.0
+        },
+        {
+          "length": 23.0,
+          "duration": 172.8954081632653,
+          "orientation_success": false,
+          "final_orientation": 1.20677513865402e-10,
+          "old_half_removal": 2.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.0
+        },
+        {
+          "length": 29.0,
+          "duration": 238.90306122448982,
+          "orientation_success": false,
+          "final_orientation": 2.3703982027595084e-06,
+          "old_half_removal": 2.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.0
+        },
+        {
+          "length": 39.0,
+          "duration": 376.19897959183675,
+          "orientation_success": false,
+          "final_orientation": 0.0035082819662595726,
+          "old_half_removal": 2.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.0
+        }
+      ]
+    },
+    "mechanism": "Rewriting a spatial adhesion/mechanical imprint",
+    "interpretation": "The fast Rac profile can respond while MCA still carries the old state. Freezing MCA redistribution during the pulse makes every sampled native-successful dose fail in this geometry when native recovery resumes. Changing unbound-MCA diffusion often removes retained polarization rather than simply speeding reversal, which also shows that diffusion helps determine memory strength. The ramp peak increases with length because its physical slope is fixed. All sampled matched-reference-peak doses still pass orientation, so this control does not identify a critical ramp-peak bottleneck here. MCA freezing fails throughout. The short arm is also conditioned by the scalar gate and relaxation near the preparation-eligibility boundary; native field flags remain explicit.",
+    "prediction": "At matched Rac displacement, measure the bound/unbound MCA distribution and mechanical fields at cutoff. A Rac-only transient should relapse when the adhesion imprint is not rewritten; interventions on adhesion transport can change both the reversal threshold and the existence of persistent polarity.",
+    "evidence": "Old-width long/short=2.942; old-excess amount=3.896; opposite-end inactive ratio=not observed; initial added activation-source ratio=2.161. Control failures at native doses: matched_gradient_peak 0/4, mca_frozen_during_pulse 4/4, mesh_401 0/1, mobility_4x 4/4.",
+    "qualification": "Trajectory and fixed-dose evidence in this native regime. Counterfactual thresholds were not fully searched; frozen-scale field flags and mesh sensitivity remain separate from scalar success."
+  },
+  {
+    "model": "holmes_model3",
+    "geometry": "fixed_physical",
+    "n_success": 10,
+    "n_censored": 13,
+    "n_ineligible": 0,
+    "sampled_lengths": [
+      10.0,
+      25.0,
+      28.0,
+      50.0
+    ],
+    "initial_old_width_long_short_ratio": 2.586920512655329,
+    "initial_old_amount_long_short_ratio": 2.9891117597071846,
+    "front_speed_long_short_ratio": null,
+    "old_half_time_long_short_ratio": 0.2151887384560208,
+    "activation_time_long_short_ratio": 1.5873015873015874,
+    "initial_inactive_right_long_short_ratio": 0.9996218546471881,
+    "initial_activation_source_long_short_ratio": 0.9987317607968255,
+    "old_excess_loss_rate_long_short_ratio": 13.890651440005929,
+    "pulse_duration_long_short_ratio": 241.26984126984127,
+    "successful_pulses_ending_before_old_half_removed": 1,
+    "number_of_native_selected_orientation_replays": 2,
+    "shortest_duration_length": 10.0,
+    "shortest_duration": 15.75,
+    "longest_duration_length": 25.0,
+    "longest_duration": 3800.0,
+    "maximum_strength_orientation_duration_ratio": 5.363636363636363,
+    "controls": {
+      "mesh_401": [
+        {
+          "length": 50.0,
+          "duration": 5120.0,
+          "orientation_success": false,
+          "final_orientation": -0.13664369177347058,
+          "old_half_removal": null,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.691674189212533
+        }
+      ],
+      "mobility_4x": [
+        {
+          "length": 10.0,
+          "duration": 15.75,
+          "orientation_success": true,
+          "final_orientation": 0.31926118166506434,
+          "old_half_removal": 1638.25,
+          "activation_time": 1.575,
+          "old_fraction_at_cutoff": 0.7726373049489011
+        },
+        {
+          "length": 25.0,
+          "duration": 3800.0,
+          "orientation_success": true,
+          "final_orientation": 0.05093627075755444,
+          "old_half_removal": 562.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.391794504860857
+        },
+        {
+          "length": 28.0,
+          "duration": 5120.0,
+          "orientation_success": false,
+          "final_orientation": 0.0183489344602482,
+          "old_half_removal": 1507.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.4431932915263328
+        },
+        {
+          "length": 50.0,
+          "duration": 5120.0,
+          "orientation_success": false,
+          "final_orientation": -0.1354260525750014,
+          "old_half_removal": null,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.6884094308588025
+        }
+      ]
+    },
+    "mechanism": "Spatial coverage plus coupled Rac/Rho domain competition",
+    "interpretation": "Initial Rac plateau height and inactive availability are almost length independent, but the Rac domain expands. Mutual inhibition with Rho and the conserved pools supports competing spatial domains. A localized right seed need not overwrite the incumbent, even when its right activity rises quickly. The fixed support covers a decreasing fraction of a longer cell. At L=28 and 50, fourfold inactive mobility does not rescue the maximum native tested pulse; relative support is more effective than this mobility change.",
+    "prediction": "Track both Rac and Rho boundaries and inactive-pool gradients. Broader support at the same peak should rescue spatial-coverage failures; faster inactive transport can improve gradient recovery without removing every localized-patch failure.",
+    "evidence": "Old-width long/short=2.587; old-excess amount=2.989; opposite-end inactive ratio=0.9996; initial added activation-source ratio=0.9987. Control failures at native doses: mesh_401 1/1, mobility_4x 2/4.",
+    "qualification": "Trajectory and fixed-dose evidence in this native regime. Counterfactual thresholds were not fully searched; frozen-scale field flags and mesh sensitivity remain separate from scalar success."
+  },
+  {
+    "model": "holmes_model3",
+    "geometry": "fixed_relative",
+    "n_success": 23,
+    "n_censored": 0,
+    "n_ineligible": 0,
+    "sampled_lengths": [
+      10.0,
+      28.0,
+      50.0
+    ],
+    "initial_old_width_long_short_ratio": 5.190179084715613,
+    "initial_old_amount_long_short_ratio": 6.06677423373161,
+    "front_speed_long_short_ratio": null,
+    "old_half_time_long_short_ratio": 0.09484193011647254,
+    "activation_time_long_short_ratio": 1.6666666666666667,
+    "initial_inactive_right_long_short_ratio": 0.9994958037595564,
+    "initial_activation_source_long_short_ratio": 0.9994958037595564,
+    "old_excess_loss_rate_long_short_ratio": 63.96721604338065,
+    "pulse_duration_long_short_ratio": 34.0,
+    "successful_pulses_ending_before_old_half_removed": 1,
+    "number_of_native_selected_orientation_replays": 3,
+    "shortest_duration_length": 10.0,
+    "shortest_duration": 30.0,
+    "longest_duration_length": 50.0,
+    "longest_duration": 1020.0,
+    "maximum_strength_orientation_duration_ratio": 17.063492063492063,
+    "controls": {
+      "mesh_401": [
+        {
+          "length": 50.0,
+          "duration": 1020.0,
+          "orientation_success": true,
+          "final_orientation": 0.0503638223677006,
+          "old_half_removal": 282.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.37758246487417085
+        }
+      ],
+      "mobility_4x": [
+        {
+          "length": 10.0,
+          "duration": 30.0,
+          "orientation_success": true,
+          "final_orientation": 0.3192611816652096,
+          "old_half_removal": 1845.0,
+          "activation_time": 1.5,
+          "old_fraction_at_cutoff": 0.6637206397051887
+        },
+        {
+          "length": 28.0,
+          "duration": 292.0,
+          "orientation_success": true,
+          "final_orientation": 0.05214597543487179,
+          "old_half_removal": 127.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.37615995086703774
+        },
+        {
+          "length": 50.0,
+          "duration": 1020.0,
+          "orientation_success": false,
+          "final_orientation": 0.04927757443199263,
+          "old_half_removal": 247.5,
+          "activation_time": 2.5,
+          "old_fraction_at_cutoff": 0.3711531164963681
+        }
+      ]
+    },
+    "mechanism": "Spatial coverage plus coupled Rac/Rho domain competition",
+    "interpretation": "Initial Rac plateau height and inactive availability are almost length independent, but the Rac domain expands. Mutual inhibition with Rho and the conserved pools supports competing spatial domains. A localized right seed need not overwrite the incumbent, even when its right activity rises quickly. The cue keeps the same footprint fraction and peak as length grows. Orientation passes at all lengths, while many long cells remain outside the original-strength gate. This is a domain/shape and readout distinction, not absence of rightward response.",
+    "prediction": "Track both Rac and Rho boundaries and inactive-pool gradients. Broader support at the same peak should rescue spatial-coverage failures; faster inactive transport can improve gradient recovery without removing every localized-patch failure.",
+    "evidence": "Old-width long/short=5.19; old-excess amount=6.067; opposite-end inactive ratio=0.9995; initial added activation-source ratio=0.9995. Control failures at native doses: mesh_401 0/1, mobility_4x 1/3.",
+    "qualification": "Trajectory and fixed-dose evidence in this native regime. Counterfactual thresholds were not fully searched; frozen-scale field flags and mesh sensitivity remain separate from scalar success."
+  },
+  {
+    "model": "holmes_model3",
+    "geometry": "fixed_slope",
+    "n_success": 23,
+    "n_censored": 0,
+    "n_ineligible": 0,
+    "sampled_lengths": [
+      10.0,
+      28.0,
+      50.0
+    ],
+    "initial_old_width_long_short_ratio": 5.190179084715613,
+    "initial_old_amount_long_short_ratio": 6.06677423373161,
+    "front_speed_long_short_ratio": null,
+    "old_half_time_long_short_ratio": 0.22480620155038755,
+    "activation_time_long_short_ratio": 0.17984496124031008,
+    "initial_inactive_right_long_short_ratio": 0.9994958037595564,
+    "initial_activation_source_long_short_ratio": 4.9974790187977804,
+    "old_excess_loss_rate_long_short_ratio": 26.98668538453027,
+    "pulse_duration_long_short_ratio": 0.8992248062015504,
+    "successful_pulses_ending_before_old_half_removed": 0,
+    "number_of_native_selected_orientation_replays": 3,
+    "shortest_duration_length": 28.0,
+    "shortest_duration": 3.14375,
+    "longest_duration_length": 10.0,
+    "longest_duration": 8.0625,
+    "maximum_strength_orientation_duration_ratio": 1.4382022471910112,
+    "controls": {
+      "matched_gradient_peak": [
+        {
+          "length": 10.0,
+          "duration": 8.0625,
+          "orientation_success": true,
+          "final_orientation": 0.31891977526951265,
+          "old_half_removal": 2.821875,
+          "activation_time": 3.6281250000000003,
+          "old_fraction_at_cutoff": 0.0
+        },
+        {
+          "length": 28.0,
+          "duration": 3.14375,
+          "orientation_success": false,
+          "final_orientation": -0.32642943498023175,
+          "old_half_removal": null,
+          "activation_time": 2.6721874999999997,
+          "old_fraction_at_cutoff": 0.6642761654150892
+        },
+        {
+          "length": 50.0,
+          "duration": 7.25,
+          "orientation_success": false,
+          "final_orientation": -0.15197192306961824,
+          "old_half_removal": null,
+          "activation_time": 2.9,
+          "old_fraction_at_cutoff": 0.5115958755006845
+        }
+      ],
+      "mesh_401": [
+        {
+          "length": 50.0,
+          "duration": 7.25,
+          "orientation_success": true,
+          "final_orientation": 0.05107800978938255,
+          "old_half_removal": 1.0875,
+          "activation_time": 0.725,
+          "old_fraction_at_cutoff": 0.0
+        }
+      ],
+      "mobility_4x": [
+        {
+          "length": 10.0,
+          "duration": 8.0625,
+          "orientation_success": true,
+          "final_orientation": 0.31926118166511824,
+          "old_half_removal": 4.8375,
+          "activation_time": 5.2406250000000005,
+          "old_fraction_at_cutoff": 0.16943182468081922
+        },
+        {
+          "length": 28.0,
+          "duration": 3.14375,
+          "orientation_success": true,
+          "final_orientation": 0.32675648767351245,
+          "old_half_removal": 1.8862499999999998,
+          "activation_time": 1.2574999999999998,
+          "old_fraction_at_cutoff": 0.20497646553306434
+        },
+        {
+          "length": 50.0,
+          "duration": 7.25,
+          "orientation_success": true,
+          "final_orientation": 0.3273910802801918,
+          "old_half_removal": 1.0875,
+          "activation_time": 0.725,
+          "old_fraction_at_cutoff": 0.0
+        }
+      ]
+    },
+    "mechanism": "Spatial coverage plus coupled Rac/Rho domain competition",
+    "interpretation": "Initial Rac plateau height and inactive availability are almost length independent, but the Rac domain expands. Mutual inhibition with Rho and the conserved pools supports competing spatial domains. A localized right seed need not overwrite the incumbent, even when its right activity rises quickly. The ramp peak increases with length because its physical slope is fixed. A matched-reference-peak ramp fails at the native long-cell doses, while fourfold inactive mobility preserves reversal and yields stronger recovered polarity. This supports opposing input-strength and pool/domain-cleanup contributions to the nonmonotonic curve.",
+    "prediction": "Track both Rac and Rho boundaries and inactive-pool gradients. Broader support at the same peak should rescue spatial-coverage failures; faster inactive transport can improve gradient recovery without removing every localized-patch failure.",
+    "evidence": "Old-width long/short=5.19; old-excess amount=6.067; opposite-end inactive ratio=0.9995; initial added activation-source ratio=4.997. Control failures at native doses: matched_gradient_peak 2/3, mesh_401 0/1, mobility_4x 0/3.",
+    "qualification": "Trajectory and fixed-dose evidence in this native regime. Counterfactual thresholds were not fully searched; frozen-scale field flags and mesh sensitivity remain separate from scalar success."
+  },
+  {
+    "model": "spring",
+    "geometry": "fixed_physical",
+    "n_success": 21,
+    "n_censored": 0,
+    "n_ineligible": 0,
+    "sampled_lengths": [
+      0.6,
+      1.6,
+      2.6
+    ],
+    "initial_old_width_long_short_ratio": 5.479679067109512,
+    "initial_old_amount_long_short_ratio": 7.584866529252477,
+    "front_speed_long_short_ratio": 1.3507186162998228,
+    "old_half_time_long_short_ratio": 1.644887099866052,
+    "activation_time_long_short_ratio": 5.466466903314248,
+    "initial_inactive_right_long_short_ratio": 1.049030405188977,
+    "initial_activation_source_long_short_ratio": 1.049030405188977,
+    "old_excess_loss_rate_long_short_ratio": 4.611177587732396,
+    "pulse_duration_long_short_ratio": 38.265268323199734,
+    "successful_pulses_ending_before_old_half_removed": 2,
+    "number_of_native_selected_orientation_replays": 3,
+    "shortest_duration_length": 0.6,
+    "shortest_duration": 0.152,
+    "longest_duration_length": 2.6,
+    "longest_duration": 5.81632078512636,
+    "maximum_strength_orientation_duration_ratio": 1.0,
+    "controls": {
+      "feedback_off_during_pulse": [
+        {
+          "length": 0.6,
+          "duration": 0.152,
+          "orientation_success": false,
+          "final_orientation": -0.08872884584549286,
+          "old_half_removal": null,
+          "activation_time": 0.0608,
+          "old_fraction_at_cutoff": 1.2575008125455767
+        },
+        {
+          "length": 1.6,
+          "duration": 1.275,
+          "orientation_success": true,
+          "final_orientation": 0.12059130964685577,
+          "old_half_removal": 0.765,
+          "activation_time": 0.06375,
+          "old_fraction_at_cutoff": 0.1917884199484853
+        },
+        {
+          "length": 2.6,
+          "duration": 5.81632078512636,
+          "orientation_success": true,
+          "final_orientation": 0.127927140908176,
+          "old_half_removal": 0.872448117768954,
+          "activation_time": 0.290816039256318,
+          "old_fraction_at_cutoff": 0.0006184993829902839
+        }
+      ],
+      "mesh_401": [
+        {
+          "length": 2.6,
+          "duration": 5.81632078512636,
+          "orientation_success": true,
+          "final_orientation": 0.1279247872359476,
+          "old_half_removal": 4.36224058884477,
+          "activation_time": 0.290816039256318,
+          "old_fraction_at_cutoff": 0.3665092415873579
+        }
+      ],
+      "mobility_4x": [
+        {
+          "length": 0.6,
+          "duration": 0.152,
+          "orientation_success": true,
+          "final_orientation": 0.08886461633082983,
+          "old_half_removal": 2.652,
+          "activation_time": 0.0608,
+          "old_fraction_at_cutoff": 0.9554358074263015
+        },
+        {
+          "length": 1.6,
+          "duration": 1.275,
+          "orientation_success": true,
+          "final_orientation": 0.12087016393883293,
+          "old_half_removal": 3.775,
+          "activation_time": 0.06375,
+          "old_fraction_at_cutoff": 0.5896443048404651
+        },
+        {
+          "length": 2.6,
+          "duration": 5.81632078512636,
+          "orientation_success": true,
+          "final_orientation": 0.12819506720995044,
+          "old_half_removal": 4.071424549588452,
+          "activation_time": 0.290816039256318,
+          "old_fraction_at_cutoff": 0.33511043189958134
+        }
+      ]
+    },
+    "mechanism": "A global extension-dependent gate coupled to polarity competition",
+    "interpretation": "The domain grows with length while the model links its extension to global deactivation and dilution. This is a global feedback state, distinct from deBelly adhesion memory. Cue-only removal of that feedback tests commitment at the native pulse and restores the original physical equations during recovery. The fixed support covers a decreasing fraction of a longer cell. Removing extension feedback defeats the shortest sampled cell but allows the two longer sampled cells to reverse at their native doses.",
+    "prediction": "Measure physical length and extension during the cue together with Rac polarity. Changing mechanical restoring/extension feedback should shift the dose required for commitment, with effects depending on spatial cue geometry.",
+    "evidence": "Old-width long/short=5.48; old-excess amount=7.585; opposite-end inactive ratio=1.049; initial added activation-source ratio=1.049. Control failures at native doses: feedback_off_during_pulse 1/3, mesh_401 0/1, mobility_4x 0/3.",
+    "qualification": "Trajectory and fixed-dose evidence in this native regime. Counterfactual thresholds were not fully searched; frozen-scale field flags and mesh sensitivity remain separate from scalar success."
+  },
+  {
+    "model": "spring",
+    "geometry": "fixed_relative",
+    "n_success": 21,
+    "n_censored": 0,
+    "n_ineligible": 0,
+    "sampled_lengths": [
+      0.6,
+      1.6,
+      2.6
+    ],
+    "initial_old_width_long_short_ratio": 5.479679067109512,
+    "initial_old_amount_long_short_ratio": 7.584866529252477,
+    "front_speed_long_short_ratio": null,
+    "old_half_time_long_short_ratio": 1.3653051858650758,
+    "activation_time_long_short_ratio": 2.17877094972067,
+    "initial_inactive_right_long_short_ratio": 1.049030405188977,
+    "initial_activation_source_long_short_ratio": 1.049030405188977,
+    "old_excess_loss_rate_long_short_ratio": 5.5554366948709735,
+    "pulse_duration_long_short_ratio": 5.4469273743016755,
+    "successful_pulses_ending_before_old_half_removed": 3,
+    "number_of_native_selected_orientation_replays": 3,
+    "shortest_duration_length": 0.6,
+    "shortest_duration": 0.22375,
+    "longest_duration_length": 2.6,
+    "longest_duration": 1.21875,
+    "maximum_strength_orientation_duration_ratio": 1.0,
+    "controls": {
+      "feedback_off_during_pulse": [
+        {
+          "length": 0.6,
+          "duration": 0.22375,
+          "orientation_success": false,
+          "final_orientation": -0.0887288458764598,
+          "old_half_removal": null,
+          "activation_time": 0.06712499999999999,
+          "old_fraction_at_cutoff": 1.1617864436734777
+        },
+        {
+          "length": 1.6,
+          "duration": 0.6156250000000001,
+          "orientation_success": true,
+          "final_orientation": 0.12059130965174118,
+          "old_half_removal": 3.115625,
+          "activation_time": 0.061562500000000006,
+          "old_fraction_at_cutoff": 0.6491013629349585
+        },
+        {
+          "length": 2.6,
+          "duration": 1.21875,
+          "orientation_success": true,
+          "final_orientation": 0.12792714090828386,
+          "old_half_removal": 0.853125,
+          "activation_time": 0.121875,
+          "old_fraction_at_cutoff": 0.29255620448722836
+        }
+      ],
+      "mesh_401": [
+        {
+          "length": 2.6,
+          "duration": 1.21875,
+          "orientation_success": true,
+          "final_orientation": 0.12792478723500172,
+          "old_half_removal": 3.71875,
+          "activation_time": 0.121875,
+          "old_fraction_at_cutoff": 0.6574284263508641
+        }
+      ],
+      "mobility_4x": [
+        {
+          "length": 0.6,
+          "duration": 0.22375,
+          "orientation_success": true,
+          "final_orientation": 0.08886461637424367,
+          "old_half_removal": 2.72375,
+          "activation_time": 0.06712499999999999,
+          "old_fraction_at_cutoff": 0.935591726767327
+        },
+        {
+          "length": 1.6,
+          "duration": 0.6156250000000001,
+          "orientation_success": true,
+          "final_orientation": 0.12087016392940683,
+          "old_half_removal": 3.115625,
+          "activation_time": 0.09234375,
+          "old_fraction_at_cutoff": 0.746776169906368
+        },
+        {
+          "length": 2.6,
+          "duration": 1.21875,
+          "orientation_success": true,
+          "final_orientation": 0.12819506720946539,
+          "old_half_removal": 3.71875,
+          "activation_time": 0.121875,
+          "old_fraction_at_cutoff": 0.5103755171595393
+        }
+      ]
+    },
+    "mechanism": "A global extension-dependent gate coupled to polarity competition",
+    "interpretation": "The domain grows with length while the model links its extension to global deactivation and dilution. This is a global feedback state, distinct from deBelly adhesion memory. Cue-only removal of that feedback tests commitment at the native pulse and restores the original physical equations during recovery. The cue keeps the same footprint fraction and peak as length grows. The duration still increases despite constant footprint fraction. Extension feedback matters at the short sampled dose but is not indispensable at the two longer sampled doses.",
+    "prediction": "Measure physical length and extension during the cue together with Rac polarity. Changing mechanical restoring/extension feedback should shift the dose required for commitment, with effects depending on spatial cue geometry.",
+    "evidence": "Old-width long/short=5.48; old-excess amount=7.585; opposite-end inactive ratio=1.049; initial added activation-source ratio=1.049. Control failures at native doses: feedback_off_during_pulse 1/3, mesh_401 0/1, mobility_4x 0/3.",
+    "qualification": "Trajectory and fixed-dose evidence in this native regime. Counterfactual thresholds were not fully searched; frozen-scale field flags and mesh sensitivity remain separate from scalar success."
+  },
+  {
+    "model": "spring",
+    "geometry": "fixed_slope",
+    "n_success": 21,
+    "n_censored": 0,
+    "n_ineligible": 0,
+    "sampled_lengths": [
+      0.6,
+      1.6,
+      2.2,
+      2.6
+    ],
+    "initial_old_width_long_short_ratio": 5.479679067109512,
+    "initial_old_amount_long_short_ratio": 7.584866529252477,
+    "front_speed_long_short_ratio": null,
+    "old_half_time_long_short_ratio": 0.5580495356037152,
+    "activation_time_long_short_ratio": 0.3080143540669857,
+    "initial_inactive_right_long_short_ratio": 1.049030405188977,
+    "initial_activation_source_long_short_ratio": 4.308440128547943,
+    "old_excess_loss_rate_long_short_ratio": 13.59174418279362,
+    "pulse_duration_long_short_ratio": 0.6776315789473685,
+    "successful_pulses_ending_before_old_half_removed": 0,
+    "number_of_native_selected_orientation_replays": 4,
+    "shortest_duration_length": 2.2,
+    "shortest_duration": 0.125,
+    "longest_duration_length": 0.6,
+    "longest_duration": 0.19,
+    "maximum_strength_orientation_duration_ratio": 1.0,
+    "controls": {
+      "feedback_off_during_pulse": [
+        {
+          "length": 0.6,
+          "duration": 0.19,
+          "orientation_success": false,
+          "final_orientation": -0.08872884589063743,
+          "old_half_removal": 2.69,
+          "activation_time": null,
+          "old_fraction_at_cutoff": 0.6316769401148055
+        },
+        {
+          "length": 1.6,
+          "duration": 0.1275,
+          "orientation_success": false,
+          "final_orientation": -0.12059130964837651,
+          "old_half_removal": null,
+          "activation_time": null,
+          "old_fraction_at_cutoff": 0.6523889951850539
+        },
+        {
+          "length": 2.2,
+          "duration": 0.125,
+          "orientation_success": false,
+          "final_orientation": -0.12613067182148166,
+          "old_half_removal": null,
+          "activation_time": 0.1125,
+          "old_fraction_at_cutoff": 0.6003449543371591
+        },
+        {
+          "length": 2.6,
+          "duration": 0.12875,
+          "orientation_success": false,
+          "final_orientation": -0.12792714090833834,
+          "old_half_removal": null,
+          "activation_time": 0.10943750000000001,
+          "old_fraction_at_cutoff": 0.5591669880284688
+        }
+      ],
+      "matched_gradient_peak": [
+        {
+          "length": 0.6,
+          "duration": 0.19,
+          "orientation_success": true,
+          "final_orientation": 0.0887288458509039,
+          "old_half_removal": 0.095,
+          "activation_time": 0.133,
+          "old_fraction_at_cutoff": 0.04367618100893301
+        },
+        {
+          "length": 1.6,
+          "duration": 0.1275,
+          "orientation_success": false,
+          "final_orientation": -0.12059130964850223,
+          "old_half_removal": null,
+          "activation_time": null,
+          "old_fraction_at_cutoff": 0.6181187435080686
+        },
+        {
+          "length": 2.2,
+          "duration": 0.125,
+          "orientation_success": false,
+          "final_orientation": -0.12613067182150103,
+          "old_half_removal": null,
+          "activation_time": null,
+          "old_fraction_at_cutoff": 0.6794378938846405
+        },
+        {
+          "length": 2.6,
+          "duration": 0.12875,
+          "orientation_success": false,
+          "final_orientation": -0.12792714090821797,
+          "old_half_removal": null,
+          "activation_time": null,
+          "old_fraction_at_cutoff": 0.6929654258707322
+        }
+      ],
+      "mesh_401": [
+        {
+          "length": 2.6,
+          "duration": 0.12875,
+          "orientation_success": true,
+          "final_orientation": 0.12792478724096593,
+          "old_half_removal": 0.09012500000000001,
+          "activation_time": 0.09012500000000001,
+          "old_fraction_at_cutoff": 0.316918362683558
+        }
+      ],
+      "mobility_4x": [
+        {
+          "length": 0.6,
+          "duration": 0.19,
+          "orientation_success": true,
+          "final_orientation": 0.08886461623411433,
+          "old_half_removal": 0.152,
+          "activation_time": 7.69,
+          "old_fraction_at_cutoff": 0.37050793492052775
+        },
+        {
+          "length": 1.6,
+          "duration": 0.1275,
+          "orientation_success": true,
+          "final_orientation": 0.12087016393532579,
+          "old_half_removal": 0.10200000000000001,
+          "activation_time": 0.08925000000000001,
+          "old_fraction_at_cutoff": 0.36188026507047333
+        },
+        {
+          "length": 2.2,
+          "duration": 0.125,
+          "orientation_success": true,
+          "final_orientation": 0.12640113043692405,
+          "old_half_removal": 0.08750000000000001,
+          "activation_time": 0.07500000000000001,
+          "old_fraction_at_cutoff": 0.2749410414094373
+        },
+        {
+          "length": 2.6,
+          "duration": 0.12875,
+          "orientation_success": true,
+          "final_orientation": 0.12819506721161802,
+          "old_half_removal": 0.07725000000000001,
+          "activation_time": 0.064375,
+          "old_fraction_at_cutoff": 0.20832057953881483
+        }
+      ]
+    },
+    "mechanism": "A global extension-dependent gate coupled to polarity competition",
+    "interpretation": "The domain grows with length while the model links its extension to global deactivation and dilution. This is a global feedback state, distinct from deBelly adhesion memory. Cue-only removal of that feedback tests commitment at the native pulse and restores the original physical equations during recovery. The ramp peak increases with length because its physical slope is fixed. Both matching the reference peak and removing extension feedback defeat every sampled dose above the shortest length, and feedback removal also defeats the shortest. Growing input and the global mechanical gate jointly support the flat/slightly decreasing native duration curve.",
+    "prediction": "Measure physical length and extension during the cue together with Rac polarity. Changing mechanical restoring/extension feedback should shift the dose required for commitment, with effects depending on spatial cue geometry.",
+    "evidence": "Old-width long/short=5.48; old-excess amount=7.585; opposite-end inactive ratio=1.049; initial added activation-source ratio=4.308. Control failures at native doses: feedback_off_during_pulse 4/4, matched_gradient_peak 3/4, mesh_401 0/1, mobility_4x 0/4.",
+    "qualification": "Trajectory and fixed-dose evidence in this native regime. Counterfactual thresholds were not fully searched; frozen-scale field flags and mesh sensitivity remain separate from scalar success."
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "name": "single-testing-dual-pole-map",
+  "chemistry_class": "single_species",
+  "stage": "testing",
+  "protocol": "simultaneous_competing_stimuli",
+  "parameterization": "dimensionless_strip_wave_pinning",
+  "standardization_status": "testing_v2",
+  "module": "migration1d.single_species.testing",
+  "output": "results/single_species/testing/dual_pole_map",
+  "arguments": [
+    "--analysis", "dual-pole-map",
+    "--duration", "300",
+    "--mu-count", "13",
+    "--lambda-count", "13",
+    "--h-values", "1,2,4",
+    "--asymmetries", "0,0.001,0.01,0.05",
+    "--domain-count-times", "0,100,300",
+    "--initial-amplitude", "2"
+  ],
+  "resources": {"cpus": 8, "memory": "4G", "time": "12:00:00", "qos": "small"}
+}

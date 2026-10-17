@@ -1,0 +1,26 @@
+id,study,group,metric,value,low,high,unit,cadence_h,duration_h,lag_h,role,provenance,source,notes
+rko_D1,Jemaa2023,reference,speed,2.75,2.5,3,um/h,1,24,,fit,figure_estimate,../literature_review/jemaa_2023.md,Fig3F independently selected clone D1
+rko_D2,Jemaa2023,reference,speed,3,2.7,3.3,um/h,1,24,,context,figure_estimate,../literature_review/jemaa_2023.md,Fig3F D2; range is analyst reading tolerance
+rko_T1,Jemaa2023,polyploid,speed,7.25,7,7.5,um/h,1,24,,fit,figure_estimate,../literature_review/jemaa_2023.md,Fig3F T1; not acute paired WGD
+rko_T2,Jemaa2023,polyploid,speed,6.75,6.5,7,um/h,1,24,,context,figure_estimate,../literature_review/jemaa_2023.md,Fig3F T2
+sarcoma_Cl1,Jemaa2017,reference,speed,16,15,17,um/h,0.5,24,,fit,figure_estimate,../literature_review/jemaa_2017.md,Fig4D Cl1; tolerance around approximate mean; duration also reported as20h
+sarcoma_Cl2,Jemaa2017,reference,speed,15.5,15,16,um/h,0.5,24,,context,figure_estimate,../literature_review/jemaa_2017.md,Fig4D Cl2
+sarcoma_Cl8,Jemaa2017,polyploid,speed,27,26,28,um/h,0.5,24,,fit,figure_estimate,../literature_review/jemaa_2017.md,Fig4D Cl8; tolerance around approximate mean; selected tetraploid not induced WGD
+sarcoma_Cl7,Jemaa2017,polyploid,speed,24.5,24,25,um/h,0.5,24,,context,figure_estimate,../literature_review/jemaa_2017.md,Fig4D Cl7
+xuan_speed_ref,Xuan2018,reference,speed,23,20,26,um/h,0.1666666666666667,12,,fit,figure_estimate,../literature_review/xuan_2018.md,Fig4B; sensitivity range not SEM or CI
+xuan_speed_poly,Xuan2018,polyploid,speed,14.75,13,16.5,um/h,0.1666666666666667,12,,fit,figure_estimate,../literature_review/xuan_2018.md,Fig4B PGCC not uniform4N; sensitivity range not SEM or CI
+xuan_msd_ref,Xuan2018,reference,msd,2500,2000,3000,um2,0.1666666666666667,12,11.1111111111,fit,figure_estimate,../literature_review/xuan_2018.md,Fig4D near40000s; approximate long-lag curve value
+xuan_msd_poly,Xuan2018,polyploid,msd,4500,4000,5000,um2,0.1666666666666667,12,11.1111111111,fit,figure_estimate,../literature_review/xuan_2018.md,Fig4D near40000s; long-lag estimate has few independent increments
+xuan_early_ref,Xuan2018,reference,msd,20,15,25,um2,0.1666666666666667,12,0.1666666666666667,check,figure_estimate,../literature_review/xuan_2018.md,Fig4D early600-1000s; evaluate600s but note uncertain abscissa
+xuan_early_poly,Xuan2018,polyploid,msd,12,9,15,um2,0.1666666666666667,12,0.1666666666666667,check,figure_estimate,../literature_review/xuan_2018.md,Fig4D early600-1000s; evaluate600s but note uncertain abscissa
+xuan_alpha_ref,Xuan2018,reference,msd_slope,1.07,1.01,1.13,dimensionless,0.1666666666666667,12,,diagnostic,figure_estimate,../literature_review/xuan_2018.md,Fig4E; fitting window not recorded; not a persistence time
+xuan_alpha_poly,Xuan2018,polyploid,msd_slope,1.455,1.34,1.57,dimensionless,0.1666666666666667,12,,diagnostic,figure_estimate,../literature_review/xuan_2018.md,Fig4E; approximate error-bar envelope; fit window unknown
+xuan_crossover,Xuan2018,both,crossover,2.5,2,3,h,0.1666666666666667,12,,check,reported_approximate,../literature_review/xuan_2018.md,Fig4D text about150min; analyst tolerance30min
+xuan_slow_ref,Xuan2018,reference,slow_fraction,0.45,0.4,0.5,dimensionless,0.1666666666666667,12,,unidentifiable,figure_estimate,../literature_review/xuan_2018.md,Fig4C threshold one cell length per hour; cell length not reported
+xuan_slow_poly,Xuan2018,polyploid,slow_fraction,0.695,0.65,0.74,dimensionless,0.1666666666666667,12,,unidentifiable,figure_estimate,../literature_review/xuan_2018.md,Fig4C group-dependent length threshold unknown; cannot infer switching
+mallin_path_ref,Mallin2023,reference,path_length,305,300,310,um,0.5,24,,fit,figure_estimate,../literature_review/mallin_2023.md,Fig2A approximate central value; parental PC3
+mallin_path_poly,Mallin2023,polyploid,path_length,165,160,170,um,0.5,24,,fit,figure_estimate,../literature_review/mallin_2023.md,Fig2A treatment-induced PACC; not clean WGD
+mallin_direct_ref,Mallin2023,reference,directness,0.135,0.13,0.14,dimensionless,0.5,24,,fit,figure_estimate,../literature_review/mallin_2023.md,Fig2D approximate central value treated as mean in model
+mallin_direct_poly,Mallin2023,polyploid,directness,0.41,0.40,0.42,dimensionless,0.5,24,,fit,figure_estimate,../literature_review/mallin_2023.md,Fig2D mean of per-track ratios
+mallin_end_ref,Mallin2023,reference,endpoint,40,35,45,um,0.5,24,,check,figure_estimate,../literature_review/mallin_2023.md,Fig2B tolerance5um around approximate40um; same tracks as fitting data
+mallin_end_poly,Mallin2023,polyploid,endpoint,67.5,65,70,um,0.5,24,,check,figure_estimate,../literature_review/mallin_2023.md,Fig2B; correlated check not independent validation

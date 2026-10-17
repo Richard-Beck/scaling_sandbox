@@ -1,0 +1,52 @@
+{
+  "protocol": "Declared numerical audit: ode",
+  "noise": {
+    "ell": 1.5,
+    "tau": 50.0,
+    "knot": 5.0,
+    "coupling_knot": 2.5,
+    "sigma": 1.0
+  },
+  "horizon": 4000.0,
+  "output_interval": 5.0,
+  "primary_interval": 20.0,
+  "full_interval": 200.0,
+  "solver": {
+    "rtol": 1e-09,
+    "atol": 1e-11,
+    "max_step": 1.0
+  },
+  "jobs": [
+    {
+      "model": "wave_pinning",
+      "circumference": 60,
+      "kind": "noise",
+      "mean_fraction": 0.01,
+      "seed": 202610170003,
+      "replicate": 0,
+      "audit_type": "ode",
+      "pilot_slot": 3
+    },
+    {
+      "model": "goryachev",
+      "circumference": 60,
+      "kind": "noise",
+      "mean_fraction": 0.01,
+      "seed": 202610170007,
+      "replicate": 0,
+      "audit_type": "ode",
+      "pilot_slot": 7
+    },
+    {
+      "model": "holmes_model3",
+      "circumference": 60,
+      "kind": "noise",
+      "mean_fraction": 0.01,
+      "seed": 202610170011,
+      "replicate": 0,
+      "audit_type": "ode",
+      "pilot_slot": 11
+    }
+  ],
+  "comparison": "pilot vs coarse-tight isolates fixed-forcing solver sensitivity; coarse-tight vs coupled fine-tight measures changed driving interpolation"
+}

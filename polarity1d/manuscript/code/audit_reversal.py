@@ -65,6 +65,12 @@ def audit_inputs(run, manifest, package):
     require(manifest['recovery_horizon'] == 10000. and manifest['gate_window'] == 500.
             and manifest['sample_interval'] == 2.5, 'Wrong observation clocks')
     cases = manifest['cases']
+    gradient = manifest.get('experiment') == 'fixed_physical_slope_countergradient'
+    if gradient:
+        slopes = manifest['slope_by_model']
+        require(set(slopes) == MODELS, 'Gradient slopes must cover exactly the five active models')
+        require(all(np.isfinite(g) and g > 0 for g in slopes.values()), 'Invalid gradient slope')
+        require(manifest['slope_selection']['audit_passed'], 'Slope calibration was not audited')
     require(len(cases) == 330, 'Expected 330 preparation conditions')
     require([c['case_index'] for c in cases] == list(range(len(cases))), 'Case indices inconsistent')
     reference = package / 'data/establishment_basal'
@@ -78,6 +84,10 @@ def audit_inputs(run, manifest, package):
     grids = read(package / 'data/inputs/reversal_duration_grids.json')['durations_by_model']
     initial = {}
     for c in cases:
+        if gradient:
+            close(c['gradient_slope'], slopes[c['model']], 'Length/preparation-specific gradient exception')
+            close(c['response_peak_at_nominal_length'], slopes[c['model']]*c['length'], 'Gradient peak mismatch')
+            require(c['response_shape'] == 'linear_fixed_physical_slope', 'Unexpected gradient shape')
         old = originals[c['establishment_case_index']]
         summary = summaries[c['establishment_case_index']]
         for key in ('model','length','cells','condition','width','width_mode',

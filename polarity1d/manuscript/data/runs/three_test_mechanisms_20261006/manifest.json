@@ -1,0 +1,187 @@
+{
+  "generated_at": "2026-10-06T19:01:36.782040+00:00",
+  "campaign": "data/runs/three_test_reversal_20261006",
+  "coverage": [
+    {
+      "model": "wave_pinning",
+      "geometry": "fixed_physical",
+      "lengths": [
+        5.0,
+        21.0,
+        37.0,
+        39.0
+      ],
+      "eligible_lengths": 20,
+      "scalar_successes": 19
+    },
+    {
+      "model": "wave_pinning",
+      "geometry": "fixed_relative",
+      "lengths": [
+        5.0,
+        21.0,
+        39.0
+      ],
+      "eligible_lengths": 20,
+      "scalar_successes": 20
+    },
+    {
+      "model": "wave_pinning",
+      "geometry": "fixed_slope",
+      "lengths": [
+        5.0,
+        13.0,
+        21.0,
+        39.0
+      ],
+      "eligible_lengths": 20,
+      "scalar_successes": 20
+    },
+    {
+      "model": "goryachev",
+      "geometry": "fixed_physical",
+      "lengths": [
+        3.0,
+        19.0,
+        39.0
+      ],
+      "eligible_lengths": 21,
+      "scalar_successes": 21
+    },
+    {
+      "model": "goryachev",
+      "geometry": "fixed_relative",
+      "lengths": [
+        3.0,
+        19.0,
+        39.0
+      ],
+      "eligible_lengths": 21,
+      "scalar_successes": 21
+    },
+    {
+      "model": "goryachev",
+      "geometry": "fixed_slope",
+      "lengths": [
+        3.0,
+        19.0,
+        39.0
+      ],
+      "eligible_lengths": 21,
+      "scalar_successes": 21
+    },
+    {
+      "model": "debelly",
+      "geometry": "fixed_physical",
+      "lengths": [
+        18.0,
+        19.0,
+        29.0,
+        39.0
+      ],
+      "eligible_lengths": 12,
+      "scalar_successes": 12
+    },
+    {
+      "model": "debelly",
+      "geometry": "fixed_relative",
+      "lengths": [
+        18.0,
+        21.0,
+        29.0,
+        39.0
+      ],
+      "eligible_lengths": 12,
+      "scalar_successes": 12
+    },
+    {
+      "model": "debelly",
+      "geometry": "fixed_slope",
+      "lengths": [
+        18.0,
+        23.0,
+        29.0,
+        39.0
+      ],
+      "eligible_lengths": 12,
+      "scalar_successes": 12
+    },
+    {
+      "model": "holmes_model3",
+      "geometry": "fixed_physical",
+      "lengths": [
+        10.0,
+        25.0,
+        28.0,
+        50.0
+      ],
+      "eligible_lengths": 23,
+      "scalar_successes": 10
+    },
+    {
+      "model": "holmes_model3",
+      "geometry": "fixed_relative",
+      "lengths": [
+        10.0,
+        28.0,
+        50.0
+      ],
+      "eligible_lengths": 23,
+      "scalar_successes": 23
+    },
+    {
+      "model": "holmes_model3",
+      "geometry": "fixed_slope",
+      "lengths": [
+        10.0,
+        28.0,
+        50.0
+      ],
+      "eligible_lengths": 23,
+      "scalar_successes": 23
+    },
+    {
+      "model": "spring",
+      "geometry": "fixed_physical",
+      "lengths": [
+        0.6,
+        1.6,
+        2.6
+      ],
+      "eligible_lengths": 21,
+      "scalar_successes": 21
+    },
+    {
+      "model": "spring",
+      "geometry": "fixed_relative",
+      "lengths": [
+        0.6,
+        1.6,
+        2.6
+      ],
+      "eligible_lengths": 21,
+      "scalar_successes": 21
+    },
+    {
+      "model": "spring",
+      "geometry": "fixed_slope",
+      "lengths": [
+        0.6,
+        1.6,
+        2.2,
+        2.6
+      ],
+      "eligible_lengths": 21,
+      "scalar_successes": 21
+    }
+  ],
+  "jobs": 235,
+  "design": "Short, middle, long eligible lengths plus interior duration extrema in every model-test cell. Adjacent native passing/failing doses for both gates, deduplicated. Controls alter declared physics only and never populate comparison curves.",
+  "control_definitions": {
+    "mobility_4x": "Fourfold inactive diffusivity (both Rac/Rho in Holmes); deBelly fourfold unbound-MCA diffusion; Spring fourfold inactive diffusion. Pulse and recovery; exact original starting checkpoint.",
+    "matched_gradient_peak": "Diagnostic slope times reference length/L, so ramp peak matches its reference-length peak; this length-varying input is a control only.",
+    "mca_frozen_during_pulse": "MCA exchange/advection/diffusion suppressed only during pulse; native recovery restored.",
+    "feedback_off_during_pulse": "Spring extension-dependent global deactivation coefficient d1=0 during pulse only; native recovery restored.",
+    "mesh_401": "Interpolate all fields to 401 samples, preserve spatial means (trapezoidal for Spring); modified discretization diagnostic, not exact preparation or new threshold."
+  }
+}

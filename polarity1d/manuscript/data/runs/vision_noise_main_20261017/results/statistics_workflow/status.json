@@ -1,0 +1,12 @@
+{
+  "started_at": "2026-10-17T20:47:28.285453+00:00",
+  "producer": "terminal",
+  "stage": "frozen prospective analysis",
+  "slurm_job_id": "21126773",
+  "complete": false,
+  "case_index_sha256": "9920581c21c20d08cdaaf26f656d1d8a97120a2d3a08279c680fad69b2a0c3dc",
+  "status": "failed",
+  "error": "CalledProcessError: Command '['/home/4473331/.conda/envs/scaling_sandbox/bin/python', '/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_main_20261017/results/statistics_workflow/amended_analysis.py', '--index', '/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_main_20261017/manifest.json', '--output', '/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017', '--maxlag', '8000', '--bootstrap', '1000', '--site-cadence', 'scalar', '--prefix', 'vision_noise_']' returned non-zero exit status 1.",
+  "traceback": "Traceback (most recent call last):\n  File \"/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_main_20261017/results/statistics_workflow/workflow.py\", line 136, in worker\n    subprocess.run(command,check=True)\n  File \"/home/4473331/.conda/envs/scaling_sandbox/lib/python3.12/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['/home/4473331/.conda/envs/scaling_sandbox/bin/python', '/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_main_20261017/results/statistics_workflow/amended_analysis.py', '--index', '/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_main_20261017/manifest.json', '--output', '/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017', '--maxlag', '8000', '--bootstrap', '1000', '--site-cadence', 'scalar', '--prefix', 'vision_noise_']' returned non-zero exit status 1.\n",
+  "finished_at": "2026-10-17T20:48:21.213218+00:00"
+}

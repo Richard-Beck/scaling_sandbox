@@ -1,0 +1,114 @@
+{
+  "input_sha256": {
+    "../figures/jemaa2023_fig3.jpg": "2ab467e37d60da99b97eafb1058ef436cd2d25af99f24616cab7c90d84238a34",
+    "../source/jemaa2023.html": "38e0bbd6f0135177b58703bdcecc1aaa0514ecb1fc5882c6a553a26e446ed298",
+    "readings.json": "9314bf09acbfc54417a56b8edca3d30e02560b1a3c8ab1db5b7743cff576570c"
+  },
+  "publication_version": "IJMS 24(18):13926; DOI 10.3390/ijms241813926",
+  "figure": "3",
+  "panel": "F",
+  "context_panel": "3E",
+  "crop_bounds_xyxy": [
+    435,
+    735,
+    767,
+    993
+  ],
+  "coordinates": "original full figure pixels; origin top left; y downward",
+  "y_axis": {
+    "scale": "linear",
+    "endpoints": [
+      {
+        "y_pixel": 948.5,
+        "value": 0
+      },
+      {
+        "y_pixel": 746.5,
+        "value": 40
+      }
+    ],
+    "endpoint_uncertainty_px": 0.5,
+    "units": "um/hour"
+  },
+  "x_axis": "categorical clone identities; jitter has no physical meaning",
+  "timing_evidence": "24 h; hourly image acquisition in methods",
+  "reported_summary": "2017 means +/-SEM n=3; 2023 caption states SEM n=5, central horizontal lines treated as means",
+  "uncertainty": {
+    "reading_px": 1,
+    "calibration": "worst-case propagated +/-0.5px endpoints; separate from biological SEM",
+    "component_centroid": "color mask centroid, limited by rasterization"
+  },
+  "software": {
+    "python": "3.10.18",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "pillow": "11.3.0"
+  },
+  "extraction_settings": {
+    "figure": "3",
+    "panel": "F",
+    "crop": [
+      435,
+      735,
+      767,
+      993
+    ],
+    "context_panel": "3E",
+    "cell_line": "RKO",
+    "y0": 948.5,
+    "ymax_pixel": 746.5,
+    "ymax": 40,
+    "clones": [
+      "D1",
+      "D2",
+      "T1",
+      "T2"
+    ],
+    "xs": [
+      567,
+      616,
+      676,
+      725
+    ],
+    "means": [
+      935.5,
+      933.5,
+      916.5,
+      914.5
+    ],
+    "sem_top": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "sem_bottom": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "radius": 17,
+    "n": 5,
+    "version": "IJMS 24(18):13926; DOI 10.3390/ijms241813926",
+    "window": "24 h; hourly image acquisition in methods",
+    "color": "orange_green",
+    "dot_area": [
+      24,
+      66
+    ],
+    "dot_width": [
+      5,
+      8
+    ],
+    "dot_height": [
+      6,
+      10
+    ],
+    "year": 2023,
+    "source_figure": "../figures/jemaa2023_fig3.jpg",
+    "source_article": "../source/jemaa2023.html"
+  },
+  "numerical_source_status": "No clone numerical migration dataset in downloaded article or supplements; figures used",
+  "interpretation": "isolated points are incomplete biased subset; do not calculate population means from these or use displayed cell count as independent replicate n"
+}

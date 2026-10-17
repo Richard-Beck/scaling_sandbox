@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-10-17T20:19:46.807425+00:00",
+  "job_id": "21126387",
+  "slots": "0-2",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--qos=small",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--mem=3G",
+    "--time=01:00:00",
+    "--signal=B:USR1@60",
+    "--array=0-2",
+    "--job-name=vision-noise",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_numerical_audit_20261017/ode/logs/%A_%a.out",
+    "--error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_numerical_audit_20261017/ode/logs/%A_%a.err",
+    "--wrap",
+    "exec env PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 /home/4473331/.conda/envs/scaling_sandbox/bin/python /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_numerical_audit_20261017/ode/frozen_sources/code/mechanisms/vision_noise_20261017.py worker --run /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_numerical_audit_20261017/ode --slot \"$SLURM_ARRAY_TASK_ID\""
+  ],
+  "manifest_sha256": "01f5a6b5917b6fc61141a34990c9e92cb312effb314b3b0f1ee81dfd55f684ec"
+}

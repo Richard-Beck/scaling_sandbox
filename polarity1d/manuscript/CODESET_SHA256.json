@@ -1,20 +1,22 @@
 {
   "schema": 1,
-  "scope": "Minimal current polarity manuscript codeset and compact reproducibility inputs; full trial evidence excluded.",
+  "scope": "Current five-model three-test shared-checkpoint manuscript code and compact audited evidence, plus retained original reproducibility inputs; bulk native trial and spatial histories excluded.",
   "files": {
     ".gitattributes": "64aee71736b4b617aac081ca0f8030f01166a029342f505fce09fb7012716813",
-    ".gitignore": "6c054c5c31a2b6db63082a2710b5beada871fc64fb50d3955d86301bd77766a1",
-    "AGENTS.md": "6395ffdc38a12777d869dc43c9248166b25c0b41972b95b192807734d094092f",
-    "ASSUMPTIONS.md": "7af648509534dbbdda21243d266d9eb6283a6d2e4f153cd9ef0da2556c0b8913",
-    "CODESET.md": "4a4031489481c4d111836381cfca51e4db83f3f017ec97f86cd2ce0f408853aa",
-    "PROTOCOL.md": "c718483d5d1586e28ee43fbd7f1f49f88e0f22b4cd92d499ae8610c76bafde0b",
-    "README.md": "aa6950a683fbebd481170191e35ea28f12c83ef7c74d5b392dddc422ff5fbb53",
-    "REPRODUCE.md": "4d8b250695fe82f8ea91342b93524abc445f6e8392f3b9a3ab02e5dcae0d7c4c",
-    "RETENTION.md": "4623dbe88f7c539155abdfefc28d522acd8394fdddc578d5453d18fef8393f1d",
-    "code/audit_reversal.py": "8bf92b7de32670780562e695f7f7cb3c181371a629031ce4848105541d95472c",
-    "code/build.py": "afdd26ab8b2befc85c8eaad336fdb49f29d085b6301fe119f20958905568abd4",
-    "code/check_codeset.py": "88759e1b0acf06873fe594f7eaeb41ffc3178de48543399aab50b6f459e9d8e6",
-    "code/core/corrected_reversal.py": "42fea9072ef784ee19675f00bfde86e69302c2b8600434e34cf1b6321228177d",
+    ".gitignore": "2e8207a5dbbf4cc577e21c45200c52c6c92e675339e8b032a0fb7ff0ba230d4b",
+    "AGENTS.md": "1fc13321f917354ea485fc4c41ce30f6f3c295a669fabba47d541e0a8977cc13",
+    "ASSUMPTIONS.md": "db3332c3a922b26f50bd3c5bef73bce1a63ae022b4e295e79866d0b2819dff3f",
+    "CODESET.md": "b7d2a5b1035b6b1bea3dd766a1f4309133fed242c3f1eef8fe10520627226a0b",
+    "GRADIENT_REVERSAL.md": "21fb212d3058a5ea2eedcd195e28a4f5e22d91f936e26d72915be5e27b3b64f7",
+    "PROTOCOL.md": "b1d58aa9d54b0cc4e9a92407aff092ae44f5c1906456d6c0dc6923bb02041906",
+    "README.md": "f55f9dc0ed07c2e762f2d40ca08f6cb80303dc25e04577caff9b0d8f3c3f94af",
+    "REPRODUCE.md": "1839576aaada35205bfc1e1867aea008beda5cfd81da504e3bde4bb6d6073d42",
+    "RETENTION.md": "6c5ed3f7cab3f08bb14d8e9c59045058cd304f359b4541a392ae57bbc8be7e74",
+    "THREE_TESTS.md": "3f600ddf28e277791a6c213e0659c5bce2594ea6082a3619fe55d15ab1e17bbc",
+    "code/audit_reversal.py": "f2e899c23a2f38c22f7eff52f2ff8366ad5c84eae6b8182633c0c02e968dfac4",
+    "code/build.py": "d2ae21d14ca96a7c019dfbd29bf81efcedbfadba821c42e5e40d100919eac7d0",
+    "code/check_codeset.py": "8c616a4e8c7250d452b69d9b854d0d4faf26c3201b44deafc1edcf5678d7b11c",
+    "code/core/corrected_reversal.py": "9f934f69a47b627b2b817f7d26510ca92b14aab985598c952e957f55ea8421b2",
     "code/core/environment.json": "9ccf9f5278a313e5db996311ee96390170965a8661b891f020110db2c7571ffc",
     "code/core/models/SPRING_LICENSE.txt": "5576a91fe9ee4b3ebc0c6e527144449711e497594a93830e2bd7206424910d7b",
     "code/core/models/__init__.py": "8ff27edfd807aa4efeceeb1ff0abe0cd7a80ff5cc20065de975cd2757ec14f5b",
@@ -43,12 +45,29 @@
     "code/core/src/polarity1d/simulation.py": "c20a84b2b94ca51de21b441997af7fe0f11fe683c60819ab0d5816bfd63f8ab9",
     "code/core/src/polarity1d/solvers.py": "8db01abec7e17c51d191767b493459fd0d6a5c7135a8a40231a52b997f841dab",
     "code/figure_builder.py": "a7d2037812078daf4916874d0b718b7a4bb350df97621359faba37f6a5966709",
+    "code/gradient_reversal.py": "cfadf5cd183cb14d6a866cc8dfa1b187dc73ac785473988b35bedec916f45aeb",
+    "code/gradient_reversal_plot.py": "611d886508fdb773b6da33e725fbf9ccb3e845ef7b072d0bae1b7fbd9d6fd965",
+    "code/mechanisms/initial_polarity_manuscript_figure.py": "cc7fec85c5e737cae1381d1cdea8a6e6d30798f954104ca472c2eecb453b376c",
+    "code/mechanisms/initial_polarity_report.py": "46a19c29b66f6104ca4d08b9aad041915c7c9aba89899010b7a691ca789277e4",
+    "code/mechanisms/length_mechanisms_20261008/comparative_revision_20261008.py": "f9f90143f57d964c0bba833f77eea53b3afb45a94d52afb027f3910f798a6c1f",
+    "code/mechanisms/length_mechanisms_20261008/comparative_support.py": "380a9bd1e47fd1a4b2d8dfcc4a63b993bd7e1229a62c9d836d4ec2139ea88726",
+    "code/mechanisms/length_mechanisms_debelly_20261008.py": "fc4eb4d0960464fbf60e825159518bee92a1d712d3b2a74354c6694b102eb7e9",
+    "code/mechanisms/length_mechanisms_report_20261008.py": "d0a5910491847dd18a1cb9206e792706794fb1d21a059ad8d3a3b6277c7ab045",
+    "code/mechanisms/length_mechanisms_sink_20261008.py": "babd414eb31c605975a2b46c4f542cab3803174a7abfd8f770c4e0fbddc661f6",
+    "code/mechanisms/three_test_analysis.py": "688a97bf63dacc24fad397ce66666e3346b882bd3fc9b058439389bf37bf0f2d",
+    "code/mechanisms/three_test_mechanisms.py": "6b11976e93d68f510c510285279284b7cd07be5b3a169473bdefbfeeb72644bb",
+    "code/mechanisms/three_test_report.py": "dfc6a1c3ae2ee5f9c418e8bc2b21b2e3af67f44f7034b4e15067637d60ad5cf3",
     "code/tests/conftest.py": "ac8269f03e6e82f47e12c0986b2048763902f118b7c13921a91d24721e0fc95f",
     "code/tests/test_corrected_reversal.py": "daa1627bfa1ad8dd188d3faea40d9430f0fd26fd27f9ebd068300b579f24c5d8",
+    "code/tests/test_gradient_reversal.py": "d59001c361e6bd01c8d6fca2948c7c8f87c2f862362adca52e1c3fa8ae8934ed",
     "code/tests/test_holmes_model3_equations.py": "d70a38153b4849ac68e2df2af6c17912db6200d6714c42b146f274512713ca9a",
     "code/tests/test_jilkine_models.py": "5eb64eae8d4b4924c911c3d8f19dbb0cb6bee1ba7732c86c0795d78efbe3fcb7",
     "code/tests/test_protocols_and_contract.py": "463b2adc9e7a01a35672b9d07314e29e1ba725305bb9e13fd0c3c46d76a4d1b6",
     "code/tests/test_retained_protocols.py": "4cda1f79075829b518492fa95e4d49b5948aa8012433c7c61091bbc34cffde4d",
+    "code/tests/test_three_test_reversal.py": "d783e7e390ba87501637a5f270dc082c3886d16dfec466af0c438a64cf8a7476",
+    "code/three_test_audit.py": "f321cdee7d2de6d3ac6fd5a168fa4cb7bc0c41281fbeacb2b6f370be6d182a0a",
+    "code/three_test_figures.py": "26917ae6f2f64b0d345583c05d2eb75cf27e25d383a33fc3105764a04b6f73b6",
+    "code/three_test_reversal.py": "23f04ef34bc71e97b2944818d1b472958a6d078488757e79a8981930354e7d96",
     "data/establishment_basal/manifest.json": "9c5590880780fa31e28e5c19e652ba70e90c51cc7e412073681c1a7543b6f516",
     "data/establishment_basal/results/endpoints.csv": "f7180929234e10851906f1f02bfba0386d7f980f679834d2f24018e726f51447",
     "data/establishment_basal/results/status.json": "2dd91d6a1327dfc2afa732cb84d30ed81186a6da3708439e6cd34149bdfb9849",
@@ -350,11 +369,74 @@
     "data/inputs/reversal_duration_grids.json": "ed82c0d65771d9c565d0e6d08e6d4813b644cb80e5ca30ca18d49616e478b66a",
     "data/provenance/core_sources.json": "55d0297ddf097178f8a29ab330716cf4cd943e3b7a92fa379a46a3b19f1d4ccf",
     "data/provenance/length_fit_validation.json": "a43b86645048524363cd26ce17b27645a74d03015f7091a39196044e555841d5",
+    "data/runs/corrected_reversal_20261003/manifest.json": "fc345043a28d133465e2aee3e615846678fe75275b97cb5bab09dd79938a957d",
     "data/runs/corrected_reversal_20261003/results/endpoints.csv": "ba80b3de7ad1ce477e2485d3ad4fca550e909c16841380be0571ad3a27850856",
     "data/runs/corrected_reversal_20261003/results/explanation_wave_pinning.npz": "b49e70f45c3345ef3408e230d6e9740a1e90fd85eddb325e36fbdc50f354ca45",
     "data/runs/corrected_reversal_20261003/results/independent_audit.json": "57adf207aabc7b3bafc3869857bf3a98621f4c604c20a4b0a5341cd912a9bfc2",
     "data/runs/corrected_reversal_20261003/results/status.json": "aa88c509ab73348ca829fdbd32c8a2baca50aff459feb69619819d4ce7eb1dae",
     "data/runs/corrected_reversal_20261003/results/validation.json": "3b6a763d50b6c0190d34ac0d82dc32b45e70778b954aa28fe46e29012386555b",
-    "requirements.txt": "28079432d33ca01317fe2d229070ffe9cdfd6127d38ee156d3f6421c02fe0bb1"
+    "data/runs/fixed_slope_reversal_20261006/manifest.json": "e3067ec2525302689acfd3c588b3c751ed2aa4846aebc92554e7c91dbcd8beef",
+    "data/runs/fixed_slope_reversal_20261006/results/independent_audit.json": "e3a3921c9268d5bf0ebaacc6e0a48e6a615a2871d66d407ca1c5b05e95dd50e2",
+    "data/runs/goryachev_fixed_amplitude_pilot_20261006/manifest.json": "9498229fcac6e1ef831da7147f258f698f28633de598d2f7be467c507771960a",
+    "data/runs/goryachev_fixed_amplitude_pilot_20261006/provenance.json": "a9580b9bff4973e7670c349adad0078fe081450745a8aed62d4739dc015c265d",
+    "data/runs/goryachev_fixed_amplitude_pilot_20261006/results/pilot_readouts.csv": "0ffe304ff0c54fc74bf4861385e502d7518c21a3f919df30a7dfb24e9f97f5e6",
+    "data/runs/goryachev_fixed_amplitude_pilot_20261006/results/selection.json": "167567e0cfcc378b1c6a6c33647cdc83b20f3bfa6d28ac9d02aff62489aa0c9c",
+    "data/runs/goryachev_fixed_amplitude_pilot_20261006/results/status.json": "60e206cb4b6b6a94247c18b223ff9de60dbfffdd88960bbe7d9de7a9c7831f77",
+    "data/runs/three_test_mechanisms_20261006/jobs.json": "46c5ccbe3da849d8bab70d350fcf02a08ffca3e7aec1f81ee35bf1b3c80d33d2",
+    "data/runs/three_test_mechanisms_20261006/manifest.json": "247b709ad03a352a4fe7c123fd932c747a71ba6974efb9e67aa5caab19a04db7",
+    "data/runs/three_test_mechanisms_20261006/provenance.json": "3683b6ea05b855f0c3d58c478979fcfb2d80d2a3fa0601bc5d74d49559c5e120",
+    "data/runs/three_test_mechanisms_20261006/results/cell_evidence.json": "1e44630795049e69e12d197f6986a7f3183c6f7309c58989b399069d54fa9876",
+    "data/runs/three_test_mechanisms_20261006/results/mesh_diagnostic.json": "23941060e7a1a5f677b23e7ee2d0bc4a5a12b71086fb26c0f2b76e16b55374d1",
+    "data/runs/three_test_mechanisms_20261006/results/report_provenance.json": "fe92cdb74fb7c8adc8115ee45a66ae2eeba7ef225014d8d62ab4615081214538",
+    "data/runs/three_test_mechanisms_20261006/results/spatial_audit.json": "e9b3f2137200ea0b9e0bf2b4505ee4eae8b5e2a4e969bb142f58732d108d12da",
+    "data/runs/three_test_mechanisms_20261006/results/status.json": "7b88c6818c1691ba6856951ac0b202ab31da2c5c5fdeb0a946f18d22616e3974",
+    "data/runs/three_test_mechanisms_20261006/results/trajectory_metrics.csv": "ebc9618ec559a54f1b9ebc217d61444a9200deb388e750018a4c7e94da1a0315",
+    "data/runs/three_test_reversal_20261006/manifest.json": "bd2778517a74e9525d28e28e4362d2bd39d5527352ff51f9603c9b056d5a3658",
+    "data/runs/three_test_reversal_20261006/provenance.json": "47db7946163b87f6ffa11c8dd263b7b881805a2567e03840fae08d6cbc842a87",
+    "data/runs/three_test_reversal_20261006/results/endpoints.csv": "f7af3d6d89d572173ce0b186dea9fdb5e50735ac394df3ec8db9fcbe74aa014b",
+    "data/runs/three_test_reversal_20261006/results/fit_validation.json": "5369a0ba3c011bf8570731bbec09bc7920fdfeae82d289b6afb372d3fb40f788",
+    "data/runs/three_test_reversal_20261006/results/independent_audit.json": "c67be4ae66fce693e1bb66c29898b376440498f0c92790be946abc37d44cb68d",
+    "data/runs/three_test_reversal_20261006/results/status.json": "57b5c83204f7f0d24c74daa37c7dc366422ef4a9767689c18eaee4cc2826a888",
+    "data/runs/three_test_reversal_20261006/results/validation.json": "f9f5e300fb16c8fc7ad057657e0291635720943c8df488790f409917131252ec",
+    "requirements.txt": "28079432d33ca01317fe2d229070ffe9cdfd6127d38ee156d3f6421c02fe0bb1",
+    "code/tests/test_length_correlations.py": "f84d6d60d4a97b2469f554f237166d713c944bf336c41b2a1306209545e08fdc"
+  },
+  "publication_review_20261017": {
+    "scope": "Packaging, updated guidance, and previously archived report-only renderer. Native core and input hashes unchanged. Publication additions are enumerated separately in reports/manuscript_checkout_files_20261017.txt and the publication manifest.",
+    "preserved_frozen_core_files": 28,
+    "reviewed_changes": {
+      ".gitignore": {
+        "previous_sha256": "5cdfa2d3ac5c1e102cfff23dfe35dddab0fed6cca7473334affc58af90e645e7",
+        "reviewed_sha256": "094e080112b697d01407b87a4823d2451dbacf4af2748cc3ace233a79a0a07c8"
+      },
+      "AGENTS.md": {
+        "previous_sha256": "da9b588252d158f763fb163349b03d11528925f18227e80cb1fa131a71c7b67d",
+        "reviewed_sha256": "1fc13321f917354ea485fc4c41ce30f6f3c295a669fabba47d541e0a8977cc13"
+      },
+      "CODESET.md": {
+        "previous_sha256": "c14899470efb3c05ddcb04396a54fc4ec6b911d4162476bc0994dd3315e1aeeb",
+        "reviewed_sha256": "b7d2a5b1035b6b1bea3dd766a1f4309133fed242c3f1eef8fe10520627226a0b"
+      },
+      "PROTOCOL.md": {
+        "previous_sha256": "6085a069ce81e7382be16709266bba3193d4770ad80a5780747bb08bf2d7f380",
+        "reviewed_sha256": "b1d58aa9d54b0cc4e9a92407aff092ae44f5c1906456d6c0dc6923bb02041906"
+      },
+      "README.md": {
+        "previous_sha256": "78130140ec7d97180ef839e31e49964735f51be3af208172ed21a3be13d302ea",
+        "reviewed_sha256": "f55f9dc0ed07c2e762f2d40ca08f6cb80303dc25e04577caff9b0d8f3c3f94af"
+      },
+      "REPRODUCE.md": {
+        "previous_sha256": "5e877d5840a495d8c7f2910fbd868ab665ddc3f5dcbf6a8afcf777a1a10318ae",
+        "reviewed_sha256": "1839576aaada35205bfc1e1867aea008beda5cfd81da504e3bde4bb6d6073d42"
+      },
+      "RETENTION.md": {
+        "previous_sha256": "4623dbe88f7c539155abdfefc28d522acd8394fdddc578d5453d18fef8393f1d",
+        "reviewed_sha256": "6c5ed3f7cab3f08bb14d8e9c59045058cd304f359b4541a392ae57bbc8be7e74"
+      },
+      "code/mechanisms/length_mechanisms_report_20261008.py": {
+        "previous_sha256": "a24d838317f45cb698f1b8e8ffb9fd5d72cc18a2615bb92e9a8b8f1fddfe5ae1",
+        "reviewed_sha256": "d0a5910491847dd18a1cb9206e792706794fb1d21a059ad8d3a3b6277c7ab045"
+      }
+    }
   }
 }

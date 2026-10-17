@@ -1,0 +1,34 @@
+# Length-mechanism development experiments
+
+Each folder contains its PNG previews and related supporting vectors, data, captions, audits and readers. Native simulations remain under manuscript/data/runs/.
+
+- [Native resting state](resting_state/README.md)
+- [Basal feedback controls](basal_feedback_controls/README.md)
+- [Global tension→Rho ablation](tension_rho_ablation/README.md)
+- [Beta=0 reversal](beta0_reversal/README.md)
+- [Polarization with protrusion disabled](no_protrusion/README.md)
+- [Native reversal and MCA budgets](native_reversal/README.md)
+- [L=29 full-state example](L29_fullstate/README.md)
+- [Figure X: reversal overview](figure_x_reversal_overview/README.md)
+- [Figure Z: MCA redistribution distance and speed](figure_z_mca_redistribution/README.md)
+- [deBelly redraft with Figures X Y and Z](deBelly_redraft/README.md)
+- [Steady MCA profiles near the lower polarity limit](mca_threshold_profiles/README.md)
+- [MCA molecular residence and first-exit fate](mca_molecular_fates/README.md)
+- [Stimulated-end protrusion and cortical velocity](stimulated_endpoint/README.md)
+- [Reversal MCA flux and cortical-flow snapshots](reversal_flux_flow/README.md)
+- [MCA redistribution speed across length](mca_speed_decomposition/README.md)
+- [Native ring initial gain and conditional repair across size and placement](chemical_ring_functional_20261017/README.md)
+- [Main-text checkpoint: linear incumbent enlargement, then ring separation](linear_then_ring_checkpoint_20261017/README.md)
+- [Rac-triggered fixed point gaps on the deBelly ring](debelly_rac_continuity_20261017/README.md)
+- [Global activity polarity on retained chemical-ring histories](global_polarity_vector_20261017/README.md)
+- [All-five linear native gain and targeted incumbent-repair design](all_five_linear_function_20261017/README.md)
+- [Expanded ring figure: baseline correspondence, gain maps and three fates](expanded_ring_components_20261017/README.md)
+- [All-five incumbent activity-recovery pilot](all_five_recovery_pilot_20261017/README.md)
+- [deBelly sidecar with moving mechanical breaks](debelly_moving_breaks_20261017/README.md)
+- [Updated main-text checkpoint: all-five function and expanded ring analysis](updated_checkpoint_20261017/README.md)
+- [Bounded noisy-ring numerical and response-regime pilot](vision_noise_pilot_20261017/README.md)
+- [Supported-ring gain, recovery and finite competition across size and separation](vision_ring_20261017/README.md)
+- [All-five linear gain, recovery and finite long-cue responses](vision_linear_20261017/README.md)
+- [Replicated noisy-ring polarity persistence across sizes](vision_noise_20261017/README.md)
+
+[Reversible cleanup records](_organization/) preserve the original paths and metadata. After regenerating exports, run `python polarity1d/manuscript/code/mechanisms/organize_length_dev.py` from the repository root. Current renderers write directly into these experiment folders; the organizer also collects outputs from frozen older entry points.

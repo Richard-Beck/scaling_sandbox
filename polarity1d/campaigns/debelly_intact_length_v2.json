@@ -1,0 +1,2674 @@
+{
+  "campaign_name": "debelly_intact_length_v2",
+  "created_utc": "2026-08-31T14:33:56.936719+00:00",
+  "description": "Intact De Belly length-effects campaign with extended two-front follow-up, a dense large-cell grid, paired fractional/fixed-physical two-site cues, and length-aware reversal conditioning and follow-up.",
+  "metadata": {
+    "competition_end_time_policy": "max(1200, 2000*(L/50)^2) s",
+    "dual_site_width_modes": {
+      "fixed_physical": "Gaussian sigma = 1.6 um",
+      "fractional": "Gaussian sigma = 0.08 L"
+    },
+    "focus": "cell-length effects in the intact De Belly model",
+    "lengths_um": [
+      12.0,
+      16.0,
+      20.0,
+      25.198420997897465,
+      32.0,
+      36.0,
+      40.0,
+      44.0,
+      48.0,
+      50.0,
+      52.0,
+      56.0,
+      60.0,
+      64.0
+    ],
+    "replication": "one deterministic run per condition",
+    "reversal_conditioning_policy": "max(250, 250*(L/20)^2) s",
+    "reversal_endpoint": "sustained Rac side-orientation switch",
+    "reversal_follow_up_policy": "max(500, 500*(L/20)^2) s",
+    "reversal_inputs": [
+      0.2,
+      0.5,
+      1.0
+    ]
+  },
+  "schema_version": 1,
+  "task_count": 70,
+  "tasks": [
+    {
+      "assay": "dual_site_fractional_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.08
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 60,
+        "end_time": 1200.0,
+        "length": 12.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "d1a3310872ab8744ee3308d268e6927e92a6b550feb1d2eb02f65cf25fddc263",
+      "task_id": "00000-d1a3310872ab",
+      "task_index": 0,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fractional_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.08
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 60,
+        "end_time": 1200.0,
+        "length": 16.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "3b54b6a55fcda6f2bd7cf5a5cf7f6249c2a0a1bf6625b476f904dd0e9a446297",
+      "task_id": "00001-3b54b6a55fcd",
+      "task_index": 1,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fractional_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.08
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 60,
+        "end_time": 1200.0,
+        "length": 20.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "133a4e74abcf1e10732748d9b630a44ec3315092d516102c78ba1c11de9dad81",
+      "task_id": "00002-133a4e74abcf",
+      "task_index": 2,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fractional_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.08
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 63,
+        "end_time": 1200.0,
+        "length": 25.198420997897465,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "6bbd8cd46e7e8ed1f8de4fc8a86204215e6ccc3b48a082d1dce4e167ab07f483",
+      "task_id": "00003-6bbd8cd46e7e",
+      "task_index": 3,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fractional_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.08
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 80,
+        "end_time": 1200.0,
+        "length": 32.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "498fd257cd0b51a7cbe02c96b19d50a0a03c1e5688cfd9b07501ba6c75c86723",
+      "task_id": "00004-498fd257cd0b",
+      "task_index": 4,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fractional_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.08
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 90,
+        "end_time": 1200.0,
+        "length": 36.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "56c1e18c30efc7c6ef6ae4629613dfbf70eb339113a5aaa5ed657d13adfd84df",
+      "task_id": "00005-56c1e18c30ef",
+      "task_index": 5,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fractional_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.08
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 100,
+        "end_time": 1280.0000000000002,
+        "length": 40.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "6f7dd117edfbda6c342dc18e82631c2621cfa050a680b8c3729e14b4a2f27ece",
+      "task_id": "00006-6f7dd117edfb",
+      "task_index": 6,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fractional_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.08
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 110,
+        "end_time": 1548.8,
+        "length": 44.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "e789fd75c57fa78a53431ef3cfebfab955d2159fd81e0460e9c28992f8703586",
+      "task_id": "00007-e789fd75c57f",
+      "task_index": 7,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fractional_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.08
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 120,
+        "end_time": 1843.2,
+        "length": 48.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "757c1dac4f0a6f1df27f2c7f92fc8be5fc15fcea2caedefd4e6ac9a791ae5c15",
+      "task_id": "00008-757c1dac4f0a",
+      "task_index": 8,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fractional_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.08
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 125,
+        "end_time": 2000.0,
+        "length": 50.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "3a9f2938e3228528a8d9ad2ba3ff8978167e4c67d3fd2168b389316a52a7138f",
+      "task_id": "00009-3a9f2938e322",
+      "task_index": 9,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fractional_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.08
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 130,
+        "end_time": 2163.2000000000003,
+        "length": 52.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "cba9664d99aa16dd922f74a8e7b92a737238c22107034ac6f01441531d472db4",
+      "task_id": "00010-cba9664d99aa",
+      "task_index": 10,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fractional_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.08
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 140,
+        "end_time": 2508.8,
+        "length": 56.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "fb5b11ba514cd9a0b78bd9bae34e733dea10917b8e674b141e05347919b7dc44",
+      "task_id": "00011-fb5b11ba514c",
+      "task_index": 11,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fractional_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.08
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 150,
+        "end_time": 2880.0,
+        "length": 60.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "4ef42a3d0b1096bf9de6407018f9bf109b100805e8cf0fff7a1dfb2a618e8275",
+      "task_id": "00012-4ef42a3d0b10",
+      "task_index": 12,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fractional_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.08
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 160,
+        "end_time": 3276.8,
+        "length": 64.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "d2a85dd618f9fe7638dd330fc92e5590ce46d95ff7d6dbbbefb0dfbdac665215",
+      "task_id": "00013-d2a85dd618f9",
+      "task_index": 13,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fixed_physical_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.13333333333333333
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 60,
+        "end_time": 1200.0,
+        "length": 12.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "1e1ff7ac4807ba6a8904632923a13d896aeeb227ed2f0cb04db85bcd604ed6e1",
+      "task_id": "00014-1e1ff7ac4807",
+      "task_index": 14,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fixed_physical_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.1
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 60,
+        "end_time": 1200.0,
+        "length": 16.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "b62054e99683d634f40f4bf4c0e82041fc94f36589ded1fabad8363b733ecb3b",
+      "task_id": "00015-b62054e99683",
+      "task_index": 15,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fixed_physical_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.08
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 60,
+        "end_time": 1200.0,
+        "length": 20.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "0b4235fa0fab595b8489fdfb8ac1d663580ddffdf2a3cbd8888e97921e8bb26c",
+      "task_id": "00016-0b4235fa0fab",
+      "task_index": 16,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fixed_physical_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.06349604207872799
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 63,
+        "end_time": 1200.0,
+        "length": 25.198420997897465,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "21cf906e5c13233f5fce504521f09a63b0ab7a7c3c5a79282b30f29b5b9c4a05",
+      "task_id": "00017-21cf906e5c13",
+      "task_index": 17,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fixed_physical_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.05
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 80,
+        "end_time": 1200.0,
+        "length": 32.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "9f4a89b2d1be0c2548de8a9aeefda9c39f43759b8da5e51eb42d88f097471f50",
+      "task_id": "00018-9f4a89b2d1be",
+      "task_index": 18,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fixed_physical_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.044444444444444446
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 90,
+        "end_time": 1200.0,
+        "length": 36.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "8a4b574e4167906ed5d64b4cbf525e0dbf4827eacacfea1bc1387126a8cece7e",
+      "task_id": "00019-8a4b574e4167",
+      "task_index": 19,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fixed_physical_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.04
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 100,
+        "end_time": 1280.0000000000002,
+        "length": 40.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "845bc8ae36abc431e43d125cf1d08d71c067e28e1810e6243402bca69d4a3797",
+      "task_id": "00020-845bc8ae36ab",
+      "task_index": 20,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fixed_physical_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.03636363636363637
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 110,
+        "end_time": 1548.8,
+        "length": 44.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "2dd36b3b0a9a1c0c166e1e2d30476f60c2aa1cd00512904b98548eae7084b672",
+      "task_id": "00021-2dd36b3b0a9a",
+      "task_index": 21,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fixed_physical_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.03333333333333333
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 120,
+        "end_time": 1843.2,
+        "length": 48.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "1aaeca2ee9d9d379f813e4446204aa3744eb37d9f1826f5e6319104b9bdb1f00",
+      "task_id": "00022-1aaeca2ee9d9",
+      "task_index": 22,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fixed_physical_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.032
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 125,
+        "end_time": 2000.0,
+        "length": 50.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "9ac24d1b3277113a788eacb4450046ec09bade167cbc28aae690899191c62f15",
+      "task_id": "00023-9ac24d1b3277",
+      "task_index": 23,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fixed_physical_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.03076923076923077
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 130,
+        "end_time": 2163.2000000000003,
+        "length": 52.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "1013f886bd15c069dd9c4c7ee772107a9ae198be1b6736d9b593ab5c0d86615c",
+      "task_id": "00024-1013f886bd15",
+      "task_index": 24,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fixed_physical_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.028571428571428574
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 140,
+        "end_time": 2508.8,
+        "length": 56.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "1c8f7f2367e679793e118bd0cddd776101a959150315543dacc7d5c3fbdb578a",
+      "task_id": "00025-1c8f7f2367e6",
+      "task_index": 25,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fixed_physical_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.02666666666666667
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 150,
+        "end_time": 2880.0,
+        "length": 60.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "6d57a5fa9b764f1305163c5254e9b4abe64fb10b8164e71298c195cb52c70647",
+      "task_id": "00026-6d57a5fa9b76",
+      "task_index": 26,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "dual_site_fixed_physical_width",
+      "coupling_variant": "intact",
+      "mechanochemical_metrics": {
+        "stimulus_start": 50.0
+      },
+      "metrics": {
+        "analysis_start": 50.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "sustained_duration": 50.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "amplitude": 1.0,
+        "asymmetry": 0.02,
+        "centers": [
+          0.0,
+          1.0
+        ],
+        "name": "gaussian_pulse",
+        "start": 50.0,
+        "stop": 150.0,
+        "width_fraction": 0.025
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 160,
+        "end_time": 3276.8,
+        "length": 64.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "fb9d997e5dd9adef80b059b01cdc70057e83e3b6913e32c1fe5eac0340b43a28",
+      "task_id": "00027-fb9d997e5dd9",
+      "task_index": 27,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.2,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 250.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 250.0,
+        "slope": 0.016666666666666666,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 60,
+        "end_time": 750.0,
+        "length": 12.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "eb67827cee40259c38badbf7baddacf38ec6dd0992715bf9acc0d19a9d1877b2",
+      "task_id": "00028-eb67827cee40",
+      "task_index": 28,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.2,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 250.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 250.0,
+        "slope": 0.0125,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 60,
+        "end_time": 750.0,
+        "length": 16.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "1db0986ec1702b525c58b07cb798b28a3e7e7f1fcbffa6904ac2cebd25a6e538",
+      "task_id": "00029-1db0986ec170",
+      "task_index": 29,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.2,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 250.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 250.0,
+        "slope": 0.01,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 60,
+        "end_time": 750.0,
+        "length": 20.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "9d02fb0c380c0039ff8244c6fde47d6728f50ef35b905c0e233f8a829e96d15f",
+      "task_id": "00030-9d02fb0c380c",
+      "task_index": 30,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.2,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 396.8502629920499,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 396.8502629920499,
+        "slope": 0.007937005259840998,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 63,
+        "end_time": 1190.5507889761498,
+        "length": 25.198420997897465,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "3d6253459e5b17be0d09927625b878b24f52b750a1f4a4a74bd2fbab2d245579",
+      "task_id": "00031-3d6253459e5b",
+      "task_index": 31,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.2,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 640.0000000000001,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 640.0000000000001,
+        "slope": 0.00625,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 80,
+        "end_time": 1920.0000000000005,
+        "length": 32.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "f6c035e97ab33904615fb0e10abce262bcfbdc389586d9291736d53d8c5eaae6",
+      "task_id": "00032-f6c035e97ab3",
+      "task_index": 32,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.2,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 810.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 810.0,
+        "slope": 0.005555555555555556,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 90,
+        "end_time": 2430.0,
+        "length": 36.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "6b3de04686a5ff299c2b4789d244a3e1b4938eb463165812beb9b1cf78d909f2",
+      "task_id": "00033-6b3de04686a5",
+      "task_index": 33,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.2,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 1000.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 1000.0,
+        "slope": 0.005,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 100,
+        "end_time": 3000.0,
+        "length": 40.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "5447bb7a3537886d98c1bb47cc4fed9835fcd8ebfaaa3528781d0c8f32a3d138",
+      "task_id": "00034-5447bb7a3537",
+      "task_index": 34,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.2,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 1210.0000000000002,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 1210.0000000000002,
+        "slope": 0.004545454545454546,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 110,
+        "end_time": 3630.000000000001,
+        "length": 44.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "d2c8ca16acf3d7a9aa68acc3dd15dd39ee3f3c57c0be1f566edca3748dbb794b",
+      "task_id": "00035-d2c8ca16acf3",
+      "task_index": 35,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.2,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 1440.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 1440.0,
+        "slope": 0.004166666666666667,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 120,
+        "end_time": 4320.0,
+        "length": 48.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "010574415b4487fe82a146f1949e7504de2aa265a3b5acd62d26a5d0b2369dc6",
+      "task_id": "00036-010574415b44",
+      "task_index": 36,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.2,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 1562.5,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 1562.5,
+        "slope": 0.004,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 125,
+        "end_time": 4687.5,
+        "length": 50.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "926dc23919c0cdcb7ee1088f4196bbad542c265ff3e5553082565ff76c9dccc0",
+      "task_id": "00037-926dc23919c0",
+      "task_index": 37,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.2,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 1690.0000000000002,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 1690.0000000000002,
+        "slope": 0.0038461538461538464,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 130,
+        "end_time": 5070.000000000001,
+        "length": 52.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "2311487e25d44ac73fc102f4ccfa063bcb09bc2e9a37b6a2f9ef963ee0ca7c35",
+      "task_id": "00038-2311487e25d4",
+      "task_index": 38,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.2,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 1959.9999999999998,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 1959.9999999999998,
+        "slope": 0.0035714285714285718,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 140,
+        "end_time": 5879.999999999999,
+        "length": 56.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "fa08f54675b8bd4be4ff5f11923e5ea20b64331b4c38a9ef182758c8d9a7bbf7",
+      "task_id": "00039-fa08f54675b8",
+      "task_index": 39,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.2,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2250.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2250.0,
+        "slope": 0.0033333333333333335,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 150,
+        "end_time": 6750.0,
+        "length": 60.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "ba2c7dce4dc89d27efa0328cc5d5e2e3d9b9ac53dcdba456d563eeff3bfc623d",
+      "task_id": "00040-ba2c7dce4dc8",
+      "task_index": 40,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.2,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2560.0000000000005,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2560.0000000000005,
+        "slope": 0.003125,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 160,
+        "end_time": 7680.000000000002,
+        "length": 64.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "b9706b919a6bbb599a6a39a96f327f8e93394c2deaab84a8c940ef2336da4a5e",
+      "task_id": "00041-b9706b919a6b",
+      "task_index": 41,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.5,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 250.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 250.0,
+        "slope": 0.041666666666666664,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 60,
+        "end_time": 750.0,
+        "length": 12.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "a636a975a013cc71871d0d4d69a1f484c6b222fed02540166e46b55f0944c33b",
+      "task_id": "00042-a636a975a013",
+      "task_index": 42,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.5,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 250.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 250.0,
+        "slope": 0.03125,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 60,
+        "end_time": 750.0,
+        "length": 16.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "8901779ca32a3ef160b1c1f9db35b11e545bc3e75ba0242721ce4c660f817eb2",
+      "task_id": "00043-8901779ca32a",
+      "task_index": 43,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.5,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 250.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 250.0,
+        "slope": 0.025,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 60,
+        "end_time": 750.0,
+        "length": 20.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "5a197889876ce6f5fa5b59f98b514258206410eafd2a6729606109fcabe645ae",
+      "task_id": "00044-5a197889876c",
+      "task_index": 44,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.5,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 396.8502629920499,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 396.8502629920499,
+        "slope": 0.019842513149602493,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 63,
+        "end_time": 1190.5507889761498,
+        "length": 25.198420997897465,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "be74b0791891e89619b0dc518b58b2a5d7d80cee03958c0a6086562ee9e2196f",
+      "task_id": "00045-be74b0791891",
+      "task_index": 45,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.5,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 640.0000000000001,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 640.0000000000001,
+        "slope": 0.015625,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 80,
+        "end_time": 1920.0000000000005,
+        "length": 32.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "35af5634ee897f8c7be6a60d50be484b3411f6621a3cacb46f27e8662ef57cd5",
+      "task_id": "00046-35af5634ee89",
+      "task_index": 46,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.5,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 810.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 810.0,
+        "slope": 0.013888888888888888,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 90,
+        "end_time": 2430.0,
+        "length": 36.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "d85b2db80e611d6fbd4d61fc2f6dc218701a17841dcc67df25279d4928af773f",
+      "task_id": "00047-d85b2db80e61",
+      "task_index": 47,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.5,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 1000.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 1000.0,
+        "slope": 0.0125,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 100,
+        "end_time": 3000.0,
+        "length": 40.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "15c096865bda8abf2b4b04d993391a504fe568a1d5a8b89a2a97ca3c255f0c37",
+      "task_id": "00048-15c096865bda",
+      "task_index": 48,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.5,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 1210.0000000000002,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 1210.0000000000002,
+        "slope": 0.011363636363636364,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 110,
+        "end_time": 3630.000000000001,
+        "length": 44.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "1a38334c183ec477aaffa09d4fff966bda10875ce468ec65351740dde19cc8e7",
+      "task_id": "00049-1a38334c183e",
+      "task_index": 49,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.5,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 1440.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 1440.0,
+        "slope": 0.010416666666666666,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 120,
+        "end_time": 4320.0,
+        "length": 48.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "393df2b5cf7936c1d31d56e78dd1c5d91cfaad271a55087b1f3a50cb955760cc",
+      "task_id": "00050-393df2b5cf79",
+      "task_index": 50,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.5,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 1562.5,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 1562.5,
+        "slope": 0.01,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 125,
+        "end_time": 4687.5,
+        "length": 50.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "49cb95cc9605ecd45e76e877ab59f72e021bd86f9059f9e588f208721f57a177",
+      "task_id": "00051-49cb95cc9605",
+      "task_index": 51,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.5,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 1690.0000000000002,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 1690.0000000000002,
+        "slope": 0.009615384615384616,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 130,
+        "end_time": 5070.000000000001,
+        "length": 52.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "cc8b94db54e0c4aba85383eccdd60f47814828fb89d57245b16880b97832d664",
+      "task_id": "00052-cc8b94db54e0",
+      "task_index": 52,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.5,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 1959.9999999999998,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 1959.9999999999998,
+        "slope": 0.008928571428571428,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 140,
+        "end_time": 5879.999999999999,
+        "length": 56.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "cb07dd878e085353d1b1b4acb2eea297ca174e9dfad4a996128149a0db450daf",
+      "task_id": "00053-cb07dd878e08",
+      "task_index": 53,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.5,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2250.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2250.0,
+        "slope": 0.008333333333333333,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 150,
+        "end_time": 6750.0,
+        "length": 60.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "71ad1ae0af3424192278252577d394448819feb7a09346535afad08505ce1ad7",
+      "task_id": "00054-71ad1ae0af34",
+      "task_index": 54,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 0.5,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2560.0000000000005,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2560.0000000000005,
+        "slope": 0.0078125,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 160,
+        "end_time": 7680.000000000002,
+        "length": 64.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "9a4389a72d6120cb42892efeb9f7988d7447993354d3a774ffb56d06d0193f07",
+      "task_id": "00055-9a4389a72d61",
+      "task_index": 55,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 1.0,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 250.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 250.0,
+        "slope": 0.08333333333333333,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 60,
+        "end_time": 750.0,
+        "length": 12.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "407a91a12bebe8b48767385258efc45b817c61b344e8e01c3ec42499ba1e5ce6",
+      "task_id": "00056-407a91a12beb",
+      "task_index": 56,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 1.0,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 250.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 250.0,
+        "slope": 0.0625,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 60,
+        "end_time": 750.0,
+        "length": 16.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "d16807f997eb29c8a927f223f6ceff3d8bfac68ace8d58cb163b1a3ac0255dce",
+      "task_id": "00057-d16807f997eb",
+      "task_index": 57,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 1.0,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 250.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 250.0,
+        "slope": 0.05,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 60,
+        "end_time": 750.0,
+        "length": 20.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "ec1abe5436930eea7beb0d1e8fbe4fcc656b8c1d9b70177c694fb7160ecf968c",
+      "task_id": "00058-ec1abe543693",
+      "task_index": 58,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 1.0,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 396.8502629920499,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 396.8502629920499,
+        "slope": 0.039685026299204985,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 63,
+        "end_time": 1190.5507889761498,
+        "length": 25.198420997897465,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "8a71d0a939356174f7dd5734dd3ed2fd0490c951a8a6a22f943c83a0290574d1",
+      "task_id": "00059-8a71d0a93935",
+      "task_index": 59,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 1.0,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 640.0000000000001,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 640.0000000000001,
+        "slope": 0.03125,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 80,
+        "end_time": 1920.0000000000005,
+        "length": 32.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "fa2c3e620b9e6c4f08dd6fe2b97aa30b2bbcd752029b021eb1ec5d08e371c7c5",
+      "task_id": "00060-fa2c3e620b9e",
+      "task_index": 60,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 1.0,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 810.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 810.0,
+        "slope": 0.027777777777777776,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 90,
+        "end_time": 2430.0,
+        "length": 36.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "22319da35872ddadc21ad57d7473aecb9ed151819c13e9160e1a5ace7b918c18",
+      "task_id": "00061-22319da35872",
+      "task_index": 61,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 1.0,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 1000.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 1000.0,
+        "slope": 0.025,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 100,
+        "end_time": 3000.0,
+        "length": 40.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "8c25e997ec34d09fa37068750685c2f3d54fb8b4485c9f321be2c514b508ec0e",
+      "task_id": "00062-8c25e997ec34",
+      "task_index": 62,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 1.0,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 1210.0000000000002,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 1210.0000000000002,
+        "slope": 0.022727272727272728,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 110,
+        "end_time": 3630.000000000001,
+        "length": 44.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "9a2ec72edde60be8bfcda78e4efdea85b3cd1029613616eb5e132345c7e02adc",
+      "task_id": "00063-9a2ec72edde6",
+      "task_index": 63,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 1.0,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 1440.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 1440.0,
+        "slope": 0.020833333333333332,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 120,
+        "end_time": 4320.0,
+        "length": 48.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "7853a770f51bfa81841c10130b5bc7ff5c54db3e783f52daecf3a3ef7c468a32",
+      "task_id": "00064-7853a770f51b",
+      "task_index": 64,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 1.0,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 1562.5,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 1562.5,
+        "slope": 0.02,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 125,
+        "end_time": 4687.5,
+        "length": 50.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "292cac72f84466aa98a66733a93f7215966c233a4b8efe42abf3ecdad253c242",
+      "task_id": "00065-292cac72f844",
+      "task_index": 65,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 1.0,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 1690.0000000000002,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 1690.0000000000002,
+        "slope": 0.019230769230769232,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 130,
+        "end_time": 5070.000000000001,
+        "length": 52.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "b028cd370155d7127cb0f5ad1d32840ffa908001ea5aa7be1df15b163aedfe6b",
+      "task_id": "00066-b028cd370155",
+      "task_index": 66,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 1.0,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 1959.9999999999998,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 1959.9999999999998,
+        "slope": 0.017857142857142856,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 140,
+        "end_time": 5879.999999999999,
+        "length": 56.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "0d513bfa16199624bfc2f66d0750705f2e3d3b7711418c774492540a80cb1e6f",
+      "task_id": "00067-0d513bfa1619",
+      "task_index": 67,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 1.0,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2250.0,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2250.0,
+        "slope": 0.016666666666666666,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": false,
+      "simulation": {
+        "cells": 150,
+        "end_time": 6750.0,
+        "length": 60.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "92f4e961eacbc27a491a9bca78f1d3c44d60e125880fbe7a04dbe0d71b890293",
+      "task_id": "00068-92f4e961eacb",
+      "task_index": 68,
+      "tier": "intact_length"
+    },
+    {
+      "assay": "gradient_reversal_length_scaled",
+      "coupling_variant": "intact",
+      "input_peak": 1.0,
+      "mechanochemical_metrics": {
+        "stimulus_start": 0.0
+      },
+      "metrics": {
+        "analysis_start": 0.0,
+        "orientation_threshold": 0.05,
+        "polarization_threshold": 0.1,
+        "reversal_time": 2560.0000000000005,
+        "sustained_duration": 25.0
+      },
+      "model": "debelly",
+      "model_parameters": {},
+      "protocol": {
+        "name": "reversing_gradient",
+        "reversal_time": 2560.0000000000005,
+        "slope": 0.015625,
+        "transition": 25.0
+      },
+      "replicate": 0,
+      "save_trajectory": true,
+      "simulation": {
+        "cells": 160,
+        "end_time": 7680.000000000002,
+        "length": 64.0,
+        "output_interval": 2.0,
+        "step": 0.5
+      },
+      "task_digest": "8eadb5bccf1e553e0db3b2b34462123432ecca1f24f742e6ed91368f963cae2a",
+      "task_id": "00069-8eadb5bccf1e",
+      "task_index": 69,
+      "tier": "intact_length"
+    }
+  ]
+}

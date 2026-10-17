@@ -1,0 +1,3272 @@
+{
+  "generated_at": "2026-10-08T18:51:56.260711+00:00",
+  "summary": {
+    "case_index": 2,
+    "model": "debelly",
+    "length": 5.0,
+    "cells": 201,
+    "width": 1.0,
+    "condition": "relative_20pct",
+    "width_mode": "relative",
+    "reference_length": 15.0,
+    "width_fraction_at_reference": 0.2,
+    "amplitude_factor": 1.0,
+    "amplitude": 3.6,
+    "status": "unpolarized",
+    "best_observed_strength": 4.595234917006672e-14,
+    "cue_duration": null,
+    "total_establishment_time": null,
+    "selected_final_polarity": 4.595234917006672e-14,
+    "selected_final_contrast": null,
+    "post_release_arrival": null,
+    "apparent_endpoint_count": 1,
+    "tested_durations": 18,
+    "unsettled_trials": 0,
+    "upper_optimum_unresolved": false,
+    "selected_relative_duration_bracket": null,
+    "duration_boundary_unresolved": false,
+    "selected_checkpoint": null,
+    "selected_checkpoint_sha256": null
+  },
+  "trials": [
+    {
+      "duration": 0.0,
+      "verified": true,
+      "final_orientation": -1.487445340210132e-14,
+      "cue_aligned_strength": 1.487445340210132e-14,
+      "final_contrast": 5.0959236830294685e-14,
+      "polarity_arrival": 0.0,
+      "field_arrival": 0.0,
+      "total_establishment_time": 0.0,
+      "polarity_arrival_tolerance": 1e-06,
+      "convergence": {
+        "verified": true,
+        "elapsed": 12010.0,
+        "checks": [
+          {
+            "time": 1010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 1.4110701971772962e-14,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 7.026409433458425e-14,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 1.9489780318117318e-13,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 1.963764710371439e-13,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 3.440604264043773e-18,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 5.4067790066768785e-15,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 1.6032875320687192e-16,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 2010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 2.360828983738938e-15,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 1.2876451676699828e-14,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 1.4381771736015325e-14,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 1.4070588267458909e-14,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 1.6590363683142778e-18,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 2.6105615948218595e-15,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 8.4853450642947e-17,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 12010.0,
+            "kind": "holdout",
+            "maximum_scaled_excursion": 0.0,
+            "verified": true,
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "checkpoint": "work/cases/case_0002/duration_0.checkpoint.npz",
+      "checkpoint_sha256": "14392857d7acf68f42f37439252bf6f2be5f7e9fa2713b0521cfe7c1765973b6",
+      "trace": "work/cases/case_0002/duration_0.npz"
+    },
+    {
+      "duration": 0.5,
+      "verified": true,
+      "final_orientation": -3.194685009042299e-14,
+      "cue_aligned_strength": 3.194685009042299e-14,
+      "final_contrast": 1.0536016503692736e-13,
+      "polarity_arrival": 470.0,
+      "field_arrival": 1.25,
+      "total_establishment_time": 470.5,
+      "polarity_arrival_tolerance": 1e-06,
+      "convergence": {
+        "verified": true,
+        "elapsed": 13010.0,
+        "checks": [
+          {
+            "time": 1010.0,
+            "kind": "convergence",
+            "steady": false,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.004448766888311138,
+                "projected_relative_drift": 9.22502880264549e-09
+              },
+              "rho": {
+                "relative_range": 0.00701557760310751,
+                "projected_relative_drift": 5.017915065960511e-08
+              },
+              "mca_bound": {
+                "relative_range": 0.0003281083013229158,
+                "projected_relative_drift": 1.6492817457597048e-08
+              },
+              "mca_unbound": {
+                "relative_range": 0.00032920291472570914,
+                "projected_relative_drift": 1.674075768532751e-08
+              },
+              "displacement": {
+                "relative_range": 7.810713402982161e-07,
+                "projected_relative_drift": 3.5068743531853547e-12
+              },
+              "velocity": {
+                "relative_range": 0.0011672278702373811,
+                "projected_relative_drift": 4.791263891491043e-09
+              },
+              "tension": {
+                "relative_range": 4.0000216741951796e-05,
+                "projected_relative_drift": 1.557772015584707e-10
+              },
+              "physical_length": {
+                "relative_range": 1.7763568394002506e-16,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 2010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 6.350992231394903e-10,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 3.4576673088992926e-09,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 1.1215796608361498e-09,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 1.138465979073075e-09,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 2.3851185391387e-13,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 3.2586631815740176e-10,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 1.0594827967328036e-11,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 3010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 4.959231633108733e-16,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 4.588235304606166e-16,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 13010.0,
+            "kind": "holdout",
+            "maximum_scaled_excursion": 0.0,
+            "verified": true,
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "checkpoint": "work/cases/case_0002/duration_0p5.checkpoint.npz",
+      "checkpoint_sha256": "63621e2660393fef93ea185a50cbf6c262c2b57e326ca3d023eefd3015a3cec0",
+      "trace": "work/cases/case_0002/duration_0p5.npz"
+    },
+    {
+      "duration": 0.8396508922021118,
+      "verified": true,
+      "final_orientation": -3.194685009042299e-14,
+      "cue_aligned_strength": 3.194685009042299e-14,
+      "final_contrast": 1.0536016503692736e-13,
+      "polarity_arrival": 505.0,
+      "field_arrival": 35.0,
+      "total_establishment_time": 505.8396508922021,
+      "polarity_arrival_tolerance": 1e-06,
+      "convergence": {
+        "verified": true,
+        "elapsed": 13010.0,
+        "checks": [
+          {
+            "time": 1010.0,
+            "kind": "convergence",
+            "steady": false,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.00737954961136886,
+                "projected_relative_drift": 1.543847560977227e-08
+              },
+              "rho": {
+                "relative_range": 0.011749625860212085,
+                "projected_relative_drift": 8.397875532487548e-08
+              },
+              "mca_bound": {
+                "relative_range": 0.000549977240490459,
+                "projected_relative_drift": 2.7590784375433096e-08
+              },
+              "mca_unbound": {
+                "relative_range": 0.0005518535398350558,
+                "projected_relative_drift": 2.8006098887550213e-08
+              },
+              "displacement": {
+                "relative_range": 1.3085266406368982e-06,
+                "projected_relative_drift": 5.866891213703627e-12
+              },
+              "velocity": {
+                "relative_range": 0.001956408155995831,
+                "projected_relative_drift": 8.015634871576769e-09
+              },
+              "tension": {
+                "relative_range": 6.704670153333229e-05,
+                "projected_relative_drift": 2.606103515846262e-10
+              },
+              "physical_length": {
+                "relative_range": 4.867217739956686e-14,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 2010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 1.0628798611069967e-09,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 5.786751303879639e-09,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 1.876558372273445e-09,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 1.904813992589621e-09,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 3.990347645141706e-13,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 5.451805747848086e-10,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 1.7725338157583862e-11,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 3010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 13010.0,
+            "kind": "holdout",
+            "maximum_scaled_excursion": 0.0,
+            "verified": true,
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "checkpoint": "work/cases/case_0002/duration_0p839650892202.checkpoint.npz",
+      "checkpoint_sha256": "6c512b45c579788817fb8258fc729b95fb6df97e0ec41ae7112a21eab07e1ce9",
+      "trace": "work/cases/case_0002/duration_0p839650892202.npz"
+    },
+    {
+      "duration": 1.4100272415516044,
+      "verified": true,
+      "final_orientation": -3.3275839054184517e-14,
+      "cue_aligned_strength": 3.3275839054184517e-14,
+      "final_contrast": 1.1146639167236572e-13,
+      "polarity_arrival": 545.0,
+      "field_arrival": 65.0,
+      "total_establishment_time": 546.4100272415516,
+      "polarity_arrival_tolerance": 1e-06,
+      "convergence": {
+        "verified": true,
+        "elapsed": 13010.0,
+        "checks": [
+          {
+            "time": 1010.0,
+            "kind": "convergence",
+            "steady": false,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.012145870739200627,
+                "projected_relative_drift": 2.5776860506762913e-08
+              },
+              "rho": {
+                "relative_range": 0.019635288516505953,
+                "projected_relative_drift": 1.4022122041993755e-07
+              },
+              "mca_bound": {
+                "relative_range": 0.0009209459783566157,
+                "projected_relative_drift": 4.604087831244128e-08
+              },
+              "mca_unbound": {
+                "relative_range": 0.000923875483351424,
+                "projected_relative_drift": 4.673380716565511e-08
+              },
+              "displacement": {
+                "relative_range": 2.188098964092587e-06,
+                "projected_relative_drift": 9.789821198421548e-12
+              },
+              "velocity": {
+                "relative_range": 0.0032739773694253813,
+                "projected_relative_drift": 1.3375330185478029e-08
+              },
+              "tension": {
+                "relative_range": 0.00011220867928160847,
+                "projected_relative_drift": 4.348689921525823e-10
+              },
+              "physical_length": {
+                "relative_range": 4.4811692134771873e-10,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 2010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 1.7746579412874372e-09,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 9.662358825024853e-09,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 3.131526816960763e-09,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 3.1786752778545575e-09,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 6.658636960366757e-13,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 9.09735377311479e-10,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 2.9578018009500915e-11,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 3010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 13010.0,
+            "kind": "holdout",
+            "maximum_scaled_excursion": 0.0,
+            "verified": true,
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "checkpoint": "work/cases/case_0002/duration_1p41002724155.checkpoint.npz",
+      "checkpoint_sha256": "e8d9405e1b58a60179c4ad5ee2db49e08c902140fd2755bf4aeefad12c5d8125",
+      "trace": "work/cases/case_0002/duration_1p41002724155.npz"
+    },
+    {
+      "duration": 2.3678612627961746,
+      "verified": true,
+      "final_orientation": -3.3275839054184517e-14,
+      "cue_aligned_strength": 3.3275839054184517e-14,
+      "final_contrast": 1.1146639167236572e-13,
+      "polarity_arrival": 575.0,
+      "field_arrival": 90.0,
+      "total_establishment_time": 577.3678612627962,
+      "polarity_arrival_tolerance": 1e-06,
+      "convergence": {
+        "verified": true,
+        "elapsed": 13010.0,
+        "checks": [
+          {
+            "time": 1010.0,
+            "kind": "convergence",
+            "steady": false,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.019736421024448433,
+                "projected_relative_drift": 4.155284239892773e-08
+              },
+              "rho": {
+                "relative_range": 0.03240121324559719,
+                "projected_relative_drift": 2.2574909236578962e-07
+              },
+              "mca_bound": {
+                "relative_range": 0.0014729318739821861,
+                "projected_relative_drift": 7.551369109263913e-08
+              },
+              "mca_unbound": {
+                "relative_range": 0.0014773338651919367,
+                "projected_relative_drift": 7.665069193992624e-08
+              },
+              "displacement": {
+                "relative_range": 0.00032341406875702287,
+                "projected_relative_drift": 1.6057031776449812e-11
+              },
+              "velocity": {
+                "relative_range": 0.00547020867982238,
+                "projected_relative_drift": 2.193789041813541e-08
+              },
+              "tension": {
+                "relative_range": 0.0058043764677431255,
+                "projected_relative_drift": 7.132618262438586e-10
+              },
+              "physical_length": {
+                "relative_range": 0.0006470959138072275,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 2010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 2.8605476356524283e-09,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 1.5554716744752294e-08,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 5.136460355212024e-09,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 5.2137995883891216e-09,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 1.092144851696645e-12,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 1.4921417132230678e-09,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 4.8513649437409627e-11,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 3010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 13010.0,
+            "kind": "holdout",
+            "maximum_scaled_excursion": 0.0,
+            "verified": true,
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "checkpoint": "work/cases/case_0002/duration_2p3678612628.checkpoint.npz",
+      "checkpoint_sha256": "71d21bcb4f2f8cfcb6c8e70ae37682ffd9c4f133fb772d8351bb290e9d5bd09a",
+      "trace": "work/cases/case_0002/duration_2p3678612628.npz"
+    },
+    {
+      "duration": 3.976353643835253,
+      "verified": true,
+      "final_orientation": -3.66494264237357e-14,
+      "cue_aligned_strength": 3.66494264237357e-14,
+      "final_contrast": 1.2534417948018017e-13,
+      "polarity_arrival": 610.0,
+      "field_arrival": 105.0,
+      "total_establishment_time": 613.9763536438353,
+      "polarity_arrival_tolerance": 1e-06,
+      "convergence": {
+        "verified": true,
+        "elapsed": 13010.0,
+        "checks": [
+          {
+            "time": 1010.0,
+            "kind": "convergence",
+            "steady": false,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.031046531570255997,
+                "projected_relative_drift": 5.237671685164335e-08
+              },
+              "rho": {
+                "relative_range": 0.03405722570274842,
+                "projected_relative_drift": 2.792198773921612e-07
+              },
+              "mca_bound": {
+                "relative_range": 0.006889091067707045,
+                "projected_relative_drift": 1.1895421282903196e-07
+              },
+              "mca_unbound": {
+                "relative_range": 0.006810451329703791,
+                "projected_relative_drift": 1.2074611086425598e-07
+              },
+              "displacement": {
+                "relative_range": 0.017566533349951872,
+                "projected_relative_drift": 2.5294780657718635e-11
+              },
+              "velocity": {
+                "relative_range": 0.009987667078926678,
+                "projected_relative_drift": 3.455894173907244e-08
+              },
+              "tension": {
+                "relative_range": 0.3180562760324115,
+                "projected_relative_drift": 1.123607297723057e-09
+              },
+              "physical_length": {
+                "relative_range": 0.03485253934675416,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 2010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 3.6009424365193467e-09,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 1.9216029747006232e-08,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 8.091480844810719e-09,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 8.213314983481185e-09,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 1.7204603993556727e-12,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 2.3505770783027186e-09,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 7.642375937889207e-11,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 3010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 2.713596533033262e-17,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 6.612308844144976e-16,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 7.647058841010276e-16,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 1.232595164407831e-32,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 6.593459188661342e-30,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 13010.0,
+            "kind": "holdout",
+            "maximum_scaled_excursion": 1.0705882377414388e-15,
+            "verified": true,
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "checkpoint": "work/cases/case_0002/duration_3p97635364384.checkpoint.npz",
+      "checkpoint_sha256": "ac20dd632138a3423768696f644d29df297bfaab7086fd27c25251af2dbb9f21",
+      "trace": "work/cases/case_0002/duration_3p97635364384.npz"
+    },
+    {
+      "duration": 6.677497769514776,
+      "verified": true,
+      "final_orientation": -3.664942642373571e-14,
+      "cue_aligned_strength": 3.664942642373571e-14,
+      "final_contrast": 1.247890679678676e-13,
+      "polarity_arrival": 650.0,
+      "field_arrival": 150.0,
+      "total_establishment_time": 656.6774977695147,
+      "polarity_arrival_tolerance": 1e-06,
+      "convergence": {
+        "verified": true,
+        "elapsed": 13010.0,
+        "checks": [
+          {
+            "time": 1010.0,
+            "kind": "convergence",
+            "steady": false,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.04837867439437704,
+                "projected_relative_drift": 1.180451613870041e-07
+              },
+              "rho": {
+                "relative_range": 0.05802672807225906,
+                "projected_relative_drift": 6.420972346914372e-07
+              },
+              "mca_bound": {
+                "relative_range": 0.06008266209978993,
+                "projected_relative_drift": 2.1104810304064353e-07
+              },
+              "mca_unbound": {
+                "relative_range": 0.012491541336273355,
+                "projected_relative_drift": 2.142263887250069e-07
+              },
+              "displacement": {
+                "relative_range": 0.032579029968962905,
+                "projected_relative_drift": 4.4877075968239725e-11
+              },
+              "velocity": {
+                "relative_range": 0.21692427076099402,
+                "projected_relative_drift": 6.131322949270281e-08
+              },
+              "tension": {
+                "relative_range": 0.5909600963104875,
+                "projected_relative_drift": 1.9934629184099285e-09
+              },
+              "physical_length": {
+                "relative_range": 0.06451609239239424,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 2010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 8.127106369989862e-09,
+                "projected_relative_drift": 1.0311666825526395e-13
+              },
+              "rho": {
+                "relative_range": 4.4245743406775045e-08,
+                "projected_relative_drift": 6.040804490303623e-13
+              },
+              "mca_bound": {
+                "relative_range": 1.4356148212705657e-08,
+                "projected_relative_drift": 3.3061544220724884e-13
+              },
+              "mca_unbound": {
+                "relative_range": 1.4572312562723476e-08,
+                "projected_relative_drift": 3.0588235364041107e-13
+              },
+              "displacement": {
+                "relative_range": 3.0524141087703693e-12,
+                "projected_relative_drift": 7.022974120367307e-17
+              },
+              "velocity": {
+                "relative_range": 4.1703580341236366e-09,
+                "projected_relative_drift": 1.0874750467548679e-13
+              },
+              "tension": {
+                "relative_range": 1.355898368602287e-10,
+                "projected_relative_drift": 3.2779092694425268e-15
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 3010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 1.8452456424626184e-15,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 1.0968829206077631e-14,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 2.6449235376579904e-15,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 2.9058823595839052e-15,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 1.1712358375540736e-18,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 1.4637432899338846e-15,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 5.668044837184874e-17,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 13010.0,
+            "kind": "holdout",
+            "maximum_scaled_excursion": 0.0,
+            "verified": true,
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "checkpoint": "work/cases/case_0002/duration_6p67749776951.checkpoint.npz",
+      "checkpoint_sha256": "836d63543b3147ee2857681d3ef134935920c52f73986e082710b5a8ddb9c4f8",
+      "trace": "work/cases/case_0002/duration_6p67749776951.npz"
+    },
+    {
+      "duration": 11.213533919701385,
+      "verified": true,
+      "final_orientation": -3.664942642373571e-14,
+      "cue_aligned_strength": 3.664942642373571e-14,
+      "final_contrast": 1.247890679678676e-13,
+      "polarity_arrival": 685.0,
+      "field_arrival": 180.0,
+      "total_establishment_time": 696.2135339197014,
+      "polarity_arrival_tolerance": 1e-06,
+      "convergence": {
+        "verified": true,
+        "elapsed": 13010.0,
+        "checks": [
+          {
+            "time": 1010.0,
+            "kind": "convergence",
+            "steady": false,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.07257019569735583,
+                "projected_relative_drift": 1.9182698276928792e-07
+              },
+              "rho": {
+                "relative_range": 0.10430785372521605,
+                "projected_relative_drift": 1.0434154421270074e-06
+              },
+              "mca_bound": {
+                "relative_range": 0.01677489474365617,
+                "projected_relative_drift": 3.430119012743538e-07
+              },
+              "mca_unbound": {
+                "relative_range": 0.010448500043939352,
+                "projected_relative_drift": 3.4817710432533044e-07
+              },
+              "displacement": {
+                "relative_range": 0.039446397583263494,
+                "projected_relative_drift": 7.293787426009948e-11
+              },
+              "velocity": {
+                "relative_range": 0.9582910542526888,
+                "projected_relative_drift": 9.965124691361576e-08
+              },
+              "tension": {
+                "relative_range": 0.709296509136499,
+                "projected_relative_drift": 3.239938363618077e-09
+              },
+              "physical_length": {
+                "relative_range": 0.07880179882210961,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 2010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 1.3206801392733594e-08,
+                "projected_relative_drift": 1.7367017811412877e-13
+              },
+              "rho": {
+                "relative_range": 7.189986136794954e-08,
+                "projected_relative_drift": 1.1763671902170213e-12
+              },
+              "mca_bound": {
+                "relative_range": 2.3333015889285617e-08,
+                "projected_relative_drift": 3.636769864279737e-13
+              },
+              "mca_unbound": {
+                "relative_range": 2.3684347524729688e-08,
+                "projected_relative_drift": 3.3647058900445217e-13
+              },
+              "displacement": {
+                "relative_range": 4.961044115282747e-12,
+                "projected_relative_drift": 6.407300872634268e-17
+              },
+              "velocity": {
+                "relative_range": 6.7780220959032805e-09,
+                "projected_relative_drift": 8.927593289983259e-14
+              },
+              "tension": {
+                "relative_range": 2.2037217051070884e-10,
+                "projected_relative_drift": 3.0608945377021424e-15
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 3010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 5.427193066066524e-15,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 3.1952676382921795e-14,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 7.604155170766722e-15,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 7.341176487369865e-15,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 4.1517443155907324e-18,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 5.660707160094825e-15,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 1.8790689502742906e-16,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 13010.0,
+            "kind": "holdout",
+            "maximum_scaled_excursion": 0.0,
+            "verified": true,
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "checkpoint": "work/cases/case_0002/duration_11p2135339197.checkpoint.npz",
+      "checkpoint_sha256": "5a92f2013aa5405608a000e378a9a2112c391d7ea3db19973aa7f5370fb19598",
+      "trace": "work/cases/case_0002/duration_11p2135339197.npz"
+    },
+    {
+      "duration": 18.830907520831826,
+      "verified": true,
+      "final_orientation": -3.670054138388035e-14,
+      "cue_aligned_strength": 3.670054138388035e-14,
+      "final_contrast": 1.255662240851052e-13,
+      "polarity_arrival": 720.0,
+      "field_arrival": 200.0,
+      "total_establishment_time": 738.8309075208318,
+      "polarity_arrival_tolerance": 1e-06,
+      "convergence": {
+        "verified": true,
+        "elapsed": 13010.0,
+        "checks": [
+          {
+            "time": 1010.0,
+            "kind": "convergence",
+            "steady": false,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.10388137223801042,
+                "projected_relative_drift": 2.6606861765690117e-07
+              },
+              "rho": {
+                "relative_range": 0.1707685163051557,
+                "projected_relative_drift": 1.4281543754955686e-06
+              },
+              "mca_bound": {
+                "relative_range": 0.04863649806986053,
+                "projected_relative_drift": 5.608420841887157e-07
+              },
+              "mca_unbound": {
+                "relative_range": 0.010932541538224639,
+                "projected_relative_drift": 5.692863354190125e-07
+              },
+              "displacement": {
+                "relative_range": 0.042054444924862634,
+                "projected_relative_drift": 1.1925481592820363e-10
+              },
+              "velocity": {
+                "relative_range": 0.9200872150082422,
+                "projected_relative_drift": 1.6293169740098045e-07
+              },
+              "tension": {
+                "relative_range": 0.7569378490387844,
+                "projected_relative_drift": 5.297360844450437e-09
+              },
+              "physical_length": {
+                "relative_range": 0.08391969749019434,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 2010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 1.8301249262932675e-08,
+                "projected_relative_drift": 2.1708772264266098e-13
+              },
+              "rho": {
+                "relative_range": 9.832967787837084e-08,
+                "projected_relative_drift": 1.2717483137481313e-12
+              },
+              "mca_bound": {
+                "relative_range": 3.815060523183398e-08,
+                "projected_relative_drift": 5.289847075315981e-13
+              },
+              "mca_unbound": {
+                "relative_range": 3.8725051006170943e-08,
+                "projected_relative_drift": 4.588235304606166e-13
+              },
+              "displacement": {
+                "relative_range": 8.111453555928593e-12,
+                "projected_relative_drift": 5.887943119250051e-17
+              },
+              "velocity": {
+                "relative_range": 1.1082267059199687e-08,
+                "projected_relative_drift": 8.658366663092829e-14
+              },
+              "tension": {
+                "relative_range": 3.6031500051673695e-10,
+                "projected_relative_drift": 2.680326279294342e-15
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 3010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 9.796083484250076e-15,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 5.420827187351409e-14,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 1.5208310341533445e-14,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 1.5141176505200346e-14,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 6.545624678597425e-18,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 8.813930289666007e-15,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 2.9638874933879316e-16,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 13010.0,
+            "kind": "holdout",
+            "maximum_scaled_excursion": 9.176470609212331e-16,
+            "verified": true,
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "checkpoint": "work/cases/case_0002/duration_18p8309075208.checkpoint.npz",
+      "checkpoint_sha256": "cf13bf70203c59b582340a1f21bfa91b1ae33e165f1a7b579bd2d9400f5466ce",
+      "trace": "work/cases/case_0002/duration_18p8309075208.npz"
+    },
+    {
+      "duration": 31.622776601683793,
+      "verified": true,
+      "final_orientation": -3.7313920905616474e-14,
+      "cue_aligned_strength": 3.7313920905616474e-14,
+      "final_contrast": 1.2778667013435552e-13,
+      "polarity_arrival": 745.0,
+      "field_arrival": 215.0,
+      "total_establishment_time": 776.6227766016838,
+      "polarity_arrival_tolerance": 1e-06,
+      "convergence": {
+        "verified": true,
+        "elapsed": 13010.0,
+        "checks": [
+          {
+            "time": 1010.0,
+            "kind": "convergence",
+            "steady": false,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.14157457236130394,
+                "projected_relative_drift": 3.367783818313311e-07
+              },
+              "rho": {
+                "relative_range": 0.2633752379340403,
+                "projected_relative_drift": 1.7784905457673567e-06
+              },
+              "mca_bound": {
+                "relative_range": 0.04657698820741078,
+                "projected_relative_drift": 8.400622648738885e-07
+              },
+              "mca_unbound": {
+                "relative_range": 0.01632024046205158,
+                "projected_relative_drift": 8.527119690080883e-07
+              },
+              "displacement": {
+                "relative_range": 0.043509587141280115,
+                "projected_relative_drift": 1.7862695218876684e-10
+              },
+              "velocity": {
+                "relative_range": 0.9177483292731509,
+                "projected_relative_drift": 2.4404879258799135e-07
+              },
+              "tension": {
+                "relative_range": 0.7817393005410247,
+                "projected_relative_drift": 7.934702166143128e-09
+              },
+              "physical_length": {
+                "relative_range": 0.08697474120465554,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 2010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 2.3139059093787685e-08,
+                "projected_relative_drift": 3.147771978318584e-13
+              },
+              "rho": {
+                "relative_range": 1.2232356255160978e-07,
+                "projected_relative_drift": 1.5260979764977575e-12
+              },
+              "mca_bound": {
+                "relative_range": 5.7144519748419646e-08,
+                "projected_relative_drift": 6.942924286352226e-13
+              },
+              "mca_unbound": {
+                "relative_range": 5.8004970685538174e-08,
+                "projected_relative_drift": 6.729411780089043e-13
+              },
+              "displacement": {
+                "relative_range": 1.2149837464243985e-11,
+                "projected_relative_drift": 1.1089894435911666e-16
+              },
+              "velocity": {
+                "relative_range": 1.6599706083931107e-08,
+                "projected_relative_drift": 1.5670135134914307e-13
+              },
+              "tension": {
+                "relative_range": 5.397021150636151e-10,
+                "projected_relative_drift": 4.9197940148411545e-15
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 3010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 1.3269487046532651e-14,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 7.233068534442497e-14,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 2.512677360775091e-14,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 2.5235294175333913e-14,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 8.224477242903519e-18,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 1.1288710711973905e-14,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 3.6962502289436785e-16,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 13010.0,
+            "kind": "holdout",
+            "maximum_scaled_excursion": 1.988235298662672e-15,
+            "verified": true,
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "checkpoint": "work/cases/case_0002/duration_31p6227766017.checkpoint.npz",
+      "checkpoint_sha256": "827e905cba9c76ce9d22991837ae91782c3a1a6013b5a65c973b0bbe7c692d24",
+      "trace": "work/cases/case_0002/duration_31p6227766017.npz"
+    },
+    {
+      "duration": 53.10418517502372,
+      "verified": true,
+      "final_orientation": -3.930740435125884e-14,
+      "cue_aligned_strength": 3.930740435125884e-14,
+      "final_contrast": 1.3500311979441904e-13,
+      "polarity_arrival": 775.0,
+      "field_arrival": 230.0,
+      "total_establishment_time": 828.1041851750238,
+      "polarity_arrival_tolerance": 1e-06,
+      "convergence": {
+        "verified": true,
+        "elapsed": 13010.0,
+        "checks": [
+          {
+            "time": 1010.0,
+            "kind": "convergence",
+            "steady": false,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.18270992829639254,
+                "projected_relative_drift": 4.1824552106183815e-07
+              },
+              "rho": {
+                "relative_range": 0.3704767221381002,
+                "projected_relative_drift": 2.165763469444769e-06
+              },
+              "mca_bound": {
+                "relative_range": 0.03698494129400922,
+                "projected_relative_drift": 1.234688824077767e-06
+              },
+              "mca_unbound": {
+                "relative_range": 0.027253621104846654,
+                "projected_relative_drift": 1.2532800522767119e-06
+              },
+              "displacement": {
+                "relative_range": 0.04399222317317612,
+                "projected_relative_drift": 2.6253435409070836e-10
+              },
+              "velocity": {
+                "relative_range": 0.9067055602405277,
+                "projected_relative_drift": 3.5868718731539595e-07
+              },
+              "tension": {
+                "relative_range": 0.7901861042969751,
+                "projected_relative_drift": 1.1661912477545864e-08
+              },
+              "physical_length": {
+                "relative_range": 0.08795725190395594,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 2010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 2.8698408435679663e-08,
+                "projected_relative_drift": 3.31058777030058e-13
+              },
+              "rho": {
+                "relative_range": 1.4877031970338142e-07,
+                "projected_relative_drift": 1.9394161784659e-12
+              },
+              "mca_bound": {
+                "relative_range": 8.398858782293165e-08,
+                "projected_relative_drift": 9.587847824010216e-13
+              },
+              "mca_unbound": {
+                "relative_range": 8.525323824194425e-08,
+                "projected_relative_drift": 9.482352962852744e-13
+              },
+              "displacement": {
+                "relative_range": 1.7857145261648017e-11,
+                "projected_relative_drift": 2.0850030416467803e-16
+              },
+              "velocity": {
+                "relative_range": 2.4397312091665694e-08,
+                "projected_relative_drift": 2.8615604135148056e-13
+              },
+              "tension": {
+                "relative_range": 7.932237086950472e-10,
+                "projected_relative_drift": 9.337771225715051e-15
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 3010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 1.7258473950091548e-14,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 9.077103589377287e-14,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 3.8351391296040866e-14,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 3.8694117735512e-14,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 1.110145317551255e-17,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 1.5191913862452526e-14,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 4.974960718583904e-16,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 13010.0,
+            "kind": "holdout",
+            "maximum_scaled_excursion": 6.612308844144976e-16,
+            "verified": true,
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "checkpoint": "work/cases/case_0002/duration_53p104185175.checkpoint.npz",
+      "checkpoint_sha256": "fe6ddf3bba84a353369e80505711b05536b183816bcd08f371ed5d712881f029",
+      "trace": "work/cases/case_0002/duration_53p104185175.npz"
+    },
+    {
+      "duration": 89.17795292374964,
+      "verified": true,
+      "final_orientation": -4.1147542916467166e-14,
+      "cue_aligned_strength": 4.1147542916467166e-14,
+      "final_contrast": 1.439959262938828e-13,
+      "polarity_arrival": 795.0,
+      "field_arrival": 240.0,
+      "total_establishment_time": 884.1779529237497,
+      "polarity_arrival_tolerance": 1e-06,
+      "convergence": {
+        "verified": true,
+        "elapsed": 13010.0,
+        "checks": [
+          {
+            "time": 1010.0,
+            "kind": "convergence",
+            "steady": false,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.2198485845159647,
+                "projected_relative_drift": 4.864094812312584e-07
+              },
+              "rho": {
+                "relative_range": 0.46809878934407484,
+                "projected_relative_drift": 2.4735846166823393e-06
+              },
+              "mca_bound": {
+                "relative_range": 0.04134211389596196,
+                "projected_relative_drift": 1.6371288180273298e-06
+              },
+              "mca_unbound": {
+                "relative_range": 0.04126596199336171,
+                "projected_relative_drift": 1.6617794202693482e-06
+              },
+              "displacement": {
+                "relative_range": 0.044073537461857694,
+                "projected_relative_drift": 3.4810186462246464e-10
+              },
+              "velocity": {
+                "relative_range": 0.8934868215667708,
+                "projected_relative_drift": 4.755937069342186e-07
+              },
+              "tension": {
+                "relative_range": 0.7914253175574842,
+                "projected_relative_drift": 1.5462865782824334e-08
+              },
+              "physical_length": {
+                "relative_range": 0.08813839020534431,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 2010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 3.3335591817452625e-08,
+                "projected_relative_drift": 3.8533070769072324e-13
+              },
+              "rho": {
+                "relative_range": 1.6971186869027886e-07,
+                "projected_relative_drift": 2.066591009840713e-12
+              },
+              "mca_bound": {
+                "relative_range": 1.1136416435795333e-07,
+                "projected_relative_drift": 1.2232771361668207e-12
+              },
+              "mca_unbound": {
+                "relative_range": 1.130410223172307e-07,
+                "projected_relative_drift": 1.2541176499256854e-12
+              },
+              "displacement": {
+                "relative_range": 2.3677403300050716e-11,
+                "projected_relative_drift": 2.635393489814051e-16
+              },
+              "velocity": {
+                "relative_range": 3.234923678566609e-08,
+                "projected_relative_drift": 3.520250540919367e-13
+              },
+              "tension": {
+                "relative_range": 1.0517626044610995e-09,
+                "projected_relative_drift": 1.1844098812063452e-14
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 3010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 2.0541925755061794e-14,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 1.0507820442343934e-13,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 6.23210108560664e-14,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 6.270588249628426e-14,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 1.4696235369173315e-17,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 2.0148454658072606e-14,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 6.567487385529548e-16,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 13010.0,
+            "kind": "holdout",
+            "maximum_scaled_excursion": 0.0,
+            "verified": true,
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "checkpoint": "work/cases/case_0002/duration_89p1779529237.checkpoint.npz",
+      "checkpoint_sha256": "2729a6ab37ebd0c42e909a4cc49a30b52e2b6e3fca17f822f7a8d7f498f8d687",
+      "trace": "work/cases/case_0002/duration_89p1779529237.npz"
+    },
+    {
+      "duration": 149.7566954743686,
+      "verified": true,
+      "final_orientation": -4.406109564471369e-14,
+      "cue_aligned_strength": 4.406109564471369e-14,
+      "final_contrast": 1.5443202272535927e-13,
+      "polarity_arrival": 805.0,
+      "field_arrival": 245.0,
+      "total_establishment_time": 954.7566954743686,
+      "polarity_arrival_tolerance": 1e-06,
+      "convergence": {
+        "verified": true,
+        "elapsed": 13010.0,
+        "checks": [
+          {
+            "time": 1010.0,
+            "kind": "convergence",
+            "steady": false,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.24416442816829753,
+                "projected_relative_drift": 5.167587898865338e-07
+              },
+              "rho": {
+                "relative_range": 0.5311044968157196,
+                "projected_relative_drift": 2.587927730127389e-06
+              },
+              "mca_bound": {
+                "relative_range": 0.05729117697510513,
+                "projected_relative_drift": 1.91753703224253e-06
+              },
+              "mca_unbound": {
+                "relative_range": 0.055788608113508886,
+                "projected_relative_drift": 1.9464103832729443e-06
+              },
+              "displacement": {
+                "relative_range": 0.04412786405897094,
+                "projected_relative_drift": 4.077213276520754e-10
+              },
+              "velocity": {
+                "relative_range": 0.8942632300007783,
+                "projected_relative_drift": 5.570487314707592e-07
+              },
+              "tension": {
+                "relative_range": 0.7924994861400391,
+                "projected_relative_drift": 1.811119328817509e-08
+              },
+              "physical_length": {
+                "relative_range": 0.08823741835110255,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 2010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 3.5380150691091096e-08,
+                "projected_relative_drift": 4.0703947995498933e-13
+              },
+              "rho": {
+                "relative_range": 1.773735647328904e-07,
+                "projected_relative_drift": 2.066591009840713e-12
+              },
+              "mca_bound": {
+                "relative_range": 1.3043854620986378e-07,
+                "projected_relative_drift": 1.3224617688289954e-12
+              },
+              "mca_unbound": {
+                "relative_range": 1.3240261258501992e-07,
+                "projected_relative_drift": 1.3458823560178087e-12
+              },
+              "displacement": {
+                "relative_range": 2.773271641397148e-11,
+                "projected_relative_drift": 2.9269786184716356e-16
+              },
+              "velocity": {
+                "relative_range": 3.788980678343332e-08,
+                "projected_relative_drift": 3.9716628252988654e-13
+              },
+              "tension": {
+                "relative_range": 1.231901717924127e-09,
+                "projected_relative_drift": 1.3116034674691376e-14
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 3010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 2.1654500333605432e-14,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 1.095293235215578e-13,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 7.471908993883823e-14,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 7.570588252600173e-14,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 1.5848985386659663e-17,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 2.1808255561826155e-14,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 7.115267091823041e-16,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 13010.0,
+            "kind": "holdout",
+            "maximum_scaled_excursion": 0.0,
+            "verified": true,
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "checkpoint": "work/cases/case_0002/duration_149p756695474.checkpoint.npz",
+      "checkpoint_sha256": "8ddf39a1df82456248f9253f06e5a5bbdfe957529e090344e185b1deb11f720a",
+      "trace": "work/cases/case_0002/duration_149p756695474.npz"
+    },
+    {
+      "duration": 251.4866859365871,
+      "verified": true,
+      "final_orientation": -4.498116492731785e-14,
+      "cue_aligned_strength": 4.498116492731785e-14,
+      "final_contrast": 1.5498713423767185e-13,
+      "polarity_arrival": 810.0,
+      "field_arrival": 245.0,
+      "total_establishment_time": 1061.486685936587,
+      "polarity_arrival_tolerance": 1e-06,
+      "convergence": {
+        "verified": true,
+        "elapsed": 13010.0,
+        "checks": [
+          {
+            "time": 1010.0,
+            "kind": "convergence",
+            "steady": false,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.2538569701054596,
+                "projected_relative_drift": 5.179215008746218e-07
+              },
+              "rho": {
+                "relative_range": 0.555416914044978,
+                "projected_relative_drift": 2.570077089271126e-06
+              },
+              "mca_bound": {
+                "relative_range": 0.06635517126366826,
+                "projected_relative_drift": 2.0273628865891314e-06
+              },
+              "mca_unbound": {
+                "relative_range": 0.06498566224484396,
+                "projected_relative_drift": 2.0578900635277823e-06
+              },
+              "displacement": {
+                "relative_range": 0.04415605457043296,
+                "projected_relative_drift": 4.310716285084276e-10
+              },
+              "velocity": {
+                "relative_range": 0.891354930213072,
+                "projected_relative_drift": 5.889510641125732e-07
+              },
+              "tension": {
+                "relative_range": 0.7929223567151786,
+                "projected_relative_drift": 1.914842573735146e-08
+              },
+              "physical_length": {
+                "relative_range": 0.08830252220537638,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 2010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 3.543879845897707e-08,
+                "projected_relative_drift": 4.0703947995498933e-13
+              },
+              "rho": {
+                "relative_range": 1.7603989880899083e-07,
+                "projected_relative_drift": 2.0983847176844164e-12
+              },
+              "mca_bound": {
+                "relative_range": 1.3790935508086365e-07,
+                "projected_relative_drift": 1.4877694899326198e-12
+              },
+              "mca_unbound": {
+                "relative_range": 1.3998591529647268e-07,
+                "projected_relative_drift": 1.4988235328380142e-12
+              },
+              "displacement": {
+                "relative_range": 2.9321019809652935e-11,
+                "projected_relative_drift": 3.020255014345979e-16
+              },
+              "velocity": {
+                "relative_range": 4.005982596040409e-08,
+                "projected_relative_drift": 4.2274445826759183e-13
+              },
+              "tension": {
+                "relative_range": 1.3024549758368606e-09,
+                "projected_relative_drift": 1.3557572837645175e-14
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 3010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 2.1518820506953768e-14,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 1.0730376397249858e-13,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 7.85211675242216e-14,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 7.891764723922605e-14,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 1.6271649603481866e-17,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 2.223227872292236e-14,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 7.29590021856526e-16,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 13010.0,
+            "kind": "holdout",
+            "maximum_scaled_excursion": 0.0,
+            "verified": true,
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "checkpoint": "work/cases/case_0002/duration_251p486685937.checkpoint.npz",
+      "checkpoint_sha256": "b581b580674a137e9bcfe2cce119f6103ad1ed449ef22abc2631a7ee64699b87",
+      "trace": "work/cases/case_0002/duration_251p486685937.npz"
+    },
+    {
+      "duration": 422.3220404472152,
+      "verified": true,
+      "final_orientation": -4.498116492731785e-14,
+      "cue_aligned_strength": 4.498116492731785e-14,
+      "final_contrast": 1.5498713423767185e-13,
+      "polarity_arrival": 810.0,
+      "field_arrival": 245.0,
+      "total_establishment_time": 1232.3220404472152,
+      "polarity_arrival_tolerance": 1e-06,
+      "convergence": {
+        "verified": true,
+        "elapsed": 13010.0,
+        "checks": [
+          {
+            "time": 1010.0,
+            "kind": "convergence",
+            "steady": false,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.25572969689608244,
+                "projected_relative_drift": 5.133082022439009e-07
+              },
+              "rho": {
+                "relative_range": 0.5602137330605315,
+                "projected_relative_drift": 2.5400165200293984e-06
+              },
+              "mca_bound": {
+                "relative_range": 0.06800787111053781,
+                "projected_relative_drift": 2.041253198470306e-06
+              },
+              "mca_unbound": {
+                "relative_range": 0.06670216244972682,
+                "projected_relative_drift": 2.0719894353247187e-06
+              },
+              "displacement": {
+                "relative_range": 0.04415605183533736,
+                "projected_relative_drift": 4.340247526591979e-10
+              },
+              "velocity": {
+                "relative_range": 0.8932136540771546,
+                "projected_relative_drift": 5.929857741700645e-07
+              },
+              "tension": {
+                "relative_range": 0.7929193201325526,
+                "projected_relative_drift": 1.9279605016604795e-08
+              },
+              "physical_length": {
+                "relative_range": 0.08830290393115252,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 2010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 3.5116786161524975e-08,
+                "projected_relative_drift": 4.124666730210558e-13
+              },
+              "rho": {
+                "relative_range": 1.7394717209955427e-07,
+                "projected_relative_drift": 2.066591009840713e-12
+              },
+              "mca_bound": {
+                "relative_range": 1.3885422078784005e-07,
+                "projected_relative_drift": 1.5208310341533447e-12
+              },
+              "mca_unbound": {
+                "relative_range": 1.409450048280769e-07,
+                "projected_relative_drift": 1.5294117682020553e-12
+              },
+              "displacement": {
+                "relative_range": 2.9521895972634876e-11,
+                "projected_relative_drift": 3.071271231342371e-16
+              },
+              "velocity": {
+                "relative_range": 4.033427293607988e-08,
+                "projected_relative_drift": 4.273539674994441e-13
+              },
+              "tension": {
+                "relative_range": 1.3113780007159753e-09,
+                "projected_relative_drift": 1.3838412447561036e-14
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 3010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 2.1220324888320108e-14,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 1.057140785803134e-13,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 8.166201422519046e-14,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 8.212941195245037e-14,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 1.621585586543119e-17,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 2.2143409196098173e-14,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 7.281224419370765e-16,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 13010.0,
+            "kind": "holdout",
+            "maximum_scaled_excursion": 0.0,
+            "verified": true,
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "checkpoint": "work/cases/case_0002/duration_422p322040447.checkpoint.npz",
+      "checkpoint_sha256": "8f82b9c7d2de265e8341dd0ee6174efc784f855739277e51d23f85d675330bcd",
+      "trace": "work/cases/case_0002/duration_422p322040447.npz"
+    },
+    {
+      "duration": 709.2061561162412,
+      "verified": true,
+      "final_orientation": -4.595234917006672e-14,
+      "cue_aligned_strength": 4.595234917006672e-14,
+      "final_contrast": 1.5831780331154732e-13,
+      "polarity_arrival": 810.0,
+      "field_arrival": 245.0,
+      "total_establishment_time": 1519.2061561162413,
+      "polarity_arrival_tolerance": 1e-06,
+      "convergence": {
+        "verified": true,
+        "elapsed": 13010.0,
+        "checks": [
+          {
+            "time": 1010.0,
+            "kind": "convergence",
+            "steady": false,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.25584346938931835,
+                "projected_relative_drift": 5.123461454378516e-07
+              },
+              "rho": {
+                "relative_range": 0.5605665242152748,
+                "projected_relative_drift": 2.534540403584107e-06
+              },
+              "mca_bound": {
+                "relative_range": 0.06797390434543711,
+                "projected_relative_drift": 2.0406163008824375e-06
+              },
+              "mca_unbound": {
+                "relative_range": 0.06668905682732164,
+                "projected_relative_drift": 2.0713426164997105e-06
+              },
+              "displacement": {
+                "relative_range": 0.04415603845181535,
+                "projected_relative_drift": 4.3388923762146817e-10
+              },
+              "velocity": {
+                "relative_range": 0.8944801146136518,
+                "projected_relative_drift": 5.928006234803559e-07
+              },
+              "tension": {
+                "relative_range": 0.7929195715552219,
+                "projected_relative_drift": 1.9273585483263625e-08
+              },
+              "physical_length": {
+                "relative_range": 0.08830283541635264,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 2010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 3.505033384578631e-08,
+                "projected_relative_drift": 3.9618509382285626e-13
+              },
+              "rho": {
+                "relative_range": 1.7356878341883444e-07,
+                "projected_relative_drift": 2.0983847176844164e-12
+              },
+              "mca_bound": {
+                "relative_range": 1.3881086206036405e-07,
+                "projected_relative_drift": 1.4877694899326198e-12
+              },
+              "mca_unbound": {
+                "relative_range": 1.4090099218091745e-07,
+                "projected_relative_drift": 1.4070588267458909e-12
+              },
+              "displacement": {
+                "relative_range": 2.9512678433276744e-11,
+                "projected_relative_drift": 3.0819294914741496e-16
+              },
+              "velocity": {
+                "relative_range": 4.032167942881504e-08,
+                "projected_relative_drift": 4.223437440268336e-13
+              },
+              "tension": {
+                "relative_range": 1.3109685530678464e-09,
+                "projected_relative_drift": 1.377916801627156e-14
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 3010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 2.1057509096338115e-14,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 1.0491923588422082e-13,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 7.504970538104548e-14,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 7.585882370282194e-14,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 1.5721112763874484e-17,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 2.1591852050577656e-14,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 7.095610871637889e-16,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 13010.0,
+            "kind": "holdout",
+            "maximum_scaled_excursion": 9.176470609212331e-16,
+            "verified": true,
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "checkpoint": "work/cases/case_0002/duration_709p206156116.checkpoint.npz",
+      "checkpoint_sha256": "bc97b3c2fe9d06dd30b52662923ccb54662305632dfa9ec9bf5f40318cb6351b",
+      "trace": "work/cases/case_0002/duration_709p206156116.npz"
+    },
+    {
+      "duration": 1190.9711634764642,
+      "verified": true,
+      "final_orientation": -4.5594544449053965e-14,
+      "cue_aligned_strength": 4.5594544449053965e-14,
+      "final_contrast": 1.5798473640415978e-13,
+      "polarity_arrival": 810.0,
+      "field_arrival": 245.0,
+      "total_establishment_time": 2000.9711634764642,
+      "polarity_arrival_tolerance": 1e-06,
+      "convergence": {
+        "verified": true,
+        "elapsed": 13010.0,
+        "checks": [
+          {
+            "time": 1010.0,
+            "kind": "convergence",
+            "steady": false,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.2558441311036321,
+                "projected_relative_drift": 5.125795798660092e-07
+              },
+              "rho": {
+                "relative_range": 0.5605075215338804,
+                "projected_relative_drift": 2.535796668362135e-06
+              },
+              "mca_bound": {
+                "relative_range": 0.06806110602215726,
+                "projected_relative_drift": 2.041094469996502e-06
+              },
+              "mca_unbound": {
+                "relative_range": 0.06672916058120058,
+                "projected_relative_drift": 2.071828204736115e-06
+              },
+              "displacement": {
+                "relative_range": 0.04415629964031306,
+                "projected_relative_drift": 4.339909867430276e-10
+              },
+              "velocity": {
+                "relative_range": 0.8915119939606679,
+                "projected_relative_drift": 5.929396395549072e-07
+              },
+              "tension": {
+                "relative_range": 0.7929241311010249,
+                "projected_relative_drift": 1.9278105178033312e-08
+              },
+              "physical_length": {
+                "relative_range": 0.08830337347627619,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 2010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 3.506639505381006e-08,
+                "projected_relative_drift": 3.9618509382285626e-13
+              },
+              "rho": {
+                "relative_range": 1.736552848777019e-07,
+                "projected_relative_drift": 2.0983847176844164e-12
+              },
+              "mca_bound": {
+                "relative_range": 1.3884341677111187e-07,
+                "projected_relative_drift": 1.4877694899326198e-12
+              },
+              "mca_unbound": {
+                "relative_range": 1.4093403863981652e-07,
+                "projected_relative_drift": 1.5294117682020553e-12
+              },
+              "displacement": {
+                "relative_range": 2.9519599029340187e-11,
+                "projected_relative_drift": 3.094310990685091e-16
+              },
+              "velocity": {
+                "relative_range": 4.0331134728048736e-08,
+                "projected_relative_drift": 4.2544238426553005e-13
+              },
+              "tension": {
+                "relative_range": 1.3112759691178655e-09,
+                "projected_relative_drift": 1.3910502666000875e-14
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 3010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 2.1193188922989776e-14,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 1.0507820442343934e-13,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 7.71987057553926e-14,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 7.7388235471024e-14,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 1.5985339259238418e-17,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 2.1908705193800864e-14,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 7.192611747615022e-16,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 13010.0,
+            "kind": "holdout",
+            "maximum_scaled_excursion": 0.0,
+            "verified": true,
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "checkpoint": "work/cases/case_0002/duration_1190p97116348.checkpoint.npz",
+      "checkpoint_sha256": "bbfddaa6059fe7de1a63d883248a3293dc5f4d75fd2f7c9c2c281be5b58c78c9",
+      "trace": "work/cases/case_0002/duration_1190p97116348.npz"
+    },
+    {
+      "duration": 2000.0,
+      "verified": true,
+      "final_orientation": -4.5083394847607203e-14,
+      "cue_aligned_strength": 4.5083394847607203e-14,
+      "final_contrast": 1.5643042416968456e-13,
+      "polarity_arrival": 810.0,
+      "field_arrival": 245.0,
+      "total_establishment_time": 2810.0,
+      "polarity_arrival_tolerance": 1e-06,
+      "convergence": {
+        "verified": true,
+        "elapsed": 13010.0,
+        "checks": [
+          {
+            "time": 1010.0,
+            "kind": "convergence",
+            "steady": false,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.2558438164917964,
+                "projected_relative_drift": 5.126042953032322e-07
+              },
+              "rho": {
+                "relative_range": 0.5605001785260967,
+                "projected_relative_drift": 2.535933190543616e-06
+              },
+              "mca_bound": {
+                "relative_range": 0.06806664482492461,
+                "projected_relative_drift": 2.0411279613407977e-06
+              },
+              "mca_unbound": {
+                "relative_range": 0.06672941934204607,
+                "projected_relative_drift": 2.0718621576773687e-06
+              },
+              "displacement": {
+                "relative_range": 0.04415632988170743,
+                "projected_relative_drift": 4.339981028903806e-10
+              },
+              "velocity": {
+                "relative_range": 0.8911769997555263,
+                "projected_relative_drift": 5.929493699300419e-07
+              },
+              "tension": {
+                "relative_range": 0.7929246588172766,
+                "projected_relative_drift": 1.927842114354262e-08
+              },
+              "physical_length": {
+                "relative_range": 0.08830343545607171,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 2010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 3.50680959903889e-08,
+                "projected_relative_drift": 3.9618509382285626e-13
+              },
+              "rho": {
+                "relative_range": 1.7366470900961238e-07,
+                "projected_relative_drift": 2.0983847176844164e-12
+              },
+              "mca_bound": {
+                "relative_range": 1.3884569471150868e-07,
+                "projected_relative_drift": 1.4877694899326198e-12
+              },
+              "mca_unbound": {
+                "relative_range": 1.409363500398218e-07,
+                "projected_relative_drift": 1.5294117682020553e-12
+              },
+              "displacement": {
+                "relative_range": 2.9520083270249834e-11,
+                "projected_relative_drift": 3.0228471976060654e-16
+              },
+              "velocity": {
+                "relative_range": 4.033179630720508e-08,
+                "projected_relative_drift": 4.166735915997939e-13
+              },
+              "tension": {
+                "relative_range": 1.3112974797062309e-09,
+                "projected_relative_drift": 1.3603860720885945e-14
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 3010.0,
+            "kind": "convergence",
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 2.1193188922989776e-14,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 1.0507820442343934e-13,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 7.951301385084335e-14,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 8.01411766537877e-14,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 1.6095135682320815e-17,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 2.2027271542725285e-14,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 7.233232857533826e-16,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          },
+          {
+            "time": 13010.0,
+            "kind": "holdout",
+            "maximum_scaled_excursion": 0.0,
+            "verified": true,
+            "steady": true,
+            "metrics": {
+              "rac": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "rho": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_bound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "mca_unbound": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "displacement": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "velocity": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "tension": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              },
+              "physical_length": {
+                "relative_range": 0.0,
+                "projected_relative_drift": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "checkpoint": "work/cases/case_0002/duration_2000.checkpoint.npz",
+      "checkpoint_sha256": "1eb7c499507aeb1b97e201832033261622a65d9645e4bc25abe13d9b9c82bdd5",
+      "trace": "work/cases/case_0002/duration_2000.npz"
+    }
+  ],
+  "endpoint_assignments": [
+    {
+      "duration": 0.0,
+      "endpoint_cluster": 0
+    },
+    {
+      "duration": 0.5,
+      "endpoint_cluster": 0
+    },
+    {
+      "duration": 0.8396508922021118,
+      "endpoint_cluster": 0
+    },
+    {
+      "duration": 1.4100272415516044,
+      "endpoint_cluster": 0
+    },
+    {
+      "duration": 2.3678612627961746,
+      "endpoint_cluster": 0
+    },
+    {
+      "duration": 3.976353643835253,
+      "endpoint_cluster": 0
+    },
+    {
+      "duration": 6.677497769514776,
+      "endpoint_cluster": 0
+    },
+    {
+      "duration": 11.213533919701385,
+      "endpoint_cluster": 0
+    },
+    {
+      "duration": 18.830907520831826,
+      "endpoint_cluster": 0
+    },
+    {
+      "duration": 31.622776601683793,
+      "endpoint_cluster": 0
+    },
+    {
+      "duration": 53.10418517502372,
+      "endpoint_cluster": 0
+    },
+    {
+      "duration": 89.17795292374964,
+      "endpoint_cluster": 0
+    },
+    {
+      "duration": 149.7566954743686,
+      "endpoint_cluster": 0
+    },
+    {
+      "duration": 251.4866859365871,
+      "endpoint_cluster": 0
+    },
+    {
+      "duration": 422.3220404472152,
+      "endpoint_cluster": 0
+    },
+    {
+      "duration": 709.2061561162412,
+      "endpoint_cluster": 0
+    },
+    {
+      "duration": 1190.9711634764642,
+      "endpoint_cluster": 0
+    },
+    {
+      "duration": 2000.0,
+      "endpoint_cluster": 0
+    }
+  ]
+}

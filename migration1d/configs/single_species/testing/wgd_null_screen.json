@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "name": "single-testing-wgd-null-screen",
+  "chemistry_class": "single_species",
+  "stage": "testing",
+  "protocol": "wgd_null_single_stimulus",
+  "parameterization": "isometric_concentration_preserving_null",
+  "standardization_status": "wgd_null_v1",
+  "module": "migration1d.single_species.wgd",
+  "output": "results/single_species/testing/wgd_null",
+  "arguments": [
+    "--mode", "shard",
+    "--volume-multipliers", "0.5,1,2",
+    "--shard-count", "32",
+    "--duration", "300",
+    "--mu-count", "17",
+    "--lambda-count", "17",
+    "--h-values", "1,2,4"
+  ],
+  "batch": {
+    "array_tasks": 32,
+    "merge_arguments": [
+      "--mode", "merge",
+      "--volume-multipliers", "0.5,1,2",
+      "--shard-count", "32",
+      "--duration", "300",
+      "--mu-count", "17",
+      "--lambda-count", "17",
+      "--h-values", "1,2,4"
+    ],
+    "merge_resources": {"cpus": 1, "memory": "4G", "time": "00:30:00", "qos": "small"}
+  },
+  "resources": {"cpus": 4, "memory": "2G", "time": "01:00:00", "qos": "small"}
+}

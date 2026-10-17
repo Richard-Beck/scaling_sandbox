@@ -1,4 +1,15 @@
+> **deBelly correction (2026-10-08):** the old in-loop centered endpoint extension is flawed and deprecated. Do not use its simulations for current results. The [independent-endpoint replacement](DEBELLY_BOUNDARIES.md) regenerates all deBelly preparations and three-test responses; other four models retain unchanged audited evidence. The replacement is complete and independently audited; [current results](data/runs/debelly_corrected_three_test_20261008/README.md) supersede the historical counts and centered deBelly results below.
+
 # Assumptions for the corrected five-model comparison
+
+**Current 2026-10-06 comparison:** [THREE_TESTS.md](THREE_TESTS.md) uses the exact
+same nominal relative-20% basal checkpoint for all three challenge geometries.
+Goryachev alone receives a stronger constant patch peak 6.4, selected by an
+audited fixed-factor pilot and held across all lengths and both patch tests.
+Other native dynamics, response clocks/gates and model conventions below
+remain applicable. The older matched-preparation-width protocol is retained
+history. Mechanism controls deliberately perturb physics and are not native
+comparison results or independent threshold calibrations.
 
 Updated 2026-10-03. [PROTOCOL.md](PROTOCOL.md) defines the authorized matched
 rerun: nominal amplitude factor 1, three current widths, existing lengths,
@@ -58,12 +69,21 @@ preparation-style continuation/holdout convergence of the response.
 Frozen field scales use the per-field maximum of prior conditioning/release
 transients, fixed across current width, amplitude and duration. Percent errors
 are on those scales, not every tiny instantaneous value. deBelly displacement is
-centered to remove rigid translation; physical length remains monitored.
+mean-centered only for diagnostic field comparisons; physical length remains monitored. This display/measurement convention does not center endpoint commands inside the corrected dynamics.
 The 1% scalar strength/arrival, duration-bracket and complete-profile clustering
 rules are distinct. Apparent endpoints are sampled profile clusters, not attractors.
 Zero sampled arrival means already within tolerance, not exact equilibrium.
 
 ## 4. Bounded search and descriptive length trends
+
+As of 2026-10-10, main panel C uses Spearman correlation across all audited
+scalar successes, retaining native-field stability as a separate diagnostic.
+The uniform criterion requires at least four distinct lengths and nonconstant
+durations; tied durations receive average ranks. Censored and ineligible
+lengths remain excluded, and no significance cutoff is applied. Counts and
+included ranges accompany the coefficients in `data/derived/length_correlations.csv`.
+This is a success-conditional monotonic summary, not a full-field steady-state
+claim. The field-stable-only OLS fits below remain retained historical evidence.
 
 Both scalar gates use exactly the same trials and all original final-500 samples.
 Refine local fail-to-pass transitions; retain nonmonotonic intervals and unresolved
@@ -104,3 +124,25 @@ vanishing fields have undefined x50. Spring feedback
 `80 * (physical_length - L0)` and restoring term
 `0.01 * (physical_length - L0)` are distinct source-backed global proxies,
 not calibrated spatial force fields. They derive from saved length histories.
+
+## 6. deBelly boundary and decomposition audit (2026-10-08)
+
+The retained comparison uses legacy in-loop boundary centering. A direct
+asymmetric-end test shows that this changes local strain/tension rather than
+merely removing translation. The [separate corrected adapter and audit](data/runs/debelly_boundary_resolution_20261008/README.md)
+disable centering and retain independent local prescribed commands. Five lengths
+independently prepare and retain reversal after withdrawal at MCA zero, but
+zero times and length-response rates change materially. Old centered results
+cannot establish corrected-model quantitative trends.
+
+This correction recovers the original one-sided limit and preserves reflection
+symmetry, while keeping an inactive end constrained. It does not supply a
+stress-free/free-migration boundary model. Uniform global MCA restoration and
+quasi-static mechanics remain explicit original-model assumptions.
+
+Flow decomposition is exact instantaneous source superposition at fixed state:
+prescribed endpoints, direct Rho stress gradient, membrane drag. It is not full
+causal separation of coupled pathways. MCA first-moment rates converted with
+nominal L measure nominal-coordinate centroid movement; geometric mapped and
+midpoint-relative diagnostics are separate. The audit leaves retained inputs,
+source defaults and original data intact.

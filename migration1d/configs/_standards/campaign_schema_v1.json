@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "migration1d campaign manifest v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "name",
+    "chemistry_class",
+    "stage",
+    "protocol",
+    "parameterization",
+    "module",
+    "output"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "name": {"type": "string", "minLength": 1},
+    "chemistry_class": {
+      "enum": ["single_species", "three_species"]
+    },
+    "stage": {
+      "enum": ["parameter_mapping", "calibration", "testing"]
+    },
+    "protocol": {"type": "string", "minLength": 1},
+    "parameterization": {"type": "string", "minLength": 1},
+    "standardization_status": {"type": "string"},
+    "module": {"type": "string", "minLength": 1},
+    "output": {"type": "string", "pattern": "^results/"},
+    "arguments": {
+      "type": "array",
+      "items": {"type": ["string", "number", "boolean"]}
+    },
+    "resources": {
+      "type": "object",
+      "properties": {
+        "cpus": {"type": "integer", "minimum": 1},
+        "memory": {"type": "string"},
+        "time": {"type": "string"},
+        "qos": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "batch": {
+      "type": "object",
+      "properties": {
+        "array_tasks": {"type": "integer", "minimum": 1},
+        "merge_arguments": {
+          "type": "array",
+          "items": {"type": ["string", "number", "boolean"]}
+        },
+        "merge_resources": {
+          "type": "object",
+          "properties": {
+            "cpus": {"type": "integer", "minimum": 1},
+            "memory": {"type": "string"},
+            "time": {"type": "string"},
+            "qos": {"type": "string"}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

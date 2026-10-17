@@ -1,0 +1,164 @@
+{
+  "created_utc": "2026-10-17T16:31:22.734460+00:00",
+  "files": [
+    {
+      "path": "history/AGENTS_pre_retirement.md",
+      "bytes": 10810,
+      "sha256": "25b25fb29c2ef9ac9c3b639fc6ea2cefcd65a922a2bbccb106ec5872aa9d6f30",
+      "source": "AGENTS.md",
+      "source_sha256": "25b25fb29c2ef9ac9c3b639fc6ea2cefcd65a922a2bbccb106ec5872aa9d6f30",
+      "purpose": "Historical lineage instructions; retirement overrides old preservation and campaign directions.",
+      "kind": "verbatim_copy"
+    },
+    {
+      "path": "history/project_README_pre_retirement.md",
+      "bytes": 11474,
+      "sha256": "8d6ec708f831bd9b5a2422d3bc40fa2e72315b894bfc1a0cddbc40cb2c612f86",
+      "source": "README.md",
+      "source_sha256": "8d6ec708f831bd9b5a2422d3bc40fa2e72315b894bfc1a0cddbc40cb2c612f86",
+      "purpose": "Historical project purpose and campaign chronology; links are historical paths, not retained outputs.",
+      "kind": "verbatim_copy"
+    },
+    {
+      "path": "history/anchor_workflow_README.md",
+      "bytes": 24744,
+      "sha256": "a0191b630eeb7fc1b43297a3e22bc265eee8c4306d0efb1df39833620e5d10b4",
+      "source": "src/anchor_motility/README.md",
+      "source_sha256": "a0191b630eeb7fc1b43297a3e22bc265eee8c4306d0efb1df39833620e5d10b4",
+      "purpose": "Last workflow, numerical settings, objective and size-scaling conventions, including limitations.",
+      "kind": "verbatim_copy"
+    },
+    {
+      "path": "models/mechanics_only.xml",
+      "bytes": 2761,
+      "sha256": "beeab4764c87135a4d09029cee9d57d5ebeeb47cb253a58fa69d0239b2710a6e",
+      "source": "src/deBelly_minimal_v1.xml",
+      "source_sha256": "beeab4764c87135a4d09029cee9d57d5ebeeb47cb253a58fa69d0239b2710a6e",
+      "purpose": "Canonical self-contained mechanics-only Morpheus model; prescribed RacHill, no biochemical evolution.",
+      "kind": "verbatim_copy"
+    },
+    {
+      "path": "parameters/original_V1_V6_panel.json",
+      "bytes": 13292,
+      "sha256": "42ecd0b7d343ef94fcffa49969148385ac5d3544b30b445b3816441c7e7fefe5",
+      "source": "results/debelly_minimal_campaign_20260909/coupled_diversity_20260909/panel.json",
+      "source_sha256": "42ecd0b7d343ef94fcffa49969148385ac5d3544b30b445b3816441c7e7fefe5",
+      "purpose": "Authoritative original/unrefined six selected pairs, before coupled joint refinement.",
+      "kind": "verbatim_copy"
+    },
+    {
+      "path": "parameters/original_V1_V6_resting_reference.json",
+      "bytes": 975,
+      "sha256": "bcc057ec98511a0510d47fed1fe7888c18986c221d3af5e09ddba2e0f3013fc3",
+      "source": "results/debelly_minimal_campaign_20260909/coupled_diversity_20260909/resting_reference.json",
+      "source_sha256": "bcc057ec98511a0510d47fed1fe7888c18986c221d3af5e09ddba2e0f3013fc3",
+      "purpose": "Native resting-perimeter references associated with original six.",
+      "kind": "verbatim_copy"
+    },
+    {
+      "path": "summary/historical_joint_V1_V6_summary.json",
+      "bytes": 1243,
+      "sha256": "4086461ad9b409628f94ec4dd33e66281e78a9e6e6edf5bd8871897b315a8266",
+      "source": "results/joint_functional_V1_V6_20260909/report_summary.json",
+      "source_sha256": "4086461ad9b409628f94ec4dd33e66281e78a9e6e6edf5bd8871897b315a8266",
+      "purpose": "Compact historical joint-refinement completion counts, distinct from original panel.",
+      "kind": "verbatim_copy"
+    },
+    {
+      "path": "summary/final_report_provenance.json",
+      "bytes": 855,
+      "sha256": "d0e65bdb7b91b62b7c868c5cf6be5a8784fca1960bc3c331002d8dbc1f37895c",
+      "source": "tmp/anchor_motility_async_20260922/report/snapshot_provenance.json",
+      "source_sha256": "d0e65bdb7b91b62b7c868c5cf6be5a8784fca1960bc3c331002d8dbc1f37895c",
+      "purpose": "Final stopped-campaign reconciliation and manual size-completion record, superseding stale running summary.",
+      "kind": "verbatim_copy"
+    },
+    {
+      "path": "history/historical_campaign_manifest.json",
+      "bytes": 3311,
+      "sha256": "d08bfb552c48ac18a9dcd2a241bb6ed161ab622af38a7eb89cd6f6ae165e90ef",
+      "source": "tmp/anchor_motility_async_20260922/manifest.json",
+      "source_sha256": "d08bfb552c48ac18a9dcd2a241bb6ed161ab622af38a7eb89cd6f6ae165e90ef",
+      "purpose": "Hashes of historical execution sources and binary; most corresponding files are intentionally retired.",
+      "kind": "verbatim_copy"
+    },
+    {
+      "path": "parameters/current_leader_parameters.json",
+      "bytes": 338332,
+      "sha256": "5eac3e4a2989345fc00375888086218dc0d3329bffedef840ac0c36548c25fe8",
+      "purpose": "One lowest-loss candidate per each of 27 represented anchors, complete resolved candidate dictionaries and compact movement/size summaries; search-selected, not final independent qualification.",
+      "source_files": [
+        {
+          "path": "tmp/anchor_motility_async_20260922/report/index.html",
+          "sha256": "5a681fa17e5ac9dea68b931a81a208d766a0b5b991eca81de268bb2e712a6e09"
+        },
+        {
+          "path": "tmp/anchor_motility_async_20260922/async_state.json",
+          "sha256": "e19aee172665ed5e15ff9c255b66c73b609d032339631eae38582784b86915e2"
+        },
+        {
+          "path": "tmp/anchor_motility_async_20260922/leaders.json",
+          "sha256": "91257b9068f1caa6ec39f6b70435195f0a91c1f397cbd71b9b4fd2c41e2be703"
+        }
+      ],
+      "kind": "derived_compact_summary"
+    },
+    {
+      "path": "models/coupled_anchor05_warmup.xml",
+      "bytes": 35901,
+      "sha256": "a244a60e2dc2750820f3a0bd82982b10e9c8a431c0180cc67e2fdc11bf6258f8",
+      "source": "tmp/anchor_motility_async_20260922/validation/a000049/0004/r0/warmup/model.xml",
+      "source_sha256": "a244a60e2dc2750820f3a0bd82982b10e9c8a431c0180cc67e2fdc11bf6258f8",
+      "purpose": "Self-contained generated coupled CPM/Rac/Rho/MCA/tension model from the lowest joint-loss final leader; unmodified first-seed warmup configuration, not a complete six-hour assay or checkpoint.",
+      "kind": "verbatim_copy"
+    },
+    {
+      "path": "parameters/coupled_anchor05_candidate.json",
+      "bytes": 2571,
+      "sha256": "ab466d7729438b2550a11b7f09bd09f88c674a75ca2f96093a4d188bcecf3a95",
+      "purpose": "Complete resolved candidate associated with coupled XML example, including native resting calibration.",
+      "source_files": [
+        {
+          "path": "tmp/anchor_motility_async_20260922/validation/a000049/0004/result.json",
+          "sha256": "7d3d141e2b832655c4e8668945849a83de8ba8f78efc60f3fa9b5717328d22c6"
+        }
+      ],
+      "kind": "derived_compact_summary"
+    },
+    {
+      "path": "summary/campaign_summary.json",
+      "bytes": 2042,
+      "sha256": "5851154c990ad97dab6af5effefd8dd17abbe810b62117021f31795217b7f15a",
+      "purpose": "High-level final campaign state and scientific limitations.",
+      "source_files": [
+        {
+          "path": "tmp/anchor_motility_async_20260922/report/index.html",
+          "sha256": "5a681fa17e5ac9dea68b931a81a208d766a0b5b991eca81de268bb2e712a6e09"
+        }
+      ],
+      "kind": "derived_compact_summary"
+    },
+    {
+      "path": "summary/size_diagnostics.csv",
+      "bytes": 8497,
+      "sha256": "b1ab291640c3b8919bef93157a808dbc5353dd5387197113824066b0fe16bc8b",
+      "kind": "derived_compact_summary",
+      "source_files": [
+        {
+          "path": "tmp/anchor_motility_async_20260922/report/index.html",
+          "sha256": "5a681fa17e5ac9dea68b931a81a208d766a0b5b991eca81de268bb2e712a6e09"
+        }
+      ],
+      "purpose": "Finite-track size diagnostics for current leaders, without raw trajectories or mask galleries."
+    },
+    {
+      "path": "cleanup_plan.json",
+      "bytes": 692,
+      "sha256": "c9ac0073f8187652064c768551420b8f696ba8e1202927654a93fca988312e87",
+      "purpose": "Explicit reviewed deletion scope; no parent or external symlink targets.",
+      "source_files": [],
+      "kind": "derived_compact_summary"
+    }
+  ],
+  "verified_after_deletion_utc": "2026-10-17T17:03:42.077358+00:00"
+}

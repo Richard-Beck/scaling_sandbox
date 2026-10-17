@@ -1,0 +1,152 @@
+{
+  "generated": "2026-10-03T17:13:58.972663+00:00",
+  "fit_file": "wgd_langevin/refined_ou_20261003/results/selected_fits.json",
+  "provenance": {
+    "wgd_langevin/refined_ou_20261003/results/selected_fits.json": "08b830a43bb9a5054a28aa9a5ee6ae411dd6b6667514108fe405ea84edd8868a",
+    "wgd_langevin/refined_ou_20261003/scripts/movie_diagnostics.py": "f3e554fbf4040f1b6a1ea12997d77c94c3dae3835a32aa18ff42dcab1595cbb5",
+    "literature_review/migration_data/xuan_2018/extraction/tracks.csv": "4974df1b6ba0cb3ac7de251e65f4fb2ca8971aac3bdcaff45466057909c79991",
+    "literature_review/migration_data/xuan_2018/extraction/track_qc.csv": "68d1c27c9b56562f126c304f26a66358eac3aeda7b09628757677331270cfe61",
+    "literature_review/migration_data/xuan_2018/extraction/METHODS.md": "dcc236aa2962d4e44c874ce889f52c3747fa3c464a7631d99eaa5bb9e2410cbf",
+    "literature_review/migration_data/xuan_2018/extraction/protocol.json": "2c715018a1d816552f07d3d8fe7dd40a587fcd6e894426901165d2441fe74a1c"
+  },
+  "frame_count": 74,
+  "accepted_track_ids": [
+    "N010",
+    "N015",
+    "N016",
+    "N017",
+    "N018",
+    "N021",
+    "N024",
+    "N025"
+  ],
+  "accepted_tracks": 8,
+  "total_segments": 78,
+  "excluded_status_counts": {
+    "edge_censored": 31,
+    "candidate_usable": 27,
+    "short_segment": 12
+  },
+  "timing_scenarios": {
+    "methods_10min": 0.16666666666666666,
+    "12h_endpoint": 0.1643835616438356,
+    "16h_endpoint": 0.2191780821917808
+  },
+  "simulations_per_group": 1024,
+  "seed_by_group": [
+    202610030,
+    202610031
+  ],
+  "allowance_px": [
+    0,
+    3
+  ],
+  "validation": [
+    {
+      "scenario": "methods_10min",
+      "allowance_px": 0,
+      "group": 0,
+      "expected_step2": 19.75911620500364,
+      "simulated_step2": 19.632548609666355,
+      "mc_se": 0.08332888303895279
+    },
+    {
+      "scenario": "methods_10min",
+      "allowance_px": 0,
+      "group": 1,
+      "expected_step2": 6.824178325342814,
+      "simulated_step2": 6.84391740898018,
+      "mc_se": 0.05440108149217765
+    },
+    {
+      "scenario": "methods_10min",
+      "allowance_px": 3,
+      "group": 0,
+      "expected_step2": 23.457341057074647,
+      "simulated_step2": 23.302835459021747,
+      "mc_se": 0.09352694255592814
+    },
+    {
+      "scenario": "methods_10min",
+      "allowance_px": 3,
+      "group": 1,
+      "expected_step2": 10.52240317741382,
+      "simulated_step2": 10.562705742133895,
+      "mc_se": 0.05819162968549396
+    },
+    {
+      "scenario": "12h_endpoint",
+      "allowance_px": 0,
+      "group": 0,
+      "expected_step2": 19.354261742027568,
+      "simulated_step2": 19.230285976838868,
+      "mc_se": 0.08179827519028379
+    },
+    {
+      "scenario": "12h_endpoint",
+      "allowance_px": 0,
+      "group": 1,
+      "expected_step2": 6.645303910945261,
+      "simulated_step2": 6.665162789225076,
+      "mc_se": 0.05328176671407497
+    },
+    {
+      "scenario": "12h_endpoint",
+      "allowance_px": 3,
+      "group": 0,
+      "expected_step2": 23.052486594098575,
+      "simulated_step2": 22.90056876941425,
+      "mc_se": 0.09196082106185234
+    },
+    {
+      "scenario": "12h_endpoint",
+      "allowance_px": 3,
+      "group": 1,
+      "expected_step2": 10.343528763016266,
+      "simulated_step2": 10.38397322682383,
+      "mc_se": 0.057103365082383145
+    },
+    {
+      "scenario": "16h_endpoint",
+      "allowance_px": 0,
+      "group": 0,
+      "expected_step2": 29.42345609687497,
+      "simulated_step2": 29.233925507256156,
+      "mc_se": 0.11966075649910335
+    },
+    {
+      "scenario": "16h_endpoint",
+      "allowance_px": 0,
+      "group": 1,
+      "expected_step2": 11.528505064191965,
+      "simulated_step2": 11.543980626106954,
+      "mc_se": 0.08210368757503086
+    },
+    {
+      "scenario": "16h_endpoint",
+      "allowance_px": 3,
+      "group": 0,
+      "expected_step2": 33.12168094894597,
+      "simulated_step2": 32.904284055585755,
+      "mc_se": 0.13057884649695045
+    },
+    {
+      "scenario": "16h_endpoint",
+      "allowance_px": 3,
+      "group": 1,
+      "expected_step2": 15.22672991626297,
+      "simulated_step2": 15.262314802427298,
+      "mc_se": 0.08550228642209028
+    }
+  ],
+  "limitations": [
+    "Ploidy is not measured: groups are appearance proxies, not experimental WGD labels.",
+    "78 segments are not independent cells; only eight visually reviewed equal-window tracks enter checks.",
+    "Partial, merged, boundary-censored, ambiguous and unreviewed segments excluded, without interpolation.",
+    "No drift subtraction; no fixed specimen landmarks support it.",
+    "3 px treated as per-coordinate Gaussian SD only for sensitivity, not measured uncertainty or confidence interval.",
+    "1.8% scale reading sensitivity adds proportional position uncertainty; it is not biological variation.",
+    "Three physical timing scenarios unresolved; no acquisition-time claim.",
+    "Movie diagnostics never used as population fitting targets; finite trajectory envelopes are conditional model ranges."
+  ]
+}

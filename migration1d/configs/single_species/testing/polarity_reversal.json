@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "name": "single-testing-polarity-reversal-map",
+  "chemistry_class": "single_species",
+  "stage": "testing",
+  "protocol": "polarity_reversal",
+  "parameterization": "dimensionless_strip_wave_pinning",
+  "standardization_status": "testing_v2",
+  "module": "migration1d.single_species.testing",
+  "output": "results/single_species/testing/polarity_reversal",
+  "arguments": [
+    "--analysis", "reversal-map",
+    "--duration", "300",
+    "--mu-count", "17",
+    "--lambda-count", "17",
+    "--h-values", "1,2,4"
+  ],
+  "resources": {"cpus": 8, "memory": "4G", "time": "12:00:00", "qos": "small"}
+}

@@ -1,4 +1,19 @@
+> **deBelly correction (2026-10-08):** the old in-loop centered endpoint extension is flawed and deprecated. Do not use its simulations for current results. The [independent-endpoint replacement](DEBELLY_BOUNDARIES.md) regenerates all deBelly preparations and three-test responses; other four models retain unchanged audited evidence. The replacement is complete and independently audited; [current results](data/runs/debelly_corrected_three_test_20261008/README.md) supersede the historical counts and centered deBelly results below.
+
 # Corrected polarity establishment and matched reversal
+
+**Current comparison (2026-10-06):** [THREE_TESTS.md](THREE_TESTS.md) supersedes
+the separate preparation widths in the retained patch protocol below. The main
+heatmap and cue-duration supplement now use a single exact relative-20% basal
+checkpoint for fixed width 3, relative width 20%, and a finite constant-slope
+gradient. Goryachev's patch response peak is 6.4 (fixed K=64 at every length in
+both patch tests); preparation and the gradient slope remain unchanged. Both
+scalar gates and native-field diagnostic retain their definitions below.
+
+**Additional response geometry (2026-10-06):** [finite fixed-physical-slope
+countergradients](GRADIENT_REVERSAL.md) reuse this preparation, both response
+gates and search machinery. The original matched-patch protocol below remains
+the definition of the retained patch campaign.
 
 Updated 2026-10-03 for the user's authorized clean rerun. The active manuscript
 uses five models: Wave-pinning, Goryachev, deBelly, Holmes 3 and Spring. LEGI and

@@ -1,0 +1,68 @@
+{
+  "study": "mallin_2023",
+  "publication_version": "2023_version_of_record",
+  "doi": "10.1007/s10585-023-10216-8",
+  "software": {
+    "python": "existing cpose Conda environment",
+    "opencv": "4.12.0",
+    "numpy": "2.2.6"
+  },
+  "source_hashes": {
+    "figures/mallin2023_fig2.png": "5d8915db388620c34befda375b8ecf44215ce98a6d2fb93f13e2fa12fa15ecb5",
+    "source/mallin2023.html": "ad3800ecf5b4032ead0acf69224d975187ce514468771abd9dba7cafa99eee8c",
+    "derived/mallin2023.txt": "1f894f4372ade5e0ec0a7cd903e5287b08705ae0a0a02c103fa8b47a264d75c1"
+  },
+  "axis_scale": "linear",
+  "calibration": "calibration.json; native image 2003 x 999; axis endpoints reading uncertainty 1 px",
+  "point_algorithm": "dark threshold <128; scatter 5x5 elliptical opening removes thin regression line; connected components; strict single glyph size exclusion; no merged-point deconvolution",
+  "point_uncertainty": "reading +/-1 pixel separately from propagated independent 1-pixel axis endpoint sensitivity; these are sensitivity bounds, not biological variability or confidence intervals",
+  "movies": [
+    {
+      "movie": "mallin_movie1.mp4",
+      "sha256": "d26a22c3b95ddbbd906401e884acb02d88f1586d2037e313a3d8ffd30c87681d",
+      "decoded_frames": 178,
+      "container_frames": 178,
+      "width_px": 1024,
+      "height_px": 768,
+      "playback_fps": 25.0,
+      "playback_duration_s": 7.12,
+      "unique_exact_decoded_images": 160,
+      "exact_duplicate_decoded_images": 18,
+      "adjacent_MAD_min": 0.0,
+      "adjacent_MAD_median": 0.009167988784611225,
+      "adjacent_MAD_max": 9.049870491027832,
+      "acquisition_interval_reported_min": 30,
+      "experiment_duration_reported_h": 24,
+      "acquisition_frame_count": "unresolved_streaming_repetition_and_encoding",
+      "spatial_calibration_um_per_px": null,
+      "candidate_image_states_MAD_gt_0_2": 43,
+      "candidate_image_states_MAD_gt_0_5": 43,
+      "candidate_image_states_MAD_gt_1_0": 43
+    },
+    {
+      "movie": "mallin_movie2.mp4",
+      "sha256": "63450521629a55ff399523e56749255a02862e781dda96f3d52abd0f012316a4",
+      "decoded_frames": 198,
+      "container_frames": 198,
+      "width_px": 1024,
+      "height_px": 768,
+      "playback_fps": 25.0,
+      "playback_duration_s": 7.92,
+      "unique_exact_decoded_images": 197,
+      "exact_duplicate_decoded_images": 1,
+      "adjacent_MAD_min": 0.0,
+      "adjacent_MAD_median": 0.00825373362749815,
+      "adjacent_MAD_max": 3.387223482131958,
+      "acquisition_interval_reported_min": 30,
+      "experiment_duration_reported_h": 24,
+      "acquisition_frame_count": "unresolved_streaming_repetition_and_encoding",
+      "spatial_calibration_um_per_px": null,
+      "candidate_image_states_MAD_gt_0_2": 48,
+      "candidate_image_states_MAD_gt_0_5": 48,
+      "candidate_image_states_MAD_gt_1_0": 48
+    }
+  ],
+  "summary_definition": "unresolved: original caption and methods do not specify whether central bars are means or medians",
+  "sample_size": "50 non-PACC and 49 PACC stated for 2C only",
+  "cross_panel_pairing": "not recoverable; paired cell area and motility only within an individual scatter panel"
+}

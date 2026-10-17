@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "name": "single-testing-focused-motile-length",
+  "chemistry_class": "single_species",
+  "stage": "testing",
+  "protocol": "motile_single_dual_and_reversal_length_sweep",
+  "parameterization": "calibrated_strip_wave_pinning_mu_2.1875",
+  "standardization_status": "focused_motile_length_v1",
+  "module": "migration1d.focused_motile_length",
+  "output": "results/single_species/testing/focused_motile_length",
+  "arguments": [
+    "--mode", "task",
+    "--chemistry-class", "single_species"
+  ],
+  "batch": {
+    "array_tasks": 240,
+    "merge_arguments": [
+      "--mode", "merge",
+      "--chemistry-class", "single_species"
+    ],
+    "merge_resources": {"cpus": 1, "memory": "4G", "time": "00:30:00", "qos": "small"}
+  },
+  "resources": {"cpus": 1, "memory": "2G", "time": "02:00:00", "qos": "small"}
+}

@@ -1,0 +1,17 @@
+# Hosny sensitivity support
+
+This adapts the established `reports/figure_revision/hosny_sensitivity` procedure to the frozen refined-data Gaussian OU hierarchy. No groups, mechanisms or fit scenarios are added.
+
+The selected primary fit is the successful primary result with minimum total score, rather than the historical `fit_05.json`. Every stage recomputes its exact data and regularized scores. Hosny medians enter fitting; quartiles remain reserved checks. All 510 Xuan population-curve targets retain their balanced weights in the data score, drift profiles and leave-Hosny-out refit.
+
+`analyze.py` evaluates the established broad relative persistence/noise surface, fixed versus reoptimized Hosny drifts, three one-dimensional drift profiles with the original bounded multistart procedure, and the original eight-start leave-Hosny-out refit. WGD− remains fixed on surfaces, while all WGD+ study log parameters shift together to preserve fitted study deviations. `refine_surface.py` evaluates the same 61-by-61 local grid, recentered around the new optimum by a factor of 1.45 in each axis rather than using the historical absolute window. Both grids include the exact selected-fit coordinate.
+
+The drift-only surface objective extracts the same Hosny median residuals directly to avoid repeatedly constructing 510 unrelated curve residual rows. `results/hosny_sensitivity/drift_objective_equivalence.json` records exact agreement with filtering the full residual vector across 12 deterministic perturbations of all parameters and both drifts. This changes execution cost, not the objective.
+
+Scaled-Bessel Rice means and an extreme-tail normal approximation follow the existing procedure. The unrestricted central score, bounds, surface convergence and per-start profile outcomes are audited. Loss changes of 1, 4 and 9 are descriptive heuristic sensitivity guides. They are not likelihood differences, confidence intervals or a joint uncertainty region.
+
+Run `run.slurm` from the repository root after all fit files are frozen. It uses the existing `scaling_sandbox` Conda environment, partition `red`, QoS `small`, one CPU and 4 GB. It writes retained analysis tables to `results/hosny_sensitivity/`, logs to `results/logs/`, and the updated manuscript supplement in PNG/PDF/SVG with caption/provenance to `figures/`.
+
+The refined base fitter already patches the shared SciPy Rice instance, so the inherited in-process numerical check compares two stable implementations. `rice_audit.py` supplies a separate validation against a newly constructed, unpatched SciPy Rice distribution. Its four ordinary noncentrality tests agree to about 4.4e-16; `results/hosny_sensitivity/rice_independent_validation.json` records values and source hash. The supplemental renderer includes this audit and its clarification in provenance.
+
+`fast_residuals.py` compiles observation arrays and vectorizes only the population-curve residual calculation for sensitivity objectives. Frozen base fit/model scripts and fitting targets remain unchanged. Twelve deterministic perturbations of all parameters gave exactly identical residual vectors and row identities, including all 510 curve targets (538 raw observations before the Hosny median mask). `full_objective_equivalence.json` records the comparison and approximately 11-fold benchmark improvement. Its metadata rows supply observation identities and masks only; no current prediction values are exported through this adapter. Stage messages report progress for the complete existing procedure.

@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-10-03T15:04:22.359190+00:00",
+  "passed": true,
+  "cases": 3234,
+  "domains_checked": 6468,
+  "mirror_rule_verified": true,
+  "cosine_integrals_verified": true,
+  "peak_positivity_and_cutoff_verified": true,
+  "reference_lengths": {
+    "wave_pinning": 15.0,
+    "otsuji": 15.0,
+    "goryachev": 15.0,
+    "legi": 15.0,
+    "debelly": 15.0,
+    "holmes_model3": 15.0,
+    "spring": 1.0
+  },
+  "conditions": [
+    {
+      "condition": "fixed_10pct",
+      "width_mode": "physical",
+      "fraction": 0.1
+    },
+    {
+      "condition": "fixed_20pct",
+      "width_mode": "physical",
+      "fraction": 0.2
+    },
+    {
+      "condition": "relative_20pct",
+      "width_mode": "relative",
+      "fraction": 0.2
+    }
+  ]
+}

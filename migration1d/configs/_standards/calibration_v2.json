@@ -1,0 +1,34 @@
+{
+  "name": "calibration_v2",
+  "duration_seconds": 300,
+  "analyses": [
+    "local_reaction_bistability",
+    "single_stimulus_mu_by_Lambda_regime_map",
+    "geometry_slices_over_h"
+  ],
+  "required_outputs": [
+    "time_to_polarization",
+    "terminal_polarity_status",
+    "terminal_polarity_contrast",
+    "terminal_pole_count",
+    "terminal_high_width_fraction",
+    "late_maximum_normalized_change",
+    "maximum_conservation_error"
+  ],
+  "definitions": {
+    "polarity_contrast": "(right - left) / (abs(right) + abs(left))",
+    "polarization_threshold": 0.5,
+    "minimum_sustained_seconds": 10,
+    "terminal_polarity_status": [
+      "homogeneous_low",
+      "homogeneous_high",
+      "single_polarized",
+      "dual_polarized",
+      "multi_peak",
+      "transient_coarsening",
+      "oscillatory_dynamic"
+    ],
+    "primary_axes": ["mu", "Lambda", "h"],
+    "fixed_baseline": {"rho": 100, "kappa": 0.067, "Gamma": 1, "n": 2}
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "name": "three-calibration-tier1-regime-map",
+  "chemistry_class": "three_species",
+  "stage": "calibration",
+  "protocol": "single_stimulus_tier1_screen",
+  "parameterization": "holmes_six_field_canonical",
+  "standardization_status": "three_species_tier1_v1",
+  "module": "migration1d.three_species.calibration",
+  "output": "results/three_species/calibration/tier1_regime_map",
+  "arguments": [
+    "--duration", "300",
+    "--lambda-count", "13",
+    "--kappa-count", "13",
+    "--hill-values", "2,3,4"
+  ],
+  "resources": {"cpus": 8, "memory": "8G", "time": "12:00:00", "qos": "small"}
+}

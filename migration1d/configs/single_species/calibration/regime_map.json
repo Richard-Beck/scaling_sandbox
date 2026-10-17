@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "name": "single-calibration-regime-map",
+  "chemistry_class": "single_species",
+  "stage": "calibration",
+  "protocol": "single_stimulus",
+  "parameterization": "dimensionless_strip_wave_pinning",
+  "standardization_status": "calibration_v2",
+  "module": "migration1d.single_species.calibration",
+  "output": "results/single_species/calibration/regime_map",
+  "arguments": [
+    "--analysis", "regime-map",
+    "--duration", "300",
+    "--mu-count", "17",
+    "--lambda-count", "17",
+    "--h-values", "1,2,4"
+  ],
+  "resources": {"cpus": 8, "memory": "4G", "time": "12:00:00", "qos": "small"}
+}

@@ -1,0 +1,24 @@
+{
+  "generated_utc": "2026-10-03T17:39:24.857348+00:00",
+  "test_noncentralities": [
+    0.0,
+    0.1,
+    1.0,
+    10.0
+  ],
+  "true_scipy_means": [
+    1.2533141373155003,
+    1.256445465986095,
+    1.548572460551146,
+    10.050126936677417
+  ],
+  "scaled_bessel_means": [
+    1.2533141373155001,
+    1.2564454659860946,
+    1.5485724605511455,
+    10.050126936677417
+  ],
+  "maximum_absolute_difference": 4.440892098500626e-16,
+  "source_sha256": "f9470d00a16361f5bbb38eb7d6adcac447c81065fdb93fcc4bd2452cd42b4fdb",
+  "note": "Fresh scipy rice_gen instance avoids global distribution instance monkey patches in the refined fit module. Inherited analysis validator compares two stable implementations; this independent check supplies genuine agreement with unpatched SciPy."
+}

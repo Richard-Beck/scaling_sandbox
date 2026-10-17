@@ -1,0 +1,123 @@
+{
+  "frozen_at": "2026-10-17T20:27:35.022588+00:00",
+  "configuration_sha256": "9e8965322eab1e0d9bdc303de2f1bf645f380e29fdb402a21e2542a93d244ba1",
+  "analysis": {
+    "max_lag_native": 8000.0,
+    "windows": {
+      "full": [
+        0.0,
+        32000.0
+      ],
+      "first_half": [
+        0.0,
+        16000.0
+      ],
+      "last_half": [
+        16000.0,
+        32000.0
+      ]
+    },
+    "correlation": "uncentered vector ratio of ensemble-averaged within-seed endpoint products and energies; weak resultants retained",
+    "restricted_integral": "signed trapezoid through8000; no extrapolation/exponential fit",
+    "bootstrap": {
+      "draws": 1000,
+      "seed": 920731,
+      "unit": "whole independent complete realization",
+      "interval": "percentile2.5\u201397.5; recompute full ratio"
+    },
+    "direction_magnitude_gates": [
+      0.05,
+      0.1,
+      0.2
+    ],
+    "site_descriptors": {
+      "cadence_native": 5.0,
+      "source": "scalar",
+      "prominence_native": 0.05,
+      "endpoint_conditions": "single resolved active region and R>=.1 at both endpoints",
+      "identity": "no ancestry assignment; pair coverage retained"
+    },
+    "representative_selection": {
+      "primary": "one medoid per model/C/f noise condition",
+      "descriptors": [
+        "final Re(P)",
+        "minimum R",
+        "time mean R",
+        "multiregion profile fraction"
+      ],
+      "distance": "L1 distance to within-condition descriptor medians after IQR scaling; zero IQR uses1",
+      "tie_break": "case_id",
+      "extra": "lowest sampled resultant across all noise cases; labelled diagnostic",
+      "profile_cadence_native": 40.0
+    }
+  },
+  "files": {
+    "scientific_design": {
+      "source": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/DESIGN.md",
+      "source_sha256": "87a7911a65f18ad6e87b9ec54b63e7d1fed5a4f073f4b29bfed504ff60722741",
+      "copy": "protocol/scientific_design.md",
+      "copy_sha256": "87a7911a65f18ad6e87b9ec54b63e7d1fed5a4f073f4b29bfed504ff60722741"
+    },
+    "fresh_design_critique": {
+      "source": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/metadata/FRESH_DESIGN_CRITIQUE.md",
+      "source_sha256": "4051e89f679307eafcaaf1d914e7b8db727525eed02dda7eb77dd78518ddc0cf",
+      "copy": "protocol/fresh_design_critique.md",
+      "copy_sha256": "4051e89f679307eafcaaf1d914e7b8db727525eed02dda7eb77dd78518ddc0cf"
+    },
+    "analysis_source": {
+      "source": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/code/mechanisms/vision_noise_analysis_20261017.py",
+      "source_sha256": "607de8cde2676aa0fff731ce4e9adc87750396594a3049112b89196cf1ad9a19",
+      "copy": "protocol/analysis_source.py",
+      "copy_sha256": "607de8cde2676aa0fff731ce4e9adc87750396594a3049112b89196cf1ad9a19"
+    },
+    "pilot_results": {
+      "source": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_pilot_20261017/RESULTS.md",
+      "source_sha256": "87c0566cc615a3f0280a7028264766d0384886aabab666d147ea4b403323008b",
+      "copy": "protocol/pilot_results.md",
+      "copy_sha256": "87c0566cc615a3f0280a7028264766d0384886aabab666d147ea4b403323008b"
+    },
+    "numerical_sensitivity": {
+      "source": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_numerical_audit_20261017/NUMERICAL_COMPARISON.json",
+      "source_sha256": "5d4a103bec217be0ccd098d8faa038b90d95d1fa712f615cba57161523a5080b",
+      "copy": "protocol/numerical_sensitivity.json",
+      "copy_sha256": "5d4a103bec217be0ccd098d8faa038b90d95d1fa712f615cba57161523a5080b"
+    },
+    "fresh_pilot_critique": {
+      "source": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_pilot_20261017/supporting/metadata/FRESH_RESULT_CRITIQUE.md",
+      "source_sha256": "1873179d9a84a86889f41cc2b1ead0c0f44d1e1e16e354714590983835c6f641",
+      "copy": "protocol/fresh_pilot_critique.md",
+      "copy_sha256": "1873179d9a84a86889f41cc2b1ead0c0f44d1e1e16e354714590983835c6f641"
+    },
+    "main_authorization": {
+      "source": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/MAIN_ROOT_AUTHORIZATION.json",
+      "source_sha256": "2550a1a44331b2a69de5187723c78fc3820450a399afbfe883cfcd6c1ad73f71",
+      "copy": "protocol/main_authorization.json",
+      "copy_sha256": "2550a1a44331b2a69de5187723c78fc3820450a399afbfe883cfcd6c1ad73f71"
+    },
+    "pilot_execution_verification": {
+      "source": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_pilot_20261017/results/execution_verification.json",
+      "source_sha256": "4cc542abd0b9f8c6ebd3efae209f63dcbed9898abc50cf090518a155f6cf3adf",
+      "copy": "protocol/pilot_execution_verification.json",
+      "copy_sha256": "4cc542abd0b9f8c6ebd3efae209f63dcbed9898abc50cf090518a155f6cf3adf"
+    },
+    "numerical_execution_ode": {
+      "source": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_numerical_audit_20261017/ode/results/execution_verification.json",
+      "source_sha256": "f512c0e442310cd99d99b8e2712c259e035e26b5104776f7717e0bf9a2a53605",
+      "copy": "protocol/numerical_execution_ode.json",
+      "copy_sha256": "f512c0e442310cd99d99b8e2712c259e035e26b5104776f7717e0bf9a2a53605"
+    },
+    "numerical_execution_temporal": {
+      "source": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/vision_noise_numerical_audit_20261017/temporal/results/execution_verification.json",
+      "source_sha256": "3b0fddd1807a801753ed1d452f84e87f8674d37b9afaca4df93f6cfdbcf19998",
+      "copy": "protocol/numerical_execution_temporal.json",
+      "copy_sha256": "3b0fddd1807a801753ed1d452f84e87f8674d37b9afaca4df93f6cfdbcf19998"
+    },
+    "execution_verifier_source": {
+      "source": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/code/mechanisms/vision_noise_execution_audit_20261017.py",
+      "source_sha256": "c0719f89bc6d4b68b0020e45375da1e2b7b24e1dfcef2151e13c544a386067bb",
+      "copy": "protocol/execution_verifier_source.py",
+      "copy_sha256": "c0719f89bc6d4b68b0020e45375da1e2b7b24e1dfcef2151e13c544a386067bb"
+    }
+  },
+  "scope": "Scientific plan, prospective analysis/selection rules, reviews and authorization frozen before producer launch"
+}

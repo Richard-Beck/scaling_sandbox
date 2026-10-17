@@ -1,0 +1,18 @@
+{
+  "job_id": "21110650",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--qos=small",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--mem=3G",
+    "--time=00:10:00",
+    "--job-name=ring-control-audit",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/finite_response_audit/slurm.out",
+    "--error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/finite_response_audit/slurm.err",
+    "--wrap",
+    "/home/4473331/.conda/envs/scaling_sandbox/bin/python /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/finite_response_audit/frozen_runner.py --run /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017"
+  ],
+  "runner_sha256": "81424949b483fd5c4a53a8c6cd682bf6beb478e2d59b86fc63576931e98d34dc"
+}
