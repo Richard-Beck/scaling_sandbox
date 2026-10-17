@@ -1,0 +1,155 @@
+{
+  "generated_at": "2026-10-17T21:10:23.662755+00:00",
+  "analysis_only": true,
+  "new_integrations": 0,
+  "native_cases": 243,
+  "noisy_realizations": 216,
+  "seeds_per_condition": 12,
+  "circumferences": [
+    20,
+    40,
+    60
+  ],
+  "strengths": [
+    0.001,
+    0.01
+  ],
+  "source_tables": {
+    "vision_noise_seed_summary.csv": {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_seed_summary.csv",
+      "sha256": "21218e7ef4b37555f98f97d5f2b69858424eaa3bdb26b2cedf12ccb377c27b14",
+      "rows": 243
+    },
+    "vision_noise_representative_histories.csv": {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_representative_histories.csv",
+      "sha256": "a38a2b063276bd260132768b4aa82513e989d47532e4d63c77ff674d37c54635",
+      "rows": 19
+    },
+    "vision_noise_persistence.csv": {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_persistence.csv",
+      "sha256": "a670c87556aab2bb5ebd231a78500cff69fa9a70bc616444a8cff6e35854578c",
+      "rows": 135
+    },
+    "vision_noise_lag_correlations.csv": {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_lag_correlations.csv",
+      "sha256": "8dab74869b641257821ec8787eab60e42fbc1a09d460652c9c67c4d9b5dd1173",
+      "source_rows": 216135,
+      "exported_rows": 86454,
+      "export": "noise_vector_lags_v2.csv.gz"
+    },
+    "vision_noise_direction_correlations.csv": {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_direction_correlations.csv",
+      "sha256": "864a1f62b9af8db8db2d925f117b53ee9801e2f6f92861787b61e8d60af3f430",
+      "source_rows": 648405,
+      "exported_rows": 86454,
+      "export": "noise_direction_lags_v2.csv.gz"
+    },
+    "vision_noise_site_displacement.csv": {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_site_displacement.csv",
+      "sha256": "c8d464c2b481b062f20f27f7e5c4a41350b1010eb0a1d4d2e3345d6667d05666",
+      "source_rows": 432270,
+      "exported_rows": 172908,
+      "export": "noise_site_lags_v2.csv.gz"
+    },
+    "vision_noise_ensemble_traces.csv": {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_ensemble_traces.csv",
+      "sha256": "6ece2997dba3a7df48f1b50168698ea9894ac896dc404e197dea5c0801f06dfa",
+      "source_rows": 2592405,
+      "exported_rows": 135,
+      "export": "noise_final_magnitude_controls_v2.csv.gz"
+    }
+  },
+  "generator": "scripts/render_noise_interpretation_v2.py",
+  "generator_sha256": "05921c42ceac54aa652094da7d0f33f0ec0b0b8020bb0b1aff8b1c2e399ba109",
+  "definitions": {
+    "direction": "Both endpoint relative first-moment magnitudes R >= 0.1; conditional cosine; coverage denominator is all within-window lag-8000 endpoint pairs across the twelve seeds.",
+    "site": "Both endpoints have exactly one current half-contrast region, at most one native prominence>=0.05 peak, contrast>=0.05, and R>=0.1. Shortest physical endpoint displacement modulo C; no continued ancestry assumed.",
+    "intervals": "Exact stored 95% percentile intervals from 1000 complete-seed resamples; correlation ratios and conditional physical means are recomputed per bootstrap draw. No time-origin pseudo-replication.",
+    "physical_display": "Entire Goryachev physical population curve withheld at BOTH strengths because the prespecified gate yields sparse support. All actual values/counts remain exported; no numeric zero substitutes for unavailability. No newly chosen coverage threshold changes the estimator.",
+    "windows": "Full[0,32000], first[0,16000], last[16000,32000], inclusive endpoints, maxlag8000, cadence5; no burn-in selected.",
+    "medoids": "Existing frozen within-condition four-descriptor medoid; six C20/C60 high-input histories; exact full arrays included; no selected seed used for population inference."
+  },
+  "audit_scope": "Every plotted point value checked against exact source rows. All 54 noisy restricted integrals reintegrated from all1601source lags; all54lag-8000direction/site summaries independently recomputed from all216native traces; final noisy/control magnitude checked against all243native traces. Bootstrap intervals preserve audited source values and hashes; the bootstrap random stream is not rerun here.",
+  "outputs": {
+    "README.md": {
+      "sha256": "925ab3a00bea6813f15d99b189aed496a7149e6ed987cf0584d94a40de733a7c",
+      "bytes": 2769
+    },
+    "noise_adaptation_v2.pdf": {
+      "sha256": "10bca96b955a777c610a43d44134244699dace62197511ece09dd50c797b89f4",
+      "bytes": 50207
+    },
+    "noise_adaptation_v2.png": {
+      "sha256": "f1524ca7645296466d10f458f4cdc77ca99d31ac745cffdb834e610da47700b6",
+      "bytes": 378605
+    },
+    "noise_direction_lags_v2.csv.gz": {
+      "sha256": "42c7b8defcbecfae6d05b137a4cdeed17a466a82d9dd5717c6a36bcf0c19758a",
+      "bytes": 2971543
+    },
+    "noise_final_magnitude_controls_v2.csv.gz": {
+      "sha256": "f2f1279d5f6f84d356ab2a043d9efebd908e5b7c7daea4986d5e115339e41921",
+      "bytes": 2837
+    },
+    "noise_interpretation_v2.content.json": {
+      "sha256": "f6d4693d4bd948d9d51e2abbf889b295de7acd6540ae445374b1328469c38383",
+      "bytes": 11501
+    },
+    "noise_memory_geometry_v2.pdf": {
+      "sha256": "0dcf8a0bc17147a2d4dc5f5f71ef85c0c4b8df0450d439289e67757cbad71d2a",
+      "bytes": 59600
+    },
+    "noise_memory_geometry_v2.png": {
+      "sha256": "f7f1998f7c7e418a9fa6529310b510e6c50d9e9365d28c1b9bf1a2faeca6c450",
+      "bytes": 503537
+    },
+    "noise_native_examples_v2.npz": {
+      "sha256": "ae5257ae48c11380769e755b3d2b08eae0f268171940021c400babb98e7683d9",
+      "bytes": 29593708
+    },
+    "noise_native_examples_v2.pdf": {
+      "sha256": "893470fb4b95bf6f0f0b7de837479458f2f04b84dc47f7403ee0aff1d4bdf1b0",
+      "bytes": 276839
+    },
+    "noise_native_examples_v2.png": {
+      "sha256": "4f98115cc7e5cb86ec2aae6f59b6ef5ca5590858a4874fa34e429b8afc340971",
+      "bytes": 1146018
+    },
+    "noise_native_examples_v2.selection.json": {
+      "sha256": "8573d5340f9ea1d691e2c2023e62c67996ce7648db50a9d25ba4b3d484be4794",
+      "bytes": 22685
+    },
+    "noise_native_pair_counts_v2.csv": {
+      "sha256": "9fba007b3b5c93029afbb182dad819e42cf96a26c169462d4b23f45debc84dc8",
+      "bytes": 6334
+    },
+    "noise_persistence_v2.csv": {
+      "sha256": "ea566030259eb582ee288c50a3d06b043a01bdca8c7adacc63363960db54af74",
+      "bytes": 23772
+    },
+    "noise_plotted_source_rows_v2.csv": {
+      "sha256": "a0c325ccd20fd5204201adb4b4123ca96507b647f004625bca7e9ba13d0cb112",
+      "bytes": 93045
+    },
+    "noise_reconciliation_v2.json": {
+      "sha256": "b10069b744405e821643e1e791cdaf65ec5065753a6a5897dda416568c0eb2e8",
+      "bytes": 139991
+    },
+    "noise_seed_summary_v2.csv": {
+      "sha256": "1e720b4a452ec1f9aa9682cc1c0819c917d4433b7a9295e42643f9aae4dc3fca",
+      "bytes": 83827
+    },
+    "noise_site_lags_v2.csv.gz": {
+      "sha256": "db2de81d372901eeb23ee3063bae49592d7ee1c5196aca24d2a76451108cc50a",
+      "bytes": 5988842
+    },
+    "noise_vector_lags_v2.csv.gz": {
+      "sha256": "92892c00adf5e79e9c94a17562d7535a1609f1661d29a13d8aec14290fbb0773",
+      "bytes": 6445241
+    }
+  },
+  "rendered_at": "2026-10-17T21:13:02.856984+00:00",
+  "default_render_native_reads": 0,
+  "default_render_bulk_source_reads": 0,
+  "native_audit_mode": "--audit-native performs optional one-time native verification/export; default uses retained compact inputs only"
+}

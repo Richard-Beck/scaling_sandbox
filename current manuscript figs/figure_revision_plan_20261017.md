@@ -29,6 +29,13 @@ checkpoint for user review. The user has resumed execution under this scope;
 the [completion requirements](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/VISION_CHECKPOINT_REQUIREMENTS.md)
 identify evidence owners and the checks required before handoff.
 
+The [three-figure checkpoint](../current%20manscript%20figs/vision_aligned_checkpoint.md)
+is now assembled from complete native results. Its
+[fresh bounded package review](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/supporting/metadata/FRESH_PACKAGE_CRITIQUE.md)
+finds no essential correction before detailed user feedback. The working
+figures and their experimental readouts are ready for the author's composition
+decisions; no additional scientific campaign is planned before that review.
+
 ## Basis from the preceding checkpoint
 
 The [updated checkpoint](updated_checkpoint_20261017.md) implements the user's broader comparison as one linear figure and two continued ring review sheets. Main work pauses at this checkpoint for detailed feedback. The [previous checkpoint](linear_then_ring_checkpoint_20261017.md) is preserved. This document records the revision structure and remaining measurements; it is not another figure candidate.

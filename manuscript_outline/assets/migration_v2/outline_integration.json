@@ -1,0 +1,40 @@
+{
+  "figure_id": "figure5",
+  "title": "Figure 5. Published migration summaries and conditional OU interpretation",
+  "assets": [
+    {
+      "path": "manuscript_outline/assets/migration_v2/figure5_migration_v2.png",
+      "caption": "Reassembled Figure 5: original A and C–F numerical evidence, revised MSD/curve-shape panel B."
+    },
+    {
+      "path": "manuscript_outline/assets/migration_v2/figure5b_msd_detail.png",
+      "caption": "Figure 5B continued: enlarged detail with explicit raster-sample caveat."
+    }
+  ],
+  "replace_legend_index": 1,
+  "replacement_legend": "B, Upper: twelve chosen display samples from each digitized Xuan population MSD curve (small points) and the unchanged fitted analytical OU expectation (solid lines), on logarithmic lag and MSD axes. These are samples of the published raster curves, not recovered experimental lag positions or independent cell observations; the original experimental lag grid is unknown. The open circle identifies the crossover of the full digitized traces at 2.32014 h, computed by linear interpolation in native lag and MSD. The open diamond identifies the different fitted OU crossover at 1.11406 h. Lower: descriptive slopes of log(MSD) versus log(lag) fitted in six equal log-lag windows of the full digitized curves (points), and matching-window moving OU slopes (solid lines). Each window spans approximately 0.304 decades; both observed and model slopes use the same full window support. Observed raster columns remain correlated and give no biological sample size or confidence interval. These slopes are newly calculated curve-shape summaries, not author-reported local exponents or fitted OU memory times. A constant power-law exponent would appear horizontal; reference values 1 and 2 indicate diffusive and straight-line scaling. The model does not reproduce the complete observed curvature or the observed crossover. The analytical fit, all fitting targets and numerical inputs to A and C–F are unchanged.",
+  "additional_narrative": [
+    "The observed Xuan curves cross near 2.32 h while the unchanged fitted OU curves cross near 1.11 h. Matched-window slopes make the remaining curve-shape discrepancy visible; fitted persistence is a conditional summary.",
+    "A slowing cell can produce greater late displacement, but the enlarged-group migration phenotype and its causal connection to polarity mechanisms require direct experimental measurement."
+  ],
+  "resolved_limitation": "The 13 October point-versus-model and exponent-display request is implemented, with explicit raster-sample provenance; the unknown original experimental lag grid remains unmeasured.",
+  "preserved_other_legend_entries": true,
+  "user_feedback_evidence": [
+    {
+      "session": "/home/4473331/.codex/sessions/2026/10/13/rollout-2026-10-13T13-27-58-01a1364e-870d-7dd3-b0b8-0021c62eb57a.jsonl",
+      "line": 148,
+      "timestamp": "2026-10-13T17:52:30.419Z",
+      "role": "user",
+      "excerpt": "reserve lines only for the model",
+      "meaning": "Use observed curve-sample points and expose exponent/curvature behaviour."
+    },
+    {
+      "session": "/home/4473331/.codex/sessions/2026/10/13/rollout-2026-10-13T13-27-58-01a1364e-870d-7dd3-b0b8-0021c62eb57a.jsonl",
+      "line": 214,
+      "timestamp": "2026-10-13T18:09:00.378Z",
+      "role": "user",
+      "excerpt": "Did Xuan really calculate values of MSD at as many lags",
+      "meaning": "Do not equate raster display samples with original experimental lag measurements."
+    }
+  ]
+}

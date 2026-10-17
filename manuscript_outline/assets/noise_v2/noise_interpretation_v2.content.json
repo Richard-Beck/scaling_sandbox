@@ -1,0 +1,71 @@
+{
+  "title": "Activity memory increases with ring size, while physical site motion and forced-state eligibility qualify its meaning",
+  "assets": [
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_memory_geometry_v2.png",
+      "caption": "Continued Figure 4: finite memory, angular geometry, native magnitude and observation coverage; both input strengths."
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_adaptation_v2.png",
+      "caption": "Supporting/continued sheet: full/first/last windows with the same lag horizon; no selected burn-in."
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_native_examples_v2.png",
+      "caption": "Supporting/continued sheet: exact high-input C20/C60 within-condition medoid histories, matched zero-based scale within each model."
+    }
+  ],
+  "legend": [
+    "A–E, Completed noisy-ring histories from three native periodic chemical models at circumferences C20/C40/C60. Every model/size/strength contains 12 independent realizations, each observed for 32,000 native time units. Blue/red denote the two prospectively frozen mean input fractions f=0.001/0.01. The driving law is positive lognormal activation with fixed local spatial covariance parameter 1.5 and analytically variance-normalized interpolation of OU knots (correlation time 50; spacing 5). No per-realization mean removal or circumference renormalization is applied. Local input statistics are fixed within model, while total input and angular forcing modes vary with circumference. Native amplitudes and times are not cross-model biological calibrations.",
+    "A, Actual signed full-window vector-correlation area from lag 0 through 8000 on the 5-unit grid. The uncentered vector ratio retains magnitude fluctuations and weak resultants, subtracts no average vector and normalizes by both endpoint energies. The dotted 8000 line is the maximum area for correlation identically one; proximity marks unresolved decay. Intervals are stored 95% whole-seed bootstrap percentile bounds on the integrated recomputed correlation ratio. Sixteen of 18 conditions do not cross 1/e within this lag horizon. No fitted exponential time, extrapolated persistence time or cell motility time is assigned.",
+    "B, Direction-only cosine at the same lag 8000 and over the same full time-origin window. Both endpoints require relative moment magnitude R>=0.1. Bars are stored pointwise 95% whole-seed bootstrap intervals. The eligible fraction of all possible endpoint pairs is shown in E. Conditional angular memory and raw vector area answer distinct questions.",
+    "C, Mean relative first-moment magnitude at the final time 32000 (circles), with the matched deterministic uniform-mean input controls (dotted triangles). This final-time magnitude is a forced-state diagnostic, not the lag-correlation denominator. Initial R = 1; R can exceed one. In Goryachev high-input C20 the uniform-mean control ends with essentially zero resultant; larger rings retain substantial polarity. Its small vector area cannot be attributed solely to noise-driven wandering around an otherwise unchanged polarized state.",
+    "D, Square root of the conditional mean squared shortest physical dominant-region center displacement at lag 8000; confidence bounds are monotone square roots of the source squared-displacement intervals. Both endpoints must have exactly one current half-contrast connected region, at most one peak with native prominence>=0.05, contrast>=0.05, and R>=0.1. Site descriptors are recorded every 5 native units and were independently validated at every saved 40-unit primary profile in the source audit. Endpoints do not establish uninterrupted site identity. All actual Goryachev values remain in the exported tables; the population curve is withheld at both strengths because eligibility is sparse. High input supplies only 1/0/0 eligible pair at C20/C40/C60 among 57,612 possible pairs per condition, and low-input coverage is 8.43/1.00/0.23%. The isolated one-pair result is not assigned a population precision interval or represented as zero drift.",
+    "E, Fraction of all available lag 8000 endpoint pairs satisfying the direction gate (solid circles; source seed-bootstrap intervals) or the complete physical-site gate (dashed squares; exact counts exported). At high input, Holmes physical-site coverage decreases 92.1%→66.4%→37.3%, although direction coverage remains above 99%. The declared absolute-prominence gate is deliberately conservative: small secondary peaks may fail it despite a dominant incumbent. Eligibility is an observation restriction, not a functional competitor count or an instability metric.",
+    "Companion adaptation sheet, full [0, 32000], first [0, 16000] and last [16000, 32000] windows retain identical maximum lag 8000 and inclusive endpoints. Symbols distinguish windows; colors retain strengths. The source estimator and all 12 seeds are unchanged, with no chosen burn-in. All windows and coverage counts remain exported. Agreement of major area ordering does not establish stationarity; physical displacement is less uniformly ordered.",
+    "Companion native sheet, exact high-input C20/C60 within-condition medoids for all three models. Medoids minimize the sum of absolute deviations from within-condition descriptor medians, scaled by IQR (unit fallback when IQR ≤ 10⁻¹²), for final initial-axis memory, minimum R, time-mean R and multisite-frame fraction. Ties use case identifier. Each model uses one shared zero-based native activity scale across sizes; physical arclength axes retain circumference. The static plotting cut is shifted so the initial maximum lies at mid-boundary. The exact full-resolution arrays, shift indices, descriptor distances, native source hashes and trace arrays are included. These individual histories illustrate the quantitative population evidence without supplying independent uncertainty."
+  ],
+  "narrative": [
+    "At high input, the measured full-window restricted vector areas rise C20 → C40 → C60 in Wave-pinning 6257 → 7627 → 7885 and Holmes 4304 → 6332 → 7103 native time units. The direction-only comparisons retain the size ordering, while large-ring direction remains measurable. This supplies a direct, declared-noise activity-memory observation alongside deterministic replacement experiments; it does not close the causal migration-persistence hypothesis.",
+    "The physical interpretation differs by model. High-input Wave-pinning full-window physical RMS is 3.25 [2.71,3.74],2.83 [2.40,3.29],2.25 [2.03,2.48] at C20/C40/C60, so the larger/smaller endpoint contrast includes reduced physical displacement under the declared gate. Holmes instead gives 4.57 [3.88,5.17],6.33 [5.22,7.28],5.54 [4.25,6.70] with decreasing coverage: angular memory alone cannot establish slower physical-site motion. The geometric identity Δθ=2πΔs/C explains why equal physical displacement is less angular change on a larger ring, without assigning the observed effect to geometry causally.",
+    "Goryachev high-input C20 is a distinct forced-state regime, not a clean noise-specific reorientation comparison around the same maintained polarity. Conservative site eligibility is sparse even at low input and effectively absent at high input. This leaves physical comparison unavailable rather than proving stationary local activity; the raw histories can still reveal a strong dominant incumbent or locally structured activity.",
+    "The lower input mostly leaves decay unresolved over lag 8000. It is retained as an informative weak-response regime; apparent areas near 8000 are bounded observation descriptors rather than arbitrarily long estimated memory times.",
+    "Full/first/last restricted areas retain the major size ordering, but physical motion needs a bounded endpoint statement. Wave-pinning high-input last-half RMS is 3.19/3.49/1.93 at C20/C40/C60, so a universal monotone size rule is unsupported. Holmes C60 high-input direction changes 0.798 first-half → 0.670 last-half. These windows are shown rather than silently selecting a favorable stationary segment."
+  ],
+  "measurements": [
+    "In independent cell recordings, jointly measure whole-boundary activity vectors, their magnitudes, total reporter activity and local region/peak histories over a declared observation horizon and cadence. Report weak-magnitude fractions, pair coverage and finite-window restricted correlations; compare early and late windows before interpreting a stationary time.",
+    "Register physical boundary arclength and track local activity-site displacement separately from angular reorientation. Retain multisite, low-contrast and weak-resultant intervals in the coverage denominator and report unavailable single-site comparisons explicitly. Calibrated signal is needed to interpret integrated fluorescence as molecular amount.",
+    "Measure local protrusion or extension/retraction alongside reporter activity to test whether persistent or renewed activity sites correspond to protrusive behaviour. Then associate these independently measured quantities with matched cell trajectories; do not impose a velocity law on the polarity model.",
+    "Relate the noisy-ring distinction to the primary cue comparison: quantify early challenger activation, incumbent loss/rebound, replacement/return/coexistence and local site lifetime after controlled cues, alongside spontaneous activity fluctuations. A local recovery response, finite cue resistance and spontaneous activity memory remain separate observables."
+  ],
+  "limitations": [
+    "The input process is a declared perturbation ensemble, not a measured cell-noise law. Changed circumference also changes total forcing and angular forcing modes, material, basal architecture and the geometric embedding, so no causal allocation among these changes is demonstrated.",
+    "The restricted correlation is uncentered and may retain a nonzero average axis or adaptation. All windows remain finite; absence of a 1/e crossing gives no resolved exponential time. Confidence intervals quantify independent-seed variation at the fixed native model/input condition, not model discrepancy or biological uncertainty.",
+    "Site displacement is shortest endpoint distance modulo C, not unwrapped travel, diffusion, cell movement or proof of uninterrupted site ancestry. Gate failure can be caused by small secondary peaks under the conservative prominence rule; unavailable comparisons are never zeros."
+  ],
+  "sources": [
+    {
+      "label": "Audited source results",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/RESULTS.md"
+    },
+    {
+      "label": "Frozen statistical design",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/DESIGN.md"
+    },
+    {
+      "label": "Source/native reconciliation and exact pair counts",
+      "path": "manuscript_outline/assets/noise_v2/noise_reconciliation_v2.json"
+    },
+    {
+      "label": "All plotted source rows and hashes",
+      "path": "manuscript_outline/assets/noise_v2/noise_plotted_source_rows_v2.csv"
+    },
+    {
+      "label": "Compact native histories and selection",
+      "path": "manuscript_outline/assets/noise_v2/noise_native_examples_v2.selection.json"
+    },
+    {
+      "label": "Complete compact lag exports and provenance",
+      "path": "manuscript_outline/assets/noise_v2/noise_interpretation_v2.manifest.json"
+    }
+  ]
+}

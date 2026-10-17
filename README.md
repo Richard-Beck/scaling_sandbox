@@ -16,6 +16,10 @@ motility assays. The order of the middle components remains open.
 The [manuscript outline](manuscript_outline/README.md) assembles the proposed main
 figures, detailed legends, narrative conclusions and pending experimental work.
 Its PDF versions preserve the initial integration and subsequent critical review.
+The [revised outline PDF](manuscript_outline/outline_v2.pdf) adds an all-five
+mechanism-to-measurement crosswalk, physical-site and observation-coverage
+diagnostics, and the requested migration MSD display. The
+[first integrated edition](manuscript_outline/outline_v1.pdf) remains available.
 
 The biological motivation is **whole-genome doubling (WGD), cell enlargement,
 and increased migration persistence**. The working figure collection is

@@ -1,0 +1,938 @@
+{
+  "schema": 1,
+  "purpose": "Isolated re-render of the unchanged supplied mechanism figures, with an optional title-numbering-only export for manuscript Figures2\u20134.",
+  "wrapper": {
+    "path": "scripts/render_manuscript_mechanisms.py",
+    "sha256": "1db3e5a7d12082542485ccfb0d6b490521f9e90af4e10f00ea3b5acb9c856571"
+  },
+  "source_revision": "6199cdc33fea355133e4ede149131455dc5ccb91",
+  "source_manifest_sha256": "283560ead0adda0e23765b662b77c450ef404c478f1c7096560ba73a427cabee",
+  "original_validation": {
+    "schema": 1,
+    "generated_at": "2026-10-17T21:13:29.522876+00:00",
+    "revision": "6199cdc33fea355133e4ede149131455dc5ccb91",
+    "frozen_checkpoint_manifest_sha256": "283560ead0adda0e23765b662b77c450ef404c478f1c7096560ba73a427cabee",
+    "frozen_renderer_sha256": "e9f54d457d8d302abb379c262299bddee0463c705d3fdfbce3e07a75ed1c8c75",
+    "portable_wrapper_sha256": "1db3e5a7d12082542485ccfb0d6b490521f9e90af4e10f00ea3b5acb9c856571",
+    "input_source_hashes_verified": 64,
+    "input_source_read_calls": 82,
+    "original_source_bytes_unchanged": true,
+    "scientific_functions_unchanged": true,
+    "adapter": "Runtime Evidence.source lookup maps the recorded historical repository prefix to the isolated checkout; all raw SHA-256 checks remain exact.",
+    "historical_paths_relocated": [
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_0059/duration_2p26572321864.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_0185/duration_0p77256969753.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_0311/duration_0p627219504984.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_0416/duration_0p599581288606.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_0983/duration_0p0001953125.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_1109/duration_0p0001953125.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_1235/duration_0p0001953125.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_1340/duration_0p0001953125.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_2327/duration_0p0001953125.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_2390/duration_0p0001953125.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_2453/duration_0p0001953125.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_2516/duration_0p0001953125.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_2579/duration_0p0001953125.checkpoint.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/goryachev_C30.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/goryachev_C50.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/holmes_model3_C20.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/holmes_model3_C30.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/holmes_model3_C40.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/holmes_model3_C50.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/wave_pinning_C30.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/wave_pinning_C50.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/goryachev_C10/workers/00/qualified_basal.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/goryachev_C70/workers/00/qualified_basal.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/holmes_model3_C60/workers/00/qualified_basal.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/wave_pinning_C10/workers/00/qualified_basal.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/wave_pinning_C70/workers/00/qualified_basal.npz",
+      "polarity1d/manuscript/data/runs/vision_linear_20261017/recovery/results/recovery_mirror_pairs_verified_subset.csv",
+      "polarity1d/manuscript/data/runs/vision_noise_main_20261017/manifest.json",
+      "polarity1d/manuscript/data/runs/vision_noise_main_20261017/results/statistics_centroid_amendment_20261017/analysis.py",
+      "polarity1d/manuscript/data/runs/vision_noise_main_20261017/workers/0018/primary.npz",
+      "polarity1d/manuscript/data/runs/vision_noise_main_20261017/workers/0086/primary.npz",
+      "polarity1d/manuscript/data/runs/vision_noise_main_20261017/workers/0163/primary.npz",
+      "polarity1d/manuscript/data/runs/vision_noise_main_20261017/workers/0223/primary.npz"
+    ],
+    "original_worktree_access_blocked": true,
+    "original_worktree_open_attempts": [],
+    "native_integrations": 0,
+    "temporary_input_files": 71,
+    "temporary_input_bytes": 118986989,
+    "expanded_csvs": [
+      {
+        "raw_path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_ensemble_traces.csv",
+        "raw_sha256": "6ece2997dba3a7df48f1b50168698ea9894ac896dc404e197dea5c0801f06dfa",
+        "raw_bytes": 214121020,
+        "compressed_path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_ensemble_traces.csv.gz",
+        "compressed_sha256": "915e7d8ba87ac294543b9e9d917537437542ea04823f87540cc1770a1cb632fb",
+        "compressed_bytes": 27259902,
+        "decompressed_sha256": "6ece2997dba3a7df48f1b50168698ea9894ac896dc404e197dea5c0801f06dfa"
+      },
+      {
+        "raw_path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_lag_correlations.csv",
+        "raw_sha256": "8dab74869b641257821ec8787eab60e42fbc1a09d460652c9c67c4d9b5dd1173",
+        "raw_bytes": 46858665,
+        "compressed_path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_lag_correlations.csv.gz",
+        "compressed_sha256": "ada3f8d0e29fbf9e2e7a06e55485c482dc5de21a72c454f4941d85c5b9afe2e8",
+        "compressed_bytes": 9619928,
+        "decompressed_sha256": "8dab74869b641257821ec8787eab60e42fbc1a09d460652c9c67c4d9b5dd1173"
+      },
+      {
+        "raw_path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_site_displacement.csv",
+        "raw_sha256": "c8d464c2b481b062f20f27f7e5c4a41350b1010eb0a1d4d2e3345d6667d05666",
+        "raw_bytes": 62611643,
+        "compressed_path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_site_displacement.csv.gz",
+        "compressed_sha256": "12dd0e95e6ca6fd427e364564607ef05658e44ebc55515a2be9233a29ae4b4c4",
+        "compressed_bytes": 7066568,
+        "decompressed_sha256": "c8d464c2b481b062f20f27f7e5c4a41350b1010eb0a1d4d2e3345d6667d05666"
+      }
+    ],
+    "layout_sha256": "502d61ff74519d055d133f3b72fd12afa74f75e265e4e61d676513a1e7483a9a",
+    "runtime_replaced_methods": [
+      "Evidence.source"
+    ],
+    "original_render_entrypoint": "render_full_checkpoint (the original --full branch)",
+    "source_array_archive_sha256": {
+      "polarity1d/manuscript/data/runs/vision_noise_main_20261017/workers/0018/primary.npz": "6f258ecb0b63a4276b057ba4c3bc68b441ec95f9d271f9c89fd8c2fa6f5b045e",
+      "polarity1d/manuscript/data/runs/vision_noise_main_20261017/workers/0086/primary.npz": "4fe9c869850b334d629e57c4b6d42f3dee970ced56c282b83598eeed46164af3",
+      "polarity1d/manuscript/data/runs/vision_noise_main_20261017/workers/0223/primary.npz": "5233ffea0ef1efd2fc2d8245f35cf4c1689bb0ae0edc0026896b01bff962d1ab",
+      "polarity1d/manuscript/data/runs/vision_noise_main_20261017/workers/0163/primary.npz": "32581def5b86e603ec7bcaf91aadf69f273d044f7695f8196b120c47bea75081",
+      "polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/023.npz": "aa06d942a1326dab3c08ea2345bc7fd078fcee94dfeafcd0f4247a0a7f4900ca",
+      "polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/050.npz": "9c27b210e28401ccfd5a26994d844490af7966b1de3acb1813f3cfe5097fa9b4",
+      "polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/068.npz": "3b51da7f93e1af96bd87364cc99fad6462648322b4b5c7adc99a1e200d094c2a",
+      "polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/097.npz": "8076d09bc30a905d3499029580c880ad5f1dc03aafb60dac200eeb3b4c5e3781",
+      "polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/124.npz": "a594d326a51a889da374a9c39c7ccff611006b6e83991b1ca1942a05308b01bd",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_0059/duration_2p26572321864.checkpoint.npz": "94851a09c472acaa50e3b7be03b8d093f0a9663f5b4e2f4b8127b4c3f5eacb27",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/wave_pinning_C10/workers/00/qualified_basal.npz": "5f7b95ff0c200cf2bb4bf8b19ef831832d72646c6e6136e73bd6e84cd3aa3209",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_0185/duration_0p77256969753.checkpoint.npz": "155b88fc5762cc1e0de1b524d6377499598f14048b10b668c0e17085a7f943c8",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/wave_pinning_C30.npz": "d247de84c3d50888cc3821f1d69cada81eab9248bbb6d82bd99d4a800a0efd9e",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_0311/duration_0p627219504984.checkpoint.npz": "52e4d35a331a829e4d76e24d3834903cdfcf4726ae3c9ac2d32398c487121928",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/wave_pinning_C50.npz": "25ddbe12f2927608773d3df03c7a86eaf5f975a0fef653488b6b4d0232081d85",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_0416/duration_0p599581288606.checkpoint.npz": "cec7663fe812a9fa3d38cd942e8e6abf9ec6710bc731e60f3228330b0be0e8e2",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/wave_pinning_C70/workers/00/qualified_basal.npz": "98e311b0d0cdf7a41b17434e4fb85c9bb9e5879eb2f3b6655c99a5ede4407376",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_0983/duration_0p0001953125.checkpoint.npz": "ae6e85a96ad3dda1f9d530ae02498dce53c55b8ea4723be678de93d0f9c78ae7",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/goryachev_C10/workers/00/qualified_basal.npz": "93755f511aee474b5104d06c8972f79d1fe6002e0855e58b7998f482f2166dda",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_1109/duration_0p0001953125.checkpoint.npz": "9983244cd48213bee44ea836ead3253ed8a402392a9be6462265cff96c25196a",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/goryachev_C30.npz": "b160a1e1698e122264beeca09e4b06b688b6c76cc179b04f227cbd6a6419a921",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_1235/duration_0p0001953125.checkpoint.npz": "e27a21bb8a5a3a1ace036832defb9a603fc18317d5e7f9bb95fdb6f5ab36e1b1",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/goryachev_C50.npz": "37b5ba9229a540c930a651aaecfe04f72cf3a58da0b0575eaf7296af5d1d8bfd",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_1340/duration_0p0001953125.checkpoint.npz": "b3c1585daf666527e17b0103e49eb6991203979050d529cb28ec92a10ba2c3be",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/goryachev_C70/workers/00/qualified_basal.npz": "c445dfdc85bfea09dd417fa14685d7448c6e8bc8359bfc631af07be13797e880",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_2327/duration_0p0001953125.checkpoint.npz": "3eae1ffbcc9c5301680a2a32a1bb09bf0a0ff51c76003f0d3ddcb2f91ce74c32",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/holmes_model3_C20.npz": "dda1972ef1d5187374f019f9f4c97bd5def6185f6761881b68de2e1277d2f9c8",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_2390/duration_0p0001953125.checkpoint.npz": "490cd83154cf3d4331cbf61798acc4f6951fcf9bc8c03f274b4a8b7c5b4499c1",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/holmes_model3_C30.npz": "90883e22f4953c0c2857a03ae06de80bfb24db35942b3cedaf87a3f48d9bb736",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_2453/duration_0p0001953125.checkpoint.npz": "e65ef0fc45ec0ec8c9385d233f53007d5fb9eb57076a7604a5d112e18dd3f978",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/holmes_model3_C40.npz": "ce127dc44526d91c01b874462569789d9336a4f6f3190564e517388a5b72696e",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_2516/duration_0p0001953125.checkpoint.npz": "96bfcb191071c8f7484249478995b30365d72c0dea9fd21d76ed6c48aca72b83",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/holmes_model3_C50.npz": "2f09dbbcec7f7507f830dd8d16aa766234dc0433caae7ab1834028cf95b5361f",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_2579/duration_0p0001953125.checkpoint.npz": "2bded0baf6f86019075e07408c19b1f5345bccaa806e70659b03eda50a432ae1",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/holmes_model3_C60/workers/00/qualified_basal.npz": "618084daf6b9fbbe4989caf1c23163a6575c968d49fe6e4888f0e693a53c302b",
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/expanded_ring_components_20261017/supporting/data/expanded_ring_Holmes_native_display_samples.npz": "db7b0c217bab20cdec23d381fdac7d595b35810ccdc97c0ce89e3279f4fac33e"
+    },
+    "environment": {
+      "python": "3.12.14",
+      "numpy": "2.5.2",
+      "matplotlib": "3.11.1",
+      "blas_threads": 1
+    },
+    "output_comparisons": [
+      {
+        "path": "vision_aligned_figure1_linear.png",
+        "original_sha256": "adeb0e4ac967085263964d59d0cdc0efa0117658eadc59f87df6b06e0e544227",
+        "regenerated_sha256": "adeb0e4ac967085263964d59d0cdc0efa0117658eadc59f87df6b06e0e544227",
+        "byte_identical": true,
+        "bytes": 410610
+      },
+      {
+        "path": "supporting/vectors/vision_aligned_figure1_linear.pdf",
+        "original_sha256": "ec96f3364aab50909837253ea8e85c7c01e76a1fbc31266cb9e838c9ea920c82",
+        "regenerated_sha256": "78bd094badd8ef7019803628da72d81a3e74005d92fccd11c1be2e28d2b4e2f1",
+        "byte_identical": false,
+        "bytes": 69543
+      },
+      {
+        "path": "supporting/vectors/vision_aligned_figure1_linear.svg",
+        "original_sha256": "07d605c1ab033ce47a942e32ad4a08ffe1fa6c7f8c9d2d681b4efe9fe8060799",
+        "regenerated_sha256": "0a15010c9fef57ed6e06b96066146c4e983d9dbb81286c2178d295fe6bbd4d0a",
+        "byte_identical": false,
+        "bytes": 173177
+      },
+      {
+        "path": "vision_aligned_figure2_response.png",
+        "original_sha256": "27575a6306baa041d654faa2ed423e3aafb29161ddadbded7b525338291883a2",
+        "regenerated_sha256": "27575a6306baa041d654faa2ed423e3aafb29161ddadbded7b525338291883a2",
+        "byte_identical": true,
+        "bytes": 368736
+      },
+      {
+        "path": "supporting/vectors/vision_aligned_figure2_response.pdf",
+        "original_sha256": "f8be54990f38fcb48f284bc8bef4c410ab5f18aae525d3a2d450f3dd3437cd84",
+        "regenerated_sha256": "b8d76723909238207032ef8aef5c8e1c4f00439f5fbf062c0c471845e69d56bc",
+        "byte_identical": false,
+        "bytes": 84790
+      },
+      {
+        "path": "supporting/vectors/vision_aligned_figure2_response.svg",
+        "original_sha256": "5b6889345f2224944a63c59f7989b09023ad3fd7ce1149ab7b6be9af06a0efe1",
+        "regenerated_sha256": "d03060e6dbb1db92d554b2709746367caa7dc31f3153cde532a90251e328b4fb",
+        "byte_identical": false,
+        "bytes": 637734
+      },
+      {
+        "path": "vision_aligned_figure2_competition.png",
+        "original_sha256": "59cd7b12306828c44b4feb2edf7755df5ea4486bea08092730197c2594b800ee",
+        "regenerated_sha256": "59cd7b12306828c44b4feb2edf7755df5ea4486bea08092730197c2594b800ee",
+        "byte_identical": true,
+        "bytes": 406128
+      },
+      {
+        "path": "supporting/vectors/vision_aligned_figure2_competition.pdf",
+        "original_sha256": "91567ca6e0f24595677c8e10d33a602d830b1e588bc0155c8cd13137eae46d78",
+        "regenerated_sha256": "fe33509ac81a420ef313a81ed08383e182b7585d99a0856f2d110b2ae242c386",
+        "byte_identical": false,
+        "bytes": 80074
+      },
+      {
+        "path": "supporting/vectors/vision_aligned_figure2_competition.svg",
+        "original_sha256": "a3b44bfe43edc82a98a054c6dfdb24f7692bf3653032308ca964bf1a3cd296ee",
+        "regenerated_sha256": "ecce45fa45444dc5b4caa0071a841f8855271ae3099ef15bf7365140572b84ca",
+        "byte_identical": false,
+        "bytes": 389174
+      },
+      {
+        "path": "vision_aligned_figure3_noise.png",
+        "original_sha256": "e2ce6120c8db307516b12967905d2de2ec28468224fdff9bbdf5f489c05bdfe0",
+        "regenerated_sha256": "e2ce6120c8db307516b12967905d2de2ec28468224fdff9bbdf5f489c05bdfe0",
+        "byte_identical": true,
+        "bytes": 809484
+      },
+      {
+        "path": "supporting/vectors/vision_aligned_figure3_noise.pdf",
+        "original_sha256": "09e04736f668aae0643659032d14195baeb415ab8ee815cf1d928bdaccafec62",
+        "regenerated_sha256": "3f138fb471276cb091b984658190e01d0b35db36f032e95a2f8fd7972cefc88b",
+        "byte_identical": false,
+        "bytes": 3707593
+      },
+      {
+        "path": "supporting/vectors/vision_aligned_figure3_noise.svg",
+        "original_sha256": "a5c831a0fd575a1a949368d2ef1860e61f7acb6ddc37aa34985ea296ef373613",
+        "regenerated_sha256": "5f61ea55eb2243b8ed47a73b82eb5db502fb2e040c835b58d9bbaeeb956446f0",
+        "byte_identical": false,
+        "bytes": 11154767
+      },
+      {
+        "path": "supporting/data/vision_aligned_linear_gain.csv",
+        "original_sha256": "34b8916bcbc9243049a4d0af92a747d114853f34608f974f6ed7813d7c1e2d8d",
+        "regenerated_sha256": "34b8916bcbc9243049a4d0af92a747d114853f34608f974f6ed7813d7c1e2d8d",
+        "byte_identical": true,
+        "bytes": 32606,
+        "equivalent_after_path_normalization": true
+      },
+      {
+        "path": "supporting/data/vision_aligned_linear_recovery.csv",
+        "original_sha256": "db1e3154391ca8bf14a0bd984867015c5b1e9315942f21d0fd02f109c952bd9a",
+        "regenerated_sha256": "db1e3154391ca8bf14a0bd984867015c5b1e9315942f21d0fd02f109c952bd9a",
+        "byte_identical": true,
+        "bytes": 61756,
+        "equivalent_after_path_normalization": true
+      },
+      {
+        "path": "supporting/data/vision_aligned_linear_longest_examples.csv",
+        "original_sha256": "3a32295287b41c5cfa91092aeb0bc9179adea71a8b8890b03228b61d44f4de9d",
+        "regenerated_sha256": "1c115853f4adce148ddb4b9f8e2e6a5b6a916397b842644cab22e0e3f10fe9d6",
+        "byte_identical": false,
+        "bytes": 18988,
+        "equivalent_after_path_normalization": true,
+        "original_prefix_normalized_sha256": "3a32295287b41c5cfa91092aeb0bc9179adea71a8b8890b03228b61d44f4de9d",
+        "relocated_metadata_cells": [
+          {
+            "row": 0,
+            "column": "source_archive_path",
+            "value": "/tmp/portable_manuscript_mechanisms_oyz0bf2l/polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/023.npz"
+          },
+          {
+            "row": 1,
+            "column": "source_archive_path",
+            "value": "/tmp/portable_manuscript_mechanisms_oyz0bf2l/polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/050.npz"
+          },
+          {
+            "row": 2,
+            "column": "source_archive_path",
+            "value": "/tmp/portable_manuscript_mechanisms_oyz0bf2l/polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/068.npz"
+          },
+          {
+            "row": 3,
+            "column": "source_archive_path",
+            "value": "/tmp/portable_manuscript_mechanisms_oyz0bf2l/polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/097.npz"
+          },
+          {
+            "row": 4,
+            "column": "source_archive_path",
+            "value": "/tmp/portable_manuscript_mechanisms_oyz0bf2l/polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/124.npz"
+          }
+        ]
+      },
+      {
+        "path": "supporting/data/vision_aligned_linear_native_display.npz",
+        "original_sha256": "1974ce9d976346b09bab012f2fe6ecd6b0294109731bcf57d68409f15a403f58",
+        "regenerated_sha256": "1974ce9d976346b09bab012f2fe6ecd6b0294109731bcf57d68409f15a403f58",
+        "byte_identical": true,
+        "bytes": 5507472,
+        "equivalent_after_path_normalization": true
+      },
+      {
+        "path": "supporting/data/vision_aligned_matched_native_profiles.csv",
+        "original_sha256": "af5124bae2d8504095bcee6d37a2026ef46ffb61feab0ae13bda22dc0a856d3d",
+        "regenerated_sha256": "af5124bae2d8504095bcee6d37a2026ef46ffb61feab0ae13bda22dc0a856d3d",
+        "byte_identical": true,
+        "bytes": 240530,
+        "equivalent_after_path_normalization": true
+      },
+      {
+        "path": "supporting/data/vision_aligned_ring_conditional_recovery.csv",
+        "original_sha256": "596c79286fca224941eee479dc2a4c4a3d3d51da7ea955a7a57214f45f4a319d",
+        "regenerated_sha256": "596c79286fca224941eee479dc2a4c4a3d3d51da7ea955a7a57214f45f4a319d",
+        "byte_identical": true,
+        "bytes": 647168,
+        "equivalent_after_path_normalization": true
+      },
+      {
+        "path": "supporting/data/vision_aligned_noise_examples.csv",
+        "original_sha256": "91e3cbbfefca29fcdc04c0cc245d3f1ee664110dff708341aa6388401b009196",
+        "regenerated_sha256": "91e3cbbfefca29fcdc04c0cc245d3f1ee664110dff708341aa6388401b009196",
+        "byte_identical": true,
+        "bytes": 1296,
+        "equivalent_after_path_normalization": true
+      }
+    ],
+    "pngs_byte_identical": true,
+    "pngs_compared": 4,
+    "manuscript_numbering": false,
+    "title_changes": [],
+    "pixel_comparisons": [
+      {
+        "path": "vision_aligned_figure1_linear.png",
+        "shape": [
+          2361,
+          1889,
+          4
+        ],
+        "changed_pixels": 0,
+        "changed_pixel_box": null,
+        "title_band_rows": [
+          0,
+          142
+        ],
+        "pixels_outside_title_band_identical": true,
+        "original_body_array_sha256": "b6b7b742124700d462b59f3b99fa462ae379414be6678cf9fd8c1071dc5885c9",
+        "regenerated_body_array_sha256": "b6b7b742124700d462b59f3b99fa462ae379414be6678cf9fd8c1071dc5885c9"
+      },
+      {
+        "path": "vision_aligned_figure2_response.png",
+        "shape": [
+          2150,
+          1883,
+          4
+        ],
+        "changed_pixels": 0,
+        "changed_pixel_box": null,
+        "title_band_rows": [
+          0,
+          129
+        ],
+        "pixels_outside_title_band_identical": true,
+        "original_body_array_sha256": "801035842d2e0a53c8e1f82beca9b2113a68c16ab1e9652b0c701a5ac9bb2adf",
+        "regenerated_body_array_sha256": "801035842d2e0a53c8e1f82beca9b2113a68c16ab1e9652b0c701a5ac9bb2adf"
+      },
+      {
+        "path": "vision_aligned_figure2_competition.png",
+        "shape": [
+          2109,
+          1888,
+          4
+        ],
+        "changed_pixels": 0,
+        "changed_pixel_box": null,
+        "title_band_rows": [
+          0,
+          127
+        ],
+        "pixels_outside_title_band_identical": true,
+        "original_body_array_sha256": "668ef405f8636076cec081342973af4d70736627955fd7bc04613cf300271c24",
+        "regenerated_body_array_sha256": "668ef405f8636076cec081342973af4d70736627955fd7bc04613cf300271c24"
+      },
+      {
+        "path": "vision_aligned_figure3_noise.png",
+        "shape": [
+          2672,
+          1834,
+          4
+        ],
+        "changed_pixels": 0,
+        "changed_pixel_box": null,
+        "title_band_rows": [
+          0,
+          161
+        ],
+        "pixels_outside_title_band_identical": true,
+        "original_body_array_sha256": "8852890567ca352e0e7bd3988dd6dd67e2006de559e623f03b3b7856257416f9",
+        "regenerated_body_array_sha256": "8852890567ca352e0e7bd3988dd6dd67e2006de559e623f03b3b7856257416f9"
+      }
+    ],
+    "png_pixels_outside_title_band_identical": true,
+    "scientific_data_exports_byte_identical": false,
+    "scientific_data_exports_equal_after_path_normalization": true,
+    "scientific_data_export_sha256": {
+      "supporting/data/vision_aligned_linear_gain.csv": "34b8916bcbc9243049a4d0af92a747d114853f34608f974f6ed7813d7c1e2d8d",
+      "supporting/data/vision_aligned_linear_recovery.csv": "db1e3154391ca8bf14a0bd984867015c5b1e9315942f21d0fd02f109c952bd9a",
+      "supporting/data/vision_aligned_linear_longest_examples.csv": "1c115853f4adce148ddb4b9f8e2e6a5b6a916397b842644cab22e0e3f10fe9d6",
+      "supporting/data/vision_aligned_linear_native_display.npz": "1974ce9d976346b09bab012f2fe6ecd6b0294109731bcf57d68409f15a403f58",
+      "supporting/data/vision_aligned_matched_native_profiles.csv": "af5124bae2d8504095bcee6d37a2026ef46ffb61feab0ae13bda22dc0a856d3d",
+      "supporting/data/vision_aligned_ring_conditional_recovery.csv": "596c79286fca224941eee479dc2a4c4a3d3d51da7ea955a7a57214f45f4a319d",
+      "supporting/data/vision_aligned_noise_examples.csv": "91e3cbbfefca29fcdc04c0cc245d3f1ee664110dff708341aa6388401b009196"
+    },
+    "render_wall_seconds": 35.110445332713425,
+    "limits": [
+      "No native simulations or 243-worker statistical analysis are rerun.",
+      "PDF dates and SVG metadata/identifiers may differ after rendering.",
+      "Only the source closure declared by the supplied checkpoint is reconstructed."
+    ]
+  },
+  "manuscript_numbered_validation": {
+    "schema": 1,
+    "generated_at": "2026-10-17T21:13:29.557145+00:00",
+    "revision": "6199cdc33fea355133e4ede149131455dc5ccb91",
+    "frozen_checkpoint_manifest_sha256": "283560ead0adda0e23765b662b77c450ef404c478f1c7096560ba73a427cabee",
+    "frozen_renderer_sha256": "e9f54d457d8d302abb379c262299bddee0463c705d3fdfbce3e07a75ed1c8c75",
+    "portable_wrapper_sha256": "1db3e5a7d12082542485ccfb0d6b490521f9e90af4e10f00ea3b5acb9c856571",
+    "input_source_hashes_verified": 64,
+    "input_source_read_calls": 82,
+    "original_source_bytes_unchanged": true,
+    "scientific_functions_unchanged": true,
+    "adapter": "Runtime Evidence.source lookup maps the recorded historical repository prefix to the isolated checkout; all raw SHA-256 checks remain exact.",
+    "historical_paths_relocated": [
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_0059/duration_2p26572321864.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_0185/duration_0p77256969753.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_0311/duration_0p627219504984.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_0416/duration_0p599581288606.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_0983/duration_0p0001953125.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_1109/duration_0p0001953125.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_1235/duration_0p0001953125.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_1340/duration_0p0001953125.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_2327/duration_0p0001953125.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_2390/duration_0p0001953125.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_2453/duration_0p0001953125.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_2516/duration_0p0001953125.checkpoint.npz",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_2579/duration_0p0001953125.checkpoint.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/goryachev_C30.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/goryachev_C50.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/holmes_model3_C20.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/holmes_model3_C30.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/holmes_model3_C40.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/holmes_model3_C50.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/wave_pinning_C30.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/wave_pinning_C50.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/goryachev_C10/workers/00/qualified_basal.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/goryachev_C70/workers/00/qualified_basal.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/holmes_model3_C60/workers/00/qualified_basal.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/wave_pinning_C10/workers/00/qualified_basal.npz",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/wave_pinning_C70/workers/00/qualified_basal.npz",
+      "polarity1d/manuscript/data/runs/vision_linear_20261017/recovery/results/recovery_mirror_pairs_verified_subset.csv",
+      "polarity1d/manuscript/data/runs/vision_noise_main_20261017/manifest.json",
+      "polarity1d/manuscript/data/runs/vision_noise_main_20261017/results/statistics_centroid_amendment_20261017/analysis.py",
+      "polarity1d/manuscript/data/runs/vision_noise_main_20261017/workers/0018/primary.npz",
+      "polarity1d/manuscript/data/runs/vision_noise_main_20261017/workers/0086/primary.npz",
+      "polarity1d/manuscript/data/runs/vision_noise_main_20261017/workers/0163/primary.npz",
+      "polarity1d/manuscript/data/runs/vision_noise_main_20261017/workers/0223/primary.npz"
+    ],
+    "original_worktree_access_blocked": true,
+    "original_worktree_open_attempts": [],
+    "native_integrations": 0,
+    "temporary_input_files": 71,
+    "temporary_input_bytes": 118986989,
+    "expanded_csvs": [
+      {
+        "raw_path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_ensemble_traces.csv",
+        "raw_sha256": "6ece2997dba3a7df48f1b50168698ea9894ac896dc404e197dea5c0801f06dfa",
+        "raw_bytes": 214121020,
+        "compressed_path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_ensemble_traces.csv.gz",
+        "compressed_sha256": "915e7d8ba87ac294543b9e9d917537437542ea04823f87540cc1770a1cb632fb",
+        "compressed_bytes": 27259902,
+        "decompressed_sha256": "6ece2997dba3a7df48f1b50168698ea9894ac896dc404e197dea5c0801f06dfa"
+      },
+      {
+        "raw_path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_lag_correlations.csv",
+        "raw_sha256": "8dab74869b641257821ec8787eab60e42fbc1a09d460652c9c67c4d9b5dd1173",
+        "raw_bytes": 46858665,
+        "compressed_path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_lag_correlations.csv.gz",
+        "compressed_sha256": "ada3f8d0e29fbf9e2e7a06e55485c482dc5de21a72c454f4941d85c5b9afe2e8",
+        "compressed_bytes": 9619928,
+        "decompressed_sha256": "8dab74869b641257821ec8787eab60e42fbc1a09d460652c9c67c4d9b5dd1173"
+      },
+      {
+        "raw_path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_site_displacement.csv",
+        "raw_sha256": "c8d464c2b481b062f20f27f7e5c4a41350b1010eb0a1d4d2e3345d6667d05666",
+        "raw_bytes": 62611643,
+        "compressed_path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_site_displacement.csv.gz",
+        "compressed_sha256": "12dd0e95e6ca6fd427e364564607ef05658e44ebc55515a2be9233a29ae4b4c4",
+        "compressed_bytes": 7066568,
+        "decompressed_sha256": "c8d464c2b481b062f20f27f7e5c4a41350b1010eb0a1d4d2e3345d6667d05666"
+      }
+    ],
+    "layout_sha256": "502d61ff74519d055d133f3b72fd12afa74f75e265e4e61d676513a1e7483a9a",
+    "runtime_replaced_methods": [
+      "Evidence.source",
+      "matplotlib.figure.Figure.text"
+    ],
+    "original_render_entrypoint": "render_full_checkpoint (the original --full branch)",
+    "source_array_archive_sha256": {
+      "polarity1d/manuscript/data/runs/vision_noise_main_20261017/workers/0018/primary.npz": "6f258ecb0b63a4276b057ba4c3bc68b441ec95f9d271f9c89fd8c2fa6f5b045e",
+      "polarity1d/manuscript/data/runs/vision_noise_main_20261017/workers/0086/primary.npz": "4fe9c869850b334d629e57c4b6d42f3dee970ced56c282b83598eeed46164af3",
+      "polarity1d/manuscript/data/runs/vision_noise_main_20261017/workers/0223/primary.npz": "5233ffea0ef1efd2fc2d8245f35cf4c1689bb0ae0edc0026896b01bff962d1ab",
+      "polarity1d/manuscript/data/runs/vision_noise_main_20261017/workers/0163/primary.npz": "32581def5b86e603ec7bcaf91aadf69f273d044f7695f8196b120c47bea75081",
+      "polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/023.npz": "aa06d942a1326dab3c08ea2345bc7fd078fcee94dfeafcd0f4247a0a7f4900ca",
+      "polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/050.npz": "9c27b210e28401ccfd5a26994d844490af7966b1de3acb1813f3cfe5097fa9b4",
+      "polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/068.npz": "3b51da7f93e1af96bd87364cc99fad6462648322b4b5c7adc99a1e200d094c2a",
+      "polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/097.npz": "8076d09bc30a905d3499029580c880ad5f1dc03aafb60dac200eeb3b4c5e3781",
+      "polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/124.npz": "a594d326a51a889da374a9c39c7ccff611006b6e83991b1ca1942a05308b01bd",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_0059/duration_2p26572321864.checkpoint.npz": "94851a09c472acaa50e3b7be03b8d093f0a9663f5b4e2f4b8127b4c3f5eacb27",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/wave_pinning_C10/workers/00/qualified_basal.npz": "5f7b95ff0c200cf2bb4bf8b19ef831832d72646c6e6136e73bd6e84cd3aa3209",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_0185/duration_0p77256969753.checkpoint.npz": "155b88fc5762cc1e0de1b524d6377499598f14048b10b668c0e17085a7f943c8",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/wave_pinning_C30.npz": "d247de84c3d50888cc3821f1d69cada81eab9248bbb6d82bd99d4a800a0efd9e",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_0311/duration_0p627219504984.checkpoint.npz": "52e4d35a331a829e4d76e24d3834903cdfcf4726ae3c9ac2d32398c487121928",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/wave_pinning_C50.npz": "25ddbe12f2927608773d3df03c7a86eaf5f975a0fef653488b6b4d0232081d85",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_0416/duration_0p599581288606.checkpoint.npz": "cec7663fe812a9fa3d38cd942e8e6abf9ec6710bc731e60f3228330b0be0e8e2",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/wave_pinning_C70/workers/00/qualified_basal.npz": "98e311b0d0cdf7a41b17434e4fb85c9bb9e5879eb2f3b6655c99a5ede4407376",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_0983/duration_0p0001953125.checkpoint.npz": "ae6e85a96ad3dda1f9d530ae02498dce53c55b8ea4723be678de93d0f9c78ae7",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/goryachev_C10/workers/00/qualified_basal.npz": "93755f511aee474b5104d06c8972f79d1fe6002e0855e58b7998f482f2166dda",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_1109/duration_0p0001953125.checkpoint.npz": "9983244cd48213bee44ea836ead3253ed8a402392a9be6462265cff96c25196a",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/goryachev_C30.npz": "b160a1e1698e122264beeca09e4b06b688b6c76cc179b04f227cbd6a6419a921",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_1235/duration_0p0001953125.checkpoint.npz": "e27a21bb8a5a3a1ace036832defb9a603fc18317d5e7f9bb95fdb6f5ab36e1b1",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/goryachev_C50.npz": "37b5ba9229a540c930a651aaecfe04f72cf3a58da0b0575eaf7296af5d1d8bfd",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_1340/duration_0p0001953125.checkpoint.npz": "b3c1585daf666527e17b0103e49eb6991203979050d529cb28ec92a10ba2c3be",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/goryachev_C70/workers/00/qualified_basal.npz": "c445dfdc85bfea09dd417fa14685d7448c6e8bc8359bfc631af07be13797e880",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_2327/duration_0p0001953125.checkpoint.npz": "3eae1ffbcc9c5301680a2a32a1bb09bf0a0ff51c76003f0d3ddcb2f91ce74c32",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/holmes_model3_C20.npz": "dda1972ef1d5187374f019f9f4c97bd5def6185f6761881b68de2e1277d2f9c8",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_2390/duration_0p0001953125.checkpoint.npz": "490cd83154cf3d4331cbf61798acc4f6951fcf9bc8c03f274b4a8b7c5b4499c1",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/holmes_model3_C30.npz": "90883e22f4953c0c2857a03ae06de80bfb24db35942b3cedaf87a3f48d9bb736",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_2453/duration_0p0001953125.checkpoint.npz": "e65ef0fc45ec0ec8c9385d233f53007d5fb9eb57076a7604a5d112e18dd3f978",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/holmes_model3_C40.npz": "ce127dc44526d91c01b874462569789d9336a4f6f3190564e517388a5b72696e",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_2516/duration_0p0001953125.checkpoint.npz": "96bfcb191071c8f7484249478995b30365d72c0dea9fd21d76ed6c48aca72b83",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/holmes_model3_C50.npz": "2f09dbbcec7f7507f830dd8d16aa766234dc0433caae7ab1834028cf95b5361f",
+      "polarity1d/manuscript/data/establishment_basal/work/cases/case_2579/duration_0p0001953125.checkpoint.npz": "2bded0baf6f86019075e07408c19b1f5345bccaa806e70659b03eda50a432ae1",
+      "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/holmes_model3_C60/workers/00/qualified_basal.npz": "618084daf6b9fbbe4989caf1c23163a6575c968d49fe6e4888f0e693a53c302b",
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/expanded_ring_components_20261017/supporting/data/expanded_ring_Holmes_native_display_samples.npz": "db7b0c217bab20cdec23d381fdac7d595b35810ccdc97c0ce89e3279f4fac33e"
+    },
+    "environment": {
+      "python": "3.12.14",
+      "numpy": "2.5.2",
+      "matplotlib": "3.11.1",
+      "blas_threads": 1
+    },
+    "output_comparisons": [
+      {
+        "path": "vision_aligned_figure1_linear.png",
+        "original_sha256": "adeb0e4ac967085263964d59d0cdc0efa0117658eadc59f87df6b06e0e544227",
+        "regenerated_sha256": "ad211ac5c58da600fac4c75dfe263654be2ad276dfc03267571cfb689a4f38ec",
+        "byte_identical": false,
+        "bytes": 410851
+      },
+      {
+        "path": "supporting/vectors/vision_aligned_figure1_linear.pdf",
+        "original_sha256": "ec96f3364aab50909837253ea8e85c7c01e76a1fbc31266cb9e838c9ea920c82",
+        "regenerated_sha256": "85f4864993a228d64f6405e6f591aa2a161e77e519106642805c943943e745d3",
+        "byte_identical": false,
+        "bytes": 69647
+      },
+      {
+        "path": "supporting/vectors/vision_aligned_figure1_linear.svg",
+        "original_sha256": "07d605c1ab033ce47a942e32ad4a08ffe1fa6c7f8c9d2d681b4efe9fe8060799",
+        "regenerated_sha256": "db6e3e7bcce8c3f890c6ef11cdaf63bf3a3da5f4d2abd42eaa1d56f16c24d9ae",
+        "byte_identical": false,
+        "bytes": 173177
+      },
+      {
+        "path": "vision_aligned_figure2_response.png",
+        "original_sha256": "27575a6306baa041d654faa2ed423e3aafb29161ddadbded7b525338291883a2",
+        "regenerated_sha256": "77990cc2eeec5858a3435ade80fcc76229a2446ccf62bc8266a101fc7fce2b09",
+        "byte_identical": false,
+        "bytes": 368831
+      },
+      {
+        "path": "supporting/vectors/vision_aligned_figure2_response.pdf",
+        "original_sha256": "f8be54990f38fcb48f284bc8bef4c410ab5f18aae525d3a2d450f3dd3437cd84",
+        "regenerated_sha256": "09fd1b0da099447d2f4ec5ee5a65d813ed3b52efbc4747047de65c8af7835a13",
+        "byte_identical": false,
+        "bytes": 84790
+      },
+      {
+        "path": "supporting/vectors/vision_aligned_figure2_response.svg",
+        "original_sha256": "5b6889345f2224944a63c59f7989b09023ad3fd7ce1149ab7b6be9af06a0efe1",
+        "regenerated_sha256": "79cccd60a70707b85540d5b28766c7674cdc0442313642d1a55f0db21296ac4e",
+        "byte_identical": false,
+        "bytes": 637734
+      },
+      {
+        "path": "vision_aligned_figure2_competition.png",
+        "original_sha256": "59cd7b12306828c44b4feb2edf7755df5ea4486bea08092730197c2594b800ee",
+        "regenerated_sha256": "3f561da9741b1c1e44043fbae22e93f42925c1ba7ec61d7090f1405b1a9f97cf",
+        "byte_identical": false,
+        "bytes": 406197
+      },
+      {
+        "path": "supporting/vectors/vision_aligned_figure2_competition.pdf",
+        "original_sha256": "91567ca6e0f24595677c8e10d33a602d830b1e588bc0155c8cd13137eae46d78",
+        "regenerated_sha256": "85e3923cd670247d1735d5fc5846220f90279d02ab2fff9924433c7b0ef40a3b",
+        "byte_identical": false,
+        "bytes": 80074
+      },
+      {
+        "path": "supporting/vectors/vision_aligned_figure2_competition.svg",
+        "original_sha256": "a3b44bfe43edc82a98a054c6dfdb24f7692bf3653032308ca964bf1a3cd296ee",
+        "regenerated_sha256": "2648fe1d413cde036d30acb1c741ac8c271bf25bc7e90951a1004802ddedd952",
+        "byte_identical": false,
+        "bytes": 389174
+      },
+      {
+        "path": "vision_aligned_figure3_noise.png",
+        "original_sha256": "e2ce6120c8db307516b12967905d2de2ec28468224fdff9bbdf5f489c05bdfe0",
+        "regenerated_sha256": "85b7955cf8c1d87152f07fd49c7a533d3b9b53eff6f6ddfee32707433e202df4",
+        "byte_identical": false,
+        "bytes": 809281
+      },
+      {
+        "path": "supporting/vectors/vision_aligned_figure3_noise.pdf",
+        "original_sha256": "09e04736f668aae0643659032d14195baeb415ab8ee815cf1d928bdaccafec62",
+        "regenerated_sha256": "ba9832375b435189672c31fb6f2d29989882a5f0737387738f33959434b46faa",
+        "byte_identical": false,
+        "bytes": 3707535
+      },
+      {
+        "path": "supporting/vectors/vision_aligned_figure3_noise.svg",
+        "original_sha256": "a5c831a0fd575a1a949368d2ef1860e61f7acb6ddc37aa34985ea296ef373613",
+        "regenerated_sha256": "9bdd97d75038d5eb8a05406a40fc22084202e82d2eb25c7121bb503c344b43b5",
+        "byte_identical": false,
+        "bytes": 11154767
+      },
+      {
+        "path": "supporting/data/vision_aligned_linear_gain.csv",
+        "original_sha256": "34b8916bcbc9243049a4d0af92a747d114853f34608f974f6ed7813d7c1e2d8d",
+        "regenerated_sha256": "34b8916bcbc9243049a4d0af92a747d114853f34608f974f6ed7813d7c1e2d8d",
+        "byte_identical": true,
+        "bytes": 32606,
+        "equivalent_after_path_normalization": true
+      },
+      {
+        "path": "supporting/data/vision_aligned_linear_recovery.csv",
+        "original_sha256": "db1e3154391ca8bf14a0bd984867015c5b1e9315942f21d0fd02f109c952bd9a",
+        "regenerated_sha256": "db1e3154391ca8bf14a0bd984867015c5b1e9315942f21d0fd02f109c952bd9a",
+        "byte_identical": true,
+        "bytes": 61756,
+        "equivalent_after_path_normalization": true
+      },
+      {
+        "path": "supporting/data/vision_aligned_linear_longest_examples.csv",
+        "original_sha256": "3a32295287b41c5cfa91092aeb0bc9179adea71a8b8890b03228b61d44f4de9d",
+        "regenerated_sha256": "ebc16c145bd868960031424f557ea38ed15e7f94ea4fc25ee6c934b30595bcbe",
+        "byte_identical": false,
+        "bytes": 18988,
+        "equivalent_after_path_normalization": true,
+        "original_prefix_normalized_sha256": "3a32295287b41c5cfa91092aeb0bc9179adea71a8b8890b03228b61d44f4de9d",
+        "relocated_metadata_cells": [
+          {
+            "row": 0,
+            "column": "source_archive_path",
+            "value": "/tmp/portable_manuscript_mechanisms_vku04cod/polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/023.npz"
+          },
+          {
+            "row": 1,
+            "column": "source_archive_path",
+            "value": "/tmp/portable_manuscript_mechanisms_vku04cod/polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/050.npz"
+          },
+          {
+            "row": 2,
+            "column": "source_archive_path",
+            "value": "/tmp/portable_manuscript_mechanisms_vku04cod/polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/068.npz"
+          },
+          {
+            "row": 3,
+            "column": "source_archive_path",
+            "value": "/tmp/portable_manuscript_mechanisms_vku04cod/polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/097.npz"
+          },
+          {
+            "row": 4,
+            "column": "source_archive_path",
+            "value": "/tmp/portable_manuscript_mechanisms_vku04cod/polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/124.npz"
+          }
+        ]
+      },
+      {
+        "path": "supporting/data/vision_aligned_linear_native_display.npz",
+        "original_sha256": "1974ce9d976346b09bab012f2fe6ecd6b0294109731bcf57d68409f15a403f58",
+        "regenerated_sha256": "1974ce9d976346b09bab012f2fe6ecd6b0294109731bcf57d68409f15a403f58",
+        "byte_identical": true,
+        "bytes": 5507472,
+        "equivalent_after_path_normalization": true
+      },
+      {
+        "path": "supporting/data/vision_aligned_matched_native_profiles.csv",
+        "original_sha256": "af5124bae2d8504095bcee6d37a2026ef46ffb61feab0ae13bda22dc0a856d3d",
+        "regenerated_sha256": "af5124bae2d8504095bcee6d37a2026ef46ffb61feab0ae13bda22dc0a856d3d",
+        "byte_identical": true,
+        "bytes": 240530,
+        "equivalent_after_path_normalization": true
+      },
+      {
+        "path": "supporting/data/vision_aligned_ring_conditional_recovery.csv",
+        "original_sha256": "596c79286fca224941eee479dc2a4c4a3d3d51da7ea955a7a57214f45f4a319d",
+        "regenerated_sha256": "596c79286fca224941eee479dc2a4c4a3d3d51da7ea955a7a57214f45f4a319d",
+        "byte_identical": true,
+        "bytes": 647168,
+        "equivalent_after_path_normalization": true
+      },
+      {
+        "path": "supporting/data/vision_aligned_noise_examples.csv",
+        "original_sha256": "91e3cbbfefca29fcdc04c0cc245d3f1ee664110dff708341aa6388401b009196",
+        "regenerated_sha256": "91e3cbbfefca29fcdc04c0cc245d3f1ee664110dff708341aa6388401b009196",
+        "byte_identical": true,
+        "bytes": 1296,
+        "equivalent_after_path_normalization": true
+      }
+    ],
+    "pngs_byte_identical": false,
+    "pngs_compared": 4,
+    "manuscript_numbering": true,
+    "title_changes": [
+      {
+        "original": "Figure 1 \u00b7 Enlargement, local response and sustained competition",
+        "displayed": "Figure 2 \u00b7 Enlargement, local response and sustained competition",
+        "x": 0.52,
+        "y": 0.992
+      },
+      {
+        "original": "Figure 2 \u00b7 Ring organization and local response",
+        "displayed": "Figure 3 \u00b7 Ring organization and local response",
+        "x": 0.51,
+        "y": 0.985
+      },
+      {
+        "original": "Figure 2 \u00b7 Sustained competition and global activity polarity",
+        "displayed": "Figure 3 \u00b7 Sustained competition and global activity polarity",
+        "x": 0.51,
+        "y": 0.985
+      },
+      {
+        "original": "Figure 3 \u00b7 Replicated activity-polarity memory under local fluctuations",
+        "displayed": "Figure 4 \u00b7 Replicated activity-polarity memory under local fluctuations",
+        "x": 0.51,
+        "y": 0.987
+      }
+    ],
+    "pixel_comparisons": [
+      {
+        "path": "vision_aligned_figure1_linear.png",
+        "shape": [
+          2361,
+          1889,
+          4
+        ],
+        "changed_pixels": 191,
+        "changed_pixel_box": [
+          536,
+          20,
+          554,
+          44
+        ],
+        "title_band_rows": [
+          0,
+          142
+        ],
+        "pixels_outside_title_band_identical": true,
+        "original_body_array_sha256": "b6b7b742124700d462b59f3b99fa462ae379414be6678cf9fd8c1071dc5885c9",
+        "regenerated_body_array_sha256": "b6b7b742124700d462b59f3b99fa462ae379414be6678cf9fd8c1071dc5885c9"
+      },
+      {
+        "path": "vision_aligned_figure2_response.png",
+        "shape": [
+          2150,
+          1883,
+          4
+        ],
+        "changed_pixels": 233,
+        "changed_pixel_box": [
+          647,
+          20,
+          665,
+          44
+        ],
+        "title_band_rows": [
+          0,
+          129
+        ],
+        "pixels_outside_title_band_identical": true,
+        "original_body_array_sha256": "801035842d2e0a53c8e1f82beca9b2113a68c16ab1e9652b0c701a5ac9bb2adf",
+        "regenerated_body_array_sha256": "801035842d2e0a53c8e1f82beca9b2113a68c16ab1e9652b0c701a5ac9bb2adf"
+      },
+      {
+        "path": "vision_aligned_figure2_competition.png",
+        "shape": [
+          2109,
+          1888,
+          4
+        ],
+        "changed_pixels": 228,
+        "changed_pixel_box": [
+          537,
+          20,
+          555,
+          44
+        ],
+        "title_band_rows": [
+          0,
+          127
+        ],
+        "pixels_outside_title_band_identical": true,
+        "original_body_array_sha256": "668ef405f8636076cec081342973af4d70736627955fd7bc04613cf300271c24",
+        "regenerated_body_array_sha256": "668ef405f8636076cec081342973af4d70736627955fd7bc04613cf300271c24"
+      },
+      {
+        "path": "vision_aligned_figure3_noise.png",
+        "shape": [
+          2672,
+          1834,
+          4
+        ],
+        "changed_pixels": 305,
+        "changed_pixel_box": [
+          462,
+          20,
+          482,
+          44
+        ],
+        "title_band_rows": [
+          0,
+          161
+        ],
+        "pixels_outside_title_band_identical": true,
+        "original_body_array_sha256": "8852890567ca352e0e7bd3988dd6dd67e2006de559e623f03b3b7856257416f9",
+        "regenerated_body_array_sha256": "8852890567ca352e0e7bd3988dd6dd67e2006de559e623f03b3b7856257416f9"
+      }
+    ],
+    "png_pixels_outside_title_band_identical": true,
+    "scientific_data_exports_byte_identical": false,
+    "scientific_data_exports_equal_after_path_normalization": true,
+    "scientific_data_export_sha256": {
+      "supporting/data/vision_aligned_linear_gain.csv": "34b8916bcbc9243049a4d0af92a747d114853f34608f974f6ed7813d7c1e2d8d",
+      "supporting/data/vision_aligned_linear_recovery.csv": "db1e3154391ca8bf14a0bd984867015c5b1e9315942f21d0fd02f109c952bd9a",
+      "supporting/data/vision_aligned_linear_longest_examples.csv": "ebc16c145bd868960031424f557ea38ed15e7f94ea4fc25ee6c934b30595bcbe",
+      "supporting/data/vision_aligned_linear_native_display.npz": "1974ce9d976346b09bab012f2fe6ecd6b0294109731bcf57d68409f15a403f58",
+      "supporting/data/vision_aligned_matched_native_profiles.csv": "af5124bae2d8504095bcee6d37a2026ef46ffb61feab0ae13bda22dc0a856d3d",
+      "supporting/data/vision_aligned_ring_conditional_recovery.csv": "596c79286fca224941eee479dc2a4c4a3d3d51da7ea955a7a57214f45f4a319d",
+      "supporting/data/vision_aligned_noise_examples.csv": "91e3cbbfefca29fcdc04c0cc245d3f1ee664110dff708341aa6388401b009196"
+    },
+    "render_wall_seconds": 35.121673931367695,
+    "limits": [
+      "No native simulations or 243-worker statistical analysis are rerun.",
+      "PDF dates and SVG metadata/identifiers may differ after rendering.",
+      "Only the source closure declared by the supplied checkpoint is reconstructed."
+    ]
+  },
+  "exported_numbered_assets": [
+    {
+      "manuscript_figure": 2,
+      "sheet": "All-five linear models",
+      "image": {
+        "path": "manuscript_outline/mechanisms_numbered_v2/vision_aligned_figure1_linear.png",
+        "sha256": "ad211ac5c58da600fac4c75dfe263654be2ad276dfc03267571cfb689a4f38ec",
+        "bytes": 410851
+      },
+      "pdf": {
+        "path": "manuscript_outline/mechanisms_numbered_v2/vision_aligned_figure1_linear.pdf",
+        "sha256": "85f4864993a228d64f6405e6f591aa2a161e77e519106642805c943943e745d3",
+        "bytes": 69647
+      }
+    },
+    {
+      "manuscript_figure": 3,
+      "sheet": "Ring organization and local response",
+      "image": {
+        "path": "manuscript_outline/mechanisms_numbered_v2/vision_aligned_figure2_response.png",
+        "sha256": "77990cc2eeec5858a3435ade80fcc76229a2446ccf62bc8266a101fc7fce2b09",
+        "bytes": 368831
+      },
+      "pdf": {
+        "path": "manuscript_outline/mechanisms_numbered_v2/vision_aligned_figure2_response.pdf",
+        "sha256": "09fd1b0da099447d2f4ec5ee5a65d813ed3b52efbc4747047de65c8af7835a13",
+        "bytes": 84790
+      }
+    },
+    {
+      "manuscript_figure": 3,
+      "sheet": "Ring sustained competition and global polarity",
+      "image": {
+        "path": "manuscript_outline/mechanisms_numbered_v2/vision_aligned_figure2_competition.png",
+        "sha256": "3f561da9741b1c1e44043fbae22e93f42925c1ba7ec61d7090f1405b1a9f97cf",
+        "bytes": 406197
+      },
+      "pdf": {
+        "path": "manuscript_outline/mechanisms_numbered_v2/vision_aligned_figure2_competition.pdf",
+        "sha256": "85e3923cd670247d1735d5fc5846220f90279d02ab2fff9924433c7b0ef40a3b",
+        "bytes": 80074
+      }
+    },
+    {
+      "manuscript_figure": 4,
+      "sheet": "Replicated noisy-ring activity polarity",
+      "image": {
+        "path": "manuscript_outline/mechanisms_numbered_v2/vision_aligned_figure3_noise.png",
+        "sha256": "85b7955cf8c1d87152f07fd49c7a533d3b9b53eff6f6ddfee32707433e202df4",
+        "bytes": 809281
+      },
+      "pdf": {
+        "path": "manuscript_outline/mechanisms_numbered_v2/vision_aligned_figure3_noise.pdf",
+        "sha256": "ba9832375b435189672c31fb6f2d29989882a5f0737387738f33959434b46faa",
+        "bytes": 3707535
+      }
+    }
+  ],
+  "source_array_archives": {
+    "polarity1d/manuscript/data/runs/vision_noise_main_20261017/workers/0018/primary.npz": "6f258ecb0b63a4276b057ba4c3bc68b441ec95f9d271f9c89fd8c2fa6f5b045e",
+    "polarity1d/manuscript/data/runs/vision_noise_main_20261017/workers/0086/primary.npz": "4fe9c869850b334d629e57c4b6d42f3dee970ced56c282b83598eeed46164af3",
+    "polarity1d/manuscript/data/runs/vision_noise_main_20261017/workers/0223/primary.npz": "5233ffea0ef1efd2fc2d8245f35cf4c1689bb0ae0edc0026896b01bff962d1ab",
+    "polarity1d/manuscript/data/runs/vision_noise_main_20261017/workers/0163/primary.npz": "32581def5b86e603ec7bcaf91aadf69f273d044f7695f8196b120c47bea75081",
+    "polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/023.npz": "aa06d942a1326dab3c08ea2345bc7fd078fcee94dfeafcd0f4247a0a7f4900ca",
+    "polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/050.npz": "9c27b210e28401ccfd5a26994d844490af7966b1de3acb1813f3cfe5097fa9b4",
+    "polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/068.npz": "3b51da7f93e1af96bd87364cc99fad6462648322b4b5c7adc99a1e200d094c2a",
+    "polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/097.npz": "8076d09bc30a905d3499029580c880ad5f1dc03aafb60dac200eeb3b4c5e3781",
+    "polarity1d/manuscript/data/runs/vision_linear_20261017/finite/workers/124.npz": "a594d326a51a889da374a9c39c7ccff611006b6e83991b1ca1942a05308b01bd",
+    "polarity1d/manuscript/data/establishment_basal/work/cases/case_0059/duration_2p26572321864.checkpoint.npz": "94851a09c472acaa50e3b7be03b8d093f0a9663f5b4e2f4b8127b4c3f5eacb27",
+    "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/wave_pinning_C10/workers/00/qualified_basal.npz": "5f7b95ff0c200cf2bb4bf8b19ef831832d72646c6e6136e73bd6e84cd3aa3209",
+    "polarity1d/manuscript/data/establishment_basal/work/cases/case_0185/duration_0p77256969753.checkpoint.npz": "155b88fc5762cc1e0de1b524d6377499598f14048b10b668c0e17085a7f943c8",
+    "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/wave_pinning_C30.npz": "d247de84c3d50888cc3821f1d69cada81eab9248bbb6d82bd99d4a800a0efd9e",
+    "polarity1d/manuscript/data/establishment_basal/work/cases/case_0311/duration_0p627219504984.checkpoint.npz": "52e4d35a331a829e4d76e24d3834903cdfcf4726ae3c9ac2d32398c487121928",
+    "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/wave_pinning_C50.npz": "25ddbe12f2927608773d3df03c7a86eaf5f975a0fef653488b6b4d0232081d85",
+    "polarity1d/manuscript/data/establishment_basal/work/cases/case_0416/duration_0p599581288606.checkpoint.npz": "cec7663fe812a9fa3d38cd942e8e6abf9ec6710bc731e60f3228330b0be0e8e2",
+    "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/wave_pinning_C70/workers/00/qualified_basal.npz": "98e311b0d0cdf7a41b17434e4fb85c9bb9e5879eb2f3b6655c99a5ede4407376",
+    "polarity1d/manuscript/data/establishment_basal/work/cases/case_0983/duration_0p0001953125.checkpoint.npz": "ae6e85a96ad3dda1f9d530ae02498dce53c55b8ea4723be678de93d0f9c78ae7",
+    "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/goryachev_C10/workers/00/qualified_basal.npz": "93755f511aee474b5104d06c8972f79d1fe6002e0855e58b7998f482f2166dda",
+    "polarity1d/manuscript/data/establishment_basal/work/cases/case_1109/duration_0p0001953125.checkpoint.npz": "9983244cd48213bee44ea836ead3253ed8a402392a9be6462265cff96c25196a",
+    "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/goryachev_C30.npz": "b160a1e1698e122264beeca09e4b06b688b6c76cc179b04f227cbd6a6419a921",
+    "polarity1d/manuscript/data/establishment_basal/work/cases/case_1235/duration_0p0001953125.checkpoint.npz": "e27a21bb8a5a3a1ace036832defb9a603fc18317d5e7f9bb95fdb6f5ab36e1b1",
+    "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/goryachev_C50.npz": "37b5ba9229a540c930a651aaecfe04f72cf3a58da0b0575eaf7296af5d1d8bfd",
+    "polarity1d/manuscript/data/establishment_basal/work/cases/case_1340/duration_0p0001953125.checkpoint.npz": "b3c1585daf666527e17b0103e49eb6991203979050d529cb28ec92a10ba2c3be",
+    "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/goryachev_C70/workers/00/qualified_basal.npz": "c445dfdc85bfea09dd417fa14685d7448c6e8bc8359bfc631af07be13797e880",
+    "polarity1d/manuscript/data/establishment_basal/work/cases/case_2327/duration_0p0001953125.checkpoint.npz": "3eae1ffbcc9c5301680a2a32a1bb09bf0a0ff51c76003f0d3ddcb2f91ce74c32",
+    "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/holmes_model3_C20.npz": "dda1972ef1d5187374f019f9f4c97bd5def6185f6761881b68de2e1277d2f9c8",
+    "polarity1d/manuscript/data/establishment_basal/work/cases/case_2390/duration_0p0001953125.checkpoint.npz": "490cd83154cf3d4331cbf61798acc4f6951fcf9bc8c03f274b4a8b7c5b4499c1",
+    "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/holmes_model3_C30.npz": "90883e22f4953c0c2857a03ae06de80bfb24db35942b3cedaf87a3f48d9bb736",
+    "polarity1d/manuscript/data/establishment_basal/work/cases/case_2453/duration_0p0001953125.checkpoint.npz": "e65ef0fc45ec0ec8c9385d233f53007d5fb9eb57076a7604a5d112e18dd3f978",
+    "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/holmes_model3_C40.npz": "ce127dc44526d91c01b874462569789d9336a4f6f3190564e517388a5b72696e",
+    "polarity1d/manuscript/data/establishment_basal/work/cases/case_2516/duration_0p0001953125.checkpoint.npz": "96bfcb191071c8f7484249478995b30365d72c0dea9fd21d76ed6c48aca72b83",
+    "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/inputs/holmes_model3_C50.npz": "2f09dbbcec7f7507f830dd8d16aa766234dc0433caae7ab1834028cf95b5361f",
+    "polarity1d/manuscript/data/establishment_basal/work/cases/case_2579/duration_0p0001953125.checkpoint.npz": "2bded0baf6f86019075e07408c19b1f5345bccaa806e70659b03eda50a432ae1",
+    "polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/holmes_model3_C60/workers/00/qualified_basal.npz": "618084daf6b9fbbe4989caf1c23163a6575c968d49fe6e4888f0e693a53c302b",
+    "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/expanded_ring_components_20261017/supporting/data/expanded_ring_Holmes_native_display_samples.npz": "db7b0c217bab20cdec23d381fdac7d595b35810ccdc97c0ce89e3279f4fac33e"
+  }
+}

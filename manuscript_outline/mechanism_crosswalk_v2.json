@@ -1,0 +1,90 @@
+{
+  "title": "Mechanistic explanations and their corresponding measurements",
+  "scope": "Companion to manuscript Figures 2–3. Existing mechanistic evidence explains specific contributions and motivates measurements; the common gain/recovery panels do not causally partition all three cue-duration curves.",
+  "rows": [
+    {
+      "model": "Wave-pinning",
+      "candidate_mechanism": "A wider incumbent and conserved-pool competition make challenger growth and post-cue survival depend on spatial reorganization, even when initial local activation gain changes little.",
+      "evidence": "At L15, width-3 pulses of 20/60 native units collapse/retain the challenger. At L39, fourfold inactive diffusivity rescues the native 5120-unit fixed-support failure. Gain and local deficit repair remain near-null with size.",
+      "inference_scope": "Withdrawal examples and an evolved fixed-dose mobility intervention support transport/domain competition. They do not prove constant front speed or quantify a new duration threshold.",
+      "measurement": "Measure incumbent extent and excess signal, early challenger growth, boundary retreat and both sites after withdrawal. Pair local activity with substrate-recovery or redistribution measurements; distinguish peak height from region expansion.",
+      "sources": [
+        {"label": "Native and mobility-control outcomes", "path": "polarity1d/manuscript/data/runs/three_test_mechanisms_20261006/results/cell_evidence.json"},
+        {"label": "Audited withdrawal examples", "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/review_20261009_quality/wave_pinning_withdrawal.manifest.json"},
+        {"label": "Common all-five assays", "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_linear_20261017/RESULTS.md"}
+      ]
+    },
+    {
+      "model": "Goryachev",
+      "candidate_mechanism": "A taller incumbent sequesters conserved material, reducing inactive concentration at the challenger while increasing the incumbent's measured response to specified damage. Initiation and incumbent restoration are coupled contributions.",
+      "evidence": "For L19→39, fixed-support initial gain falls to 0.654 and common active-loss repair rises 3.439-fold. Separate L9→39 inactive-bolus removal/return gives a 15.71-fold increase in immediate reaction per deficit.",
+      "inference_scope": "Native input multiplies inactive concentration; equal cue peaks therefore differ in biochemical activation. Repair is perturbation- and clock-specific. Neither contribution supplies an exhaustive or additive allocation of reversal duration.",
+      "measurement": "Measure incumbent peak, physical extent and integrated signal; measure challenger activation under characterized input and available substrate. Use a paired small activity-loss/sham assay to distinguish immediate local restoration from subsequent recovery.",
+      "sources": [
+        {"label": "Current common gain/recovery", "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_linear_20261017/RESULTS.md"},
+        {"label": "Separate inactive-bolus experiment", "path": "polarity1d/manuscript/data/runs/inactive_pool_figure_exports_20261008/response_vs_length.csv"},
+        {"label": "Bolus protocol and audit lineage", "path": "polarity1d/manuscript/data/runs/inactive_pool_figure_exports_20261008/README.md"}
+      ]
+    },
+    {
+      "model": "Holmes 3",
+      "candidate_mechanism": "Coupled Rac/Rho domains and cue coverage permit a locally activated challenger to coexist with an incumbent. Broadening and domain competition remain important even when local gain and damage repair change little.",
+      "evidence": "Fourfold inactive mobility fails to rescue fixed-support L28/L50 at 5120 units; relative-20% cues pass orientation at all eligible sizes. Ring placement separates merger from distinct sites within one complete C40 basal state; a C30 example has a cue-associated survivor.",
+      "inference_scope": "Fixed-dose controls and matched-state placement support spatially structured competition; mobility is not a universal rescue. Relative support changes exposure. Orientation success, strength restoration and finite local fate are different readouts.",
+      "measurement": "Image both Rac-like and antagonistic activity regions; vary input position and support at fixed measured size. Track site extent, separation, merger and extinction through withdrawal alongside the global reporter vector and its magnitude.",
+      "sources": [
+        {"label": "Geometry and mobility-control evidence", "path": "polarity1d/manuscript/data/runs/three_test_mechanisms_20261006/results/cell_evidence.json"},
+        {"label": "Matched-basal ring placement and finite fates", "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_ring_20261017/RESULTS.md"}
+      ]
+    },
+    {
+      "model": "Corrected deBelly",
+      "candidate_mechanism": "Length-dependent resting mechanics and old-end MCA depletion delay incumbent suppression; at the longest lengths, slower local MCA accumulation adds a further delay. MCA-to-Rac inhibition connects this local organization to activity.",
+      "evidence": "Relative-20% cues: L23→31 old-end MCA starts 0.05348→0.04823; by 180 s it reaches 0.06451→0.06044. The 10% Rac-decline clock is 123.49→142.97 s, versus 637.39 s at L39. Corrected resting tension-to-Rho ablation reduces displacement spread 50.4%.",
+      "inference_scope": "Endpoint budgets explain coupled trajectories; the separate evolved ablation establishes a contribution to resting mechanics. Neither proves a universal MCA withdrawal threshold or a causal share of reversal duration. Low-length decreases and L39 require separate treatment.",
+      "measurement": "Measure old/new-end activity, attachment-reporter level, local flow and protrusion together. Compare basal depletion and absolute common-time refill with incumbent decline; quantify local transport/replacement balance. Perturb tension coupling separately to test the starting-state mechanism.",
+      "sources": [
+        {"label": "Corrected endpoint states and field flags", "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/revision_20261014_draft_alignment/endpoint_state_summary.csv"},
+        {"label": "Descriptive incumbent-decline clocks", "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/revision_20261014_draft_alignment/endpoint_descriptive_crossings.csv"},
+        {"label": "Endpoint mechanism and native budget lineage", "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/revision_20261014_draft_alignment/mechanism_evidence.md"},
+        {"label": "Corrected resting ablation results", "path": "polarity1d/manuscript/data/runs/length_mechanisms_20261008/narrative_20261009/resting_ablation/ablation_endpoint_metrics.csv"},
+        {"label": "Independent resting ablation validation", "path": "polarity1d/manuscript/data/runs/length_mechanisms_20261008/narrative_20261009/resting_ablation/ablation_validation.json"},
+        {"label": "Independent endpoint correction and exclusions", "path": "polarity1d/manuscript/DEBELLY_BOUNDARIES.md"}
+      ]
+    },
+    {
+      "model": "Spring",
+      "candidate_mechanism": "Extension-dependent global deactivation couples mechanics to polarity competition. A constant-slope cue also grows in peak with size, helping explain why its length trend differs from the increasing local-patch requirements.",
+      "evidence": "Setting the extension-dependent deactivation coefficient to zero only during stimulation defeats 4/4 native successful gradient pulses. Matching the ramp peak defeats 3/4. Under fixed/relative patches, two longer sampled cells still reverse after the same deactivation-term removal.",
+      "inference_scope": "Evolved controls establish geometry-dependent contributions at fixed native doses, not counterfactual duration thresholds. Endpoint motion, geometric dilution and native recovery remain; this is not removal of all mechanics.",
+      "measurement": "Measure physical extension, global activity and local incumbent/challenger histories during the same characterized cue. Compare constant local support with increasing spatial coverage; test a specified mechanical or activity-feedback perturbation while recording its actual effect on shape.",
+      "sources": [
+        {"label": "Native doses and evolved intervention outcomes", "path": "polarity1d/manuscript/data/runs/three_test_mechanisms_20261006/results/cell_evidence.json"},
+        {"label": "Exact intervention definitions", "path": "polarity1d/manuscript/code/mechanisms/three_test_mechanisms.py"},
+        {"label": "Native extension/deactivation equations", "path": "polarity1d/manuscript/code/core/models/spring.py"}
+      ]
+    }
+  ],
+  "detailed_legend": [
+    "This companion joins mechanisms to corresponding measurements without treating the common active-loss assay as a complete explanation of all duration curves. An evolved intervention, a fixed-state reaction/source calculation, a local budget and a descriptive temporal association provide different evidence. Native units, perturbation directions and clocks remain model-specific. Proposed cellular measurements correspond to these mechanisms but would not uniquely confirm a model.",
+    "Wave-pinning: the L15 illustration uses a fixed-support-3 right raised-cosine patch at native peak 0.1, from the exact corrected nominal relative-20% basal checkpoint. The 20-unit pulse collapses after withdrawal; the 60-unit pulse produces a retained reversed state. These bracket the sampled 35.5-unit strength threshold. In the separate original three-test fixed-support control at L39, the same 5120-unit pulse fails natively and passes after fourfold inactive diffusivity throughout pulse and recovery; a 401-cell remesh alone remains a failure. The scalar orientation gate uses the final 500 of 10000 cue-free native units: orientation above 0.05, contrast at least 0.05 and orientation range below 0.005. Strength additionally restores the initial scalar magnitude to within 1%; the native-field flag remains separate. A fixed-dose rescue does not locate an intervention-specific threshold.",
+    "Goryachev: current main Figure 2 measures gain with fixed support 3 and peak 6.4 and common incumbent active-loss recovery at tau=0.00562341325. The L19-to-L39 gain/repaired-fraction folds are 0.653611 and 3.43942. The older whole-inactive-profile experiment is a separate perturbation: remove 0.5% of the complete frozen inactive profile, retain native kinetics for 0.1 native units, then return the removed profile exactly pointwise. In the frozen original half-height active core, the sham-relative immediate net-reaction response per active deficit is 0.9730925 at L9 and 15.2853874 at L39, a 15.70805-fold ratio. Its 90%-damage-recovery clocks are 18.8717 and 2.6400; do not attach the slower late-tail statement from the different activation-suppression assay to this primary bolus experiment. These coupled substrate/incumbent effects are not independent fractions of reversal duration.",
+    "Holmes: fixed-support-3 countercues have native peak 1. Fourfold inactive diffusivity changes both Rac and Rho inactive pools during pulse and recovery. At L28 and L50 the 5120-unit cap remains outside the scalar orientation gate; this control does not establish that no longer intervention pulse could reverse. Relative-20% responses use a larger physical cue support as length increases and pass orientation at all eligible lengths, while original-strength replacement can remain unavailable. Ring C40 d12 and d16 histories begin from the identical complete basal Rac/Rho state, receive the same full-support-3, peak-1, 1000-unit input and are read through withdrawal. Placement changes both boundary routes and cue angle; no pure-distance causal interpretation is implied.",
+    "Corrected deBelly: all endpoint values are concentrations in the first finite-volume cell, x=L/402, at the original incumbent; the challenged end is the last cell, x=L−L/402. Every trace starts from that length's exact corrected nominal relative-20% basal checkpoint, with independent local endpoint commands. The opposing right raised-cosine patch covers 20% of nominal length, peak 3.6, followed by 10000 native seconds of basal recovery. Selected shortest tested 1%-scalar-strength-passing durations at L23/L31/L37/L39 are 232.24490/285.28061/355.99490/809.08163 seconds, with separate native-field tail flags false/true/true/false. These are different experiments from the fixed-support 1000-unit common competition panel, whose later field flags must not be transferred here.",
+    "The corrected deBelly common-time comparison uses 180 seconds after opposing cue onset, before withdrawal at all four cited lengths. Old-end bound MCA starts at 0.05348320/0.04823201/0.04588120/0.04665557 and reaches 0.06450752/0.06044116/0.05351708/0.05066045 at L23/L31/L37/L39. Thus the 180-second increments are 0.01102432/0.01220915/0.00763588/0.00400488. The descriptive first 10% decline from each cell's initial old-end Rac occurs at 123.49009/142.97494/211.59354/637.39210 seconds; these are within-cue local clocks, not thresholds for withdrawal success. L39 begins less depleted than L37, so initial depletion alone cannot explain its delay. The relative-cue duration decreases from L18 to L21 and from L31 to L33; the incumbent-decline clock does not explain that complete nonmonotone curve.",
+    "The separate corrected deBelly resting ablation removes only the tension-dependent increment to Rho activation globally, from identical corrected basal checkpoints at L23/L31/L39 without a countercue. Native MCA-to-Rac feedback, Rac/Rho mutual inhibition, direct tension inhibition of protrusion, Rho active stress and independent endpoint relaxation remain. The displacement spread decreases from 1.968526 to 0.976774 micrometres after qualified settling and a 10000-second holdout. Rac contrast remains 0.2051–0.2103, although the L31/L39 normalized orientations lie below 0.05. This evolved intervention supports a contribution to resting mechanics, not a measured reversal-duration contribution. Endpoint MCA budgets separately retain profile advection, flow-gradient dilution, diffusion, net binding and uniform replacement; total-pool replacement includes the sequential exchange residual. Fixed-state mechanical source superposition is not an evolved pathway ablation.",
+    "Spring: native times/lengths have no biochemical or micrometre calibration. At resting lengths 0.6/1.6/2.2/2.6, the native successful fixed-slope pulse durations are 0.19/0.1275/0.125/0.12875. Setting only d1=0 during those pulses defeats all four orientation responses after native 10000-unit recovery. Matching ramp peak to the resting-length-1 reference defeats the latter three; the shortest still succeeds. Under fixed-support-0.2 pulses at lengths 0.6/1.6/2.6, durations 0.152/1.275/5.816320785, d1 removal defeats only the shortest. Under relative-20% pulses, durations 0.22375/0.615625/1.21875, it likewise defeats only the shortest. Moving-boundary motion and geometric dilution remain in all these controls. Native feedback is restored for recovery, and the same scalar orientation gate as the other original three-test controls is applied.",
+    "The ring and noisy-ring measurements extend these mechanism-linked readouts to site placement, local patterns and whole-boundary activity-vector magnitude/correlation. Angular memory, physical single-site displacement, finite deterministic cue resistance and conditional OU velocity memory remain distinct. The planned SUM-159 WGD+/− motility result is a separate pending empirical contribution."
+  ],
+  "smallest_additional_source_files": [
+    "polarity1d/manuscript/figures/length_mechanisms_20261008/review_20261009_quality/wave_pinning_withdrawal.manifest.json",
+    "polarity1d/manuscript/data/runs/inactive_pool_figure_exports_20261008/response_vs_length.csv",
+    "polarity1d/manuscript/data/runs/inactive_pool_figure_exports_20261008/README.md",
+    "polarity1d/manuscript/figures/length_mechanisms_20261008/revision_20261014_draft_alignment/endpoint_state_summary.csv",
+    "polarity1d/manuscript/figures/length_mechanisms_20261008/revision_20261014_draft_alignment/endpoint_descriptive_crossings.csv",
+    "polarity1d/manuscript/figures/length_mechanisms_20261008/revision_20261014_draft_alignment/mechanism_evidence.md",
+    "polarity1d/manuscript/data/runs/length_mechanisms_20261008/narrative_20261009/resting_ablation/ablation_endpoint_metrics.csv",
+    "polarity1d/manuscript/data/runs/length_mechanisms_20261008/narrative_20261009/resting_ablation/ablation_validation.json"
+  ],
+  "campaign_decision": "Existing native evidence, compact tables and audited controls suffice for this bounded explanatory companion and a coherent second outline. New integrations would be needed to claim intervention-specific threshold shifts, a causal allocation of the full duration curve, pure separation effects or a migration-velocity law; none is necessary for the retained conditional argument."
+}

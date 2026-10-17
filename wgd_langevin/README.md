@@ -6,6 +6,23 @@ were abandoned; the current polarity-mechanism work seeks a physical explanation
 for the migration phenotype rather than treating fitted OU memory as an already
 identified molecular parameter.
 
+# Retained historical source
+
+The earlier active-Brownian, Gaussian/Poisson, feedback, persistence-only and
+OU-to-polarity branches are preserved as reviewed scientific source and
+documentation. Their fitting code, tests, launchers and derivation notes record
+how the analysis developed; the refined OU workflow above supplies current
+manuscript evidence. The exact source selection is recorded in
+[`reports/publication_historical_sources_20261017.txt`](../reports/publication_historical_sources_20261017.txt).
+
+Historical raw results, native trajectories, caches and report delivery copies
+remain local and ignored. A source checkout does not contain every output
+linked by older READMEs, and those links do not establish current scientific
+acceptance or complete rerun coverage. Preserve source/input hashes, the
+configuration and a separate verified data location when reusing an old result.
+The existing root model invariant tests can run with the modelling environment;
+older branch tests should run in their own workstream context.
+
 # Earlier model comparisons
 
 Xuan, Mallin and Jemaà now use **Gaussian velocity OU**, with two parameters per

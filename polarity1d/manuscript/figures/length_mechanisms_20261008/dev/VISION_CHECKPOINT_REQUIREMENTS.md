@@ -28,7 +28,7 @@ or replace the reserved new WGD motility-results component.
 Full completion requires actual results for all three figures. A design-only
 noise figure or placeholder ring-recovery box cannot satisfy the resumed goal.
 
-## Evidence accepted so far
+## Requirement-by-requirement completion audit
 
 - **Linear evidence complete:** the [all-five result report](vision_linear_20261017/RESULTS.md)
   contains all 97 eligible gain/recovery measurements and all 127 finite-cue
@@ -45,16 +45,70 @@ noise figure or placeholder ring-recovery box cannot satisfy the resumed goal.
   the report and inspected both continued figure sheets. Positive conditional
   recovery remains distinct from loss of activity in the evolving original
   region.
-- **Noise work remains active:** the [reviewed numerical pilot](vision_noise_pilot_20261017/RESULTS.md)
-  justified the separately frozen 243-case main ensemble: 216 independent
-  noisy realizations, 18 mean controls and 9 zero-input controls. Actual main
-  results, seedwise uncertainty, final plots and fresh actual-result review
-  are still required. The analysis-only [numerical amendment review](vision_noise_20261017/supporting/metadata/FRESH_NUMERICAL_AMENDMENT_REVIEW.md)
-  validates evaluation of the unchanged correlation estimator; it is not a
-  substitute for review of the completed ensemble.
+- **Noise evidence complete:** the [actual replicated result report](vision_noise_20261017/RESULTS.md)
+  retains all 243 complete trajectories: 216 independent noisy realizations
+  in 18 groups of 12, 18 mean controls and 9 zero-input controls. The
+  [fresh actual-result critique](vision_noise_20261017/supporting/metadata/FRESH_RESULT_CRITIQUE.md)
+  independently verifies direct lag products, whole-seed confidence intervals,
+  all 18 medoids, actual input statistics and all seven supporting plots.
+  Vector magnitude, direction eligibility and physical site-displacement
+  coverage distinguish the WP/Holmes angular-memory effect from the Goryachev
+  small-ring forced-state regime. Lower-input unresolved decay, native-unit
+  limits, signed restricted integrals and full/half windows remain explicit.
+  Both analysis amendments preserve the scientific estimator and original
+  trajectories; their independent reviews and the failed analysis are retained.
+- **Integrated presentation complete:** the exact [requested Markdown entrypoint](../../../../../current%20manscript%20figs/vision_aligned_checkpoint.md)
+  embeds all four actual sheets for the three working figures, with messages,
+  selection rationale, definitions, experimental measurements and supporting
+  evidence. Both deterministic figures include gain/recovery and sustained
+  finite competition. deBelly participates only in the established corrected
+  linear framework. Existing empirical migration and the reserved new WGD
+  motility results remain separate manuscript contributions.
+- **Fresh whole-package review accepted:** the [signed independent critique](vision_aligned_checkpoint_20261017/supporting/metadata/FRESH_PACKAGE_CRITIQUE.md)
+  inspects actual PNG/PDF/SVG exports and the current companion, and independently
+  closes 64 source hashes, 19 artifact hashes, all ten noise CSVs and native
+  local/global example linkage. No essential correction remains before user
+  review. This is a bounded checkpoint verdict, not author approval or the
+  separate manuscript-outline coherence review.
 
-The final Markdown entrypoint, complete Figure 3, whole-package critique and
-final provenance/navigation/storage audit remain outstanding at this stage.
+Root has read all final component reports and signed critiques, inspected
+the actual four main sheets, directly checked the complete noise correlation
+and physical-coverage tables, and verified all 34 local companion links.
+The final companion hash is
+`63a434af7856d74ed57ad360d7916cb0873c955f85789e788f9b689e86b6fba8`.
+The supplied mechanism PDF and five PNGs in the two preceding checkpoints
+retain their original recorded hashes.
+
+## Final verification and handoff
+
+All explicit requirements above are achieved; no required measurement or panel
+remains pending. The root audit was closed on 17 October 2026 after the signed
+component and assembled-package reviews, using the current worktree rather
+than the plans or output-generation status alone.
+
+| Scoped topic | Artifact hashes | Source hashes | Local links | Result |
+| --- | ---: | ---: | ---: | --- |
+| All-five linear evidence | 13 | 9 | 52 | Passed; final owner audit read by root. |
+| Supported rings | 25 | 30 | 77 | Passed; final scoped audit read by root. |
+| Replicated noise | 23 | 465 | 74 | Passed; root ran the final scoped check after all exports closed. |
+| Integrated checkpoint | 19 | 64 | 22 | Passed; root ran the final scoped check after adding the standard results pointer. |
+
+The [exact requested entrypoint](../../../../../current%20manscript%20figs/vision_aligned_checkpoint.md)
+contains four actual embedded PNGs for three working figures, and all 34 local
+links resolve. Its accepted scientific text and image identities remain
+unchanged. The standard figure collection now links to it directly and through
+a small spelling-compatible pointer; current report status and the revision
+record identify this checkpoint. The separate concurrent manuscript-outline
+intake/proposed numbering and deferred comprehensive outline review were
+preserved; neither is confused with author approval of these figures.
+
+Every new multi-GiB group and its related smaller reports/pilots is accounted
+for by path, measured allocated storage, purpose and status in the root
+[DATA_MANIFEST.md](../../../../../DATA_MANIFEST.md). All 243 native noise jobs,
+their verifier and the corrected statistics/report workflow are terminal and
+successful; no further campaign remains to run. Main figure work stops for
+the author's detailed review. The achieved objective is this review checkpoint,
+not a finished manuscript or a claim that the laboratory measurements occurred.
 
 ## Ownership and staged execution
 

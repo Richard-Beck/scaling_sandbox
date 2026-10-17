@@ -1,0 +1,161 @@
+{
+  "status": "passed",
+  "started_at": "2026-10-17T21:16:32.335300+00:00",
+  "completed_at": "2026-10-17T21:16:40.242640+00:00",
+  "purpose": "Fresh isolated default replay and retained-input preservation; does not rerun the previously recorded native campaign audit.",
+  "temporary_root": "/tmp/noise_v2_isolated_tc1bizte",
+  "command": [
+    "python",
+    "-B",
+    "guarded_replay.py"
+  ],
+  "generator": "scripts/render_noise_interpretation_v2.py",
+  "generator_sha256": "05921c42ceac54aa652094da7d0f33f0ec0b0b8020bb0b1aff8b1c2e399ba109",
+  "isolation": {
+    "copied_repository_material": [
+      "scripts/render_noise_interpretation_v2.py",
+      "manuscript_outline/assets/noise_v2/"
+    ],
+    "original_scientific_directories_absent_from_temporary_root": [
+      "polarity1d",
+      "current manuscript figs",
+      "current manscript figs",
+      "reports",
+      "wgd_langevin"
+    ],
+    "original_repository_open_guard": "Python audit hook rejects any open under the original absolute repository root, including native workers and bulk scientific tables.",
+    "original_repository_read_attempts": [],
+    "scientific_or_worker_roots_present_in_temporary_checkout": false,
+    "source_archive_reads": 0
+  },
+  "fresh_compact_replay": {
+    "return_code": 0,
+    "stdout": "{\n  \"output\": \"manuscript_outline/assets/noise_v2\",\n  \"mode\": \"portable retained-data render\",\n  \"native_reads\": 0,\n  \"bulk_source_reads\": 0,\n  \"restricted_area_checks\": 54\n}",
+    "fresh_native_cases_audited": 0,
+    "fresh_native_trace_hashes_checked": 0,
+    "fresh_native_integrations": 0,
+    "checks": [
+      "54 signed restricted areas independently reintegrated from the retained 1601-lag curves.",
+      "Every plotted direction, site and magnitude row, including stored bootstrap bounds, matches its retained streaming export by exact source row identifier.",
+      "All three PNGs have pixel and byte identity with the original approved images.",
+      "All retained CSV/CSV.gz/NPZ/selection/reconciliation inputs are byte-identical before and after replay."
+    ],
+    "generated_manifest_native_reads": 0,
+    "generated_manifest_bulk_source_reads": 0
+  },
+  "recorded_native_audit": {
+    "freshly_recomputed_in_this_test": false,
+    "record": "manuscript_outline/assets/noise_v2/noise_reconciliation_v2.json",
+    "record_sha256": "b10069b744405e821643e1e791cdaf65ec5065753a6a5897dda416568c0eb2e8",
+    "native_cases": 243,
+    "noisy_cases": 216,
+    "source_manifest_generated_at": "2026-10-17T21:10:23.662755+00:00",
+    "interpretation": "The default-render manifest retains historical native_cases and audit_scope metadata from the completed one-time native audit. These inherited fields do not report fresh native verification during default rendering."
+  },
+  "images": [
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_memory_geometry_v2.png",
+      "dimensions": [
+        2480,
+        2960
+      ],
+      "pixel_identical": true,
+      "byte_identical": true,
+      "sha256": "f7f1998f7c7e418a9fa6529310b510e6c50d9e9365d28c1b9bf1a2faeca6c450",
+      "replay_sha256": "f7f1998f7c7e418a9fa6529310b510e6c50d9e9365d28c1b9bf1a2faeca6c450"
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_adaptation_v2.png",
+      "dimensions": [
+        2480,
+        2100
+      ],
+      "pixel_identical": true,
+      "byte_identical": true,
+      "sha256": "f1524ca7645296466d10f458f4cdc77ca99d31ac745cffdb834e610da47700b6",
+      "replay_sha256": "f1524ca7645296466d10f458f4cdc77ca99d31ac745cffdb834e610da47700b6"
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_native_examples_v2.png",
+      "dimensions": [
+        2480,
+        2080
+      ],
+      "pixel_identical": true,
+      "byte_identical": true,
+      "sha256": "4f98115cc7e5cb86ec2aae6f59b6ef5ca5590858a4874fa34e429b8afc340971",
+      "replay_sha256": "4f98115cc7e5cb86ec2aae6f59b6ef5ca5590858a4874fa34e429b8afc340971"
+    }
+  ],
+  "retained_inputs": [
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_direction_lags_v2.csv.gz",
+      "sha256": "42c7b8defcbecfae6d05b137a4cdeed17a466a82d9dd5717c6a36bcf0c19758a",
+      "replay_sha256": "42c7b8defcbecfae6d05b137a4cdeed17a466a82d9dd5717c6a36bcf0c19758a",
+      "unchanged": true
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_final_magnitude_controls_v2.csv.gz",
+      "sha256": "f2f1279d5f6f84d356ab2a043d9efebd908e5b7c7daea4986d5e115339e41921",
+      "replay_sha256": "f2f1279d5f6f84d356ab2a043d9efebd908e5b7c7daea4986d5e115339e41921",
+      "unchanged": true
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_native_examples_v2.npz",
+      "sha256": "ae5257ae48c11380769e755b3d2b08eae0f268171940021c400babb98e7683d9",
+      "replay_sha256": "ae5257ae48c11380769e755b3d2b08eae0f268171940021c400babb98e7683d9",
+      "unchanged": true
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_native_examples_v2.selection.json",
+      "sha256": "8573d5340f9ea1d691e2c2023e62c67996ce7648db50a9d25ba4b3d484be4794",
+      "replay_sha256": "8573d5340f9ea1d691e2c2023e62c67996ce7648db50a9d25ba4b3d484be4794",
+      "unchanged": true
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_native_pair_counts_v2.csv",
+      "sha256": "9fba007b3b5c93029afbb182dad819e42cf96a26c169462d4b23f45debc84dc8",
+      "replay_sha256": "9fba007b3b5c93029afbb182dad819e42cf96a26c169462d4b23f45debc84dc8",
+      "unchanged": true
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_persistence_v2.csv",
+      "sha256": "ea566030259eb582ee288c50a3d06b043a01bdca8c7adacc63363960db54af74",
+      "replay_sha256": "ea566030259eb582ee288c50a3d06b043a01bdca8c7adacc63363960db54af74",
+      "unchanged": true
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_plotted_source_rows_v2.csv",
+      "sha256": "a0c325ccd20fd5204201adb4b4123ca96507b647f004625bca7e9ba13d0cb112",
+      "replay_sha256": "a0c325ccd20fd5204201adb4b4123ca96507b647f004625bca7e9ba13d0cb112",
+      "unchanged": true
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_reconciliation_v2.json",
+      "sha256": "b10069b744405e821643e1e791cdaf65ec5065753a6a5897dda416568c0eb2e8",
+      "replay_sha256": "b10069b744405e821643e1e791cdaf65ec5065753a6a5897dda416568c0eb2e8",
+      "unchanged": true
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_seed_summary_v2.csv",
+      "sha256": "1e720b4a452ec1f9aa9682cc1c0819c917d4433b7a9295e42643f9aae4dc3fca",
+      "replay_sha256": "1e720b4a452ec1f9aa9682cc1c0819c917d4433b7a9295e42643f9aae4dc3fca",
+      "unchanged": true
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_site_lags_v2.csv.gz",
+      "sha256": "db2de81d372901eeb23ee3063bae49592d7ee1c5196aca24d2a76451108cc50a",
+      "replay_sha256": "db2de81d372901eeb23ee3063bae49592d7ee1c5196aca24d2a76451108cc50a",
+      "unchanged": true
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_vector_lags_v2.csv.gz",
+      "sha256": "92892c00adf5e79e9c94a17562d7535a1609f1661d29a13d8aec14290fbb0773",
+      "replay_sha256": "92892c00adf5e79e9c94a17562d7535a1609f1661d29a13d8aec14290fbb0773",
+      "unchanged": true
+    }
+  ],
+  "original_generator_and_assets_unchanged": true,
+  "original_files_checked": 21,
+  "pdf_identity": "Not claimed: PDF metadata can contain generation timestamps; all PNG rendering is pixel and byte identical."
+}

@@ -44,6 +44,8 @@ therefore support a finite-window polarity-memory result, rather than fitted
 unlimited or stationary persistence times, calibrated biological times or cell
 trajectories.
 
+The paired memory and magnitude curves test retained directional asymmetry; native histories and physical displacement with coverage distinguish magnitude loss, multisite cancellation and ring geometry from slower site motion.
+
 ## Question and declared comparison
 
 Does enlargement change measurable whole-boundary polarity memory under local
@@ -152,6 +154,10 @@ replicates. Complete direction intervals and magnitude gates 0.05/0.2 are in
 [the direction table](supporting/data/vision_noise_direction_correlations.csv).
 
 ![Direction eligibility and physical geometry](vision_noise_coverage_geometry.png)
+
+The shaded Wave-pinning and Holmes RMS bands are the monotone square roots
+of the stored pointwise 95% whole-seed bootstrap bounds on mean squared
+endpoint displacement.
 
 Direction-pair coverage is shown explicitly. Physical displacement uses producer
 scalar descriptors every 5 units, independently validated against all saved
@@ -326,7 +332,9 @@ Allocated storage measured after generation: native main group
 this final prose/manifest. The root data-manifest owner receives exact measured
 sizes; scientific importance is the complete replicated stochastic comparison.
 
-A fresh-context actual-result critique will assess the curves, local histories,
-uncertainty and scientific claims before this report is folded into the final
-three-figure checkpoint. Output generation alone does not establish an accepted
-manuscript figure or a general enlargement effect.
+The [fresh actual-result critique](supporting/metadata/FRESH_RESULT_CRITIQUE.md)
+finds no essential scientific, statistical or display correction remaining for
+this noisy-ring component of the review checkpoint. It independently checks
+the complete statistics, seed uncertainty, all seven plots, representative
+selection and realized-input audits. The finite-window, native-unit, forced-state
+and physical-coverage limits stated above remain part of the result.

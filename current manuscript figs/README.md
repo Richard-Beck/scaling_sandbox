@@ -1,5 +1,12 @@
 # Current manuscript figure copies
 
+The [revised six-figure outline](../manuscript_outline/outline_v2.pdf) combines
+this collection with detailed legends, mechanism-linked measurements and the
+reserved new WGD motility results. Its [revision notes](../manuscript_outline/REVISION_NOTES.md)
+record the critical assessment and distinguish the supplied checkpoint from
+the revised manuscript presentation. Both the original checkpoint and the
+first integrated outline remain preserved.
+
 **Foundation copy audit, 17 October 2026:** `main_polarity.png` now matches the
 latest [canonical five-model comparison](../polarity1d/manuscript/figures/main_polarity.png),
 generated on 10 October. Panel C reports Spearman rank correlations using all
@@ -49,28 +56,25 @@ that size alone causes their migration differences.
 For the present mechanism-figure discussion, use the
 [current length-mechanism PDF](../polarity1d/manuscript/figures/length_mechanisms_20261008/length_mechanisms.pdf)
 and its [reader](../polarity1d/manuscript/figures/length_mechanisms_20261008/index.html).
-The most recently completed review package is the
-[updated checkpoint](updated_checkpoint_20261017.md). **Figure 1 uses all five
-established linear 1D models; Figure 2 uses supported rings to evaluate
-separation.** Figure 1 now includes every retained linear input-gain value and
-a new local-core recovery pilot at three sizes per model. Figure 2 spans two
-continued review sheets: linear/ring correspondence and shared-scale gain maps,
-then complete outcome maps, three highlighted native histories and their global
-activity vectors. The matching new ring-recovery measurements remain explicitly
-pending. The [fresh assembled-figure critique](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/updated_checkpoint_20261017/supporting/metadata/FRESH_CHECKPOINT_CRITIQUE.md)
-finds no essential handoff blocker. This is a review checkpoint, not a finished
-publication layout.
+The current review package is the
+[vision-aligned three-figure checkpoint](../current%20manscript%20figs/vision_aligned_checkpoint.md).
+**Figure 1 includes all five established linear models; Figure 2 evaluates
+supported rings; Figure 3 reports replicated noisy-ring polarity memory.**
+Both deterministic figures include gain/recovery and standardized finite
+long-cue results. Complete maps link to exact native histories and matching
+activity vectors. The noise figure includes both declared strengths, 12
+independent realizations per condition, magnitude and mean/no-input controls.
+The [fresh whole-package critique](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/supporting/metadata/FRESH_PACKAGE_CRITIQUE.md)
+finds no essential correction before detailed user feedback. The
+[revision record](figure_revision_plan_20261017.md) and
+[completion evidence](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/VISION_CHECKPOINT_REQUIREMENTS.md)
+preserve the scope, numerical qualifications and experimental readouts.
+This is a review candidate, not author acceptance of final manuscript composition.
 
-The [revision record](figure_revision_plan_20261017.md) now defines the active
-three-figure expansion: both linear and ring figures feature gain/recovery and
-justified long-cue responses, followed by a separate replicated noisy-ring
-polarity-persistence figure. The user has resumed this work; the
-[completion requirements](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/VISION_CHECKPOINT_REQUIREMENTS.md)
-track the evidence needed for the next checkpoint. The
-[complete all-five linear evidence](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_linear_20261017/RESULTS.md)
-and [complete supported-ring evidence](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_ring_20261017/RESULTS.md)
-have passed independent actual-result reviews; the replicated noise ensemble
-and final package remain active. The
+The [preceding updated checkpoint](updated_checkpoint_20261017.md) is retained
+as history. Its local-recovery pilots and pending ring measurements have been
+superseded by complete linear/ring evidence and the replicated noise figure.
+The
 [preceding linear-then-ring checkpoint](linear_then_ring_checkpoint_20261017.md)
 is preserved; its selected two-model functional coverage prompted this update.
 
@@ -137,3 +141,4 @@ observational association, rather than a required model-to-movement bridge.
 **deBelly warning (2026-10-08):** the old two-end extension with `center_boundary_motion=True` is flawed and deprecated. Do not use its simulations for scientific inference. `model_debelly.png`, the old deBelly portions of the mechanism PDFs, and the deBelly row in the initial-profile report retain that historical method. They are not corrected-model results.
 
 The corrected independent-endpoint replacement campaign is in ../polarity1d/manuscript/data/runs/debelly_corrected_three_test_20261008/. `main_polarity.png` and `supplement_width_response.png` now contain the completed independently audited corrected deBelly replacement; prior copies are archived in archive/centered_debelly_20261008/. Corrected mechanism figures are grouped in ../polarity1d/manuscript/figures/deBelly_mechanism/. Read ../polarity1d/manuscript/DEBELLY_BOUNDARIES.md for the boundary method and executable entry point.
+

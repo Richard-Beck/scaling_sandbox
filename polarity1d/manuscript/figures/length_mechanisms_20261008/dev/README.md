@@ -30,5 +30,6 @@ Each folder contains its PNG previews and related supporting vectors, data, capt
 - [Supported-ring gain, recovery and finite competition across size and separation](vision_ring_20261017/README.md)
 - [All-five linear gain, recovery and finite long-cue responses](vision_linear_20261017/README.md)
 - [Replicated noisy-ring polarity persistence across sizes](vision_noise_20261017/README.md)
+- [Vision-aligned checkpoint: linear responses, ring competition and noisy polarity persistence](vision_aligned_checkpoint_20261017/README.md)
 
 [Reversible cleanup records](_organization/) preserve the original paths and metadata. After regenerating exports, run `python polarity1d/manuscript/code/mechanisms/organize_length_dev.py` from the repository root. Current renderers write directly into these experiment folders; the organizer also collects outputs from frozen older entry points.

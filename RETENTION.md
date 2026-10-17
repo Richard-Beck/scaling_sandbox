@@ -90,3 +90,25 @@ and the manuscript outline as coordinated workstreams. Pair verified relocations
 with old-path deletions. Omit unexplained deletions until their replacement or
 intentional retirement is recorded; files recoverable from Git history can be
 preserved at their old paths without inventing a relocation.
+
+
+## Stage-2 preservation decision, 2026-10-17
+
+Preserve the reviewed earlier WGD scientific source/documentation through the
+exact historical-source selector, with raw results and native histories still
+ignored. Retain the primary compact v8 summary/figure exports once, the historical
+writer workbook referenced by its methods/catalogue, and the compact source XML;
+duplicate frozen baseline output copies remain local. Source preservation does
+not promote old fits, earlier centered-endpoint deBelly histories, or diagnostic
+reports to current manuscript evidence.
+
+The **81 preexisting absent tracked originals will remain absent in this local
+workspace**. Their intact copies remain published in commit `6199cdc` and the
+current retained Git tree, and their paths/sizes/hashes are recorded in
+[`publication_held_deletions_pre_recovery_20261017.json`](reports/publication_held_deletions_pre_recovery_20261017.json).
+This bounded decision preserves the earlier local workspace state without
+assuming its intent: no original files are recreated, and no deletion of those
+81 paths is staged or published. The 31 verified relocations already committed
+in V1 remain in effect. A clean status is not required to preserve source safely;
+independent source-checkout validation must distinguish these known local
+absences from the committed tree. Website retirement remains outside this change.

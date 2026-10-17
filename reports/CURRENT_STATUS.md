@@ -1,20 +1,31 @@
+The [revised manuscript outline](../manuscript_outline/outline_v2.pdf) integrates
+the checkpoint below with the approved five-model comparison and literature
+migration evidence. Its [critical assessment and repairs](../manuscript_outline/REVISION_NOTES.md)
+add physical-motion/coverage diagnostics and all-five mechanism-to-measurement
+links. New WGD motility results remain explicitly pending.
+
 ## Main-text checkpoint direction (2026-10-17)
 
-**Resumed three-figure goal:** the user now requests both gain/recovery and
-justified long-cue results in the all-five linear and supported-three-model
-ring figures, plus a separate replicated noisy-ring polarity-persistence
-figure. The [completion requirements](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/VISION_CHECKPOINT_REQUIREMENTS.md)
-record the active scope and evidence owners. The [all-five linear evidence](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_linear_20261017/RESULTS.md)
-and [supported ring evidence](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_ring_20261017/RESULTS.md)
-are now complete and independently reviewed. The replicated noise ensemble and
-final three-figure assembly remain active. The completed checkpoint below is
-the preceding version, not completion of this expanded goal. The final entrypoint
-requested by the user is `current manscript figs/vision_aligned_checkpoint.md`.
+The [three-figure checkpoint for detailed user review](../current%20manscript%20figs/vision_aligned_checkpoint.md)
+now contains the all-five established linear comparison, supported chemical
+rings and replicated noisy-ring activity-polarity memory. Both deterministic
+figures feature gain/recovery and justified finite long-cue results. Figure 2
+uses two continued sheets, linking the full maps to exact native histories and
+their global activity vectors. The separate noise figure retains both input
+strengths, independent-seed uncertainty, magnitude and mean-input controls.
 
-### Preceding completed checkpoint
+The [fresh whole-package review](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/supporting/metadata/FRESH_PACKAGE_CRITIQUE.md)
+finds no essential correction before detailed user feedback. This is a bounded
+checkpoint verdict, not author approval or acceptance of a manuscript outline.
+The [completion record](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/VISION_CHECKPOINT_REQUIREMENTS.md)
+tracks the explicit requirements and source evidence. All native simulation
+generation and the corrected noise analysis are finished; no further campaign
+is planned before user review.
+
+### Preceding completed checkpoint (superseded)
 
 The [updated checkpoint for detailed feedback](../current%20manuscript%20figs/updated_checkpoint_20261017.md)
-is the current entry point. **Figure 1 uses all five established linear 1D
+was the preceding entry point. **Figure 1 uses all five established linear 1D
 models; Figure 2 uses supported chemical rings to evaluate separation.**
 Figure 1 retains incumbent organization and exact small/large profiles, adds
 all 97 native input-gain values, and shows a new local-core recovery pilot at
@@ -22,13 +33,13 @@ three sizes per model. Recovery includes native reaction and transport; clocks
 are fixed within each model and do not calibrate rates across models. The
 [independent pilot review](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/all_five_recovery_pilot_20261017/supporting/metadata/FRESH_RESULT_CRITIQUE.md)
 accepts the bounded 15-case result and verifies all 150 archived trajectories
-and 315 clock gates. No full recovery grid has been launched.
+and 315 clock gates. At that checkpoint no full recovery grid had been launched.
 
 Figure 2 occupies two continued review sheets: matched linear/ring organization
 and weighted gain, shared-scale size/location gain maps, then complete outcome
 maps linked to three exact native Holmes histories and their global activity
 vectors. The same new recovery assay on ring basals and challenged states is
-**unmeasured and visibly pending**; old inactive-pool coefficients do not fill
+**unmeasured and visibly pending in that version**; old inactive-pool coefficients did not fill
 that gap. The [revision record](../current%20manuscript%20figs/figure_revision_plan_20261017.md)
 distinguishes completed evidence from remaining measurements. The
 [fresh review of all three assembled sheets](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/updated_checkpoint_20261017/supporting/metadata/FRESH_CHECKPOINT_CRITIQUE.md)

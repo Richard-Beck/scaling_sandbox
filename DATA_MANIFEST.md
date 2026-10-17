@@ -136,6 +136,18 @@ compression writer completed.
 | `polarity1d/manuscript/data/runs/vision_ring_duration_20261017/` | 0.13 (143,040,512 bytes) | Prespecified half/double-duration anchor histories and whole-grid finite-readout sensitivity. Distinguishes fixed finite outcomes from universal saturation or attractor claims. Measured 2026-10-17. |
 | `polarity1d/manuscript/data/runs/vision_ring_moments_20261017/` | 0.025 (26,927,104 bytes) | Read-only moment extraction from all 652 retained finite histories: global vectors, magnitude, harmonics and availability flags. The underlying original chemical-ring histories remain separate retained dependencies. Measured 2026-10-17. |
 | `polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_ring_20261017/` | 0.006 (6,029,312 bytes) | Embedded ring report, compact sources, correspondence/outcome/vector figures and independent actual-result critique. Measured 2026-10-17. |
+| `polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_pilot_20261017/` | 0.013 (14,147,584 bytes; measured 2026-10-17 21:07 UTC) | Reviewed immutable single-seed pilot report, figures and diagnostics. Historical numerical/regime evidence; the complete replicated ensemble supplies uncertainty claims. This smaller report is additional to the native-pilot/report group listed above. |
+| `polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/` | 0.021 (22,880,256 bytes; measured 2026-10-17 21:08 UTC) | Final three-figure assembly on four review sheets, exact used-data/native-history exports, PDF/SVG/PNG files, identity manifest and accepted fresh whole-package critique. The [requested Markdown entrypoint](<current manscript figs/vision_aligned_checkpoint.md>) remains separate from these generated artifacts. |
+
+The completed noise branch's later [final storage handoff](polarity1d/manuscript/data/runs/vision_noise_main_20261017/results/final_storage_footprint.json)
+was measured at **21:07 UTC**: 3,570,515,968 allocated bytes (3.325 GiB) across
+its five disjoint native-main, main-report, numerical-audit, native-pilot and
+pilot-report groups. This extends the earlier joint noise measurement above
+by including the small pilot report and final documentation/provenance writes;
+it is not additional storage to add to that earlier group. The record gives
+each exact path, allocated size, purpose and complete/retained status. All
+native outputs, authoritative statistical CSVs and reviewed PNGs remain
+unchanged; failed and corrected analysis provenance is retained separately.
 
 ### Literature-model implementations and reproduction data
 

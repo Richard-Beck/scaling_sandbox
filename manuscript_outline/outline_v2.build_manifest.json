@@ -1,0 +1,1350 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-17T21:19:49+00:00",
+  "document_stage": "Revised after independent scientific and editorial assessment",
+  "title": "Cell enlargement, polarity competition and migration persistence",
+  "pdf": {
+    "path": "manuscript_outline/outline_v2.pdf",
+    "bytes": 7995842,
+    "sha256": "ebc9a76cd5557a7e6dfda5803e59d8ea2368f4efee1a31dce36f03403189fc0a",
+    "pages": 44
+  },
+  "inputs": [
+    {
+      "path": "MANUSCRIPT_VISION.md",
+      "bytes": 5407,
+      "sha256": "1442b3e0612993feed5bf34a5111046eacd9e626b48aa6221872688aa950bd7a",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "literature_review/migration_data/studies.csv",
+      "bytes": 2339,
+      "sha256": "c935bde0ffae2edc8e2d6b2522f00650c373a5bbd8c76b244662414ee8898c18",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "manuscript_outline/PORTABLE_MECHANISM_RENDER.md",
+      "bytes": 3093,
+      "sha256": "e87e72baa05e3233c7d2d9ba0c6d4aac0404870d28a8746f583655de319d638e",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "manuscript_outline/REVISION_NOTES.md",
+      "bytes": 6070,
+      "sha256": "331cfd5311e4f0c2dfae08feaf0fef2f0a5e43b139ed6796f1d556bd97e1410a",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "manuscript_outline/assets/mechanism_crosswalk_v2.png",
+      "bytes": 435821,
+      "sha256": "51b03281df8877547a280565b30b665a296af95c0a1be24a644982c080ea5728",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        2200,
+        1638
+      ]
+    },
+    {
+      "path": "manuscript_outline/assets/mechanism_crosswalk_v2_continued.png",
+      "bytes": 673058,
+      "sha256": "300840966842ad131d40c8dd68d5531db4f70f2f796c42f990f1cd94a646d5be",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        2200,
+        2187
+      ]
+    },
+    {
+      "path": "manuscript_outline/assets/migration_v2/figure5_migration_v2.png",
+      "bytes": 664363,
+      "sha256": "5fddb6d2176cf5bffa63b5ed82c9d0247bf48e235afbfed7417977c4ae517fd5",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        4044,
+        3026
+      ]
+    },
+    {
+      "path": "manuscript_outline/assets/migration_v2/figure5b_msd_detail.png",
+      "bytes": 174826,
+      "sha256": "edb54ea7c49def9ac3530c7d1d44272426b91c0a1d967f1c832e723d1e05649a",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        1603,
+        1384
+      ]
+    },
+    {
+      "path": "manuscript_outline/assets/migration_v2/provenance.json",
+      "bytes": 8865,
+      "sha256": "70e6bb83812cb2529c76242e6f2802a7a9ba28aa945b93defbd51cec7cc65618",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "manuscript_outline/assets/migration_v2/validation.json",
+      "bytes": 1692,
+      "sha256": "21ac698d80654b3ab760dd4eddbfbaa4c162dbe9c52a05a31aed71eaf63aad54",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_adaptation_v2.png",
+      "bytes": 378605,
+      "sha256": "f1524ca7645296466d10f458f4cdc77ca99d31ac745cffdb834e610da47700b6",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        2480,
+        2100
+      ]
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_interpretation_v2.manifest.json",
+      "bytes": 7775,
+      "sha256": "2ab3d45d913fb58e28b931656072ebcb44691a1f72f266726e0c7f4ca3895416",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_memory_geometry_v2.png",
+      "bytes": 503537,
+      "sha256": "f7f1998f7c7e418a9fa6529310b510e6c50d9e9365d28c1b9bf1a2faeca6c450",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        2480,
+        2960
+      ]
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_native_examples_v2.png",
+      "bytes": 1146018,
+      "sha256": "4f98115cc7e5cb86ec2aae6f59b6ef5ca5590858a4874fa34e429b8afc340971",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        2480,
+        2080
+      ]
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_native_examples_v2.selection.json",
+      "bytes": 22685,
+      "sha256": "8573d5340f9ea1d691e2c2023e62c67996ce7648db50a9d25ba4b3d484be4794",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_plotted_source_rows_v2.csv",
+      "bytes": 93045,
+      "sha256": "a0c325ccd20fd5204201adb4b4123ca96507b647f004625bca7e9ba13d0cb112",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "manuscript_outline/assets/noise_v2/noise_reconciliation_v2.json",
+      "bytes": 139991,
+      "sha256": "b10069b744405e821643e1e791cdaf65ec5065753a6a5897dda416568c0eb2e8",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "manuscript_outline/assets/planned_WGD_results.png",
+      "bytes": 217377,
+      "sha256": "d1cd8e512d3ca526c2ce5bd827402561a8e082a676dbe65baa6872601431a061",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        2340,
+        1660
+      ]
+    },
+    {
+      "path": "manuscript_outline/checkpoint_intake_v1.md",
+      "bytes": 31069,
+      "sha256": "87e83e745ba629f135fd105a1a631ac0afc33488bf944f2aebc88dcd31759630",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "manuscript_outline/mechanism_crosswalk_v2.json",
+      "bytes": 17182,
+      "sha256": "a1578651fe99155dfedb40bdf17471a85b23f55ca1bcf0e4b47b96a163143638",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "manuscript_outline/mechanisms_numbered_v2/vision_aligned_figure1_linear.png",
+      "bytes": 410851,
+      "sha256": "ad211ac5c58da600fac4c75dfe263654be2ad276dfc03267571cfb689a4f38ec",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        1889,
+        2361
+      ]
+    },
+    {
+      "path": "manuscript_outline/mechanisms_numbered_v2/vision_aligned_figure2_competition.png",
+      "bytes": 406197,
+      "sha256": "3f561da9741b1c1e44043fbae22e93f42925c1ba7ec61d7090f1405b1a9f97cf",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        1888,
+        2109
+      ]
+    },
+    {
+      "path": "manuscript_outline/mechanisms_numbered_v2/vision_aligned_figure2_response.png",
+      "bytes": 368831,
+      "sha256": "77990cc2eeec5858a3435ade80fcc76229a2446ccf62bc8266a101fc7fce2b09",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        1883,
+        2150
+      ]
+    },
+    {
+      "path": "manuscript_outline/mechanisms_numbered_v2/vision_aligned_figure3_noise.png",
+      "bytes": 809281,
+      "sha256": "85b7955cf8c1d87152f07fd49c7a533d3b9b53eff6f6ddfee32707433e202df4",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        1834,
+        2672
+      ]
+    },
+    {
+      "path": "manuscript_outline/outline_v2.json",
+      "bytes": 80521,
+      "sha256": "19d16d717f438bb99a2fafe1481412a8d2fdd6350de646c4a72957c7e0b830dc",
+      "roles": [
+        "document"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/DEBELLY_BOUNDARIES.md",
+      "bytes": 2915,
+      "sha256": "8157ff0d33e7a12314665a82db605efbe300a55660334a406cfb1bf5359815a0",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/THREE_TESTS.md",
+      "bytes": 10981,
+      "sha256": "3f600ddf28e277791a6c213e0659c5bce2594ea6082a3619fe55d15ab1e17bbc",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/code/core/models/spring.py",
+      "bytes": 8618,
+      "sha256": "874871bfd60cb9cc94a8390625f0a57260a6578b9f310c69935dcac5b235b93f",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/code/mechanisms/three_test_mechanisms.py",
+      "bytes": 12849,
+      "sha256": "6b11976e93d68f510c510285279284b7cd07be5b3a169473bdefbfeeb72644bb",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/data/derived/length_correlations.csv",
+      "bytes": 2928,
+      "sha256": "014ab5b97222cf5bdc00f07bb71af4e204facda54f612efd2ac2f1acb8172791",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/inactive_pool_figure_exports_20261008/README.md",
+      "bytes": 6337,
+      "sha256": "c0b3cbd655cc8bba671e14710d77694f094304940823fe0a2ef0563f675c12ec",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/inactive_pool_figure_exports_20261008/response_vs_length.csv",
+      "bytes": 63577,
+      "sha256": "a1387f6287240f65899e1adbbddc30ec79804ce89eefefa69e8b7082ee456280",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/length_mechanisms_20261008/narrative_20261009/resting_ablation/ablation_endpoint_metrics.csv",
+      "bytes": 3620,
+      "sha256": "330850f9681e5a89d4cf35e50f7e62c01b1611aaf13e4c0cf4b99bad9c2187cd",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/length_mechanisms_20261008/narrative_20261009/resting_ablation/ablation_validation.json",
+      "bytes": 2109,
+      "sha256": "e5f0b7a0d938e47e01c8cca243891428402cc209fc454e418df3b031785eaf55",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/three_test_mechanisms_20261006/results/cell_evidence.json",
+      "bytes": 71348,
+      "sha256": "1e44630795049e69e12d197f6986a7f3183c6f7309c58989b399069d54fa9876",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/vision_noise_main_20261017/results/statistics_centroid_amendment_20261017/AMENDMENT.md",
+      "bytes": 1893,
+      "sha256": "72b620b70af987d56217c29fca8a79abfb81910d3db66944de9c8880c287154a",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/CAPTIONS.md",
+      "bytes": 3690,
+      "sha256": "bd6844fbc4b5a3d61ae01d1f4ea4d115be6f46fb456eacd3b49e91ac0afcb20c",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/VISION_CHECKPOINT_REQUIREMENTS.md",
+      "bytes": 9626,
+      "sha256": "fd4ec892046cfa80d81bec241c44318bad40497de4aca4112826ae304adae0f5",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/supporting/data/vision_aligned_linear_gain.csv",
+      "bytes": 32606,
+      "sha256": "34b8916bcbc9243049a4d0af92a747d114853f34608f974f6ed7813d7c1e2d8d",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/supporting/data/vision_aligned_linear_native_display.npz",
+      "bytes": 5507472,
+      "sha256": "1974ce9d976346b09bab012f2fe6ecd6b0294109731bcf57d68409f15a403f58",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/supporting/data/vision_aligned_linear_recovery.csv",
+      "bytes": 61756,
+      "sha256": "db1e3154391ca8bf14a0bd984867015c5b1e9315942f21d0fd02f109c952bd9a",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/supporting/data/vision_aligned_matched_native_profiles.csv",
+      "bytes": 240530,
+      "sha256": "af5124bae2d8504095bcee6d37a2026ef46ffb61feab0ae13bda22dc0a856d3d",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/supporting/data/vision_aligned_ring_conditional_recovery.csv",
+      "bytes": 647168,
+      "sha256": "596c79286fca224941eee479dc2a4c4a3d3d51da7ea955a7a57214f45f4a319d",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_aligned_checkpoint_20261017/supporting/metadata/vision_aligned_checkpoint.manifest.json",
+      "bytes": 14764,
+      "sha256": "283560ead0adda0e23765b662b77c450ef404c478f1c7096560ba73a427cabee",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_linear_20261017/RESULTS.md",
+      "bytes": 10437,
+      "sha256": "4aac93007999064f53e5e2a0c78e970ad38dbfc3023aaa763ce32eeec2d4196f",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_linear_20261017/supporting/metadata/FINITE_RESULTS.md",
+      "bytes": 4974,
+      "sha256": "0fae41e12331342d861185c0f84071972a1af7a5e29b463403270acbdc73069e",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/DESIGN.md",
+      "bytes": 16996,
+      "sha256": "87a7911a65f18ad6e87b9ec54b63e7d1fed5a4f073f4b29bfed504ff60722741",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/RESULTS.md",
+      "bytes": 20673,
+      "sha256": "95905a5c0394340167f923b46dd8e3a0f0bb7efca5022a4824e6358f677bf746",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_persistence.csv",
+      "bytes": 23323,
+      "sha256": "a670c87556aab2bb5ebd231a78500cff69fa9a70bc616444a8cff6e35854578c",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/data/vision_noise_seed_summary.csv",
+      "bytes": 92423,
+      "sha256": "21218e7ef4b37555f98f97d5f2b69858424eaa3bdb26b2cedf12ccb377c27b14",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/supporting/metadata/vision_noise_analysis_audit.json",
+      "bytes": 415264,
+      "sha256": "4608a900d153a54154a7ce94e869746604e6c726b58ce045aeb5d6df09e34040",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_pilot_20261017/RESULTS.md",
+      "bytes": 13666,
+      "sha256": "87c0566cc615a3f0280a7028264766d0384886aabab666d147ea4b403323008b",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_ring_20261017/RESULTS.md",
+      "bytes": 15858,
+      "sha256": "1d11a5bdbb7d31f42c11f590659cfce818d3b17fa6c8091b8123b85679e8f8e1",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_ring_20261017/supporting/metadata/FRESH_RESULT_CRITIQUE.md",
+      "bytes": 11562,
+      "sha256": "66a99bb21534449ee036ba25d3481f89236ca3bd56a2e36eec5ceae17cd440e1",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_ring_20261017/supporting/metadata/MOMENT_AND_RECOVERY_METHODS.md",
+      "bytes": 4060,
+      "sha256": "e2c48d5ce20ef84ecdcfdb79571452e512ea6df310790e81a9afcd2388cd13ec",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_ring_20261017/supporting/metadata/RECOVERY_RESULTS.md",
+      "bytes": 7874,
+      "sha256": "af37135e446551b235bf290730e08cd1ccc6d82f956fe25baa67ab94c36b594c",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/review_20261009_quality/wave_pinning_withdrawal.manifest.json",
+      "bytes": 23334,
+      "sha256": "cfd4d5421daf4e842eeb4d06963fdda65d0aa2813b420d0711447622bd85875a",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/revision_20261014_draft_alignment/endpoint_descriptive_crossings.csv",
+      "bytes": 6519,
+      "sha256": "1fe8827b717277a75bb598580290c9d52e1a6cb7049d19cf114dac9d5c7dfa96",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/revision_20261014_draft_alignment/endpoint_state_summary.csv",
+      "bytes": 5371,
+      "sha256": "6137e2742050442e32c02ae1f56dc8e899e8a604d37cd7aecba7f26c44f01c24",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/revision_20261014_draft_alignment/mechanism_evidence.md",
+      "bytes": 15884,
+      "sha256": "3f7abaa84809b6753583c95a7c13529f94411cfd65f51f5dc5d78790b2676151",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/main_polarity.png",
+      "bytes": 273258,
+      "sha256": "b9546b972968fc759d00fdea48b1a52bc53f595a9adc80667f97ee40e47684db",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        2420,
+        1672
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/supplement_width_response.png",
+      "bytes": 566406,
+      "sha256": "ee4802daaa8f257db99e8aceb2fbed359f7b4ecd68420d9dcdb6fb2120819aeb",
+      "roles": [
+        "source",
+        "figure"
+      ],
+      "pixels": [
+        2610,
+        2790
+      ]
+    },
+    {
+      "path": "reports/manuscript_checkout_audit_20261017.md",
+      "bytes": 15362,
+      "sha256": "c3918fece01a12da6cfdb399a0dca8e123fecc9e29da593d2cce09e0d3fc9e67",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "reports/manuscript_coherence_review_v1_20261017.md",
+      "bytes": 18555,
+      "sha256": "df63ad5314f30cc80576c46f897661110d8caeca73690014d9a2da0c2cd23a12",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "reports/manuscript_foundation_audit_20261017.md",
+      "bytes": 23313,
+      "sha256": "27282b0005b198ab834cb0983acae5da7ee16173bc67ded04a0d3f089c1b6c3d",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "reports/manuscript_mechanism_intake_20261017.md",
+      "bytes": 28202,
+      "sha256": "ba92c63519efbdc9daa29c0f15a375ca5699b132585e6a992a2df0f746b969d2",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "scripts/build_manuscript_outline.py",
+      "bytes": 24864,
+      "sha256": "ce7c3bea60c2cea1d926e5e9c309ad69d5c8c0236a40f16f6a2329bf19f39bda",
+      "roles": [
+        "renderer"
+      ]
+    },
+    {
+      "path": "scripts/build_manuscript_outline_v2.py",
+      "bytes": 2279,
+      "sha256": "15082f57151c191c26c5c3f085942873fa2909d7659ee2ccd94d2a1eb480bb93",
+      "roles": [
+        "revision_renderer"
+      ]
+    },
+    {
+      "path": "wgd_langevin/refined_ou_20261003/README.md",
+      "bytes": 6651,
+      "sha256": "e308eb1d0b37e3c82057e9b7ba89d39a1527600fff27610810042f4256dbaa42",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "wgd_langevin/refined_ou_20261003/figures/main_03_migration_OU_caption.md",
+      "bytes": 1228,
+      "sha256": "ef57475898e12a0b2099a3805bc291464a633882afdaf78fff93f8bca5460ade",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "wgd_langevin/refined_ou_20261003/figures/main_03_observation_folds.csv",
+      "bytes": 2749,
+      "sha256": "21cc344a74069771765d2a7ea4630cff26698431a10f3c3a3bb61e3301c9a28b",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "wgd_langevin/refined_ou_20261003/figures/supp_04_Hosny_sensitivity.png",
+      "bytes": 824923,
+      "sha256": "9bb0668e0d244e57ac8b2772e323704e0079c2d38b461ecd3eecc06143210baa",
+      "roles": [
+        "source",
+        "figure"
+      ],
+      "pixels": [
+        4718,
+        2986
+      ]
+    },
+    {
+      "path": "wgd_langevin/refined_ou_20261003/figures/supp_04_Hosny_sensitivity_caption.md",
+      "bytes": 1871,
+      "sha256": "c26d0c45c4222be079b15731c9b419539da429b5b08912b8c4c35195de335d13",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "wgd_langevin/refined_ou_20261003/results/RESULTS.md",
+      "bytes": 3588,
+      "sha256": "38e75dc8f887682ad33159bb0b2912445562944bf399580cb437f3b0aea6ce4e",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "wgd_langevin/refined_ou_20261003/scripts/hosny_sensitivity/METHODS.md",
+      "bytes": 3540,
+      "sha256": "689553911c088a598e04c687bb91b45d75aaa2d3be5388e2dc63ee6ec7c396f9",
+      "roles": [
+        "source"
+      ]
+    }
+  ],
+  "page_inventory": [
+    {
+      "number": 1,
+      "kind": "cover",
+      "section_id": null,
+      "title": "Manuscript outline",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 39,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 2,
+      "kind": "cover",
+      "section_id": null,
+      "title": "Manuscript outline",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 26,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 3,
+      "kind": "figure",
+      "section_id": "figure1",
+      "title": "Figure 1. Five models and three finite challenges",
+      "size_in": [
+        11.8,
+        10.19
+      ],
+      "text_blocks": 5,
+      "assets": [
+        "polarity1d/manuscript/figures/main_polarity.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 10.4
+    },
+    {
+      "number": 4,
+      "kind": "figure_notes",
+      "section_id": "figure1",
+      "title": "Figure 1. Enlargement changes the cue duration required for lasting polarity replacement",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 44,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 5,
+      "kind": "figure_notes",
+      "section_id": "figure1",
+      "title": "Figure 1. Enlargement changes the cue duration required for lasting polarity replacement",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 39,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 6,
+      "kind": "figure",
+      "section_id": "figure2",
+      "title": "Figure 2. Linear response and mechanistic evidence · image 1 of 3",
+      "size_in": [
+        11.8,
+        16.0
+      ],
+      "text_blocks": 6,
+      "assets": [
+        "manuscript_outline/mechanisms_numbered_v2/vision_aligned_figure1_linear.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 10.305091063108852
+    },
+    {
+      "number": 7,
+      "kind": "figure",
+      "section_id": "figure2",
+      "title": "Figure 2 continued: mechanisms, evidence and measurements · image 2 of 3",
+      "size_in": [
+        11.8,
+        11.0
+      ],
+      "text_blocks": 6,
+      "assets": [
+        "manuscript_outline/assets/mechanism_crosswalk_v2.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 10.4
+    },
+    {
+      "number": 8,
+      "kind": "figure",
+      "section_id": "figure2",
+      "title": "Figure 2 continued: mechanisms, evidence and measurements · image 3 of 3",
+      "size_in": [
+        11.8,
+        14.3
+      ],
+      "text_blocks": 7,
+      "assets": [
+        "manuscript_outline/assets/mechanism_crosswalk_v2_continued.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 10.4
+    },
+    {
+      "number": 9,
+      "kind": "figure_notes",
+      "section_id": "figure2",
+      "title": "Figure 2. Incumbent organization, local response and model-specific mechanisms of competition",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 44,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 10,
+      "kind": "figure_notes",
+      "section_id": "figure2",
+      "title": "Figure 2. Incumbent organization, local response and model-specific mechanisms of competition",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 45,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 11,
+      "kind": "figure_notes",
+      "section_id": "figure2",
+      "title": "Figure 2. Incumbent organization, local response and model-specific mechanisms of competition",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 45,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 12,
+      "kind": "figure_notes",
+      "section_id": "figure2",
+      "title": "Figure 2. Incumbent organization, local response and model-specific mechanisms of competition",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 47,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 13,
+      "kind": "figure_notes",
+      "section_id": "figure2",
+      "title": "Figure 2. Incumbent organization, local response and model-specific mechanisms of competition",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 44,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 14,
+      "kind": "figure_notes",
+      "section_id": "figure2",
+      "title": "Figure 2. Incumbent organization, local response and model-specific mechanisms of competition",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 38,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 15,
+      "kind": "figure_notes",
+      "section_id": "figure2",
+      "title": "Figure 2. Incumbent organization, local response and model-specific mechanisms of competition",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 30,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 16,
+      "kind": "figure",
+      "section_id": "figure3",
+      "title": "Figure 3. Supported-ring competition · image 1 of 2",
+      "size_in": [
+        11.8,
+        14.87
+      ],
+      "text_blocks": 6,
+      "assets": [
+        "manuscript_outline/mechanisms_numbered_v2/vision_aligned_figure2_response.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 10.4
+    },
+    {
+      "number": 17,
+      "kind": "figure",
+      "section_id": "figure3",
+      "title": "Figure 3. Supported-ring competition · image 2 of 2",
+      "size_in": [
+        11.8,
+        14.62
+      ],
+      "text_blocks": 6,
+      "assets": [
+        "manuscript_outline/mechanisms_numbered_v2/vision_aligned_figure2_competition.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 10.399999999999999
+    },
+    {
+      "number": 18,
+      "kind": "figure_notes",
+      "section_id": "figure3",
+      "title": "Figure 3. Challenger placement changes sustained competition and global activity polarity on supported rings",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 44,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 19,
+      "kind": "figure_notes",
+      "section_id": "figure3",
+      "title": "Figure 3. Challenger placement changes sustained competition and global activity polarity on supported rings",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 45,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 20,
+      "kind": "figure_notes",
+      "section_id": "figure3",
+      "title": "Figure 3. Challenger placement changes sustained competition and global activity polarity on supported rings",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 37,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 21,
+      "kind": "figure",
+      "section_id": "figure4",
+      "title": "Figure 4. Noisy-ring activity memory and physical motion · image 1 of 4",
+      "size_in": [
+        11.8,
+        18.15
+      ],
+      "text_blocks": 6,
+      "assets": [
+        "manuscript_outline/mechanisms_numbered_v2/vision_aligned_figure3_noise.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 10.31625
+    },
+    {
+      "number": 22,
+      "kind": "figure",
+      "section_id": "figure4",
+      "title": "Figure 4. Noisy-ring activity memory and physical motion · image 2 of 4",
+      "size_in": [
+        11.8,
+        15.41
+      ],
+      "text_blocks": 6,
+      "assets": [
+        "manuscript_outline/assets/noise_v2/noise_memory_geometry_v2.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 10.297027027027028
+    },
+    {
+      "number": 23,
+      "kind": "figure",
+      "section_id": "figure4",
+      "title": "Figure 4. Noisy-ring activity memory and physical motion · image 3 of 4",
+      "size_in": [
+        11.8,
+        11.81
+      ],
+      "text_blocks": 6,
+      "assets": [
+        "manuscript_outline/assets/noise_v2/noise_adaptation_v2.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 10.262476190476189
+    },
+    {
+      "number": 24,
+      "kind": "figure",
+      "section_id": "figure4",
+      "title": "Figure 4. Noisy-ring activity memory and physical motion · image 4 of 4",
+      "size_in": [
+        11.8,
+        11.72
+      ],
+      "text_blocks": 6,
+      "assets": [
+        "manuscript_outline/assets/noise_v2/noise_native_examples_v2.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 10.253846153846153
+    },
+    {
+      "number": 25,
+      "kind": "figure_notes",
+      "section_id": "figure4",
+      "title": "Figure 4. Activity memory, physical site motion and forced-state qualification on noisy rings",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 44,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 26,
+      "kind": "figure_notes",
+      "section_id": "figure4",
+      "title": "Figure 4. Activity memory, physical site motion and forced-state qualification on noisy rings",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 45,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 27,
+      "kind": "figure_notes",
+      "section_id": "figure4",
+      "title": "Figure 4. Activity memory, physical site motion and forced-state qualification on noisy rings",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 44,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 28,
+      "kind": "figure_notes",
+      "section_id": "figure4",
+      "title": "Figure 4. Activity memory, physical site motion and forced-state qualification on noisy rings",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 47,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 29,
+      "kind": "figure_notes",
+      "section_id": "figure4",
+      "title": "Figure 4. Activity memory, physical site motion and forced-state qualification on noisy rings",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 38,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 30,
+      "kind": "figure_notes",
+      "section_id": "figure4",
+      "title": "Figure 4. Activity memory, physical site motion and forced-state qualification on noisy rings",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 33,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 31,
+      "kind": "figure",
+      "section_id": "figure5",
+      "title": "Figure 5. Migration observations and conditional OU interpretation · image 1 of 2",
+      "size_in": [
+        11.8,
+        10.78
+      ],
+      "text_blocks": 6,
+      "assets": [
+        "manuscript_outline/assets/migration_v2/figure5_migration_v2.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 10.236959682749504
+    },
+    {
+      "number": 32,
+      "kind": "figure",
+      "section_id": "figure5",
+      "title": "Figure 5. Migration observations and conditional OU interpretation · image 2 of 2",
+      "size_in": [
+        11.8,
+        11.98
+      ],
+      "text_blocks": 6,
+      "assets": [
+        "manuscript_outline/assets/migration_v2/figure5b_msd_detail.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 10.261979768786128
+    },
+    {
+      "number": 33,
+      "kind": "figure_notes",
+      "section_id": "figure5",
+      "title": "Figure 5. Published migration summaries support a persistence hypothesis with conditional OU interpretation",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 43,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 34,
+      "kind": "figure_notes",
+      "section_id": "figure5",
+      "title": "Figure 5. Published migration summaries support a persistence hypothesis with conditional OU interpretation",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 47,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 35,
+      "kind": "figure_notes",
+      "section_id": "figure5",
+      "title": "Figure 5. Published migration summaries support a persistence hypothesis with conditional OU interpretation",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 23,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 36,
+      "kind": "figure",
+      "section_id": "figure6",
+      "title": "Figure 6. RESERVED: new WGD motility results",
+      "size_in": [
+        11.8,
+        10.38
+      ],
+      "text_blocks": 5,
+      "assets": [
+        "manuscript_outline/assets/planned_WGD_results.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 10.4
+    },
+    {
+      "number": 37,
+      "kind": "figure_notes",
+      "section_id": "figure6",
+      "title": "Figure 6. RESERVED: new WGD motility-assay results",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 42,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 38,
+      "kind": "figure_notes",
+      "section_id": "figure6",
+      "title": "Figure 6. RESERVED: new WGD motility-assay results",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 14,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 39,
+      "kind": "figure",
+      "section_id": "supplement1",
+      "title": "S1. Full cue-duration response curves",
+      "size_in": [
+        11.8,
+        14.12
+      ],
+      "text_blocks": 5,
+      "assets": [
+        "polarity1d/manuscript/figures/supplement_width_response.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 10.4
+    },
+    {
+      "number": 40,
+      "kind": "figure_notes",
+      "section_id": "supplement1",
+      "title": "S1. Full cue-duration response curves",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 23,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 41,
+      "kind": "supplementary",
+      "section_id": null,
+      "title": "Supplementary material and supporting analyses",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 18,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 42,
+      "kind": "figure",
+      "section_id": "supplement4",
+      "title": "S4. Migration-model adequacy and Hosny sensitivity",
+      "size_in": [
+        11.8,
+        9.58
+      ],
+      "text_blocks": 5,
+      "assets": [
+        "wgd_langevin/refined_ou_20261003/figures/supp_04_Hosny_sensitivity.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 10.4
+    },
+    {
+      "number": 43,
+      "kind": "figure_notes",
+      "section_id": "supplement4",
+      "title": "S4. Migration-model adequacy and Hosny sensitivity",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 16,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 44,
+      "kind": "references",
+      "section_id": null,
+      "title": "References and evidence provenance",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 12,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    }
+  ],
+  "validation": {
+    "all_local_sources_present": true,
+    "all_text_within_page_bounds": true,
+    "all_text_nonoverlapping": true,
+    "all_pages_have_extractable_text": true,
+    "uncropped_figures": true,
+    "clickable_source_annotations": 86,
+    "extracted_characters": 70404,
+    "renderer": "matplotlib 3.11.1",
+    "figure_save_dpi": 300
+  }
+}

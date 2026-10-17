@@ -83,7 +83,7 @@ cases including 216 independent noisy realizations, with 12 seeds in each of
 18 model/size/noise groups. The 27 deterministic mean/zero controls remain
 explicit.
 
-The final exact selection contains **1,503 files**, 442,422,984 logical bytes
+The first-publication curation contains **1,503 files**, 442,422,984 logical bytes
 and 496,779,264 allocated bytes as measured after curation. All **64 direct
 source identities** and **19 assembled output hashes** pass: 61 direct sources
 are shipped as recorded, and three oversized direct CSV sources are represented
@@ -114,9 +114,9 @@ original bytes** exactly from **221,166,834 compressed bytes**. The largest
 selected file is 91,029,139 bytes; no selected file reaches Git's 100 MiB limit.
 The three compressed direct inputs are the full ensemble traces, lag
 correlations and site-displacement tables. V1 retains the delivered raw-source
-manifest identities; the subsequent read-only renderer adapter can stream gzip
-when the corresponding CSV is absent. This packaging changes no row, sample,
-statistic or figure.
+manifest identities. The separate V2 portable adapter reconstructs those exact
+CSV bytes in temporary storage and runs the unchanged renderer from `6199cdc`.
+This packaging changes no row, sample, statistic or figure.
 
 The required topic-local organizer passed 22 artifact hashes, 20 source hashes
 and 62 local links, preserving 66 existing file hashes and making no moves.
@@ -214,3 +214,44 @@ larger related producer groups; the root `DATA_MANIFEST.md` is the authoritative
 large-output inventory. The earlier isolated canonical-validation copy is
 approximately 125 MiB. No native evidence was moved or deleted, and this audit
 does not authorize deletion of any unselected local scientific evidence.
+
+## Second-publication closure and owner handoff
+
+The committed V1 path-list file stopped at 1,398 entries, although all 1,503
+curated files were actually tracked in commit `6199cdc`. Its 105-path correction
+therefore introduces no new scientific payload: 19 source modules, nine selected
+restart/profile NPZs, 30 campaign audit/workflow records, four compact tables,
+16 PDF/SVG exports, eight PNGs, 12 notes/review records and seven lossless gzip
+tables were already in that commit. Of those 105 paths, 102 remain byte-identical
+to V1; only the noise `RESULTS.md`, organization audit and report manifest have
+the owner's subsequent prose/review updates.
+
+Eight compact source files for the model-by-model mechanistic crosswalk are
+now eligible through exact exceptions (126,751 bytes total). Nine additional
+compact owner-handoff files retain the realized-input summary, documentation
+revision snapshots/script and final component/package reviews. These 17 files
+total 416,159 bytes; no native trajectory or complete worker folder is added.
+The corrected selector contains **1,520 paths**, 443,273,619 logical bytes and
+496,500,736 measured allocated bytes. Every listed file exists and is eligible;
+the largest remains 91,029,139 bytes. All 398 frozen codeset hashes and all 28
+core-source hashes pass. Only the `.gitignore` packaging hash was refreshed.
+
+The current supplied integrated checkpoint still verifies all 64 source hashes
+and 19 artifact hashes, with the same assembled-manifest SHA-256. The owner's
+updated auxiliary noise report verifies **465 source hashes and 23 artifact
+hashes**, including its completed independent reviews. The latter graph also
+identifies 216 realized-noise audit JSONs and 216 noise-mode CSVs retained in the
+local archive. Those archive references were checked read-only and are not
+added to Git. The committed compact realized-input summary and review records
+do not claim to replace every archive-level auxiliary-report check. Exactly
+four noise profile archives remain selected for the main display.
+
+`manuscript_outline/manuscript_checkout_closure_v2.json` records the crosswalk
+hashes, current owner-manifest hashes and the precise selector correction.
+`manuscript_outline/portable_mechanisms_validation_v2.json` proves isolated
+rendering from V1 Git objects, without any original-worktree file access:
+all four supplied scientific PNGs reproduce byte-for-byte. The optional
+manuscript-numbered version changes only four title numerals, with every other
+pixel and scientific source array unchanged. Five source-path metadata cells
+are explicitly normalized when comparing the regenerated longest-example CSV.
+The V1 PDF, JSON, snapshots, original renderer and native sources remain intact.
