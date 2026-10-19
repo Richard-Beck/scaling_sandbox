@@ -13,6 +13,8 @@ REPORT=ROOT/'figures/length_mechanisms_20261008'
 DEV=REPORT/'dev'
 RECORDS=DEV/'_organization'
 GROUPS={
+ 'revision_program_20261019':('revision_program_', 'revision_figure2_', 'revision_figure3_', 'revision_figure4_'),
+ 'spring_ring_validation_20261019':('spring_ring_reader_', 'spring_ring_validation_'),
  'vision_aligned_checkpoint_20261017':('vision_aligned_',),
  'vision_linear_20261017':('vision_linear_',),
  'vision_ring_20261017':('vision_ring_',),
@@ -63,6 +65,8 @@ TITLES['vision_linear_20261017']='All-five linear gain, recovery and finite long
 TITLES['vision_ring_20261017']='Supported-ring gain, recovery and finite competition across size and separation'
 TITLES['vision_noise_20261017']='Replicated noisy-ring polarity persistence across sizes'
 TITLES['vision_noise_pilot_20261017']='Bounded noisy-ring numerical and response-regime pilot'
+TITLES['spring_ring_validation_20261019']='Spring ring: declared closure, raw competition fields and validation'
+TITLES['revision_program_20261019']='Figures 2–4: mechanisms, geometry and spontaneous polarity dynamics'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def write(p,value):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(value,indent=2,ensure_ascii=False)+'\n')
 def group(name):
@@ -107,8 +111,65 @@ def organize_group(name,dry_run=False):
  preview_paths={p.resolve() for p in folder.glob('*.png')}
  preview_paths.update(dest for dest in moves.values() if dest.parent==folder.resolve() and dest.suffix=='.png')
  text=f'# {TITLES.get(name,name)}\n\n[All development experiments](../README.md)\n\n'
+ if exists(folder/'CURRENT_REVIEW.html'):text+='[Current review checkpoint — start here](CURRENT_REVIEW.html)\n\n'
+ if exists(folder/'index.html'):text+='[Interactive scientific reader](index.html)\n\n'
  docs=[f'[{label}]({filename})' for label,filename in [('Design','DESIGN.md'),('Results','RESULTS.md')] if (folder/filename).exists()]
  if docs:text+=' · '.join(docs)+'\n\n'
+ if name=='revision_program_20261019':
+  # Main sheets live beside their topic-specific analyses. Give this joint
+  # review package direct entry points instead of only directory links.
+  entries=[
+   ('Final Figures 2–4: main plates and standalone legends','consolidated_figure_set_20261019/figures_2_4_main.pdf'),
+   ('Comprehensive 64-page supplementary figure set','consolidated_figure_set_20261019/figures_2_4_supplement.pdf'),
+   ('Final reader, methods and native-profile appendices','consolidated_figure_set_20261019/index.html'),
+   ('Best effort figure set of the day: final selection, interpretation and limits','BEST_EFFORT_FIGURES_20261019.md'),
+   ('Current review index: expanded experiments and selected main candidates','CURRENT_REVIEW.html'),
+   ('Preceding Figures 2–4 review PDF','supporting/vectors/revised_figures_2_4.pdf'),
+   ('Offline figure reader','supporting/viewers/index.html'),
+   ('Figure 2: expanded all-five-model, all-97-length experiment','figure2/five_model_compensation_20261019/DESIGN.md'),
+   ('Figure 2: final main plate, complete supplement and reconstruction','figure2/five_model_compensation_20261019/README.md'),
+   ('Figure 4: final main plate','figure4/main_plate_20261019/figure4_main.png'),
+   ('Figure 4: complete core supplements','figure4/signature_assembly_20261019/README.md'),
+   ('Figure 4: targeted Goryachev transition supplement','figure4/gory_transition_refinement_20261019/README.md'),
+   ('Figure 2: complete three-width/five-duration baseline report','figure2/five_model_compensation_20261019/baseline/current/index.html'),
+   ('Figure 2: earlier two-model performed cue campaign','figure2/width_strength_grid_20261019/REVIEW.md'),
+   ('Figure 2: earlier eight full-field cue-width experiments','figure2/width_fullfield_experiment_20261019/README.md'),
+   ('Figure 2: preceding cue-campaign discussion draft','figure2/cue_campaign_discussion_20261019/README.md'),
+   ('Figure 2: preceding response draft, new signatures rejected','figure2/finite_response_candidate_20261019/README.md'),
+   ('Figure 2: preceding prototype, author rework requested','figure2/figure2_mechanisms.png'),
+   ('Figure 2 detailed caption','figure2/CAPTION.md'),
+   ('Figure 2: mechanism-to-observable evidence options','figure2/optogenetic_revision/OPTIONS.md'),
+   ('Figure 2: restored organization and finite-response discussion','figure2/optogenetic_revision/discussion_sheet/README.md'),
+   ('Figure 3: integrated stationary-cue main plate','figure3/narrow_arc_experiment/main_plate/figure3_main.png'),
+   ('Figure 3: standalone main caption','figure3/narrow_arc_experiment/main_plate/CAPTION.md'),
+   ('Figure 3: comprehensive 645-condition experiment supplement','figure3/narrow_arc_experiment/supplement/index.html'),
+   ('Figure 3: preceding paired stationary-cue review PDF','figure3/supporting/vectors/figure3_stationary_review.pdf'),
+   ('Figure 3: current HTML scientific review, results and panel ideas','figure3/arc_review/index.html'),
+   ('Figure 3: initial incumbent profiles and all cue footprints','figure3/arc_review/initial_basal_placement_map.png'),
+   ('Figure 3: actual cue-on rates and native-profile illustrations','figure3/arc_illustrative_histories/README.md'),
+   ('Figure 3: both completed stationary-cue arms, paired display guide','figure3/paired_stationary_review/README.md'),
+   ('Figure 3: current three-size stationary-cue experiment','figure3/standard_angles_sizes/README.md'),
+   ('Figure 3: accepted fixed-initial-arclength arm and current progress','figure3/standard_arclength_sizes/README.md'),
+   ('Figure 3: all models, sizes and cue angles','figure3/standard_angles_sizes/response/stationary_sizes_all_angles_overview.png'),
+   ('Figure 3: endpoint-vector grid alternative','figure3/standard_angles_sizes/vector_grid/README.md'),
+   ('Figure 3: activity-vector worked example','figure3/standard_angles/vector_concept/teaching_example/holmes_two_state_vector.png'),
+   ('Figure 3: activity-vector concept sketch','figure3/standard_angles/vector_concept/stationary_vector_concept.png'),
+   ('Figure 3: controlled same-basal placement contrast','figure3/standard_angles_sizes/placement_contrast/gory_same_basal_placement.png'),
+   ('Figure 3: preceding reference-size stationary-cue experiment','figure3/standard_angles/README.md'),
+   ('Figure 3: withdrawal and retention across the experiment','figure3/stationary_characterization/README.md'),
+   ('Figure 3: preceding geometry prototype','figure3/revision_figure3_geometry.png'),
+   ('Figure 3: preceding near/far duration prototype','figure3/distance_response/revision_figure3_distance_duration.png'),
+   ('Figure 4: directional memory and site dynamics','figure4/figure4_with_spring_dynamics.png'),
+   ('Figure 4: existing weak/strong histories and native snapshots','figure4/noise_strength_review/README.md'),
+   ('Figure 4: broad-strength sweep design and staged plan','figure4/broad_strength_campaign_20261019/PLAN.md'),
+   ('Figure 4: complete scientific pilot, organization and angular memory','figure4/broad_strength_campaign_20261019/review_complete_scientific/README.md'),
+   ('Figure 4: broad-strength exploratory results and native profiles','figure4/broad_strength_campaign_20261019/review/README.md'),
+   ('Figure 4: geometry and passive local-pattern signatures','figure4/figure4_with_spring_geometry_patterns.png'),
+   ('Figure 4: measurement and interpretation guide','figure4/NARRATIVE_COHESION_REVIEW_20261019.md'),
+   ('Figure 4: Spring active amount and spatial first harmonic','figure4/SPRING_AMOUNT_SPATIAL_BALANCE.md'),
+   ('Interactive distance-response explorer','supporting/viewers/distance_response.html'),
+  ]
+  text+=''.join(f'- [{label}]({relative})\n' for label,relative in entries if exists(folder/relative))+'\n'
  for preview in sorted(preview_paths):
   stem=preview.stem
   text+=f'- [{stem.replace("_"," ")}]({preview.name})'
@@ -303,6 +364,8 @@ def main():
   if g=='deBelly_redraft':previews.sort(key=lambda p:p.name.lower())
   if g=='stimulated_endpoint':previews.sort(key=lambda p:(p.stem!='stimulated_endpoint_length_summary',p.name))
   text=f'# {title}\n\n[All development experiments](../README.md)\n\n'
+  if (folder/'CURRENT_REVIEW.html').exists():text+='[Current review checkpoint — start here](CURRENT_REVIEW.html)\n\n'
+  if (folder/'index.html').exists():text+='[Interactive scientific reader](index.html)\n\n'
   if g=='deBelly_redraft':text+='[Narrative talking points through Figures X, Y and Z](NARRATIVE.md)\n\nThis collection contains the latest drafts selected by their manifest generation times, including the Figure Y mass-balance revision. Original exports remain in their source folders; the collection manifest records their paths, timestamps and verified hashes.\n\n'
   for p in previews:
    stem=p.stem;text+=f'- [{stem.replace("_"," ")}]({p.name})'

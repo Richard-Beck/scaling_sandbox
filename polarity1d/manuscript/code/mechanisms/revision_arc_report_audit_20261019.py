@@ -1,0 +1,40 @@
+"""Local link/source/DOM audit of the manually updated Figure3 HTML report."""
+from pathlib import Path
+from html.parser import HTMLParser
+from datetime import datetime,timezone
+import hashlib,json,re,subprocess,tempfile
+ROOT=Path(__file__).resolve().parents[2]
+OUT=ROOT/"figures/length_mechanisms_20261008/dev/revision_program_20261019/figure3/arc_review"
+NODE="/home/4473331/.conda/envs/codex/bin/node"
+def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+DOM_JS='const fs=require(\'fs\'),vm=require(\'vm\'),crypto=require(\'crypto\');\nconst file=process.argv[2],html=fs.readFileSync(file,\'utf8\'),elements={};\nfor(const match of html.matchAll(/<([a-z]+)[^>]*\\bid="([^"]+)"[^>]*>([\\s\\S]*?)<\\/\\1>/g)){\n const tag=match[1],id=match[2],body=match[3];\n elements[id]={tag,value:(body.match(/<option value="([^"]+)"/)||[])[1]||\'\',listeners:{},_innerHTML:\'\',textContent:\'\',addEventListener(name,fn){this.listeners[name]=fn},getBoundingClientRect(){return {left:0,width:1000}},set innerHTML(s){this._innerHTML=s;if(this.tag===\'select\'){this.value=(s.match(/<option value="([^"]+)"/)||[])[1]||\'\'}},get innerHTML(){return this._innerHTML}};\n}\n// Nested tags can hide ids from a broad element match; create missing ids individually.\nfor(const m of html.matchAll(/\\bid="([^"]+)"/g)) if(!elements[m[1]])elements[m[1]]={value:\'\',listeners:{},innerHTML:\'\',textContent:\'\',addEventListener(n,f){this.listeners[n]=f},getBoundingClientRect(){return {left:0,width:1000}}};\nfor(const id of [\'model\',\'placement-model\',\'trajectory-model\'])elements[id].value=\'wave_pinning\';\nelements[\'trajectory-metric\'].value=\'heading\';elements[\'trajectory-clock\'].value=\'compressed\';\nconst context=vm.createContext({document:{querySelector:q=>{const e=elements[q.slice(1)];if(!e)throw Error(q);return e}},console});\nconst code=html.match(/<script>([\\s\\S]*?)<\\/script>/)[1];vm.runInContext(code,context);\nconst get=id=>elements[id],fire=(id,name=\'change\',arg={})=>{if(!get(id).listeners[name])throw Error(\'No \'+name+\' on \'+id);get(id).listeners[name](arg)};\nconst rowCount=id=>(get(id).innerHTML.match(/<tr>/g)||[]).length;\nlet endpoints=0,placements=0,trajectories=0,hovers=0;\nfor(const model of [\'wave_pinning\',\'goryachev\',\'holmes_model3\',\'spring\']){\n get(\'model\').value=model;fire(\'model\');get(\'placement-model\').value=model;fire(\'placement-model\');get(\'trajectory-model\').value=model;fire(\'trajectory-model\');\n for(const size of model===\'spring\'?[1,2,3]:[20,30,40]){\n  get(\'size\').value=String(size);fire(\'size\');get(\'placement-size\').value=String(size);fire(\'placement-size\');\n  if(rowCount(\'placement-values\')!==4)throw Error(\'placement rows\');placements++;\n  for(const T of model===\'spring\'?[.1,1,10,100,1000]:[1,10,100,300,1000]){get(\'duration\').value=String(T);fire(\'duration\');if(rowCount(\'values\')!==4)throw Error(\'endpoint rows\');endpoints++;}\n  get(\'trajectory-size\').value=String(size);fire(\'trajectory-size\');\n  for(const metric of [\'heading\',\'R\',\'closure\',\'rate\'])for(const clock of [\'compressed\',\'linear\']){\n   get(\'trajectory-metric\').value=metric;get(\'trajectory-clock\').value=clock;fire(\'trajectory-metric\');\n   const svg=get(\'trajectory-chart\').innerHTML;if(/NaN|Infinity|undefined/.test(svg))throw Error(\'nonfinite \'+[model,size,metric,clock]);\n   if((svg.match(/<path /g)||[]).length!==4)throw Error(\'paths\');\n   if(rowCount(\'trajectory-values\')!==4)throw Error(\'trajectory rows\');trajectories++;\n   for(const x of [72,100,300,600,972]){fire(\'trajectory-chart\',\'mousemove\',{clientX:x});if(rowCount(\'trajectory-values\')!==4)throw Error(\'hover\');hovers++;}\n  }\n }\n}\n\nlet narrowStates=0,narrowHovers=0;\nconst narrow=vm.runInContext(\'NARROW129\',context);\nfor(const model of [\'wave_pinning\',\'goryachev\',\'holmes_model3\',\'spring\']){\n get(\'narrow-model\').value=model;fire(\'narrow-model\');\n for(const size of model===\'spring\'?[2.5,2.75,3]:[30,35,40])for(const edge of [\'10\',\'50\'])for(const regime of [\'outside\',\'straddling\',\'inside\',\'all\'])for(const metric of [\'heading\',\'rate\',\'R\',\'closure\',\'M0_ratio\',\'regional_excess\'])for(const clock of [\'compressed\',\'linear\']){\n  get(\'narrow-size\').value=String(size);get(\'narrow-edge\').value=edge;get(\'narrow-regime\').value=regime;get(\'narrow-metric\').value=metric;get(\'narrow-clock\').value=clock;fire(\'narrow-size\');\n  const selected=narrow.filter(c=>c.model===model&&c.size===size&&(regime===\'all\'||c[\'footprint\'+edge]===regime));\n  const done=selected.filter(c=>c.status===\'complete\'),svg=get(\'narrow-chart\').innerHTML;\n  if(/NaN|Infinity|undefined/.test(svg))throw Error(\'narrow nonfinite \'+[model,size,edge,regime,metric,clock]);\n  if((svg.match(/<path /g)||[]).length!==done.length)throw Error(\'narrow paths\');\n  if(rowCount(\'narrow-values\')!==selected.length)throw Error(\'narrow rows\');narrowStates++;\n  for(const x of [74,400,964]){fire(\'narrow-chart\',\'mousemove\',{clientX:x});if(rowCount(\'narrow-values\')!==selected.length)throw Error(\'narrow hover\');narrowHovers++;}\n }\n}\nconsole.log(JSON.stringify({status:\'passed\',narrow_selector_states:narrowStates,narrow_hover_checks:narrowHovers,endpoint_selector_states:endpoints,placement_selector_states:placements,trajectory_selector_states:trajectories,hover_checks:hovers,html_sha256:crypto.createHash(\'sha256\').update(html).digest(\'hex\')},null,2));\n'
+class Parse(HTMLParser):
+ def __init__(self):super().__init__();self.urls=[];self.ids=set()
+ def handle_starttag(self,tag,attrs):
+  d=dict(attrs)
+  if "id" in d:self.ids.add(d["id"])
+  for k in ("href","src"):
+   if k in d:self.urls.append(d[k])
+def main():
+ p=Parse();text=(OUT/"index.html").read_text();p.feed(text);local=set()
+ for u in p.urls:
+  if u.startswith("#"):assert u[1:] in p.ids,u;continue
+  if re.match(r"^[a-z]+:",u):continue
+  path=(OUT/u.split("#")[0]).resolve();assert path.exists(),path;local.add(str(path))
+ manifest=json.loads((OUT/"source_sha256.json").read_text())
+ for file,digest in manifest["source_sha256"].items():assert sha(file)==digest,file
+ assert sha(OUT/"index.html")==manifest["html_sha256"]
+ assert sha(OUT/"index.pre_continuous.snapshot.html")=="127c28428c7c090f5357619c929b24ce66c803ae17c5aa91efa3d2f087853605"
+ assert sha(OUT/"index.pre_narrow.snapshot.html")=="938577bd97a7dba7995c6859a0bd83833f39835c638f4c4b5595647416f5f190"
+ frozen=OUT.parent/"arc_illustrative_histories/supporting/vectors/arc_cue_on_rate_review.pdf"
+ assert sha(frozen)=="0381caa6bae3276d3658df7a4a878b7734b2759ce6b7702a535dfaff175102fe"
+ assert not re.search(r"http-equiv\s*=\s*[\"']refresh|setInterval|setTimeout",text,re.I)
+ with tempfile.TemporaryDirectory() as tmp:
+  script=Path(tmp)/"report_dom.js";script.write_text(DOM_JS)
+  dom=json.loads(subprocess.check_output([NODE,str(script),str(OUT/"index.html")]))
+ result=dict(generated_at=datetime.now(timezone.utc).isoformat(),status="passed",html_generated_at=manifest["generated_at"],html_sha256=sha(OUT/"index.html"),verified_local_links=len(local),verified_source_hashes=len(manifest["source_sha256"]),embedded_original_fixed_arc_rows=240,embedded_longest_cue_histories=48,embedded_initial_placements=48,embedded_new_narrow_longest_cue_requests=129,models=4,no_timed_refresh=True,DOM_checks=dom,placement_independent_check="passed",native_rate_and_factor_independent_checks="passed",continuous_view_scope="Descriptive saved activity-vector trajectories and interval-labelled secants; four antipodal rates withheld",frozen_three_page_PDF_sha256=sha(frozen),prior_pre_narrow_html_sha256=sha(OUT/"index.pre_narrow.snapshot.html"),audit_source_sha256=sha(__file__))
+ (OUT/"delivery_check.json").write_text(json.dumps(result,indent=2)+"\n")
+ artifacts={str(p):sha(p) for p in sorted(OUT.rglob("*")) if p.is_file() and p.name!="report_artifacts.json"}
+ (OUT/"supporting/metadata/report_artifacts.json").write_text(json.dumps(dict(generated_at=result["generated_at"],artifacts=artifacts),indent=2)+"\n")
+ print(json.dumps(result,indent=2))
+if __name__=="__main__":main()

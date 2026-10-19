@@ -1,0 +1,12 @@
+{
+  "updated_utc": "2026-10-19T18:07:48.302719+00:00",
+  "job_id": "21192066",
+  "action": "scontrol update JobId=21192066 TimeLimit=00:05:00",
+  "previous_time_limit": "00:30:00",
+  "current_time_limit": "00:05:00",
+  "reason": "Enable shorter backfill scheduling. Accepted138 native workers median1.967s/max26.239s; five minutes gives11.4-fold observed maximum margin. Same native states,grids,solver,amplitudes,support,durations and13k release; only cue centres change. Agent3 and root agree no additional runtime scale introduced.",
+  "original_launch_record_unchanged": true,
+  "frozen_sources_inputs_manifest_unchanged": true,
+  "resubmitted": false,
+  "scheduler_confirmation": "JobId=21192066 ArrayJobId=21192066 ArrayTaskId=0-114 JobName=stationary-initial-arc\n   UserId=4473331(81011) GroupId=g_4473331(81011) MCS_label=N/A\n   Priority=10394 Nice=0 Account=richard.beck QOS=small WCKey=*4473331\n   JobState=PENDING Reason=Priority Dependency=(null)\n   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0\n   RunTime=00:00:00 TimeLimit=00:05:00 TimeMin=N/A\n   SubmitTime=2026-10-19T14:00:55 EligibleTime=2026-10-19T14:00:55\n   AccrueTime=2026-10-19T14:00:55\n   StartTime=2026-10-20T12:39:00 EndTime=2026-10-20T12:44:00 Deadline=N/A\n   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-19T14:07:48 Scheduler=Main\n   Partition=red AllocNode:Sid=hpctpa3pc0060:3314566\n   ReqNodeList=(null) ExcNodeList=(null)\n   NodeList= SchedNodeList=hpctpa3pc0039\n   NumNodes=1 NumCPUs=1 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:*\n   ReqTRES=cpu=1,mem=3G,node=1,billing=1\n   AllocTRES=(null)\n   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*\n   MinCPUsNode=1 MinMemoryNode=3G MinTmpDiskNode=0\n   Features=(null) DelayBoot=00:00:00\n   OverSubscribe=OK Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null)\n   Command=(null)\n   WorkDir=/home/4473331/projects/scaling_sandbox\n   StdErr=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_initial_arc_sizes_20261019/logs/21192066_4294967294.err\n   StdIn=/dev/null\n   StdOut=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_initial_arc_sizes_20261019/logs/21192066_4294967294.out\n   TresPerTask=cpu=1\n   \n\n"
+}

@@ -1,0 +1,184 @@
+{
+  "generated_at": "2026-10-19T19:56:33.243947+00:00",
+  "passed": true,
+  "manifest_sha256": "79f5cf520a13a12efc1a1301f9d0429f82f92127db2ff3149256bb93e8f05d4a",
+  "scope": "All five exact intermediate-size basals for prospective narrow-range stationary-cue challenge: three previously qualified C35 chemical states and two freshly prepared Spring states. No challenge simulations or grid chosen here.",
+  "qualified_basals": 5,
+  "exact_chemical_reuse": 3,
+  "fresh_Spring_states": 2,
+  "fresh_native_saved_frames": 5402,
+  "maximum_fresh_window_scaled_range_or_projected_drift": 1.2212453270876722e-13,
+  "maximum_fresh_native_RHS_projected1000": 3.330401112728623e-08,
+  "maximum_fresh_pool_relative_error": 3.014477556462225e-12,
+  "records": [
+    {
+      "model": "wave_pinning",
+      "size_parameter": 35.0,
+      "cells": 700,
+      "execution": "exact_existing_qualified_C35_reuse",
+      "qualified_checkpoint": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_arc_narrow_basals_20261019/basals/wave_pinning_C35.npz",
+      "qualified_checkpoint_sha256": "8f24cf97d4db11196822008eb63afc49f905c119839b7a65465fe3450a9c62bd",
+      "native_qualification_proof": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/supporting/metadata/FIGURE3_C35_BASAL_REUSE_INDEPENDENT_CHECK.json",
+      "native_qualification_proof_sha256": "795af17d7b00f8aaa56b92a21d4a645aa38d73eb99cc6f6fa1632189d49e6869",
+      "passed": true
+    },
+    {
+      "model": "goryachev",
+      "size_parameter": 35.0,
+      "cells": 700,
+      "execution": "exact_existing_qualified_C35_reuse",
+      "qualified_checkpoint": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_arc_narrow_basals_20261019/basals/goryachev_C35.npz",
+      "qualified_checkpoint_sha256": "c17082e4f424ae62f83bfcdd2f3af6215c46d1bd148f1cf47005317f0df392d0",
+      "native_qualification_proof": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/supporting/metadata/FIGURE3_C35_BASAL_REUSE_INDEPENDENT_CHECK.json",
+      "native_qualification_proof_sha256": "795af17d7b00f8aaa56b92a21d4a645aa38d73eb99cc6f6fa1632189d49e6869",
+      "passed": true
+    },
+    {
+      "model": "holmes_model3",
+      "size_parameter": 35.0,
+      "cells": 700,
+      "execution": "exact_existing_qualified_C35_reuse",
+      "qualified_checkpoint": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_arc_narrow_basals_20261019/basals/holmes_model3_C35.npz",
+      "qualified_checkpoint_sha256": "0d95318344b604ac08ff4f32578daedc6aaa4f9c44acf7863217eb871b677feb",
+      "native_qualification_proof": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/supporting/metadata/FIGURE3_C35_BASAL_REUSE_INDEPENDENT_CHECK.json",
+      "native_qualification_proof_sha256": "795af17d7b00f8aaa56b92a21d4a645aa38d73eb99cc6f6fa1632189d49e6869",
+      "passed": true
+    },
+    {
+      "model": "spring",
+      "size_parameter": 2.5,
+      "cells": 250,
+      "execution": "new_native_preparation",
+      "qualified_checkpoint": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_arc_narrow_basals_20261019/basals/spring_C2.5_qualified.npz",
+      "qualified_checkpoint_sha256": "8256ff49eb56525f51880529c430642fdb53f44e1540cb05557a4e4b3e71ac97",
+      "history_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_arc_narrow_basals_20261019/workers/000/preparation_and_release.npz",
+      "history_sha256": "663f68e362647f168f13b7ad68d535d91321d192849f497e9983a25b93617834",
+      "status_sha256": "fe90bf907be716463c5ae0d0c9f261a77d37c3d9dda9340e2684d5e11e193df7",
+      "physical_basal_circumference": 2.5447678346865406,
+      "physical_M0": 2.4001023747980277,
+      "physical_M1_real": 0.3857315127289606,
+      "physical_M1_imag": 0.0048475001045543715,
+      "q1": 0.16072729851882703,
+      "windows": [
+        {
+          "label": "first_qualification",
+          "cue_free_interval": [
+            1000.0,
+            2000.0
+          ],
+          "samples": 201,
+          "scaled_range": 2.3203661214665772e-14,
+          "projected_saved_rate": 4.440892098500626e-14,
+          "passed": true
+        },
+        {
+          "label": "second_qualification",
+          "cue_free_interval": [
+            2000.0,
+            3000.0
+          ],
+          "samples": 201,
+          "scaled_range": 1.2212453270876722e-14,
+          "projected_saved_rate": 7.771561172376096e-14,
+          "passed": true
+        },
+        {
+          "label": "long_holdout",
+          "cue_free_interval": [
+            3000.0,
+            13000.0
+          ],
+          "samples": 2001,
+          "scaled_range": 6.52811138479592e-14,
+          "projected_saved_rate": 2.220446049250313e-14,
+          "passed": true
+        },
+        {
+          "label": "final_window",
+          "cue_free_interval": [
+            12000.0,
+            13000.0
+          ],
+          "samples": 201,
+          "scaled_range": 1.432187701766452e-14,
+          "projected_saved_rate": 2.220446049250313e-14,
+          "passed": true
+        }
+      ],
+      "rhs_projected1000": 2.8839993389414083e-08,
+      "maximum_pool_relative_error": 3.014477556462225e-12,
+      "all_qualified_saved_profiles_single_region_single_peak": true,
+      "passed": true
+    },
+    {
+      "model": "spring",
+      "size_parameter": 2.75,
+      "cells": 275,
+      "execution": "new_native_preparation",
+      "qualified_checkpoint": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_arc_narrow_basals_20261019/basals/spring_C2.75_qualified.npz",
+      "qualified_checkpoint_sha256": "bf7baf048dc5c99b13a35259116dfe0fd99323851b68ce88a172a55ec1b03a6c",
+      "history_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_arc_narrow_basals_20261019/workers/001/preparation_and_release.npz",
+      "history_sha256": "56c2e28c2c3680f749029dc00a9b860e45fe656613514b6b54720ff406b7fed7",
+      "status_sha256": "ac9da1dc54003aca597963f2aaec0d2f2f31e44be44a3b6dc705e7a58a08e87e",
+      "physical_basal_circumference": 2.7949853251156576,
+      "physical_M0": 2.6369161632609113,
+      "physical_M1_real": 0.4269382582402498,
+      "physical_M1_imag": 0.0048775435143950776,
+      "q1": 0.1619187310373417,
+      "windows": [
+        {
+          "label": "first_qualification",
+          "cue_free_interval": [
+            1000.0,
+            2000.0
+          ],
+          "samples": 201,
+          "scaled_range": 1.0380585280245214e-14,
+          "projected_saved_rate": 4.440892098500626e-14,
+          "passed": true
+        },
+        {
+          "label": "second_qualification",
+          "cue_free_interval": [
+            2000.0,
+            3000.0
+          ],
+          "samples": 201,
+          "scaled_range": 1.9040324872321435e-14,
+          "projected_saved_rate": 8.881784197001252e-14,
+          "passed": true
+        },
+        {
+          "label": "long_holdout",
+          "cue_free_interval": [
+            3000.0,
+            13000.0
+          ],
+          "samples": 2001,
+          "scaled_range": 7.638334409421077e-14,
+          "projected_saved_rate": 1.2212453270876722e-13,
+          "passed": true
+        },
+        {
+          "label": "final_window",
+          "cue_free_interval": [
+            12000.0,
+            13000.0
+          ],
+          "samples": 201,
+          "scaled_range": 1.2601031329495527e-14,
+          "projected_saved_rate": 1.2212453270876722e-13,
+          "passed": true
+        }
+      ],
+      "rhs_projected1000": 3.330401112728623e-08,
+      "maximum_pool_relative_error": 2.559730205575761e-12,
+      "all_qualified_saved_profiles_single_region_single_peak": true,
+      "passed": true
+    }
+  ],
+  "chemical_full_history_proof": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/supporting/metadata/FIGURE3_C35_BASAL_REUSE_INDEPENDENT_CHECK.json",
+  "chemical_full_history_proof_sha256": "795af17d7b00f8aaa56b92a21d4a645aa38d73eb99cc6f6fa1632189d49e6869",
+  "native_sources_unchanged": true,
+  "pending": "Actual qualified profile edges, final authorized distance/size matrix freeze, exact reuse and native/source preflight are separate."
+}

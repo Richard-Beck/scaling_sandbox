@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Figure 4 · broad noise experiment and directional memory</title>
+<style>
+body{font:17px/1.6 system-ui,sans-serif;color:#20333e;background:#fff;max-width:1180px;margin:2rem auto;padding:0 1.2rem}
+h1,h2,h3{line-height:1.22}h1{max-width:950px}h2{margin-top:2.7rem}a{color:#086c78}img{max-width:100%;height:auto;border:1px solid #dce5e9}
+.stamp,.caption{font-size:.9rem;color:#526573}.notice{background:#eef6f7;padding:1rem 1.2rem;border-left:4px solid #25818a}
+.qualification{background:#fff7e8;padding:1rem 1.2rem;border-left:4px solid #be8a28}.links{display:flex;flex-wrap:wrap;gap:.65rem 1.2rem}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}.card{background:#f6f8f9;padding:1rem 1.2rem}
+table{border-collapse:collapse;width:100%;font-size:.93rem}td,th{padding:.5rem .65rem;border-bottom:1px solid #d9e3e7;text-align:right}th:first-child{text-align:left}
+.scroll{overflow-x:auto}figure{margin:1.5rem 0}details{margin:1.2rem 0}summary{cursor:pointer;font-weight:650}nav{position:sticky;top:0;background:#ffffffed;padding:.7rem 0;border-bottom:1px solid #dce5e9;z-index:1}
+@media(max-width:760px){.cards{grid-template-columns:1fr}body{font-size:16px}}
+</style></head><body>
+<h1>Figure 4: what changes as the whole noise signal becomes stronger?</h1>
+<p class="stamp">Report generated 2026-10-19T20:11:18.940730+00:00. Scientific plots/data snapshot: 19 October 2026, 19:36 UTC.
+Native production last observed terminal at 20:02:32 UTC: 256/256 new outputs, 576 scientific cases, no native worker failures.
+This page updates only when regenerated and manually refreshed. No timed refresh.</p>
+<nav class="links"><a href="#findings">Findings</a><a href="#overview">All strengths and sizes</a><a href="#profiles">Native profiles</a><a href="#memory">Directional memory</a><a href="#readouts">Readout guide</a><a href="#next">Next steps</a></nav>
+<p class="notice"><strong>The broader experiment is complete.</strong> Four models, three sizes each, nine common strength factors.
+Wave-pinning, Holmes and Spring reach frequent multiple-region organization at stronger inputs.
+Large Goryachev cells often instead become low-contrast relative to their initial incumbent.
+Local organization and directional memory provide complementary information.</p>
+<p class="qualification"><strong>Specific qualification still being resolved:</strong> at the strongest Spring input, sampled multiple-region run durations change when observations are saved more densely.
+The ODE comparisons and the other tested organization, magnitude and memory readouts pass.
+The failed duration checks remain recorded; the report does not use those spans as resolved biological lifetimes.
+Further replication is prepared but has not been submitted.</p>
+<p class="links"><a href="broad_strength_review.pdf">Two-page PDF</a><a href="README.md">Detailed scientific account</a><a href="index.html">All sizes: raw and contrast-qualified tables</a><a href="supporting/data/condition_window_snapshot.csv">Exact measurements</a></p>
+
+<section id="findings"><h2>What the new range adds</h2>
+<div class="cards"><article class="card"><h3>Multiple regions also occur in WP, Holmes and Spring</h3>
+<p>The earlier two strengths did not span comparable changes in all models. At larger tested inputs, these three models spend substantial time with multiple activity regions and retain strong spatial contrast. Size changes how early and how frequently this happens.</p></article>
+<article class="card"><h3>A high region count can accompany a weak pattern</h3>
+<p>In large Goryachev cells, stronger input often produces small spatial variations relative to the original tall incumbent. Counting regions relative to each frame's own small contrast can therefore suggest many peaks even when the field has little basal-relative contrast.</p></article></div>
+<p>Small Goryachev cells also show substantial contrast-qualified multiple-region activity. The data support size-dependent differences within the sampled input family, rather than a model-wide binary classification.</p>
+<p>Every model keeps its original positive-input noise law and correlations. The factors are 0.0001, 0.0003, 0.001, 0.003, 0.01, 0.03, 0.1, 0.3 and 1. Scaling the whole signal increases its mean and fluctuation amplitude together. Model-native forcing and clocks are not calibrated across models.</p>
+</section>
+
+<section id="overview"><h2>The complete strength sweep</h2>
+<p>Read down the model rows and across the three readouts. Colours identify sizes within each row. Left: time with multiple regions, including the basal-contrast qualification. Middle: global activity-vector magnitude. Right: active amount and spatial coherence, which together determine that magnitude.</p>
+<figure><a href="broad_strength_exploratory.png"><img src="broad_strength_exploratory.png" alt="All four models, three sizes and nine noise factors, with region occupancy, vector magnitude, activity amount and coherence"></a>
+<figcaption class="caption">Click for the full-resolution image. New levels have two seeds; the original 0.001 and 0.01 levels have twelve. Whiskers show observed seed ranges. Connecting segments guide the eye across sampled factors.</figcaption></figure>
+</section>
+
+<section id="profiles"><h2>What those changes look like locally</h2>
+<p>These profiles use the largest original size of each model, common factors 0.01, 0.03 and 0.1, the first saved seed and a fixed midpoint time. They preserve native concentrations and remain unshifted. They illustrate actual states; the preceding time fractions measure prevalence across the full trajectories.</p>
+<figure><a href="broad_strength_transition_profiles.png"><img src="broad_strength_transition_profiles.png" alt="Native activity profiles for four models across three common noise strengths"></a>
+<figcaption class="caption">Goryachev's inset enlarges its small high-input variations while retaining native units. Spring uses material position because its physical circumference changes.</figcaption></figure>
+<details><summary>A complementary two-region example</summary><p>At the smallest chemical size and factor 1, both selected WP and Goryachev profiles contain two regions, but their global resultants differ markedly. The WP snapshot was selected conditionally to demonstrate this possibility; it is not a typical-state estimate.</p><a href="broad_strength_native_profiles.png"><img loading="lazy" src="broad_strength_native_profiles.png" alt="Two-region WP and Goryachev profiles with different global activity-vector magnitudes"></a></details>
+</section>
+
+<section id="memory"><h2>Organization changes and directional memory can separate</h2>
+<p>In WP and Holmes, increasing multiple-region occupancy accompanies substantial long-lag memory loss in the largest cells. Spring already loses appreciable memory before multiple regions become frequent: at factor 0.003 its largest size has only 0.66% qualified multiple-region occupancy, magnitude near its basal value, and lag-800 direction cosine 0.543.</p>
+<p>Large Goryachev cells require a different reading. As the resultant weakens, fewer direction pairs remain usable. A low conditional correlation with poor coverage should be read alongside that loss of directional definition.</p>
+<p><strong>Largest size per model, full observation windows:</strong> direction cosines use lag 8000 in chemical native units and 800 in Spring native units. These clocks are not cross-model calibrations.</p>
+<div class="scroll"><table><thead><tr><th>Model</th><th>Factor</th><th>Seeds</th><th>Qualified multiple regions</th><th>Low contrast</th><th>Direction cosine</th><th>Usable direction pairs</th></tr></thead><tbody><tr><th>Wave-pinning</th><td>0.01</td><td>12</td><td>0.1%</td><td>0.0%</td><td>0.972</td><td>100.0%</td></tr><tr><th>Wave-pinning</th><td>0.03</td><td>2</td><td>21.6%</td><td>0.0%</td><td>0.570</td><td>98.1%</td></tr><tr><th>Wave-pinning</th><td>0.1</td><td>2</td><td>95.8%</td><td>0.0%</td><td>-0.045</td><td>92.9%</td></tr><tr><th>Goryachev</th><td>0.01</td><td>12</td><td>0.0%</td><td>0.0%</td><td>1.000</td><td>100.0%</td></tr><tr><th>Goryachev</th><td>0.03</td><td>2</td><td>6.3%</td><td>85.5%</td><td>0.152</td><td>22.2%</td></tr><tr><th>Goryachev</th><td>0.1</td><td>2</td><td>3.5%</td><td>92.6%</td><td>-0.149</td><td>7.9%</td></tr><tr><th>Holmes</th><td>0.01</td><td>12</td><td>17.1%</td><td>0.0%</td><td>0.738</td><td>99.2%</td></tr><tr><th>Holmes</th><td>0.03</td><td>2</td><td>74.3%</td><td>0.0%</td><td>0.048</td><td>98.9%</td></tr><tr><th>Holmes</th><td>0.1</td><td>2</td><td>89.9%</td><td>0.0%</td><td>-0.024</td><td>96.2%</td></tr><tr><th>Spring</th><td>0.01</td><td>12</td><td>14.1%</td><td>0.0%</td><td>0.028</td><td>99.3%</td></tr><tr><th>Spring</th><td>0.03</td><td>2</td><td>48.4%</td><td>0.0%</td><td>0.008</td><td>97.9%</td></tr><tr><th>Spring</th><td>0.1</td><td>2</td><td>79.9%</td><td>0.0%</td><td>-0.030</td><td>97.9%</td></tr></tbody></table></div>
+<p class="caption">Both direction endpoints require R ≥ 0.1. Pair coverage is relative to all available lag pairs. Means and memory estimates are finite-window observations; new-level seed counts remain small.</p>
+</section>
+
+<section id="readouts"><h2>A short guide to the measurements</h2>
+<p><strong>Multiple regions:</strong> more than one connected arc above the current minimum plus half the current contrast. The qualified fraction additionally requires contrast at least 10% of that case's initial basal contrast. Both fractions use every saved time in their denominator.</p>
+<p><strong>Activity vector:</strong> sum local activity with the ring's outward-normal directions. Its direction measures the global activity heading. Its magnitude R is relative to its own initial value and can exceed one; it is not cell speed.</p>
+<p><strong>Amount and coherence:</strong> A is total active amount relative to basal; Q is first-harmonic coherence relative to basal. R = AQ at each frame. Their separate changes explain why high R need not imply a single unchanged peak, and low R need not mean little total activity.</p>
+<p><strong>Memory:</strong> the mean cosine between usable global directions separated by a declared lag. The report retains eligible-pair coverage and full/first-half/last-half estimates, since organization can evolve during the finite experiment.</p>
+</section>
+
+<section id="next"><h2>What remains open</h2>
+<p>The current candidate story combines the existing dynamics panels with the broader organization sweep and native examples. The main-figure composition remains open; these pages are a review workspace.</p>
+<p>A concrete replication proposal adds ten seeds at each of three common factors, 0.003, 0.03 and 0.1, across every model and size: 360 additional trajectories. This would estimate variability around early memory changes and the observed organization changes. It has not been submitted; the scope of Spring duration-sensitive readouts is being resolved first.</p>
+<p>The two-seed pilot does not establish precise transition boundaries or exclude another organization outside the tested range. Multiple regions alone do not establish functional competition or identify site lineage.</p>
+<p class="links"><a href="supporting/data/memory_all_conditions_windows_lags.csv">All memory and coverage estimates</a><a href="supporting/data/organization_memory_seed_window_sensitivity.csv">Seed and window sensitivity</a><a href="supporting/metadata/REPLICATION_PROPOSAL.json">Replication proposal</a><a href="../review/README.md">Preserved earlier partial review</a></p>
+</section></body></html>

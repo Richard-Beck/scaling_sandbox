@@ -1,0 +1,62 @@
+{
+  "measured_at": "2026-10-19T15:49:54.219282+00:00",
+  "measurement": "sum(st_blocks*512) for files; allocated and logical differ on filesystem",
+  "groups": [
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_spring_noise_pilot_20261019",
+      "files": 80,
+      "allocated_bytes": 7774208,
+      "logical_bytes": 2772336,
+      "purpose_status": "Initial pilot including preserved pointwise-sensitivity failure; complete"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_spring_noise_resolution_20261019",
+      "files": 6,
+      "allocated_bytes": 172032,
+      "logical_bytes": 60416,
+      "purpose_status": "Prepared alternative resolution design; never submitted; preserved"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_spring_noise_bridge_20261019",
+      "files": 104,
+      "allocated_bytes": 10838016,
+      "logical_bytes": 3876857,
+      "purpose_status": "Exact-bridge paired estimator sensitivity and tight-ODE audit; complete"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_spring_noise_main_20261019",
+      "files": 678,
+      "allocated_bytes": 285696000,
+      "logical_bytes": 204218949,
+      "purpose_status": "All81 native main workers,72noisy+9matched controls, frozen methods and completed statistics; complete"
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4",
+      "files": 82,
+      "allocated_bytes": 64561152,
+      "logical_bytes": 190119357,
+      "purpose_status": "Final two-sheet Figure4 with complete chemical/Spring supporting evidence; independently reviewed"
+    }
+  ],
+  "main_native_job": "21184193",
+  "native_workers": 81,
+  "native_total_allocated_CPU_hours": 17.725277777777777,
+  "native_max_worker_elapsed_seconds": 1879,
+  "statistics_jobs": [
+    {
+      "job_id": "21184463",
+      "state": "COMPLETED",
+      "elapsed_seconds": 94,
+      "CPUs": 1,
+      "requested_memory": "8G"
+    },
+    {
+      "job_id": "21184782",
+      "state": "COMPLETED",
+      "elapsed_seconds": 107,
+      "CPUs": 1,
+      "requested_memory": "8G"
+    }
+  ],
+  "all_new_groups_below_2GiB": true
+}

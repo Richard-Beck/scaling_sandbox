@@ -1,0 +1,32 @@
+{
+  "generated_utc": "2026-10-19T16:13:08.007149+00:00",
+  "scope": "Primary-research context for discussing experimental readouts; no instrument, actuator or new assay has been selected",
+  "papers": [
+    {
+      "title": "Opto-RhoGEFs, an optimized optogenetic toolbox to reversibly control Rho GTPase activity on a global to subcellular scale, enabling precise control over vascular endothelial barrier strength",
+      "doi": "10.7554/eLife.84364",
+      "article_url": "https://doi.org/10.7554/eLife.84364",
+      "fulltext_xml_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10393062/fullTextXML",
+      "retrieved_xml_sha256": "01c23a35ef86633f55adec1f5f6db914556701aa837039d10989eafa66b94a9a",
+      "fulltext_inspected": true,
+      "verified_observations": [
+        "The authors recruited the Rac GEF TIAM1 to the membrane using an iLID system and measured morphological responses.",
+        "Their optogenetic Rac experiment lacked a compatible reporter with enough dynamic range under the tested conditions; the paper does not establish absence of suitable Rac reporters in other setups."
+      ]
+    },
+    {
+      "title": "Cell-based optimization and characterization of genetically encoded location-based biosensors for Cdc42 or Rac activity",
+      "doi": "10.1242/jcs.260802",
+      "article_url": "https://doi.org/10.1242/jcs.260802",
+      "fulltext_xml_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10234108/fullTextXML",
+      "retrieved_xml_sha256": "0c156f5ce6cd23203e4129b9a98f16fd3f6b5541d5d4c8622057b7883630af5e",
+      "fulltext_inspected": true,
+      "verified_observations": [
+        "The study characterized location-based Rac and Cdc42 reporters and their specificity and response.",
+        "The Rac candidate CYRI-A had a modest relocation response that depended on imaging modality; reporter performance cannot be assumed from actuator recruitment alone."
+      ]
+    }
+  ],
+  "model_to_experiment_inference": "Both highlighted native WP/Goryachev inputs add a local inactive-to-active conversion coefficient. GEF recruitment is a concrete experimental route to discuss, but light intensity or membrane recruitment is not automatically the model input, and no quantitative optical mapping is claimed.",
+  "practical_implication": "A proposed early activity signature needs a characterized activity readout as well as a characterized perturbation. Spatial domain/protrusion measurements remain distinct from Rac concentration or active-material amount."
+}

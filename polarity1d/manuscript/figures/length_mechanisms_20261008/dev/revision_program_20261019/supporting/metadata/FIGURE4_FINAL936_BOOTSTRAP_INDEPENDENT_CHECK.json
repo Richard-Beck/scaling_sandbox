@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-10-19T21:40:03.964451+00:00",
+  "passed": true,
+  "source_sha256": "7c1ef9929f8fbbda798e02c97ee7db29d152c229082a5d7242767f72fd2283fe",
+  "native_scope_receipt_sha256": "e19962b11c2aa24f0b46f5c2832691212f0f0a107e15b72f789fe2669052a729",
+  "case_descriptor_rows": 2808,
+  "case_memory_rows": 16848,
+  "condition_bootstrap_rows": 684,
+  "memory_bootstrap_rows": 4104,
+  "paired_half_window_rows": 1380,
+  "main_artist_source_rows": 240,
+  "numeric_comparisons": 100872,
+  "maximum_discrepancy": 8.881784197001252e-16,
+  "whole_seed_resamples": 2000,
+  "bootstrap_bag_hashes_independently_matched": true,
+  "same_bags_across_metrics_windows_lags": true,
+  "independent_calculation": "Integer per-seed multiplicity weights from recorded joint seed bags, recomputed equal-seed means, pooled eligible cosine/count ratios, coverage, percentile intervals, support-gated NA and paired half-window differences.",
+  "n2_control_CI_unavailable_verified": true,
+  "actual_Spring_basal_C_verified": true,
+  "no_native_integrations": true,
+  "input_sha256": {
+    "condition_window_bootstrap.csv": "48406e89141f416ac99cb33d6196e5cc9d99ea084869c66ff53071ea29508b14",
+    "memory_window_bootstrap.csv": "6a02099943c117bd1f7a5792bf95c5852e144a4c8d8c4aa57e6ab2cc383a733f",
+    "paired_halfwindow_bootstrap.csv": "701d2dda041a4035c005f929447e8770fe3f30e483a9ea05408c7e78457eb294",
+    "main_signature_points.csv": "ee4c2358f5eb78c1a3868ebabce5e69c57dc240b3020afe9dac01559bf81c9f8",
+    "BOOTSTRAP_PROTOCOL.json": "39cbe6c6161fc2550095cc977c59440f69e015f00eb03e70501e56d8c8c2a11d"
+  },
+  "limits": [
+    "Intervals quantify variation across independent forcing seeds conditional on exact model parameters/basals/input law/windows; they do not calibrate cross-model kinetics, stationary processes, or event lifetimes.",
+    "Pooled conditional heading and usable coverage are paired estimands; low-coverage groups remain gated and contributing-seed counts are exported.",
+    "Finite half-window sensitivity remains separate from certification of stationarity.",
+    "Width/event-distance metrics are outside the explicit accepted ten-metric numerical scope and receive separate source/geometry checks."
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "generated_at": "2026-10-19T19:12:07.960172+00:00",
+  "passed": true,
+  "scope": "Six selected frozen initial states only; exact first-harmonic projection of native cue activation.",
+  "source_csv_sha256": "a932e3dde7cdd7f54316dc33fd2255638ca58e71cf929386f682481406ec14b0",
+  "source_metadata_sha256": "4715494a325faf13c94096e7a896f2a7502a9a079f36bfa21b266356e27c3384",
+  "numeric_values_checked": 108,
+  "maximum_numeric_error": 2.842170943040401e-14,
+  "rows": [
+    {
+      "condition_id": 132,
+      "rate_deg_per_native_time": 11.373882177072506,
+      "A": 1.334879513915929,
+      "M1abs": 6.627427490145403,
+      "kappa": 0.9855734812030024,
+      "psi_deg": 90.00046634854914,
+      "basal_rate": -3.6085710059818533e-16
+    },
+    {
+      "condition_id": 172,
+      "rate_deg_per_native_time": 3.9558397561349086,
+      "A": 1.3340917398476486,
+      "M1abs": 13.613775381167066,
+      "kappa": 0.9963775208288582,
+      "psi_deg": 45.00000275204215,
+      "basal_rate": -2.0944194468548513e-16
+    },
+    {
+      "condition_id": 43,
+      "rate_deg_per_native_time": 0.3081170820391651,
+      "A": 0.26972117980631066,
+      "M1abs": 9.749494986476076,
+      "kappa": 0.9963775160533902,
+      "psi_deg": 11.250014934596317,
+      "basal_rate": -2.420405603431537e-16
+    },
+    {
+      "condition_id": 58,
+      "rate_deg_per_native_time": 1.5876858719762927,
+      "A": 0.2711440892429316,
+      "M1abs": 9.749494986476076,
+      "kappa": 0.9963775338063805,
+      "psi_deg": 90.00002175011214,
+      "basal_rate": -2.420405603431537e-16
+    },
+    {
+      "condition_id": 113,
+      "rate_deg_per_native_time": 0.48035508138795324,
+      "A": 1.239945023426201,
+      "M1abs": 104.20097041514751,
+      "kappa": 0.996377536050576,
+      "psi_deg": 45.00002120643621,
+      "basal_rate": -5.954078904243806e-18
+    },
+    {
+      "condition_id": 118,
+      "rate_deg_per_native_time": 0.6793268967427392,
+      "A": 1.2399495622634182,
+      "M1abs": 104.20097041514751,
+      "kappa": 0.9963775223292877,
+      "psi_deg": 90.00000000005704,
+      "basal_rate": -5.954078904243806e-18
+    }
+  ],
+  "comparisons": [
+    {
+      "label": "Holmes same arc, increasing size",
+      "numerator_condition_id": 172,
+      "denominator_condition_id": 132,
+      "exact_initial_rate_ratio": 0.34780031079529744,
+      "exact_factor_product": 0.3478003107952975,
+      "activation_amount_rate_ratio": 0.9994098538032322,
+      "inverse_initial_moment_ratio": 0.4868177492713455,
+      "finite_width_coherence_ratio": 1.0109621858054345,
+      "exact_sine_lever_ratio": 0.7071068151738612,
+      "centre_sine_lever_ratio": 0.7071067811865478
+    },
+    {
+      "label": "Wave-pinning same size, increasing arc",
+      "numerator_condition_id": 58,
+      "denominator_condition_id": 43,
+      "exact_initial_rate_ratio": 5.152865467466938,
+      "exact_factor_product": 5.152865467466941,
+      "activation_amount_rate_ratio": 1.0052754827694392,
+      "inverse_initial_moment_ratio": 1.0,
+      "finite_width_coherence_ratio": 1.0000000178175341,
+      "exact_sine_lever_ratio": 5.125824178522615,
+      "centre_sine_lever_ratio": 5.125830895482982
+    },
+    {
+      "label": "Goryachev same size, increasing arc",
+      "numerator_condition_id": 118,
+      "denominator_condition_id": 113,
+      "exact_initial_rate_ratio": 1.4142181962140803,
+      "exact_factor_product": 1.4142181962140805,
+      "activation_amount_rate_ratio": 1.000003660514887,
+      "inverse_initial_moment_ratio": 1.0,
+      "finite_width_coherence_ratio": 0.9999999862288264,
+      "exact_sine_lever_ratio": 1.414213038941643,
+      "centre_sine_lever_ratio": 1.4142135623730947
+    }
+  ],
+  "interpretation": "This is an instantaneous geometric decomposition of observed activity-vector rotation. Initial cue activation A and lever arm/coherence/initial moment explain the onset ratios. It does not allocate causes of later remodeling or imply direct peak movement. Rates shown in degrees per native unit include radian-to-degree conversion.",
+  "no_integration": true
+}

@@ -1,0 +1,34 @@
+{
+  "checked_at": "2026-10-19T21:44:51.627901+00:00",
+  "passed": true,
+  "manifest_sha256": "7c59265e79debada773ba98bfc13d01f3b98d38da4840247ab6025babb1656e7",
+  "frozen_sources_verified": 31,
+  "frozen_inputs_verified": 6,
+  "cases": [
+    {
+      "slot": 0,
+      "baseline_slot": 384,
+      "width": 1.5,
+      "restart_components": 11,
+      "exact_state_values": 2211,
+      "actual_saved_ON_time": 500,
+      "restart_sha256": "6bb5ef2d5e8b206a5bcea8be66a22749e7e3a7dfba07421ce1d01f198b6ad876"
+    },
+    {
+      "slot": 1,
+      "baseline_slot": 386,
+      "width": 5.0,
+      "restart_components": 11,
+      "exact_state_values": 2211,
+      "actual_saved_ON_time": 500,
+      "restart_sha256": "76ddb5d098a55c4ad8acf962a481cd3ec4b9558e38ea6383518e2312ad39d4ce"
+    }
+  ],
+  "native_ON_integrations": 0,
+  "new_OFF_branches": 2,
+  "unchanged_native_step": 0.5,
+  "canonical_gate_cadence": 2.5,
+  "off_duration": 10000,
+  "no_cue_control_valid": true,
+  "limitations": "Preflight verifies exact accepted11state starts/source closure and unchanged OFF pathway; actual terminal outcomes remain pending. Nominal cue/region coordinates are separate from physical endpoints. No optimized pulse threshold or monotonicity inference."
+}

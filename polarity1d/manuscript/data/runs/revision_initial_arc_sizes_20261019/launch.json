@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-10-19T17:57:21.818659+00:00",
+  "requested": 240,
+  "exact_reuse": 125,
+  "new_native": 115,
+  "initial_overlap_conditions": 155,
+  "excluded_for_overlap": 0,
+  "qualified_basals": 12,
+  "sources": 29,
+  "inputs": 60,
+  "manifest_sha256": "a55a6ff939bebeef5679409f560db22b1be2fcdbf1864eb9207cbf77552a6dc5",
+  "native_jobs_submitted": true,
+  "array_job_id": "21192066",
+  "submitted_at": "2026-10-19T18:00:55.368251+00:00",
+  "sbatch_arguments": [
+    "sbatch",
+    "--parsable",
+    "--qos=small",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--mem=3G",
+    "--time=00:30:00",
+    "--array=0-114",
+    "--job-name=stationary-initial-arc",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_initial_arc_sizes_20261019/logs/%A_%a.out",
+    "--error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_initial_arc_sizes_20261019/logs/%A_%a.err",
+    "--wrap",
+    "exec /home/4473331/.conda/envs/scaling_sandbox/bin/python /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_initial_arc_sizes_20261019/frozen_sources/code/mechanisms/revision_initial_arc_sizes_20261019.py worker --run /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_initial_arc_sizes_20261019 --slot \"$SLURM_ARRAY_TASK_ID\""
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "generated_at": "2026-10-19T17:58:20.512865+00:00",
+  "status": "local_preflight_passed_independent_review_pending",
+  "manifest_sha256": "a55a6ff939bebeef5679409f560db22b1be2fcdbf1864eb9207cbf77552a6dc5",
+  "requested": 240,
+  "exact_reused_archive_pairs": 125,
+  "new_native": 115,
+  "unique_histories_after_combining_arms": 355,
+  "overlap_conditions": 155,
+  "excluded_for_overlap": 0,
+  "qualified_basals_identical_to_angle_arm": 12,
+  "frozen_sources_verified": 29,
+  "frozen_inputs_verified": 60,
+  "all_exact_reuses_match_angle_arm_protocol_fields": true,
+  "maximum_initial_arc_identity_error": 0.0,
+  "maximum_material_anchor_identity_error": 2.7755575615628914e-17,
+  "initial_context_by_model_size": [
+    {
+      "model": "goryachev",
+      "size_parameter": 20.0,
+      "placements": 4,
+      "overlap_placements": 1
+    },
+    {
+      "model": "goryachev",
+      "size_parameter": 30.0,
+      "placements": 4,
+      "overlap_placements": 1
+    },
+    {
+      "model": "goryachev",
+      "size_parameter": 40.0,
+      "placements": 4,
+      "overlap_placements": 1
+    },
+    {
+      "model": "holmes_model3",
+      "size_parameter": 20.0,
+      "placements": 4,
+      "overlap_placements": 3
+    },
+    {
+      "model": "holmes_model3",
+      "size_parameter": 30.0,
+      "placements": 4,
+      "overlap_placements": 3
+    },
+    {
+      "model": "holmes_model3",
+      "size_parameter": 40.0,
+      "placements": 4,
+      "overlap_placements": 3
+    },
+    {
+      "model": "spring",
+      "size_parameter": 1.0,
+      "placements": 4,
+      "overlap_placements": 3
+    },
+    {
+      "model": "spring",
+      "size_parameter": 2.0,
+      "placements": 4,
+      "overlap_placements": 4
+    },
+    {
+      "model": "spring",
+      "size_parameter": 3.0,
+      "placements": 4,
+      "overlap_placements": 4
+    },
+    {
+      "model": "wave_pinning",
+      "size_parameter": 20.0,
+      "placements": 4,
+      "overlap_placements": 2
+    },
+    {
+      "model": "wave_pinning",
+      "size_parameter": 30.0,
+      "placements": 4,
+      "overlap_placements": 3
+    },
+    {
+      "model": "wave_pinning",
+      "size_parameter": 40.0,
+      "placements": 4,
+      "overlap_placements": 3
+    }
+  ],
+  "reference_spring_actual_C": 1.041403100348711,
+  "initial_arc_grids": {
+    "chemical": [
+      1.25,
+      2.5,
+      5.0,
+      10.0
+    ],
+    "spring": [
+      0.06508769377179444,
+      0.13017538754358887,
+      0.26035077508717774,
+      0.5207015501743555
+    ]
+  },
+  "readouts": "Same physical M0/M1/P, magnitude, withdrawal and finite-retention angle, evolving Spring C, fixed-original material-region excess and sampled crossing/rebound definitions; denominators use each exact new target angle.",
+  "reuse_inventory_scope": "Accepted240 covers all exact matches. Other native chemical grids start at fraction.1 and have no new C30 1/24,1/12,1/6,1/3 or C40 1/32 placement; pilot distances8/12/16/20 and duration500/2000 anchors add no requested matches. Previous Spring fractions.30-.50 do not match the requested C02/C03 initial arcs.",
+  "resources": {
+    "qos": "small",
+    "cpus_per_worker": 1,
+    "memory_GiB_per_worker": 3,
+    "time_limit_minutes": 30,
+    "array": "0-114",
+    "concurrency_throttle": null,
+    "accepted_angle_new_workers": 138,
+    "accepted_angle_worker_median_seconds": 1.9670871207490563,
+    "accepted_angle_worker_max_seconds": 26.23867442086339,
+    "accepted_angle_run_allocated_bytes": 697917440,
+    "estimated_new_output_bytes": 581597866
+  },
+  "native_jobs_submitted": false,
+  "launch_hold": "Await root and independent scientific preflight passes; no new integration yet."
+}

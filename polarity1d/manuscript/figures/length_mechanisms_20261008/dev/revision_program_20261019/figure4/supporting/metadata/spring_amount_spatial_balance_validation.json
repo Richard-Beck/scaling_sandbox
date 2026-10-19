@@ -1,0 +1,1553 @@
+{
+  "generated_at": "2026-10-19T17:03:27.492145+00:00",
+  "new_native_integrations": 0,
+  "source_script": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/code/mechanisms/revision_spring_amount_spatial_balance_20261019.py",
+  "source_script_sha256": "e44fb23e595a283e5ec08b1526c9f24a22bc25b749e1ff8c6560911e8bb0b12d",
+  "native_manifest_sha256": "f09f4eb19312de4d7c4bfe2ba47bff746cabcf1b7c8f2327315b86126a6db72d",
+  "cases": 81,
+  "noisy_cases": 72,
+  "scalar_samples": 518481,
+  "profiles_verified": 64881,
+  "scalar_cadence": 0.5,
+  "profile_audit_cadence": 4.0,
+  "active_M0_field": "M0",
+  "conserved_total_field": "amount",
+  "bootstrap_draws": 2000,
+  "bootstrap_seed": 2026101911,
+  "uncertainty_unit": "whole independent seed; same joint bags across components/times/windows",
+  "audits": [
+    {
+      "slot": 0,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "4f6b6226c976c8a5df1d994def56dd39fd56d7ba8fc56491662a7e78431daef3",
+      "primary_sha256": "e712c9881a9cbc6834ee9fd148cfc8993a80df34ee446cadfe3bfdb2766b677e",
+      "maximum_active_M0_field_error": 1.1102230246251565e-15,
+      "maximum_M1_field_error": 2.3263411494723067e-16,
+      "maximum_q1_field_error": 2.498001805406602e-16,
+      "maximum_conserved_total_field_error": 2.220446049250313e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 1,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "f79abf75f860f450d92bc632ab9aa11a6da9becc930cfbeb00efe8d7c9930c63",
+      "primary_sha256": "730417f09ee1daa4a26450360a49839068ea4863dc723e492898c740a702f0ef",
+      "maximum_active_M0_field_error": 1.1102230246251565e-15,
+      "maximum_M1_field_error": 2.2215299868541707e-16,
+      "maximum_q1_field_error": 2.7755575615628914e-16,
+      "maximum_conserved_total_field_error": 1.9984014443252818e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 8.881784197001252e-16
+    },
+    {
+      "slot": 2,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "c13abf25ecb0295c74a1de9e4f40a24f82cc4fc1b37bde3c830b3a8e13f24b61",
+      "primary_sha256": "9224f5f6a62cc19eb6cbc539920b2964783119cfb54e6d32667cab1a81c66d13",
+      "maximum_active_M0_field_error": 8.881784197001252e-16,
+      "maximum_M1_field_error": 2.086288971910448e-16,
+      "maximum_q1_field_error": 1.942890293094024e-16,
+      "maximum_conserved_total_field_error": 1.9984014443252818e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 3,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "95034db18a6894a4bc5fdd3d6d27fe2aaa6bc297eff61bdfd69fb4820cf4441c",
+      "primary_sha256": "2e4d6e872cc97d5ca954d17af163373cd0ba9e5853c1397ca9883fb8bf10cab5",
+      "maximum_active_M0_field_error": 8.881784197001252e-16,
+      "maximum_M1_field_error": 1.8309346819176897e-16,
+      "maximum_q1_field_error": 2.498001805406602e-16,
+      "maximum_conserved_total_field_error": 1.7763568394002505e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 4,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "27b3820abc9f4f9abb49e7684662c9a0379d3ffc08e9da33e021db440bf7d204",
+      "primary_sha256": "d58a08c9b36d31b9cd21021874a29477e430b045490a57df8e89d6fa0c37b5fd",
+      "maximum_active_M0_field_error": 9.992007221626409e-16,
+      "maximum_M1_field_error": 2.3633021048361517e-16,
+      "maximum_q1_field_error": 2.220446049250313e-16,
+      "maximum_conserved_total_field_error": 1.9984014443252818e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 5,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "35e22179b7bd1dd8c99bd622cb5cddbea48ee68574e94016a0fb4bc9454caf0b",
+      "primary_sha256": "7092fa174aeadb47fe8d351e6e17f90c30577d6394d09ca9e75852c0cb7106f6",
+      "maximum_active_M0_field_error": 9.992007221626409e-16,
+      "maximum_M1_field_error": 1.7388818282700985e-16,
+      "maximum_q1_field_error": 2.220446049250313e-16,
+      "maximum_conserved_total_field_error": 1.9984014443252818e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 6,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "9de8e2c9c5f9bac959fa46c93951e35296e6f16a9bbca451974b4bd007f82c6b",
+      "primary_sha256": "f87dc711b247be43d4cb898567bd1404224d5be87b45f9fe3b8241754375a68e",
+      "maximum_active_M0_field_error": 8.881784197001252e-16,
+      "maximum_M1_field_error": 1.8094421531119201e-16,
+      "maximum_q1_field_error": 1.6653345369377348e-16,
+      "maximum_conserved_total_field_error": 1.7763568394002505e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 7,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "ffa53d8ce8de504deca8d7cf69e4e84060275b9f99a2ee980da01e2859828a9e",
+      "primary_sha256": "a36e4bff162f3bc7aa11df2e9a150138b517a804d6e1d47700c927ea5dcb9928",
+      "maximum_active_M0_field_error": 1.2212453270876722e-15,
+      "maximum_M1_field_error": 2.220717083251841e-16,
+      "maximum_q1_field_error": 2.498001805406602e-16,
+      "maximum_conserved_total_field_error": 1.7763568394002505e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 8,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "bab91440837be339a73db2782b6d026166c507cb68faf127bacf227be1189737",
+      "primary_sha256": "023f3367f8b89abde566e716a1359b2489f1052d11425050836e4b7ea79a0837",
+      "maximum_active_M0_field_error": 8.881784197001252e-16,
+      "maximum_M1_field_error": 2.636779683484747e-16,
+      "maximum_q1_field_error": 2.7755575615628914e-16,
+      "maximum_conserved_total_field_error": 2.220446049250313e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 9,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "751774788a0a9e443e8569d83eec31ab5cd42d8e477f1609b4c9ee9b05115283",
+      "primary_sha256": "7d5d54f41206b25ba834cd4e78455f6c34199cc5b8909233b46abb98086fc56f",
+      "maximum_active_M0_field_error": 9.992007221626409e-16,
+      "maximum_M1_field_error": 2.2301825219878386e-16,
+      "maximum_q1_field_error": 2.498001805406602e-16,
+      "maximum_conserved_total_field_error": 1.9984014443252818e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 10,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "5792388f112780ca9ec9d4320351024b57628350b63cfaafab2b2f1becff62bb",
+      "primary_sha256": "5ee2a7257cae08ae2faf3ae27666f331d783900581221d200fc82975366d9071",
+      "maximum_active_M0_field_error": 9.992007221626409e-16,
+      "maximum_M1_field_error": 2.2247786310271853e-16,
+      "maximum_q1_field_error": 2.220446049250313e-16,
+      "maximum_conserved_total_field_error": 1.9984014443252818e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 11,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "59010c6eaa39ca4b83d67022b1fc923149ac80341619cf759d7b2b3b42c078d5",
+      "primary_sha256": "6f831274f5956bff2ce9ad599076303f4c469a2cb49a0632d11e52345be662f4",
+      "maximum_active_M0_field_error": 1.1102230246251565e-15,
+      "maximum_M1_field_error": 2.237726045655905e-16,
+      "maximum_q1_field_error": 1.942890293094024e-16,
+      "maximum_conserved_total_field_error": 1.9984014443252818e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 12,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "9889536cdb844587498b16b8350a5b9924f2b951dfadb55047c1c6cd78094ba8",
+      "primary_sha256": "c472d01fc84fe564d98629d978827e9b68ba267d8b546081037ab369d35191ab",
+      "maximum_active_M0_field_error": 8.881784197001252e-16,
+      "maximum_M1_field_error": 1.8386636824459423e-16,
+      "maximum_q1_field_error": 1.6653345369377348e-16,
+      "maximum_conserved_total_field_error": 1.3322676295501878e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 5.551115123125783e-16
+    },
+    {
+      "slot": 13,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "122a1b0e3eddea2c132669aa5eb4757726408a87a2c55e47be455ba35801e746",
+      "primary_sha256": "1fcfe21ed06cd6921c4ac9f505c2947687b6ab7a787d23f1768aa18787454af6",
+      "maximum_active_M0_field_error": 9.992007221626409e-16,
+      "maximum_M1_field_error": 2.636779683484747e-16,
+      "maximum_q1_field_error": 2.498001805406602e-16,
+      "maximum_conserved_total_field_error": 1.7763568394002505e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 14,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "62d93d18595c495343fbdd92a0615b99968aac0a56954ccf0d89821b2b457dc3",
+      "primary_sha256": "d43f135a2dfddcc69a99e37cbfd87184c88237f079061af0015981450b76f9cd",
+      "maximum_active_M0_field_error": 8.881784197001252e-16,
+      "maximum_M1_field_error": 2.0875146528180182e-16,
+      "maximum_q1_field_error": 1.942890293094024e-16,
+      "maximum_conserved_total_field_error": 1.9984014443252818e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 15,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "44f2081ca225706c1c394d51d6f4e9d8e1a4aa9a604638fc06e9e2fc94662040",
+      "primary_sha256": "9ae109ccf78c8ccee4f9e4c2cbdaa7060dce9becd3008a9c9f677f57a1fe96b9",
+      "maximum_active_M0_field_error": 8.881784197001252e-16,
+      "maximum_M1_field_error": 2.1942709178604383e-16,
+      "maximum_q1_field_error": 2.7755575615628914e-16,
+      "maximum_conserved_total_field_error": 1.9984014443252818e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 16,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "1bbc20f62906b21266fd1d72d5cae9239972d9a86c4975be0bdbcddcaacaf235",
+      "primary_sha256": "786d41a8eadfb075ff73dae775e23a94e096826636c32edcc843348325f209d9",
+      "maximum_active_M0_field_error": 8.881784197001252e-16,
+      "maximum_M1_field_error": 2.532458630424097e-16,
+      "maximum_q1_field_error": 2.220446049250313e-16,
+      "maximum_conserved_total_field_error": 1.9984014443252818e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 17,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "2d6aa2262307cb45eee392b9a66b2bea58fc00c68523a15fc2da007ab17e3e1a",
+      "primary_sha256": "6b6720b4646a0341f41ec466bcd7afe258514674006f34fcc5e79543ba7fec76",
+      "maximum_active_M0_field_error": 9.992007221626409e-16,
+      "maximum_M1_field_error": 2.1228933251263786e-16,
+      "maximum_q1_field_error": 2.7755575615628914e-16,
+      "maximum_conserved_total_field_error": 1.9984014443252818e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 18,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "b260c6bb8eb635bc73a0b05ed5d0f4419e0525c8f8bfa01c40f1cab9b9cef2c0",
+      "primary_sha256": "ceaa774252c444aeab4d1a59deb3f8707472b988f2e66691461eb7fcc42b90fe",
+      "maximum_active_M0_field_error": 8.881784197001252e-16,
+      "maximum_M1_field_error": 2.37549462997806e-16,
+      "maximum_q1_field_error": 3.0531133177191805e-16,
+      "maximum_conserved_total_field_error": 1.9984014443252818e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 19,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "ce2985de0854ba36671101952518ef809ef83aafc11854dc12cac315c3b86a25",
+      "primary_sha256": "56254dc8afd43562a3f87a5e98efd0ae4168140dc4b8635d834456b2821c64b3",
+      "maximum_active_M0_field_error": 7.771561172376096e-16,
+      "maximum_M1_field_error": 2.2247786310271853e-16,
+      "maximum_q1_field_error": 2.7755575615628914e-16,
+      "maximum_conserved_total_field_error": 1.7763568394002505e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 20,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "c7a8bdf69e75f5bd297a91673b0185a64a1515982eb387ec569059d1e33c8ed0",
+      "primary_sha256": "cbe680ffce272e4ab123e7eb59f5ef2afcceafc8723b7315bee8ddd4ab9509bb",
+      "maximum_active_M0_field_error": 9.992007221626409e-16,
+      "maximum_M1_field_error": 1.942890293094024e-16,
+      "maximum_q1_field_error": 2.498001805406602e-16,
+      "maximum_conserved_total_field_error": 1.5543122344752192e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 21,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "157064bfc75ed395c9313520961fb22880f25437de6f22e8e68ecf7beb1baf33",
+      "primary_sha256": "840e9c53baf0635d3a4ca90ef97c76fb85cea91083279dc24d3d043f5e5ccba2",
+      "maximum_active_M0_field_error": 9.992007221626409e-16,
+      "maximum_M1_field_error": 2.3592239273284576e-16,
+      "maximum_q1_field_error": 2.498001805406602e-16,
+      "maximum_conserved_total_field_error": 1.7763568394002505e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 22,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "7e1af033d5377693422688c542f359ef346f4c6657775c479cc4a4f7d0233245",
+      "primary_sha256": "8ddbed9d25051e43f36d3b62845d9f5ba14f49c8deb11ebc9556a83fd5497454",
+      "maximum_active_M0_field_error": 9.992007221626409e-16,
+      "maximum_M1_field_error": 1.9091418018976075e-16,
+      "maximum_q1_field_error": 2.0816681711721685e-16,
+      "maximum_conserved_total_field_error": 1.7763568394002505e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 23,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "6455832b8a12d81481f5d7dd9aac74eb3f4f2aadcdc3ad27072f51eab2c53fb7",
+      "primary_sha256": "95bd1f971e1daa220b863085d41a773131e401fbbf138813a4be97e1600c04b2",
+      "maximum_active_M0_field_error": 8.881784197001252e-16,
+      "maximum_M1_field_error": 2.368389951639684e-16,
+      "maximum_q1_field_error": 2.498001805406602e-16,
+      "maximum_conserved_total_field_error": 1.7763568394002505e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 24,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "69e7b0c64f3347ad98b24cbdd3b6749d90c3ab2a01922f48b10e0814434b51ef",
+      "primary_sha256": "dc3a30af596b53f74a04cdd93b462b6cdf00bb34c7ac438e832aeaf61d62a136",
+      "maximum_active_M0_field_error": 9.992007221626409e-16,
+      "maximum_M1_field_error": 1.9985490108393244e-16,
+      "maximum_q1_field_error": 2.7755575615628914e-16,
+      "maximum_conserved_total_field_error": 1.9984014443252818e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 25,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "df9aa8972331de0513f18e9ffeb4e0d7c737377b13d143b90bb9302a9a7e775d",
+      "primary_sha256": "a78162fb83ae8234be912e4ad71c626ace4275bed374880e31c6a011ca6829a1",
+      "maximum_active_M0_field_error": 6.661338147750939e-16,
+      "maximum_M1_field_error": 1.6199010924212654e-16,
+      "maximum_q1_field_error": 1.249000902703301e-16,
+      "maximum_conserved_total_field_error": 1.7763568394002505e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 3.3306690738754696e-16
+    },
+    {
+      "slot": 26,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "2ea4aa7d4e883b88990b4d5f3019057fbf02e089dfd866c17487f77ae2ba4918",
+      "primary_sha256": "1b9e158d326ce911f02af96008448f4f132b175799bccccdb11c9e7f92e3e052",
+      "maximum_active_M0_field_error": 4.440892098500626e-16,
+      "maximum_M1_field_error": 1.4979264390648768e-16,
+      "maximum_q1_field_error": 1.3877787807814457e-16,
+      "maximum_conserved_total_field_error": 1.1102230246251565e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 2.220446049250313e-16
+    },
+    {
+      "slot": 27,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "ad24b64fda83f81257421eea669e1287a39be1b0d57a7dd94540673195f84ec0",
+      "primary_sha256": "e3ed410eee54da0d2b5d0cbee5ee7d812470357c750736bd6b4bddf7afd9e34a",
+      "maximum_active_M0_field_error": 3.552713678800501e-15,
+      "maximum_M1_field_error": 4.1261629522333654e-16,
+      "maximum_q1_field_error": 3.608224830031759e-16,
+      "maximum_conserved_total_field_error": 4.884981308350689e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 28,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "4e1efb44ee4114f5c5a375b774290cd26d3c341d7a237c5391f4523f52d2a9e5",
+      "primary_sha256": "7719a9c36145e4f275af431e8ac2d3d42ff0b9e9d83de36309e3259610324c90",
+      "maximum_active_M0_field_error": 2.4424906541753444e-15,
+      "maximum_M1_field_error": 5.933464366067995e-16,
+      "maximum_q1_field_error": 3.0531133177191805e-16,
+      "maximum_conserved_total_field_error": 4.440892098500626e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 29,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "5cf32fa1dddbd4213c9a6e15f3057fbc786b867c9870bf8108a5d84fac87436b",
+      "primary_sha256": "ef2b3e39302bb170bf5f6ba3780b1f345f69077d4c4ffcc1427e702ceac30145",
+      "maximum_active_M0_field_error": 2.220446049250313e-15,
+      "maximum_M1_field_error": 6.389813363550566e-16,
+      "maximum_q1_field_error": 4.718447854656915e-16,
+      "maximum_conserved_total_field_error": 4.884981308350689e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 30,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "98a9cd66db02b164353e1759b4f797cf6c18b11dfb36a7bfd621bf6d804b30cf",
+      "primary_sha256": "9317341ef16ceb3b6aec219d3c237d88f2371e7266dca419c72ba7ce39c4815e",
+      "maximum_active_M0_field_error": 3.1086244689504383e-15,
+      "maximum_M1_field_error": 7.776515945702111e-16,
+      "maximum_q1_field_error": 4.163336342344337e-16,
+      "maximum_conserved_total_field_error": 5.329070518200751e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 5.551115123125783e-16
+    },
+    {
+      "slot": 31,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "65f69003ad6cc31ee7077a3d16819677a0238e2fddd2586863b8d4c3cf64643f",
+      "primary_sha256": "8bd4e37cc127258898c7e673d605507401b0fc202bd82f78312ce65879c9fc6e",
+      "maximum_active_M0_field_error": 2.6645352591003757e-15,
+      "maximum_M1_field_error": 6.061909215660398e-16,
+      "maximum_q1_field_error": 2.7755575615628914e-16,
+      "maximum_conserved_total_field_error": 6.217248937900877e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 32,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "81e3e1d5e3295a03b61c1172d503f80255db0258be27f455207f91abc1a83051",
+      "primary_sha256": "d698b2dabf1b11429ea6d07860194e380e1bf677aad73fa89d002c374e1fd4c1",
+      "maximum_active_M0_field_error": 2.4424906541753444e-15,
+      "maximum_M1_field_error": 4.613190423717512e-16,
+      "maximum_q1_field_error": 2.7755575615628914e-16,
+      "maximum_conserved_total_field_error": 5.773159728050814e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 5.551115123125783e-16
+    },
+    {
+      "slot": 33,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "d973dddfc53161e3a70f1ff80d9e5d29ce921ef2de4de2dfa6d2023621f83038",
+      "primary_sha256": "d43abdd6e47c3f3f4acf66e4186bac4739e6316571e499f033abcab8c9bb8064",
+      "maximum_active_M0_field_error": 2.6645352591003757e-15,
+      "maximum_M1_field_error": 6.674335893081556e-16,
+      "maximum_q1_field_error": 4.163336342344337e-16,
+      "maximum_conserved_total_field_error": 5.329070518200751e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 34,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "d23da921f491a8226e3925815e89877a4cb5282b935e42f1ad7dbbb343bcd74b",
+      "primary_sha256": "af752df8a322453ef5deb39966f5ae5d2033e9fd9797b59db5391cd2d2e6ae16",
+      "maximum_active_M0_field_error": 2.4424906541753444e-15,
+      "maximum_M1_field_error": 4.982493048981752e-16,
+      "maximum_q1_field_error": 3.0531133177191805e-16,
+      "maximum_conserved_total_field_error": 4.884981308350689e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 35,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "5f18742c55570330a04dd47a6233a719ccd41a6406ed9774f9145da13ef4f3de",
+      "primary_sha256": "3c141b67d1f95ff987dd128480f06695b0d3ad4009de7af19b4706ae8b02a05e",
+      "maximum_active_M0_field_error": 2.6645352591003757e-15,
+      "maximum_M1_field_error": 4.3089637234616164e-16,
+      "maximum_q1_field_error": 3.0531133177191805e-16,
+      "maximum_conserved_total_field_error": 6.217248937900877e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 36,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "8a00ced4aceb892b425b7377a3e6023d7d4e49768a5149eb57161ad72ed6e89c",
+      "primary_sha256": "77c4f703305ba7d1e321ada65a8abb34564f79c175cf59223fe02fe909e72bc7",
+      "maximum_active_M0_field_error": 2.6645352591003757e-15,
+      "maximum_M1_field_error": 4.355503409735122e-16,
+      "maximum_q1_field_error": 2.7755575615628914e-16,
+      "maximum_conserved_total_field_error": 5.773159728050814e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 37,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "9120468b3af59b53a553880dc2cfd5dec5a4552637baca59d273d046c2310521",
+      "primary_sha256": "1836c84c8b5cd85e29667d2f2ac5a1433d2a71be269d8c82cab2150d1d873f00",
+      "maximum_active_M0_field_error": 3.774758283725532e-15,
+      "maximum_M1_field_error": 6.389813363550566e-16,
+      "maximum_q1_field_error": 3.885780586188048e-16,
+      "maximum_conserved_total_field_error": 5.773159728050814e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 38,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "d9a6d28a9346b17d0015f17a40691dbd7582df1943686b935bab070ea93edfc8",
+      "primary_sha256": "ad724655d693310fff4fd6e5aa62926be78cbd634a1401400705e8734c16e2cb",
+      "maximum_active_M0_field_error": 2.886579864025407e-15,
+      "maximum_M1_field_error": 4.47545209131181e-16,
+      "maximum_q1_field_error": 3.3306690738754696e-16,
+      "maximum_conserved_total_field_error": 4.884981308350689e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 5.551115123125783e-16
+    },
+    {
+      "slot": 39,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "afca92eac8aeb0ff7a31c64df45b64e6b694b0cbbf03e306020d4687d7ee6c93",
+      "primary_sha256": "4d8875b90099706e3ac5d8f1b59510f1fff7476c04173d470102c0653d28f26e",
+      "maximum_active_M0_field_error": 1.9984014443252818e-15,
+      "maximum_M1_field_error": 4.649714245370399e-16,
+      "maximum_q1_field_error": 2.498001805406602e-16,
+      "maximum_conserved_total_field_error": 5.329070518200751e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 3.3306690738754696e-16
+    },
+    {
+      "slot": 40,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "0d4850ba5d7884501ce66e72f49c7bf4af3761131633633b699a7a1c4c5870d9",
+      "primary_sha256": "ee1a2769293777a29e2fe1a23cd8aa740510dee7519fac9253ec6ba7bb620201",
+      "maximum_active_M0_field_error": 3.1086244689504383e-15,
+      "maximum_M1_field_error": 5.79553433516819e-16,
+      "maximum_q1_field_error": 4.163336342344337e-16,
+      "maximum_conserved_total_field_error": 5.329070518200751e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 41,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "ba3ca83350d274b31968e334e3e0fc0a9b34c4273facd503169163da09f7bcda",
+      "primary_sha256": "d6aab1c325bff4411c175e31e317cbcaef91196e42cf4d430f3a16feabd194ae",
+      "maximum_active_M0_field_error": 2.6645352591003757e-15,
+      "maximum_M1_field_error": 6.261943282059022e-16,
+      "maximum_q1_field_error": 3.0531133177191805e-16,
+      "maximum_conserved_total_field_error": 5.329070518200751e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 42,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "1fed343c4c4e3712723f94035233a6a5dc323c4cbc5dbc1f69f8d252cc352eb7",
+      "primary_sha256": "5a21c6bc9ac3fad6e6bb2afe18d58a0cdb275a49b05dbe70672cfe5e0b49680b",
+      "maximum_active_M0_field_error": 2.220446049250313e-15,
+      "maximum_M1_field_error": 6.12040337055751e-16,
+      "maximum_q1_field_error": 4.163336342344337e-16,
+      "maximum_conserved_total_field_error": 5.329070518200751e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 43,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "6ddb29e17f89a8706fa33c2d444a88236fcb0c93e55e30ccc762df8dedc4aa6e",
+      "primary_sha256": "726ec1b878d28cc925ae5ce654a2f4d79ebe1f00040f35515e87facd6456544c",
+      "maximum_active_M0_field_error": 2.886579864025407e-15,
+      "maximum_M1_field_error": 6.145525706514757e-16,
+      "maximum_q1_field_error": 4.163336342344337e-16,
+      "maximum_conserved_total_field_error": 4.884981308350689e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 44,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "d28828acf5b59d44e9eb8b3cb650b381ee0cfeefeef8be3ccf90440f7fc514ae",
+      "primary_sha256": "1fa58b17f850df18299b8bf0116df997ae1a741edbfacd370ee1091612b86322",
+      "maximum_active_M0_field_error": 2.886579864025407e-15,
+      "maximum_M1_field_error": 7.323738727670759e-16,
+      "maximum_q1_field_error": 3.608224830031759e-16,
+      "maximum_conserved_total_field_error": 5.773159728050814e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 45,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "e46a19912510ed598a84ea046163d62c478cbd97c4020a380cf6fe0332453f47",
+      "primary_sha256": "c1370bd6ead18cd9f1429fac6b8254d9054c8876bbc84321a6dc2917a7c8d180",
+      "maximum_active_M0_field_error": 2.6645352591003757e-15,
+      "maximum_M1_field_error": 7.786725208595149e-16,
+      "maximum_q1_field_error": 3.885780586188048e-16,
+      "maximum_conserved_total_field_error": 5.773159728050814e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 46,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "a6b63c1925906396256d86d93b34a3a6797be2c0ff7df79c9337f916e89a3761",
+      "primary_sha256": "73c521a9d1c6bb2f54fdd80201cf861c8a6d143b4c1b29ca3d555766909295ce",
+      "maximum_active_M0_field_error": 2.886579864025407e-15,
+      "maximum_M1_field_error": 6.112531465858672e-16,
+      "maximum_q1_field_error": 3.3306690738754696e-16,
+      "maximum_conserved_total_field_error": 5.773159728050814e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 47,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "10ce6f85c3223f58b507c8aa7b7cbcdcceeb0db55a6005cc4ae41500efa022b0",
+      "primary_sha256": "d6b09ff2bd63494adeb8e0611d3c89fdff4dd500650a6baa3858f9e3d038622b",
+      "maximum_active_M0_field_error": 2.4424906541753444e-15,
+      "maximum_M1_field_error": 5.898697549827394e-16,
+      "maximum_q1_field_error": 3.608224830031759e-16,
+      "maximum_conserved_total_field_error": 5.329070518200751e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 5.551115123125783e-16
+    },
+    {
+      "slot": 48,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "3716ec858086529838ff4420644a603ea30c7f88eea24cee8976d8d8f7a44611",
+      "primary_sha256": "a9848b6535a990b1d13d7ed0504bfd95552a74e9928ae39550b7f3656f4ecd2e",
+      "maximum_active_M0_field_error": 3.1086244689504383e-15,
+      "maximum_M1_field_error": 6.206335383118183e-16,
+      "maximum_q1_field_error": 3.885780586188048e-16,
+      "maximum_conserved_total_field_error": 4.884981308350689e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 49,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "4d26f6d41bf6d23bc383cbb4ad7823d272c9ec638ad7892409c511f0766b3217",
+      "primary_sha256": "aaad864b67678170583917a81de994633c941f5b07062a55992736d408cbcabf",
+      "maximum_active_M0_field_error": 2.6645352591003757e-15,
+      "maximum_M1_field_error": 6.206335383118183e-16,
+      "maximum_q1_field_error": 3.3306690738754696e-16,
+      "maximum_conserved_total_field_error": 5.773159728050814e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 5.551115123125783e-16
+    },
+    {
+      "slot": 50,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "ee9ea5bcc24dc5b42c440b2d3417a2a43938507a9493499b404128d956775186",
+      "primary_sha256": "11eb9dbdb7a7ad726179bb96ba2089d9ba6160409fe31daa4a01e625032616e5",
+      "maximum_active_M0_field_error": 2.6645352591003757e-15,
+      "maximum_M1_field_error": 7.526061364646757e-16,
+      "maximum_q1_field_error": 4.0245584642661925e-16,
+      "maximum_conserved_total_field_error": 6.217248937900877e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 51,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "34527407119ad752014789581e8e6e94ef0d90785930eabf8bb9c13d5d787c27",
+      "primary_sha256": "bbfffb0f33dcb4994cee20c6f09902b942643a30282dddb90e303cd14a5bc649",
+      "maximum_active_M0_field_error": 2.886579864025407e-15,
+      "maximum_M1_field_error": 6.145525706514757e-16,
+      "maximum_q1_field_error": 3.3306690738754696e-16,
+      "maximum_conserved_total_field_error": 5.773159728050814e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 52,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "1f1a597178c4aa288a27f03eaa0916805a062732a049846a80cd78e85746446b",
+      "primary_sha256": "22d97141635a844f352f026620fe565006a226531a9bf7b66a23f6fd2a073bb8",
+      "maximum_active_M0_field_error": 2.6645352591003757e-15,
+      "maximum_M1_field_error": 4.0332320816460765e-16,
+      "maximum_q1_field_error": 3.608224830031759e-16,
+      "maximum_conserved_total_field_error": 6.217248937900877e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 4.440892098500626e-16
+    },
+    {
+      "slot": 53,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "5c18e1e92b97f9b626873988b4f79d7107bf4eed8cd96895eb6fd0525f2c1fca",
+      "primary_sha256": "ec5a77e822328f3edeff29b23a5b5e28849a6cfaa2e875e129d5fb2f3ec1168e",
+      "maximum_active_M0_field_error": 1.3322676295501878e-15,
+      "maximum_M1_field_error": 3.5072423704666716e-16,
+      "maximum_q1_field_error": 1.3877787807814457e-16,
+      "maximum_conserved_total_field_error": 3.1086244689504383e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 3.3306690738754696e-16
+    },
+    {
+      "slot": 54,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "dc2a0ba4c01b0e4c0b34175cad48a8ed4e238feb111f2ebe480d03fbf4b89daf",
+      "primary_sha256": "aa4842289dd680576530df7aa4d5725dc9f3e6482bb827b4cf53f0250691f226",
+      "maximum_active_M0_field_error": 4.884981308350689e-15,
+      "maximum_M1_field_error": 1.0329400704738531e-15,
+      "maximum_q1_field_error": 3.608224830031759e-16,
+      "maximum_conserved_total_field_error": 9.769962616701378e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 55,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "e1a17d6651934cef744fff454660f35ca90f7ea6709a90eebb68a4c6398e0890",
+      "primary_sha256": "5be1e641c73929fd6d4fc46319a83b6b118aff29be9212a59f751191d578b913",
+      "maximum_active_M0_field_error": 4.440892098500626e-15,
+      "maximum_M1_field_error": 8.514223576271389e-16,
+      "maximum_q1_field_error": 3.3306690738754696e-16,
+      "maximum_conserved_total_field_error": 7.993605777301127e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 56,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "154d39e5108732ea1fc946fcb757b6510c6153b9b7a5f58fcb885f0f4b58abe5",
+      "primary_sha256": "d201ad16d955bf6d84b7532627384ac4cc74d027ab1394b1e5119c0c93cef810",
+      "maximum_active_M0_field_error": 5.329070518200751e-15,
+      "maximum_M1_field_error": 8.559625570628158e-16,
+      "maximum_q1_field_error": 3.608224830031759e-16,
+      "maximum_conserved_total_field_error": 8.881784197001252e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 57,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "c35eb1524028bcb59a4791696615a2c63068883c57523bf84e73130fb668295e",
+      "primary_sha256": "7ba6e52f0139994f0833fb40dcb24897191a4399ab649f3a0a4e5e9700d61bef",
+      "maximum_active_M0_field_error": 4.884981308350689e-15,
+      "maximum_M1_field_error": 8.95090418262362e-16,
+      "maximum_q1_field_error": 3.608224830031759e-16,
+      "maximum_conserved_total_field_error": 1.1546319456101628e-14,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 58,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "fdcd46839c310b88df5762e0d3bfcd4bafd0d8f2ea3e82aa6d8b70eab4276287",
+      "primary_sha256": "0457e59bba7f303182600223141fc59f4ae48f22895ce8c4d1da0b9b92c0c98b",
+      "maximum_active_M0_field_error": 3.9968028886505635e-15,
+      "maximum_M1_field_error": 9.453208419344607e-16,
+      "maximum_q1_field_error": 3.3306690738754696e-16,
+      "maximum_conserved_total_field_error": 1.0658141036401503e-14,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 59,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "e31e4c1c73c568703d00306fa071c0bb41a5fd14f65197eadb2e166172e7c1a3",
+      "primary_sha256": "8cf6af8dcaca90b1bb6166858f09c1dbc66446d9a907ff94b26926566314ac32",
+      "maximum_active_M0_field_error": 4.884981308350689e-15,
+      "maximum_M1_field_error": 8.675560052622146e-16,
+      "maximum_q1_field_error": 3.885780586188048e-16,
+      "maximum_conserved_total_field_error": 9.769962616701378e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 60,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "f70537b9df3b1b34d0ba3375b376b476b0f1b5e968a8db61c7f03464c32313a9",
+      "primary_sha256": "3105e38b4b6ce9ea1785060e70f0807f61c4f3a099b591d1638c0a7294ccbebc",
+      "maximum_active_M0_field_error": 5.773159728050814e-15,
+      "maximum_M1_field_error": 9.453208419344607e-16,
+      "maximum_q1_field_error": 3.885780586188048e-16,
+      "maximum_conserved_total_field_error": 1.1546319456101628e-14,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 61,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "ecdd21d90c243958cd64b65ac76c469eb5dcd16cd9056e94ce16128e31e9eed9",
+      "primary_sha256": "85d328821be8c3a92a73527c4d9d7612f849d324974fdec96a6ca766b261792f",
+      "maximum_active_M0_field_error": 3.9968028886505635e-15,
+      "maximum_M1_field_error": 9.03762628910173e-16,
+      "maximum_q1_field_error": 3.608224830031759e-16,
+      "maximum_conserved_total_field_error": 1.0658141036401503e-14,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 62,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "2979132e90d842feece65311cf9c2ac22e5b22b007446c4e68bd4a4ca31ccf2c",
+      "primary_sha256": "7d7b71bba05ccecf7ed88005ae4be913716910b644407c3ae7cfb58a88afbcbe",
+      "maximum_active_M0_field_error": 4.440892098500626e-15,
+      "maximum_M1_field_error": 9.853229343548264e-16,
+      "maximum_q1_field_error": 3.3306690738754696e-16,
+      "maximum_conserved_total_field_error": 9.769962616701378e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 63,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "ffdd3de18c62ce69d24ff174769c12e14392020db6de0d1845d7890908653986",
+      "primary_sha256": "058b99a5a93dce54cbdae6d6e8b21bc76e039cdd0a7e1a92c67578ffc6624f71",
+      "maximum_active_M0_field_error": 4.884981308350689e-15,
+      "maximum_M1_field_error": 8.95090418262362e-16,
+      "maximum_q1_field_error": 3.3306690738754696e-16,
+      "maximum_conserved_total_field_error": 9.769962616701378e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 64,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "624263b83ea9eb06139e99822768974f160762ab810138aec2b3de66cf4f5ab7",
+      "primary_sha256": "d91f54cd438dae980a7effe24dc05354d020838ce82ef3f8e772dcf2aeccae8d",
+      "maximum_active_M0_field_error": 4.884981308350689e-15,
+      "maximum_M1_field_error": 9.040822243568021e-16,
+      "maximum_q1_field_error": 3.3306690738754696e-16,
+      "maximum_conserved_total_field_error": 8.881784197001252e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 65,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "d64031e0d0ce7a36c39dc6e18975724952f3ca60a16630d08355c2daddd451d2",
+      "primary_sha256": "41f8aca0d726654a63946ed74f23e04bacbaa27ab669d32508456be019e158b0",
+      "maximum_active_M0_field_error": 4.884981308350689e-15,
+      "maximum_M1_field_error": 7.8493122391177e-16,
+      "maximum_q1_field_error": 3.3306690738754696e-16,
+      "maximum_conserved_total_field_error": 1.0658141036401503e-14,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 66,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "564c913d517a50232572b05c454764be637926c3582d544e31bd433b028d1c27",
+      "primary_sha256": "c2d4331ca8ce08746485c7960702e5eac032933021b6266d64d3f09361142bb3",
+      "maximum_active_M0_field_error": 4.884981308350689e-15,
+      "maximum_M1_field_error": 7.384794446658181e-16,
+      "maximum_q1_field_error": 4.163336342344337e-16,
+      "maximum_conserved_total_field_error": 7.993605777301127e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 5.551115123125783e-16
+    },
+    {
+      "slot": 67,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "173f165f98143183e4a91886328cfa797000e826bd87d8023b355f7b3e62f974",
+      "primary_sha256": "81b12339e39db17b0938cfef55240e87c01b087cbcfc5a89099f823f7834f830",
+      "maximum_active_M0_field_error": 5.329070518200751e-15,
+      "maximum_M1_field_error": 7.850462293418876e-16,
+      "maximum_q1_field_error": 3.608224830031759e-16,
+      "maximum_conserved_total_field_error": 9.769962616701378e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 68,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "fa75f62f78ddfed8ee22015d5b313029903ed3004b260cefcbef315d92958dad",
+      "primary_sha256": "365564f7852206b998ce609d341fe1660c55625cecc394ca0a7290434290f627",
+      "maximum_active_M0_field_error": 4.440892098500626e-15,
+      "maximum_M1_field_error": 9.087832020904965e-16,
+      "maximum_q1_field_error": 3.885780586188048e-16,
+      "maximum_conserved_total_field_error": 8.881784197001252e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 69,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "8abd417d92f0249e6ea2c975dc156042c36695f99c57039af4ecf5d058eeb9d8",
+      "primary_sha256": "197fd3029308743ed8a52b52540a15f316683039a028c8de6c8e70052b613d15",
+      "maximum_active_M0_field_error": 4.440892098500626e-15,
+      "maximum_M1_field_error": 9.86885389939797e-16,
+      "maximum_q1_field_error": 3.608224830031759e-16,
+      "maximum_conserved_total_field_error": 9.769962616701378e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 70,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "5e17bb8f409e4f34809e51f5135041c5e49e51467d8fd7da2345cf00e6277abb",
+      "primary_sha256": "4ac5bbb40c8cc5354f4fc1f0665c81085a8ee8d6dee472859627998e852b131c",
+      "maximum_active_M0_field_error": 5.329070518200751e-15,
+      "maximum_M1_field_error": 1.1188630228279524e-15,
+      "maximum_q1_field_error": 3.885780586188048e-16,
+      "maximum_conserved_total_field_error": 1.1546319456101628e-14,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 71,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "33ad3b3a0ffe0443dcfd7f39f21060e97632a26e9a557442130254ee3536dab2",
+      "primary_sha256": "e29f44757e01d02f2635c4d861a7c806956938a6d9643accfeea3d3989dcdd68",
+      "maximum_active_M0_field_error": 4.440892098500626e-15,
+      "maximum_M1_field_error": 8.491573300505515e-16,
+      "maximum_q1_field_error": 3.3306690738754696e-16,
+      "maximum_conserved_total_field_error": 1.1546319456101628e-14,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 72,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "c6a3abd7fb03cf8ec4ec866c443895dc1a800b2fc42fead892198cae38490741",
+      "primary_sha256": "58892365a64b610d4ad767034266e2335650d88d05f997e9bd9fc86ec39a898f",
+      "maximum_active_M0_field_error": 4.440892098500626e-15,
+      "maximum_M1_field_error": 8.96917464302345e-16,
+      "maximum_q1_field_error": 3.608224830031759e-16,
+      "maximum_conserved_total_field_error": 9.769962616701378e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 73,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "08321efff649dd0e158b9f20994c62c8d53f4da4fc873aca8728f482e8fd5ba9",
+      "primary_sha256": "1d88d3093bb7597d829ec4c145941e2523e6c133a889805afdb20f8897020e20",
+      "maximum_active_M0_field_error": 4.440892098500626e-15,
+      "maximum_M1_field_error": 9.440976529270756e-16,
+      "maximum_q1_field_error": 4.440892098500626e-16,
+      "maximum_conserved_total_field_error": 1.0658141036401503e-14,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 74,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "7ad4d2ffda0c4743973d85a82baaab19ec7779dd14190bda66e180921772f87e",
+      "primary_sha256": "4208a4fd1c79116ae7bcdc44b195612ab43af2726359e7207c7ec5d927a11d52",
+      "maximum_active_M0_field_error": 5.329070518200751e-15,
+      "maximum_M1_field_error": 9.43689570931383e-16,
+      "maximum_q1_field_error": 4.163336342344337e-16,
+      "maximum_conserved_total_field_error": 9.769962616701378e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 75,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "194a4e715e0764e9fd92c0b2eebf806501ed6ecc40e6ad0763434a2af776179e",
+      "primary_sha256": "13e32f04efab739e5e542418046bdf5d80fe5a146bd05c84cef604a06420808b",
+      "maximum_active_M0_field_error": 5.773159728050814e-15,
+      "maximum_M1_field_error": 9.836601059614787e-16,
+      "maximum_q1_field_error": 3.3306690738754696e-16,
+      "maximum_conserved_total_field_error": 1.0658141036401503e-14,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 76,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "5def8053132dc271716b0ad2224733ecb28546b8a993bb2f60022c9efd3cac4d",
+      "primary_sha256": "443ba9e5ed6835348bcfe75968b5c7dd0bc330cba1c5893ac2c92aeba7ff1d60",
+      "maximum_active_M0_field_error": 4.884981308350689e-15,
+      "maximum_M1_field_error": 1.028455504850584e-15,
+      "maximum_q1_field_error": 3.608224830031759e-16,
+      "maximum_conserved_total_field_error": 8.881784197001252e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 77,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "4d28af3a157432afd92a86c4bac676439587522da8328e84d101ae91f1c45689",
+      "primary_sha256": "24958b3d854c63a8bcf848784a5f718bcabc1a4fd636e0d44ee07d75b267b500",
+      "maximum_active_M0_field_error": 4.884981308350689e-15,
+      "maximum_M1_field_error": 8.881784197001252e-16,
+      "maximum_q1_field_error": 3.608224830031759e-16,
+      "maximum_conserved_total_field_error": 1.0658141036401503e-14,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 78,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "c535c3a5ec014ceb173e593186bd4680f812af4edb061fe56e720ba268e7f703",
+      "primary_sha256": "3329cbb4f1544004af0a902234103d16d54f80e2800cac805b75ced5120822fe",
+      "maximum_active_M0_field_error": 4.884981308350689e-15,
+      "maximum_M1_field_error": 9.040822243568021e-16,
+      "maximum_q1_field_error": 3.885780586188048e-16,
+      "maximum_conserved_total_field_error": 8.881784197001252e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 6.661338147750939e-16
+    },
+    {
+      "slot": 79,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "17c9ac63ed06f784f89051f73be89e71f778521e546d9b9a78aa8d8c6b2afc63",
+      "primary_sha256": "5c71c1dd10d8cfde81f7bebed033ca027a66815808cf526b3adef4819db9b6a3",
+      "maximum_active_M0_field_error": 4.440892098500626e-15,
+      "maximum_M1_field_error": 8.117690358311562e-16,
+      "maximum_q1_field_error": 3.3306690738754696e-16,
+      "maximum_conserved_total_field_error": 7.993605777301127e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 5.551115123125783e-16
+    },
+    {
+      "slot": 80,
+      "saved_profiles": 801,
+      "scalar_samples": 6401,
+      "trace_sha256": "75fd3c26c743203a72950d59ae041ae32c5b50016d36be1ead170ed9155fdfeb",
+      "primary_sha256": "7ad545046393cf08f3d24661139b6a6419954354a60c65282506f4c199c121d7",
+      "maximum_active_M0_field_error": 1.3322676295501878e-15,
+      "maximum_M1_field_error": 4.611657222458089e-16,
+      "maximum_q1_field_error": 1.942890293094024e-16,
+      "maximum_conserved_total_field_error": 2.6645352591003757e-15,
+      "maximum_scalar_q1_definition_error": 0.0,
+      "maximum_scalar_P_definition_error": 0.0,
+      "maximum_factorization_error": 3.3306690738754696e-16
+    }
+  ],
+  "maximum_errors": {
+    "maximum_active_M0_field_error": 5.773159728050814e-15,
+    "maximum_M1_field_error": 1.1188630228279524e-15,
+    "maximum_q1_field_error": 4.718447854656915e-16,
+    "maximum_conserved_total_field_error": 1.1546319456101628e-14,
+    "maximum_scalar_q1_definition_error": 0.0,
+    "maximum_scalar_P_definition_error": 0.0,
+    "maximum_factorization_error": 8.881784197001252e-16
+  },
+  "elapsed_seconds": 16.61420938372612,
+  "outputs": [
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/condition_window_summaries.csv",
+      "sha256": "45efbc9f25a9a5f5331c9c161377eb731f2ebf5a5d013862e436f7e321189fe5"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/case_window_summaries.csv",
+      "sha256": "fc4dc78ade85e9f8a39d3816ffd532f9680be1df540426ccbcf5c69880ca6dd6"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/ensemble_scalar_traces.csv.gz",
+      "sha256": "e023a9a0c56e0ff17d149c04a7b82c68a09ca0cf28543a68dfc2f3998cd28178"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/case_index.csv",
+      "sha256": "19736f8a929462673b17c620eb998848a2cc26b46e364120c4242112829f8e4d"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0030.npz",
+      "sha256": "51139cc4d0832c1fbc85391c0d743e1c6cf74992be7886e225f1ec76f08679e8"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0005.npz",
+      "sha256": "3a6a27a6c89ccfbef1c42d5026ccc6ff36c87a00904e27d13b24111db4b42e85"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0017.npz",
+      "sha256": "6204a6e07a3413913654d393431bf1c550068723bcdc7fe9aef7de4171fb46df"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0053.npz",
+      "sha256": "42ae7a26c9ecd41547644706b48c542f4506494cf19c3fa5d212447092fdec07"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0056.npz",
+      "sha256": "96b28ea59ff9906d725b9729d4f4e061b940102c4a08d21cb4c35c0c5cf52646"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0020.npz",
+      "sha256": "0f719b5d39b3b3776380b24efcd8b86190b9b8ac31353726b22872afac51780f"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0077.npz",
+      "sha256": "5a99c5952208e37db2860ef7e83bfa1f5757f01775f1fb4573981bb55afe28be"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0055.npz",
+      "sha256": "da4bf3ef5ba2c66a2a58b4e4e6e4682c92f827e6616d1e85ed690895a02a90f6"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0052.npz",
+      "sha256": "6ca020a29bda6284e316fc8cb0e10e2d21005d5ee2e9e1e95b8ebe30dbc2e283"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0028.npz",
+      "sha256": "d212a42ebeeba1c0f6c9e07007b9bc81927c0eefc81a3105aafd0fb751c6f4dd"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0042.npz",
+      "sha256": "d94221f6a1fa0060031676b0c31844b879deab86b6e9f5aa22d5b51ca0ef5477"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0037.npz",
+      "sha256": "7e37b6093b9a0af0a196f1e405cd25f8652f7990155498d469a7533a02025939"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0019.npz",
+      "sha256": "d14ecd7e45a86bf33acabcc873b5f01e540b439195c916cd69dfb7fc536b4765"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0002.npz",
+      "sha256": "2452de6660a6f66b00f03a9157a2d1a70c2a77e0ad2a2d76d15c1e6e6fd19d14"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0062.npz",
+      "sha256": "00bf5389d2831cb3e6c3ae9c35fbc1e6b55c4e79cc5e41ca41bc6d695957c024"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0033.npz",
+      "sha256": "6dec5e9962d488cd709f3bebf1e966259561e3d3acfec5016cad4b00a5ff9354"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0036.npz",
+      "sha256": "c25741945da9229c81712b09e9495a40b4a501c4a0e8699fd1894afcf9c02903"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0001.npz",
+      "sha256": "14a66d66b02fa753384114a32d617f366a10771a483c914f0bc66f32ee6e48c1"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0014.npz",
+      "sha256": "88aab16f4df83ffefc0f73463a9f70efe275d524a9adffc33c954f3122b1ddb9"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0047.npz",
+      "sha256": "cc5fb6896848ced81fb5fcc581b7e2adf3bbf77ab18b135f60887d79bc0e78f3"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0029.npz",
+      "sha256": "8215c8e5ab464155d473a49f4aa2b23ef8cdecdecd5698df7b59a45300f285b9"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0007.npz",
+      "sha256": "eeb68a65ee0449e82137e64d209acb6d39fb7d2248938b836a2e5ba80b8d246a"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0049.npz",
+      "sha256": "58f8979a3358612834fc611ea6b98518b4fefd879f12aa7f0b14cf7b31d9ef3a"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0027.npz",
+      "sha256": "b3da373e8a7370a6c70093ccb8be4e12b62d0fc308c9112b05e3b10946fa82ae"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0079.npz",
+      "sha256": "9a2bcb488487e9f34dc38e6c5f669fde4f275425913dc76c5d34a1d689024dfd"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0074.npz",
+      "sha256": "dccd6c30264389a4901693b41d3c6fa03b8eda606fb52c0d5cfe2712f29df960"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0072.npz",
+      "sha256": "f3e5ad93910a3fcbf9dc748891ac2856d95f640e25fcbfc2b133b8b4b10c103a"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0071.npz",
+      "sha256": "c767db67061274d29a777fff1c2e0e84219eebff08afc9a79028a0dc46a7e89f"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0068.npz",
+      "sha256": "ee674684fbeeee3579aa8174a15c4ee7b27f786d23b3e366b1b7acf69674809a"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0065.npz",
+      "sha256": "dee9eaea791d90e0dee71d18394bc94ef0e336fd8c9e9f4e4b670af0f6cafced"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0050.npz",
+      "sha256": "12d603955a7b8fd51afd0f012aee8cfc0623ff4e5cc626dd597610aa78104618"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0011.npz",
+      "sha256": "bb8ba39dc736d5053b367c9e8258247ce589386cc694cd9adec908dcff9f02ab"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0024.npz",
+      "sha256": "8cafa61c9e6f4d1c877b878860182377c9246e975f2867c72df7563b6a74463e"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0015.npz",
+      "sha256": "305140ab67bc6735453ecaf185024ee87281c0c3ae624e067b56fe4626d1b56a"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0078.npz",
+      "sha256": "25e3be06a5c3b79b956b2b552f53fd2b25f673a3be9414f11c85f43d7c144632"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0012.npz",
+      "sha256": "445bf02ee6641b0e3262ca3c233fe41c112e8b402cad9fbbd80153067a97af03"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0025.npz",
+      "sha256": "84e114574944ea0ae026a6a51f70b4c1ab8218e66cd382a7dbd9e31fe7ee1022"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0008.npz",
+      "sha256": "3764c5625f14123faaa634826d9c7650f7d95b02b67fcf807258986ddab858e0"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0059.npz",
+      "sha256": "a645412c9adc6c7deff5e519b6c5068fbf75f74c478a75190facde4e0651f051"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0010.npz",
+      "sha256": "6535a70fe8cd0f0a8a0ad0481140e9d518323d9151d8c6c6e59b7827d79d4efd"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0013.npz",
+      "sha256": "5ab9ebbfd9e0c61d120be4c90417f388d9ff74c17fbd2bceffe903dac6044e73"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0051.npz",
+      "sha256": "4ace35dd4d573e8303845d424941d2d3ce083249dccbea3e72ede507ff854250"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0046.npz",
+      "sha256": "213ce8c1ef5e4db018976f4c4b47eda83d194bcfdf1becce9327fa368a26c6fe"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0073.npz",
+      "sha256": "37b8d11c02900ac0c520f44067b74cf0458ad1e6e52f892aaf0dcc688810c1cc"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0080.npz",
+      "sha256": "e6d6caeab66d8e79e8567397b1e6908da24811360d4dc16f7b411995dd23cc57"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0016.npz",
+      "sha256": "d4cf44e5c99f7bf63c119dd29ba7c794f77522d5aabe1d04ecb79b7be576b9c4"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0045.npz",
+      "sha256": "dc41a8466c95400024dd219ea639d37f384e4e2bea86f04d4c307421f5150ac5"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0009.npz",
+      "sha256": "49cb85cfd5dc40326c956261eff71691458f80c53ae204946ab8c292b7c0874d"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0063.npz",
+      "sha256": "85abaaad3b88281ec4a7ceec338d064b59ca30d7d42b585827b3a16ffd7c8ad6"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0041.npz",
+      "sha256": "caa168033719ac9734967c7483bf1cc190de374df9574d3547a5cebf95f21447"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0044.npz",
+      "sha256": "7e4406668f5bc37a0856833347f8f47f3109fa42773ca45bc82779225a0a30fb"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0034.npz",
+      "sha256": "c65efb64e6f3fe99e84e2292f14dcaac095df1961c49758128d52865763696ce"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0057.npz",
+      "sha256": "0bce0ab18bf7f77f7f54a3eba145ff9f70b5d02ae9ce7711213f6a0ed226b3ed"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0048.npz",
+      "sha256": "f30d2ea42844be8a88662bb843b292808257166e5d2f75c667b7b1336b9402b3"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0038.npz",
+      "sha256": "50676a0f9d5f46f5283c534ca3ccb2110a41bc02c6b4fd1638c21d95fcc62fe6"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0031.npz",
+      "sha256": "26b6a699d82b53a3c7a98182eef51559b5c43ce3a1cf6c41c2e2988348ad6044"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0076.npz",
+      "sha256": "7ec1034872d416c95dcf1c44b44f1e44c100b282cc4694c51f502656bbb13bbe"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0043.npz",
+      "sha256": "78dba98c2d2c62a16f63963c34485ee392747ea09e88cf88f70e8134d5ccb3d8"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0040.npz",
+      "sha256": "af1fd5c890ce46d4860f4dafad20221a13878abf98cb131e6f0e6128621ab187"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0060.npz",
+      "sha256": "456ccdd8c83cacf07ca90f57199de1a8a4dfb073fc34ed826c1ae50836a6da25"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0054.npz",
+      "sha256": "bb8c3ec7c969c1902b4d1ca1be40fa99fb661269afbf1dd905a23a9d193c4f16"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0058.npz",
+      "sha256": "6ddc4318dbbefe55770fb2a07276761ca7a655146706210470ccba371336defd"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0023.npz",
+      "sha256": "c8f8d650a42d217570f447971b86b5de6c4dfe01e70611255a865ad98ef8d4b5"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0069.npz",
+      "sha256": "24162f2019937a62b79fd7ed86077153b3e539e434b288198f62c2e572b5e100"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0067.npz",
+      "sha256": "645bb1f8771429aed5cadd06e43488e8b895326783b70c2e423a826f37d26581"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0075.npz",
+      "sha256": "ad15b8a9b3765fa922353af423c1c157d863a1f5c602ad89182ea38fe33a21aa"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0066.npz",
+      "sha256": "b38626c2a9cac39f1397cb35eb532aff3ca975aeae1a9d11df0d5717c8668017"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0035.npz",
+      "sha256": "f9426c5acfe80e312ce5b8616fdb55eb09e6053c9f0c970052c12c5012eeb155"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0022.npz",
+      "sha256": "d6afce871190ccc4d73daff0c03e3628bdf1f6006b3c75b5a5587882ea79507e"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0032.npz",
+      "sha256": "a78dd99436795a3ddd39a012ab21cf9ae904dee7b93de55427137c8c82ced6ef"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0039.npz",
+      "sha256": "70b23ed7b2584e46a49287061441f78d11c04265e5100b28c2336065bee1294e"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0070.npz",
+      "sha256": "31fa555f5e0770394520488789b98172efb57ac54f46461ac15e44a890a9ad1b"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0064.npz",
+      "sha256": "8cd65b09cd49b847d5adf5efc2d8c7233946effe2bbfa08d4781d9cd4a2cab91"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0006.npz",
+      "sha256": "31492a163ce8a13bd8bf19522efde7e0dae50e11d7c771874c1396f47acce727"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0003.npz",
+      "sha256": "cf58f02a1bd7989c476c34cc147a5f9e18d2a8d85525b04fe30d5a64982d8e47"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0061.npz",
+      "sha256": "54b26963628dda44bdd0e5ab683a1c395bb7d12f8c013e983ba6e098181974d2"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0018.npz",
+      "sha256": "e2b5f8f16afed819ee44f13f55931aa47f086e4e59607c21de1e7b2be105d3ce"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0000.npz",
+      "sha256": "ecad7c0f7d1592e1ce24df60a513f656aceffd397b2ba8233ae2731c27b3cbdb"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0004.npz",
+      "sha256": "2e6951ef0fdd5a723b804c9dde4ca7a367931709b7f69da094befc26dbed40b5"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0021.npz",
+      "sha256": "d09b6c7cdd86b6e3bf3d40f8d355b1f48a5e0e58e5e58c92fa6bda8ac323d0ae"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/data/spring_amount_spatial_balance/cases/slot_0026.npz",
+      "sha256": "0d0cd4ff544875c5d7911112dcb327ad34e6ff26994734e2ecddac7e1165c47e"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/figure4_spring_amount_spatial_balance.png",
+      "sha256": "45a4cce10bbe203d741c09848e0fd1deb31fbc8dd7f9ebd0d3765e0b0c74486f"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/vectors/figure4_spring_amount_spatial_balance.pdf",
+      "sha256": "98ba5537d75f92a3e45f2a3de41eb299cea4ba061271f91765f41fd74b1bd343"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/vectors/figure4_spring_amount_spatial_balance.svg",
+      "sha256": "edbd918759804dff0461edbb85032337bb8d5d4ca03df1af43dc0baa25219f84"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/SPRING_AMOUNT_SPATIAL_BALANCE.md",
+      "sha256": "bdfb22d0add90fad99a277c4a860fc71498f19b077a36bec8223b75becacb178"
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/metadata/SPRING_AMOUNT_SPATIAL_BALANCE_CAPTION.md",
+      "sha256": "cf421b73de3c2e75c99544767e3143add3e416bc352252295e5a77e4fdb7dd60"
+    }
+  ],
+  "visual_inspection": {
+    "status": "passed",
+    "time": "2026-10-19T17:05:32.398385+00:00",
+    "findings": "Both strengths share row scales; active amount, spatial first harmonic and R are separate. All control styles and noisy whole-seed uncertainty visible; no current main art changed."
+  },
+  "independent_review": {
+    "status": "accepted",
+    "reviewed_at": "2026-10-19T17:06:22.877754+00:00",
+    "case_exports_verified": 81,
+    "native_trace_profile_hashes_verified": 162,
+    "scalar_samples": 518481,
+    "profiles": 64881,
+    "pointwise_rows": 96015,
+    "case_windows": 243,
+    "condition_windows": 45,
+    "selected_point_and_all_window_CI_values": 1530,
+    "maximum_reported_difference": 1.16e-14,
+    "final_shared_row_scale_visual_review": "passed"
+  },
+  "accepted_mean_R_replay_maximum_error": 1.4432899320127035e-15,
+  "measured_resources": {
+    "elapsed_wall_seconds": 17.3,
+    "maximum_RSS_KiB": 497112,
+    "CPU_count": 1,
+    "resource_report": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/supporting/metadata/spring_amount_spatial_balance_resource_usage.txt"
+  },
+  "delivery_stable": true
+}

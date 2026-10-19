@@ -1,0 +1,144 @@
+{
+  "checked_utc": "2026-10-19T18:49:45.160318+00:00",
+  "passed": true,
+  "status": "bounded_WP_C20_f01_two_seed_native_anchor_verified",
+  "scope": "Two new WP C20 f=0.1 noisy histories and their exact deterministic mean control; no full sweep or old campaign re-audit.",
+  "manifest_sha256": "795023e22468754dd481e00d09a97bd6d371b15f88b8ea0b75c3a4c55e9c4dce",
+  "actual_native_profiles_replayed": 2403,
+  "canonical_scalar_observations": 19203,
+  "independent_numeric_comparisons": 41604,
+  "maximum_numeric_error": 7.639755494892597e-11,
+  "exact_initial_full_states_verified": 3,
+  "all_saved_primary_region_peak_counts_verified": true,
+  "physical_M0_M1_q1_q2_P_replayed": true,
+  "per_frame_R_equals_AQ": true,
+  "windows": "Full and inclusive first/last halves; no burn-in or selected averaging interval.",
+  "lag_checkpoints": [
+    5,
+    40,
+    100,
+    500,
+    2000,
+    8000
+  ],
+  "case_summaries": [
+    {
+      "slot": 12,
+      "kind": "noise",
+      "seed": 202610192000600,
+      "multiregion_fraction": 0.1399781284174348,
+      "qualified_multiregion_fraction": 0.1399781284174348,
+      "weak_R_fraction": 0.003436962974535229,
+      "low_contrast_fraction": 0.0,
+      "mean_R": 0.9192196195713072,
+      "mean_A": 1.1028036754174873,
+      "mean_Q": 0.835345542632349,
+      "mean_paired_AQ": 0.9192196195713072,
+      "mean_contrast_ratio": 1.0061737994075057
+    },
+    {
+      "slot": 13,
+      "kind": "noise",
+      "seed": 202610192000601,
+      "multiregion_fraction": 0.1293547883143259,
+      "qualified_multiregion_fraction": 0.1293547883143259,
+      "weak_R_fraction": 0.0028120606155288236,
+      "low_contrast_fraction": 0.0,
+      "mean_R": 0.9322751326815518,
+      "mean_A": 1.0973018191398587,
+      "mean_Q": 0.8517522390933607,
+      "mean_paired_AQ": 0.9322751326815517,
+      "mean_contrast_ratio": 1.0210257452782547
+    },
+    {
+      "slot": 14,
+      "kind": "mean",
+      "seed": 0,
+      "multiregion_fraction": 0.0,
+      "qualified_multiregion_fraction": 0.0,
+      "weak_R_fraction": 0.0,
+      "low_contrast_fraction": 0.0,
+      "mean_R": 0.9792372592675181,
+      "mean_A": 1.1072427043268398,
+      "mean_Q": 0.8843946222739807,
+      "mean_paired_AQ": 0.9792372592675181,
+      "mean_contrast_ratio": 0.9025348999535264
+    }
+  ],
+  "group_noisy": {
+    "multiregion_fraction": 0.13466645836588034,
+    "qualified_multiregion_fraction": 0.13466645836588034,
+    "weak_R_fraction": 0.0031245117950320263,
+    "mean_R": 0.9257473761264294,
+    "mean_A": 1.100052747278673,
+    "mean_Q": 0.8435488908628548,
+    "mean_paired_AQ": 0.9257473761264294,
+    "mean_contrast_ratio": 1.0135997723428802
+  },
+  "actual_native_multiregion_examples": [
+    {
+      "slot": 12,
+      "selection": "First qualified multiregion saved primary frame; diagnostic, not typical-state selection",
+      "actual_native_time": 80.0,
+      "regions": 2,
+      "resolved_native005_peaks": 2,
+      "physical_region_widths": [
+        3.75,
+        1.75
+      ],
+      "contrast_over_initial": 1.2295870421219848,
+      "R": 0.32644803112641846
+    },
+    {
+      "slot": 13,
+      "selection": "First qualified multiregion saved primary frame; diagnostic, not typical-state selection",
+      "actual_native_time": 1440.0,
+      "regions": 2,
+      "resolved_native005_peaks": 2,
+      "physical_region_widths": [
+        0.15,
+        4.95
+      ],
+      "contrast_over_initial": 1.0119634487924292,
+      "R": 0.6360105180767253
+    }
+  ],
+  "source_sha256": {
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0012/full_states.npz": "9efca775d0b9b2936613d86b29ecc9041f16829ef6bb4115e5bae02291ddc494",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0012/noise_modes.csv": "ab62364479f5f2dd172113b7154aa3ea9a515aa43634767e678304ab599ba7fb",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0012/noise_audit.json": "992b99ee3341a77f9e29025e34c1fea780386a7eaa589e07706e98beea2a736e",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0012/primary.npz": "4c4177ddcbd1f5f65388f5574bf574b1c2e508fee9667eb8b9a2f1874c32afe0",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0012/trace.npz": "53c11aa12984bb942b69639fbf4a5416abea79073e97d7f4ddec48155562f624",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0012/local_patterns.jsonl": "813dd8ba933c9063565a6abe4e8572905fc4e86060c8fda93d28b92e84da696a",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0012/final_state.npz": "e08f405d34d941080de922999d4249f531117090b48b52a90deab90db1e1afbb",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0012/scalars.csv": "7a83885017ade2be10764c37132ef34d7f4a449ee76b20df4bbab4bb3d5ea069",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0012/status.json": "850fbed0fa215048ade8e1ec37409ff20c345c5fba0badee257125f4114b4aaf",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0013/full_states.npz": "fe1bde5f4332c939c7648d6887f8d09b3994374ee36b319e2bfe803c0f4c6204",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0013/noise_modes.csv": "eed91d939744712a4e2e7d328abdf8aa689048a7e1702d774c13b5a46989a2c6",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0013/noise_audit.json": "dd4851a8ed2d7ff944de97aafbdd57a47748d136b69917e0874b588d3f5e1620",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0013/primary.npz": "bba14c57911916ff18efaaf6b5d3a37c7829e90b78c509fdb8a31b72112f25f9",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0013/trace.npz": "eb3f45a07a7e39c2919afead444ec997896bc05324b76c4795b2fccc966e5b73",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0013/local_patterns.jsonl": "c7e191c245f06a403b24079edb5404e6839e40dc29cd2a8cc438a6fb2c36a826",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0013/final_state.npz": "3abf2542ae79657c6e6326ad9fe683a44785b368c0d239de2fb69598c2ddd3e0",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0013/scalars.csv": "dd969a49f21629fe95f04754daa9d393b62b52ace719603972a681ea3ab5e3d5",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0013/status.json": "2221165ed578c0fe6e817ef679520fc06393163347001b4b8302f0107aae1f2b",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0014/full_states.npz": "9d4dcfaafe9889697f5e84e648d5de1b7bb870640f3faacbaa61df0bd3057102",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0014/noise_modes.csv": "a20e07da18f86aa589bd67e784c1fe4caae716be70eb3a4c399e3872852cebe9",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0014/noise_audit.json": "5a65b3d7a1c1db1d6716313d7fdf34535fc83174c34084eef409779915256865",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0014/primary.npz": "c430bc56a1c867bc835ca4ce4ff23def6289b283df92d90decfa9f974f8003e8",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0014/trace.npz": "87a28d1928163e0cc28a411aadc685ada8eac801a2bc78181ae7b3dd630d822f",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0014/local_patterns.jsonl": "57c36f85bece8a2f4fb2564276581ed889dfddb5c8c20a2a1982532b6359e7b1",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0014/final_state.npz": "e93e19e967dc85f2c5432a2fae29328a93c0fa50fd97bf5e55a3d0d7efd25700",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0014/scalars.csv": "e3e3e054683d0d382cb782c397c3e816efed59d12aa1ae187a662cbf663c90e8",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/workers/0014/status.json": "39a73aba7e3f685470fed8051ecd92a94021209439447bd51c967d2353165f29"
+  },
+  "partial_collector_source_sha256": "a595ebcb097f5165f9432ded7a6769314046c900712e38594ee9ee0b8aebc0a9",
+  "partial_table_scope": "Only immutable completed selected rows were checked; live CSVs continue to acquire other conditions.",
+  "inference": "Actual resolved multiple regions occur in both selected noisy paths at full field contrast, while their deterministic mean control has no sampled multiregion state. These are exploratory two-seed finite-window observations, not a transition location, general model-specific regime or event-rate estimate.",
+  "remaining": "Upper-strength numerical/observation gates, full sweep evidence, replication and author interpretation remain pending.",
+  "numeric_tolerances": {
+    "physical_profile_and_normalized_window_readouts_absolute": 3e-11,
+    "extensive_memory_sums_absolute": 1e-09,
+    "maximum_error_scope": "The maximum reported error is an extensive dot-product sum; normalized readouts and physical profiles passed their separate tighter check."
+  }
+}

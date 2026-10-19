@@ -1,0 +1,9 @@
+# Complete native cue experiment: comprehensive support
+
+[Five-page all-model PDF](supporting/vectors/complete_five_model_compensation.pdf).
+
+Every one of the 3492 requested baseline/strength protocols is retained in the [compact outcome table](supporting/data/all3492_protocol_outcomes.csv), including 97 no-cue controls. Each model page shows every qualified length, all three baseline widths, all five middle-width peak factors and five coarse pulse durations. Upper observed time points are saved-entry bracket midpoints for conditional first sampled 50% loss of localized incumbent excess during continuous stimulation; exact brackets remain in CSV. No-entry triangles may coincide at the same finite horizon, so every upper-curve legend explicitly reports its no-entry count. Bottom rows retain the distinct scalar-strength and native field-tail flags after 10000 cue-free native units. A lack of sampled success is not an optimized threshold bound, and no duration monotonicity or absence of untested success islands is assumed.
+
+[All 12222 ON loss/core/background records](supporting/data/all12222_ON_loss_conventions.csv) retain 25/50/75% loss, three floor rules and both core conventions, including missing entries and overlap. Inputs and clocks are native/model-specific; larger width changes integrated input. This supplement is a complete experimental record, not a molecular classification or common optical-actuator calibration.
+
+[Two additional targeted deBelly T500 outcomes](../selection/supporting/data/debelly_targeted_T500_outcomes.csv) are retained separately from the core 3492 protocols, for 3494 logical protocols in the expanded study. [Selection/control/source notes](../selection/README.md) document both returns and passing native field tails without inferring a width-specific retained fate or optimized threshold.

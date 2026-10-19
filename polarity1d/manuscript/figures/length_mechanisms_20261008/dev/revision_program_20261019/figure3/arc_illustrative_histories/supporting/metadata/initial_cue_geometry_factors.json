@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-10-19T19:10:12.077968+00:00",
+  "status": "passed",
+  "selected_initial_states": 6,
+  "formula": "omega_cue = (A / abs(M1_initial)) * kappa * sin(psi); A = integral physical native primary activation increment, kappa = abs(cue moment)/A, psi = cue moment phase relative to initialM1",
+  "angular_rate_units": "degrees per native time unit",
+  "comparisons": [
+    {
+      "label": "Holmes same arc, increasing size",
+      "numerator_condition_id": 172,
+      "denominator_condition_id": 132,
+      "exact_initial_rate_ratio": 0.34780031079529744,
+      "exact_factor_product": 0.3478003107952975,
+      "activation_amount_rate_ratio": 0.9994098538032322,
+      "inverse_initial_moment_ratio": 0.4868177492713455,
+      "finite_width_coherence_ratio": 1.0109621858054345,
+      "exact_sine_lever_ratio": 0.7071068151738612,
+      "centre_sine_lever_ratio": 0.7071067811865478
+    },
+    {
+      "label": "Wave-pinning same size, increasing arc",
+      "numerator_condition_id": 58,
+      "denominator_condition_id": 43,
+      "exact_initial_rate_ratio": 5.152865467466938,
+      "exact_factor_product": 5.152865467466941,
+      "activation_amount_rate_ratio": 1.0052754827694392,
+      "inverse_initial_moment_ratio": 1.0,
+      "finite_width_coherence_ratio": 1.0000000178175341,
+      "exact_sine_lever_ratio": 5.125824178522615,
+      "centre_sine_lever_ratio": 5.125830895482982
+    },
+    {
+      "label": "Goryachev same size, increasing arc",
+      "numerator_condition_id": 118,
+      "denominator_condition_id": 113,
+      "exact_initial_rate_ratio": 1.4142181962140803,
+      "exact_factor_product": 1.4142181962140805,
+      "activation_amount_rate_ratio": 1.000003660514887,
+      "inverse_initial_moment_ratio": 1.0,
+      "finite_width_coherence_ratio": 0.9999999862288264,
+      "exact_sine_lever_ratio": 1.414213038941643,
+      "centre_sine_lever_ratio": 1.4142135623730947
+    }
+  ],
+  "maximum_basal_rate_deg_per_native_time": 3.5782593253676386e-16,
+  "interpretation": "Exact instantaneous decomposition at each frozen initial state. It explains geometric lever arms and actual inactive-weighted activation; it is not an evolved pathway intervention or a causal allocation of the later reorientation trajectory.",
+  "source_sha256": {
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure3/standard_arclength_sizes/supporting/data/stationary_arclength_summary.csv": "9b00954df3a3ff50f65de37ea9f3d82968bab10196b8cdc10a5d054d5329e278",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure3/arc_illustrative_histories/supporting/data/selected_conditions.csv": "cbf589fc634b920693152ef1b34b9b7499c9f3e354a08dbf9d0258988cfe1e9b",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/code/mechanisms/revision_arc_initial_cue_factors_20261019.py": "8aab7a29dde266bbda5ad658ca1e3ecad97600e3d8f134087c0fcc2e9e9f0ca7"
+  },
+  "unchanged_rate_card_sources_verified": 31,
+  "rate_card_images_and_PDFs_unchanged": true
+}

@@ -1,0 +1,191 @@
+{
+  "recorded_utc": "2026-10-19T14:44:50.069680+00:00",
+  "source_outline": "manuscript_outline/outline_v2.json",
+  "protected_sections": {
+    "figure1": {
+      "id": "figure1",
+      "title": "Figure 1. Enlargement changes the cue duration required for lasting polarity replacement",
+      "role": "Comparative theoretical foundation: five established models, three finite challenges, and two distinct scalar replacement gates.",
+      "assets": [
+        {
+          "path": "polarity1d/manuscript/figures/main_polarity.png",
+          "caption": "Current canonical comparison, 10 October Spearman revision; corrected independent-endpoint deBelly.",
+          "page_size": [
+            11.8,
+            10.19
+          ],
+          "page_title": "Figure 1. Five models and three finite challenges",
+          "minimum_printed_width_inches": 10.0
+        }
+      ],
+      "legend": [
+        "A, Example wave-pinning preparation from a homogeneous state using a finite left patch. The cue ends at 0.773 native time units, whereas the subsequent basal relaxation establishes the polarized profile later (reported establishment arrival about 116). Coloured profiles and orientation samples distinguish input duration from autonomous development. The grey late interval is verification, not additional stimulation. Profiles are scaled for display.",
+        "B, Three rightward finite challenges restart the identical qualifying nominal-amplitude, relative-20% basal checkpoint at each model and length: fixed physical support 3 (Spring 0.2 native length units), relative support 20%, and a linear ramp with constant physical slope. Patch peaks remain fixed within each model; a fixed-slope ramp has a larger peak in a longer domain. Goryachev patches use the independently selected, length-independent multiplier K=64 (peak 6.4), which makes this a response-permissive comparison rather than a calibrated equal biochemical dose across models.",
+        "C, Spearman rank correlation between length and the shortest tested passing pulse duration, separately for orientation replacement and strength replacement, across Wave-pinning, Goryachev, corrected deBelly, Holmes 3 and Spring. Each cell reports the correlation and included successful-length count. All audited scalar successes enter, including those failing the separate native-field tail criterion. At least four distinct successful lengths and nonconstant durations are required; censored and preparation-ineligible cases receive no invented time. The companion duration curves retain all lengths and field-status markers.",
+        "After each positive pulse, input returns to the native basal value for 10,000 native time units. Orientation requires all 201 final-500 samples to have scalar orientation above 0.05 and contrast at least 0.05, with orientation range below 0.005. Strength additionally requires every tail orientation to be within 1% of the absolute initial leftward scalar orientation; it does not compare individual pole heights or amounts. The separate native-field tail flag requires pointwise range and projected 500-unit drift within 0.1% of frozen field scales. The reported duration excludes preparation and recovery. It is the shortest passing tested duration, with sampled fail/pass boundaries refined to 1%; narrower unobserved intervals are not excluded.",
+        "deBelly uses independently commanded corrected endpoints, rather than the deprecated in-loop centered extension. Spring length and time retain native units and are not silently converted to micrometres or seconds. Model-specific axes and stimulus definitions prevent interpreting cross-model amplitudes or clocks as biologically calibrated equivalents."
+      ],
+      "narrative": [
+        "Fixed-width and relative-width patches show perfectly increasing rank order among observed successes in Wave-pinning, Goryachev, Holmes 3 and Spring; enlargement often increases the finite stimulation required for a retained response.",
+        "The response depends on the cue geometry and model. Spring has a negative constant-slope association (Spearman correlation -0.874 for both gates), while Holmes orientation under the constant-slope cue is nearly unassociated with length (0.047).",
+        "Corrected deBelly curves are nonmonotone despite moderate positive rank correlations. The full duration curves and eligibility ranges are essential to the result.",
+        "These are deterministic polarity-replacement experiments. They motivate, but do not measure, spontaneous polarity memory or migration persistence."
+      ],
+      "measurements": [
+        "Mechanism-linked cellular follow-up would match local input support, amplitude and duration, track the original and challenged activity regions through stimulation and withdrawal, and distinguish orientation replacement from recovered activity strength. This validation is proposed and has no experimental results in this outline."
+      ],
+      "limitations": [
+        "Correlations are conditional on observed scalar success, rather than an unbiased summary of all possible sizes or a universal scaling law. Ineligible starts are distinct from responses unobserved by the finite horizon.",
+        "A retained scalar response can coexist with a changing native field. Only 13 of the 72 corrected deBelly scalar successes pass the separate native-field tail flag. Resolution checks from the earlier centered-deBelly campaign cannot qualify the corrected replacement thresholds."
+      ],
+      "sources": [
+        {
+          "label": "Three-test protocol and Spearman rule",
+          "path": "polarity1d/manuscript/THREE_TESTS.md"
+        },
+        {
+          "label": "Correlation table",
+          "path": "polarity1d/manuscript/data/derived/length_correlations.csv"
+        },
+        {
+          "label": "Corrected endpoint method",
+          "path": "polarity1d/manuscript/DEBELLY_BOUNDARIES.md"
+        },
+        {
+          "label": "Current duration curves",
+          "path": "polarity1d/manuscript/figures/supplement_width_response.png"
+        }
+      ]
+    },
+    "figure5": {
+      "id": "figure5",
+      "title": "Figure 5. Published migration summaries support a persistence hypothesis with conditional OU interpretation",
+      "role": "Existing empirical support, with observed migration summaries kept separate from fitted velocity-memory parameters.",
+      "assets": [
+        {
+          "path": "manuscript_outline/assets/migration_v2/figure5_migration_v2.png",
+          "caption": "Reassembled Figure 5: original A and C\u2013F numerical evidence, revised MSD/curve-shape panel B.",
+          "page_size": [
+            11.8,
+            10.78
+          ],
+          "page_title": "Figure 5. Migration observations and conditional OU interpretation",
+          "minimum_printed_width_inches": 10.0
+        },
+        {
+          "path": "manuscript_outline/assets/migration_v2/figure5b_msd_detail.png",
+          "caption": "Figure 5B continued: enlarged detail with explicit raster-sample caveat.",
+          "page_size": [
+            11.8,
+            11.98
+          ],
+          "page_title": "Figure 5. Migration observations and conditional OU interpretation",
+          "minimum_printed_width_inches": 10.0
+        }
+      ],
+      "legend": [
+        "A, Published/digitized enlarged or polyploid-group to reference-group ratios for nine migration summaries, alongside primary Ornstein\u2013Uhlenbeck (OU) fit predictions. Xuan contributes sampled mean speed and population mean-squared displacement (MSD) at the last shared lag, approximately 10.95 h; Hosny summaries are group medians. Mallin central-bar statistic is not specified by the source and retains the historical mean approximation. These distinct source summaries are not interchangeable measures of persistence.",
+        "B, Upper: twelve chosen display samples from each digitized Xuan population MSD curve (small points) and the unchanged fitted analytical OU expectation (solid lines), on logarithmic lag and MSD axes. These are samples of the published raster curves, not recovered experimental lag positions or independent cell observations; the original experimental lag grid is unknown. The open circle identifies the crossover of the full digitized traces at approximately 2.32 h, computed by linear interpolation in native lag and MSD. The open diamond identifies the different fitted OU crossover at approximately 1.11 h. Lower: descriptive slopes of log(MSD) versus log(lag) fitted in six equal log-lag windows of the full digitized curves (points), and matching-window moving OU slopes (solid lines). Each window spans approximately 0.304 decades; both observed and model slopes use the same full window support. Observed raster columns remain correlated and give no biological sample size or confidence interval. These slopes are newly calculated curve-shape summaries, not author-reported local exponents or fitted OU memory times. A constant power-law exponent would appear horizontal; reference values 1 and 2 indicate diffusive and straight-line scaling. The model does not reproduce the complete observed curvature or the observed crossover. The analytical fit, all fitting targets and numerical inputs to A and C\u2013F are unchanged.",
+        "C, Representative Xuan primary-fit model-generated tracks, with sampled speed, total path length and directness (net displacement divided by path length). Both groups use identical spatial scales. The tracks are simulations, not published individual-cell trajectories; a slower sampled trajectory can nevertheless have greater endpoint directness. Dashed chords illustrate the contribution of finite-time displacements.",
+        "D, With reference-group parameters fixed, vary enlarged-group persistence and velocity-noise ratios. Separate surfaces show change in the descriptive data-misfit score and in the total regularized objective; the selected fit and equal-group reference are marked. The heuristic score is not a calibrated likelihood, and the surfaces are not confidence regions.",
+        "E, Primary paired persistence and velocity-noise estimates for Xuan 2018, Mallin 2023, Jema\u00e0 2017, Jema\u00e0 2023 and the Hosny hypoxic baseline. F, Enlarged/reference persistence folds under the primary 10-minute prior, 5- and 20-minute alternatives and stronger/weaker pooling, with the pooled geometric mean. Priors and pooling define conditional sensitivity scenarios, not uncertainty intervals. The Jema\u00e0 comparisons constrain speed alone, leaving persistence/noise tradeoffs dependent on hierarchy and priors.",
+        "The fitted population contrasts span stable tetraploids, giant polyploids and treatment-induced polyaneuploid cancer cells (PACCs). The inherited WGD+/WGD\u2212 labels in the artwork are comparison shorthand and do not establish matched WGD-only interventions in every study. Hosny observations derive from the recovered preprint; equivalence to the journal version remains unresolved."
+      ],
+      "narrative": [
+        "Xuan combines lower sampled speed (0.64-fold) with greater late-lag population MSD (2.08-fold); Mallin combines shorter path length (0.52-fold) with greater directness (3.12-fold). Persistence-related behaviour therefore deserves analysis separately from speed.",
+        "Hosny baseline PACCs have greater median path length (1.77-fold) and directness (1.67-fold). Signed migration index is a separate directional summary.",
+        "All five primary OU comparisons infer longer velocity memory. The pooled primary persistence fold is about 15.8, and remains above one across the declared prior/pooling scenarios; this is a conditional model result.",
+        "The fit does not reproduce the complete Xuan curve shape within its raster envelope, and data-only sensitivity has rank 18 of 22. Optimization completion does not establish model adequacy or uniquely identified persistence times.",
+        "The observed Xuan curves cross near 2.32 h while the unchanged fitted OU curves cross near 1.11 h. Matched-window slopes make the remaining curve-shape discrepancy visible; fitted persistence is a conditional summary.",
+        "Lower sampled speed can coexist with greater late-lag displacement in the enlarged-group comparison. Its causal connection to polarity mechanisms requires matched activity and migration measurements."
+      ],
+      "measurements": [
+        "The new WGD assay should measure matched trajectories directly, with declared sampling and observation duration, and assess speed, displacement, directness and lag-dependent MSD before considering fitted persistence. An activity-polarity memory measurement would complement these quantities without equating activity and velocity."
+      ],
+      "limitations": [
+        "Neither these heterogeneous group comparisons nor the OU fits establish that enlargement alone causes persistence. Cell identity, induction/treatment and acquisition differences require explicit treatment in the new experiments.",
+        "The requested observed-point/model-line and curve-shape display is implemented. The original experimental lag grid remains unknown; neither display samples nor raster-derived slopes supply independent biological replicates. The observed/model crossover discrepancy remains visible."
+      ],
+      "sources": [
+        {
+          "label": "Refined OU analysis",
+          "path": "wgd_langevin/refined_ou_20261003/README.md"
+        },
+        {
+          "label": "Original panel legend",
+          "path": "wgd_langevin/refined_ou_20261003/figures/main_03_migration_OU_caption.md"
+        },
+        {
+          "label": "Observed folds",
+          "path": "wgd_langevin/refined_ou_20261003/figures/main_03_observation_folds.csv"
+        },
+        {
+          "label": "Fit results and adequacy",
+          "path": "wgd_langevin/refined_ou_20261003/results/RESULTS.md"
+        },
+        {
+          "label": "Hosny sensitivity supplement",
+          "path": "wgd_langevin/refined_ou_20261003/figures/supp_04_Hosny_sensitivity.png"
+        },
+        {
+          "label": "Revised display, exact preserved inputs and direct-user feedback",
+          "path": "manuscript_outline/assets/migration_v2/provenance.json"
+        },
+        {
+          "label": "Migration display numerical and preservation checks",
+          "path": "manuscript_outline/assets/migration_v2/validation.json"
+        }
+      ]
+    },
+    "figure6": {
+      "id": "figure6",
+      "title": "Figure 6. RESERVED: new WGD motility-assay results",
+      "role": "A substantial new experimental results section and main figure. No observations are available; the panel layout is a proposal, not an experimental result.",
+      "assets": [
+        {
+          "path": "manuscript_outline/assets/planned_WGD_results.png",
+          "caption": "Explicit placeholder. Every panel is pending acquisition, analysis and author review; no mock observations are displayed.",
+          "page_size": [
+            11.8,
+            10.38
+          ],
+          "page_title": "Figure 6. RESERVED: new WGD motility results",
+          "minimum_printed_width_inches": 10.0
+        }
+      ],
+      "legend": [
+        "A, Proposed experimental context: the SUM-159 chemically induced WGD+/\u2212 pair is the agreed starting pilot with the Speros collaboration. Imaging should first be optimized for that pair before expansion to additional cell lines. Ploidy/group identity, physical size and morphology need to be documented so the intended comparison is clear.",
+        "B, Reserved for representative experimental fields and trajectories under the selected acquisition conditions. The eventual panel should state sampling interval, usable duration, spatial scale, track eligibility and exclusions. Number of independent preparations and biological replicates remains to be specified.",
+        "C, Reserved for empirical motility summaries: sampled speed, accumulated path length, endpoint displacement/directness and lag-dependent MSD. The final readouts, follow-up window and analysis plan are to be settled before interpreting the data; this placeholder does not imply that all listed measurements will be technically feasible.",
+        "D, Reserved for the measured relationship between WGD-associated enlargement and migration behaviour, including size distributions and controls needed to interpret the group contrast. Any activity/protrusion measurements arising from the mechanism proposals require a separately agreed assay and should be distinguished from the basic motility pilot. Statistical models, uncertainty reporting and sample-size targets remain open."
+      ],
+      "narrative": [
+        "This major results section will test whether the planned paired experimental system exhibits the migration behaviour motivating the theoretical work.",
+        "Its conclusions must follow the acquired observations, including null or opposing results. Simulation output and literature fits cannot fill this gap.",
+        "Agreement between increased polarity resistance or activity memory and migration persistence would support the proposed connection; causal attribution requires appropriate perturbations and controls."
+      ],
+      "measurements": [
+        "Pending decisions include plating density, acquisition duration and cadence, field/condition throughput, tracking and exclusion rules, replicate structure, confirmation of WGD status, size quantification and the statistical analysis. The known throughput versus spatial/temporal resolution trade-off should be resolved by the pilot.",
+        "Mechanism validation can subsequently examine incumbent extent, early challenger growth, local loss/rebound, site fates and global activity-polarity correlation under characterized perturbations. These activity experiments are proposals alongside the theoretical mechanisms and are separate from the reserved motility-results contribution."
+      ],
+      "limitations": [
+        "No pilot acquisition, sample size, effect estimate, significance claim or experimental outcome is supplied by the available evidence."
+      ],
+      "sources": [
+        {
+          "label": "Author manuscript vision and supplied collaboration context",
+          "path": "MANUSCRIPT_VISION.md"
+        }
+      ]
+    }
+  },
+  "sha256": {
+    "docs/tasks/29_10_19_revision_program.md": "4454ebe58b6abb20e63cba23d494bb265f679dd27bb9d23401e9d85fc4d11dff",
+    "manuscript_outline/outline_v2.json": "19d16d717f438bb99a2fafe1481412a8d2fdd6350de646c4a72957c7e0b830dc",
+    "manuscript_outline/outline_v2.pdf": "ebc9a76cd5557a7e6dfda5803e59d8ea2368f4efee1a31dce36f03403189fc0a",
+    "polarity1d/manuscript/figures/main_polarity.png": "b9546b972968fc759d00fdea48b1a52bc53f595a9adc80667f97ee40e47684db",
+    "manuscript_outline/assets/migration_v2/figure5_migration_v2.png": "5fddb6d2176cf5bffa63b5ed82c9d0247bf48e235afbfed7417977c4ae517fd5",
+    "manuscript_outline/assets/migration_v2/figure5b_msd_detail.png": "edb54ea7c49def9ac3530c7d1d44272426b91c0a1d967f1c832e723d1e05649a",
+    "manuscript_outline/assets/planned_WGD_results.png": "d1cd8e512d3ca526c2ce5bd827402561a8e082a676dbe65baa6872601431a061"
+  }
+}

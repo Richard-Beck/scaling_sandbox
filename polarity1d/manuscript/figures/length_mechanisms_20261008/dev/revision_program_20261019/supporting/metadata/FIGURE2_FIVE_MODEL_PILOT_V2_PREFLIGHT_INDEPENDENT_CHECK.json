@@ -1,0 +1,118 @@
+{
+  "generated_at": "2026-10-19T20:51:06.079750+00:00",
+  "passed": true,
+  "ready_for_submission": true,
+  "manifest_sha256": "a97e676e27bb4d1d5d9f574804d82443554f4e69f275bc2aa7863018d43e05f9",
+  "scope": "Exact frozen ten-worker five-model native restart/resource pilot only. Full2522-protocol campaign is not launched or accepted by this preflight.",
+  "frozen_sources_verified": 32,
+  "frozen_inputs_verified": 20,
+  "all_97_qualified_checkpoint_hashes_verified": true,
+  "qualified_inventory_counts": {
+    "wave_pinning": 20,
+    "goryachev": 21,
+    "holmes_model3": 23,
+    "spring": 21,
+    "debelly": 12
+  },
+  "pilot_workers": 10,
+  "logical_protocol_rows": 60,
+  "basal_controls": 10,
+  "frozen_model_native_imports_verified": true,
+  "capture_only_dispatch_state_roundtrips": [
+    {
+      "model": "wave_pinning",
+      "exact_native_dispatch": true,
+      "state_roundtrip": true,
+      "no_integration": true
+    },
+    {
+      "model": "goryachev",
+      "exact_native_dispatch": true,
+      "state_roundtrip": true,
+      "no_integration": true
+    },
+    {
+      "model": "holmes_model3",
+      "exact_native_dispatch": true,
+      "state_roundtrip": true,
+      "no_integration": true
+    },
+    {
+      "model": "spring",
+      "exact_native_dispatch": true,
+      "state_roundtrip": true,
+      "no_integration": true
+    },
+    {
+      "model": "debelly",
+      "exact_native_dispatch": true,
+      "state_roundtrip": true,
+      "no_integration": true
+    }
+  ],
+  "per_model_saved_sampling": {
+    "wave_pinning": {
+      "on_frames": 6761,
+      "off_frames": 6761,
+      "all_five_withdrawals_exact": true,
+      "canonical4001off_gate_times_exact": true,
+      "debelly_half_step_lattice": false
+    },
+    "goryachev": {
+      "on_frames": 4761,
+      "off_frames": 6761,
+      "all_five_withdrawals_exact": true,
+      "canonical4001off_gate_times_exact": true,
+      "debelly_half_step_lattice": false
+    },
+    "holmes_model3": {
+      "on_frames": 6761,
+      "off_frames": 6761,
+      "all_five_withdrawals_exact": true,
+      "canonical4001off_gate_times_exact": true,
+      "debelly_half_step_lattice": false
+    },
+    "spring": {
+      "on_frames": 361,
+      "off_frames": 4277,
+      "all_five_withdrawals_exact": true,
+      "canonical4001off_gate_times_exact": true,
+      "debelly_half_step_lattice": false
+    },
+    "debelly": {
+      "on_frames": 961,
+      "off_frames": 4161,
+      "all_five_withdrawals_exact": true,
+      "canonical4001off_gate_times_exact": true,
+      "debelly_half_step_lattice": true
+    }
+  },
+  "all10_native_channel_checks_replayed": true,
+  "corrected_debelly_independent_endpoints_and11_fields": true,
+  "debelly_output_and_withdrawal_times_on_native_half_unit_lattice": true,
+  "Spring_raw_u_v_two_boundary_state_retained": true,
+  "Spring_gauge_removed_only_for_comparison": true,
+  "shared_ON_prefix_tolerance_fixed_scale": 0.0001,
+  "first_last_direct_native_OFF_references_required": true,
+  "conditional_middle_direct_OFF_trigger": "ON error>1e-5 or declared final-orientation/strength-error/field-tail proximity heuristic; additional targeted review may use actual pilot outcomes.",
+  "OFF_reference_full_state_tolerance": 0.0001,
+  "OFF_reference_scalar_strength_and_full_tail_flag_agreement_required": true,
+  "native_step_tolerance_and_equations_unchanged": true,
+  "unlaunched_v1_manifest_preserved": true,
+  "resource_plan": {
+    "cpus": 1,
+    "memory": "4G",
+    "qos": "small",
+    "walltime": "2h",
+    "throttle": null,
+    "actual_peakRSS_walltime_allocated_and_raw_field_bytes_recorded": true
+  },
+  "new_integrations_executed": 0,
+  "pending": "All native pilot outputs and reference continuations must pass independent terminal checks. Measured resources and native branch fidelity inform the full length-series freeze; no tested success is not proof of a minimum beyond the coarse grid.",
+  "scientific_limits": [
+    "Model clocks/input channels are native and not optically calibrated.",
+    "Initial overlap is retained and flagged; whole-domain smallGoryL3 cannot supply a separate-challenger activation comparison.",
+    "deBelly cue coordinates and Rac integrals retain nominal solver meaning; Spring uses evolving physical geometry.",
+    "Finite regional loss and retained scalar/field outcomes remain distinct; no unique molecular classifier or quantitative causal allocation is required."
+  ]
+}

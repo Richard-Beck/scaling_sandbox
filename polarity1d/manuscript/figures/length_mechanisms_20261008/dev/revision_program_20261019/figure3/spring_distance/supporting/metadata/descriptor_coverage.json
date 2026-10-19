@@ -1,0 +1,69 @@
+{
+  "generated_at": "2026-10-19T15:27:43.475621+00:00",
+  "passed": true,
+  "model": "Spring mean-force global-extension ring analogue",
+  "standard_cue_duration": 1000.0,
+  "cue_free_readout": 13000.0,
+  "requested_geometries": 15,
+  "eligible_geometries": 14,
+  "initial_overlap_exclusions": [
+    {
+      "resting_circumference": 1.0,
+      "fraction": 0.3
+    }
+  ],
+  "categorical_fate_invariant": true,
+  "observed_category": "cue-associated single peak",
+  "descriptor_ranking_status": "uninformative_constant_endpoint_class",
+  "classifier_accuracy_reported": false,
+  "ranking_limit": "This constant-class T1000 sample cannot discriminate physical, angular or other descriptors for class prediction. It does not establish class invariance for shorter cues, other doses, untested placements or sizes.",
+  "continuous_readouts_retained": true,
+  "within_size_distance_angle_collinear": true,
+  "within_size_ranges": [
+    {
+      "resting_circumference": 1.0,
+      "eligible_geometries": 4,
+      "finite_fate_classes": 1,
+      "final_angle_min": 125.9999999872504,
+      "final_angle_max": 180.0,
+      "original_core_excess_min": 0.1340027758196516,
+      "original_core_excess_max": 0.3264001602727386
+    },
+    {
+      "resting_circumference": 2.0,
+      "eligible_geometries": 5,
+      "finite_fate_classes": 1,
+      "final_angle_min": 108.00000000851148,
+      "final_angle_max": 180.0,
+      "original_core_excess_min": 0.0504756548428366,
+      "original_core_excess_max": 0.4011336456831011
+    },
+    {
+      "resting_circumference": 3.0,
+      "eligible_geometries": 5,
+      "finite_fate_classes": 1,
+      "final_angle_min": 104.30743635520564,
+      "final_angle_max": 180.0,
+      "original_core_excess_min": 0.0240247830414723,
+      "original_core_excess_max": 0.4134670956904743
+    }
+  ],
+  "interval_correspondence": {
+    "uniform_field_native_operator_carryover": "verified by retained Spring operator and numerical validation",
+    "exact_nonuniform_interval_reflection": "not_applicable_to_declared_mean_force_closure",
+    "reason": "Native interval extension samples the two endpoint Rac force laws; the declared ring averages the nonlinear force law around its perimeter. These generally differ for nonuniform fields. Uniform material dilution/diffusion carryover is preserved, but does not establish an exact nonuniform reflected-interval trajectory.",
+    "native_2d_mechanical_equivalence": false
+  },
+  "current_counterparts": {
+    "basal_organization_gain_recovery": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/spring_function/README.md",
+    "challenged_regional_function": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/spring_challenged_function/README.md",
+    "three_size_distance_duration": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure3/spring_distance/spring_distance_duration.png"
+  },
+  "older_comparison_scope": "The held-out-size descriptor fit and exact chemical interval/ring reflection maps cover Wave-pinning, Goryachev and Holmes only; they are historical chemical-only support.",
+  "native_units": "Uncalibrated author-model length and time; no cross-model perimeter or clock conversion",
+  "source_sha256": {
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure3/spring_distance/supporting/data/spring_distance_duration_summary.csv": "7a56a23efcb738a3eb9ccd9dfd299bcf9f02de00ad23099a0b5efd9faf57d2c5",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/code/mechanisms/revision_spring_descriptor_coverage_20261019.py": "06098366081cd090be0fbfd7791c33e64fb9eaa7bb3f8a5b43ad2faa23bd406d"
+  },
+  "output_table_sha256": "9dfa5029199fabbff10a41cbf94ad7276b191d132b0b0b63ea20e1080b05f6a3"
+}

@@ -1,0 +1,23 @@
+{
+  "submitted_at": "2026-10-19T21:15:33.194964+00:00",
+  "job_id": "21203858",
+  "dependency_collector": "21201283",
+  "native_job_id": "21200762",
+  "source_closure_sha256": "ddfc60b9c625a885618de63e0b52a8011e443817f9bd1c6a16601678488bdc11",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--qos=small",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--mem=3G",
+    "--time=00:30:00",
+    "--dependency=afterany:21201283",
+    "--job-name=f4-final-readouts",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/signature_assembly_20261019/supporting/metadata/final_%j.out",
+    "--error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/signature_assembly_20261019/supporting/metadata/final_%j.err",
+    "--wrap",
+    "exec /home/4473331/.conda/envs/scaling_sandbox/bin/python /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/signature_assembly_20261019/supporting/metadata/final_frozen_sources/driver.py --out /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/signature_assembly_20261019"
+  ],
+  "native_integrations": 0
+}

@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-10-19T19:39:41.893504+00:00",
+  "submitted": false,
+  "source_sha256": "dd8013c47ff5b9e56ec9513b95f68a6f77b7465dc808d0ce83a6d3b26a81d3d6",
+  "inputs": {
+    "case_window_memory.csv": "20f369d1b119dd993754a409ddd835bc221f113be194a9e95d7a042dbd9293f8",
+    "case_window_descriptors.csv": "326345f6c1c7b70b1d6625ef92ed51aae610f9b72895b05addc14e9946f46553",
+    "worker_inventory.csv": "b6c3123fdd3a82ea835563a35cf0a7d0fd61b7a9c6297d24105a12ca626cce72"
+  },
+  "condition_snapshot_sha256": "ceacd4a866d4ecd03c442e83ce27430e49f3ede2770f5d0c25cec91417194264",
+  "models": 4,
+  "sizes_per_model": 3,
+  "common_strengths": [
+    0.003,
+    0.03,
+    0.1
+  ],
+  "condition_groups": 36,
+  "additional_noisy_workers": 360,
+  "target_seeds": 12,
+  "additional_mean_controls": 0,
+  "additional_basals": 0,
+  "estimated_worker_hours": 63.10552267939654,
+  "measured_input_worker_max_seconds": 2139.0144632468,
+  "estimated_additional_allocated_bytes": 3830128640,
+  "storage_reserve_30pct_bytes": 4979167232,
+  "proposed_resources": {
+    "qos": "small",
+    "cpus": 1,
+    "memory_GiB": 3,
+    "walltime": "02:00:00",
+    "array_throttle": null
+  },
+  "qualification": "Proposal only; requires Spring numerical/observation acceptance and root/independent preflight; author steering is welcome without an additional authorization gate; no job submitted",
+  "limits": "Timing/output estimates use two actual existing cases per group, not upper prediction bounds; retain half-window sensitivity and n2 endpoint uncertainty"
+}

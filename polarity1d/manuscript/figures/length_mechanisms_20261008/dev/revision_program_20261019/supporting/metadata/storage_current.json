@@ -1,0 +1,1636 @@
+{
+  "measurement_started_utc": "2026-10-19T22:08:57.123632+00:00",
+  "du_measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+  "du_measurement_finished_utc": "2026-10-19T22:09:07.938226+00:00",
+  "measured_utc": "2026-10-19T22:09:09.122905+00:00",
+  "method": "GNU du -s --block-size=1 over disjoint named subtrees; allocated storage (not apparent bytes), directory allocation included, symlinks not dereferenced; hard links counted once across the disjoint du invocation.",
+  "du_version": "du (GNU coreutils) 8.30",
+  "measurement_scope": "Revision figure group plus every direct manuscript/data/runs/revision_*20261019* directory, including suffixed roots, and review_compensation_mapping_20261019. Broader manuscript/figures parent is measured separately as a component and excluded from the disjoint sum.",
+  "producer_state": "No nonservice scientific producer jobs active at scheduler observation; stored terminal, unsubmitted and archived-error states are retained per root. Scientific completion does not by itself imply acceptance.",
+  "scheduler_observed_utc": "2026-10-19T22:08:57.205187+00:00",
+  "active_nonservice_jobs": [],
+  "active_service_jobs": [
+    {
+      "job_id": "21198580",
+      "name": "conmon-scaling_sandbox_20261019_160615",
+      "state": "RUNNING"
+    },
+    {
+      "job_id": "21179298",
+      "name": "conmon-scaling_sandbox",
+      "state": "RUNNING"
+    },
+    {
+      "job_id": "21179301",
+      "name": "conmon-scaling_sandbox_2",
+      "state": "RUNNING"
+    },
+    {
+      "job_id": "21179285",
+      "name": "ood-rstudio-cont_4473331_20261019::app=OOD-rstudio-cont,",
+      "state": "RUNNING"
+    }
+  ],
+  "scheduler_accounting_error": null,
+  "groups": [
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019",
+      "purpose": "Final Figures2\u20134 scientific reports, main plates, comprehensive supplements, exact compact reconstruction exports and independent-review metadata.",
+      "producer_kind": "derived_figure_and_report_group",
+      "status": "Scientific/native producers terminal; only root documentation/assembly metadata may still change.",
+      "producer_state": "terminal_scientific_production",
+      "worker_status_records": 0,
+      "scheduler_accounting": {},
+      "allocated_bytes": 1504485376,
+      "allocated_GiB": 1.4011611938476562,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:09.122905+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_amplitude_operating_point_20261019",
+      "purpose": "Native input-amplitude operating-point extension for manuscript mechanism comparisons.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All20 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 20,
+      "worker_status_counts": {
+        "complete": 20
+      },
+      "worker_producer_counts": {
+        "not_stated": 20
+      },
+      "complete_or_finished_worker_records": 20,
+      "top_level_status_observations": [
+        {
+          "path": "results/latest_status.json",
+          "status": null,
+          "producer": "finished",
+          "complete": true,
+          "passed": null
+        }
+      ],
+      "submission_handles": [
+        "21198749",
+        "21200583"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 20,
+      "scheduler_accounting": {
+        "21198749": {
+          "state_counts": {
+            "COMPLETED": 20
+          },
+          "exit_code_counts": {
+            "0:0": 20
+          },
+          "records": 20
+        },
+        "21200583": {
+          "state_counts": {
+            "COMPLETED": 1
+          },
+          "exit_code_counts": {
+            "0:0": 1
+          },
+          "records": 1
+        }
+      },
+      "allocated_bytes": 759439360,
+      "allocated_GiB": 0.7072830200195312,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_arc_narrow_basals_20261019",
+      "purpose": "Qualified intermediate-size chemical/Spring basals for the Figure3 narrow-size stationary-cue experiment.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All2 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 2,
+      "worker_status_counts": {
+        "qualified": 2
+      },
+      "worker_producer_counts": {
+        "finished": 2
+      },
+      "complete_or_finished_worker_records": 2,
+      "top_level_status_observations": [],
+      "submission_handles": [
+        "21198088"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 2,
+      "scheduler_accounting": {
+        "21198088": {
+          "state_counts": {
+            "COMPLETED": 2
+          },
+          "exit_code_counts": {
+            "0:0": 2
+          },
+          "records": 2
+        }
+      },
+      "allocated_bytes": 6234112,
+      "allocated_GiB": 0.00580596923828125,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_arc_narrow_grid_20261019",
+      "purpose": "Figure3 narrow-size dense-initial-arc stationary-cue campaign; fresh native branches and exact-reuse provenance for645 logical conditions.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All470 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 470,
+      "worker_status_counts": {
+        "complete": 470
+      },
+      "worker_producer_counts": {
+        "finished": 470
+      },
+      "complete_or_finished_worker_records": 470,
+      "top_level_status_observations": [],
+      "submission_handles": [
+        "21198274"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 470,
+      "scheduler_accounting": {
+        "21198274": {
+          "state_counts": {
+            "COMPLETED": 470
+          },
+          "exit_code_counts": {
+            "0:0": 470
+          },
+          "records": 470
+        }
+      },
+      "allocated_bytes": 3395076096,
+      "allocated_GiB": 3.1619110107421875,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_arc_narrow_terminal_20261019",
+      "purpose": "Read-only terminal inventory/derived collection for the Figure3 narrow-size grid.",
+      "producer_kind": "read_only_analysis",
+      "status": "Derived/auxiliary output or terminal collection; no active associated producer.",
+      "producer_state": "terminal_derived_or_auxiliary",
+      "worker_status_records": 0,
+      "worker_status_counts": {},
+      "worker_producer_counts": {},
+      "complete_or_finished_worker_records": 0,
+      "top_level_status_observations": [
+        {
+          "path": "results/status.json",
+          "status": null,
+          "producer": "finished",
+          "complete": null,
+          "passed": true
+        }
+      ],
+      "submission_handles": [
+        "21198274",
+        "21199092"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": null,
+      "scheduler_accounting": {
+        "21198274": {
+          "state_counts": {
+            "COMPLETED": 470
+          },
+          "exit_code_counts": {
+            "0:0": 470
+          },
+          "records": 470
+        },
+        "21199092": {
+          "state_counts": {
+            "COMPLETED": 1
+          },
+          "exit_code_counts": {
+            "0:0": 1
+          },
+          "records": 1
+        }
+      },
+      "allocated_bytes": 2064384,
+      "allocated_GiB": 0.001922607421875,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_chemical_distance_duration_20261019",
+      "purpose": "Chemical C40 physical-distance/duration trajectory pilot and native field evidence.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All60 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 60,
+      "worker_status_counts": {
+        "complete": 60
+      },
+      "worker_producer_counts": {
+        "finished": 60
+      },
+      "complete_or_finished_worker_records": 60,
+      "top_level_status_observations": [],
+      "submission_handles": [
+        "21184098"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 60,
+      "scheduler_accounting": {
+        "21184098": {
+          "state_counts": {
+            "COMPLETED": 60
+          },
+          "exit_code_counts": {
+            "0:0": 60
+          },
+          "records": 60
+        }
+      },
+      "allocated_bytes": 572825600,
+      "allocated_GiB": 0.5334854125976562,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_compensation_excess_baseline_20261019",
+      "purpose": "Read-only background-aware regional excess analysis of the Figure2 all-five-model baseline campaign.",
+      "producer_kind": "read_only_analysis",
+      "status": "All5 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 5,
+      "worker_status_counts": {
+        "complete": 5
+      },
+      "worker_producer_counts": {
+        "not_stated": 5
+      },
+      "complete_or_finished_worker_records": 5,
+      "top_level_status_observations": [],
+      "submission_handles": [
+        "21204404"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": null,
+      "scheduler_accounting": {
+        "21204404": {
+          "state_counts": {
+            "COMPLETED": 5
+          },
+          "exit_code_counts": {
+            "0:0": 5
+          },
+          "records": 5
+        }
+      },
+      "allocated_bytes": 1532526592,
+      "allocated_GiB": 1.427276611328125,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_compensation_excess_strength_20261019",
+      "purpose": "Read-only background-aware regional excess analysis of the Figure2 all-five-model strength campaign.",
+      "producer_kind": "read_only_analysis",
+      "status": "All5 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 5,
+      "worker_status_counts": {
+        "complete": 5
+      },
+      "worker_producer_counts": {
+        "not_stated": 5
+      },
+      "complete_or_finished_worker_records": 5,
+      "top_level_status_observations": [],
+      "submission_handles": [
+        "21204473"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": null,
+      "scheduler_accounting": {
+        "21204473": {
+          "state_counts": {
+            "COMPLETED": 5
+          },
+          "exit_code_counts": {
+            "0:0": 5
+          },
+          "records": 5
+        }
+      },
+      "allocated_bytes": 1869373440,
+      "allocated_GiB": 1.7409896850585938,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_debelly_paired_withdrawal_20261019",
+      "purpose": "Bounded deBelly paired-withdrawal experiment linking a common pulse to regional weakening and retained outcomes.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All2 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 2,
+      "worker_status_counts": {
+        "complete": 2
+      },
+      "worker_producer_counts": {
+        "not_stated": 2
+      },
+      "complete_or_finished_worker_records": 2,
+      "top_level_status_observations": [],
+      "submission_handles": [
+        "21204926"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": null,
+      "scheduler_accounting": {
+        "21204926": {
+          "state_counts": {
+            "COMPLETED": 2
+          },
+          "exit_code_counts": {
+            "0:0": 2
+          },
+          "records": 2
+        }
+      },
+      "allocated_bytes": 142655488,
+      "allocated_GiB": 0.1328582763671875,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_debelly_paired_withdrawal_20261019_initialization_incomplete",
+      "purpose": "Preserved incomplete initialization of the deBelly paired-withdrawal payload; diagnostic provenance, not accepted native evidence.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "Preserved incomplete staging; no native worker outputs or active producer.",
+      "producer_state": "initialization_incomplete_not_submitted",
+      "worker_status_records": 0,
+      "worker_status_counts": {},
+      "worker_producer_counts": {},
+      "complete_or_finished_worker_records": 0,
+      "top_level_status_observations": [],
+      "submission_handles": [],
+      "active_associated_jobs": [],
+      "manifest_job_entries": null,
+      "scheduler_accounting": {},
+      "allocated_bytes": 1728512,
+      "allocated_GiB": 0.00160980224609375,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_debelly_width_snapshots_20261019",
+      "purpose": "Read-only deBelly width-response native snapshots and validation for the Figure2 discussion.",
+      "producer_kind": "read_only_analysis",
+      "status": "Derived/auxiliary output or terminal collection; no active associated producer.",
+      "producer_state": "terminal_derived_or_auxiliary",
+      "worker_status_records": 0,
+      "worker_status_counts": {},
+      "worker_producer_counts": {},
+      "complete_or_finished_worker_records": 0,
+      "top_level_status_observations": [],
+      "submission_handles": [
+        "21204717"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": null,
+      "scheduler_accounting": {
+        "21204717": {
+          "state_counts": {
+            "COMPLETED": 1
+          },
+          "exit_code_counts": {
+            "0:0": 1
+          },
+          "records": 1
+        }
+      },
+      "allocated_bytes": 2637824,
+      "allocated_GiB": 0.0024566650390625,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_five_model_compensation_baseline_20261019",
+      "purpose": "Preserved original unsubmitted all-five-model compensation baseline payload; superseded by the v2 campaign.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "Frozen/prepared payload with no native worker outputs and no active producer.",
+      "producer_state": "prepared_not_submitted",
+      "worker_status_records": 0,
+      "worker_status_counts": {},
+      "worker_producer_counts": {},
+      "complete_or_finished_worker_records": 0,
+      "top_level_status_observations": [
+        {
+          "path": "results/latest_status.json",
+          "status": null,
+          "producer": "frozen_not_submitted",
+          "complete": false,
+          "passed": null
+        }
+      ],
+      "submission_handles": [],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 368,
+      "scheduler_accounting": {},
+      "allocated_bytes": 17825792,
+      "allocated_GiB": 0.0166015625,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_five_model_compensation_baseline_v2_20261019",
+      "purpose": "Figure2 all-five-model native compensation baseline campaign; complete underlying fields and regional outcome evidence.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All368 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 368,
+      "worker_status_counts": {
+        "complete": 368
+      },
+      "worker_producer_counts": {
+        "not_stated": 368
+      },
+      "complete_or_finished_worker_records": 368,
+      "top_level_status_observations": [
+        {
+          "path": "results/latest_status.json",
+          "status": null,
+          "producer": "frozen_not_submitted",
+          "complete": false,
+          "passed": null
+        }
+      ],
+      "submission_handles": [
+        "21203299",
+        "21203920"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 368,
+      "scheduler_accounting": {
+        "21203299": {
+          "state_counts": {
+            "COMPLETED": 368
+          },
+          "exit_code_counts": {
+            "0:0": 368
+          },
+          "records": 368
+        },
+        "21203920": {
+          "state_counts": {
+            "COMPLETED": 1
+          },
+          "exit_code_counts": {
+            "0:0": 1
+          },
+          "records": 1
+        }
+      },
+      "allocated_bytes": 31512027136,
+      "allocated_GiB": 29.347862243652344,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_five_model_compensation_pilot_20261019",
+      "purpose": "Preserved original unsubmitted all-five-model compensation platform pilot; superseded by v2.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "Frozen/prepared payload with no native worker outputs and no active producer.",
+      "producer_state": "prepared_not_submitted",
+      "worker_status_records": 0,
+      "worker_status_counts": {},
+      "worker_producer_counts": {},
+      "complete_or_finished_worker_records": 0,
+      "top_level_status_observations": [
+        {
+          "path": "results/latest_status.json",
+          "status": null,
+          "producer": "frozen_not_submitted",
+          "complete": false,
+          "passed": null
+        }
+      ],
+      "submission_handles": [],
+      "active_associated_jobs": [],
+      "manifest_job_entries": null,
+      "scheduler_accounting": {},
+      "allocated_bytes": 5775360,
+      "allocated_GiB": 0.00537872314453125,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_five_model_compensation_pilot_v2_20261019",
+      "purpose": "All-five-model compensation platform pilot and native qualification evidence for the v2 campaign.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All10 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 10,
+      "worker_status_counts": {
+        "complete": 10
+      },
+      "worker_producer_counts": {
+        "not_stated": 10
+      },
+      "complete_or_finished_worker_records": 10,
+      "top_level_status_observations": [
+        {
+          "path": "results/latest_status.json",
+          "status": null,
+          "producer": "finished",
+          "complete": true,
+          "passed": null
+        }
+      ],
+      "submission_handles": [
+        "21202256"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": null,
+      "scheduler_accounting": {
+        "21202256": {
+          "state_counts": {
+            "COMPLETED": 10
+          },
+          "exit_code_counts": {
+            "0:0": 10
+          },
+          "records": 10
+        }
+      },
+      "allocated_bytes": 1357193216,
+      "allocated_GiB": 1.2639846801757812,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_five_model_compensation_strength_20261019",
+      "purpose": "Preserved original unsubmitted all-five-model compensation strength payload; superseded by v2.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "Frozen/prepared payload with no native worker outputs and no active producer.",
+      "producer_state": "prepared_not_submitted",
+      "worker_status_records": 0,
+      "worker_status_counts": {},
+      "worker_producer_counts": {},
+      "complete_or_finished_worker_records": 0,
+      "top_level_status_observations": [
+        {
+          "path": "results/latest_status.json",
+          "status": null,
+          "producer": "frozen_not_submitted",
+          "complete": false,
+          "passed": null
+        }
+      ],
+      "submission_handles": [],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 388,
+      "scheduler_accounting": {},
+      "allocated_bytes": 20250624,
+      "allocated_GiB": 0.01885986328125,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_five_model_compensation_strength_v2_20261019",
+      "purpose": "Figure2 all-five-model native strength extension with full fields and exact reuse for the complete underlying experiment.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All378 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 378,
+      "worker_status_counts": {
+        "complete": 378
+      },
+      "worker_producer_counts": {
+        "not_stated": 378
+      },
+      "complete_or_finished_worker_records": 378,
+      "top_level_status_observations": [
+        {
+          "path": "results/latest_status.json",
+          "status": null,
+          "producer": "frozen_not_submitted",
+          "complete": false,
+          "passed": null
+        }
+      ],
+      "submission_handles": [
+        "21203919",
+        "21204280"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 378,
+      "scheduler_accounting": {
+        "21203919": {
+          "state_counts": {
+            "COMPLETED": 378
+          },
+          "exit_code_counts": {
+            "0:0": 378
+          },
+          "records": 378
+        },
+        "21204280": {
+          "state_counts": {
+            "COMPLETED": 1
+          },
+          "exit_code_counts": {
+            "0:0": 1
+          },
+          "records": 1
+        }
+      },
+      "allocated_bytes": 39167950848,
+      "allocated_GiB": 36.477996826171875,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_five_model_high_strength_screen_20261019",
+      "purpose": "All-five-model upper-input native/numerical screen; retains both successful and limiting screen evidence.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All10 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 10,
+      "worker_status_counts": {
+        "screen_complete": 10
+      },
+      "worker_producer_counts": {
+        "not_stated": 10
+      },
+      "complete_or_finished_worker_records": 10,
+      "top_level_status_observations": [
+        {
+          "path": "results/latest_status.json",
+          "status": null,
+          "producer": "frozen_not_submitted",
+          "complete": false,
+          "passed": null
+        }
+      ],
+      "submission_handles": [
+        "21203497"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": null,
+      "scheduler_accounting": {
+        "21203497": {
+          "state_counts": {
+            "COMPLETED": 10
+          },
+          "exit_code_counts": {
+            "0:0": 10
+          },
+          "records": 10
+        }
+      },
+      "allocated_bytes": 1661501440,
+      "allocated_GiB": 1.547393798828125,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_gory_strength_transition_20261019",
+      "purpose": "Separate26-case Goryachev C60 Figure4 transition refinement, with24 noisy realizations and2 matched means; preserves936-case main closure.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All26 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 26,
+      "worker_status_counts": {
+        "complete": 26
+      },
+      "worker_producer_counts": {
+        "terminal": 26
+      },
+      "complete_or_finished_worker_records": 26,
+      "top_level_status_observations": [],
+      "submission_handles": [
+        "21204877"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 26,
+      "scheduler_accounting": {
+        "21204877": {
+          "state_counts": {
+            "COMPLETED": 26
+          },
+          "exit_code_counts": {
+            "0:0": 26
+          },
+          "records": 26
+        }
+      },
+      "allocated_bytes": 415154176,
+      "allocated_GiB": 0.3866424560546875,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_initial_arc_sizes_20261019",
+      "purpose": "Figure3 three-size matched-initial-physical-arc stationary-cue arm and exact-reuse provenance.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All115 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 115,
+      "worker_status_counts": {
+        "complete": 115
+      },
+      "worker_producer_counts": {
+        "finished": 115
+      },
+      "complete_or_finished_worker_records": 115,
+      "top_level_status_observations": [],
+      "submission_handles": [
+        "21192066"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 115,
+      "scheduler_accounting": {
+        "21192066": {
+          "state_counts": {
+            "COMPLETED": 115
+          },
+          "exit_code_counts": {
+            "0:0": 115
+          },
+          "records": 115
+        }
+      },
+      "allocated_bytes": 694067200,
+      "allocated_GiB": 0.6464004516601562,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_initial_arc_terminal_collection_20261019",
+      "purpose": "Read-only terminal native inventory and derived refresh of the initial-arc stationary-cue arm.",
+      "producer_kind": "read_only_analysis",
+      "status": "Derived/auxiliary output or terminal collection; no active associated producer.",
+      "producer_state": "terminal_derived_or_auxiliary",
+      "worker_status_records": 0,
+      "worker_status_counts": {},
+      "worker_producer_counts": {},
+      "complete_or_finished_worker_records": 0,
+      "top_level_status_observations": [
+        {
+          "path": "terminal_status.json",
+          "status": null,
+          "producer": "finished",
+          "complete": null,
+          "passed": true
+        }
+      ],
+      "submission_handles": [
+        "21192932"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": null,
+      "scheduler_accounting": {
+        "21192932": {
+          "state_counts": {
+            "COMPLETED": 1
+          },
+          "exit_code_counts": {
+            "0:0": 1
+          },
+          "records": 1
+        }
+      },
+      "allocated_bytes": 294912,
+      "allocated_GiB": 0.000274658203125,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019",
+      "purpose": "Figure4 nine-strength four-model pilot:252 new scientific cases plus4 numerical companions and324 retained scientific cases; raw fields, means and qualification limits.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All256 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 256,
+      "worker_status_counts": {
+        "complete": 256
+      },
+      "worker_producer_counts": {
+        "terminal": 256
+      },
+      "complete_or_finished_worker_records": 256,
+      "top_level_status_observations": [
+        {
+          "path": "status.json",
+          "status": null,
+          "producer": "submitted",
+          "complete": false,
+          "passed": null
+        },
+        {
+          "path": "results/partial/status.json",
+          "status": null,
+          "producer": "terminal",
+          "complete": true,
+          "passed": null
+        }
+      ],
+      "submission_handles": [
+        "21193769",
+        "21193770",
+        "21194194",
+        "21194562"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 256,
+      "scheduler_accounting": {
+        "21193769": {
+          "state_counts": {
+            "COMPLETED": 248
+          },
+          "exit_code_counts": {
+            "0:0": 248
+          },
+          "records": 248
+        },
+        "21193770": {
+          "state_counts": {
+            "COMPLETED": 8
+          },
+          "exit_code_counts": {
+            "0:0": 8
+          },
+          "records": 8
+        },
+        "21194194": {
+          "state_counts": {
+            "CANCELLED by 81011": 1
+          },
+          "exit_code_counts": {
+            "0:0": 1
+          },
+          "records": 1
+        },
+        "21194562": {
+          "state_counts": {
+            "COMPLETED": 1
+          },
+          "exit_code_counts": {
+            "0:0": 1
+          },
+          "records": 1
+        }
+      },
+      "allocated_bytes": 3118391296,
+      "allocated_GiB": 2.9042282104492188,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_noise_strength_replication_20261019",
+      "purpose": "Preserved unsubmitted strict Figure4 replication payload; its original all-gates guard remains unmet, with the Spring failed receipt retained.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "Frozen/prepared payload with no native worker outputs and no active producer.",
+      "producer_state": "prepared_not_submitted",
+      "worker_status_records": 0,
+      "worker_status_counts": {},
+      "worker_producer_counts": {},
+      "complete_or_finished_worker_records": 0,
+      "top_level_status_observations": [
+        {
+          "path": "status.json",
+          "status": null,
+          "producer": "frozen_not_submitted",
+          "complete": false,
+          "passed": null
+        }
+      ],
+      "submission_handles": [],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 360,
+      "scheduler_accounting": {},
+      "allocated_bytes": 2998272,
+      "allocated_GiB": 0.0027923583984375,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019",
+      "purpose": "Figure4 explicitly scoped360-case native replication plus576 retained cases;936-case core with exact basals and accepted ten-metric interpretation.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All360 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 360,
+      "worker_status_counts": {
+        "complete": 360
+      },
+      "worker_producer_counts": {
+        "terminal": 360
+      },
+      "complete_or_finished_worker_records": 360,
+      "top_level_status_observations": [
+        {
+          "path": "status.json",
+          "status": null,
+          "producer": "frozen_not_submitted",
+          "complete": false,
+          "passed": null
+        },
+        {
+          "path": "results/partial/status.json",
+          "status": null,
+          "producer": "terminal",
+          "complete": true,
+          "passed": null
+        }
+      ],
+      "submission_handles": [
+        "21200762",
+        "21201283"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 360,
+      "scheduler_accounting": {
+        "21200762": {
+          "state_counts": {
+            "COMPLETED": 360
+          },
+          "exit_code_counts": {
+            "0:0": 360
+          },
+          "records": 360
+        },
+        "21201283": {
+          "state_counts": {
+            "COMPLETED": 1
+          },
+          "exit_code_counts": {
+            "0:0": 1
+          },
+          "records": 1
+        }
+      },
+      "allocated_bytes": 3885432832,
+      "allocated_GiB": 3.61859130859375,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_ring_spring_20261019",
+      "purpose": "Shared qualified C0=1/2/3 Spring-ring basal preparations and stationarity/holdout evidence.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All3 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 3,
+      "worker_status_counts": {
+        "qualified": 3
+      },
+      "worker_producer_counts": {
+        "finished": 3
+      },
+      "complete_or_finished_worker_records": 3,
+      "top_level_status_observations": [],
+      "submission_handles": [
+        "21183808"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 3,
+      "scheduler_accounting": {
+        "21183808": {
+          "state_counts": {
+            "COMPLETED": 3
+          },
+          "exit_code_counts": {
+            "0:0": 3
+          },
+          "records": 3
+        }
+      },
+      "allocated_bytes": 4382720,
+      "allocated_GiB": 0.00408172607421875,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_spring_challenged_function_20261019",
+      "purpose": "Spring-ring matched common active-loss challenge at the exact cue-on state and native recovery evidence.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All14 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 14,
+      "worker_status_counts": {
+        "not_stated": 14
+      },
+      "worker_producer_counts": {
+        "finished": 14
+      },
+      "complete_or_finished_worker_records": 14,
+      "top_level_status_observations": [
+        {
+          "path": "results/status.json",
+          "status": null,
+          "producer": "finished",
+          "complete": true,
+          "passed": null
+        }
+      ],
+      "submission_handles": [
+        "21184877"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": null,
+      "scheduler_accounting": {
+        "21184877": {
+          "state_counts": {
+            "COMPLETED": 14
+          },
+          "exit_code_counts": {
+            "0:0": 14
+          },
+          "records": 14
+        }
+      },
+      "allocated_bytes": 44654592,
+      "allocated_GiB": 0.04158782958984375,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_spring_distance_duration_20261019",
+      "purpose": "Three-size Spring-ring native physical-distance/duration cue pilot.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All70 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 70,
+      "worker_status_counts": {
+        "complete": 70
+      },
+      "worker_producer_counts": {
+        "finished": 70
+      },
+      "complete_or_finished_worker_records": 70,
+      "top_level_status_observations": [],
+      "submission_handles": [
+        "21183978"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 70,
+      "scheduler_accounting": {
+        "21183978": {
+          "state_counts": {
+            "COMPLETED": 70
+          },
+          "exit_code_counts": {
+            "0:0": 70
+          },
+          "records": 70
+        }
+      },
+      "allocated_bytes": 146800640,
+      "allocated_GiB": 0.13671875,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_spring_noise_bridge_20261019",
+      "purpose": "Nested-forcing Spring OU-bridge/observation/ODE sensitivity cases, retaining pilot failures and estimator qualification.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All12 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 12,
+      "worker_status_counts": {
+        "complete": 12
+      },
+      "worker_producer_counts": {
+        "terminal": 12
+      },
+      "complete_or_finished_worker_records": 12,
+      "top_level_status_observations": [
+        {
+          "path": "results/status.json",
+          "status": null,
+          "producer": null,
+          "complete": true,
+          "passed": null
+        }
+      ],
+      "submission_handles": [
+        "21184067"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 12,
+      "scheduler_accounting": {
+        "21184067": {
+          "state_counts": {
+            "COMPLETED": 12
+          },
+          "exit_code_counts": {
+            "0:0": 12
+          },
+          "records": 12
+        }
+      },
+      "allocated_bytes": 11558912,
+      "allocated_GiB": 0.01076507568359375,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_spring_noise_main_20261019",
+      "purpose": "Original81-case Spring-ring noisy main campaign: both declared strengths, three sizes, independent seeds and mean/no-input controls.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All81 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 81,
+      "worker_status_counts": {
+        "complete": 81
+      },
+      "worker_producer_counts": {
+        "terminal": 81
+      },
+      "complete_or_finished_worker_records": 81,
+      "top_level_status_observations": [
+        {
+          "path": "results/status.json",
+          "status": null,
+          "producer": null,
+          "complete": true,
+          "passed": null
+        },
+        {
+          "path": "results/statistics_supplement/status.json",
+          "status": "complete",
+          "producer": "terminal",
+          "complete": true,
+          "passed": null
+        },
+        {
+          "path": "results/statistics_workflow/status.json",
+          "status": "complete",
+          "producer": "terminal",
+          "complete": true,
+          "passed": null
+        }
+      ],
+      "submission_handles": [
+        "21184193",
+        "21184419",
+        "21184463",
+        "21184782"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 81,
+      "scheduler_accounting": {
+        "21184193": {
+          "state_counts": {
+            "COMPLETED": 81
+          },
+          "exit_code_counts": {
+            "0:0": 81
+          },
+          "records": 81
+        },
+        "21184419": {
+          "state_counts": {
+            "COMPLETED": 1
+          },
+          "exit_code_counts": {
+            "0:0": 1
+          },
+          "records": 1
+        },
+        "21184463": {
+          "state_counts": {
+            "COMPLETED": 1
+          },
+          "exit_code_counts": {
+            "0:0": 1
+          },
+          "records": 1
+        },
+        "21184782": {
+          "state_counts": {
+            "COMPLETED": 1
+          },
+          "exit_code_counts": {
+            "0:0": 1
+          },
+          "records": 1
+        }
+      },
+      "allocated_bytes": 288808960,
+      "allocated_GiB": 0.26897430419921875,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_spring_noise_pilot_20261019",
+      "purpose": "Initial Spring-ring noise pilot with unchanged native law, controls and numerical comparisons; historical qualification evidence.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All9 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 9,
+      "worker_status_counts": {
+        "complete": 9
+      },
+      "worker_producer_counts": {
+        "terminal": 9
+      },
+      "complete_or_finished_worker_records": 9,
+      "top_level_status_observations": [
+        {
+          "path": "results/status.json",
+          "status": null,
+          "producer": null,
+          "complete": true,
+          "passed": null
+        }
+      ],
+      "submission_handles": [
+        "21183902"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 9,
+      "scheduler_accounting": {
+        "21183902": {
+          "state_counts": {
+            "COMPLETED": 9
+          },
+          "exit_code_counts": {
+            "0:0": 9
+          },
+          "records": 9
+        }
+      },
+      "allocated_bytes": 8396800,
+      "allocated_GiB": 0.00782012939453125,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_spring_noise_resolution_20261019",
+      "purpose": "Prepared Spring noise-resolution sensitivity payload without native worker outputs; retained source/input provenance.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "Frozen/prepared payload with no native worker outputs and no active producer.",
+      "producer_state": "prepared_not_submitted",
+      "worker_status_records": 0,
+      "worker_status_counts": {},
+      "worker_producer_counts": {},
+      "complete_or_finished_worker_records": 0,
+      "top_level_status_observations": [],
+      "submission_handles": [],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 9,
+      "scheduler_accounting": {},
+      "allocated_bytes": 499712,
+      "allocated_GiB": 0.00046539306640625,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_spring_ring_function_20261019",
+      "purpose": "Spring-ring organization, native input-gain and common active-loss recovery function evidence.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All3 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 3,
+      "worker_status_counts": {
+        "not_stated": 3
+      },
+      "worker_producer_counts": {
+        "finished": 3
+      },
+      "complete_or_finished_worker_records": 3,
+      "top_level_status_observations": [
+        {
+          "path": "results/status.json",
+          "status": null,
+          "producer": "finished",
+          "complete": true,
+          "passed": null
+        }
+      ],
+      "submission_handles": [
+        "21184056"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": null,
+      "scheduler_accounting": {
+        "21184056": {
+          "state_counts": {
+            "COMPLETED": 3
+          },
+          "exit_code_counts": {
+            "0:0": 3
+          },
+          "records": 3
+        }
+      },
+      "allocated_bytes": 5840896,
+      "allocated_GiB": 0.00543975830078125,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_standard_angles_duration_20261019",
+      "purpose": "Four-model standardized-angle finite-duration stationary-cue experiment with native cue/release histories.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All48 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 48,
+      "worker_status_counts": {
+        "complete": 48
+      },
+      "worker_producer_counts": {
+        "finished": 48
+      },
+      "complete_or_finished_worker_records": 48,
+      "top_level_status_observations": [],
+      "submission_handles": [
+        "21187059"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 48,
+      "scheduler_accounting": {
+        "21187059": {
+          "state_counts": {
+            "COMPLETED": 48
+          },
+          "exit_code_counts": {
+            "0:0": 48
+          },
+          "records": 48
+        }
+      },
+      "allocated_bytes": 352968704,
+      "allocated_GiB": 0.32872772216796875,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_standard_angles_sizes_20261019",
+      "purpose": "Three-size stationary-cue angle/duration extension with exact reuse and complete native history evidence.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All138 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 138,
+      "worker_status_counts": {
+        "complete": 138
+      },
+      "worker_producer_counts": {
+        "finished": 138
+      },
+      "complete_or_finished_worker_records": 138,
+      "top_level_status_observations": [],
+      "submission_handles": [
+        "21187420"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 138,
+      "scheduler_accounting": {
+        "21187420": {
+          "state_counts": {
+            "COMPLETED": 138
+          },
+          "exit_code_counts": {
+            "0:0": 138
+          },
+          "records": 138
+        }
+      },
+      "allocated_bytes": 697868288,
+      "allocated_GiB": 0.6499404907226562,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_width_fullfield_20261019",
+      "purpose": "Original eight fixed-pulse full-field width contrasts; four complete paths plus archived execution-error Goryachev markers, resolved by the separate retry.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "Inactive original attempt; archived running worker markers are stale, and the separate Goryachev retry supplies completed validation.",
+      "producer_state": "terminal_with_archived_execution_errors",
+      "worker_status_records": 8,
+      "worker_status_counts": {
+        "complete": 4,
+        "running": 4
+      },
+      "worker_producer_counts": {
+        "not_stated": 8
+      },
+      "complete_or_finished_worker_records": 4,
+      "top_level_status_observations": [
+        {
+          "path": "results/latest_status.json",
+          "status": null,
+          "producer": "execution_errors",
+          "complete": false,
+          "passed": null
+        }
+      ],
+      "submission_handles": [
+        "21195747"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": null,
+      "scheduler_accounting": {
+        "21195747": {
+          "state_counts": {
+            "COMPLETED": 4,
+            "FAILED": 4
+          },
+          "exit_code_counts": {
+            "0:0": 4,
+            "1:0": 4
+          },
+          "records": 8
+        }
+      },
+      "allocated_bytes": 134266880,
+      "allocated_GiB": 0.1250457763671875,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_width_fullfield_gory_retry_20261019",
+      "purpose": "Four Goryachev full-field validation retries, preserving the original failed-attempt provenance.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All4 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 4,
+      "worker_status_counts": {
+        "complete": 4
+      },
+      "worker_producer_counts": {
+        "not_stated": 4
+      },
+      "complete_or_finished_worker_records": 4,
+      "top_level_status_observations": [
+        {
+          "path": "results/latest_status.json",
+          "status": null,
+          "producer": "finished",
+          "complete": true,
+          "passed": null
+        }
+      ],
+      "submission_handles": [
+        "21195747",
+        "21195887"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": null,
+      "scheduler_accounting": {
+        "21195747": {
+          "state_counts": {
+            "COMPLETED": 4,
+            "FAILED": 4
+          },
+          "exit_code_counts": {
+            "0:0": 4,
+            "1:0": 4
+          },
+          "records": 8
+        },
+        "21195887": {
+          "state_counts": {
+            "COMPLETED": 4
+          },
+          "exit_code_counts": {
+            "0:0": 4
+          },
+          "records": 4
+        }
+      },
+      "allocated_bytes": 208519168,
+      "allocated_GiB": 0.1941986083984375,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_width_strength_grid_20261019",
+      "purpose": "Two-model bounded strength/width/duration Figure2 stage; new native histories plus exact reused protocols.",
+      "producer_kind": "preparation_or_native_campaign",
+      "status": "All69 stored worker/preparation records are complete or finished; no active associated producer.",
+      "producer_state": "terminal",
+      "worker_status_records": 69,
+      "worker_status_counts": {
+        "complete": 69
+      },
+      "worker_producer_counts": {
+        "not_stated": 69
+      },
+      "complete_or_finished_worker_records": 69,
+      "top_level_status_observations": [
+        {
+          "path": "results/latest_status.json",
+          "status": null,
+          "producer": "finished",
+          "complete": true,
+          "passed": null
+        }
+      ],
+      "submission_handles": [
+        "21196317"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": 69,
+      "scheduler_accounting": {
+        "21196317": {
+          "state_counts": {
+            "COMPLETED": 69
+          },
+          "exit_code_counts": {
+            "0:0": 69
+          },
+          "records": 69
+        }
+      },
+      "allocated_bytes": 1177665536,
+      "allocated_GiB": 1.0967864990234375,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/review_compensation_mapping_20261019",
+      "purpose": "Independent read-only native-field replay of Figure2 compensation baseline/strength regional readouts; audit evidence, no integration.",
+      "producer_kind": "read_only_analysis",
+      "status": "10 read-only audit result records;10 passed; no active producer.",
+      "producer_state": "terminal_read_only_audit",
+      "worker_status_records": 0,
+      "worker_status_counts": {},
+      "worker_producer_counts": {},
+      "complete_or_finished_worker_records": 0,
+      "top_level_status_observations": [],
+      "submission_handles": [
+        "21204847"
+      ],
+      "active_associated_jobs": [],
+      "manifest_job_entries": null,
+      "audit_result_counts": {
+        "records": 10,
+        "passed": 10
+      },
+      "scheduler_accounting": {
+        "21204847": {
+          "state_counts": {
+            "COMPLETED": 10
+          },
+          "exit_code_counts": {
+            "0:0": 10
+          },
+          "records": 10
+        }
+      },
+      "allocated_bytes": 2072576,
+      "allocated_GiB": 0.00193023681640625,
+      "measurement_started_utc": "2026-10-19T22:08:59.677297+00:00",
+      "measured_utc": "2026-10-19T22:09:07.938226+00:00"
+    }
+  ],
+  "sum_allocated_bytes": 94732214272,
+  "roots_at_or_above_2GiB": [
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_arc_narrow_grid_20261019",
+      "allocated_bytes": 3395076096,
+      "purpose": "Figure3 narrow-size dense-initial-arc stationary-cue campaign; fresh native branches and exact-reuse provenance for645 logical conditions.",
+      "producer_state": "terminal"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_five_model_compensation_baseline_v2_20261019",
+      "allocated_bytes": 31512027136,
+      "purpose": "Figure2 all-five-model native compensation baseline campaign; complete underlying fields and regional outcome evidence.",
+      "producer_state": "terminal"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_five_model_compensation_strength_v2_20261019",
+      "allocated_bytes": 39167950848,
+      "purpose": "Figure2 all-five-model native strength extension with full fields and exact reuse for the complete underlying experiment.",
+      "producer_state": "terminal"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019",
+      "allocated_bytes": 3118391296,
+      "purpose": "Figure4 nine-strength four-model pilot:252 new scientific cases plus4 numerical companions and324 retained scientific cases; raw fields, means and qualification limits.",
+      "producer_state": "terminal"
+    },
+    {
+      "path": "polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019",
+      "allocated_bytes": 3885432832,
+      "purpose": "Figure4 explicitly scoped360-case native replication plus576 retained cases;936-case core with exact basals and accepted ten-metric interpretation.",
+      "producer_state": "terminal"
+    }
+  ],
+  "new_group_at_or_above_2GiB": true,
+  "figures_parent_path": "polarity1d/manuscript/figures",
+  "figures_parent_allocated_bytes": 3770040320,
+  "figures_parent_is_component_only_not_added_to_disjoint_sum": true,
+  "only_written_path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/supporting/metadata/storage_current.json",
+  "self_inventory_allocation_included": true,
+  "figures_parent_measured_utc": "2026-10-19T22:09:09.122905+00:00",
+  "sum_allocated_GiB": 88.22624969482422
+}

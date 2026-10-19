@@ -1,0 +1,123 @@
+{
+  "generated_at": "2026-10-19T19:08:44.984658+00:00",
+  "passed": true,
+  "scope": "Independent implementation/protocol fidelity only; native trajectories and scientific outcomes remain pending.",
+  "manifest_sha256": "b21bc11e805906862ecaec8a037da5ceb3427d70a7369dbb402fcdc4cde84de3",
+  "integration_executed": false,
+  "jobs_submitted_by_reviewer": false,
+  "checks": {
+    "frozen_sources": 30,
+    "frozen_inputs": 12,
+    "old_core_sources_byte_identical": 27,
+    "frozen_native_import": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_width_fullfield_20261019/frozen_sources/code/core/native.py",
+    "exact_native_cues": 8,
+    "exact_basals": 4,
+    "exact_regional_inputs": 8,
+    "legacy_grid_subset": true,
+    "synthetic_legacy_gate_test": true,
+    "legacy_gate_formula_manually_compared_to_original": true,
+    "worker_native_solver_and_exact_restart_inspected": true,
+    "max_native_channel_error": 5.551115123125783e-17
+  },
+  "conditions": [
+    {
+      "slot": 0,
+      "model": "wave_pinning",
+      "length": 9.0,
+      "width": 1.8,
+      "requested_peak": 0.1,
+      "sampled_peak": 0.09996183437327341,
+      "core_cells": 63,
+      "cue_cells": 40,
+      "cue_native_channel_error": 5.551115123125783e-17
+    },
+    {
+      "slot": 1,
+      "model": "wave_pinning",
+      "length": 9.0,
+      "width": 3.0,
+      "requested_peak": 0.1,
+      "sampled_peak": 0.0999862592554908,
+      "core_cells": 63,
+      "cue_cells": 67,
+      "cue_native_channel_error": 5.551115123125783e-17
+    },
+    {
+      "slot": 2,
+      "model": "wave_pinning",
+      "length": 19.0,
+      "width": 3.0,
+      "requested_peak": 0.1,
+      "sampled_peak": 0.0999387700815429,
+      "core_cells": 62,
+      "cue_cells": 32,
+      "cue_native_channel_error": 5.551115123125783e-17
+    },
+    {
+      "slot": 3,
+      "model": "wave_pinning",
+      "length": 19.0,
+      "width": 3.8000000000000003,
+      "requested_peak": 0.1,
+      "sampled_peak": 0.09996183437327343,
+      "core_cells": 62,
+      "cue_cells": 40,
+      "cue_native_channel_error": 5.551115123125783e-17
+    },
+    {
+      "slot": 4,
+      "model": "goryachev",
+      "length": 9.0,
+      "width": 1.8,
+      "requested_peak": 6.4,
+      "sampled_peak": 6.397557399889498,
+      "core_cells": 16,
+      "cue_cells": 40,
+      "cue_native_channel_error": 0.0
+    },
+    {
+      "slot": 5,
+      "model": "goryachev",
+      "length": 9.0,
+      "width": 3.0,
+      "requested_peak": 6.4,
+      "sampled_peak": 6.399120592351411,
+      "core_cells": 16,
+      "cue_cells": 67,
+      "cue_native_channel_error": 0.0
+    },
+    {
+      "slot": 6,
+      "model": "goryachev",
+      "length": 25.0,
+      "width": 3.0,
+      "requested_peak": 6.4,
+      "sampled_peak": 6.393216534329482,
+      "core_cells": 6,
+      "cue_cells": 24,
+      "cue_native_channel_error": 0.0
+    },
+    {
+      "slot": 7,
+      "model": "goryachev",
+      "length": 25.0,
+      "width": 5.0,
+      "requested_peak": 6.4,
+      "sampled_peak": 6.397557399889499,
+      "core_cells": 6,
+      "cue_cells": 40,
+      "cue_native_channel_error": 0.0
+    }
+  ],
+  "limits": [
+    "Only eight selected protocols; no global monotonicity assumption.",
+    "Fixed requested peak, different spatial integral; no pure width versus dose attribution.",
+    "Native channel and clocks are not calibrated optical actuators or reporters.",
+    "N=201 inherited discretization; no spatial convergence claim.",
+    "Scalar polarity success and native field-tail pass are separate from regional geography."
+  ],
+  "pending": [
+    "Independent result/state/cue-off restart/full-field replay after actual eight native trajectories complete.",
+    "No spatial convergence proof or calibrated optical-dose claim."
+  ]
+}

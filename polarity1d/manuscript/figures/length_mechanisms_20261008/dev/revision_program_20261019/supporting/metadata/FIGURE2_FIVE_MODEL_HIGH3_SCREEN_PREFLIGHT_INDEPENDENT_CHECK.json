@@ -1,0 +1,40 @@
+{
+  "checked_utc": "2026-10-19T21:08:28.596191+00:00",
+  "passed": true,
+  "ready_for_submission": true,
+  "manifest_sha256": "c49e24abb7553cab3985b31a6011ba707e9ef3c7b0e813fdfe176787625d297f",
+  "sources_verified": 33,
+  "inputs_verified": 20,
+  "native_workers": 10,
+  "logical_native_branches": 60,
+  "all_five_models_shortest_longest_basals": true,
+  "native_requested_peak_multiplier": 3,
+  "accepted_platform_engine_identical": true,
+  "native_channels_and_initial_region_arrays_checked": true,
+  "numerical_companion_scope": {
+    "models": [
+      "wave_pinning",
+      "goryachev",
+      "holmes_model3",
+      "spring"
+    ],
+    "rtol_atol_factor": 0.1,
+    "maxstep_unchanged": true,
+    "saved_output_times_unchanged": true,
+    "ON_state_times": "all five pulse withdrawals",
+    "OFF_state_times": "first and last positive pulse",
+    "threshold_fixed_scales": 0.0001,
+    "scalar_strength_and_field_tail_flags_must_agree": true,
+    "complete_companion_fields_archived": true
+  },
+  "tolerance_hook_dummy_calls_checked": 2,
+  "native_integration_executed": false,
+  "debelly_native_halfunit_stagger_preserved_no_step_convergence_claim": true,
+  "resource_assessment": "One CPU/4GiB/30min, no concurrency throttle; baseline pilot peakRSS402MiB and143s longest native worker, high dose/companion work explicitly measured rather than presumed equal.",
+  "interpretation": [
+    "This is a bounded high-input native/adaptor/numerical screen before the outer-strength arm. No numerical outcome has been assumed from preflight.",
+    "Tolerance companions test the four ODE platforms at their exact native inputs/maxsteps; they do not establish spatial convergence or full-grid uniform convergence.",
+    "Corrected deBelly per-update mechanics is part of its native definition. Halving the update would change that model; preserved half-unit fullstate fidelity is checked without a temporal-refinement claim."
+  ],
+  "pending": "All actual native branches, direct-prefix/OFF checks and numerical companion results require terminal independent replay before interpreting this screen as passed."
+}

@@ -1,0 +1,148 @@
+{
+  "generated_at": "2026-10-19T21:34:43.027928+00:00",
+  "passed": true,
+  "ready_for_submission": true,
+  "manifest_sha256": "b74475ac55e86482243373bbee279e0ab88e7740d32c9711187ff099f37c90dd",
+  "source_sha256": "4eb062bc3f5c1fea55019145331dfa96bb4517a44f234ea32c97f1eca4ec7e19",
+  "source_guards_verified": 35,
+  "exact_native_cases": 4,
+  "native_snapshot_phase_checks": [
+    {
+      "slot": 340,
+      "length": 18.0,
+      "width": 1.5,
+      "phase": "on",
+      "actual_times": [
+        0.0,
+        50.0,
+        100.0,
+        150.0,
+        200.0,
+        300.0,
+        400.0,
+        500.0,
+        800.0,
+        2000.0
+      ],
+      "native_archive_sha256": "9f4fdf349bf7bd28ef584da6a1860715d1429378e45586c337747b2e3a8677a6"
+    },
+    {
+      "slot": 340,
+      "length": 18.0,
+      "width": 1.5,
+      "phase": "off",
+      "actual_times": [
+        0.0,
+        100.0,
+        1000.0,
+        10000.0
+      ],
+      "native_archive_sha256": "69e4682ef02ed9a10216b647d28cc27820603f6f2b11d5a9a891af918eef9023"
+    },
+    {
+      "slot": 342,
+      "length": 18.0,
+      "width": 5.0,
+      "phase": "on",
+      "actual_times": [
+        0.0,
+        50.0,
+        100.0,
+        150.0,
+        200.0,
+        300.0,
+        400.0,
+        500.0,
+        800.0,
+        2000.0
+      ],
+      "native_archive_sha256": "5760f938f6ca74f72bfac858b5649008068ba17fe4eb6c8418679897e2c3744e"
+    },
+    {
+      "slot": 342,
+      "length": 18.0,
+      "width": 5.0,
+      "phase": "off",
+      "actual_times": [
+        0.0,
+        100.0,
+        1000.0,
+        10000.0
+      ],
+      "native_archive_sha256": "9372a72f0d9a10b4a4a2c09d2831e758107450a718d6f8ea98887bc804ef4c61"
+    },
+    {
+      "slot": 384,
+      "length": 39.0,
+      "width": 1.5,
+      "phase": "on",
+      "actual_times": [
+        0.0,
+        50.0,
+        100.0,
+        150.0,
+        200.0,
+        300.0,
+        400.0,
+        500.0,
+        800.0,
+        2000.0
+      ],
+      "native_archive_sha256": "281c949572a7d7028489ef0a2cbb55d92ba2db6ca2527b81a9a85b05db3fe5f1"
+    },
+    {
+      "slot": 384,
+      "length": 39.0,
+      "width": 1.5,
+      "phase": "off",
+      "actual_times": [
+        0.0,
+        100.0,
+        1000.0,
+        10000.0
+      ],
+      "native_archive_sha256": "5983f4b57b92e8adbd3d4ad31b4384d9d162cc6d457d1c6f65e5f47e9968c5ce"
+    },
+    {
+      "slot": 386,
+      "length": 39.0,
+      "width": 5.0,
+      "phase": "on",
+      "actual_times": [
+        0.0,
+        50.0,
+        100.0,
+        150.0,
+        200.0,
+        300.0,
+        400.0,
+        500.0,
+        800.0,
+        2000.0
+      ],
+      "native_archive_sha256": "4d13cef7ca8d3eb5e20bf29eb62a820544ce776eed2f1363d03a703dbb11db64"
+    },
+    {
+      "slot": 386,
+      "length": 39.0,
+      "width": 5.0,
+      "phase": "off",
+      "actual_times": [
+        0.0,
+        100.0,
+        1000.0,
+        10000.0
+      ],
+      "native_archive_sha256": "fb46998525ff2d0a041afd2ad21ef0b3dd0037b7e6c3b0890cae0a399fd0bc72"
+    }
+  ],
+  "maximum_saved_activation_decomposition_error": 2.2648549702353193e-14,
+  "maximum_independent_FV_diffusion_error": 1.1223660889569942e-15,
+  "native_integrations": 0,
+  "scope": [
+    "Four accepted baseline cases and exact saved snapshot times checked; no new native integration.",
+    "Corrected independent endpoints retained. Nominal actuator and cell weights are separate from physical x+displacement and endpoint length.",
+    "Saved-state conditional Rac reaction/diffusion is faithful to native coefficients, but is not an exact staggered finite-update budget or causal partition.",
+    "Cortical velocity is not boundary velocity; physical cue samples are not continuous support edges."
+  ]
+}

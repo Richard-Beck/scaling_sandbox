@@ -1,11 +1,17 @@
 # Current manuscript figure copies
 
-The [revised six-figure outline](../manuscript_outline/outline_v2.pdf) combines
-this collection with detailed legends, mechanism-linked measurements and the
-reserved new WGD motility results. Its [revision notes](../manuscript_outline/REVISION_NOTES.md)
-record the critical assessment and distinguish the supplied checkpoint from
-the revised manuscript presentation. Both the original checkpoint and the
-first integrated outline remain preserved.
+[**Consolidated Figures 2–4: main PDF and legends**](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/consolidated_figure_set_20261019/figures_2_4_main.pdf) · [**64-page comprehensive supplement**](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/consolidated_figure_set_20261019/figures_2_4_supplement.pdf) · [**HTML reader and native-profile appendices**](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/consolidated_figure_set_20261019/index.html).
+
+[Figure selection and interpretation](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/BEST_EFFORT_FIGURES_20261019.md) · [Current scientific record](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/RESULTS.md).
+
+**19 October final scientific consolidation:** all selected experiments, main plates, legends and comprehensive supplements have passed independent scientific/source/display checks. Figure 2 covers five models and 97 qualified model–length states, three widths, five middle-width strength levels and five native withdrawal times: 3,492 core protocols plus two targeted deBelly withdrawals. It retains incumbent amount/extent/peak and links the all-length broadening response to a native deBelly example. All 53 failed finite field tails remain explicit.
+
+Figure 3 reports all 645 stationary-cue protocols across a narrower circumference range, with initial internal/straddling/external footprints distinguished. The measured complex activity vector connects early reorientation rates to native field histories. All outcomes, time/duration results and four 15-page native-profile appendices are retained. Finite-tail status is 620 pass, eight Holmes fail and 17 unavailable.
+
+Figure 4 reports the complete 936-case, nine-strength core campaign plus 26 separately analysed Goryachev transition cases. Its main combines short post-burn-in kymographs, heading memory with usable-pair coverage and spatial organization. All strength/size/window/control results remain in comprehensive supplements. Spring sampled-duration failures and the unresolved Goryachev 0.02–0.03 interval remain explicit. Portable redraws reproduce current scientific artwork without native archives.
+
+Figures 1, 5 and reserved Figure 6 retain their preceding content. Earlier outline and review PDFs below are preserved development history; they do not contain this final consolidation. These are working manuscript resources, not a completed manuscript.
+
 
 **Foundation copy audit, 17 October 2026:** `main_polarity.png` now matches the
 latest [canonical five-model comparison](../polarity1d/manuscript/figures/main_polarity.png),

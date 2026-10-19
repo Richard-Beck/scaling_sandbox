@@ -1,0 +1,29 @@
+# Stationary cue placement and native size shape global activity-vector reorientation
+
+The selected scientific set uses three views of the same completed stationary-cue experiment: a measured construction of the activity vector, a systematic distance–size comparison, and one illustrative native size contrast. The comprehensive supplement reports all 645 requested conditions. Retained cue-free outcomes provide separate supporting context.
+
+**A. Local activity and the global vector.** The initial and cue-withdrawal states of Holmes C = 30, initial prescribed physical cue-centre distance d₀ = 14 and duration T = 300 are drawn on the model ring. Colour is the actual native active concentration on a shared zero-based scale. Each native cell contributes its scalar activity multiplied by its physical arc length and outward unit normal. Blue arrows are exact normalized sums in twelve 30° sectors; red is their sum P. All arrows have one common scale, with translated sector-arrow tails for display. Complex division by the initial first moment rotates and scales P(0) to 1. At withdrawal the observed two-region state has active amount 1.0290 times its initial amount but resultant magnitude R = 0.2589: directional contributions partly cancel while active amount adds positively. These are cue-on states; the later cue-free field tail fails the declared finite gate and supplies no stationary-state evidence. The circle is a representation of the periodic model domain, without a movement law or site-ancestry interpretation.
+
+**B. Cue-on rate across the complete placement design.** The instantaneous native-RHS angular rate at native time 10 is shown for all 129 prescribed initial placements, using their T = 1,000 branches. Colours distinguish the three qualified native sizes; circles, diamonds and triangles distinguish complete initial cue footprints inside, straddling and outside the interpolated 10%-contrast region. All 129 plotted instants retain full-state or full-snapshot support and R ≥ 0.1. Lines guide the eye between tested positions rather than fitting a continuous distance law. The rate–distance profiles are not uniformly monotone, and size ranks can change across distance. The onset companion and full cue-on histories distinguish finite-width input projection and initial moment effects from the later evolving response. A single snapshot is not a summary of the whole trajectory, and global angular rate does not identify a local remodeling speed. Centre membership, signed initial-edge distance and 50%-edge sensitivity are exported separately.
+
+**C. One external-cue size contrast.** Native Wave-pinning histories hold initial physical cue distance d₀ = 11, full support 3, coefficient peak 0.1 and duration T = 1,000 fixed while changing circumference from 30 to 40. Both complete supports lie outside the initial 10%-contrast regions. Every saved active-field frame is shown on common physical-arc and native-amplitude scales. Grey padding lies outside the shorter periodic domain; dashed lines mark initial 10%-contrast edges, and white lines/orange bars mark cue centres/supports. Time is linear through 0.1 and logarithmic thereafter. The complex-P paths use equal Cartesian coordinate scales; the dashed circle is R = 1, squares denote withdrawal, and numbered points give actual saved native times. Actual target normals are 132° and 99°, so matching physical arc does not match angular target. Native incumbent architecture and geometry change together. Both histories have full states, no weak cue-on vector gap and passing later finite field tails; selection was based on this clean geometric/readout coverage, not a minimum-pulse or retained-success threshold.
+
+Physical activity moments, normalized resultant and angular rate are
+
+$$
+M_n(t)=C(t)\left\langle u(q,t)e^{2\pi i n q}\right\rangle,
+\qquad P(t)=\frac{M_1(t)}{M_1(0)},\qquad R(t)=|P(t)|,
+\tag{1}
+$$
+
+$$
+\omega_{\rm deg}(t)=\frac{180}{\pi}
+\frac{\operatorname{Im}\!\left[\overline{M_1(t)}\,\dot M_1(t)\right]}{|M_1(t)|^2}.
+\tag{2}
+$$
+
+Raw M₁ uses fixed ring axes; P uses axes rotated once by the initial M₁ phase. Activity is real, and complex notation packages two real Cartesian sums. Phase-dependent quantities are masked below R = 0.1, without unwrapping across gaps. Rates concern the global activity resultant rather than cell velocity, local-peak travel or site lineage. Native clocks are not calibrated across models.
+
+The full experiment tests chemical circumferences 30/35/40 and Spring resting circumferences 2.5/2.75/3, retaining native kinetics, cue channels, coefficients, physical supports, solvers and exact qualified basals. Initial physical centre distance is fixed within an arm; actual angular target and basal architecture change with circumference. Spring retains its mean-force global-extension closure and stationary material centre: its physical centre arc varies with C(t), while physical cue support remains 0.2. All overlaps remain included. The 645 protocols contain 175 exact archive-pair reuses and 470 fresh branches; all native/source/restart checks pass independently. Cue-free endpoints at 13,000 units have 620 passing, eight failing and 17 unavailable full-field finite-tail gates; nine Holmes endpoints have two regions, with all such tail limitations retained. No asymptotic-coexistence or causal geometry partition is claimed.
+
+[A: measured vector construction](vector_construction/measured_activity_vector.png) · [B: systematic rate map](rate_map/cue_on_rate_distance_size.png) · [C: native size contrast](local_size_contrast/external_local_size_contrast.png) · [full scientific report](../arc_review/index.html) · [readable core supplements and full native-profile appendix](supplement/index.html) · [complete supplementary legends](supplement/LEGENDS.md).

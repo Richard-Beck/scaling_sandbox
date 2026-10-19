@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-10-19T15:02:00Z",
+  "purpose": "Prospective finite-input-law estimator sensitivity gates before new bridge pilot outputs",
+  "paired_seeds_per_strength": 2,
+  "strengths": [
+    0.001,
+    0.01
+  ],
+  "knots": [
+    0.25,
+    0.125
+  ],
+  "preserve_original_fine_knots": true,
+  "gates": {
+    "raw_vector_correlation_max_difference": 0.05,
+    "direction_correlation_R0p1_max_difference": 0.05,
+    "weak_R_time_fraction_difference": 0.02,
+    "multiregion_time_fraction_difference": 0.02,
+    "strict_site_pair_coverage_difference": 0.05,
+    "basal_arc_RMS_difference": "max(0.01 native length,0.10*baseline_RMS)"
+  },
+  "lag_horizon": 100,
+  "reported_but_not_sole_gates": [
+    "max pointpath P difference",
+    "max wholefield difference / initialcontrast",
+    "max circumference difference",
+    "dominant-site angular difference"
+  ],
+  "unchanged": [
+    "noise amplitude fractions",
+    "tau5",
+    "ell.15",
+    "horizon400",
+    "native kinetics"
+  ],
+  "interpretation": "Sensitivity of two declared finite-knot forcing laws; tight ODE check is distinct. No claim of exact continuous OU forcing or long-run convergence.",
+  "representative_selection": "Within-group medoid of finalReP,minR,time-meanR,multiregionfraction; IQRscaled L1 distance to group median, unit zeroIQR fallback, slot tie-break",
+  "analysis": "Full/firsthalf/lasthalf windows; signedrestrictedintegral; no exponential fits;whole independent seeds resampled"
+}

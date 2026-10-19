@@ -104,7 +104,7 @@ when retained in a mixed-model campaign; the other models are not implicated.
 | `polarity1d/manuscript/data/runs/wave_pinning_diffusion_contrast_20261008/` | 1.63 | Requested replacement with active diffusivity 0.01 and inactive diffusivity 100, verified variant preparations and matched challenges. Separate from the superseded diffusion variant. |
 | `polarity1d/manuscript/data/archive/goryachev_exploration_20261008/` | 4.39 | Archived depletion/transport diagnostic arrays, frozen sources and earlier exploratory measurements. Excluded from the active Goryachev presentation; archive status alone does not make unique histories redundant. |
 | `polarity1d/manuscript/data/establishment_basal/`, `reversal_fields/` and other non-run data | included in manuscript total | Selected authoritative preparations, 4,952 independently copied establishment NPZ inputs, 54 historical diagnostic reconstruction inputs and compact source manifests. These local copies decouple current inputs from retired four-assay arrays. |
-| `polarity1d/manuscript/figures/` | **1.99** (2,133,884,928 allocated bytes, approximately 2 GiB; remeasured 2026-10-17, 20:59:40–21:00:35 UTC) | Current report PDF/HTML, vector/PNG exports, revision archives, development candidates, measurements and source/artifact manifests. Includes the noise report/statistical exports grouped above, with retained raw CSVs and publication gzip copies. Figures are derived evidence; native inputs in `data/runs/` remain necessary for full re-analysis. |
+| `polarity1d/manuscript/figures/` | **3.511** (3,770,040,320 allocated bytes; remeasured 2026-10-19, 22:09 UTC) | Report PDF/HTML, vector/PNG exports, revision archives, development candidates, final consolidation and source/artifact manifests. Includes the revision report component below; do not add that component again. Native roots are separate. Historical manuscript/workspace totals retain their original dates. |
 | `polarity1d/manuscript/data/runs/*ring*20261017/`, `chemical_ring_distance_pilot_20261017/`, `holmes_distance_robustness_20261017/`, `holmes_size_bridge_20261017/`, `debelly_planar_loop_preparation_20261017/`, `debelly_two_arc_distance_20261017/` | approximately 1.88 combined | Circular preparation, distance, finer-mesh and finite-window robustness experiments for the current main-text framework discussion. Smaller retained run group, already included in the run total. Spring and deBelly constructions introduce declared geometric/closure assumptions; these are not universal stability results. |
 | `polarity1d/archive/` | **14.11** | Independent historical suite/normalization/reproduction evidence outside the authorized `four_assay/` tree. The next two rows are components; no further removal is implied. |
 | `polarity1d/archive/four_test_suite_legacy/` | 9.90 | Historical suite, sources, reconstructed fields and provenance. Includes the approved `publication_figures/assay_explanation_v2` keeper and its inputs. |
@@ -148,6 +148,36 @@ it is not additional storage to add to that earlier group. The record gives
 each exact path, allocated size, purpose and complete/retained status. All
 native outputs, authoritative statistical CSVs and reviewed PNGs remain
 unchanged; failed and corrected analysis provenance is retained separately.
+
+### Spring ring development addition, 2026-10-19
+
+These small additions are recorded for scientific continuity. The manuscript
+parent measurements above predate them; this is a measurement of the three
+named subtrees, not a fresh whole-workspace inventory.
+
+| Path or related group | Allocated GiB | Purpose and importance/status |
+| --- | ---: | --- |
+| `polarity1d/manuscript/data/runs/spring_ring_validation_20261019/`, `spring_ring_api_smoke_20261019/`, and related `polarity1d/manuscript/figures/length_mechanisms_20261008/dev/spring_ring_validation_20261019/` | **0.033 combined** (35,389,440 allocated bytes; measured 2026-10-19, 14:25 UTC) | Declared Spring periodic/global-extension development analogue at resting circumference 2. Native validation: **33,210,368 bytes**, nine completed SLURM workers, 23 complete phase archives, frozen inputs/sources, fresh 200/400-cell preparations, independent solver replay, rotation, finite-pulse and conserved-perturbation checks, independent audits, source-backed geometry/dilution accounting and browser verification. API smoke: **532,480 bytes**, zero-active initialization and exact staged restart on the corrected public adapter. Scientific reader: **1,646,592 bytes**, interactive retained raw profiles, vector equations, compact evidence, provenance and runnable example. The user agreed to carry over the original stretching, dilution and diffusion terms; mean-force circumference dynamics remain an explicit circular adaptation. Bounded numerical qualification is complete, without a size law, migration-persistence or native 2D-mechanics claim. Retain raw evidence and frozen sources. This row is a component of the manuscript area, not storage to add to an updated parent total. |
+
+### Figures 2–4 revision additions, 2026-10-19
+
+Final allocated storage was measured during **22:08:59–22:09:09 UTC on 19 October** over **38 disjoint roots**: the revision figure group, every direct `data/runs/revision_*20261019*` root (including suffixed roots), and the separate compensation-review mapping root. All scientific producers are terminal; archived failed attempts and unsubmitted strict payloads remain explicit. Only small final documentation/audit records can change after this measurement. The [per-path storage record](polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/supporting/metadata/storage_current.json) records allocated bytes, purposes, producer states and scheduler observations. No deletion was performed or authorized by this inventory.
+
+This is a final measurement of the revision group, not a fresh whole-workspace inventory. Historical manuscript/workspace parent totals retain their original dates. The separately measured report parent includes the revision report component and must not be added to it.
+
+| Path or related group | Allocated GiB | Purpose and importance/status |
+| --- | ---: | --- |
+| `polarity1d/manuscript/data/runs/revision_*20261019*/`, `review_compensation_mapping_20261019/` and `polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/` | **88.226 combined** (94,732,214,272 allocated bytes; 2026-10-19, 22:08:59–22:09:09 UTC) | Complete native fields/checkpoints, frozen inputs, independent replay and derived measurements for the requested Figures 2–4 revision. Figure 2 contains 3,492 core protocols at all 97 qualified model–length states across five models, plus two targeted corrected deBelly withdrawals. Figure 3 contains all 645 stationary-cue protocols; Figure 4 contains 936 core cases plus 26 separate transition cases. Full finite-tail failures, Spring sampled-duration limits and archived execution failures remain explicit. Main figures, comprehensive supplements and compact redraw inputs are retained alongside local native evidence. Native archives are local, while the compact figure/reconstruction package is intended for Git delivery. |
+
+Large components of that combined group (included in its total, not extra storage):
+
+| Component path | Allocated GiB | Purpose/status at measurement |
+| --- | ---: | --- |
+| `polarity1d/manuscript/data/runs/revision_arc_narrow_grid_20261019/` | **3.162** (3,395,076,096 allocated bytes; 2026-10-19, 22:09 UTC) | Complete native stationary-cue experiment: 645 logical protocols with exact reuses; full profiles/restarts and finite-tail qualifications underlie Figure 3 and its complete supplement. |
+| `polarity1d/manuscript/data/runs/revision_five_model_compensation_baseline_v2_20261019/` | **29.348** (31,512,027,136 allocated bytes; 2026-10-19, 22:09 UTC) | Complete five-model/all-97-length, three-width/five-withdrawal baseline: 1,552 logical outcomes including 97 controls; native arrays, exact basals and restart provenance retained. |
+| `polarity1d/manuscript/data/runs/revision_five_model_compensation_strength_v2_20261019/` | **36.478** (39,167,950,848 allocated bytes; 2026-10-19, 22:09 UTC) | Complete four-additional-strength arm at middle width: 1,940 positive protocols with exact high-strength reuses; full native fields and scalar/finite-tail status retained. |
+| `polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/` | **2.904** (3,118,391,296 allocated bytes; 2026-10-19, 22:09 UTC) | Complete 576-case nine-strength pilot coverage and numerical companions; original failed Spring sampled-duration comparison remains explicit. |
+| `polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/` | **3.619** (3,885,432,832 allocated bytes; 2026-10-19, 22:09 UTC) | Complete 360-case native replication extension giving 936 core cases; independently qualified occupancy/vector/memory readouts, full seed histories and controls retained. |
 
 ### Literature-model implementations and reproduction data
 

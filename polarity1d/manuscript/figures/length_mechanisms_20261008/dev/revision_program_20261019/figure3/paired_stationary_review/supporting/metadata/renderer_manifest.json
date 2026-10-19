@@ -1,0 +1,90 @@
+{
+  "generated_at": "2026-10-19T18:32:58.965980+00:00",
+  "role": "Paired-arm review graphics; no native integrations or new outcome thresholds",
+  "displayed_arm_rows": 480,
+  "unique_protocol_histories": 355,
+  "exact_shared_conditions": 125,
+  "models": [
+    "wave_pinning",
+    "goryachev",
+    "holmes_model3",
+    "spring"
+  ],
+  "pages": [
+    "wave_pinning_paired_vectors.png",
+    "goryachev_paired_vectors.png",
+    "holmes_paired_vectors.png",
+    "spring_paired_vectors.png"
+  ],
+  "source_sha256": {
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure3/standard_angles_sizes/supporting/data/stationary_sizes_summary.csv": "761bf294ad1056620724d2fc8ddc9ca9c2bcd10beed9e8dd2fb3071152bde0d8",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure3/standard_angles_sizes/supporting/data/stationary_sizes_traces.npz": "cf07adf328d05325342d07d8468a8823454a9e4efb628ca407f5c06992249d7b",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure3/standard_arclength_sizes/supporting/data/stationary_arclength_summary.csv": "9b00954df3a3ff50f65de37ea9f3d82968bab10196b8cdc10a5d054d5329e278",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure3/standard_arclength_sizes/supporting/data/stationary_arclength_traces.npz": "bbac92256b738f4b84f95440c716cabfa583f06ee07c52a7cdcafd9eaff5714f",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure3/standard_arclength_sizes/supporting/data/stationary_two_arms_all480.csv": "b07dd2b161cb4361510c90db0f182ce1e5e8aab8ea8f0072c0b3959cc6de6629"
+  },
+  "renderer": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/code/mechanisms/revision_paired_stationary_review_20261019.py",
+  "renderer_sha256": "438d0da3e1135efa8ba16649fbcf2c6a4ae7539f81b1a83922c6496704741e74",
+  "glyph_table": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure3/paired_stationary_review/supporting/data/paired_vector_glyphs.csv",
+  "glyph_table_sha256": "3a7e6394fd6b5dd4d9b718aea44bdfa307d226a30580f3b7c11aae8641b874b9",
+  "mapping": {
+    "arm_rows": [
+      "fixed_angle",
+      "common_initial_physical_arc"
+    ],
+    "size_columns": {
+      "chemical": [
+        20,
+        30,
+        40
+      ],
+      "spring_resting": [
+        1,
+        2,
+        3
+      ]
+    },
+    "placement_rows": "Descending target angles in angle arm; descending physical arcs in fixed-arc arm",
+    "duration_columns": "Native tested durations as categorical indices0..4",
+    "origin_x": "duration column index",
+    "origin_y": "0.95*(3-placement_row)",
+    "global_P_display_scale": 0.24,
+    "axes_aspect": "equal",
+    "axis_limits": {
+      "x": [
+        -0.5,
+        4.5
+      ],
+      "y": [
+        -0.475,
+        3.3249999999999997
+      ]
+    },
+    "background": "1-abs(wrap(actual_final_phase-actual_target))/abs(wrap(-actual_target)); finalR>=.1 only; displaycolour clipped0..1",
+    "withdrawal_style": "thin orange vector with open tip",
+    "final_style": "black vector",
+    "weak_style": "unoriented circle of radius0.24R"
+  },
+  "quiver": {
+    "angles": "xy",
+    "scale_units": "xy",
+    "scale": 1.0,
+    "units": "xy",
+    "withdrawal_width": 0.008,
+    "final_width": 0.014,
+    "headwidth": 3.2,
+    "headlength": 3.8,
+    "headaxislength": 3.5,
+    "minlength": 0.0,
+    "pivot": "tail"
+  },
+  "withdrawal_weak": 2,
+  "final_weak": 2,
+  "field_tail_failures": 2,
+  "field_tail_unavailable": 17,
+  "initial_overlap_rows": 280,
+  "maximum_R_replay_error": 4.440892098500626e-16,
+  "colour_raw_below_zero": 31,
+  "colour_raw_above_one": 0,
+  "old_angle_outputs_preserved": true
+}

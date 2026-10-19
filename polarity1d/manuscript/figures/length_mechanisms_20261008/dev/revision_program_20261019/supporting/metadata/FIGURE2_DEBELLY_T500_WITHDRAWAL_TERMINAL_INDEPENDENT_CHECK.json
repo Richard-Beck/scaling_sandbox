@@ -1,0 +1,51 @@
+{
+  "checked_at": "2026-10-19T21:47:44.175524+00:00",
+  "passed": true,
+  "manifest_sha256": "7c59265e79debada773ba98bfc13d01f3b98d38da4840247ab6025babb1656e7",
+  "source_and_input_closure_unchanged": true,
+  "job": "21204926",
+  "scheduler_states": {
+    "21204926_0": [
+      "COMPLETED",
+      "0:0"
+    ],
+    "21204926_1": [
+      "COMPLETED",
+      "0:0"
+    ]
+  },
+  "cases": [
+    {
+      "slot": 0,
+      "width": 1.5,
+      "OFF_frames": 4161,
+      "restart11_exact": true,
+      "orientation_success": false,
+      "full_strength_success": false,
+      "field_tail_pass": true,
+      "maximum_scaled_tail": 3.955603985954828e-07,
+      "final_orientation": -0.10025155560644812,
+      "native_archive_sha256": "9e0a8b228bfe3e8df0c7ce70bfb01b649a02b20d23be7c298eed0bec60a44854",
+      "result_sha256": "1d7316980c49143ddc295c560508aa28c1f52614d69e7b0825137a2742a10374"
+    },
+    {
+      "slot": 1,
+      "width": 5.0,
+      "OFF_frames": 4161,
+      "restart11_exact": true,
+      "orientation_success": false,
+      "full_strength_success": false,
+      "field_tail_pass": true,
+      "maximum_scaled_tail": 1.0915521936257276e-06,
+      "final_orientation": -0.10025151121332315,
+      "native_archive_sha256": "63eafec490acb3fa393a976ffb112007ad532fe314220cb0ab1960953dc0f0c4",
+      "result_sha256": "03e34d6dd6e326d1ee72b39972caf81b6a50884ca749a16d9e931a33e620006f"
+    }
+  ],
+  "OFF_frames": 8322,
+  "full_state_values_finite_checked": 18399942,
+  "maximum_gate_replay_error": 0,
+  "new_ON_integrations": 0,
+  "claim": "Both exactT500 withdrawal states return under the original retained orientation/strength criteria, with passing finite field tails. Different sampled50% local-excess loss times do not alone establish different retained outcomes.",
+  "limitations": "Unchanged accepted .5-step OFF kernel; this check reconstructs exact restarts, fullstate finiteness/nonnegativechemical fields and canonical2.5-sample gates without another integration or pulse-threshold search."
+}

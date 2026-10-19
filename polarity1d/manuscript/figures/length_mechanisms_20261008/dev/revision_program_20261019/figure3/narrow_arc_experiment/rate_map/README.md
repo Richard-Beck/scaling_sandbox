@@ -1,0 +1,9 @@
+# Distance, size and global cue-on angular rate
+
+Generated 2026-10-19T20:59:44.721186+00:00. [Time10 PNG](cue_on_rate_distance_size.png) · [PDF](supporting/vectors/cue_on_rate_distance_size.pdf) · [SVG](supporting/vectors/cue_on_rate_distance_size.svg) · [onset context](onset_rate_distance_size.png) · [all129 exact case values and source archives](supporting/data/all129_native_rate_anchors.csv).
+
+These are all129 prescribed placements in the narrow-range645-condition experiment, using eachT1000branch. Time10 and onset were already exported native-RHS anchors; this renderer performs no integration or additional RHS evaluation. Every displayed rate has retained full-state/snapshot support and R≥0.1 at that instant. Missing or weak values would not be assigned a phase, but none occurs at these two displayed times. Later weak intervals remain in complete trajectory sources.
+
+The main time10 map is a systematic observation at a declared native clock, not a claim that it summarizes the whole trajectory. The onset map is context for finite-width input projection and initial moment effects. Native-rate histories from twelve common fully external placements and every saved-interval secant across all645branches remain linked in the full supplement. Native clocks are uncalibrated across models. Holding initial physical arc fixed changes target angle and basal architecture, so the size comparison does not isolate a causal geometric or incumbent-remodeling speed.
+
+Circles, diamonds and triangles refer to complete initial supports inside, straddling or outside the10%-contrast region; centre membership and50% sensitivity are separately exported. These are spatial classes, not causal pathway identities. Lines connect tested points as visual guides without a fitted distance law. All source archive identities are retained in the table. All native kinetics, cue coefficients/supports, solver and qualified basals remain unchanged.

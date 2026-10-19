@@ -1,0 +1,11 @@
+# Native amplitude operating-point extension: actual readouts
+
+Generated 2026-10-19T20:43:16.118158+00:00. Complete scientific protocols: 32/32, including twelve exact full-field reuses. This is a two-model stage (WP/Goryachev), not five-model functional coverage.
+
+[All 32 protocol/readout rows](supporting/data/finite_assay_readouts.csv) · [Regional sampled-entry brackets](supporting/data/regional_sampled_entries.csv) · [Native withdrawal/final profiles](supporting/data/withdrawal_final_native_profiles.csv) · [Saved-output channel quadrature checks](supporting/data/realized_channel_quadrature.csv) · [Source hashes/status](supporting/metadata/latest_status.json)
+
+At fixed physical width 3, peak multipliers 0.01 / 0.03 / 0.1 / 0.3 / 3 extend the exact retained 0.5 / 1 / 2 conditions. Both sizes receive WP 240 / Gory 1600 pulses. The unchanged native input is stimulus × inactive. Exact corrected basals and N = 201 native grids are retained; no optical-actuator or spatial-convergence claim is made.
+
+Core activity uses the fixed initial connected above-halfcontrast region. Activity loss is regional depletion, not identified molecular damage. Challenger peaks use the actual cue footprint. Original scalar-strength and field-tail flags remain separate from regional field observations. Final whole-field deviations from the original and reflected basal templates are diagnostics on the inherited fixed species scales; they do not replace either gate.
+
+Entry brackets enclose adjacent saved samples at the first observed false→true transition; they do not exclude an unobserved earlier excursion between samples. Retained entry means all subsequent saved frames satisfy the condition. Cue-on timing is not pulse duration. Compare brackets, not unqualified point latencies. All canonical 2.5-unit gate samples are present. All twelve reused histories use the same 0.25-through-100 / 2.5-afterwards off cadence as the new histories. The cue sampling differs: reused cases retain uniform 0.1 units, while new cases retain dense early times. Fine-versus-decimated integral comparisons quantify saved-output quadrature sensitivity on new cases, not solver convergence. Legacy channel integrals remain unqualified.

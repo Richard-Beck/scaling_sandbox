@@ -1,0 +1,50 @@
+{
+  "checked_utc": "2026-10-19T21:12:53.275807+00:00",
+  "passed": true,
+  "scope": "New instantaneous region-size and quarter/window summaries for the accepted576-case pilot. Prior complete physical-field/native-source audit reused; no integrations or lifetime classification.",
+  "source_sha256": "c651f232a106796e3e44deb549b2166fbea461055aa728ef85f28643aeb522b7",
+  "source_cases": 576,
+  "scalar_case_windows_checked": 4608,
+  "spatial_case_windows_checked": 4608,
+  "memory_case_window_lags_checked": 27648,
+  "spatial_condition_windows_checked": 1824,
+  "native_profile_width_source_cases_checked": 12,
+  "native_profiles_directly_checked_for_new_width_geometry": 9612,
+  "all576_stored_region_sample_geometric_identities_checked": true,
+  "periodic_components_joined_by_independent_circular_start_end_algorithm": true,
+  "actual_Spring_C_in_physical_widths": true,
+  "numeric_values_checked": 1668936,
+  "maximum_numeric_discrepancy": 1.3460521586239338e-10,
+  "condition_equal_seed_aggregate_values_checked": 255360,
+  "selected_native_width_case_ids": [
+    "new_0048",
+    "new_0051",
+    "new_0054",
+    "new_0111",
+    "new_0114",
+    "new_0117",
+    "new_0174",
+    "new_0177",
+    "new_0180",
+    "new_0237",
+    "new_0240",
+    "new_0243"
+  ],
+  "interpretation": [
+    "Widths are grid-cell component widths at half current contrast, not interpolated front positions or spatially converged continuum widths.",
+    "Largest width contributes once per amplitude-qualified saved profile; second-largest once per qualified multiregion profile. Conditional widths average each contributing seed equally, with per-condition contributors and frame coverage retained.",
+    "Scalar organization and widths use different declared cadences (5/.5 versus40/4); widths do not imply continuous event durations, births, lineage or functional competition.",
+    "Inclusive full/half/quarter windows are finite-window sensitivity summaries, not proof of equilibrium or stationarity.",
+    "The original ten-metric numerical scope does not automatically qualify the new width distribution estimator; these bounded source/geometry/weighting checks establish readout fidelity only."
+  ],
+  "output_sha256": {
+    "supporting/data/postburn_scalar_case_windows.csv": "f5bdaa37ef43b1a5a63755a417a3078ac2ca3be1c04be42c886af81084cb33e3",
+    "supporting/data/postburn_native_source_index.csv": "2901f1a8d13aa84b3b74a441a981bf4df85e3277575d369d86c034d69b4099c2",
+    "supporting/data/postburn_region_samples.npz": "9a4e2079580f8ed897144efc6346f60229364be54ac3be19bfe8c049381e22be",
+    "supporting/data/postburn_spatial_condition_windows.csv": "971e795167d8d1fce910616c74c006db1e64f4dcb291500fea050eb3d536d84f",
+    "supporting/data/postburn_temporal_curve_points.csv": "42b7b6ba3e81898755cfcf4925d9d049fa9508a24c2b401d64321b19e65db829",
+    "supporting/data/postburn_memory_case_windows.csv": "7f2caab2d47b0b9eb1bd439e19214b0b2fc98e4cbe5b8906ffce6ad92e73eb40",
+    "supporting/data/postburn_memory_coverage_points.csv": "01df85ac4dda53e3f80b7b11d57afad29aaad5fa8d537d813cb37521eee342b4",
+    "supporting/data/postburn_spatial_case_windows.csv": "749e7d47e62d69ed62c26a9a27e36d020b0eecb97f15078b42fbb99a76a5a111"
+  }
+}

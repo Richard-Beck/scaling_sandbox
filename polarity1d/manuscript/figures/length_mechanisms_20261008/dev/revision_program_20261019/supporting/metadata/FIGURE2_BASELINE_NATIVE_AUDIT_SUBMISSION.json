@@ -1,0 +1,23 @@
+{
+  "submitted_at": "2026-10-19T21:19:23.478441+00:00",
+  "analysis_only_no_native_integration": true,
+  "job_id": "21203874",
+  "script": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/supporting/metadata/independent_compensation_native_replay_20261019.py",
+  "script_sha256": "ac781fc0f2055a2e11abd110e9015c15b2a5f0e7e654b4ee28a24b10b3c3ffbb",
+  "manifest_sha256": "f44a5e28ad4e6e1d3680d66806f33de530e9dea369fe21f99790cd7c6e23dc9b",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--qos=small",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--mem=6G",
+    "--time=00:30:00",
+    "--job-name=F2-indep-baseline",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/supporting/metadata/BASELINE_NATIVE_REPLAY_%j.log",
+    "--wrap",
+    "exec env PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 /home/4473331/.conda/envs/scaling_sandbox/bin/python /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/supporting/metadata/independent_compensation_native_replay_20261019.py --run /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_five_model_compensation_baseline_v2_20261019"
+  ],
+  "cache": "FIGURE2_COMPENSATION_BASELINE_NATIVE_CASE_CACHE.json",
+  "first_case_local_bounded_replay_passed": true
+}

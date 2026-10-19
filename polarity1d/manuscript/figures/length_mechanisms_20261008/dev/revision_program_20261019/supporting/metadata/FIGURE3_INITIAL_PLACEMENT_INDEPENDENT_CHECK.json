@@ -1,0 +1,151 @@
+{
+  "generated_at": "2026-10-19T19:30:04.666460+00:00",
+  "passed": true,
+  "scope": "All12 accepted initial basal profiles and48 existing fixed-initial-arc placements, with50%/10% operational boundaries and periodic full cue support. No native integration or protocol modification.",
+  "source_metadata_sha256": "5fed1c1631a1f470e825f85cd78f1924ce07a7c62121a21bc6c75b0c3dee4b5d",
+  "artifact_manifest_sha256": "f3f4cf7286d870d0556d96413b1bc0df0c8a0d5f8693cc84e2120fdc621bc913",
+  "initial_profiles": 12,
+  "placements": 48,
+  "condition_rows_represented": 240,
+  "numeric_values_checked": 648,
+  "maximum_numeric_error": 5.551115123125783e-16,
+  "operational_class_counts": {
+    "50": {
+      "centres": {
+        "inside": 24,
+        "outside": 24
+      },
+      "supports": {
+        "inside": 21,
+        "outside": 17,
+        "straddling": 10
+      }
+    },
+    "10": {
+      "centres": {
+        "inside": 31,
+        "outside": 17
+      },
+      "supports": {
+        "inside": 26,
+        "outside": 12,
+        "straddling": 10
+      }
+    }
+  },
+  "per_model_size_counts": [
+    {
+      "model": "goryachev",
+      "size": 20.0,
+      "centre_inside_50": 0,
+      "support_fully_inside_50": 0,
+      "support_straddles_50": 1,
+      "support_outside_50": 3
+    },
+    {
+      "model": "goryachev",
+      "size": 30.0,
+      "centre_inside_50": 0,
+      "support_fully_inside_50": 0,
+      "support_straddles_50": 1,
+      "support_outside_50": 3
+    },
+    {
+      "model": "goryachev",
+      "size": 40.0,
+      "centre_inside_50": 0,
+      "support_fully_inside_50": 0,
+      "support_straddles_50": 1,
+      "support_outside_50": 3
+    },
+    {
+      "model": "holmes_model3",
+      "size": 20.0,
+      "centre_inside_50": 2,
+      "support_fully_inside_50": 2,
+      "support_straddles_50": 1,
+      "support_outside_50": 1
+    },
+    {
+      "model": "holmes_model3",
+      "size": 30.0,
+      "centre_inside_50": 3,
+      "support_fully_inside_50": 2,
+      "support_straddles_50": 1,
+      "support_outside_50": 1
+    },
+    {
+      "model": "holmes_model3",
+      "size": 40.0,
+      "centre_inside_50": 3,
+      "support_fully_inside_50": 3,
+      "support_straddles_50": 0,
+      "support_outside_50": 1
+    },
+    {
+      "model": "spring",
+      "size": 1.0,
+      "centre_inside_50": 2,
+      "support_fully_inside_50": 2,
+      "support_straddles_50": 1,
+      "support_outside_50": 1
+    },
+    {
+      "model": "spring",
+      "size": 2.0,
+      "centre_inside_50": 3,
+      "support_fully_inside_50": 3,
+      "support_straddles_50": 1,
+      "support_outside_50": 0
+    },
+    {
+      "model": "spring",
+      "size": 3.0,
+      "centre_inside_50": 4,
+      "support_fully_inside_50": 4,
+      "support_straddles_50": 0,
+      "support_outside_50": 0
+    },
+    {
+      "model": "wave_pinning",
+      "size": 20.0,
+      "centre_inside_50": 2,
+      "support_fully_inside_50": 1,
+      "support_straddles_50": 1,
+      "support_outside_50": 2
+    },
+    {
+      "model": "wave_pinning",
+      "size": 30.0,
+      "centre_inside_50": 2,
+      "support_fully_inside_50": 2,
+      "support_straddles_50": 1,
+      "support_outside_50": 1
+    },
+    {
+      "model": "wave_pinning",
+      "size": 40.0,
+      "centre_inside_50": 3,
+      "support_fully_inside_50": 2,
+      "support_straddles_50": 1,
+      "support_outside_50": 1
+    }
+  ],
+  "source_geometry": "Reconstructed connected-region boundary roots independently from compact actual basal profiles, and split periodic cue intervals at the seam before intersection.",
+  "interpretation": [
+    "Initial cue centre and full-support overlap are different quantities; full support may straddle an edge even when its centre is outside.",
+    "Fixed-arc size contrasts jointly change basal organization, overlap, target angle and initial resultant. An overlapping cue can reinforce/remodel the incumbent rather than create a separate challenger.",
+    "The50% and10% edges are declared activity readouts and sensitivity descriptions, not biological boundaries or statistical intervals.",
+    "Display subtracts native minimum and divides by native contrast; absolute incumbent height/amount cannot be compared from this normalized context map alone."
+  ],
+  "visual_review": "Final normalized-placement PNG inspected after ordinate clarification. Actual background subtraction/contrast normalization is explicit, physical x scales match within model rows, wrapped antipodal bars and continuous centres are distinguishable; native absolute heights are intentionally not shown by this context map.",
+  "artifact_sha256": {
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure3/arc_review/supporting/data/initial_placement48.csv": "75d9fcf8137031b09c422e30a57d244bff78cfc17bdbe5360b06d1e221c1075b",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure3/arc_review/supporting/data/initial_basal12_edges.csv": "c52bbbf29fbb3b81df87becd03b83d4777a2a19646d5e171e39a6ee7775dbf1e",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure3/arc_review/supporting/data/initial_basal12_profiles.csv": "89332e6ac75d994c053d704e7d83db2ebcf62d27f58a18ad8552fe47098af201",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure3/arc_review/initial_basal_placement_map.png": "cab4aa81036a48b8a417b359c2d1ecd1d4318eb1faf6674ae7b42a2dcbed7f00",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure3/arc_review/supporting/vectors/initial_basal_placement_map.pdf": "0d8d6348a3b7954e07b84c97cf74e882b7d37b8b7d42a52174d7c3973b989631",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure3/arc_review/supporting/vectors/initial_basal_placement_map.svg": "8ecebf7156946249de37a3819332f6e4fd563743ea9c976186906d666b4dbeb9",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure3/arc_review/supporting/metadata/initial_placement_map_validation.json": "5fed1c1631a1f470e825f85cd78f1924ce07a7c62121a21bc6c75b0c3dee4b5d"
+  }
+}

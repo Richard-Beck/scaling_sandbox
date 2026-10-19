@@ -1,0 +1,338 @@
+{"fields": 1, "elapsed_seconds": 1.1144370380789042}
+{"fields": 13, "elapsed_seconds": 6.8957000793889165}
+{"fields": 25, "elapsed_seconds": 17.778959894552827}
+{"fields": 37, "elapsed_seconds": 24.15698438230902}
+{"fields": 49, "elapsed_seconds": 34.462286413647234}
+{"fields": 61, "elapsed_seconds": 42.42409610096365}
+{"fields": 73, "elapsed_seconds": 50.521157106384635}
+{"fields": 85, "elapsed_seconds": 59.37736921943724}
+{"fields": 97, "elapsed_seconds": 61.3604563139379}
+{"fields": 109, "elapsed_seconds": 64.84021986182779}
+{
+  "generated_at": "2026-10-19T21:41:57.128345+00:00",
+  "native_integrations": 0,
+  "source_sha256": "dcb22efef14c3992bb601fcd7c07486fc71bed9e3901e54bc7eb3ef16306e035",
+  "source_core_receipt_sha256": "fc667cbfabca78425ba7a7f67a0ba2ff70e496b7d354e3dba5f8286fc3a1bc30",
+  "exact_fields": 112,
+  "condition_medoid_fields": 108,
+  "main_mean_control_fields": 4,
+  "float64_values_roundtrip_verified": 30103368,
+  "cache_cases": 936,
+  "roundtrip_maximum_error": 0.0,
+  "redraw_dependencies": "Only fields/*.csv.gz, tables/*.csv, metadata/*.json, helpers/*.py and selection_cache JSON. Absolute native paths in lineage are not opened by redraw.",
+  "scientific_replay": "Recomputing all native moments/region geometry requires preserved local native archives; redraw is a distinct verified closure.",
+  "allocated_bytes": 326402048
+}
+{
+  "generated_at": "2026-10-19T21:42:47.023381+00:00",
+  "source": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/portable_reconstruction_20261019/helpers/local.py",
+  "source_sha256": "05a4990f0cd8f47a90465335763bdc14a5929dfb35956f0383cf028b371a0d4b",
+  "cache_sha256": "e11e85e953bf9d8ee290e68fea10fa9f1c2079a61657dd53acee8dac2fdee39f",
+  "cases": 936,
+  "native_integrations": 0,
+  "main_examples": 4,
+  "condition_medoid_examples": 108,
+  "atlas_pages": 12,
+  "medoid_features": [
+    "mean_R",
+    "mean_A",
+    "mean_Q",
+    "mean_contrast_ratio",
+    "qualified_multiregion_fraction",
+    "weak_R_fraction",
+    "low_contrast_fraction"
+  ],
+  "distance": "Sum pairwise L1 distances; each feature divided by within-condition range, scale1 if range<1e-12",
+  "ties": "Scores equal within absolute1e-12; choose smallest seed. All n2 choices tie.",
+  "fixed_main_window": "T/2 to5T/8; snapshot9T/16",
+  "profiles_aligned": false,
+  "amplitude_normalization": "None; zero-based native units, shared across nine strengths per model-size atlas page",
+  "outputs": {
+    "figure4_local_dynamics.png": "3fad7c134d5f899c4084521f63d0aad3462dc461f87ab332f6970ac3a77e378c",
+    "local_atlas_goryachev_20.png": "4a2eb16f85e0755ba439e8501ab130b03dc0d41f170c90902cb35cc29cee3a82",
+    "local_atlas_goryachev_40.png": "51ee01cab0d31ef685e6bf519fbe83ef461e41130c2406582f7c17b869e230fe",
+    "local_atlas_goryachev_60.png": "48eb30596b5053f1a07e838a74fa885f192951254b54f1d8593eea52bd1ac1af",
+    "local_atlas_holmes_model3_20.png": "4ece4c4b48ab5d881ddb8d27da10308121bdf50209e8e2368529c2cd470ffca5",
+    "local_atlas_holmes_model3_40.png": "3cdc0f051c7a669d8e6a454728b8534eb28ed52bbf49926a899dd97acb4227cf",
+    "local_atlas_holmes_model3_60.png": "24b9607b864c001551c800530468b2093ab2924ef9416745c25aa06e79f64e8f",
+    "local_atlas_spring_ring_1.png": "5c64d8b3d6a92eff660920ed2b8c12b0d36360e40025c8f654b7c5077cb4385e",
+    "local_atlas_spring_ring_2.png": "0f3d0deed1cc586002f21f1d29cbaefa4c4495c65f74adaa6f1f08bc617fae18",
+    "local_atlas_spring_ring_3.png": "84fa99c85c0fd233ae1b1f96dcc0f77d0256a6f7b918ba9f965750459010ae0a",
+    "local_atlas_wave_pinning_20.png": "09a1c33b42f75eab193725eb304a990063b1c00e5d31143a74701c5f7df7df02",
+    "local_atlas_wave_pinning_40.png": "86ee321785682ea35531c5cab623fddc925b04c2970d6471dbe2088e1758df27",
+    "local_atlas_wave_pinning_60.png": "4d0018f0bf51ddb48caceb1f3a69b268b892127b4754edd7a858a3528c39f3ef",
+    "supporting/data/all_condition_native_atlas_selection.csv": "dd00d146016e53a3e1114c1f05a36eb89f2226e2d378f04ef6472963cec48717",
+    "supporting/data/local_example_context.csv": "3d339a561ab9117501981289f51b155ab029ae3ea2c26642ab86fee9bfef5239",
+    "supporting/data/local_example_kymograph_data.npz": "f22fb9136a1e51c937a29821755fc767d2bc57d7af5acadc8af950faaa0e4880",
+    "supporting/data/local_example_profile_cells.csv": "a03f00a7aae9f553ab5bf1f0085f427757c78fe110245e18f6eb565f059d2d0c",
+    "supporting/data/local_medoid_scores.csv": "bd1a5e24012b9caf8ee9bbae1b045d0c5995b6de99b8d232a90a89d1b7b8bc87",
+    "supporting/vectors/all_conditions_second_half_native_atlas.pdf": "983a64ce53e111720f7502604aef91d3b427f5d2cf3c64e8e7393265d9efa40f",
+    "supporting/vectors/figure4_local_dynamics.pdf": "39c9081a3e982bb9f451559ec24477f7f2a07b5be8b91919f20c6485b6f77372",
+    "supporting/vectors/figure4_local_dynamics.svg": "ba793f242e0b66608c8b163bad7684f29dd214c6408cff78df9852932373a279",
+    "supporting/vectors/local_atlas_goryachev_20.pdf": "073c62166e348c9a5709747ed76f0d3d4bd98768192eeb6c63c2b792d9578492",
+    "supporting/vectors/local_atlas_goryachev_40.pdf": "9cc570dacb819616827947713bc461f7ac781a03e0f7270e56ca82abe2b61fc5",
+    "supporting/vectors/local_atlas_goryachev_60.pdf": "3a1909d77484a2ce5b0f641e5878e7b672ccc8e8c90879ba29bda6e05f42be1b",
+    "supporting/vectors/local_atlas_holmes_model3_20.pdf": "0d7161e406ee2de2d5f5a5b5b121b6f2a58ecebf7bd3e144ebaba8129e64c308",
+    "supporting/vectors/local_atlas_holmes_model3_40.pdf": "27123a534f2d8642f0fe8a98610c55842509bf1388a77c54e4e6b406669ea585",
+    "supporting/vectors/local_atlas_holmes_model3_60.pdf": "88a33dcf135f0e06625a6e018d6902e45d5b0de98d204aa29235186330f51fd1",
+    "supporting/vectors/local_atlas_spring_ring_1.pdf": "27364977cfc6d25a504612451d06b47cab160b025fa4b682b62b4d91cb1c344a",
+    "supporting/vectors/local_atlas_spring_ring_2.pdf": "675c681439d96c72c0675978339241619f761d9f8f9ef896b86d18fda3cdde1d",
+    "supporting/vectors/local_atlas_spring_ring_3.pdf": "6bd589b5e74e8cf38de4021459b60f5fd06fe88bd0c9b2045d121a5a20c70f0d",
+    "supporting/vectors/local_atlas_wave_pinning_20.pdf": "40d2f94b964fae1f22ba5696e298a5536a423b01fc0c599c9159670b30002056",
+    "supporting/vectors/local_atlas_wave_pinning_40.pdf": "b1008e8ec90e614a602246e06bbf6188b3b8f0134b37152a42f64aa6e0239827",
+    "supporting/vectors/local_atlas_wave_pinning_60.pdf": "bacadf664b144d1f233012186dfc4b6183733a8b85af9c39cf582b9ece10603f"
+  }
+}
+{
+  "generated_at": "2026-10-19T21:43:06.158116+00:00",
+  "source": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/portable_reconstruction_20261019/helpers/temporal.py",
+  "source_sha256": "b54668bb8d4f0f0ca79324e605c3c9c629884a925f009e21bfce807cedafe7ef",
+  "aggregate_source": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/portable_redraw_check_20261019/supporting/data/memory_all_conditions_windows_lags.csv",
+  "aggregate_sha256": "7aed652708ae1021e11a62fd759d8bea3946784585d0aed6f7e83c7073ce046a",
+  "observed_noise_groups": 108,
+  "points": 1944,
+  "metrics": 3,
+  "pdf_pages": 9,
+  "panels": [
+    "full_temporal_full_direction_cosine_reported",
+    "full_temporal_full_direction_coverage",
+    "full_temporal_full_raw_vector_correlation",
+    "full_temporal_first_half_direction_cosine_reported",
+    "full_temporal_first_half_direction_coverage",
+    "full_temporal_first_half_raw_vector_correlation",
+    "full_temporal_last_half_direction_cosine_reported",
+    "full_temporal_last_half_direction_coverage",
+    "full_temporal_last_half_raw_vector_correlation"
+  ],
+  "native_integrations": 0,
+  "noise_only": true,
+  "deterministic_controls_retained_in_source": true,
+  "artist_count": 972
+}
+{
+  "generated_at": "2026-10-19T21:43:35.081421+00:00",
+  "source": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/portable_reconstruction_20261019/helpers/organization.py",
+  "source_sha256": "a5a1469427adac6ffa71925bce1461f0e725f175f7704671b64c1471d8707c8e",
+  "scalar_source": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/portable_redraw_check_20261019/supporting/data/condition_window_summaries.csv",
+  "scalar_source_sha256": "8d414fbb93965c920fd5fc903ab32382752ff2551cb7ddc32e95b52f95a86301",
+  "spatial_source": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/portable_redraw_check_20261019/supporting/data/postburn_spatial_condition_windows.csv",
+  "spatial_source_sha256": "bc8aba49b562ca9d4ec9014b07736318a7599a0f26a1ff22f3cf8913df698b67",
+  "pdf_pages": 9,
+  "pages": [
+    "full_organization_full_organization",
+    "full_organization_full_amount",
+    "full_organization_full_width",
+    "full_organization_first_half_organization",
+    "full_organization_first_half_amount",
+    "full_organization_first_half_width",
+    "full_organization_last_half_organization",
+    "full_organization_last_half_amount",
+    "full_organization_last_half_width"
+  ],
+  "native_integrations": 0,
+  "artist_count": 648,
+  "width_weighting": "Conditional frame mean then equal available seeds; actual profile frames and contributors exported",
+  "noise_and_mean_controls": true,
+  "all_models_sizes_nine_strengths_three_windows": true
+}
+{
+  "generated_at": "2026-10-19T21:43:42.318615+00:00",
+  "source": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/portable_reconstruction_20261019/helpers/quarters.py",
+  "source_sha256": "b8c9f0480ed0c399440833503c6a001fb8f2015882c4da5874711d5c64add706",
+  "input_scalar_sha256": "11d386730fef1e4bf93c83f866185fc398a14791afe37843e25ba8b115c7d891",
+  "input_memory_sha256": "0d42f2d22095b907a49186fa34e28bf3b7c4c7e008a4d641c5ed63360aedbfd1",
+  "rows": 1596,
+  "resamples": 2000,
+  "base_rng_seed": 202610195499,
+  "paired_quarters": true,
+  "stationarity_certification": false,
+  "native_integrations": 0
+}
+{
+  "generated_at": "2026-10-19T21:43:44.372137+00:00",
+  "source": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/portable_reconstruction_20261019/helpers/compact_main.py",
+  "source_sha256": "386d83b8dbc17b4ebb84538f7e30e380d0ac5ee1ecdd202415f7ef18b63d5b4e",
+  "native_integrations": 0,
+  "estimators_changed": false,
+  "source_assembly_receipt_sha256": "fc667cbfabca78425ba7a7f67a0ba2ff70e496b7d354e3dba5f8286fc3a1bc30",
+  "source_data_sha256": {
+    "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/portable_redraw_check_20261019/supporting/data/main_signature_points.csv": "549e59caf0424bf54b98a91a223330d2fe4c11daffd03fad6f0f8be75ad19e60",
+    "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/portable_redraw_check_20261019/supporting/data/local_example_context.csv": "3d339a561ab9117501981289f51b155ab029ae3ea2c26642ab86fee9bfef5239",
+    "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/portable_redraw_check_20261019/supporting/data/local_example_profile_cells.csv": "a03f00a7aae9f553ab5bf1f0085f427757c78fe110245e18f6eb565f059d2d0c",
+    "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/portable_redraw_check_20261019/supporting/data/local_example_kymograph_data.npz": "f22fb9136a1e51c937a29821755fc767d2bc57d7af5acadc8af950faaa0e4880"
+  },
+  "layout_inches": [
+    7.2,
+    9.6
+  ],
+  "main_points": 240,
+  "sources_preserved": true,
+  "independent_render_review": "pending",
+  "outputs": {
+    "local_atlas_wave_pinning_40.png": "86ee321785682ea35531c5cab623fddc925b04c2970d6471dbe2088e1758df27",
+    "figure4_local_dynamics.png": "3fad7c134d5f899c4084521f63d0aad3462dc461f87ab332f6970ac3a77e378c",
+    "local_atlas_spring_ring_2.png": "0f3d0deed1cc586002f21f1d29cbaefa4c4495c65f74adaa6f1f08bc617fae18",
+    "local_atlas_goryachev_40.png": "51ee01cab0d31ef685e6bf519fbe83ef461e41130c2406582f7c17b869e230fe",
+    "figure4_main.png": "7eb2b6042bb80f2f30c077be1ee70c0c06ebfa7b36f96c3cbea01133687701b5",
+    "local_atlas_goryachev_60.png": "48eb30596b5053f1a07e838a74fa885f192951254b54f1d8593eea52bd1ac1af",
+    "local_atlas_holmes_model3_40.png": "3cdc0f051c7a669d8e6a454728b8534eb28ed52bbf49926a899dd97acb4227cf",
+    "local_atlas_holmes_model3_60.png": "24b9607b864c001551c800530468b2093ab2924ef9416745c25aa06e79f64e8f",
+    "local_atlas_spring_ring_1.png": "5c64d8b3d6a92eff660920ed2b8c12b0d36360e40025c8f654b7c5077cb4385e",
+    "local_atlas_wave_pinning_20.png": "09a1c33b42f75eab193725eb304a990063b1c00e5d31143a74701c5f7df7df02",
+    "local_atlas_goryachev_20.png": "4a2eb16f85e0755ba439e8501ab130b03dc0d41f170c90902cb35cc29cee3a82",
+    "local_atlas_spring_ring_3.png": "84fa99c85c0fd233ae1b1f96dcc0f77d0256a6f7b918ba9f965750459010ae0a",
+    "local_atlas_wave_pinning_60.png": "4d0018f0bf51ddb48caceb1f3a69b268b892127b4754edd7a858a3528c39f3ef",
+    "local_atlas_holmes_model3_20.png": "4ece4c4b48ab5d881ddb8d27da10308121bdf50209e8e2368529c2cd470ffca5",
+    "supporting/viewers/full_temporal_full_raw_vector_correlation.png": "4eeabf8443be46743454584fd06245ea28cdc443e618e053e146074a43d92447",
+    "supporting/viewers/full_temporal_full_direction_cosine_reported.png": "74715b72883c3186760873091e77867a3966f7820438422f8dc6603d1b7b0521",
+    "supporting/viewers/full_temporal_first_half_raw_vector_correlation.png": "ac2a8143f75d86d975f92675588c5d3f1e3917437acb36bc900e9d05f888204d",
+    "supporting/viewers/full_temporal_first_half_direction_coverage.png": "6e943bbb7d13e3d3f32d2575ae71f891bbc6a127a3655c30b015a64fc6e39d2f",
+    "supporting/viewers/full_organization_first_half_organization.png": "9b6baad522de55c29d6325b200f6788ed58f4f87ea009ff9c571c8e13bad5897",
+    "supporting/viewers/full_temporal_first_half_direction_cosine_reported.png": "9bdf4531899618e450afa5140099e83fb481914d53bbb77d45c107d4c4728de7",
+    "supporting/viewers/full_organization_first_half_amount.png": "3c3337afe4746d79e5456d8a354448f639af65739f4b56d7468ff161dec2709e",
+    "supporting/viewers/full_temporal_full_direction_coverage.png": "9d33c6b3df3df9de0a0b1eeebc57a28b07ae39145e576bf1adbb738227172d12",
+    "supporting/viewers/full_temporal_last_half_direction_coverage.png": "21869557cebacc07b2ad3097ad552e54aa53ba46167414ed0e6a7c75234a415c",
+    "supporting/viewers/full_organization_full_amount.png": "8babcdedd0104aea31e123488eb381a1201fc4d87ecf6bce7ad42cbdabf0fc54",
+    "supporting/viewers/full_organization_first_half_width.png": "414967a7511aef8f8bc997dd804cae0b64ffe0a6f1bc79b63669776bc28356ba",
+    "supporting/viewers/full_organization_full_organization.png": "10a91218b74e578179bf2922eb8c5876e8d4377a92990c97e4abd6405fceb7f8",
+    "supporting/viewers/full_temporal_last_half_direction_cosine_reported.png": "a22de6c636198020624d2478eb043123a110ffb7eb32d2f6b1cbed223370e6d0",
+    "supporting/viewers/full_organization_full_width.png": "fafe215cc00107010ba6f7e6dc35a511faafac29ad5e2f1ba07114be09b803a3",
+    "supporting/viewers/full_organization_last_half_width.png": "83364be030330a08a5efcacd3792c204f698282703f5e6d4fb995acbf3a755b3",
+    "supporting/viewers/full_organization_last_half_amount.png": "28088069045727ab0e7b298ef26958c533ffb521214baeb5b5470fa96a7ad3a0",
+    "supporting/viewers/full_temporal_last_half_raw_vector_correlation.png": "be2d7bc0ad62d264fe1589b68fdf01d151898d93efc4ade298deb85e4ded76ce",
+    "supporting/viewers/late_quarter_mean_R.png": "26a8eeb2ee86a56a8c43edacba12fa5955121f73fe74c79e671f152971ace6ef",
+    "supporting/viewers/full_organization_last_half_organization.png": "fd620776ddf0488968ee0fa5cfeab305753a29c7c48b92e6dc05946aafcf26a2",
+    "supporting/viewers/late_quarter_qualified_multiregion_fraction.png": "38e5c5d5ece6db94894d58da575fa0a58f5beb7a549083878ead95e1ccf03b2b",
+    "supporting/vectors/local_atlas_wave_pinning_20.pdf": "40d2f94b964fae1f22ba5696e298a5536a423b01fc0c599c9159670b30002056",
+    "supporting/vectors/local_atlas_spring_ring_1.pdf": "27364977cfc6d25a504612451d06b47cab160b025fa4b682b62b4d91cb1c344a",
+    "supporting/vectors/local_atlas_goryachev_40.pdf": "9cc570dacb819616827947713bc461f7ac781a03e0f7270e56ca82abe2b61fc5",
+    "supporting/vectors/figure4_main.pdf": "078add74ebfcf65985aa84ac119beca3c2b4f450204d7cc78240d040e6ab5f7b",
+    "supporting/vectors/figure4_main.svg": "ce12b24f0821504f147b27969039ddcfae52fa7a8a74d7f5e5fd116ada17e8b8",
+    "supporting/vectors/all_models_sizes_strengths_organization_windows.pdf": "28d55fed603dd601d43f3cb0687bd489c05c1c9a55bb1786044662e7959d0faa",
+    "supporting/vectors/local_atlas_holmes_model3_40.pdf": "27123a534f2d8642f0fe8a98610c55842509bf1388a77c54e4e6b406669ea585",
+    "supporting/vectors/figure4_local_dynamics.svg": "ba793f242e0b66608c8b163bad7684f29dd214c6408cff78df9852932373a279",
+    "supporting/vectors/local_atlas_holmes_model3_20.pdf": "0d7161e406ee2de2d5f5a5b5b121b6f2a58ecebf7bd3e144ebaba8129e64c308",
+    "supporting/vectors/local_atlas_goryachev_20.pdf": "073c62166e348c9a5709747ed76f0d3d4bd98768192eeb6c63c2b792d9578492",
+    "supporting/vectors/local_atlas_goryachev_60.pdf": "3a1909d77484a2ce5b0f641e5878e7b672ccc8e8c90879ba29bda6e05f42be1b",
+    "supporting/vectors/all_conditions_second_half_native_atlas.pdf": "983a64ce53e111720f7502604aef91d3b427f5d2cf3c64e8e7393265d9efa40f",
+    "supporting/vectors/local_atlas_spring_ring_3.pdf": "6bd589b5e74e8cf38de4021459b60f5fd06fe88bd0c9b2045d121a5a20c70f0d",
+    "supporting/vectors/local_atlas_wave_pinning_40.pdf": "b1008e8ec90e614a602246e06bbf6188b3b8f0134b37152a42f64aa6e0239827",
+    "supporting/vectors/local_atlas_holmes_model3_60.pdf": "88a33dcf135f0e06625a6e018d6902e45d5b0de98d204aa29235186330f51fd1",
+    "supporting/vectors/local_atlas_spring_ring_2.pdf": "675c681439d96c72c0675978339241619f761d9f8f9ef896b86d18fda3cdde1d",
+    "supporting/vectors/all_models_sizes_strengths_temporal_windows.pdf": "b61fe139feff4d4230be09e7b82b1dfdcdc3f7f7f7773bcd9c43b1499897db17",
+    "supporting/vectors/figure4_local_dynamics.pdf": "39c9081a3e982bb9f451559ec24477f7f2a07b5be8b91919f20c6485b6f77372",
+    "supporting/vectors/late_quarter_sensitivity.pdf": "34d67b184a1f5ec1e97acba391f0cc708ce332d594bcf9101f9d46e6ddb8b895",
+    "supporting/vectors/local_atlas_wave_pinning_60.pdf": "bacadf664b144d1f233012186dfc4b6183733a8b85af9c39cf582b9ece10603f",
+    "supporting/data/native_example_context.csv": "60f7903ce8aa52ad1d90a5029083ab1ea6814c18894c57da11b2603cf3391844",
+    "supporting/data/memory_all_conditions_windows_lags.csv": "7aed652708ae1021e11a62fd759d8bea3946784585d0aed6f7e83c7073ce046a",
+    "supporting/data/condition_window_summaries.csv": "8d414fbb93965c920fd5fc903ab32382752ff2551cb7ddc32e95b52f95a86301",
+    "supporting/data/local_medoid_scores.csv": "bd1a5e24012b9caf8ee9bbae1b045d0c5995b6de99b8d232a90a89d1b7b8bc87",
+    "supporting/data/postburn_scalar_case_windows.csv": "11d386730fef1e4bf93c83f866185fc398a14791afe37843e25ba8b115c7d891",
+    "supporting/data/postburn_native_source_index.csv": "e8edbff95e6007890feeab202f3bb4703b7c6cd877bad33c19201417e4ae1b64",
+    "supporting/data/postburn_spatial_condition_windows.csv": "bc8aba49b562ca9d4ec9014b07736318a7599a0f26a1ff22f3cf8913df698b67",
+    "supporting/data/local_example_context.csv": "3d339a561ab9117501981289f51b155ab029ae3ea2c26642ab86fee9bfef5239",
+    "supporting/data/case_window_descriptors.csv": "1a3a6588ff36737eda4c07d5419392c99d30ecdf40da2cdbc39ff418fc7d365a",
+    "supporting/data/late_quarter_sensitivity.csv": "3427e01e13ee1dfd41b97e4b6b3d49b9eddc2e4820fca326c8698f93c82c9642",
+    "supporting/data/full_temporal_supplement_points.csv": "d33c4f0d2706dadb813a49ed4e4fa2aab9c8984c68343522b04446951291d201",
+    "supporting/data/case_window_memory.csv": "5a209c126344af925d1903de4714ebd87bbdc483b114649760cc9d5006312797",
+    "supporting/data/postburn_memory_case_windows.csv": "0d42f2d22095b907a49186fa34e28bf3b7c4c7e008a4d641c5ed63360aedbfd1",
+    "supporting/data/condition_window_snapshot.csv": "8d414fbb93965c920fd5fc903ab32382752ff2551cb7ddc32e95b52f95a86301",
+    "supporting/data/all_condition_native_atlas_selection.csv": "dd00d146016e53a3e1114c1f05a36eb89f2226e2d378f04ef6472963cec48717",
+    "supporting/data/local_example_profile_cells.csv": "a03f00a7aae9f553ab5bf1f0085f427757c78fe110245e18f6eb565f059d2d0c",
+    "supporting/data/worker_inventory.csv": "760ac786429bc6122e8f2eb66a822d70415b3fa629f76e221b3aaccdbb48286d",
+    "supporting/data/basal_primary_profiles.csv": "d43649ccdb4e82a3f1187686521903f7bdfc2490fb0d5b45cd6d7b6d1af12a05",
+    "supporting/data/postburn_spatial_case_windows.csv": "ad49a7ec698a47611c1b733e627eeb161fbcdbc6222fb91aea59af97a2d14cef",
+    "supporting/data/memory_window_bootstrap.csv": "6a02099943c117bd1f7a5792bf95c5852e144a4c8d8c4aa57e6ab2cc383a733f",
+    "supporting/data/condition_window_bootstrap.csv": "48406e89141f416ac99cb33d6196e5cc9d99ea084869c66ff53071ea29508b14",
+    "supporting/data/main_signature_points.csv": "549e59caf0424bf54b98a91a223330d2fe4c11daffd03fad6f0f8be75ad19e60",
+    "supporting/data/basal_physical_context.csv": "8d9b5fcccc9dca41e5c8989443f8bdb45215ecebf5d297b6b824747c51139011",
+    "supporting/data/paired_halfwindow_bootstrap.csv": "701d2dda041a4035c005f929447e8770fe3f30e483a9ea05408c7e78457eb294"
+  }
+}
+{
+  "generated_at": "2026-10-19T21:43:44.952786+00:00",
+  "native_archives_opened": 0,
+  "native_integrations": 0,
+  "export_receipt_sha256": "9cd0f670d3b7447f0298de5201bb94406339eb0b873c96ad1bca958ebaa9bd50",
+  "supplement_pages": 32,
+  "exact_pngs": 14,
+  "png_checks": {
+    "local_atlas_wave_pinning_40.png": {
+      "expected": "86ee321785682ea35531c5cab623fddc925b04c2970d6471dbe2088e1758df27",
+      "actual": "86ee321785682ea35531c5cab623fddc925b04c2970d6471dbe2088e1758df27",
+      "exact_png_match": true
+    },
+    "figure4_local_dynamics.png": {
+      "expected": "3fad7c134d5f899c4084521f63d0aad3462dc461f87ab332f6970ac3a77e378c",
+      "actual": "3fad7c134d5f899c4084521f63d0aad3462dc461f87ab332f6970ac3a77e378c",
+      "exact_png_match": true
+    },
+    "local_atlas_spring_ring_2.png": {
+      "expected": "0f3d0deed1cc586002f21f1d29cbaefa4c4495c65f74adaa6f1f08bc617fae18",
+      "actual": "0f3d0deed1cc586002f21f1d29cbaefa4c4495c65f74adaa6f1f08bc617fae18",
+      "exact_png_match": true
+    },
+    "local_atlas_goryachev_40.png": {
+      "expected": "51ee01cab0d31ef685e6bf519fbe83ef461e41130c2406582f7c17b869e230fe",
+      "actual": "51ee01cab0d31ef685e6bf519fbe83ef461e41130c2406582f7c17b869e230fe",
+      "exact_png_match": true
+    },
+    "local_atlas_goryachev_60.png": {
+      "expected": "48eb30596b5053f1a07e838a74fa885f192951254b54f1d8593eea52bd1ac1af",
+      "actual": "48eb30596b5053f1a07e838a74fa885f192951254b54f1d8593eea52bd1ac1af",
+      "exact_png_match": true
+    },
+    "local_atlas_holmes_model3_40.png": {
+      "expected": "3cdc0f051c7a669d8e6a454728b8534eb28ed52bbf49926a899dd97acb4227cf",
+      "actual": "3cdc0f051c7a669d8e6a454728b8534eb28ed52bbf49926a899dd97acb4227cf",
+      "exact_png_match": true
+    },
+    "local_atlas_holmes_model3_60.png": {
+      "expected": "24b9607b864c001551c800530468b2093ab2924ef9416745c25aa06e79f64e8f",
+      "actual": "24b9607b864c001551c800530468b2093ab2924ef9416745c25aa06e79f64e8f",
+      "exact_png_match": true
+    },
+    "local_atlas_spring_ring_1.png": {
+      "expected": "5c64d8b3d6a92eff660920ed2b8c12b0d36360e40025c8f654b7c5077cb4385e",
+      "actual": "5c64d8b3d6a92eff660920ed2b8c12b0d36360e40025c8f654b7c5077cb4385e",
+      "exact_png_match": true
+    },
+    "local_atlas_wave_pinning_20.png": {
+      "expected": "09a1c33b42f75eab193725eb304a990063b1c00e5d31143a74701c5f7df7df02",
+      "actual": "09a1c33b42f75eab193725eb304a990063b1c00e5d31143a74701c5f7df7df02",
+      "exact_png_match": true
+    },
+    "local_atlas_goryachev_20.png": {
+      "expected": "4a2eb16f85e0755ba439e8501ab130b03dc0d41f170c90902cb35cc29cee3a82",
+      "actual": "4a2eb16f85e0755ba439e8501ab130b03dc0d41f170c90902cb35cc29cee3a82",
+      "exact_png_match": true
+    },
+    "local_atlas_spring_ring_3.png": {
+      "expected": "84fa99c85c0fd233ae1b1f96dcc0f77d0256a6f7b918ba9f965750459010ae0a",
+      "actual": "84fa99c85c0fd233ae1b1f96dcc0f77d0256a6f7b918ba9f965750459010ae0a",
+      "exact_png_match": true
+    },
+    "local_atlas_wave_pinning_60.png": {
+      "expected": "4d0018f0bf51ddb48caceb1f3a69b268b892127b4754edd7a858a3528c39f3ef",
+      "actual": "4d0018f0bf51ddb48caceb1f3a69b268b892127b4754edd7a858a3528c39f3ef",
+      "exact_png_match": true
+    },
+    "local_atlas_holmes_model3_20.png": {
+      "expected": "4ece4c4b48ab5d881ddb8d27da10308121bdf50209e8e2368529c2cd470ffca5",
+      "actual": "4ece4c4b48ab5d881ddb8d27da10308121bdf50209e8e2368529c2cd470ffca5",
+      "exact_png_match": true
+    },
+    "figure4_main.png": {
+      "expected": "7eb2b6042bb80f2f30c077be1ee70c0c06ebfa7b36f96c3cbea01133687701b5",
+      "actual": "7eb2b6042bb80f2f30c077be1ee70c0c06ebfa7b36f96c3cbea01133687701b5",
+      "exact_png_match": true
+    }
+  },
+  "earlier_matrix_preserved_but_not_redrawn": [
+    "figure4_signature_readouts.png"
+  ],
+  "joint_CI_recomputed": true,
+  "native_path_opens_blocked_by_audit_hook": true,
+  "source": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/portable_reconstruction_20261019/helpers/redraw.py",
+  "status": "passed"
+}

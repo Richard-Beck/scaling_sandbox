@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-10-19T21:57:03.612881+00:00",
+  "passed": true,
+  "source_sha256": "7c1ef9929f8fbbda798e02c97ee7db29d152c229082a5d7242767f72fd2283fe",
+  "native_scope_receipt_sha256": "25897433202035d50a76115cfb047b236e029cba2c90188238c5b57ad453c6fd",
+  "case_descriptor_rows": 159,
+  "case_memory_rows": 954,
+  "condition_bootstrap_rows": 27,
+  "memory_bootstrap_rows": 162,
+  "paired_half_window_rows": 92,
+  "main_artist_source_rows": 0,
+  "numeric_comparisons": 4094,
+  "maximum_discrepancy": 6.661338147750939e-16,
+  "whole_seed_resamples": 2000,
+  "bootstrap_bag_hashes_independently_matched": true,
+  "same_bags_across_metrics_windows_lags": true,
+  "independent_calculation": "Integer per-seed multiplicity weights from recorded joint seed bags, recomputed equal-seed means, pooled eligible cosine/count ratios, coverage, percentile intervals, support-gated NA and paired half-window differences.",
+  "n2_control_CI_unavailable_verified": true,
+  "no_native_integrations": true,
+  "input_sha256": {
+    "condition_window_bootstrap.csv": "660fd0ed23782071da7d49ed97745e08d7c98e70a9c878273f8aed2f53fc8f08",
+    "memory_window_bootstrap.csv": "5bb531bc2e8198bd471b07cc74bcf07a3b7dac2497f941acf17939bc73df38e9",
+    "paired_halfwindow_bootstrap.csv": "626a9b766f9a82f8a35e6dd4aac971437c1406b8918d9a134f79749f58f11fde",
+    "BOOTSTRAP_PROTOCOL.json": "f25033cd12bc51ba0d43e5294e289f349cb3647b28517b4570dff248b6d9d007"
+  },
+  "limits": [
+    "Intervals quantify variation across independent forcing seeds conditional on exact model parameters/basals/input law/windows; they do not calibrate cross-model kinetics, stationary processes, or event lifetimes.",
+    "Pooled conditional heading and usable coverage are paired estimands; low-coverage groups remain gated and contributing-seed counts are exported.",
+    "Finite half-window sensitivity remains separate from certification of stationarity.",
+    "Width/event-distance metrics are outside the explicit accepted ten-metric numerical scope and receive separate source/geometry checks."
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "generated_at": "2026-10-19T19:53:59.253295+00:00",
+  "passed": true,
+  "scope": "All three existing C35 chemical basals: native saved preparation, two qualifying postsettling windows and10000-unit holdout; no new integration.",
+  "source_manifest_sha256": "79f5cf520a13a12efc1a1301f9d0429f82f92127db2ff3149256bb93e8f05d4a",
+  "records": [
+    {
+      "model": "wave_pinning",
+      "size": 35.0,
+      "checkpoint_sha256": "8f24cf97d4db11196822008eb63afc49f905c119839b7a65465fe3450a9c62bd",
+      "status_sha256": "18f44a1c83e37729a941e7eaad591cb4ac4395b636aca778428ee6722b254735",
+      "source_manifest_sha256": "f3b1dc893fd6458c5f0ecabf961417ff2e1a6db9e61547548141ae9ca856d128",
+      "two_postsettling_windows": [
+        {
+          "phase": 2,
+          "relative_range": 9.250634909586677e-15,
+          "projected_last_saved_rate": 1.9578063300712542e-14,
+          "samples": 201
+        },
+        {
+          "phase": 3,
+          "relative_range": 2.9367094951068814e-16,
+          "projected_last_saved_rate": 1.9578063300712542e-14,
+          "samples": 201
+        }
+      ],
+      "holdout_maximum_fixed_scale_excursion": 1.5662450640570034e-15,
+      "exact_qualified_checkpoint_matches_last_holdout": true
+    },
+    {
+      "model": "goryachev",
+      "size": 35.0,
+      "checkpoint_sha256": "c17082e4f424ae62f83bfcdd2f3af6215c46d1bd148f1cf47005317f0df392d0",
+      "status_sha256": "bbfc4885920dd5cc6e087477884fe9256640aec2cc0c155cfca9e70d6bae5085",
+      "source_manifest_sha256": "802228fd0ea8504558144213239099012df7323827439f6593c2740268902de5",
+      "two_postsettling_windows": [
+        {
+          "phase": 2,
+          "relative_range": 5.8752097036773564e-05,
+          "projected_last_saved_rate": 4.753606417406582e-11,
+          "samples": 201
+        },
+        {
+          "phase": 3,
+          "relative_range": 4.371251118615183e-12,
+          "projected_last_saved_rate": 5.166963497181067e-13,
+          "samples": 201
+        }
+      ],
+      "holdout_maximum_fixed_scale_excursion": 1.0333926994362134e-14,
+      "exact_qualified_checkpoint_matches_last_holdout": true
+    },
+    {
+      "model": "holmes_model3",
+      "size": 35.0,
+      "checkpoint_sha256": "0d95318344b604ac08ff4f32578daedc6aaa4f9c44acf7863217eb871b677feb",
+      "status_sha256": "91e46085c68282acd0d5d1a77cbe4f229fdb816114049d0e3d5544daa8eea2a4",
+      "source_manifest_sha256": "ec365eaef6695517dc8a126db5e02e760c742a58c6eb7872c07485fb42ff128c",
+      "two_postsettling_windows": [
+        {
+          "phase": 2,
+          "relative_range": 5.706546346573305e-13,
+          "projected_last_saved_rate": 2.865091676452017e-14,
+          "samples": 201
+        },
+        {
+          "phase": 3,
+          "relative_range": 4.297637514678025e-16,
+          "projected_last_saved_rate": 2.3684757858670004e-14,
+          "samples": 201
+        }
+      ],
+      "holdout_maximum_fixed_scale_excursion": 4.297637514678025e-16,
+      "exact_qualified_checkpoint_matches_last_holdout": true
+    }
+  ],
+  "native_saved_frames_verified": 8115,
+  "maximum_window_scaled_range_or_projected_drift": 5.8752097036773564e-05,
+  "maximum_holdout_scaled_excursion": 1.0333926994362134e-14,
+  "maximum_conserved_pool_relative_error": 5.551115123125783e-16,
+  "source_sha256": {
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/wave_pinning_C35/workers/00/attempt_10/000_preparation.npz": "a755a6d4869b7ed67a33f5899ad500458020d307a043d211406f1947daf7562b",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/wave_pinning_C35/workers/00/attempt_10/001_basal_window.npz": "00326ba44b5bdf3c37739c6f3c5633e89b48ec1926a59b678551321b7ec3dcd5",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/wave_pinning_C35/workers/00/attempt_10/002_basal_window.npz": "24794f40192426e69790fdf776217ac592061f19c9ca867faf247f3752cd1e0c",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/wave_pinning_C35/workers/00/attempt_10/003_basal_window.npz": "412c94ca36a28359af571d42d938383c036c3313a7dcc7a54094cf7c21b9e1fe",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/wave_pinning_C35/workers/00/attempt_10/004_holdout.npz": "6f3b3856ff17ff491dbf4f8fe4fd7c1022ae2dec04b8f19492b9e16e7f747a08",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/goryachev_C35/workers/00/attempt_10/000_preparation.npz": "680df3beacb208103b478e70c5dc9933b2dd8fc467369ea3d56045f494631085",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/goryachev_C35/workers/00/attempt_10/001_basal_window.npz": "dd2600e833d4f9386e2447dc930c4ad32bc7f0bb0995d31a394342a82a33d183",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/goryachev_C35/workers/00/attempt_10/002_basal_window.npz": "44a37979917fe203f7867bbc98607945188ee651418fffb97a1d9ebb1c4618ee",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/goryachev_C35/workers/00/attempt_10/003_basal_window.npz": "9b55e24522d75958cea2294a00a1ec2b54f55865f4c5f54b6054ad972f94c230",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/goryachev_C35/workers/00/attempt_10/004_holdout.npz": "ce07267bb91a5c1df8e2a515f9c79370dbc7d8bcdedd4c185d88b533e4976428",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/holmes_model3_C35/workers/00/attempt_10/000_preparation.npz": "9a1d6e8b7223c3190bc446c561066cd0336f21c524d3a9d9c4f70f4f36614234",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/holmes_model3_C35/workers/00/attempt_10/001_basal_window.npz": "21cbf3e9465a618855855d10324ba47985476ed779fd890bf38ae024a4886e73",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/holmes_model3_C35/workers/00/attempt_10/002_basal_window.npz": "bfd701209861009c6ffba075eb6a20770b062cc401db73de948c14ebb1fddfbb",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/holmes_model3_C35/workers/00/attempt_10/003_basal_window.npz": "cafcfa784f40e6ccfcbff7959d122336365df227be91b8c60c13a3b797321efe",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/chemical_ring_functional_v2_20261017/preparations/holmes_model3_C35/workers/00/attempt_10/004_holdout.npz": "30c302d1c1c3330ae053109cfeae4b63c9369b3c1f750765a49bc38d54cbeac1"
+  }
+}

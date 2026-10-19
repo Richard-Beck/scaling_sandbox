@@ -1,0 +1,61 @@
+{
+  "whole_seed_resamples": 2000,
+  "base_rng_seed": 202610195401,
+  "percentile": [
+    0.025,
+    0.975
+  ],
+  "joint_bags": "Same condition bags for all metrics, windows and lags; ordered by seed",
+  "direction": "Ratio of resampled cosine sums to resampled eligible counts; same bags for coverage",
+  "direction_support": ">=100 eligible pairs and>=1% all-pair coverage; >=95% bootstrap support for reported CI",
+  "descriptors": "Equal independent-seed mean of case time means; no per-frame pseudo-replication",
+  "noisy_n2": "Observed seed ranges only; no CI",
+  "deterministic_controls": "Single paths; no bootstrap replicates",
+  "groups": {
+    "('goryachev', 60.0, 0.0, 'basal')": {
+      "seeds": 1,
+      "rng_seed": 202610195401,
+      "bag_sha256": null
+    },
+    "('goryachev', 60.0, 0.01, 'mean')": {
+      "seeds": 1,
+      "rng_seed": 202610195402,
+      "bag_sha256": null
+    },
+    "('goryachev', 60.0, 0.01, 'noise')": {
+      "seeds": 12,
+      "rng_seed": 202610195403,
+      "bag_sha256": "973f99a7d65ca983a549be93aee350e747f6f2e83cc0e6d8f472be44e2b43feb"
+    },
+    "('goryachev', 60.0, 0.015, 'mean')": {
+      "seeds": 1,
+      "rng_seed": 202610195404,
+      "bag_sha256": null
+    },
+    "('goryachev', 60.0, 0.015, 'noise')": {
+      "seeds": 12,
+      "rng_seed": 202610195405,
+      "bag_sha256": "db0c9b8b2b722d86f01ea3bd3df23d398658ab5dc0af6af71a2efc4a147983b5"
+    },
+    "('goryachev', 60.0, 0.02, 'mean')": {
+      "seeds": 1,
+      "rng_seed": 202610195406,
+      "bag_sha256": null
+    },
+    "('goryachev', 60.0, 0.02, 'noise')": {
+      "seeds": 12,
+      "rng_seed": 202610195407,
+      "bag_sha256": "73be5b3ddbb857f6a9aab34da04b018f1729d429bbe76c4251b27859381e74e2"
+    },
+    "('goryachev', 60.0, 0.03, 'mean')": {
+      "seeds": 1,
+      "rng_seed": 202610195408,
+      "bag_sha256": null
+    },
+    "('goryachev', 60.0, 0.03, 'noise')": {
+      "seeds": 12,
+      "rng_seed": 202610195409,
+      "bag_sha256": "5af08e7f25864015d0cb35043457e1c8530719f0f89a1deead8771247c7b690b"
+    }
+  }
+}

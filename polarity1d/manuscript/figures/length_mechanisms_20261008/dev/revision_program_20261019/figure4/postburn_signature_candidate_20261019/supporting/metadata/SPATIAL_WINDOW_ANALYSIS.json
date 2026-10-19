@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-10-19T20:51:49.339848+00:00",
+  "elapsed_seconds": 57.24488433543593,
+  "source": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/postburn_signature_candidate_20261019/supporting/metadata/frozen_spatial_window_analysis.py",
+  "source_sha256": "c651f232a106796e3e44deb549b2166fbea461055aa728ef85f28643aeb522b7",
+  "cache_sha256": "b7ee33f498eb27bdf576b651dda25697d23d025878abdc925792f5a0f5995e77",
+  "accepted_scalar_source": "polarity1d/manuscript/data/runs/revision_noise_strength_broad_20261019/results/monitor/collector_v2.py",
+  "accepted_scalar_source_sha256": "79747ebe6d831571e302a1fec528b7c6f58b223d7c9d7a8ea827b22a134fdd83",
+  "native_integrations": 0,
+  "cases": 576,
+  "scalar_frames": 3686976,
+  "profile_frames": 461376,
+  "exact_native_archives_verified": 1152,
+  "windows": [
+    "full",
+    "first_half",
+    "last_half",
+    "quarter_1",
+    "quarter_2",
+    "quarter_3",
+    "quarter_4",
+    "tail_after_quarter_1"
+  ],
+  "region_definition": "Periodic connected grid cells at or above current min+0.5*(max-min); flat contrast<=1e-12 gives zero; seam joined before width",
+  "amplitude_qualification": "Current contrast>=0.1*initial basal contrast",
+  "width_weighting": "One largest width per qualified frame; one second-largest per qualified multiregion frame; condition means average available seed descriptors equally; coverage/contributors exported",
+  "physical_width": "number of cells/N times actual C(t); material fraction widths exported separately",
+  "no_birth_establishment_lifetime_or_event_rate": true,
+  "stationarity_test": "Finite-window sensitivity only; no equilibrium certification",
+  "outputs": {
+    "supporting/data/postburn_scalar_case_windows.csv": "f5bdaa37ef43b1a5a63755a417a3078ac2ca3be1c04be42c886af81084cb33e3",
+    "supporting/data/postburn_native_source_index.csv": "2901f1a8d13aa84b3b74a441a981bf4df85e3277575d369d86c034d69b4099c2",
+    "supporting/data/postburn_region_samples.npz": "9a4e2079580f8ed897144efc6346f60229364be54ac3be19bfe8c049381e22be",
+    "supporting/data/postburn_spatial_condition_windows.csv": "971e795167d8d1fce910616c74c006db1e64f4dcb291500fea050eb3d536d84f",
+    "supporting/data/postburn_temporal_curve_points.csv": "42b7b6ba3e81898755cfcf4925d9d049fa9508a24c2b401d64321b19e65db829",
+    "supporting/data/postburn_memory_case_windows.csv": "7f2caab2d47b0b9eb1bd439e19214b0b2fc98e4cbe5b8906ffce6ad92e73eb40",
+    "supporting/data/postburn_memory_coverage_points.csv": "01df85ac4dda53e3f80b7b11d57afad29aaad5fa8d537d813cb37521eee342b4",
+    "supporting/data/postburn_spatial_case_windows.csv": "749e7d47e62d69ed62c26a9a27e36d020b0eecb97f15078b42fbb99a76a5a111"
+  }
+}

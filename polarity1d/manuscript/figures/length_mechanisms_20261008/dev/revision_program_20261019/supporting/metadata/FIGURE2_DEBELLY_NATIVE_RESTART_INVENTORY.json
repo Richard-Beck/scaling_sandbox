@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-10-19T20:48:33.889868+00:00",
+  "scope": "Read-only inventory of the accepted corrected linear deBelly native API and stepping dependencies; not an integration/fidelity acceptance.",
+  "source_sha256": {
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/debelly_corrected_three_test_20261008/frozen_sources/code/core/native.py": "f94a71a1bff6eba0be19d00a0f498bf6eb7994645cb85323c42c60bb7084c8a4",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/debelly_corrected_three_test_20261008/frozen_sources/code/core/models/debelly.py": "2c55b50e03a74abaaa55eeccbb4b18bb1b8594d14dc716a901c51fe678793f96",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/debelly_corrected_three_test_20261008/frozen_sources/code/core/src/polarity1d/debelly.py": "b2a063232905c6124d6fb1a93c448d53627e725e502b3437d64b22af9d08c19b",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/debelly_corrected_three_test_20261008/frozen_sources/code/debelly_corrected_reversal.py": "3e05c5d04ee24874464d5985d18520a62feefc022e51c9242ca9b665217a5c61",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/debelly_corrected_three_test_20261008/frozen_sources/code/core/corrected_reversal.py": "9f934f69a47b627b2b817f7d26510ca92b14aab985598c952e957f55ea8421b2"
+  },
+  "dynamic_checkpoint_fields": [
+    "rac",
+    "rho",
+    "mca_bound",
+    "mca_unbound",
+    "displacement",
+    "velocity",
+    "tension",
+    "raw_left_displacement",
+    "raw_right_displacement",
+    "left_boundary_displacement",
+    "right_boundary_displacement"
+  ],
+  "dispatch": "native.run -> native.ds=models.debelly.simulate_debelly(initial_checkpoint=state), step0.5. Generic polarity1d.debelly lacks this full restart API.",
+  "corrected_model_parameters": "Existing corrected runner wraps model_for with center_boundary_motion=False; models.debelly._parameters alone retains centred defaults. Assay mode remains reflection_symmetric_extension, no passive boundary or substrate clutch.",
+  "restart_dependencies": [
+    "Rac/Rho, bound/unboundMCA and displacement/velocity/tension are copied fieldwise.",
+    "Raw and effective left/right boundary displacements are restored independently from the complete native checkpoint; four scalar fields are read from their first stored value, so their repeated-array representation must be preserved and checked.",
+    "Oldvelocity enters membrane force balance; oldtension enters protrusion; oldbound/unboundMCA enter staggered exchange; raw/effective boundary histories enter displacement and membrane boundary velocities.",
+    "The native totalMCA reference is computed after checkpoint restoration; it is a nominal-grid bound-plus-unbound budget, not a physical moving-domain Rac amount."
+  ],
+  "update_order": [
+    "Evaluate external input at the beginning of each native substep.",
+    "Use oldRac/tension to update raw endpoint commands; derive independent effective endpoint displacement/cortical boundary velocities.",
+    "Solve membrane displacement, compute membrane velocity and tension.",
+    "Update boundMCA using oldunbound, then unbound using newbound; apply native uniform replacement closure.",
+    "Solve cortical velocity from updatedMCA and the oldRho active-stress gradient.",
+    "UpdateRac using newMCA/tension/external and oldRho, then updateRho using newRac.",
+    "Advance clock and record at the requested outputtarget."
+  ],
+  "sampling_pitfall": "Requested output times are actual staggered integration stops, not dense-output interpolation. Keep every output/event/withdrawal on the0.5 lattice for the accepted native0.5 update. Sub0.5 stops change dynamics; default no-clutch boundary relaxation0.98 is applied perstep and is not renormalized bydt.",
+  "withdrawal": "Accepted trials integrate an alwaysON constant patch through the left limit, extract all11states, then call a separate native cue-free phase from localtime0. A time-gated cue that changes during the last update is not equivalent. Derived rac_activation may jump at withdrawal; the11dynamicfields must remain continuous.",
+  "coordinates": "The input uses fixed nominal Grid1D.x and Grid1D.length, independent of displacement. The accepted adapter samples cell centres. Do not relabel it an instantaneous physical-distance actuator or remap its input to moving endpoints.",
+  "hidden_history": "No additional external history state appears in the accepted autonomous no-clutch branch. Native homogeneous referenceRac/Rho is recomputed from unchanged parameters/step for thresholds; optional substrateclutch introduces extra state and is outside this campaign.",
+  "pilot_implications": "Compare shared-prefix versus independently stopped native fullstates and first/last direct-native cue-free continuations. Preserve raw state/geometry, separate derived activation jumps, report actual finite outcome agreement and fixed-scale errors. V1unlaunched freeze is preserved; final implementation preflight targets the new v2 hash.",
+  "native_integration_executed": false,
+  "scientific_source_modified": false
+}

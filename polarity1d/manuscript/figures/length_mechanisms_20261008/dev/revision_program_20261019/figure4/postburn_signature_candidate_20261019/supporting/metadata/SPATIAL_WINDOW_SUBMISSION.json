@@ -1,0 +1,21 @@
+{
+  "submitted_at": "2026-10-19T20:39:23.459563+00:00",
+  "job_id": "21200796",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--qos=small",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--mem=3G",
+    "--time=00:30:00",
+    "--job-name=f4-postburn-read",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/postburn_signature_candidate_20261019/supporting/metadata/spatial_%j.out",
+    "--error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/postburn_signature_candidate_20261019/supporting/metadata/spatial_%j.err",
+    "--wrap",
+    "exec /home/4473331/.conda/envs/scaling_sandbox/bin/python /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/postburn_signature_candidate_20261019/supporting/metadata/frozen_spatial_window_analysis.py --out /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/postburn_signature_candidate_20261019"
+  ],
+  "source_sha256": "c651f232a106796e3e44deb549b2166fbea461055aa728ef85f28643aeb522b7",
+  "native_integrations": 0,
+  "read_only_native_reanalysis": true
+}

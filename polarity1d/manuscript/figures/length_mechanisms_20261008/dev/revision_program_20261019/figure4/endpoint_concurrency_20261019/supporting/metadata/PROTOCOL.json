@@ -1,0 +1,32 @@
+{
+  "frozen_at": "2026-10-19T21:23:32.891222+00:00",
+  "definitions": {
+    "window": "Second half; both endpoints within [T/2,T]",
+    "lag": {
+      "chemical": 80.0,
+      "spring": 8.0
+    },
+    "native_profile_cadence": {
+      "chemical": 40.0,
+      "spring": 4.0
+    },
+    "physical_distance_bin_width": {
+      "chemical": 2.0,
+      "spring": 0.1
+    },
+    "region": "Periodic connected cells at or above current min+0.5*(max-min); flat contrast<=1e-12 gives zero",
+    "amplitude_qualification": "Current contrast >=0.1 of initial basal contrast, at each endpoint",
+    "initial_exposure": "Amplitude-qualified initial frame with exactly one half-contrast region and defined local circular centre",
+    "centre": "Circular centre weighted by primary-current minimum inside the connected region; valid if local phasor magnitude/weight sum >1e-6",
+    "outcome": "At endpoint, amplitude qualification, at least one region overlapping the initial region mask, and at least one separate nonoverlapping region with defined centre in the distance bin",
+    "probability": "Per initial frame and distance bin: at least one such endpoint region; several bins may co-occur. Never component count divided by frames.",
+    "bin_exposure": "Initial eligible frame with a positive length of initial exterior cells in that distance bin; all such frames remain in denominator, irrespective of endpoint outcome",
+    "distance": "Shortest periodic centre separation; actual initial-frame C times wrapped material-coordinate difference; initial Spring C used, endpoint stretch exported separately",
+    "undefined": "Undefined initial centre excludes exposure but remains in coverage; undefined secondary centres remain explicit unresolved outcomes with lower/upper probability bounds",
+    "weighting": "Per-case frame probabilities; condition means give each contributing independent case equal weight, with observed seed ranges and explicit contributor counts",
+    "cadence_sensitivity": "Four largest-size f=1 standard paths: same physical lag on each of ten decimations of saved dense profiles. These are descriptive phase-sampling checks, not an extra numerical acceptance gate.",
+    "scope": "Exploratory geographic endpoint concurrency only. Geographic mask overlap is not incumbent identity, birth, survival, continuous coexistence or establishment.",
+    "original_Spring_run_q90_gate": "Failed and unchanged; no continuous lifetime or event rate is inferred"
+  },
+  "source_sha256": "e190796388abd408722594d2d8c05b50908ae2fda3a87c8c2fa762c0dbd3bd4d"
+}
