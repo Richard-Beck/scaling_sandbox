@@ -1,0 +1,35 @@
+{
+  "generated_utc": "2026-10-21T01:58:22.254928+00:00",
+  "passed": true,
+  "production_resources_approved": true,
+  "scope": "Execution resources only; full atlas scientific/export gate remains pending.",
+  "pilot_review_sha256": "883c76eaf478e7a68ff69254a48a9aa3cbbdaaa78fda688e791445cdca16ce18",
+  "physical_binding_sha256": "b5f57e843a5f46a9c24241998ac93d2d9e30eda9a0a82aa7eb571847f1a60f32",
+  "source_worker_records_verified": 12,
+  "allocations": [
+    {
+      "context": "common",
+      "maximum_direct_RSS_KiB": 2835576,
+      "minimum_allocation_GiB": 6,
+      "approved_allocation_GiB": 6,
+      "pilot_hashes_checked": 4
+    },
+    {
+      "context": "E1_extra",
+      "maximum_direct_RSS_KiB": 563408,
+      "minimum_allocation_GiB": 2,
+      "approved_allocation_GiB": 2,
+      "pilot_hashes_checked": 4
+    },
+    {
+      "context": "E4_long",
+      "maximum_direct_RSS_KiB": 10893420,
+      "minimum_allocation_GiB": 17,
+      "approved_allocation_GiB": 18,
+      "pilot_hashes_checked": 4
+    }
+  ],
+  "scientific_inputs_or_native_values_changed": false,
+  "array_throttle": null,
+  "measurement_note": "Direct in-process RUSAGE_SELF peak governs requests; short-job coarse sacct sampling underestimates peak."
+}

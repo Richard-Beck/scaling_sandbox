@@ -1,0 +1,99 @@
+{
+  "brief": "docs/tasks/briefs/20261020_figure2_signature_assays.txt",
+  "decisions": [
+    {
+      "topic": "stage_0_commitment_calibration",
+      "status": "user_confirmed",
+      "user_answer_verbatim": "Use post-withdrawal replacement (recommended)",
+      "definition": "Shortest continuous cue duration giving D >= 0.5 after cue withdrawal and the declared recovery period.",
+      "field_stability": "Record the full native-field tail and its finite-tail gate separately from replacement fate.",
+      "remaining_parameters": [
+        "Recover the exact pilot dominance/challenger-zone definition from the named harness.",
+        "Declare recovery periods and finite observation horizons for every model.",
+        "Report sampled success/failure brackets and test monotonicity locally rather than assuming global monotonicity."
+      ]
+    },
+    {
+      "topic": "unavailable_external_pilot",
+      "status": "user_authorized_local_redesign",
+      "user_answer_verbatim": "You don't have access to it. Design the campaign around project local docs/solvers - that was a rough pilot assay and shoudn't need to be followed exactly. LMK if that is a blocker.",
+      "consequence": "Use retained project-local native solvers and explicitly declared new assay definitions. External pilot and 102 retained-assay results are unavailable, so their numerical values remain unverified and required supporting assays must be regenerated. This is not a blocker."
+    },
+    {
+      "topic": "local_assay_design",
+      "status": "agent_design_under_user_authorization",
+      "primary_dominance": "D=(E_right-E_left)/(E_right+E_left), using disjoint half-domain positive activity excess above the instantaneous spatial minimum. D>=0.5 means at least 75% of this excess is in the challenger half. Undefined or numerically negligible excess is flagged.",
+      "zone_sensitivities": "Additionally retain challenger amount over fixed widest support and each cue's own support, including overlap with the fixed basal incumbent core. These changing zones do not define primary replacement fate.",
+      "spatial_cue": "Project-native boundary raised cosine, rescaled at each evaluation so its actual native spatial quadrature equals the requested commanded area. deBelly uses nominal solver coordinates; Spring uses instantaneous physical coordinates.",
+      "widths": [
+        0.95,
+        1.9,
+        3.8,
+        7.6,
+        15.2
+      ],
+      "spring_widths": [
+        0.025,
+        0.05,
+        0.1,
+        0.2,
+        0.4
+      ],
+      "reference_area": "Native model-specific peak times 3.8; Spring native peak times 0.1. This is commanded input area per ON time, without an optical calibration or equal cumulative molecular dose claim.",
+      "spring_resting_length_mapping": "L_spring=L_nominal/15, based on the existing reference-length convention (1 versus 15), with fresh qualifying basals where exact retained states are absent. This is a comparison convention, not a measured unit conversion.",
+      "train_quantization": "For deBelly retain native step 0.5. Round each requested total ON upward to a common multiple of 4, so pulse counts 2/4/8 have identical actual total ON and every pulse is on-lattice. Round inter-pulse gaps to the nearest half-unit, recording requested and actual factors."
+    },
+    {
+      "topic": "fresh_basal_endpoint_qualification",
+      "status": "agent_correction_after_resource_pilot",
+      "evidence": "SLURM 21229850 tasks 6 and 7 completed native Holmes preparation integrations but failed an overly strict minimum-preparation-pulse bracket check. Every tested positive seed converged to the same qualified polarized endpoint; the zero-seed state was homogeneous.",
+      "decision": "Qualify a stable polarized endpoint using native full-field convergence and holdout checks, then require an independent full-field no-cue replay. Preserve unresolved minimum preparation-pulse duration explicitly. A globally minimum seed pulse is not required to prepare an exact stable basal.",
+      "scope": "This changes preparation acceptance bookkeeping only. It does not alter the post-withdrawal commitment calibration, response-fate thresholds, native kinetics, or field-stability criteria.",
+      "retention": "Original frozen payload, terminal errors and trial histories remain intact. Requalified checkpoint copies and audit receipts are separate outputs."
+    },
+    {
+      "topic": "stage_3_gap_noise_design",
+      "status": "agent_corrected_bounded_design_under_native_pilot_validation",
+      "conditions": "Wave-pinning and deBelly at L19/L29/L39; four pulses with total ON 1.5 times calibrated commitment; gap multiples 1/4/16; two weak mean levels; twelve independent seeds per condition.",
+      "weak_input_means": "0.005 and 0.02 times the retained native response peak. These fractions define the assay and are not a cross-model physical calibration.",
+      "forcing": "Bounded positive activation input q=mean*(1+tanh(Z)), where Z is the stationary unit-variance nonperiodic Gaussian field from spatial-exponential and temporal-OU knots with variance-normalized interpolation. Apply during inter-pulse gaps only; final recovery noise-free. At mean fractions0.005/0.02, the hard upper input bounds are0.01/0.04 times the retained native cue peak. No clipping or normalization of a realization.",
+      "controls": "36 matched-mean deterministic conditions and 18 zero-input conditions in addition to 432 noise realizations. Compare variance effects with the matched mean, not only with zero input.",
+      "retention_measure": "Report activity share and D at every pulse/gap endpoint and their changes. Operational retention requires eligible challenger-biased activity at pulse end (D>=0), eligible D>=0 at gap end, and gap-end challenger share at least 80% of pulse-end share. Show establishment/eligibility coverage separately from retention probability.",
+      "sensitivity": "Retain continuous share-loss measurements and compare 70%, 80% and 90% share-retention thresholds. Report finite ensemble uncertainty and native no-noise recovery field-tail flags separately.",
+      "latent_correlation": "Gaussian spatial correlation length1.9 in native nominal coordinates, temporal correlation time10 for Wave-pinning and5 for deBelly, knot intervals2.5 and0.5 respectively. Nonlinear transformed-input correlations are measured separately and are not assumed equal to the latent OU/exponential correlations.",
+      "preserved_initial_pilot": "The original lognormal-input pilot is retained unchanged. Its means were small but sampled maxima reached2.85 times the reference cue peak, so it cannot establish uniformly weak-input robustness. The original full lognormal payload remains unsubmitted, with an explicit hold receipt.",
+      "new_bounded_pilot": "Six conditions at L39 and gap16: noise, matched mean and zero for Wave-pinning and deBelly; require identity, native invariants and hard-bound audits before the full486-condition bounded ensemble."
+    },
+    {
+      "topic": "holmes_extended_commitment_calibration",
+      "status": "agent_extension_to_resolve_finite_horizon_failure",
+      "original_horizon": 10000,
+      "extended_horizon": 100000,
+      "recovery_horizon": 10000,
+      "original_evidence_preserved": true,
+      "native_kinetics_unchanged": true,
+      "observation": "Holmes L27 now has a sampled commitment bracket with upper18125. L31,35,39 have no sampled post-withdrawal75%-half-share commitment through100000 ON.",
+      "native_profile_check": "At the extended horizon L31,35,39 retain distinct active Rac regions near both ends after withdrawal; failed dominance is not caused by a single challenger region spilling across the midpoint.",
+      "interpretation": "These are finite declared assay limits, not proof that commitment is impossible at every duration. Never substitute the horizon for an unavailable calibration or fabricate dependent train schedules.",
+      "source_run": "polarity1d/manuscript/data/runs/signature_calibration_holmes_extended_20261020",
+      "profile_audit": "polarity1d/manuscript/data/runs/signature_calibration_holmes_extended_20261020/results/native_profile_audit/native_profiles.json"
+    },
+    {
+      "topic": "panel_B_reporter_initiation_definition",
+      "status": "agent_measurement_definition_after_full_sensitivity_audit",
+      "primary": "First cue-site positive excess peak reaching10% of the fixed within-model L19 basal excess peak. Use the same native reporter threshold across lengths and strengths.",
+      "rationale": "Fixed within-model reporter threshold measures initiation independently of the growing incumbent peak;10% is a central reporting fraction, with all1/5/10/20% results retained. The1% threshold is already exceeded in some initial deBelly relative-width cue zones.",
+      "sensitivity": "All450 width histories and54 same-peak relative-width histories independently reconstructed at1/5/10/20%. Original half-of-each-basal-peak threshold retained separately as height-maturation diagnostic.",
+      "baseline_presence": "If the threshold is already exceeded at time0, record baseline-active status; do not invent a postcue activation event.",
+      "time_resolution": "Report sampled brackets; deBelly first native step is(0,0.5], so substep interpolation is descriptive only.",
+      "source": "polarity1d/manuscript/data/runs/signature_width_core_20261020/results/reporter_threshold_sensitivity_20261020"
+    },
+    {
+      "topic": "panel_E_calibration_unavailable_fallback",
+      "status": "agent_deterministic_display_rule",
+      "rule": "Show L39 when calibrated; otherwise the largest calibrated length. Holmes usesL27 with L39-calibration-unavailable explicitly printed in E and F.",
+      "limits": "All L39 unavailable cells remain in maps and supplement. This is not a cross-model equal-length comparison or an outcome-selected successful example."
+    }
+  ],
+  "pending_user_information": []
+}

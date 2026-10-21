@@ -1,0 +1,103 @@
+{
+  "generated_date": "2026-10-20",
+  "requirements": "docs/tasks/briefs/20261020_figure3_requirements.json",
+  "brief_saved_verbatim": "docs/tasks/briefs/20261020_figure3_distance_competition.txt",
+  "scope": "Full A1, A2, three-ratio B, controls, both translations and complete supplement; claims remain prospective until native-field evidence and numerical checks are reviewed",
+  "fresh_basals": {
+    "run": "polarity1d/manuscript/data/runs/signature_figure3_basals_20261020",
+    "job_id": "21230235",
+    "native_preparations": 12,
+    "qualified": 12,
+    "independent_saved_native_field_audit": "results/basal_audit.json",
+    "all_largest_sizes_qualified": true,
+    "chemical_density": "20 cells per native circumference unit, dx=0.05",
+    "spring_density": "100 cells per native resting-circumference unit; actual physical C evolves",
+    "new_dependencies_installed": false,
+    "native_kinetics_changed": false,
+    "homogeneous_start_or_exact_checkpoint": "All twelve are fresh native homogeneous starts; challenges use exact qualified pre-control states",
+    "no_cue_controls": "53,000 chemical / 5,300 Spring units cover the whole longest possible A2 protocol"
+  },
+  "placements": {
+    "actual_total": 152,
+    "external": 119,
+    "borderline": 24,
+    "internal_supplementary": 9,
+    "actual_infeasible_requested_gaps": 0,
+    "synthetic_infeasible_gap_behavior_tested": true,
+    "continuous_centres": true,
+    "initial_10_percent_and_50_percent_contours": "linear contrast crossings on periodic native cell-centre profiles, fractional physical FV interval weights",
+    "antipode": "Every actual basal circumference has its own exact antipodal placement in addition to all eligible absolute gap-grid points"
+  },
+  "A1": {
+    "run": "polarity1d/manuscript/data/runs/signature_figure3_campaign_20261020",
+    "job_id": "21230280",
+    "native_placements": 152,
+    "mirror_and_antipode_controls": 24,
+    "completed_native_workers": 176,
+    "independent_native_saved_field_audit_passed": 176,
+    "independent_audit": "results/primary_independent_native_audit.json",
+    "all_case_evidence": "results/primary_evidence.csv",
+    "mirror_control_winner_or_censoring_mismatches": 0,
+    "maximum_relative_mirror_handover_difference": 0.000000004527987351047958,
+    "event": "First continuous BDF dense-root crossing of challenger cue-support excess exceeding frozen initial incumbent half-contrast-ROI excess; the initial basal concentration floor is frozen",
+    "incumbent_resolution": "Native region count and cue/incumbent association retained separately; handover is not asserted to be the same as replacement",
+    "unobserved_events": "Lower bounds only at completed declared scientific horizons; native failures or missing output are unavailable"
+  },
+  "A2": {
+    "plan": "polarity1d/manuscript/data/runs/signature_figure3_campaign_20261020/plans/A2.json",
+    "ready_payload": "polarity1d/manuscript/data/runs/signature_figure3_campaign_20261020/plans/A2_slurm_payload.json",
+    "eligible_intended_placements": 143,
+    "intended_multipliers": [0.5, 0.75, 1, 1.5, 2],
+    "positive_observed_own_handover_placements": 100,
+    "compiled_native_jobs": 500,
+    "explicit_unavailable_own_handover_placements": 43,
+    "unavailable_handovers_are_not_missing_jobs": true,
+    "cap_substitution_for_unobserved_handover": false,
+    "tails": "13,000 chemical / 1,300 Spring; full native fields and finite-tail gate separate from winner",
+    "brackets": "All tested durations and fates retained, with unavailable and nonmonotone cases explicit; no universal commitment threshold inferred"
+  },
+  "B": {
+    "ready_review_run": "polarity1d/manuscript/data/runs/signature_figure3_withdrawals_20261020",
+    "native_jobs": 357,
+    "external_placements": 119,
+    "target_ratios": [0.5, 1, 2],
+    "submitted_by_this_agent": false,
+    "separate_source_freeze_from_active_A1": true,
+    "claim_eligibility": "Exactly two geometrically associated withdrawal regions, finite measured gap, positive incumbent/signed challenger excess gate, target ratio reached and no incumbent collapse",
+    "one_region_withdrawal": "Preserve alternate outcome and native tail; never treat it as zero cue-free two-region resolution time",
+    "coincident_ratio_and_collapse": "Explicit ambiguity status; exclude from qualified two-region distance claim",
+    "initial_exchange_budget": "Exact native cue-free RHS; freeze actual withdrawal ROIs and concentration floor, include Spring physical-weight dilation plus concentration dilution, chemistry and diffusion; match symmetric state-direction finite difference",
+    "ROI_convention_review": "Current frozen implementation uses initial incumbent 50%-contrast ROI and native cue support for seeding ratio. Parent review requested before launch because broadening could make whole-region ratio preferable.",
+    "full_scope_kept": true
+  },
+  "numerical_controls": {
+    "ready_fresh_fine_basal_run": "polarity1d/manuscript/data/runs/signature_figure3_mesh_basals_20261020",
+    "fresh_fine_mesh_preparations": 2,
+    "models": ["wave_pinning", "goryachev"],
+    "circumference": 37.8,
+    "fine_cells": 1512,
+    "gaps": [0, 4, 8],
+    "control_variants": ["independent fresh fine mesh at native tolerances", "exact coarse checkpoint with max-step 5 and tenfold tighter tolerances"],
+    "future_native_control_jobs": 48,
+    "future_control_job_breakdown": "12 A1 + 36 three-ratio B",
+    "control_worker": "Reviewed separate B source version, with the primary native solver hashes unchanged",
+    "refined_checkpoint_interpolation": false
+  },
+  "validation": {
+    "analytic_tests": 7,
+    "analytic_tests_passed": 7,
+    "test_source": "polarity1d/manuscript/code/tests/test_signature_figure3_geometry_20261020.py",
+    "native_trajectory_integrations_on_login_node": 0,
+    "full_integration_execution": "Frozen source SLURM workers only, existing scaling_sandbox Conda environment",
+    "native_state_clipping_or_mass_renormalization": false,
+    "global_vector": "Full complex moment, magnitude, undefined direction at <=1e-10, additional meaningful magnitude coverage at 0.05/0.1/0.2; no unwrap through cancellation"
+  },
+  "remaining_required": [
+    "execute and independently audit A2",
+    "settle B region/excess convention before launch, execute all ratios, independently audit measured gaps and RHS budgets",
+    "execute and audit the fresh fine basals and full numerical control subset",
+    "build both geometry translations without extrapolation or silent censoring loss, checked against same-run headings",
+    "render main figure and all requested supplements from complete audited native evidence",
+    "integrate the revised results in the manuscript outline, commit and push to GitHub through the parent agent"
+  ]
+}

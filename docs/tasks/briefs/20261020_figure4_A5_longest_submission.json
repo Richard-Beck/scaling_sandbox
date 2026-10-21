@@ -1,0 +1,56 @@
+{
+  "generated_utc": "2026-10-21T01:48:37.067556+00:00",
+  "status": "Prepared, inventory/horizon/source checked, measurement and complete audit chain submitted",
+  "prepare_job": "21251610",
+  "dependency_collector": "21251491",
+  "native_integrations": 0,
+  "output_root": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_regions_longest_20261020",
+  "prepare_command": [
+    "/home/4473331/.conda/envs/scaling_sandbox/bin/python",
+    "-B",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/code/mechanisms/signature_figure4_regions_stage_20261020.py",
+    "--out",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_regions_longest_20261020",
+    "--arm",
+    "longest",
+    "--stage-analyses",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_E2_analysis_20261020",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_E3_analysis_20261020",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_E4_analysis_20261020"
+  ],
+  "sbatch_arguments": [
+    "sbatch",
+    "--parsable",
+    "--partition=red",
+    "--qos=small",
+    "--cpus-per-task=1",
+    "--mem=2G",
+    "--time=00:30:00",
+    "--dependency=afterok:21251491",
+    "--job-name=F4-A5-longest-prepare",
+    "--output=/tmp/F4_A5_longest_prepare_%j.log",
+    "--wrap",
+    "/home/4473331/.conda/envs/scaling_sandbox/bin/python -B /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/code/mechanisms/signature_figure4_regions_stage_20261020.py --out /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_regions_longest_20261020 --arm longest --stage-analyses /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_E2_analysis_20261020 /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_E3_analysis_20261020 /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_E4_analysis_20261020"
+  ],
+  "preparer_source_sha256": "95a7546b2ab934929ec0287670945421af29848fa97e4baf7104e7fb781c9df8",
+  "measure_and_audit_jobs": {
+    "measure": "21251752",
+    "collect": "21251753",
+    "independent_audit": "21251754",
+    "audit_master": "21251755"
+  },
+  "next": "After actual preparation succeeds, verify inventory and submit measure, dependent collect and24-shard audit, then audit collector. No array throttle.",
+  "inventory_sha256": "eca52a12687704b4b0899f758858153f17c016248f526b08a53b361844fd39e0",
+  "worker_freeze_sha256": "c08e08796b970141fb27546d6ea083e4e338e59651b2445711f034a386784e98",
+  "actual_cases": 2207,
+  "actual_counts": {
+    "zero": 32,
+    "mean": 185,
+    "noise": 1990
+  },
+  "actual_groups": 402,
+  "all_noise_conditions_single_horizon": true,
+  "all_noise_conditions_horizon_matched_mean_and_zero": true,
+  "array_throttle": null,
+  "prepare_log_note": "Preparation stdout was written to compute-node-local /tmp; Slurm21251610 completed0 onhpctpa3pc0001 in9s. Shared inventory, frozen sources and actual downstream logs provide the permanent execution record."
+}

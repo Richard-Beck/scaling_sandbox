@@ -1,0 +1,37 @@
+{
+  "generated_utc": "2026-10-20T22:25:04.667210+00:00",
+  "revision": 2,
+  "authority": "Root scheduling instruction after review of unchanged native solvers, successful sigma1 replays and conservative 8G/8h resources.",
+  "prospective_v1_plan": {
+    "path": "/home/4473331/projects/scaling_sandbox/docs/tasks/briefs/20261020_figure4_E4_execution_resources.json",
+    "sha256": "9f65dad2e9aa0c7af0232ec99f1bbddc87d5f694e292504617c9ebadc1f64936",
+    "preserved_unchanged": true
+  },
+  "scheduling_change": "After complete E1/E2 numerical gates and full E4 source/initial/Gaussian-prefix preflight, submit all688 tasks, or disjoint12 watch+676 remainder concurrently. Successful watch tasks remain in the declared cohort. Do not serialize remaining production behind full128k watch completion.",
+  "reason": "A serial 4x production watch wait is an additional engineering choice, not required by the scientific brief, and would add approximately two hours without supporting resource constraints.",
+  "unchanged": [
+    "All52 corrected-E0 trigger conditions",
+    "All624 noisy seeds including374 original continuations and250 top-ups",
+    "52 matched means and12 no-input controls",
+    "Native solvers, kinetics, stationary material/physical forcing laws, full horizons and output clocks",
+    "No clipping or realized-field normalization",
+    "8G/8h native resource budget",
+    "Independent native-field/prefix/control/full-stage qualification before scientific analysis"
+  ],
+  "prelaunch_forcing_preflight": {
+    "shards": 24,
+    "resources": {
+      "cpus": 1,
+      "memory": "8G",
+      "qos": "small",
+      "walltime": "00:30:00"
+    },
+    "no_native_evolution": true,
+    "missing_or_failed_shard_blocks_submission": true,
+    "require_all688_inputs_regenerated": true,
+    "require_all374_retained_gaussian_prefixes_exact": true
+  },
+  "current_harness_sha256": "773a650ceb4ad5d80b7bfaadf46a78c63087b3f9e2f153538e4af457da9e44c5",
+  "native_integrations_started": 0,
+  "status": "prospective_scheduling_authority_preflight_not_yet_executed"
+}

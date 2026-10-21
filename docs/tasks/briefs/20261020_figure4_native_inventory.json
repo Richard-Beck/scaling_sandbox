@@ -1,0 +1,786 @@
+{
+  "source_run": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019",
+  "source_manifest_sha256": "57d461508929b4d5957b408c4a67db5616f0c0713f576562ce4834e5516ca3e9",
+  "case_cache_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/results/partial/case_cache.json",
+  "case_cache_sha256": "a9d9836fc405e0d8ebdb967b55574de11bba44bb37a8e05e06527f3320f69f3f",
+  "existing_scientific_cases": 936,
+  "examples": {
+    "wave_pinning": {
+      "case_id": "replication_0000",
+      "model": "wave_pinning",
+      "size": 20.0,
+      "fraction": 0.003,
+      "seed": 202610192000302,
+      "worker": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/workers/0000",
+      "files": {
+        "trace.npz": {
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/workers/0000/trace.npz",
+          "sha256": "987911e0b1d70dd1bba69fa15c963dabc03e57b70e26d9fc3d08f7aecf69a303",
+          "fields": {
+            "primary_minimum": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "primary_maximum": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "contrast": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "frozen_threshold_regions": {
+              "shape": [
+                6401
+              ],
+              "dtype": "int64"
+            },
+            "current_half_contrast_regions": {
+              "shape": [
+                6401
+              ],
+              "dtype": "int64"
+            },
+            "peaks_prominence_ge_005": {
+              "shape": [
+                6401
+              ],
+              "dtype": "int64"
+            },
+            "dominant_region_position": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "dominant_region_unwrapped_position": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "dominant_region_width": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "dominant_region_excess_amount": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "dominant_region_unique": {
+              "shape": [
+                6401
+              ],
+              "dtype": "bool"
+            },
+            "dominant_region_tracking_warning": {
+              "shape": [
+                6401
+              ],
+              "dtype": "bool"
+            },
+            "time": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "polarity_x": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "polarity_y": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "polarity_magnitude": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "active_amount": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "coherence": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "q1": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "q2": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "normalized_moment_denominator_defined": {
+              "shape": [
+                6401
+              ],
+              "dtype": "bool"
+            },
+            "M1_real": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "M1_imag": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "M2_real": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "M2_imag": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "dominant_region_displacement_from_initial": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "dominant_region_unwrapped_displacement": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "largest_peak_position": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "local_input_mean": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "local_input_minimum": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "local_input_maximum": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "P_real": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "P_imag": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "M0": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "circumference": {
+              "shape": [],
+              "dtype": "float64"
+            },
+            "x": {
+              "shape": [
+                400
+              ],
+              "dtype": "float64"
+            }
+          }
+        },
+        "primary.npz": {
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/workers/0000/primary.npz",
+          "sha256": "a836b1e827f5c7ce0a56de6fe25f8cfd66bc6c950ae9fd9d36c9a4f75d690104",
+          "fields": {
+            "time": {
+              "shape": [
+                801
+              ],
+              "dtype": "float64"
+            },
+            "primary": {
+              "shape": [
+                801,
+                400
+              ],
+              "dtype": "float64"
+            },
+            "x": {
+              "shape": [
+                400
+              ],
+              "dtype": "float64"
+            },
+            "circumference": {
+              "shape": [],
+              "dtype": "float64"
+            }
+          }
+        },
+        "full_states.npz": {
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/workers/0000/full_states.npz",
+          "sha256": "57ce4c96fe378f3d2f06cd3a4bccb45b77c53536f012fb31331b85a2c9c5e50d",
+          "fields": {
+            "time": {
+              "shape": [
+                33
+              ],
+              "dtype": "float64"
+            },
+            "states": {
+              "shape": [
+                33,
+                2,
+                400
+              ],
+              "dtype": "float64"
+            },
+            "x": {
+              "shape": [
+                400
+              ],
+              "dtype": "float64"
+            }
+          }
+        },
+        "final_state.npz": {
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/workers/0000/final_state.npz",
+          "sha256": "9addde9cbc2ce921f25e96969475285c0c8ca3e2a13d6cde00afd2cfee4c1a06",
+          "fields": {
+            "state": {
+              "shape": [
+                2,
+                400
+              ],
+              "dtype": "float64"
+            },
+            "time": {
+              "shape": [],
+              "dtype": "float64"
+            },
+            "x": {
+              "shape": [
+                400
+              ],
+              "dtype": "float64"
+            }
+          }
+        },
+        "noise_audit.json": {
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/workers/0000/noise_audit.json",
+          "sha256": "0daaa235fde676200144c6d226fe69226f442a11b445158aa6ad724743b29b4b"
+        },
+        "status.json": {
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/workers/0000/status.json",
+          "sha256": "29799afcd3f63336093106af06e9ea1a33cb1276608d5222d16f311972da2d5e"
+        }
+      }
+    },
+    "spring_ring": {
+      "case_id": "replication_0270",
+      "model": "spring_ring",
+      "size": 1.0,
+      "fraction": 0.003,
+      "seed": 202610192300302,
+      "worker": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/workers/0270",
+      "files": {
+        "trace.npz": {
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/workers/0270/trace.npz",
+          "sha256": "315ef4a2b9fe57a63b5e3ae738fa3c3894b851297db5671cfbdafd5bea120b29",
+          "fields": {
+            "time": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "circumference": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "P_real": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "P_imag": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "M1_real": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "M1_imag": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "M0": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "q1": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "q2": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "amount": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "local_input_mean": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "material_positions": {
+              "shape": [
+                100
+              ],
+              "dtype": "float64"
+            },
+            "contrast": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "current_half_contrast_regions": {
+              "shape": [
+                6401
+              ],
+              "dtype": "int64"
+            },
+            "peaks_prominence_ge_005": {
+              "shape": [
+                6401
+              ],
+              "dtype": "int64"
+            },
+            "dominant_region_fraction": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            },
+            "dominant_region_width_fraction": {
+              "shape": [
+                6401
+              ],
+              "dtype": "float64"
+            }
+          }
+        },
+        "primary.npz": {
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/workers/0270/primary.npz",
+          "sha256": "e785331b08ecc136b4b2cc818c9c2a399a8ace4fcc6b0f616f48ca164c88f3bc",
+          "fields": {
+            "time": {
+              "shape": [
+                801
+              ],
+              "dtype": "float64"
+            },
+            "primary": {
+              "shape": [
+                801,
+                100
+              ],
+              "dtype": "float64"
+            },
+            "inactive": {
+              "shape": [
+                801,
+                100
+              ],
+              "dtype": "float64"
+            },
+            "circumference": {
+              "shape": [
+                801
+              ],
+              "dtype": "float64"
+            },
+            "material_positions": {
+              "shape": [
+                100
+              ],
+              "dtype": "float64"
+            }
+          }
+        },
+        "full_states.npz": {
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/workers/0270/full_states.npz",
+          "sha256": "c6c6289f4a0f46511f9d9a2da323ddb3f4e3d9e7f0bbf1643299bb5bf2bd37fc",
+          "fields": {
+            "time": {
+              "shape": [
+                33
+              ],
+              "dtype": "float64"
+            },
+            "states": {
+              "shape": [
+                33,
+                201
+              ],
+              "dtype": "float64"
+            },
+            "material_positions": {
+              "shape": [
+                100
+              ],
+              "dtype": "float64"
+            }
+          }
+        },
+        "final_state.npz": {
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/workers/0270/final_state.npz",
+          "sha256": "f5544434aed6b73184e1636024a8fd087105aa44d7ceb830c2bf1e46d6cc988b",
+          "fields": {
+            "state": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64"
+            },
+            "time": {
+              "shape": [],
+              "dtype": "float64"
+            }
+          }
+        },
+        "noise_audit.json": {
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/workers/0270/noise_audit.json",
+          "sha256": "29286375e02294a60ae18e69d16dde85e943dccce2664161cccbc513e4e86d53"
+        },
+        "status.json": {
+          "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/workers/0270/status.json",
+          "sha256": "b998de3266c812c8e429471777790ddaa779d376337ad84c5b385f7b95156999"
+        }
+      }
+    }
+  },
+  "noise_level_coverage": [
+    {
+      "f": 0.0001,
+      "minimum_seeds": 2,
+      "maximum_seeds": 2,
+      "model_size_groups": 12
+    },
+    {
+      "f": 0.0003,
+      "minimum_seeds": 2,
+      "maximum_seeds": 2,
+      "model_size_groups": 12
+    },
+    {
+      "f": 0.001,
+      "minimum_seeds": 12,
+      "maximum_seeds": 12,
+      "model_size_groups": 12
+    },
+    {
+      "f": 0.003,
+      "minimum_seeds": 12,
+      "maximum_seeds": 12,
+      "model_size_groups": 12
+    },
+    {
+      "f": 0.01,
+      "minimum_seeds": 12,
+      "maximum_seeds": 12,
+      "model_size_groups": 12
+    },
+    {
+      "f": 0.03,
+      "minimum_seeds": 12,
+      "maximum_seeds": 12,
+      "model_size_groups": 12
+    },
+    {
+      "f": 0.1,
+      "minimum_seeds": 12,
+      "maximum_seeds": 12,
+      "model_size_groups": 12
+    },
+    {
+      "f": 0.3,
+      "minimum_seeds": 2,
+      "maximum_seeds": 2,
+      "model_size_groups": 12
+    },
+    {
+      "f": 1.0,
+      "minimum_seeds": 2,
+      "maximum_seeds": 2,
+      "model_size_groups": 12
+    }
+  ],
+  "central_five": [
+    0.001,
+    0.003,
+    0.01,
+    0.03,
+    0.1
+  ],
+  "native_protocols": {
+    "chemical": {
+      "noise": {
+        "ell": 1.5,
+        "tau": 50.0,
+        "knot": 5.0,
+        "coupling_knot": 2.5,
+        "sigma": 1.0
+      },
+      "horizon": 32000.0,
+      "scalar_interval": 5.0,
+      "profile_interval": 40.0,
+      "full_interval": 1000.0,
+      "solver": {
+        "rtol": 1e-08,
+        "atol": 1e-10,
+        "max_step": 5.0
+      },
+      "diagnostics": {
+        "allowed_negative_roundoff": 5e-10,
+        "pool_relative_tolerance": 1e-07,
+        "minimum_contrast_native": 0.05,
+        "peak_prominence_native": 0.05
+      }
+    },
+    "spring": {
+      "noise": {
+        "ell": 0.15,
+        "tau": 5.0,
+        "knot": 0.125,
+        "coupling": 0.125,
+        "bridge_base": null,
+        "sigma": 1.0,
+        "amplitude_reference": 4.0,
+        "rationale": "ell=.15 resolves approximately15 native .01 cells and is shorter than preparation support.2; tau5 is one tenth of global circumference relaxation50. No cross-model biological calibration.",
+        "physical_law": "stationary material field with basalphysical covarianceell.15; actualell scalesC(t)/Cbasal",
+        "kernel": "Periodized Gaussian exp(-(s+j*Cbasal)^2/ell^2), discreteL2 normalized. Circular convolution of iid Gaussian white noise; exact discrete covariance=kernel autocorrelation; zero mode retained.",
+        "temporal_law": "Exact stationary OU knots at declared coupling; declared coarse knot subsample; analytic variance-normalized interpolation; lognormalexp(Z-.5)."
+      },
+      "horizon": 3200.0,
+      "scalar_interval": 0.5,
+      "profile_interval": 4.0,
+      "full_interval": 100.0,
+      "solver": {
+        "method": "BDF",
+        "rtol": 1e-08,
+        "atol": 1e-10,
+        "max_step": 0.125
+      }
+    }
+  },
+  "source_files": {
+    "frozen_sources/campaign.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/campaign.py",
+      "sha256": "4676276ed5eba25c14f214cf02f2f84fa137f708d06d981ebabad2af4a3ad59f"
+    },
+    "frozen_sources/chemical/code/mechanisms/vision_noise_20261017.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/mechanisms/vision_noise_20261017.py",
+      "sha256": "6e4aaec902887f0327beba1f7e357678748f304163ae59c575b2f68e019dc8ee"
+    },
+    "frozen_sources/chemical/code/mechanisms/ring_distance_prototype_20261017.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/mechanisms/ring_distance_prototype_20261017.py",
+      "sha256": "5ff9daea1f03425cfd186dd31fad7ed7d160a8dda80b1ee9c997bef7d90b1f7f"
+    },
+    "frozen_sources/chemical/code/mechanisms/length_dev_output_layout.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/mechanisms/length_dev_output_layout.py",
+      "sha256": "502d61ff74519d055d133f3b72fd12afa74f75e265e4e61d676513a1e7483a9a"
+    },
+    "frozen_sources/chemical/code/core/models/__init__.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/core/models/__init__.py",
+      "sha256": "8ff27edfd807aa4efeceeb1ff0abe0cd7a80ff5cc20065de975cd2757ec14f5b"
+    },
+    "frozen_sources/chemical/code/core/models/debelly.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/core/models/debelly.py",
+      "sha256": "2c55b50e03a74abaaa55eeccbb4b18bb1b8594d14dc716a901c51fe678793f96"
+    },
+    "frozen_sources/chemical/code/core/models/goryachev.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/core/models/goryachev.py",
+      "sha256": "3729ec29ed0861b47470b8acf5bc2e5c8d59c8cfc7940aa9377166296c547887"
+    },
+    "frozen_sources/chemical/code/core/models/holmes_model3.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/core/models/holmes_model3.py",
+      "sha256": "c130081420e002c510a121811339f92576484b7287d339f971193c79ba95587e"
+    },
+    "frozen_sources/chemical/code/core/models/legi.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/core/models/legi.py",
+      "sha256": "6d82e47d9f532fdd1494182fd6ed6e8c0702b0e0bbc67e233c3967275e68827f"
+    },
+    "frozen_sources/chemical/code/core/models/otsuji.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/core/models/otsuji.py",
+      "sha256": "dc9f083eba40a3254fb644eb80f4cd12141c3ba74cd7c0eda900578e06cf2941"
+    },
+    "frozen_sources/chemical/code/core/models/spring.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/core/models/spring.py",
+      "sha256": "874871bfd60cb9cc94a8390625f0a57260a6578b9f310c69935dcac5b235b93f"
+    },
+    "frozen_sources/chemical/code/core/models/wave_pinning.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/core/models/wave_pinning.py",
+      "sha256": "3167366db522833c7de3ac7b7c0285d23d27a9bc53409ccb0f0798618a60b54b"
+    },
+    "frozen_sources/chemical/code/core/src/polarity1d/__init__.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/core/src/polarity1d/__init__.py",
+      "sha256": "dca046a9ae1a83d08cae92ddae0d61a1051c5679c72ba3ec5d1538b74a4aeb79"
+    },
+    "frozen_sources/chemical/code/core/src/polarity1d/contract.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/core/src/polarity1d/contract.py",
+      "sha256": "8c0094a47c97a1c312c869d0224006aa2e16a67a359de7c7a960ea3db3a5ebc5"
+    },
+    "frozen_sources/chemical/code/core/src/polarity1d/debelly.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/core/src/polarity1d/debelly.py",
+      "sha256": "b2a063232905c6124d6fb1a93c448d53627e725e502b3437d64b22af9d08c19b"
+    },
+    "frozen_sources/chemical/code/core/src/polarity1d/holmes.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/core/src/polarity1d/holmes.py",
+      "sha256": "36a7ace580e1efbf937efa208c32ec700ccc25b49a0bbb2c111cbf3965fe77f0"
+    },
+    "frozen_sources/chemical/code/core/src/polarity1d/initial.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/core/src/polarity1d/initial.py",
+      "sha256": "8e56bc9dc31ce834ccf43a83b3a1d7f5efbcb6a15e85fe983ea891cbe2172690"
+    },
+    "frozen_sources/chemical/code/core/src/polarity1d/jilkine.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/core/src/polarity1d/jilkine.py",
+      "sha256": "6c51b974ecb83e8b332e19914077418ba4940d9a1b6b6f566d85e7b0c53cce4a"
+    },
+    "frozen_sources/chemical/code/core/src/polarity1d/metrics.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/core/src/polarity1d/metrics.py",
+      "sha256": "5e67a8a7d0fa08ecb68760c6cedd28f6c578b05a633b4e079608e5dce1dd92bf"
+    },
+    "frozen_sources/chemical/code/core/src/polarity1d/protocols.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/core/src/polarity1d/protocols.py",
+      "sha256": "f5f5c6ab52b55244492cdd47e89e08f8326330997d019c0c82f3787a33e77c10"
+    },
+    "frozen_sources/chemical/code/core/src/polarity1d/registry.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/core/src/polarity1d/registry.py",
+      "sha256": "41e23bff7f9827644f2a8e359344a13a908cee36994c96345072dd91cc0a32c9"
+    },
+    "frozen_sources/chemical/code/core/src/polarity1d/simulation.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/core/src/polarity1d/simulation.py",
+      "sha256": "c20a84b2b94ca51de21b441997af7fe0f11fe683c60819ab0d5816bfd63f8ab9"
+    },
+    "frozen_sources/chemical/code/core/src/polarity1d/solvers.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/core/src/polarity1d/solvers.py",
+      "sha256": "8db01abec7e17c51d191767b493459fd0d6a5c7135a8a40231a52b997f841dab"
+    },
+    "frozen_sources/spring/code/mechanisms/revision_spring_noise_20261019.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/spring/code/mechanisms/revision_spring_noise_20261019.py",
+      "sha256": "f2c5c85db6e8b1592de6e39c4f7af4b8ba553156e7002d1c9fd357ffa658066b"
+    },
+    "frozen_sources/spring/code/mechanisms/spring_ring_model_20261019.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/spring/code/mechanisms/spring_ring_model_20261019.py",
+      "sha256": "6a28e62120ae7571ffb5969716cc11c29eecacef8a8153ae590949e666cb75ed"
+    },
+    "frozen_sources/spring/code/mechanisms/spring_ring_closure_20261017.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/spring/code/mechanisms/spring_ring_closure_20261017.py",
+      "sha256": "55451d7adc9c84ab4f904ce19df401ece28bc7d35b1d4c5f33395e69f2c70c12"
+    },
+    "frozen_sources/spring/code/core/models/spring.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/spring/code/core/models/spring.py",
+      "sha256": "874871bfd60cb9cc94a8390625f0a57260a6578b9f310c69935dcac5b235b93f"
+    },
+    "frozen_sources/spring/code/mechanisms/revision_spring_noise_analysis_20261019.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/spring/code/mechanisms/revision_spring_noise_analysis_20261019.py",
+      "sha256": "6ed10dd720d4d8ecd2b3b2ad0b38e2ed5af8218e6c6277009c5f3a92dfecc60d"
+    },
+    "frozen_sources/spring/code/mechanisms/vision_noise_analysis_stable_v2_20261017.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/spring/code/mechanisms/vision_noise_analysis_stable_v2_20261017.py",
+      "sha256": "4b1bacdf31510100e525df9580d7d135a4b8526b665760358ff8afdd2b6ef8bf"
+    },
+    "frozen_sources/replication_core.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/replication_core.py",
+      "sha256": "f9a5eb848453d25f9992b3358cd94b07cc8103338a95bd0747be1d2f64f90a41"
+    },
+    "frozen_sources/replication_driver.py": {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/replication_driver.py",
+      "sha256": "68cebb93efad2f9fa022e4040efa06c6745c30da3ccb75c557a39d5fdad819bb"
+    }
+  },
+  "descriptor_sources": {
+    "chemical_profile_record": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/chemical/code/mechanisms/vision_noise_20261017.py:384",
+    "spring_diagnostics": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/frozen_sources/spring/code/mechanisms/revision_spring_noise_20261019.py:134",
+    "qualified_occupancy": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/code/mechanisms/revision_figure4_broad_strength_collect_20261019.py:87"
+  },
+  "definitions": {
+    "raw_regions": "Periodic connected components of primary >= current minimum + 0.5*current contrast; zero regions for contrast<=1e-12.",
+    "qualified_region": "Raw component in a frame with contrast >= 0.1 times that exact basal contrast.",
+    "multiple": "More than one raw component and contrast>=0.1*basal contrast.",
+    "low_contrast": "Current contrast <0.1*basal contrast.",
+    "weak_R": "abs(P)<0.1 where P=M1/M1(0); P arrays already normalized to own initial complex first moment.",
+    "native_unique_warning": "Chemical native dominant_region_unique uses absolute contrast>=0.05; use relative 10% qualifier for A4 rather than copying this native convenience boolean.",
+    "spring_coordinates": "material_positions q in [0,1); physical cell arc width is actual circumference(t)/N, never resting circumference/N.",
+    "spring_noise_frame": "Original field attached to material nodes; covariance width starts at actual basal physical ell=0.15 and changes physically as 0.15*C(t)/Cbasal.",
+    "cadences": "Original chemical scalar5/profile40; Spring scalar0.5/profile4. All original profile-based lifetimes remain cadence-limited."
+  }
+}

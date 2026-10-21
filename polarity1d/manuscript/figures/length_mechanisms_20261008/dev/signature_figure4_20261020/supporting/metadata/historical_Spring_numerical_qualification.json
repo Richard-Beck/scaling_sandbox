@@ -1,0 +1,67 @@
+{
+  "status": "historical_observation_cadence_failure_retained",
+  "model": "spring_ring",
+  "C0": 3,
+  "f": 1,
+  "seed": 202610192320800,
+  "original_full_gate_passed": false,
+  "stable_scope_accepted": true,
+  "gate_counts": {
+    "total": 198,
+    "passed": 186,
+    "failed": 12,
+    "stable_scope_passed": 180,
+    "all_q90_excluded": 18,
+    "q90_passed_ODE": 6
+  },
+  "original_standard_worker": 249,
+  "tight_ODE_worker": 255,
+  "forcing_sha256": "77fd6ce086de5f04685cfee8a671ba80193ee7eb028bd68db36536e41c475cc5",
+  "coarse_scalar_cadence": 0.5,
+  "dense_scalar_cadence": 0.05,
+  "full_q90_coarse": 10.0,
+  "full_q90_dense": 7.15,
+  "first_half_q90_coarse": 11.25,
+  "first_half_q90_dense": 7.665,
+  "last_half_q90_coarse": 9.0,
+  "last_half_q90_dense": 6.25,
+  "definition": "The 90th percentile of consecutive saved multiregion-mask spans (last true time minus first true time); this is not the lifetime of a tracked individual region.",
+  "failure": "All 12 failures are scalar-observation cadence comparisons (standard and tighter ODE, raw and contrast-qualified masks, three windows). All six ODE-only q90 comparisons pass.",
+  "qualification": "The original full gate remains failed. The separate accepted stable scope excludes all 18 q90 rows. It does not establish convergence of sampled durations, event rates, continuous region lifetimes, every condition, stationarity, or migration.",
+  "replay_scope": "Exact sigma-one replay establishes preservation of an existing path and forcing. It does not establish numerical or observation convergence. New optical tracking and cadence diagnostics require their own separately retained qualification.",
+  "replication": "Dense output samples the same native path. Tight-ODE companions are separate numerical controls, never extra independent noise realizations in the 936+26 E0 scientific inventory.",
+  "sources": [
+    {
+      "source": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/supporting/metadata/FIGURE4_BROAD_NUMERICAL_SPRING_RING_INDEPENDENT_CHECK.json",
+      "frozen": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_final_statistics_20261020/inputs/historical_numerics/FIGURE4_BROAD_NUMERICAL_SPRING_RING_INDEPENDENT_CHECK.json",
+      "sha256": "90acb9d1740acaa698a22d12e0d5c385dbe09922c4cc8c60e010e14f6a2a6eb4"
+    },
+    {
+      "source": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/protocol/STABLE_ESTIMAND_SCOPE.json",
+      "frozen": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_final_statistics_20261020/inputs/historical_numerics/STABLE_ESTIMAND_SCOPE.json",
+      "sha256": "3e4f8849cb84422a597803fc35e764714fcd4e75f3101d6876f3b940b74847ea"
+    },
+    {
+      "source": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/revision_noise_strength_replication_scoped_20261019/results/STABLE_ESTIMAND_ACCEPTANCE.json",
+      "frozen": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_final_statistics_20261020/inputs/historical_numerics/STABLE_ESTIMAND_ACCEPTANCE.json",
+      "sha256": "6a9a83a43814a8e7c26b83572db8cec239f867b42f3edef5879957cc37d87dca"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_final_statistics_20261020/results/historical_numerics/all_198_gate_rows.csv",
+      "sha256": "c4db7553b09181f8fb94f2d1c6a7ae88c684507b468a5fa8e47939e7dc195011",
+      "rows": 198
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_final_statistics_20261020/results/historical_numerics/excluded_18_sampled_duration_rows.csv",
+      "sha256": "298146c75f69f2f0349d44d69992638f030b98a1ddf3ee6a3e9d07d232c3a89d",
+      "rows": 18
+    },
+    {
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_final_statistics_20261020/results/historical_numerics/accepted_180_stable_scope_rows.csv",
+      "sha256": "1b699d7a4d44c3c4e08af47c46f97fd48ba4985c4ef77100263ab83e0cfbf585",
+      "rows": 180
+    }
+  ]
+}

@@ -1,0 +1,654 @@
+{
+  "schema_version": 1,
+  "brief_id": "20261020_figure2_signature_assays",
+  "source": {
+    "path": "docs/tasks/briefs/20261020_figure2_signature_assays.txt",
+    "author_as_supplied": "Richard",
+    "date_as_supplied": "2026-10-20",
+    "authority": "User revision brief; pilot observations are supplied claims pending source and campaign verification.",
+    "preservation": "Keep the verbatim brief alongside this derived intake. This JSON does not supersede the brief.",
+    "sha256": "c6457cd52307dac5314a069ea49ad2d4e10a1b20cef6f4c3a553ed093878fd4d"
+  },
+  "status": {
+    "intake": "requirements_extracted",
+    "figure_revision": "native_campaign_and_analysis_in_progress",
+    "campaign": "main width450 and core train972 execution records present; independent audits and remaining arms in progress",
+    "outline_integration": "pending_completed_figure_revisions",
+    "commit_and_push": "pending_completed_revisions_and_outline_integration"
+  },
+  "confirmed_decisions": {
+    "source": "docs/tasks/briefs/20261020_figure2_decisions.json",
+    "stage_0_commitment_calibration": "User confirmed post-withdrawal replacement: shortest sampled/bracketed continuous cue duration giving D >= 0.5 after cue withdrawal and declared native recovery. Full-field finite-tail qualification remains separate.",
+    "remaining_parameters": [
+      "Per-model recovery periods and finite horizons.",
+      "Sampled duration success/failure brackets and local monotonicity checks.",
+      "Source-backed activation and noise-retention criteria; noise amplitudes and numerical case selection."
+    ],
+    "local_redesign": "User authorized a fresh design from project-local documented native solvers because external pilots/harness are unavailable. Their results remain unverified; supporting assays must be regenerated. Pilot recovery is not a blocker.",
+    "primary_readout": "Disjoint half-domain positive activity excess above instantaneous spatial minimum. D=(E_right-E_left)/(E_right+E_left). Freeze incumbent basal half-height support; retain own-cue and fixed-widest-zone amounts with overlap flags separately.",
+    "eligibility": "Require at least 1% of frozen basal total excess and dimensionless contrast at least max(0.05,10% of frozen basal contrast), with absolute native amount tolerance. Store 0.5/2-fold sensitivity to both basal fractions. Ineligible states have D=null, replacement=false and explicit reason.",
+    "contrast_definition": "(max(active)-min(active))/(abs(max(active))+abs(min(active))); zero denominator gives contrast zero.",
+    "spring": "Nominal comparison length /15 gives Spring resting length; widths [0.025,0.05,0.1,0.2,0.4]. Own cue support follows instantaneous physical geometry; fixed-widest zone is mapped at basal geometry and frozen in material coordinates.",
+    "reference_area": "Native peak times 3.8; Spring native peak times 0.1. This is commanded spatial area per ON time, with actual quadrature normalization; it is not cumulative molecular or optical dose."
+  },
+  "central_claim": "Similar size-dependent replacement resistance arises through distinct mechanisms, which predict different responses to the shape and timing of a cue.",
+  "success_criterion": "Show positive, measurable challenge-response signatures that distinguish explanations for size-dependent replacement resistance; Wave-pinning must have a positive signature rather than identification by exclusion.",
+  "scientific_constraints": [
+    "Length represents WGD-associated enlargement under unchanged native local kinetics, not within-cell elongation during a turn.",
+    "Keep observed migration summaries, conditional OU velocity-memory estimates, deterministic polarity replacement and activity-heading memory distinct.",
+    "A 50% reduction of incumbent excess is not replacement.",
+    "Equal-peak width changes confound width and integrated input; the new shape contrast must fix integrated area and vary peak inversely with width.",
+    "Do not call the mechanism shared-pool competition based only on a length series that changes pool size, incumbent extent and separation together.",
+    "The post-withdrawal stall is a finite-horizon, exact-share result with reported residual drift, not an established permanent stable state or unique model signature.",
+    "Do not infer an exclusive Wave-pinning identity if Holmes 3 shares the narrow-cue penalty and gap ratchet; report the supported class of mechanisms.",
+    "Separate final fate from full-native-field finite-tail stability for every withdrawn run.",
+    "Do not describe integrated native input as calibrated photon dose; the native-to-optical calibration is absent according to the brief.",
+    "Every pilot number and pilot mechanism interpretation remains provisional until the campaign and source audits substantiate it."
+  ],
+  "reported_defects": {
+    "consolidated_plate_20261019": [
+      "Panel D broad/narrow equal-peak comparison changes integrated dose with width.",
+      "Its 50% incumbent-excess-loss readout is not replacement; ratio trends distinguish named models rather than explanations.",
+      "The main lacks a mechanism-by-observable matrix.",
+      "Panels E-G show one deBelly example while disclaiming cause.",
+      "The 3,492-protocol near-factorial width/strength/duration survey used duration as withdrawal time without extracting a designed shape or timing contrast."
+    ],
+    "signature_matrix_20261020": [
+      "User considers Goryachev initiation and deBelly dwell-gated commitment sound positive signatures.",
+      "Flat activation time and length-rather-than-separation are shared by Wave-pinning and deBelly, leaving Wave-pinning identified by exclusion.",
+      "The Wave-pinning stall requires exact-share withdrawal; reported D drift reaches 0.03 over the final 7,500 native units.",
+      "The stall may resolve under noise; slow two-peak coarsening is generic to mass-conserved saturating reaction-diffusion models.",
+      "The shared-pool explanation lacks an isolated causal contrast."
+    ]
+  },
+  "panels": [
+    {
+      "id": "A",
+      "content": "Compact incumbent organization: amount, extent and peak versus length for all five models, retained from 19 October panels A-C.",
+      "discriminates": "Context for every model.",
+      "inputs": [
+        "Retained basal profile and organization summaries for Wave-pinning, Goryachev, corrected deBelly, Holmes 3 and Spring."
+      ],
+      "completion_evidence": [
+        "Exact retained source/protocol identities and basal qualification.",
+        "All-five amount, extent and peak curves with native length conventions and explicit definitions.",
+        "Rendered compact panel checked against retained numerical values."
+      ]
+    },
+    {
+      "id": "B",
+      "content": "Cue-site activation time versus length, with 0.5-fold and 2-fold strength and fixed-width overlays.",
+      "discriminates": "Goryachev initiation from the other mechanisms.",
+      "inputs": [
+        "Regenerated local initiation-strength and fixed-width checks, with source/protocol audit."
+      ],
+      "completion_evidence": [
+        "Exact activation definition and cue-site convention.",
+        "All model-length overlays and censoring/ineligibility labels.",
+        "Source-backed demonstration of the positive initiation signature without treating activation as replacement."
+      ]
+    },
+    {
+      "id": "C",
+      "content": "Equal-area width series: narrow-to-broad replacement-time ratio versus length, plus a Wave-pinning L39 narrow/broad native-profile inset.",
+      "discriminates": "Wave-pinning's concentration penalty from Goryachev and deBelly; test whether Holmes 3 shares the signature.",
+      "inputs": [
+        "Stage 1 equal-area width campaign."
+      ],
+      "completion_evidence": [
+        "Numerically verified equal integrated area and inverse peak-width relation.",
+        "Declared main-panel width pair and area level; full five-width, three-area results in S1.",
+        "Replacement-time definition, event sampling, censoring bounds and ratios that do not invent a time for nonreplacement.",
+        "Exact L39 native narrow/broad profile sources, shared within-model scales and matching cue geometry.",
+        "Both challenger-zone definitions retained in supporting evidence."
+      ]
+    },
+    {
+      "id": "D",
+      "content": "One cue-train fate map per model: gap multiple by length, colored by final D.",
+      "discriminates": "Goryachev gap sensitivity from Wave-pinning and deBelly.",
+      "inputs": [
+        "Stages 0 and 2, with explicit pulse-count and total-ON slice selection."
+      ],
+      "completion_evidence": [
+        "Per-condition calibrated continuous-cue commitment duration and resolved commitment rule.",
+        "Pulse schedule, gap duration, total ON time and cue-free horizon for every plotted cell.",
+        "Final D and separate native-field-tail flag, including failed and unavailable runs.",
+        "Complete alternative pulse counts and ON multipliers in S2; no unlabeled selective slice."
+      ]
+    },
+    {
+      "id": "E",
+      "content": "D traces through one L39 cue train per model, with pulse intervals shaded.",
+      "discriminates": "Wave-pinning gap hold from deBelly early activity collapse followed by later commitment.",
+      "inputs": [
+        "Stage 2 native histories and every pulse/gap endpoint; stage 3 tests hold robustness."
+      ],
+      "completion_evidence": [
+        "Declared example-selection rule, gap multiple, pulse count, total ON multiplier and native clock.",
+        "Unambiguous end-of-pulse and end-of-gap D values, including all early gaps.",
+        "Native-field and activity evidence distinguishes retained share from hidden-state accumulation hypotheses.",
+        "Weak-noise retention probabilities with seed coverage and declared retention criterion in S3."
+      ]
+    },
+    {
+      "id": "F",
+      "content": "Signature summary mapping each supported signature to beam width at fixed photon dose, pulse trains and biosensor share at the end of every gap.",
+      "discriminates": "All three focal mechanisms, with Holmes 3 and Spring outcomes determining the supported scope.",
+      "inputs": [
+        "Verified panels B-E and all-five supporting results."
+      ],
+      "completion_evidence": [
+        "Explicit mechanism-by-observable summary with positive signatures and uncertainty/negative results.",
+        "Each signature links to its measured readout and supporting assay, not only to a model name.",
+        "Proposed optical measurements are distinguished from uncalibrated native simulations.",
+        "Claims change to a mechanistic class if Holmes 3 shares Wave-pinning signatures."
+      ]
+    }
+  ],
+  "supplement_routing": {
+    "S1": "Replacement time and challenger amount E_C(t) versus width, using fixed widest challenger zone and each cue's own support.",
+    "S2": "Full cue-train fate maps and D at the end of every pulse and gap.",
+    "S3": "Probability that activity share is retained through each gap under weak noise.",
+    "S4": "Retained separation-versus-length assay, share/dwell-withdrawal map, initiation-strength and fixed-width checks.",
+    "S5": "Spatial resolution, output-sampling and deBelly half-unit-lattice checks."
+  },
+  "campaign": {
+    "models": [
+      "Wave-pinning",
+      "Goryachev",
+      "deBelly",
+      "Holmes 3",
+      "Spring"
+    ],
+    "model_count": 5,
+    "core_length_labels": [
+      19,
+      23,
+      27,
+      31,
+      35,
+      39
+    ],
+    "core_length_count": 6,
+    "model_length_state_count": 30,
+    "spring_length_rule": "Use matched resting lengths in Spring's native units; exact mapping must be specified.",
+    "kinetic_rule": "Keep each model's native kinetics.",
+    "stages": [
+      {
+        "id": 0,
+        "name": "Commitment calibration",
+        "factors": {
+          "models": 5,
+          "lengths_per_model": 6
+        },
+        "factor_product": 30,
+        "count_unit": "bisection searches, not individual native integrations",
+        "brief_approximate_count": "~30 bisections",
+        "method": "Find the shortest sampled/bracketed continuous cue duration with D >= 0.5 after withdrawal and declared native recovery, by bisection on native duration within locally checked transition brackets. Keep field-tail qualification separate and do not assume global monotonicity.",
+        "downstream": "Defines total ON time for stage 2.",
+        "unresolved": [
+          "Per-model duration brackets/tolerance, recovery horizon and event sampling.",
+          "Local duration monotonicity and possible disjoint success windows."
+        ],
+        "completion_evidence": [
+          "Frozen exact basal identities and qualification for all 30 states.",
+          "Declared commitment gate, bisection brackets/tolerance and all tested pass/fail evaluations.",
+          "Per-state calibration duration with censoring and failed/ineligible cases explicit."
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Equal-area width",
+        "factors": {
+          "models": 5,
+          "lengths_per_model": 6,
+          "widths": [
+            0.95,
+            1.9,
+            3.8,
+            7.6,
+            15.2
+          ],
+          "area_multipliers": [
+            0.5,
+            1,
+            2
+          ]
+        },
+        "factor_counts": [
+          5,
+          6,
+          5,
+          3
+        ],
+        "exact_factor_product": 450,
+        "brief_approximate_count": 450,
+        "spring_rule": "Scale width to Spring's native support.",
+        "area_rule": "Hold integrated area constant within each area level while varying width and inversely varying peak; pilot reference area was native peak times 3.8.",
+        "readouts": [
+          "Continuous-cue replacement time.",
+          "Challenger amount E_C(t).",
+          "Fixed-widest-zone and each-cue-support challenger-zone conventions."
+        ],
+        "supplement": "S1",
+        "completion_evidence": [
+          "450 distinct planned factor combinations and a terminal outcome for each, with failures/ineligibility retained.",
+          "Measured cue geometry, peak and integrated native input, including Spring mapping.",
+          "Full replacement curves, censored events and both zone conventions.",
+          "Native-profile provenance for the selected Wave-pinning L39 inset."
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Cue train",
+        "factors": {
+          "models": 5,
+          "lengths_per_model": 6,
+          "pulse_counts": [
+            2,
+            4,
+            8
+          ],
+          "gap_multiples_of_pulse_duration": [
+            0,
+            0.1,
+            0.5,
+            1,
+            4,
+            16
+          ],
+          "total_on_multipliers_of_calibration": [
+            1,
+            1.5,
+            2
+          ]
+        },
+        "factor_counts": [
+          5,
+          6,
+          3,
+          6,
+          3
+        ],
+        "exact_factor_product": 1620,
+        "brief_approximate_count": 1620,
+        "schedule": "Equal-duration pulses divide the stated total ON time; each intervening gap is the stated multiple of one pulse duration.",
+        "readouts": [
+          "Final D.",
+          "D at the end of every pulse.",
+          "D at the end of every gap.",
+          "Full cue-free native-field tail and finite-tail gate."
+        ],
+        "post_train_horizon": {
+          "user_pilot_other_models_native_units": 10000,
+          "user_pilot_debelly_seconds": 4000,
+          "campaign_status": "Pilot horizons are supplied; confirm/freeze campaign horizons explicitly."
+        },
+        "supplement": "S2",
+        "completion_evidence": [
+          "1,620 planned factor combinations linked to stage-0 calibration identities.",
+          "Exact realized pulse/gap timing and total ON accounting.",
+          "Native histories and all pulse/gap endpoints; final fate separate from field stability.",
+          "Zero-gap controls remain traceable for every requested pulse-count/ON factor combination."
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Noise on Wave-pinning hold",
+        "factors": {
+          "models": [
+            "Wave-pinning",
+            "deBelly"
+          ],
+          "lengths": [
+            19,
+            29,
+            39
+          ],
+          "weak_noise_level_count": 2,
+          "gap_multiples_of_pulse_duration": [
+            1,
+            4,
+            16
+          ],
+          "seeds_per_condition": 12
+        },
+        "factor_counts": [
+          2,
+          3,
+          2,
+          3,
+          12
+        ],
+        "exact_factor_product": 432,
+        "brief_approximate_count": 430,
+        "count_note": "The supplied factors multiply to 432; the brief rounds this to 430.",
+        "readout": "Probability that the share is retained through each gap.",
+        "unresolved": [
+          "Numerical weak-noise levels, stochastic placement/correlation and native scaling.",
+          "Pulse count, total-ON multiplier and retention probability criterion.",
+          "L29 is outside the six-length core grid; reuse or qualify an explicit L29 basal and its required calibration."
+        ],
+        "supplement": "S3",
+        "completion_evidence": [
+          "432 planned runs, all 12 seed outcomes per condition and exact stochastic protocol.",
+          "Declared gap-retention criterion and per-gap eligible denominator.",
+          "Retention probabilities and uncertainty with failures explicit.",
+          "L29 basal and calibration provenance."
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Retained assays",
+        "arms": [
+          "Separation versus length.",
+          "Share/dwell-withdrawal map.",
+          "Initiation-strength checks.",
+          "Fixed-width checks."
+        ],
+        "brief_reported_existing_runs": 102,
+        "exact_independent_factor_product": null,
+        "verification_status": "External user-reported outputs unavailable. User authorizes new local documented assays; regenerate supporting evidence without claiming verification of the original 102 runs.",
+        "supplement": "S4",
+        "completion_evidence": [
+          "Frozen local assay manifest and native source/protocol identities for regenerated separation, share/dwell withdrawal, initiation-strength and fixed-width arms.",
+          "Exact restart basals, native kinetics and qualified numerical execution for each new case.",
+          "S4 source-backed tables and histories; original 102 count remains a user-reported historical claim.",
+          "Finite-horizon drift and exact-share dependence retained; no asymptotic-stability claim."
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Numerics",
+        "factors_as_supplied": {
+          "models": 5,
+          "length_pairs_per_model": 1,
+          "spatial_cell_counts": [
+            201,
+            401
+          ]
+        },
+        "nominal_grid_comparison_product": 20,
+        "nominal_grid_comparison_expression": "5 models times 2 lengths times 2 cell counts",
+        "brief_approximate_count": 20,
+        "additional_checks": [
+          "Output sampling.",
+          "deBelly half-unit lattice."
+        ],
+        "count_note": "The simple grid comparison gives 20 integrations. The brief does not specify whether sampling/lattice checks reuse them or add integrations, so the stage's final exact count is unresolved.",
+        "supplement": "S5",
+        "completion_evidence": [
+          "Declared length pair and representative assay per model.",
+          "Matched 201/401 spatial-resolution results with meaningful fate/time/profile comparisons.",
+          "Output-sampling sensitivity for threshold times and gap endpoints.",
+          "deBelly half-unit-lattice sensitivity and corrected endpoint provenance.",
+          "Numerical convergence limits propagated into panel claims."
+        ]
+      }
+    ],
+    "count_audit": {
+      "stages_1_and_2_exact_runs": 2070,
+      "stages_1_to_3_exact_factor_product": 2502,
+      "new_runs_including_nominal_20_numerics_excluding_retained_and_calibration": 2522,
+      "all_runs_including_102_retained_and_nominal_20_numerics_excluding_calibration": 2624,
+      "brief_total": "roughly 2,500 runs, plus a short calibration stage",
+      "limitations": "Calibration evaluations, possible added L29 calibration and final numerical-check count are not fixed by the brief. Do not label 30 bisection searches as 30 integrations."
+    }
+  },
+  "user_pilot_claims": {
+    "evidence_status": "Supplied by user; no pilot raw data, logs or native histories were verified in this intake.",
+    "shared_setup": {
+      "models": [
+        "Wave-pinning",
+        "Goryachev",
+        "deBelly"
+      ],
+      "lengths": [
+        19,
+        29,
+        39
+      ],
+      "baseline": "Exact retained basal at each length.",
+      "kinetics": "Unchanged native kinetics.",
+      "dominance_convention_as_supplied": "D = 0.5 means a 75% challenger share; the general D formula and zone convention still require source verification."
+    },
+    "equal_area_width": {
+      "integrated_area": "Native peak times 3.8",
+      "width_range": [
+        0.95,
+        7.6
+      ],
+      "peak_rule": "Proportional to inverse width.",
+      "replacement_event": "Continuous cue until D >= 0.5, reported in native units.",
+      "rows": [
+        {
+          "model": "Wave-pinning",
+          "length": 19,
+          "narrow_time": 370,
+          "broad_time": 84,
+          "reported_narrow_over_broad": "4.4"
+        },
+        {
+          "model": "Wave-pinning",
+          "length": 29,
+          "narrow_time": null,
+          "narrow_censoring": "No replacement by 6000",
+          "broad_time": 280,
+          "reported_narrow_over_broad": ">21"
+        },
+        {
+          "model": "Wave-pinning",
+          "length": 39,
+          "narrow_time": null,
+          "narrow_censoring": "No replacement by 6000",
+          "broad_time": 1495,
+          "reported_narrow_over_broad": ">4",
+          "additional_claim": "Time to D = 0 is 23 times longer for the narrow cue."
+        },
+        {
+          "model": "Goryachev",
+          "length": 19,
+          "narrow_time": 423,
+          "broad_time": 365,
+          "reported_narrow_over_broad": "1.16"
+        },
+        {
+          "model": "Goryachev",
+          "length": 29,
+          "narrow_time": 1476,
+          "broad_time": 1339,
+          "reported_narrow_over_broad": "1.10"
+        },
+        {
+          "model": "Goryachev",
+          "length": 39,
+          "narrow_time": 3899,
+          "broad_time": 3784,
+          "reported_narrow_over_broad": "1.03"
+        },
+        {
+          "model": "deBelly",
+          "length": 19,
+          "narrow_time": 25,
+          "broad_time": 27,
+          "reported_narrow_over_broad": "0.93"
+        },
+        {
+          "model": "deBelly",
+          "length": 29,
+          "narrow_time": 63,
+          "broad_time": 70,
+          "reported_narrow_over_broad": "0.90"
+        },
+        {
+          "model": "deBelly",
+          "length": 39,
+          "narrow_time": 178,
+          "broad_time": 232,
+          "reported_narrow_over_broad": "0.77"
+        }
+      ],
+      "interpretation_to_test": [
+        "Wave-pinning has a concentration penalty that grows with size, consistent with saturating feedback and a challenger plateau-width dependence.",
+        "Goryachev and deBelly are nearly width-neutral at fixed area.",
+        "The assay directly separates Wave-pinning from deBelly in these pilots; it does not yet establish exclusive mechanisms or robustness."
+      ]
+    },
+    "cue_train": {
+      "pulse_count": 4,
+      "total_on_multiplier_of_continuous_committing_duration": 1.5,
+      "gap_multiples": [
+        0.1,
+        1,
+        4
+      ],
+      "post_train_cue_free_native_units": 10000,
+      "debelly_post_train_cue_free_seconds": 4000,
+      "rows": [
+        {
+          "model": "Wave-pinning",
+          "reported_fate_at_all_three_lengths": "Replaces at every tested gap.",
+          "L39_gap4_D_at_pulse1_end": 0.43,
+          "L39_gap4_D_at_gap1_end": 0.35
+        },
+        {
+          "model": "Goryachev",
+          "reported_fate_at_all_three_lengths": "Replaces only at gap 0.1; fails at gaps 1 and 4.",
+          "L39_gap4_D_at_pulse1_end": -0.39,
+          "L39_gap4_D_at_gap1_end": -1.0
+        },
+        {
+          "model": "deBelly",
+          "reported_fate_at_all_three_lengths": "Replaces at every tested gap.",
+          "L39_gap4_D_at_pulse1_end": 0.7,
+          "L39_gap4_D_at_gap1_end": -0.55
+        }
+      ],
+      "interpretation_to_test": [
+        "Wave-pinning retains challenger share through gaps and behaves as a ratchet in the tested trains.",
+        "Goryachev resets in gaps.",
+        "deBelly early activity collapses but subsequent pulses commit, suggesting accumulation in a state other than measured activity.",
+        "The relevant Wave-pinning-deBelly separation is biosensor activity share at gap ends."
+      ]
+    },
+    "scope_limit": "Three lengths, one area, one pulse count, and gaps no larger than four pulse durations; all numbers provisional."
+  },
+  "open_questions_from_user": [
+    {
+      "id": "Q1",
+      "question": "Does Holmes 3 share Wave-pinning's narrow-cue penalty and ratchet?",
+      "consequence": "If shared, identify a class of mass-conserved saturating models rather than Wave-pinning alone.",
+      "evidence_needed": "Holmes 3 stages 1-2 with comparable native definitions."
+    },
+    {
+      "id": "Q2",
+      "question": "Is deBelly's mild narrow-cue preference at L39, reported ratio 0.77, robust to challenger-zone definition?",
+      "evidence_needed": "Stage 1 reanalysis using both fixed widest zone and each cue's support."
+    },
+    {
+      "id": "Q3",
+      "question": "Does Wave-pinning's gap hold survive weak noise through gaps sixteen times a pulse duration?",
+      "evidence_needed": "Stage 3, both noise levels, all 12 seeds and gap-level retention denominators."
+    },
+    {
+      "id": "Q4",
+      "question": "Is fixed native integrated area realistic as beam width at fixed photon dose?",
+      "known_limit": "The brief says the repository lacks native-to-optical calibration.",
+      "evidence_needed": "State the native comparison explicitly and keep optical calibration a proposed experimental requirement."
+    },
+    {
+      "id": "Q5",
+      "question": "Should total ON calibration use shortest committing continuous duration or a share threshold?",
+      "status": "resolved_by_user",
+      "decision_source": "docs/tasks/briefs/20261020_figure2_decisions.json",
+      "decision": "Use post-withdrawal replacement, with D >= 0.5 after declared native recovery; report shortest sampled/bracketed success and keep field-tail flag separate.",
+      "remaining_evidence_needed": "Freeze exact D/zone rules and native recovery periods, report transition brackets, and test duration monotonicity locally."
+    }
+  ],
+  "implementation_gaps_requiring_resolution": [
+    "Complete and audit the locally designed native protocol, independent of unavailable external pilot outputs.",
+    "Freeze activation, noise-retention and per-model recovery/finite observation criteria.",
+    "Audit exact basal preparations, Spring physical geometry and deBelly corrected endpoints.",
+    "Resolve calibration duration brackets/tolerances and local monotonicity.",
+    "Specify weak-noise amplitudes/process, stage-3 pulse/ON factors and L29 basal/calibration.",
+    "Specify numerical length pairs, representative assays and convergence criteria."
+  ],
+  "verified_local_observations": [
+    {
+      "date": "2026-10-20",
+      "observation": "The verbatim user brief exists at the source path.",
+      "verification": "Read the complete saved text."
+    },
+    {
+      "date": "2026-10-20",
+      "observation": "The referenced starting harness was missing at polarity1d/manuscript/code/mechanisms/signature_assays_20261020.py when this intake was performed.",
+      "verification": "Direct rg access returned No such file or directory.",
+      "scope": "Only the exact supplied path was checked; this does not prove that no equivalent harness exists elsewhere."
+    },
+    {
+      "date": "2026-10-20",
+      "observation": "Stage 1 and stage 2 factors multiply to 450 and 1620; stage 3 factors multiply to 432.",
+      "verification": "Arithmetic from the explicit user factors; not evidence that any runs completed."
+    },
+    {
+      "date": "2026-10-20",
+      "observation": "Existing scaling_sandbox Conda environment is available.",
+      "verification": "conda env list returned /home/4473331/.conda/envs/scaling_sandbox."
+    },
+    {
+      "date": "2026-10-20",
+      "observation": "Shared native-coordinate readout module implemented with analytic integration/eligibility tests; no simulation results produced by intake work.",
+      "verification": "polarity1d/manuscript/code/mechanisms/signature_readouts_20261020.py and polarity1d/manuscript/code/tests/test_signature_readouts_20261020.py."
+    }
+  ],
+  "execution_constraints": {
+    "hpc": "Use SLURM for the campaign and any work exceeding the root AGENTS.md compute thresholds; choose QoS for the actual job shape and do not add an unsubstantiated array concurrency throttle.",
+    "environment": "Use existing Conda environments; use agentRrunner.R if R is required.",
+    "storage": "Any created or substantially changed output group around 2 GiB or more requires measured allocated storage, purpose/status and measurement-date updates in root DATA_MANIFEST.md.",
+    "figures_and_outline": "Do not modify historical outline v3 or existing current figures during intake. After all requested revisions are complete, integrate the verified revised figures into an updated manuscript outline.",
+    "delivery": "Commit and push the requested revisions and updated outline only after all revisions are complete; preserve unrelated dirty/deleted worktree changes."
+  },
+  "completion_audit": [
+    {
+      "requirement": "Source brief retained and every requested panel/stage traceable.",
+      "proof": "Verbatim brief, this intake and a final requirement-to-artifact crosswalk."
+    },
+    {
+      "requirement": "All-five six-length campaign and special noise grid implemented faithfully.",
+      "proof": "Frozen case manifest with all factor combinations, exact native protocols and terminal status per run."
+    },
+    {
+      "requirement": "Commitment calibration scientifically defined and reproducible.",
+      "proof": "Stage-0 decision, search evaluation records and frozen per-state durations."
+    },
+    {
+      "requirement": "Equal-area shape and fixed-ON timing comparisons measured.",
+      "proof": "Protocol-integral/timing checks plus source-backed stage-1/2 tables and native histories."
+    },
+    {
+      "requirement": "Every withdrawal has full native-field tail and a separate finite-tail gate.",
+      "proof": "Per-run tail data and criterion records joined to fate tables, preserving failures and unavailability."
+    },
+    {
+      "requirement": "Noise and numerical robustness evaluated.",
+      "proof": "Stage-3 seed-level outcomes/retention probabilities and S5 resolution/sampling/lattice comparisons."
+    },
+    {
+      "requirement": "Panels A-F and supplements S1-S5 support positive mechanism/readout signatures.",
+      "proof": "Rendered readable figures, complete legends, numerical source identities and independent interpretation checks."
+    },
+    {
+      "requirement": "Provisional claims updated to actual evidence and limits.",
+      "proof": "Final claim audit, including Holmes class sharing, deBelly zone sensitivity, censoring, noise limits and absent optical calibration."
+    },
+    {
+      "requirement": "Large data accounted for and updated outline integrates all completed briefs.",
+      "proof": "Current measured DATA_MANIFEST.md where required; new outline source/PDF with figures, legends, measurements and limitations verified."
+    },
+    {
+      "requirement": "GitHub delivery complete after all revisions.",
+      "proof": "Scoped commit covering intended artifacts, successful push and verified remote commit identity; unrelated workspace changes excluded."
+    }
+  ]
+}

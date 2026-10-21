@@ -1,0 +1,4036 @@
+{
+  "generated_utc": "2026-10-20T20:23:56.426166+00:00",
+  "analysis_source_sha256": "d19d9d53a4ada411e70e1c7bcae69ed54d1f67e71f1c0226679b9ffbe1839317",
+  "sources": [
+    {
+      "run": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_numerics_debelly_temporal_width_20261020",
+      "manifest_sha256": "759bc8ac46197c269b209496f73d38a33521c836c95dc0af9175ece291587f69",
+      "native_audit_sha256": "cc8e8bffb8ebf95a1525430a3b6a3e2a1589dd87e9e7b058aad97606a94437cb"
+    },
+    {
+      "run": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_numerics_debelly_temporal_train_20261020",
+      "manifest_sha256": "02b41562c3bbb09f06abd05842c51ba7577f1a18dde0d93f5915e21e682feba3",
+      "native_audit_sha256": "8791c3b3fda3abc281be72180f7a51577c755f6d629e9effa5cdf7413bb62c44"
+    }
+  ],
+  "independent_native_identity_audits_passed": true,
+  "actual_protocol_comparisons": 6,
+  "numerical_agreement_for_all_requested_readouts": false,
+  "unavailable_reference_cases": [],
+  "records": [
+    {
+      "run": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_numerics_debelly_temporal_width_20261020",
+      "task": 0,
+      "model": "debelly",
+      "requested_reference_length": 19,
+      "assay": "width_0.95",
+      "variant": "qualified_quarter_step201",
+      "companion_no_cue_control_pass": true,
+      "phase_comparison": {
+        "endpoints": [
+          {
+            "name": "cue_on",
+            "time": 2000.0,
+            "main201": {
+              "D_half": 0.9952698101623827,
+              "D_half_raw": 0.9952698101623827,
+              "D_half_eligible": true,
+              "share_half": 0.9976349050811913,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.9951786657073236,
+              "D_half_raw": 0.9951786657073236,
+              "D_half_eligible": true,
+              "share_half": 0.9975893328536618,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": -9.114445505908897e-05,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": true
+          },
+          {
+            "name": "recovery",
+            "time": 6000.0,
+            "main201": {
+              "D_half": 0.9277395173343834,
+              "D_half_raw": 0.9277395173343834,
+              "D_half_eligible": true,
+              "share_half": 0.9638697586671917,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.9277289560204673,
+              "D_half_raw": 0.9277289560204673,
+              "D_half_eligible": true,
+              "share_half": 0.9638644780102337,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": -1.056131391607984e-05,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": true
+          }
+        ],
+        "maximum_absolute_eligible_D_difference": 9.114445505908897e-05,
+        "all_endpoint_eligibility_agrees": true,
+        "all_eligible_endpoint_D_within_tolerance": true,
+        "all_available_challenger_bias_signs_agree": true,
+        "absolute_D_tolerance": 0.05
+      },
+      "first_two_gap_bias_loss": [],
+      "first_replacement_event_comparison": {
+        "agrees": true,
+        "brackets_overlap": true,
+        "relative_midpoint_difference": 0.00980392156862745,
+        "classification": "observed_brackets_compared"
+      },
+      "main201_final": {
+        "final_d": 0.9277395173343834,
+        "readout_eligible": true,
+        "field_tail_pass": true
+      },
+      "companion_final_D": 0.9277289560204673,
+      "companion_field_tail_pass": true,
+      "endpoint_native_fields": {
+        "maximum_scaled_difference": 0.00030455406713478147,
+        "per_field_scaled_difference": {
+          "rac": 2.8191302291237965e-06,
+          "rho": 2.5776352999447197e-05,
+          "mca_bound": 2.4314277235725734e-05,
+          "mca_unbound": 2.5644947639229993e-05,
+          "displacement": 8.609348798861935e-06,
+          "velocity": 2.362600053209108e-05,
+          "tension": 0.00030455406713478147,
+          "physical_length": 1.7209889502635777e-05
+        },
+        "comparison": "Same reference fraction; FV overlap projection or Spring nodal interpolation; no fitted shift or amplitude normalization."
+      },
+      "source_basal_field_shift": {
+        "maximum_scaled_difference": 0.0002447114636165093,
+        "per_field_scaled_difference": {
+          "rac": 1.980125663230079e-06,
+          "rho": 1.8679369101736122e-05,
+          "mca_bound": 1.6381535813364524e-05,
+          "mca_unbound": 1.5068754487973112e-05,
+          "displacement": 6.725892603922616e-06,
+          "velocity": 2.1115024742525798e-05,
+          "tension": 0.0002447114636165093,
+          "physical_length": 1.3330444944196978e-05
+        },
+        "comparison": "Native monitored fields; no fitted spatial shift or amplitude normalization."
+      },
+      "identical_realized_phase_schedule": true,
+      "realized_events": [
+        {
+          "index": 0,
+          "name": "cue_on",
+          "start": 0.0,
+          "stop": 2000.0,
+          "frames": 961,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 0.95,
+              "requested_area": 13.68,
+              "sampled_area": 13.68,
+              "sampled_peak": 28.623892541805297,
+              "reconstructed_boundary_peak": 28.799420820533797,
+              "nominal_untruncated_continuum_peak": 28.8,
+              "support_truncated": false,
+              "support_cells": 10,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 0.95,
+              "requested_area": 13.68,
+              "sampled_area": 13.68,
+              "sampled_peak": 28.623892541805297,
+              "reconstructed_boundary_peak": 28.799420820533797,
+              "nominal_untruncated_continuum_peak": 28.8,
+              "support_truncated": false,
+              "support_cells": 10,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_width_core_20261020/workers/0181/trial/phase_000.npz",
+            "sha256": "38a31002e080b9cf0a6e5d6342a1d3f4d26d490a9bb6caf998d0c4f8a7c216a7",
+            "frames": 961,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        },
+        {
+          "index": 1,
+          "name": "recovery",
+          "start": 2000.0,
+          "stop": 6000.0,
+          "frames": 1761,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 0.95,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 0.95,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_width_core_20261020/workers/0181/trial/phase_001.npz",
+            "sha256": "83add2fc502eb0657965bbfb416eb7420069c4f6c174bc384ba84dbfbadf2715",
+            "frames": 1761,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        }
+      ],
+      "issues": [],
+      "all_declared_readout_comparisons_agree": true,
+      "native_worker_result_sha256": "85e53fd5500d9f0d0d43640a8d42c84b80d212976725affb9d7d70deb6edb744"
+    },
+    {
+      "run": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_numerics_debelly_temporal_width_20261020",
+      "task": 1,
+      "model": "debelly",
+      "requested_reference_length": 19,
+      "assay": "width_7.6",
+      "variant": "qualified_quarter_step201",
+      "companion_no_cue_control_pass": true,
+      "phase_comparison": {
+        "endpoints": [
+          {
+            "name": "cue_on",
+            "time": 2000.0,
+            "main201": {
+              "D_half": 0.9889938080752714,
+              "D_half_raw": 0.9889938080752714,
+              "D_half_eligible": true,
+              "share_half": 0.9944969040376357,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.9888037120206306,
+              "D_half_raw": 0.9888037120206306,
+              "D_half_eligible": true,
+              "share_half": 0.9944018560103153,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": -0.00019009605464082036,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": true
+          },
+          {
+            "name": "recovery",
+            "time": 6000.0,
+            "main201": {
+              "D_half": 0.9278108409119687,
+              "D_half_raw": 0.9278108409119687,
+              "D_half_eligible": true,
+              "share_half": 0.9639054204559844,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.9277487646184275,
+              "D_half_raw": 0.9277487646184275,
+              "D_half_eligible": true,
+              "share_half": 0.9638743823092137,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": -6.207629354126887e-05,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": true
+          }
+        ],
+        "maximum_absolute_eligible_D_difference": 0.00019009605464082036,
+        "all_endpoint_eligibility_agrees": true,
+        "all_eligible_endpoint_D_within_tolerance": true,
+        "all_available_challenger_bias_signs_agree": true,
+        "absolute_D_tolerance": 0.05
+      },
+      "first_two_gap_bias_loss": [],
+      "first_replacement_event_comparison": {
+        "agrees": true,
+        "brackets_overlap": true,
+        "relative_midpoint_difference": 0.00980392156862745,
+        "classification": "observed_brackets_compared"
+      },
+      "main201_final": {
+        "final_d": 0.9278108409119687,
+        "readout_eligible": true,
+        "field_tail_pass": false
+      },
+      "companion_final_D": 0.9277487646184275,
+      "companion_field_tail_pass": true,
+      "endpoint_native_fields": {
+        "maximum_scaled_difference": 0.0010040931899751048,
+        "per_field_scaled_difference": {
+          "rac": 1.404841024590681e-05,
+          "rho": 8.928351018665604e-05,
+          "mca_bound": 0.0001377235735012804,
+          "mca_unbound": 0.00013894262541935882,
+          "displacement": 2.7082929111644987e-05,
+          "velocity": 0.0004223769908070936,
+          "tension": 0.0010040931899751048,
+          "physical_length": 5.180233270700952e-05
+        },
+        "comparison": "Same reference fraction; FV overlap projection or Spring nodal interpolation; no fitted shift or amplitude normalization."
+      },
+      "source_basal_field_shift": {
+        "maximum_scaled_difference": 0.0002447114636165093,
+        "per_field_scaled_difference": {
+          "rac": 1.980125663230079e-06,
+          "rho": 1.8679369101736122e-05,
+          "mca_bound": 1.6381535813364524e-05,
+          "mca_unbound": 1.5068754487973112e-05,
+          "displacement": 6.725892603922616e-06,
+          "velocity": 2.1115024742525798e-05,
+          "tension": 0.0002447114636165093,
+          "physical_length": 1.3330444944196978e-05
+        },
+        "comparison": "Native monitored fields; no fitted spatial shift or amplitude normalization."
+      },
+      "identical_realized_phase_schedule": true,
+      "realized_events": [
+        {
+          "index": 0,
+          "name": "cue_on",
+          "start": 0.0,
+          "stop": 2000.0,
+          "frames": 961,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 7.6,
+              "requested_area": 13.68,
+              "sampled_area": 13.68,
+              "sampled_peak": 3.599656066415033,
+              "reconstructed_boundary_peak": 3.599999589796524,
+              "nominal_untruncated_continuum_peak": 3.6,
+              "support_truncated": false,
+              "support_cells": 80,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 7.6,
+              "requested_area": 13.68,
+              "sampled_area": 13.68,
+              "sampled_peak": 3.599656066415033,
+              "reconstructed_boundary_peak": 3.599999589796524,
+              "nominal_untruncated_continuum_peak": 3.6,
+              "support_truncated": false,
+              "support_cells": 80,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_width_core_20261020/workers/0190/trial/phase_000.npz",
+            "sha256": "93aa23e8b2df13e84e67ff08df2008e64bfa79cbb21c78861fe6d91738133307",
+            "frames": 961,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        },
+        {
+          "index": 1,
+          "name": "recovery",
+          "start": 2000.0,
+          "stop": 6000.0,
+          "frames": 1761,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 7.6,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 7.6,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_width_core_20261020/workers/0190/trial/phase_001.npz",
+            "sha256": "111806b89f8070c7f998970af6702cd1592b3630dc9a7e8004880e2a5e73419d",
+            "frames": 1761,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        }
+      ],
+      "issues": [
+        "finite_field_tail_status_changed"
+      ],
+      "all_declared_readout_comparisons_agree": false,
+      "native_worker_result_sha256": "192526f3ff0c8502915a2a27532ef1756fd6087852ffb900003fc8d2043f7860"
+    },
+    {
+      "run": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_numerics_debelly_temporal_width_20261020",
+      "task": 2,
+      "model": "debelly",
+      "requested_reference_length": 39,
+      "assay": "width_0.95",
+      "variant": "qualified_quarter_step201",
+      "companion_no_cue_control_pass": true,
+      "phase_comparison": {
+        "endpoints": [
+          {
+            "name": "cue_on",
+            "time": 2000.0,
+            "main201": {
+              "D_half": 0.9904834219535401,
+              "D_half_raw": 0.9904834219535401,
+              "D_half_eligible": true,
+              "share_half": 0.99524171097677,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.9902179004045935,
+              "D_half_raw": 0.9902179004045935,
+              "D_half_eligible": true,
+              "share_half": 0.9951089502022967,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": -0.0002655215489466567,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": true
+          },
+          {
+            "name": "recovery",
+            "time": 6000.0,
+            "main201": {
+              "D_half": 0.9209350966034111,
+              "D_half_raw": 0.9209350966034111,
+              "D_half_eligible": true,
+              "share_half": 0.9604675483017056,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.9208837648942438,
+              "D_half_raw": 0.9208837648942438,
+              "D_half_eligible": true,
+              "share_half": 0.9604418824471219,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": -5.133170916726826e-05,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": true
+          }
+        ],
+        "maximum_absolute_eligible_D_difference": 0.0002655215489466567,
+        "all_endpoint_eligibility_agrees": true,
+        "all_eligible_endpoint_D_within_tolerance": true,
+        "all_available_challenger_bias_signs_agree": true,
+        "absolute_D_tolerance": 0.05
+      },
+      "first_two_gap_bias_loss": [],
+      "first_replacement_event_comparison": {
+        "agrees": true,
+        "brackets_overlap": true,
+        "relative_midpoint_difference": 0.0058823529411764705,
+        "classification": "observed_brackets_compared"
+      },
+      "main201_final": {
+        "final_d": 0.9209350966034111,
+        "readout_eligible": true,
+        "field_tail_pass": true
+      },
+      "companion_final_D": 0.9208837648942438,
+      "companion_field_tail_pass": true,
+      "endpoint_native_fields": {
+        "maximum_scaled_difference": 0.026424757498156648,
+        "per_field_scaled_difference": {
+          "rac": 0.0006804337171193934,
+          "rho": 0.003692339231063216,
+          "mca_bound": 0.00210015160348091,
+          "mca_unbound": 0.002084976332004177,
+          "displacement": 0.0005368630905124109,
+          "velocity": 0.023455938678711312,
+          "tension": 0.026424757498156648,
+          "physical_length": 0.000743840582618469
+        },
+        "comparison": "Same reference fraction; FV overlap projection or Spring nodal interpolation; no fitted shift or amplitude normalization."
+      },
+      "source_basal_field_shift": {
+        "maximum_scaled_difference": 0.026247014632555632,
+        "per_field_scaled_difference": {
+          "rac": 0.0007001215136733786,
+          "rho": 0.0037588299130284133,
+          "mca_bound": 0.0021790640603320506,
+          "mca_unbound": 0.0021640479251241445,
+          "displacement": 0.0005329044316934523,
+          "velocity": 0.023297697232825026,
+          "tension": 0.026247014632555632,
+          "physical_length": 0.0007364623635436301
+        },
+        "comparison": "Native monitored fields; no fitted spatial shift or amplitude normalization."
+      },
+      "identical_realized_phase_schedule": true,
+      "realized_events": [
+        {
+          "index": 0,
+          "name": "cue_on",
+          "start": 0.0,
+          "stop": 2000.0,
+          "frames": 961,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 0.95,
+              "requested_area": 13.68,
+              "sampled_area": 13.68,
+              "sampled_peak": 28.075150426978908,
+              "reconstructed_boundary_peak": 28.810149702242054,
+              "nominal_untruncated_continuum_peak": 28.8,
+              "support_truncated": false,
+              "support_cells": 5,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 0.95,
+              "requested_area": 13.68,
+              "sampled_area": 13.68,
+              "sampled_peak": 28.075150426978908,
+              "reconstructed_boundary_peak": 28.810149702242054,
+              "nominal_untruncated_continuum_peak": 28.8,
+              "support_truncated": false,
+              "support_cells": 5,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_width_core_20261020/workers/0256/trial/phase_000.npz",
+            "sha256": "b10996fdafc77d41e1d5223d2dc483d7d1ca6567c6c2b2753092475a23188d64",
+            "frames": 961,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        },
+        {
+          "index": 1,
+          "name": "recovery",
+          "start": 2000.0,
+          "stop": 6000.0,
+          "frames": 1761,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 0.95,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 0.95,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_width_core_20261020/workers/0256/trial/phase_001.npz",
+            "sha256": "7518d2c141761a9c62b1eed596bd8b90d8c9d078c1463012b788456cbab0bee9",
+            "frames": 1761,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        }
+      ],
+      "issues": [],
+      "all_declared_readout_comparisons_agree": true,
+      "native_worker_result_sha256": "8cd0ef6bfc42d6a8866ecbd101f5d159144938c62c5d8a4cb5a412f96fa288e5"
+    },
+    {
+      "run": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_numerics_debelly_temporal_width_20261020",
+      "task": 3,
+      "model": "debelly",
+      "requested_reference_length": 39,
+      "assay": "width_7.6",
+      "variant": "qualified_quarter_step201",
+      "companion_no_cue_control_pass": true,
+      "phase_comparison": {
+        "endpoints": [
+          {
+            "name": "cue_on",
+            "time": 2000.0,
+            "main201": {
+              "D_half": 0.9899647224053956,
+              "D_half_raw": 0.9899647224053956,
+              "D_half_eligible": true,
+              "share_half": 0.9949823612026978,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.989318755446301,
+              "D_half_raw": 0.989318755446301,
+              "D_half_eligible": true,
+              "share_half": 0.9946593777231505,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": -0.0006459669590945794,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": true
+          },
+          {
+            "name": "recovery",
+            "time": 6000.0,
+            "main201": {
+              "D_half": 0.9209269884026847,
+              "D_half_raw": 0.9209269884026847,
+              "D_half_eligible": true,
+              "share_half": 0.9604634942013424,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.9208831318161743,
+              "D_half_raw": 0.9208831318161743,
+              "D_half_eligible": true,
+              "share_half": 0.9604415659080872,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": -4.385658651040458e-05,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": true
+          }
+        ],
+        "maximum_absolute_eligible_D_difference": 0.0006459669590945794,
+        "all_endpoint_eligibility_agrees": true,
+        "all_eligible_endpoint_D_within_tolerance": true,
+        "all_available_challenger_bias_signs_agree": true,
+        "absolute_D_tolerance": 0.05
+      },
+      "first_two_gap_bias_loss": [],
+      "first_replacement_event_comparison": {
+        "agrees": true,
+        "brackets_overlap": false,
+        "relative_midpoint_difference": 0.009433962264150943,
+        "classification": "observed_brackets_compared"
+      },
+      "main201_final": {
+        "final_d": 0.9209269884026847,
+        "readout_eligible": true,
+        "field_tail_pass": true
+      },
+      "companion_final_D": 0.9208831318161743,
+      "companion_field_tail_pass": true,
+      "endpoint_native_fields": {
+        "maximum_scaled_difference": 0.02647970952007577,
+        "per_field_scaled_difference": {
+          "rac": 0.0006747619246109199,
+          "rho": 0.003673436966609473,
+          "mca_bound": 0.002077332197473107,
+          "mca_unbound": 0.0020621105189164626,
+          "displacement": 0.0005380840780881968,
+          "velocity": 0.023504181935937396,
+          "tension": 0.02647970952007577,
+          "physical_length": 0.0007460948259971445
+        },
+        "comparison": "Same reference fraction; FV overlap projection or Spring nodal interpolation; no fitted shift or amplitude normalization."
+      },
+      "source_basal_field_shift": {
+        "maximum_scaled_difference": 0.026247014632555632,
+        "per_field_scaled_difference": {
+          "rac": 0.0007001215136733786,
+          "rho": 0.0037588299130284133,
+          "mca_bound": 0.0021790640603320506,
+          "mca_unbound": 0.0021640479251241445,
+          "displacement": 0.0005329044316934523,
+          "velocity": 0.023297697232825026,
+          "tension": 0.026247014632555632,
+          "physical_length": 0.0007364623635436301
+        },
+        "comparison": "Native monitored fields; no fitted spatial shift or amplitude normalization."
+      },
+      "identical_realized_phase_schedule": true,
+      "realized_events": [
+        {
+          "index": 0,
+          "name": "cue_on",
+          "start": 0.0,
+          "stop": 2000.0,
+          "frames": 961,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 7.6,
+              "requested_area": 13.68,
+              "sampled_area": 13.68,
+              "sampled_peak": 3.598549091326403,
+              "reconstructed_boundary_peak": 3.5999963079017845,
+              "nominal_untruncated_continuum_peak": 3.6,
+              "support_truncated": false,
+              "support_cells": 39,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 7.6,
+              "requested_area": 13.68,
+              "sampled_area": 13.68,
+              "sampled_peak": 3.598549091326403,
+              "reconstructed_boundary_peak": 3.5999963079017845,
+              "nominal_untruncated_continuum_peak": 3.6,
+              "support_truncated": false,
+              "support_cells": 39,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_width_core_20261020/workers/0265/trial/phase_000.npz",
+            "sha256": "0e1b80f1aaeb92f9dfa859815371a1f46dd580948b8035142890e5f59edf4d50",
+            "frames": 961,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        },
+        {
+          "index": 1,
+          "name": "recovery",
+          "start": 2000.0,
+          "stop": 6000.0,
+          "frames": 1761,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 7.6,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 7.6,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_width_core_20261020/workers/0265/trial/phase_001.npz",
+            "sha256": "a2a8c4e33d983468114ae038f6fffa1aa968bba5789986137f05d5d4f76309e0",
+            "frames": 1761,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        }
+      ],
+      "issues": [],
+      "all_declared_readout_comparisons_agree": true,
+      "native_worker_result_sha256": "11822d1a5b9030d1754ded4940da20708e2ca70ce331e1cc601db97890d0284f"
+    },
+    {
+      "run": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_numerics_debelly_temporal_train_20261020",
+      "task": 0,
+      "model": "debelly",
+      "requested_reference_length": 19,
+      "assay": "train_4_gap4_on1p5",
+      "variant": "qualified_quarter_step201",
+      "companion_no_cue_control_pass": true,
+      "phase_comparison": {
+        "endpoints": [
+          {
+            "name": "00_on",
+            "time": 70.0,
+            "main201": {
+              "D_half": 0.8427636516724704,
+              "D_half_raw": 0.8427636516724704,
+              "D_half_eligible": true,
+              "share_half": 0.9213818258362352,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.847334180664933,
+              "D_half_raw": 0.847334180664933,
+              "D_half_eligible": true,
+              "share_half": 0.9236670903324665,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": 0.004570528992462686,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": true
+          },
+          {
+            "name": "01_gap",
+            "time": 350.0,
+            "main201": {
+              "D_half": -0.4374477785260803,
+              "D_half_raw": -0.4374477785260803,
+              "D_half_eligible": true,
+              "share_half": 0.28127611073695985,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": null,
+              "D_half_raw": -0.1130439494885993,
+              "D_half_eligible": false,
+              "share_half": null,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": "contrast_below_frozen_basal_contrast_gate"
+            },
+            "D_difference": null,
+            "eligibility_agrees": false,
+            "challenger_bias_sign_agrees": null,
+            "within_D_tolerance": true
+          },
+          {
+            "name": "02_on",
+            "time": 420.0,
+            "main201": {
+              "D_half": 0.9590555247734116,
+              "D_half_raw": 0.9590555247734116,
+              "D_half_eligible": true,
+              "share_half": 0.9795277623867058,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.975868056444821,
+              "D_half_raw": 0.975868056444821,
+              "D_half_eligible": true,
+              "share_half": 0.9879340282224105,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": 0.016812531671409392,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": true
+          },
+          {
+            "name": "03_gap",
+            "time": 700.0,
+            "main201": {
+              "D_half": 0.9173163788172514,
+              "D_half_raw": 0.9173163788172514,
+              "D_half_eligible": true,
+              "share_half": 0.9586581894086257,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.9762435487996111,
+              "D_half_raw": 0.9762435487996111,
+              "D_half_eligible": true,
+              "share_half": 0.9881217743998055,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": 0.058927169982359695,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": false
+          },
+          {
+            "name": "04_on",
+            "time": 770.0,
+            "main201": {
+              "D_half": 0.9984190891841223,
+              "D_half_raw": 0.9984190891841223,
+              "D_half_eligible": true,
+              "share_half": 0.9992095445920611,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.9972182978293631,
+              "D_half_raw": 0.9972182978293631,
+              "D_half_eligible": true,
+              "share_half": 0.9986091489146816,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": -0.0012007913547591453,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": true
+          },
+          {
+            "name": "05_gap",
+            "time": 1050.0,
+            "main201": {
+              "D_half": 0.9502135525097342,
+              "D_half_raw": 0.9502135525097342,
+              "D_half_eligible": true,
+              "share_half": 0.9751067762548671,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.9426488067645546,
+              "D_half_raw": 0.9426488067645546,
+              "D_half_eligible": true,
+              "share_half": 0.9713244033822773,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": -0.007564745745179513,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": true
+          },
+          {
+            "name": "06_on",
+            "time": 1120.0,
+            "main201": {
+              "D_half": 0.995193385411532,
+              "D_half_raw": 0.995193385411532,
+              "D_half_eligible": true,
+              "share_half": 0.997596692705766,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.9943367588815673,
+              "D_half_raw": 0.9943367588815673,
+              "D_half_eligible": true,
+              "share_half": 0.9971683794407836,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": -0.0008566265299647657,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": true
+          },
+          {
+            "name": "recovery",
+            "time": 5120.0,
+            "main201": {
+              "D_half": 0.9275630149198095,
+              "D_half_raw": 0.9275630149198095,
+              "D_half_eligible": true,
+              "share_half": 0.9637815074599048,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.9277071958639178,
+              "D_half_raw": 0.9277071958639178,
+              "D_half_eligible": true,
+              "share_half": 0.9638535979319589,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": 0.0001441809441082853,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": true
+          }
+        ],
+        "maximum_absolute_eligible_D_difference": 0.058927169982359695,
+        "all_endpoint_eligibility_agrees": false,
+        "all_eligible_endpoint_D_within_tolerance": false,
+        "all_available_challenger_bias_signs_agree": true,
+        "absolute_D_tolerance": 0.05
+      },
+      "first_two_gap_bias_loss": [
+        {
+          "name": "01_gap",
+          "main_challenger_bias_lost": true,
+          "companion_challenger_bias_lost": true,
+          "classification_agrees": true
+        },
+        {
+          "name": "03_gap",
+          "main_challenger_bias_lost": false,
+          "companion_challenger_bias_lost": false,
+          "classification_agrees": true
+        }
+      ],
+      "first_replacement_event_comparison": {
+        "agrees": true,
+        "brackets_overlap": true,
+        "relative_midpoint_difference": 0.009433962264150943,
+        "classification": "observed_brackets_compared"
+      },
+      "main201_final": {
+        "final_d": 0.9275630149198095,
+        "readout_eligible": true,
+        "field_tail_pass": false
+      },
+      "companion_final_D": 0.9277071958639178,
+      "companion_field_tail_pass": true,
+      "endpoint_native_fields": {
+        "maximum_scaled_difference": 0.0019329915925787458,
+        "per_field_scaled_difference": {
+          "rac": 4.145179734488109e-05,
+          "rho": 0.00017488804817078124,
+          "mca_bound": 0.0003432793042873663,
+          "mca_unbound": 0.0003416391304166201,
+          "displacement": 5.0518083953314095e-05,
+          "velocity": 0.0012563294147153073,
+          "tension": 0.0019329915925787458,
+          "physical_length": 9.354006400105606e-05
+        },
+        "comparison": "Same reference fraction; FV overlap projection or Spring nodal interpolation; no fitted shift or amplitude normalization."
+      },
+      "source_basal_field_shift": {
+        "maximum_scaled_difference": 0.0002447114636165093,
+        "per_field_scaled_difference": {
+          "rac": 1.980125663230079e-06,
+          "rho": 1.8679369101736122e-05,
+          "mca_bound": 1.6381535813364524e-05,
+          "mca_unbound": 1.5068754487973112e-05,
+          "displacement": 6.725892603922616e-06,
+          "velocity": 2.1115024742525798e-05,
+          "tension": 0.0002447114636165093,
+          "physical_length": 1.3330444944196978e-05
+        },
+        "comparison": "Native monitored fields; no fitted spatial shift or amplitude normalization."
+      },
+      "identical_realized_phase_schedule": true,
+      "realized_events": [
+        {
+          "index": 0,
+          "name": "00_on",
+          "start": 0.0,
+          "stop": 70.0,
+          "frames": 141,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 3.8,
+              "requested_area": 13.68,
+              "sampled_area": 13.68,
+              "sampled_peak": 7.197244419651056,
+              "reconstructed_boundary_peak": 7.19999234185259,
+              "nominal_untruncated_continuum_peak": 7.2,
+              "support_truncated": false,
+              "support_cells": 40,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 3.8,
+              "requested_area": 13.68,
+              "sampled_area": 13.68,
+              "sampled_peak": 7.197244419651056,
+              "reconstructed_boundary_peak": 7.19999234185259,
+              "nominal_untruncated_continuum_peak": 7.2,
+              "support_truncated": false,
+              "support_cells": 40,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_train_core_20261020/workers/0679/trial/phase_000.npz",
+            "sha256": "37ddc296cfeb80d8f6505f76b3eb9699f9d05b4241da53d8bcab2a31d174534d",
+            "frames": 141,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        },
+        {
+          "index": 1,
+          "name": "01_gap",
+          "start": 70.0,
+          "stop": 350.0,
+          "frames": 273,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 3.8,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 3.8,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_train_core_20261020/workers/0679/trial/phase_001.npz",
+            "sha256": "4610fe3157cea9bd0050c340424c7f309e1f31c1d9351714c28b8d2054db7f22",
+            "frames": 273,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        },
+        {
+          "index": 2,
+          "name": "02_on",
+          "start": 350.0,
+          "stop": 420.0,
+          "frames": 141,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 3.8,
+              "requested_area": 13.68,
+              "sampled_area": 13.68,
+              "sampled_peak": 7.197244419651056,
+              "reconstructed_boundary_peak": 7.19999234185259,
+              "nominal_untruncated_continuum_peak": 7.2,
+              "support_truncated": false,
+              "support_cells": 40,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 3.8,
+              "requested_area": 13.68,
+              "sampled_area": 13.68,
+              "sampled_peak": 7.197244419651056,
+              "reconstructed_boundary_peak": 7.19999234185259,
+              "nominal_untruncated_continuum_peak": 7.2,
+              "support_truncated": false,
+              "support_cells": 40,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_train_core_20261020/workers/0679/trial/phase_002.npz",
+            "sha256": "d085652983e6ec5b8ebc414ce9b8cf4ba1c82e2f71b13e1ff7458af7f1fba993",
+            "frames": 141,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        },
+        {
+          "index": 3,
+          "name": "03_gap",
+          "start": 420.0,
+          "stop": 700.0,
+          "frames": 273,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 3.8,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 3.8,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_train_core_20261020/workers/0679/trial/phase_003.npz",
+            "sha256": "7d0c23e941a1fad2e439f8cac8039a6d5c57b9cd4c525447e7d8f35e7125c8d5",
+            "frames": 273,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        },
+        {
+          "index": 4,
+          "name": "04_on",
+          "start": 700.0,
+          "stop": 770.0,
+          "frames": 141,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 3.8,
+              "requested_area": 13.68,
+              "sampled_area": 13.68,
+              "sampled_peak": 7.197244419651056,
+              "reconstructed_boundary_peak": 7.19999234185259,
+              "nominal_untruncated_continuum_peak": 7.2,
+              "support_truncated": false,
+              "support_cells": 40,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 3.8,
+              "requested_area": 13.68,
+              "sampled_area": 13.68,
+              "sampled_peak": 7.197244419651056,
+              "reconstructed_boundary_peak": 7.19999234185259,
+              "nominal_untruncated_continuum_peak": 7.2,
+              "support_truncated": false,
+              "support_cells": 40,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_train_core_20261020/workers/0679/trial/phase_004.npz",
+            "sha256": "29ce4fb55eccc4c5c0126d3f4dcdebf9049cc2fd890170cdf97e61c739623546",
+            "frames": 141,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        },
+        {
+          "index": 5,
+          "name": "05_gap",
+          "start": 770.0,
+          "stop": 1050.0,
+          "frames": 273,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 3.8,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 3.8,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_train_core_20261020/workers/0679/trial/phase_005.npz",
+            "sha256": "4cedbb914ed568ece4d336fcbdd601a6c67a4bbaefcc85b4f58977aa0527a0ab",
+            "frames": 273,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        },
+        {
+          "index": 6,
+          "name": "06_on",
+          "start": 1050.0,
+          "stop": 1120.0,
+          "frames": 141,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 3.8,
+              "requested_area": 13.68,
+              "sampled_area": 13.68,
+              "sampled_peak": 7.197244419651056,
+              "reconstructed_boundary_peak": 7.19999234185259,
+              "nominal_untruncated_continuum_peak": 7.2,
+              "support_truncated": false,
+              "support_cells": 40,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 3.8,
+              "requested_area": 13.68,
+              "sampled_area": 13.68,
+              "sampled_peak": 7.197244419651056,
+              "reconstructed_boundary_peak": 7.19999234185259,
+              "nominal_untruncated_continuum_peak": 7.2,
+              "support_truncated": false,
+              "support_cells": 40,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_train_core_20261020/workers/0679/trial/phase_006.npz",
+            "sha256": "05be513abc9a64eb53488c323ce7f090b6c2c7fae5d0eca880bc9b873637728e",
+            "frames": 141,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        },
+        {
+          "index": 7,
+          "name": "recovery",
+          "start": 1120.0,
+          "stop": 5120.0,
+          "frames": 1761,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 3.8,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 3.8,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 19.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_train_core_20261020/workers/0679/trial/phase_007.npz",
+            "sha256": "b19f35a986c26ddec253347e36e7f88e2b9add0d5f6d8a1e0a0062085893d2a9",
+            "frames": 1761,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        }
+      ],
+      "issues": [
+        "finite_field_tail_status_changed",
+        "phase_endpoint_eligibility_changed",
+        "phase_endpoint_D_difference_above_tolerance"
+      ],
+      "all_declared_readout_comparisons_agree": false,
+      "native_worker_result_sha256": "9fe5483f24df44ec984a412d2f73121ced2e857d417eb9c97f7725b3cf75983b"
+    },
+    {
+      "run": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_numerics_debelly_temporal_train_20261020",
+      "task": 1,
+      "model": "debelly",
+      "requested_reference_length": 39,
+      "assay": "train_4_gap4_on1p5",
+      "variant": "qualified_quarter_step201",
+      "companion_no_cue_control_pass": true,
+      "phase_comparison": {
+        "endpoints": [
+          {
+            "name": "00_on",
+            "time": 204.0,
+            "main201": {
+              "D_half": 0.6435360851322696,
+              "D_half_raw": 0.6435360851322696,
+              "D_half_eligible": true,
+              "share_half": 0.8217680425661348,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.640079649235648,
+              "D_half_raw": 0.640079649235648,
+              "D_half_eligible": true,
+              "share_half": 0.820039824617824,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": -0.0034564358966215902,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": true
+          },
+          {
+            "name": "01_gap",
+            "time": 1020.0,
+            "main201": {
+              "D_half": -0.9404007923089395,
+              "D_half_raw": -0.9404007923089395,
+              "D_half_eligible": true,
+              "share_half": 0.029799603845530237,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": -0.9336969705495133,
+              "D_half_raw": -0.9336969705495133,
+              "D_half_eligible": true,
+              "share_half": 0.033151514725243345,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": 0.006703821759426187,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": true
+          },
+          {
+            "name": "02_on",
+            "time": 1224.0,
+            "main201": {
+              "D_half": 0.7151189767437043,
+              "D_half_raw": 0.7151189767437043,
+              "D_half_eligible": true,
+              "share_half": 0.8575594883718521,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.7367075970095556,
+              "D_half_raw": 0.7367075970095556,
+              "D_half_eligible": true,
+              "share_half": 0.8683537985047778,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": 0.021588620265851288,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": true
+          },
+          {
+            "name": "03_gap",
+            "time": 2040.0,
+            "main201": {
+              "D_half": -0.9347088176848134,
+              "D_half_raw": -0.9347088176848134,
+              "D_half_eligible": true,
+              "share_half": 0.032645591157593315,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": -0.8509944795093618,
+              "D_half_raw": -0.8509944795093618,
+              "D_half_eligible": true,
+              "share_half": 0.07450276024531909,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": 0.0837143381754516,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": false
+          },
+          {
+            "name": "04_on",
+            "time": 2244.0,
+            "main201": {
+              "D_half": 0.7826200426748677,
+              "D_half_raw": 0.7826200426748677,
+              "D_half_eligible": true,
+              "share_half": 0.8913100213374339,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.8141942848654828,
+              "D_half_raw": 0.8141942848654828,
+              "D_half_eligible": true,
+              "share_half": 0.9070971424327414,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": 0.03157424219061511,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": true
+          },
+          {
+            "name": "05_gap",
+            "time": 3060.0,
+            "main201": {
+              "D_half": -0.5855576180817079,
+              "D_half_raw": -0.5855576180817079,
+              "D_half_eligible": true,
+              "share_half": 0.207221190959146,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.18947304384210928,
+              "D_half_raw": 0.18947304384210928,
+              "D_half_eligible": true,
+              "share_half": 0.5947365219210546,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": 0.7750306619238172,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": false,
+            "within_D_tolerance": false
+          },
+          {
+            "name": "06_on",
+            "time": 3264.0,
+            "main201": {
+              "D_half": 0.8448399671154871,
+              "D_half_raw": 0.8448399671154871,
+              "D_half_eligible": true,
+              "share_half": 0.9224199835577436,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.9363666955655301,
+              "D_half_raw": 0.9363666955655301,
+              "D_half_eligible": true,
+              "share_half": 0.968183347782765,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": 0.09152672845004295,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": false
+          },
+          {
+            "name": "recovery",
+            "time": 7264.0,
+            "main201": {
+              "D_half": 0.9164591847342345,
+              "D_half_raw": 0.9164591847342345,
+              "D_half_eligible": true,
+              "share_half": 0.9582295923671172,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "companion": {
+              "D_half": 0.9208534696017405,
+              "D_half_raw": 0.9208534696017405,
+              "D_half_eligible": true,
+              "share_half": 0.9604267348008703,
+              "contrast_fraction_of_basal": 0.1,
+              "amount_fraction_of_basal": 0.01,
+              "ineligibility_reason": null
+            },
+            "D_difference": 0.0043942848675060375,
+            "eligibility_agrees": true,
+            "challenger_bias_sign_agrees": true,
+            "within_D_tolerance": true
+          }
+        ],
+        "maximum_absolute_eligible_D_difference": 0.7750306619238172,
+        "all_endpoint_eligibility_agrees": true,
+        "all_eligible_endpoint_D_within_tolerance": false,
+        "all_available_challenger_bias_signs_agree": false,
+        "absolute_D_tolerance": 0.05
+      },
+      "first_two_gap_bias_loss": [
+        {
+          "name": "01_gap",
+          "main_challenger_bias_lost": true,
+          "companion_challenger_bias_lost": true,
+          "classification_agrees": true
+        },
+        {
+          "name": "03_gap",
+          "main_challenger_bias_lost": true,
+          "companion_challenger_bias_lost": true,
+          "classification_agrees": true
+        }
+      ],
+      "first_replacement_event_comparison": {
+        "agrees": true,
+        "brackets_overlap": false,
+        "relative_midpoint_difference": 0.009727626459143969,
+        "classification": "observed_brackets_compared"
+      },
+      "main201_final": {
+        "final_d": 0.9164591847342345,
+        "readout_eligible": true,
+        "field_tail_pass": false
+      },
+      "companion_final_D": 0.9208534696017405,
+      "companion_field_tail_pass": true,
+      "endpoint_native_fields": {
+        "maximum_scaled_difference": 0.08341093269087448,
+        "per_field_scaled_difference": {
+          "rac": 0.0017389352910119706,
+          "rho": 0.01200036000602984,
+          "mca_bound": 0.008504433174556755,
+          "mca_unbound": 0.008519435834569046,
+          "displacement": 0.001787250903493025,
+          "velocity": 0.06802101685752686,
+          "tension": 0.08341093269087448,
+          "physical_length": 0.002866653669314609
+        },
+        "comparison": "Same reference fraction; FV overlap projection or Spring nodal interpolation; no fitted shift or amplitude normalization."
+      },
+      "source_basal_field_shift": {
+        "maximum_scaled_difference": 0.026247014632555632,
+        "per_field_scaled_difference": {
+          "rac": 0.0007001215136733786,
+          "rho": 0.0037588299130284133,
+          "mca_bound": 0.0021790640603320506,
+          "mca_unbound": 0.0021640479251241445,
+          "displacement": 0.0005329044316934523,
+          "velocity": 0.023297697232825026,
+          "tension": 0.026247014632555632,
+          "physical_length": 0.0007364623635436301
+        },
+        "comparison": "Native monitored fields; no fitted spatial shift or amplitude normalization."
+      },
+      "identical_realized_phase_schedule": true,
+      "realized_events": [
+        {
+          "index": 0,
+          "name": "00_on",
+          "start": 0.0,
+          "stop": 204.0,
+          "frames": 243,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 3.8,
+              "requested_area": 13.68,
+              "sampled_area": 13.680000000000001,
+              "sampled_peak": 7.188477582440383,
+              "reconstructed_boundary_peak": 7.20005075418695,
+              "nominal_untruncated_continuum_peak": 7.2,
+              "support_truncated": false,
+              "support_cells": 20,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 3.8,
+              "requested_area": 13.68,
+              "sampled_area": 13.680000000000001,
+              "sampled_peak": 7.188477582440383,
+              "reconstructed_boundary_peak": 7.20005075418695,
+              "nominal_untruncated_continuum_peak": 7.2,
+              "support_truncated": false,
+              "support_cells": 20,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_train_core_20261020/workers/0949/trial/phase_000.npz",
+            "sha256": "4d083eab9ed9b5730a28dc8ebdfb1e8ac664343097607a62bbc81bf2c8260de2",
+            "frames": 243,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        },
+        {
+          "index": 1,
+          "name": "01_gap",
+          "start": 204.0,
+          "stop": 1020.0,
+          "frames": 488,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 3.8,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 3.8,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_train_core_20261020/workers/0949/trial/phase_001.npz",
+            "sha256": "4af268e944c2691c483bd6f8ab2f84a5842dcbe10da069beadc8fe611d46190a",
+            "frames": 488,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        },
+        {
+          "index": 2,
+          "name": "02_on",
+          "start": 1020.0,
+          "stop": 1224.0,
+          "frames": 243,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 3.8,
+              "requested_area": 13.68,
+              "sampled_area": 13.680000000000001,
+              "sampled_peak": 7.188477582440383,
+              "reconstructed_boundary_peak": 7.20005075418695,
+              "nominal_untruncated_continuum_peak": 7.2,
+              "support_truncated": false,
+              "support_cells": 20,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 3.8,
+              "requested_area": 13.68,
+              "sampled_area": 13.680000000000001,
+              "sampled_peak": 7.188477582440383,
+              "reconstructed_boundary_peak": 7.20005075418695,
+              "nominal_untruncated_continuum_peak": 7.2,
+              "support_truncated": false,
+              "support_cells": 20,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_train_core_20261020/workers/0949/trial/phase_002.npz",
+            "sha256": "8f55a35071f759122c4827fee1c980e9d647a636c2b048d5efda612177028028",
+            "frames": 243,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        },
+        {
+          "index": 3,
+          "name": "03_gap",
+          "start": 1224.0,
+          "stop": 2040.0,
+          "frames": 488,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 3.8,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 3.8,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_train_core_20261020/workers/0949/trial/phase_003.npz",
+            "sha256": "e1406082bde617f5f068eac913f6b7a84393a503d4787ef3cd264408c30a5267",
+            "frames": 488,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        },
+        {
+          "index": 4,
+          "name": "04_on",
+          "start": 2040.0,
+          "stop": 2244.0,
+          "frames": 243,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 3.8,
+              "requested_area": 13.68,
+              "sampled_area": 13.680000000000001,
+              "sampled_peak": 7.188477582440383,
+              "reconstructed_boundary_peak": 7.20005075418695,
+              "nominal_untruncated_continuum_peak": 7.2,
+              "support_truncated": false,
+              "support_cells": 20,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 3.8,
+              "requested_area": 13.68,
+              "sampled_area": 13.680000000000001,
+              "sampled_peak": 7.188477582440383,
+              "reconstructed_boundary_peak": 7.20005075418695,
+              "nominal_untruncated_continuum_peak": 7.2,
+              "support_truncated": false,
+              "support_cells": 20,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_train_core_20261020/workers/0949/trial/phase_004.npz",
+            "sha256": "ec07d7efb73514790a9d7d5db006eedcd1d02fb273d8458b120cef0dc3e98810",
+            "frames": 243,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        },
+        {
+          "index": 5,
+          "name": "05_gap",
+          "start": 2244.0,
+          "stop": 3060.0,
+          "frames": 488,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 3.8,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 3.8,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_train_core_20261020/workers/0949/trial/phase_005.npz",
+            "sha256": "f82cd87971fee4e04f8dee87cf81e5accdc9dfab11d345b90175433c17a99d30",
+            "frames": 488,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        },
+        {
+          "index": 6,
+          "name": "06_on",
+          "start": 3060.0,
+          "stop": 3264.0,
+          "frames": 243,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 3.8,
+              "requested_area": 13.68,
+              "sampled_area": 13.680000000000001,
+              "sampled_peak": 7.188477582440383,
+              "reconstructed_boundary_peak": 7.20005075418695,
+              "nominal_untruncated_continuum_peak": 7.2,
+              "support_truncated": false,
+              "support_cells": 20,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 3.8,
+              "requested_area": 13.68,
+              "sampled_area": 13.680000000000001,
+              "sampled_peak": 7.188477582440383,
+              "reconstructed_boundary_peak": 7.20005075418695,
+              "nominal_untruncated_continuum_peak": 7.2,
+              "support_truncated": false,
+              "support_cells": 20,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_train_core_20261020/workers/0949/trial/phase_006.npz",
+            "sha256": "e702400d3cbed250166e4bac8600c19f5a33b1c07ee9eb54995c1623fac08221",
+            "frames": 243,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        },
+        {
+          "index": 7,
+          "name": "recovery",
+          "start": 3264.0,
+          "stop": 7264.0,
+          "frames": 1761,
+          "zero_duration": false,
+          "restart_check": {
+            "passed": true,
+            "fields": {
+              "rac": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "rho": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_bound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "mca_unbound": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "velocity": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "tension": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_left_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "raw_right_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "left_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              },
+              "right_boundary_displacement": {
+                "maximum_absolute_error": 0.0,
+                "maximum_roundoff_multiple": 0.0,
+                "passed": true
+              }
+            },
+            "rule": "32 binary64 eps times max(1, abs(initial)) per component"
+          },
+          "cue_initial_final": [
+            {
+              "requested_width": 3.8,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            },
+            {
+              "requested_width": 3.8,
+              "requested_area": 0.0,
+              "sampled_area": 0.0,
+              "sampled_peak": 0.0,
+              "reconstructed_boundary_peak": 0.0,
+              "nominal_untruncated_continuum_peak": 0.0,
+              "support_truncated": false,
+              "support_cells": 0,
+              "grid_kind": "cell",
+              "actual_domain_length": 39.0,
+              "area_definition": "Spatially integrated commanded input per ON time; native quadrature"
+            }
+          ],
+          "archive": {
+            "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_train_core_20261020/workers/0949/trial/phase_007.npz",
+            "sha256": "ed8f877d7c2a2152e3d738195aa1e85977060f87340c9321207c134cbb313529",
+            "frames": 1761,
+            "fields": [
+              "rac",
+              "rho",
+              "mca_bound",
+              "mca_unbound",
+              "displacement",
+              "velocity",
+              "tension",
+              "raw_left_displacement",
+              "raw_right_displacement",
+              "rac_activation",
+              "rho_activation",
+              "delta_alpha_mca",
+              "delta_beta_tension",
+              "left_boundary_displacement",
+              "right_boundary_displacement",
+              "boundary_separation",
+              "mean_strain",
+              "tension_range"
+            ],
+            "full_native_fields": true
+          }
+        }
+      ],
+      "issues": [
+        "finite_field_tail_status_changed",
+        "native_endpoint_field_difference_above_tolerance",
+        "phase_endpoint_D_difference_above_tolerance",
+        "phase_endpoint_challenger_bias_changed"
+      ],
+      "all_declared_readout_comparisons_agree": false,
+      "native_worker_result_sha256": "f31977ef3763260e053fedb249345b999e552b3d704c63536a6d3fbc19af87ec"
+    }
+  ],
+  "outputs": {
+    "phase_endpoints.csv": "e5d67abb939aed8a33cfde5c4bf34a0dbc9b2856aa323ec5bf2a16d8752f4dfe",
+    "debelly_native_endpoint_profiles.csv": "2baf151da1ac2b65dbba4820ce01bc0be8289094ee2f0424e90563be77a7af14"
+  },
+  "interpretation": "Identity audits are distinct from numerical agreement. Final fate agreement does not establish agreement in pulse/gap timing or coupled native fields."
+}

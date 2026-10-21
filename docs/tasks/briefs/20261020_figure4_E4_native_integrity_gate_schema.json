@@ -1,0 +1,36 @@
+{
+  "generated_utc": "2026-10-20T22:51:20.660660+00:00",
+  "status": "declared_before_E4_native_execution",
+  "producer": "signature_figure4_native_audit_20261020.py e4-gates",
+  "producer_source_sha256": "e7ee67639cee19f91740dc48380779abbb3eaa94a2dd5f0b71a4364247ccd2ca",
+  "intended_path": "signature_figure4_E4_horizon_20261020/results/complete_native_numerical_control_prefix_gate_20261020.json",
+  "required_true_flags": [
+    "passed",
+    "complete",
+    "all_preselected_arms_complete",
+    "all_required_prefix_checks_passed",
+    "all_required_controls_passed",
+    "numerical_integrity_only"
+  ],
+  "scientific_long_arm_qualification": false,
+  "qualified_conditions": {
+    "rows": 52,
+    "keys": [
+      "model",
+      "C_label",
+      "f"
+    ],
+    "each_native_seed_outcomes": 12,
+    "mean_and_zero_slots_explicit": true
+  },
+  "complete_native_counts": {
+    "noise": 624,
+    "mean": 52,
+    "basal": 12,
+    "total": 688
+  },
+  "original_prefix_checks_required": 374,
+  "additional_independent_seed_paths": 250,
+  "all_engineering_release_and_per_worker_audit_and_control_and_retained_prefix_receipts_hash_linked": true,
+  "interpretation": "These flags mean complete numerical/source/forcing integrity and same-horizon control coverage only. Persistence, forced-state, finite-window stationarity, H1-H3/A7 and scientific long-arm qualification require the separately frozen statistical rules. No missing or failed planned arm is replaced by its short E0 record."
+}

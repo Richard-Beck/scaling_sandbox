@@ -1,0 +1,38 @@
+{
+  "generated_utc": "2026-10-20T22:55:26.611026+00:00",
+  "root_approved": true,
+  "scope": "Additive read-only Figure4 A3 coordinate correction; original accepted E0 and normalized-stage bytes remain immutable; final decision v3 unchanged",
+  "authority": "Figure4 brief A3: Site position = heading angle times actual C/(2pi); peak maximum sensitivity. Root approved literal material-origin overlay on20October before derived literal-coordinate outcomes.",
+  "primary": {
+    "method": "heading_literal_actualC",
+    "heading": "Physical native M1 phase, not normalized/rotated P phase",
+    "coordinate": "x(t)=theta_unwrapped(t)*actualC(t)/(2pi)",
+    "origin": "Native material q=0",
+    "branch": "At the beginning of every valid contiguous section choose phase in[0,2pi), then use shortest increments within that section only",
+    "qualification": "abs(P)>=0.1 AND exactly one native raw half-contrast component AND native scalar contrast>=0.1 times exact native basal contrast",
+    "dilation": "Actual-C changes contribute to this coordinate; no dilation subtraction"
+  },
+  "peak_sensitivity": {
+    "method": "profile_peak_literal_actualC",
+    "heading": "2pi times native material position q of the first native profile maximum",
+    "coordinate": "Same fixed-origin literal map, actual native profile circumference, own profile contrast, exact corresponding scalar R and region count",
+    "ties": "Native first-index argmax; no subgrid interpolation",
+    "cadence": "Retain actual profile cadence and all supported lag values; do not imply scalar-rate observation"
+  },
+  "retained_sensitivities": {
+    "heading_arc": "Integrate shortest heading increments using midpoint actual circumference, excludes origin-dependent dilation term",
+    "heading_direct": "Track-reanchored heading difference times actual C(t)/(2pi)",
+    "profile_peak": "Existing midpoint-C peak increment integration"
+  },
+  "uncertainty": "2000 whole-seed bootstrap draws, same frozen per-condition/pairing seed key as accepted stage; never frames as replicates",
+  "windows": "All seven frozen A7 views, own contiguous-valid coverage at every lag",
+  "independent_audit": "Separately implemented physical-phase/peak extraction, masks and literal coordinates at every retained native sample; exact every-lag pair coverage; direct differences and whole-seed intervals at all2-10cadence and predetermined interior/last audit lags",
+  "Dx": "Dtheta times squared mean actual circumference/(2pi) remains a separate conversion, not a slope fit to literal coordinate MSD",
+  "no_changes": [
+    "Native fields/kinetics",
+    "Heading persistence and angular MSD",
+    "Ratio/fhalf estimands",
+    "H1/H2/H3 criteria or active final-statistics v3 closure",
+    "Original delivered interim or accepted normalized outputs"
+  ]
+}

@@ -1,0 +1,149 @@
+Figure 2 revision: signature assays
+Oct 20, 2026 · @Richard 
+Figure 2 should show that measurable challenge responses distinguish the mechanisms behind size-dependent replacement resistance. Neither the 19 October plate nor this morning's signature matrix does this for Wave-pinning. Two pilots on 20 October suggest that an equal-area width series and a cue train do. This note sets out the problems, the pilot results and a proposed figure for the HPC campaign.
+Conceptual issues
+Both current versions answer a cue-design or model-labelling question, not the mechanism question in the success criterion.
+19 October consolidated plate
+• Panel D compares broad and narrow cues at equal peak. Broader cues therefore also deliver more integrated input, so width and dose are confounded.
+• The readout, 50% loss of incumbent excess, is not replacement. Its ratio trends distinguish named models, not explanations.
+• The mechanism × observable matrix is absent from the main figure. Panels E–G are one deBelly example that disclaims cause.
+• The width/strength/duration grid ran as a near-factorial survey (3,492 protocols). Duration entered only as withdrawal time, and no designed contrast of shape or timing was extracted.
+20 October signature matrix
+• Goryachev initiation and deBelly dwell-gated commitment are sound, positive signatures.
+• Wave-pinning is identified only by exclusion. A flat activation time and "length, not separation" are both shared with deBelly.
+• The one Wave-pinning-specific feature, the post-withdrawal stall, is weak:
+    ◦ It is a finite-horizon observation; D still drifts up to 0.03 over the last 7,500 units.
+    ◦ It requires withdrawal at an exact share.
+    ◦ Noise would likely resolve it.
+    ◦ Slow two-peak coarsening is generic to mass-conserved, saturating reaction–diffusion models.
+• The "shared-pool competition" label is unsupported. The length series changes pool size, incumbent extent and separation together.
+Pilot results
+Both pilots separate all three models, and both give Wave-pinning a positive signature. Every run starts from the exact retained basal at L19, L29 and L39. Each model keeps its native kinetics. Dominance D = 0.5 means a 75% challenger share.
+Equal integrated area, varied width. Cue area was fixed at native peak × 3.8; width ran 0.95–7.6 with peak ∝ 1/width. The table gives continuous-cue replacement time (to D ≥ 0.5, native units) at the narrowest and broadest widths.
+Model
+L
+Narrow, w = 0.95
+Broad, w = 7.6
+Narrow ÷ broad
+Wave-pinning
+19
+370
+84
+4.4
+Wave-pinning
+29
+none by 6,000
+280
+> 21
+Wave-pinning
+39
+none by 6,000
+1,495
+> 4; time to D = 0 is 23× longer
+Goryachev
+19
+423
+365
+1.16
+Goryachev
+29
+1,476
+1,339
+1.10
+Goryachev
+39
+3,899
+3,784
+1.03
+deBelly
+19
+25
+27
+0.93
+deBelly
+29
+63
+70
+0.90
+deBelly
+39
+178
+232
+0.77
+Wave-pinning is strongly penalised by concentrating the same input, and the penalty grows steeply with size. This fits saturating feedback: challenger strength follows the width that reaches the plateau, not the dose delivered. Goryachev and deBelly count area and are nearly width-neutral. That contradicts the expectation that deBelly would also saturate, so this assay separates Wave-pinning from deBelly directly.
+Cue train at fixed total ON time. Four equal pulses were given, with total ON = 1.5× the continuous duration that commits at that length. Gaps were 0.1, 1 or 4× the pulse length, then the cell ran cue-free for 10⁴ units (4 × 10³ s for deBelly).
+Model
+Fate across gaps, L19/29/39
+D at pulse 1 end → end of gap 1 (L39, gap 4×)
+Wave-pinning
+replaces at every gap
+0.43 → 0.35
+Goryachev
+replaces only at gap 0.1×; fails at 1× and 4×
+−0.39 → −1.00
+deBelly
+replaces at every gap
+0.70 → −0.55
+Wave-pinning acts as a ratchet. The challenger share holds through each gap from the first pulse, so the outcome depends only on total ON time. Goryachev resets in every gap. deBelly's activity collapses in early gaps yet later pulses still commit, so something other than activity accumulates. The Wave-pinning–deBelly contrast is therefore visible exactly where a biosensor reads: activity share at the end of each gap.
+Proposed Figure 2
+Central claim: similar size-dependent replacement resistance arises through distinct mechanisms, which predict different responses to the shape and timing of a cue.
+Panel
+Content
+Discriminates
+A
+Incumbent organization: amount, extent and peak versus length for all five models (compact; retained from the 19 October A–C)
+context for every model
+B
+Initiation: cue-site activation time versus L, with ×0.5/×2 strength and fixed-width overlays
+Goryachev from the others
+C
+Equal-area width series: narrow ÷ broad replacement time versus L, plus a Wave-pinning L39 narrow/broad profile inset
+Wave-pinning from the others
+D
+Cue-train fate map: gap multiple × L, coloured by final D, one map per model
+Goryachev (gap-sensitive) from Wave-pinning and deBelly
+E
+Gap retention: D traces through one L39 train per model, with pulses shaded
+Wave-pinning (holds) from deBelly (collapses, then commits)
+F
+Signature summary, each signature mapped to its measurement: beam width at fixed photon dose, pulse trains, and biosensor share at the end of each gap
+all three
+The separation-versus-length test and the share-withdrawal commitment map move to the supplement. They support B–E but discriminate less cleanly.
+Supplements and HPC campaign
+The campaign covers five models (Wave-pinning, Goryachev, deBelly, Holmes 3, Spring) at six lengths (L19, 23, 27, 31, 35, 39; Spring at its matched resting lengths). That is roughly 2,500 runs, plus a short calibration stage.
+Stage
+Factors
+Runs (approx.)
+Supplement
+0. Commitment calibration
+Shortest continuous cue duration that commits at each model–length, by bisection on native duration
+~30 bisections
+defines total ON for stage 2
+1. Equal-area width
+widths 0.95, 1.9, 3.8, 7.6, 15.2 × areas ×0.5/1/2 (Spring scaled to its native support)
+450
+S1: replacement time and challenger amount E_C(t) versus width; two challenger-zone conventions (fixed widest zone vs each cue's own support)
+2. Cue train
+2/4/8 pulses × gaps 0, 0.1, 0.5, 1, 4, 16× pulse × total ON 1, 1.5, 2× calibration
+1,620
+S2: fate maps; D at the end of every pulse and gap
+3. Noise on Wave-pinning hold
+Wave-pinning and deBelly, L19/29/39 × two weak noise levels × gaps 1, 4, 16× × 12 seeds
+430
+S3: probability that the share is retained through each gap
+4. Retained assays
+Separation versus length; share/dwell withdrawal map; initiation strength and fixed-width checks
+already run (102)
+S4
+5. Numerics
+201 versus 401 cells for one length pair per model; output sampling; deBelly half-unit lattice
+~20
+S5
+For every withdrawn run, record the full native-field tail and its finite-tail gate, so fate and field stability stay separate. The 20 October harness, polarity1d/manuscript/code/mechanisms/signature_assays_20261020.py, can serve as the starting point, with stages 1–2 added as new arms.
+Open questions
+• Does Holmes 3 share Wave-pinning's narrow-cue penalty and ratchet? If so, the signature identifies a class of mass-conserved, saturating models, not Wave-pinning alone.
+• Is deBelly's mild narrow-cue preference at L39 (0.77) robust to the challenger-zone definition?
+• Does Wave-pinning's gap hold survive weak noise over gaps of 16× the pulse length?
+• Is an equal-area comparison realistic optically? Beam width at fixed photon dose needs a native-to-optical calibration, which the repo does not have.
+• What should define commitment for total ON time: the shortest committing continuous duration, or a share threshold? The two differ for deBelly.
+• The pilots used three lengths, one area, one pulse count and gaps of up to 4×. Every number above is provisional until the campaign completes.

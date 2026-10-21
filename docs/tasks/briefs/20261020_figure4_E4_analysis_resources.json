@@ -1,0 +1,21 @@
+{
+  "generated_utc": "2026-10-20T22:37:38.279748+00:00",
+  "status": "Root-approved analytical memory preflight; no scientific rule or native protocol change",
+  "profiles": {
+    "noisy_cases": 12,
+    "controls": 2,
+    "chemical_cells": 1200,
+    "long_horizon": 128000,
+    "profile_cadence": 5,
+    "bytes_per_value": 8,
+    "primary_profile_resident_bytes": 3440774400,
+    "scope": "Primary profiles only; temporary decompression/bootstrap/native scalar arrays and Python overhead are additional"
+  },
+  "resources": {
+    "analysis_gb": 8,
+    "audit_gb": 8,
+    "collector_gb": 32
+  },
+  "execution": "Use a fresh frozen E4 stage-execution plan with the resources mapping. Keep frozen E1/E2 plans and their current requests unchanged.",
+  "evidence": "A5 per-case fine-profile pilot qualified native measurement/schema at N1200; it does not establish memory adequacy for14-case group aggregation."
+}

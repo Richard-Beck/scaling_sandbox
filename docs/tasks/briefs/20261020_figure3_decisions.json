@@ -1,0 +1,68 @@
+{
+  "brief": "docs/tasks/briefs/20261020_figure3_distance_competition.txt",
+  "working_defaults": {
+    "sizes": "All three specified sizes: chemical 30/37.8/47.6; Spring resting labels 2.5/3.15/3.97 with actual physical circumference recorded.",
+    "models": [
+      "wave_pinning",
+      "goryachev",
+      "holmes_model3",
+      "spring"
+    ],
+    "B_withdrawal_ratios": [
+      0.5,
+      1,
+      2
+    ],
+    "translation_panels": "Both framings, subject to the data and readable composition.",
+    "Spring_main_or_supplement": "Assess from valid comparisons and broad-region geometry; no retuning."
+  },
+  "verified_preparation": {
+    "fresh_basals": 12,
+    "qualified_basals": 12,
+    "source_audit": "polarity1d/manuscript/data/runs/signature_figure3_basals_20261020/results/basal_audit.json",
+    "no_cue_controls": "53000 chemical units / 5300 Spring units, covering the longest complete A2 protocol."
+  },
+  "measurement_definition_review": {
+    "status": "user_confirmed_full_challenger_region",
+    "problem": "The first A1 analysis compares a frozen incumbent footprint with the fixed cue footprint. A broad challenger can extend beyond the cue support, leaving an unobserved ROI handover despite native-field takeover.",
+    "user_reply_to_first_question_verbatim": "Clarify the issue and re-pose the question",
+    "clarification": "Whole-region excess would identify activity peaks, divide the circular field at intervening activity minima and integrate both complete regions; merged or single-region motion receives a separate outcome. Fixed-footprint diagnostics would remain available.",
+    "reposed_question": "For Figure 3, which amount should define handover and the B withdrawal ratios?",
+    "options": [
+      "Whole active regions (recommended)",
+      "Existing fixed-footprint amounts"
+    ],
+    "dependent_actions": "Reanalyse preserved A1 fields under corrected complete-region definition; independently preflight new A2/B payloads and then execute them. Preserve original fixed-footprint analysis and unsubmitted payloads as historical diagnostic candidates. Never substitute a cap for unavailable handover.",
+    "independent_work_continues": "Figure 2 campaigns and numerical checks; Figure 3 geometry/whole-region analysis development and fine-grid preparation.",
+    "user_reply_to_reposed_question_verbatim": "amount of what? What is handover?",
+    "plain_language_amount": "The integral along a spatial region of the model active-polarity concentration above a common instantaneous background concentration. Holmes3 uses active Rac; the other included models use their native active species. The measure combines concentration and spatial extent, in model-native units.",
+    "plain_language_handover": "The first time the challenger excess active amount exceeds the incumbent excess active amount, as requested in the brief. This is distinct from disappearance of the incumbent, complete replacement, or a change in measured migration direction.",
+    "B_ratio_meaning": "Targets0.5,1,2 correspond to challenger excess active amount being half,equal to,or twice the incumbent excess active amount while both regions remain separately measurable.",
+    "native_profile_example": {
+      "evidence": "docs/tasks/briefs/20261020_figure3_readout_example.json",
+      "image": "docs/tasks/briefs/20261020_figure3_readout_example.png",
+      "model": "holmes_model3",
+      "circumference": 37.8,
+      "initial_external_gap": 1,
+      "original_fixed_window_handover": "right_censored_at_completed_horizon",
+      "proposed_complete_region_handover_saved_bracket": [
+        480.0,
+        485.0
+      ],
+      "authority": "Diagnostic proposal using unchanged native fields; not an approved new readout."
+    },
+    "authority": "User explicitly confirmed that challenger activity must not be restricted to the cue footprint. Complete-region implementation and explicit topology outcomes follow that instruction and the original brief.",
+    "latest_user_reply_verbatim": "I still have no idea what you're asking me. Use more words, and just talk to me in chat.",
+    "decision": "Use complete excess active amounts in two valley-bounded regions, above a common instantaneous background. Require two resolved, spatially associated regions to define a two-region handover or B ratio; merged regions and single-region movement are separate outcomes.",
+    "question_status": "Resolved; do not repeat the approval question.",
+    "updated_utc": "2026-10-20T19:54:49.027830+00:00",
+    "user_confirmation_verbatim": "yes obviously you should not restrict challenger activity counting to the area under the cue."
+  },
+  "retained_A1_evidence": {
+    "placements": 152,
+    "symmetry_controls": 24,
+    "native_experiments_complete": true,
+    "independent_saved_field_audit": "polarity1d/manuscript/data/runs/signature_figure3_campaign_20261020/results/primary_independent_native_audit.json",
+    "interpretation": "Native trajectories remain valid. Their original fixed-footprint handovers and unsubmitted dependent payloads are historical measurement candidates, not accepted final figure readouts."
+  }
+}

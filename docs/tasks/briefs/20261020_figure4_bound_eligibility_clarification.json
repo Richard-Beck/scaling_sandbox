@@ -1,0 +1,31 @@
+{
+  "generated_utc": "2026-10-20T22:36:50.191912+00:00",
+  "status": "Root-approved before future response outcomes were loaded",
+  "authority": "Root review confirming literal resolved-or-bounded eligibility on20October2026",
+  "original_authority": {
+    "path": "docs/tasks/briefs/20261020_figure4_final_statistics_decisions.json",
+    "sha256": "94d82f1a5d92bd84e5ffba7c404b706d1ba6212e8c84dd81b90ac0481979bf7f",
+    "retained_unchanged": true
+  },
+  "clarification": "An observed unresolved_below_two_cadences result retains its genuine interval[0,2Δ]. It is eligible for conservative observation-bound calculations when its actual finite crossing and crossing coverage>=0.5 are preserved. Its point tau remainsNone/unresolved.",
+  "required": [
+    "A.persistence produced status unresolved_below_two_cadences from an actual finite contiguous crossing",
+    "Crossing bracket is finite, ordered and lies within the first two saved cadences",
+    "Crossing coverage>=0.5",
+    "Retained lower bound0 and finite upper bound2×the actual view cadence",
+    "No point tau is substituted"
+  ],
+  "scope": [
+    "H1/H2 empirical interval comparisons",
+    "H3 conservative strong-input test",
+    "First-crossing noise-tolerance bounds and whole-seed interval draws",
+    "A7 window/horizon interval comparisons"
+  ],
+  "exclusions": [
+    "Lost heading, unavailable lag curves, gaps before the crossing and insufficient coverage do not gain a finite persistence bound",
+    "A6 direct-tau comparisons remain strictly resolved/resolved",
+    "Ratios with a zero denominator lower bound retain an unbounded upper bound",
+    "No new protocol, native integration, point estimate, noise strength, experimental condition or data-selected cutoff"
+  ],
+  "provenance": "This corrects implementation of the existing resolved-or-bounded authority. Preserve v1/v2 executable closures and delivered E0 PDF. Any E0 recalculation is separately labelled; future final execution uses reviewed v3."
+}

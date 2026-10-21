@@ -1,0 +1,25 @@
+{
+  "generated_utc": "2026-10-21T01:56:29.180777+00:00",
+  "job": "21254182",
+  "dependencies": [
+    "21251753",
+    "21251755"
+  ],
+  "output": "docs/tasks/briefs/20261020_figure4_A5_longest_point_review.json",
+  "review_source_sha256": "5d340be850ab3a77f8903a46cdd4b8df5f231b73d8f4832f7f9fed82cde3576f",
+  "sbatch_arguments": [
+    "sbatch",
+    "--parsable",
+    "--partition=red",
+    "--qos=small",
+    "--cpus-per-task=1",
+    "--mem=2G",
+    "--time=00:30:00",
+    "--dependency=afterok:21251753:21251755",
+    "--job-name=F4-A5-longest-root-review",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_regions_longest_20261020/slurm/root_primary_review_%j.log",
+    "--wrap",
+    "/home/4473331/.conda/envs/scaling_sandbox/bin/python -B /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/code/mechanisms/signature_figure4_primary_review_20261020.py --root /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_regions_longest_20261020 --output /home/4473331/projects/scaling_sandbox/docs/tasks/briefs/20261020_figure4_A5_longest_point_review.json"
+  ],
+  "scope": "Six primary optical point estimands and replication/control counts, separately bound to complete independent all-view native audit; no native integration."
+}

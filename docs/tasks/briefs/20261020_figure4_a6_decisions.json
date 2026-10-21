@@ -1,0 +1,41 @@
+{
+  "status": "predeclared_before_loading_A6_correlations",
+  "authority": "Root-directed implementation of the Figure4 brief; primary negative sign and minimum3 matched f agreed before predictor correlations were inspected.",
+  "primary_outcome": "log(large-cell persistence time / small-cell persistence time), only when both direct persistence-time estimates are resolved under the declared finite-horizon gate.",
+  "separate_sensitivity_outcome": "log large/small Dtheta-derived mobility-proxy persistence ratio under the already declared E0 estimator; never substituted for direct tau in the primary table or criterion.",
+  "condition_join": "Same model, forcing family, native input fraction and analysis view. Match smallest and largest retained size labels. Keep seed-level A5 rows and condition-level uncertainty separate.",
+  "forced_views": {
+    "primary": "Exclude a model/f condition when either joined small or large state is forced under the canonical declared Figure4 gate.",
+    "sensitivity": "Include forced states, explicitly labeled; do not use this view to rescue the primary criterion."
+  },
+  "within_model_correlations": {
+    "features": "Every declared A5 statistic in small cells, large cells and their large/small quotient; native dimensions remain within model.",
+    "estimator": "Spearman rank correlation against log persistence ratio across matched input fractions f. At least3 usable distinct f and nonzero variation in x and y required.",
+    "zero_denominator": "The large/small feature quotient is unavailable when the small feature is zero or unavailable. Do not add a pseudocount. A zero numerator over a positive denominator is the valid ratio0.",
+    "censoring": "Unresolved lifetime medians, unresolved direct persistence ratios and unscorable takeover probabilities remain unavailable; no cap-value replacement."
+  },
+  "cross_model_analysis": {
+    "predictors": "Only dimensionless within-model large/small feature quotients. Never pool absolute native times, lengths or rates across models.",
+    "primary_H2_features": ["multiple_front_fraction_large_over_small", "mean_region_count_large_over_small"],
+    "predeclared_primary_sign": "negative",
+    "correlation_threshold": "Pooled Spearman <= -0.6, with the declared direct, nonforced primary outcome. Report both predeclared features, not only the best result.",
+    "unequal_model_coverage": "Retain all joined condition points and report each model's point count. Do not manufacture unavailable Goryachev or other folds.",
+    "other_features": "Exploratory only. Their training-sign transfer is reported separately and cannot select or replace a primary H2 predictor."
+  },
+  "leave_one_model_out": {
+    "models": ["wave_pinning", "goryachev", "holmes_model3", "spring"],
+    "training": "For each held-out model, pool only the other models' valid size-quotient points. Require at least3 distinct matched f values, at least3 points, and nonconstant predictor and outcome.",
+    "held_out": "Use only the held-out model's valid size-quotient points. Require at least3 distinct matched f values, at least3 points, and nonconstant predictor and outcome.",
+    "primary_success": "Training Spearman <0 and held-out Spearman <0. Zero correlation is a failure. Constant/insufficient/censored-only data are unavailable, not successful.",
+    "exploratory_success": "Nonzero training and held-out Spearman have the same sign; retain their signs, sample counts and unavailable reasons. No sign chosen after looking at the held-out model.",
+    "denominator": "Exactly4 planned folds. Unavailable folds count as not successful for the >=3/4 criterion; report them explicitly.",
+    "interpretation": "Sign-transfer validation, not a fitted quantitative time predictor or a causal test."
+  },
+  "H2_A6_support": "At least one of the two predeclared primary features satisfies pooled Spearman<=-0.6 and>=3 successful of4 planned LOMO folds. Report every primary feature and every fold; combine with the separately declared per-model H2 condition only in the root hypothesis assessment.",
+  "sensitivity_views": ["A5 contour0.3/0.5/0.7", "raw versus fixed-physical-kernel imaging", "profile cadence/downsampling", "forced-inclusive", "Dtheta-proxy outcome separate from direct tau"],
+  "numerical_conventions": "A vector is constant when its range is <=1e-12 times max(1,max absolute value). Rank correlations with absolute value<=1e-12 count as zero for sign transfer.",
+  "outcome_coverage": "Direct tau requires both statuses resolved, positive finite ratio and the canonical evaluable/coverage gate. The separate Dtheta proxy requires a positive finite proxy and valid-bootstrap fraction>=0.5.",
+  "rank_uncertainty_scope": "Correlations concern declared condition means over the designed f grid. Retain seed-level feature CIs and outcome ratio CIs; do not invent an independent-condition bootstrap or claim new seed-level correlation uncertainty from marginal CIs.",
+  "temporary_measurement_hold": "Root audit found pairwise wins against the previous dominant without global dominance among qualified regions. Until strict two-frame global tracking is replayed, takeover-related predictor rows remain explicitly pending/unavailable; other statistics and predeclared primary signs/criteria are unchanged. This audit hold precedes accepted A6 correlations.",
+  "native_integrations": 0
+}

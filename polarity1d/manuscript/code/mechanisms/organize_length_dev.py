@@ -13,6 +13,9 @@ REPORT=ROOT/'figures/length_mechanisms_20261008'
 DEV=REPORT/'dev'
 RECORDS=DEV/'_organization'
 GROUPS={
+ 'signature_figure4_20261020':('signature_figure4_', 'figure4_E0_'),
+ 'signature_assays_20261020':('signature_figure2_', 'figure2_signature_assays'),
+ 'revision_program_20261020/figure3_distance':('signature_figure3_', 'figure3_distance_20261020'),
  'revision_program_20261019':('revision_program_', 'revision_figure2_', 'revision_figure3_', 'revision_figure4_'),
  'spring_ring_validation_20261019':('spring_ring_reader_', 'spring_ring_validation_'),
  'vision_aligned_checkpoint_20261017':('vision_aligned_',),
@@ -67,6 +70,9 @@ TITLES['vision_noise_20261017']='Replicated noisy-ring polarity persistence acro
 TITLES['vision_noise_pilot_20261017']='Bounded noisy-ring numerical and response-regime pilot'
 TITLES['spring_ring_validation_20261019']='Spring ring: declared closure, raw competition fields and validation'
 TITLES['revision_program_20261019']='Figures 2–4: mechanisms, geometry and spontaneous polarity dynamics'
+TITLES['signature_assays_20261020']='Figure 2 revision: shape and timing signature assays'
+TITLES['signature_figure4_20261020']='Figure 4 revision: native noisy-ring persistence and regime measurements'
+TITLES['revision_program_20261020/figure3_distance']='Figure 3 revision: distance, competition and measured polarity geometry'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def write(p,value):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(value,indent=2,ensure_ascii=False)+'\n')
 def group(name):
@@ -110,9 +116,45 @@ def organize_group(name,dry_run=False):
  moved_digests={source:sha(source) for source in moves}
  preview_paths={p.resolve() for p in folder.glob('*.png')}
  preview_paths.update(dest for dest in moves.values() if dest.parent==folder.resolve() and dest.suffix=='.png')
- text=f'# {TITLES.get(name,name)}\n\n[All development experiments](../README.md)\n\n'
+ text=f'# {TITLES.get(name,name)}\n\n[All development experiments]({os.path.relpath(DEV/"README.md",folder)})\n\n'
  if exists(folder/'CURRENT_REVIEW.html'):text+='[Current review checkpoint — start here](CURRENT_REVIEW.html)\n\n'
  if exists(folder/'index.html'):text+='[Interactive scientific reader](index.html)\n\n'
+ if name=='signature_figure4_20261020':
+  text=text.replace('[Interactive scientific reader](index.html)','[Delivered E0 interim reader](index.html)')
+  if exists(folder/'figure4_complete_reader.html'):
+   final_content=source_path(folder/'supporting/metadata/content.json')
+   payload=json.loads(final_content.read_text())
+   if payload.get('id')!='figure4' or payload.get('status')!='final':
+    raise ValueError('Final Figure4 navigation requires its final receipt-bound content')
+   published={(REPO/asset['path']).resolve() for asset in payload['assets']}
+   published.add((folder/'figure4_E0_interim_preview.png').resolve())
+   preview_paths={path for path in preview_paths if path.resolve() in published}
+  entries=[
+   ('Complete Figure 4 reader','figure4_complete_reader.html'),
+   ('Revised supplement: statistical core and native-atlas appendix index','supporting/vectors/figure4_revision_complete_supplement.pdf'),
+   ('Common measurement checkpoint: all sizes and persistence qualifications','supporting/vectors/figure4_common_core_checkpoint_20261020.pdf'),
+   ('Common literal physical-position checkpoint: primary, routes and lost coverage','supporting/vectors/figure4_common_literal_checkpoint_v3_20261020.pdf'),
+   ('Common region-statistics checkpoint: primary and declared sensitivities','supporting/vectors/figure4_S9_common_checkpoint_v2_20261020.pdf'),
+   ('Completed E1 fixed-mean fluctuation comparisons (S7)','supporting/vectors/figure4_S7_E1_v2_20261020.pdf'),
+   ('Completed E2 observations (S8; coordinate primary in separate addendum)','supporting/vectors/figure4_S8_E2_v1_20261020.pdf'),
+   ('E2 literal physical-position addendum: primary, route sensitivity and coverage','supporting/vectors/figure4_S5_literal_E2_split_20261020.pdf'),
+   ('E3 size checkpoint; final common/long decisions remain pending','supporting/vectors/figure4_E3_sizes_v1_20261020.pdf'),
+   ('Delivered E0 interim supplement','supporting/vectors/figure4_E0_interim_supplement.pdf'),
+   ('E0 region statistics and all declared sensitivities (S9; provisional)','supporting/vectors/figure4_S9_E0_protrusion_statistics.pdf'),
+   ('Retained Spring observation-cadence qualification (S12)','supporting/vectors/figure4_S12_historical_numerics.pdf'),
+   ('Scientific methods and qualifications','supporting/metadata/scientific_readme.md'),
+  ]
+  def ready_figure4_entry(relative):
+   if not exists(folder/relative):return False
+   if Path(relative).stem.startswith(('figure4_S7_E1_','figure4_S8_E2_','figure4_S5_literal_','figure4_E3_sizes_','figure4_common_','figure4_S9_common_')):
+    if exists(folder/'figure4_complete_reader.html'):return False
+    if Path(relative).stem.startswith('figure4_S5_literal_') and exists(folder/'supporting/vectors/figure4_common_literal_checkpoint_v3_20261020.pdf'):return False
+    gate=folder/'supporting/metadata'/f'{Path(relative).stem}_display_audit.json'
+    if not gate.exists():return False
+    payload=json.loads(gate.read_text())
+    return payload.get('passed') is True and payload.get('complete') is True
+   return True
+  text+=''.join(f'- [{label}]({relative})\n' for label,relative in entries if ready_figure4_entry(relative))+'\n'
  docs=[f'[{label}]({filename})' for label,filename in [('Design','DESIGN.md'),('Results','RESULTS.md')] if (folder/filename).exists()]
  if docs:text+=' · '.join(docs)+'\n\n'
  if name=='revision_program_20261019':

@@ -1,0 +1,81 @@
+{
+  "status": "predeclared_before_future_native_atlas_selection",
+  "frozen_utc": "2026-10-20T22:28:14.210317+00:00",
+  "purpose": "Exhaustive final S11 native-atlas coverage with no main-example selection and no duplicated physical reference census.",
+  "required_contexts": [
+    {
+      "atlas_context": "common",
+      "source": "Canonical sigma1 E2-augmented E0 plus genuinely new E3 sizes, with all matched-mean and zero controls.",
+      "precedence": "Prefer verified dense companions only after exact scalar/source identity is established. Canonical normalization fixes observation and realization IDs before feature selection.",
+      "approximate_groups": {
+        "noise": 185,
+        "mean": 185,
+        "zero": 20
+      },
+      "exact_count_authority": "Final normalized canonical inventory, frozen before selection."
+    },
+    {
+      "atlas_context": "E1_extra",
+      "source": "Only sigma0.25,0.5,2 extra forcing arms, each24 conditions with12 stochastic realizations.",
+      "sigma": [
+        0.25,
+        0.5,
+        2.0
+      ],
+      "expected_noise_groups": 72,
+      "expected_realizations_per_noise_condition": 12,
+      "references": "Sigma1, sigma0 and deterministic-control references point to canonical common IDs/pages; they are not duplicated physical reference pages."
+    },
+    {
+      "atlas_context": "E4_long",
+      "source": "Full-long52 noisy conditions, all12 realizations each, plus52 matched means and12 zero controls; kept separate from common.",
+      "expected_groups": {
+        "noise": 52,
+        "mean": 52,
+        "zero": 12
+      },
+      "expected_realizations_per_noise_condition": 12,
+      "horizons": "Use actual source horizons; no relabeling/truncation or pooling with common."
+    }
+  ],
+  "excluded_as_additional_mandatory_contexts": {
+    "E0v2": "Preserved qualified prototype and reusable provenance crosswalk; no extra mandatory final census.",
+    "longest": "A selector/reference view of common and E4_long, not a third duplicate independent census."
+  },
+  "group_key": [
+    "atlas_context",
+    "model",
+    "canonical_native_size_label",
+    "f",
+    "kind",
+    "sigma",
+    "native_horizon",
+    "native_profile_cadence"
+  ],
+  "context_and_origin": "Group by the declared atlas_context, never by raw origin stage. Preserve original experiment/stage, source observation ID and source/native file hashes separately in every case and page.",
+  "selection_ID": "Use the canonical independent-realization ID as the stable physical case ID for medoid ties and deterministic-random hashes; source observation/companion IDs remain provenance, not new seed identities.",
+  "selection_rules": "Retain the seven predeclared last-half native scalar features, time weights, IQR/nonzero-range scaling, stable1e-12 score ties and master SHA256 seed2026102011. Compute physical feature differences before dividing by scale to avoid subtracting large normalized means.",
+  "reuse_and_counts": "Observation companions, replay aliases and longer observations retain their explicit reuse/independence mapping. Count unique canonical realization IDs globally; report per-context native observation counts separately. Deterministic controls contribute no stochastic independent seeds or bootstrap replicates.",
+  "snapshots": "Native samples nearest0,0.5,0.75,1 horizon, exact ties earlier. Print actual saved times; retain every native field frame and actual physical circumference. No source-field interpolation/resampling/quantization.",
+  "numerical_exports": "Per-page full time/actualC/all-active-cell CSV.gz with17-significant-digit float64 roundtrip proof; q grids, complete native snapshots and every plotted scalar curve in companion CSVs. Full fields remain verified HPC archives, with tracked inventory/hash/path/rows/grid metadata; compact reader must not link absent GitHub archives.",
+  "master_contract": {
+    "required_contexts": [
+      "common",
+      "E1_extra",
+      "E4_long"
+    ],
+    "fields": [
+      "passed",
+      "all_required_contexts_complete",
+      "required_contexts",
+      "page_data_indices",
+      "source_case_inventory_hashes",
+      "independence_and_reuse_census"
+    ],
+    "page_data_indices": "One entry per required atlas index: exact path,sha256,pages,atlas_context plus every source volume/page/CSV-shard mapping.",
+    "completeness": "False until all frozen required contexts and every actual required page/volume/shard are present and gated. Do not infer required contexts from whichever outputs finish. Exact inventory counts are normalized and frozen before selection, never chosen from outcomes."
+  },
+  "source_inventory_binding": "Pending accepted canonical inventories and native/strict gates. Bind exact inventories, alias mappings and required case IDs in a versioned preselection receipt before loading future selection features.",
+  "main_example_selection": false,
+  "future_native_outcomes_or_correlations_inspected": false
+}

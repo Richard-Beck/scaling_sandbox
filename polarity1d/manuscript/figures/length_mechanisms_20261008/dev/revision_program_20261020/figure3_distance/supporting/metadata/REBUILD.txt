@@ -1,0 +1,31 @@
+Figure3 native-history and figure reconstruction
+
+The portable reader includes all1150 lossless WebP histories, global-rate SVGs,
+two main plates/PDF, seven supplementary pages and complete analysis CSVs.
+Original PNGs, full native-species NPZ archives, exact withdrawal RHS arrays,
+per-case native statuses and full saved-interval rate NPZs are retained locally
+under the manuscript data/runs and topic directories. They are not implied to
+be included in a compact Git clone. Local-data links are explicitly labeled.
+
+Reconstruction needs the retained signature_figure3_* runroots and immutable
+producer manifests, native basals and phase arrays named in native_history_index.json.
+Missing raw data must be restored from that scientific archive; do not invent
+or replace it with a finite-cap value. Existing live outputs are reproducible,
+while native producers require the existing scaling_sandbox Conda environment
+and SLURM. No package installation or retuned model parameters are required.
+
+From the repository root, use code under polarity1d/manuscript/code/mechanisms/:
+  signature_figure3_synthesis_20261020.py --include-A2 --include-B
+  signature_figure3_heading_20261020.py
+  signature_figure3_render_20261020.py
+The complete native atlas uses signature_figure3_atlas_20261020.py freeze,
+then the emitted SLURM payload. Use a fresh output run directory when the
+default immutable plan exists. Its frozen renderer checks every source phase.
+Then signature_figure3_lossless_atlas_20261020.py freeze/worker/collect exports
+pixel-identical lossless WebPs. Run signature_figure3_reader_20261020.py after
+both producers have completed and their independent audits are present.
+Finally organize_length_dev.py --group revision_program_20261020/figure3_distance
+updates only this topic. Never run an unscoped organizer as a reconstruction step.
+
+The native PNG/WebP pixel audit and native phase hashes are separate evidence.
+Lossless image equality does not replace the independent native-field checks.

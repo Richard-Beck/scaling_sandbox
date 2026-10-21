@@ -1,0 +1,256 @@
+{
+  "generated_utc": "2026-10-20T20:01:18.954799+00:00",
+  "status": "All three final scientific/source/display reviews passed; exact reviewed exports assembled into outline_v4 and focused revision report.",
+  "native_integrations_launched_by_outline_assembly": false,
+  "authoritative_current_old_figure_set": {
+    "selection": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/consolidated_figure_set_20261019/supporting/metadata/selection.json",
+    "sha256": "912e734e1e17a3d857fecc633e1765d76bda43031f8e997954478f7b3b2b6e22",
+    "warning": "outline_v3 predates the final 19 October consolidation. Its Figure 2 finite-response and old Figure 4 content must not be reused as current."
+  },
+  "baseline": {
+    "path": "manuscript_outline/outline_v3.json",
+    "sha256": "28b9e9829322a542f87fe94700f377690d24f619396c8e1400eef03b3d78cbaf",
+    "protected_section_indices": [
+      0,
+      4,
+      5
+    ],
+    "protected_section_sha256": {
+      "figure1": "e90e857134c1650ab1bf052ac26c45b1e5c10ba7f987132a848bd5388a363fd4",
+      "figure5": "b5045b7024c122c6ce8e1608b2e657583125b4df7c95401b602a6d20a3a721cb",
+      "figure6": "25a4f2375dde9bb9934182d12bcd2090f002d6568f4f4628ace5f7cc0f55dc29"
+    }
+  },
+  "figure2": {
+    "content": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/supporting/metadata/content.json",
+    "preview": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/figure2_signature_assays.png",
+    "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/supporting/vectors/figure2_signature_assays.pdf",
+    "coverage": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/supporting/metadata/coverage.json",
+    "completion_requirement": "status=final; final_export_eligible=true; independent scientific and source/display review of all A–F panels and stages 0–5.",
+    "brief": "docs/tasks/briefs/20261020_figure2_signature_assays.txt"
+  },
+  "figure3": {
+    "content": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/supporting/metadata/content.json",
+    "completion_requirement": "Complete new fixed-size distance assays, reviewed whole-region readouts, postwithdrawal B and A2, controls and direct-heading translation.",
+    "brief": "docs/tasks/briefs/20261020_figure3_distance_competition.txt"
+  },
+  "figure4": {
+    "retain_unless_user_supplies_newbrief": false,
+    "content": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/content.json",
+    "legend": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/content.json",
+    "preview": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/figure4_revision_main.png",
+    "status": "Final export complete and independently reviewed with stated qualifications.",
+    "requirements": "docs/tasks/briefs/20261020_figure4_requirements.json",
+    "brief": "docs/tasks/briefs/figure_4.txt",
+    "historical_reference": {
+      "content": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/main_plate_20261019/supporting/metadata/content.json",
+      "legend": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/consolidated_figure_set_20261019/supporting/metadata/legends.json sections[2]",
+      "preview": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/main_plate_20261019/figure4_main.png"
+    },
+    "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_revision_main.pdf"
+  },
+  "assembly": {
+    "destination_json": "manuscript_outline/outline_v4.json",
+    "destination_pdf": "manuscript_outline/outline_v4.pdf",
+    "validation": "manuscript_outline/outline_v4.validation.json",
+    "script_status": "Executing strict complete-reviewed intake; all13 Figure4 native-atlas appendix volumes required.",
+    "required_steps": [
+      "Deep-copy outline_v3; preserve Figures 1, 5 and 6 as identical JSON content. Replace Figures 2, 3 and 4 with the completed, independently reviewed revisions from all three October 20 briefs. October19 final figures remain labelled development history.",
+      "Reconcile the overview and supplement links around actual final claims; remove obsolete current-status references and retain earlier figures as labelled history.",
+      "Run the build and verification commands, then inspect rendered pages, native units, censoring and legends. Preserve build and source-hash manifests.",
+      "Update current manuscript figs/README.md and manuscript_outline/README.md only after all Figure 2–4 scientific revisions are complete. Commit only scoped files and push."
+    ],
+    "script": "manuscript_outline/prepare_revision_20261020.py",
+    "supplement_policy": "Figure4 statistical core/index plus every reviewed numbered native-atlas appendix volume; exact content and reviewed supplement_volumes must match, and all volumes must be linked from outline and integrated reader."
+  },
+  "exact_existing_build_commands": [
+    [
+      "/home/4473331/.conda/envs/scaling_sandbox/bin/python",
+      "-B",
+      "scripts/build_manuscript_outline_v2.py",
+      "--input",
+      "manuscript_outline/outline_v4.json",
+      "--output",
+      "manuscript_outline/outline_v4.pdf"
+    ],
+    [
+      "/home/4473331/.conda/envs/scaling_sandbox/bin/python",
+      "-B",
+      "scripts/verify_manuscript_outline.py",
+      "manuscript_outline/outline_v4.json",
+      "--report",
+      "manuscript_outline/outline_v4.validation.json"
+    ]
+  ],
+  "reviewed_figures": {
+    "2": {
+      "content": {
+        "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/supporting/metadata/content.json",
+        "sha256": "58c98023ffd49f6943bf96b4179fe8c7cf177bac3c3cf4268a177268ad4f5ed9"
+      },
+      "completion_review": {
+        "path": "docs/tasks/briefs/20261020_figure2_completion_review.json",
+        "sha256": "c990670f2d89dbd3a54430450e275dc394d9f47e82a54aad380fa00e560062ab"
+      },
+      "main_pdf": {
+        "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/supporting/vectors/figure2_signature_assays.pdf",
+        "sha256": "e1b4ed2c67add7f1819704f043c784f77bac8aa81c2cbbacd9eac43fa031040d"
+      },
+      "supplement_pdf": {
+        "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/supporting/vectors/figure2_signature_assays_complete_supplement.pdf",
+        "sha256": "47230ed9c469e407250c79d1250c9d621d2f7ac509f2e06c1f68e53993d64d7a"
+      },
+      "reader": {
+        "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/index.html",
+        "sha256": "ce9cfffa205280abbb01bf90c401638ccb446912bfe6d2afeea421a91b5ac7d9"
+      },
+      "assets": [
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/figure2_signature_assays.png",
+          "sha256": "ccbddcdcaeb58be2a5a398ea96b7d8ec5816f9785d82e8fc33d5d57b4c68e0b3"
+        }
+      ]
+    },
+    "3": {
+      "content": {
+        "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/supporting/metadata/content.json",
+        "sha256": "5c7f07e51a9c1effbd7e496d46448572fff0002c74d062f0018fd772dba7c210"
+      },
+      "completion_review": {
+        "path": "docs/tasks/briefs/20261020_figure3_completion_review.json",
+        "sha256": "205d5366a266e241d60df47b7406446c4c210c4fbedad933f36a3f410d21d055"
+      },
+      "main_pdf": {
+        "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/supporting/vectors/figure3_distance_main.pdf",
+        "sha256": "9f2134b2f7b398227c52c84b301ad22e404dba2d363c50ca0b061f96cb2229e5"
+      },
+      "supplement_pdf": {
+        "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/supporting/vectors/figure3_distance_supplement.pdf",
+        "sha256": "81431c123aa9b2fa83679c0b2ab21fca338547384e5251a9d438d923846d3c3a"
+      },
+      "reader": {
+        "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/index.html",
+        "sha256": "5a3f4c443adbdea49ebd2c1d9a288109fb812084737e312c47c558d23640f797"
+      },
+      "assets": [
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/figure3_distance_main.png",
+          "sha256": "29ef8275205015c265495b3f1402c9f7e527b779ec07b0f485ce25e533f3216e"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/figure3_distance_translation.png",
+          "sha256": "8a56b1587ab466a502a9bbe5cfe34e59bec0dfb058db93ebd6463a913b3c0110"
+        }
+      ]
+    },
+    "4": {
+      "content": {
+        "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/content.json",
+        "sha256": "e2e12be7b66b2f1c536280a0c13c39323366e17fbc177affcd699927122fd88a"
+      },
+      "completion_review": {
+        "path": "docs/tasks/briefs/20261020_figure4_completion_review.json",
+        "sha256": "edf2c63d5ee75d6c6625f56d20f5003f87110a01c4be8383a79b35189964d768"
+      },
+      "main_pdf": {
+        "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_revision_main.pdf",
+        "sha256": "99de507afeaf4a4e6de77cabe1abefb47d57f2d2c9185973705ae4b65348ef4b"
+      },
+      "supplement_pdf": {
+        "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_revision_complete_supplement.pdf",
+        "sha256": "58319598a9193b174d267e51aafee273b1f3ef186cbd2b33dd2d9571590fd24a"
+      },
+      "reader": {
+        "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/figure4_complete_reader.html",
+        "sha256": "21e8877ce775c8d25350b893487c1f68268d25c83455ced10e799c04b67f5349"
+      },
+      "assets": [
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/figure4_revision_main.png",
+          "sha256": "50cc09c53e8fc692f52a1954780b01e25e949791d3c7229c4337d39753de7fcf"
+        }
+      ],
+      "supplement_volumes": [
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_001.pdf",
+          "label": "S11 native atlas appendix 001",
+          "pages": 50,
+          "sha256": "b57f3a86ed01530c91843b4b5d820cb58819d37cc37e32bafa72eb3ae5befb5f"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_002.pdf",
+          "label": "S11 native atlas appendix 002",
+          "pages": 50,
+          "sha256": "ac16f88488f1180090c5d1d66293394d272616e126fa8bd3c4e1338e5ce019f8"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_003.pdf",
+          "label": "S11 native atlas appendix 003",
+          "pages": 50,
+          "sha256": "7d56536952b10f07513a4de9ff5dc7be4c0245c051b41b993923a479284c835c"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_004.pdf",
+          "label": "S11 native atlas appendix 004",
+          "pages": 50,
+          "sha256": "22716e5112f34728d4e675466845ea11c1deff3ea5781c33149c5faaf1232a7b"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_005.pdf",
+          "label": "S11 native atlas appendix 005",
+          "pages": 50,
+          "sha256": "8ca7d32f8f8d45516e2b48f5ec547cc55c306b9f16b7ef2bf4922a5f896d42b7"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_006.pdf",
+          "label": "S11 native atlas appendix 006",
+          "pages": 50,
+          "sha256": "23bf3a635ad639ff84697382870ab30547f130faf2fc49ffcdd3826ad16262a1"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_007.pdf",
+          "label": "S11 native atlas appendix 007",
+          "pages": 50,
+          "sha256": "65401e8378b1b13f9467bd341979243557d7a2863f6faf1b4bb3914300a0139c"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_008.pdf",
+          "label": "S11 native atlas appendix 008",
+          "pages": 40,
+          "sha256": "4b72c21c4e5e62c36d4548edf7627f52a1a490adce7ac6047e228d9a59b7728d"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_009.pdf",
+          "label": "S11 native atlas appendix 009",
+          "pages": 50,
+          "sha256": "a9745647da32d38d5b0042f5c2bdb560641cd2263eaf5bb77095f28c02c2575a"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_010.pdf",
+          "label": "S11 native atlas appendix 010",
+          "pages": 22,
+          "sha256": "ba856d48cea660a7ce8b22de709f07bd0ac5c62fe84a3cd5de0e8c768b8a3ca6"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_011.pdf",
+          "label": "S11 native atlas appendix 011",
+          "pages": 50,
+          "sha256": "fd20983c4995ae8e9818c9c8e81a7dfe335ec6f37bd7131de640ef85d17891ba"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_012.pdf",
+          "label": "S11 native atlas appendix 012",
+          "pages": 50,
+          "sha256": "e1e6b6c9a74ed76e2c5b1d6c1c1287b3c33bf2a3d59f5bbbdd01d24d15e91e5b"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_013.pdf",
+          "label": "S11 native atlas appendix 013",
+          "pages": 16,
+          "sha256": "46d70a82f7514b1b706b0ef913205da17350641a69f24760d9fe8bcdd28de1b7"
+        }
+      ]
+    }
+  },
+  "updated_utc": "2026-10-21T03:39:31.487942+00:00"
+}

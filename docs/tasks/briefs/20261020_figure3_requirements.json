@@ -1,0 +1,315 @@
+{
+  "brief": "docs/tasks/briefs/20261020_figure3_distance_competition.txt",
+  "intake_date": "2026-10-20",
+  "status": "12 fresh basals and176 A1/symmetry native trajectories independently audited; complete-region correction explicitly confirmed by user; corrected event refinement and dependent experiments in progress",
+  "central_question": "Does greater physical separation slow cue-driven competition and cue-free resolution at fixed cell size?",
+  "claims": {
+    "prospective_only": true,
+    "distance_effect_is_model_dependent": true,
+    "geometric_translation_is_polarity_heading_not_cell_velocity": true,
+    "external_placements_only_in_distance_claim": true,
+    "native_kinetics_unchanged": true
+  },
+  "defaults": {
+    "models": [
+      "wave_pinning",
+      "goryachev",
+      "holmes_model3",
+      "spring"
+    ],
+    "excluded": [
+      "debelly"
+    ],
+    "chemical_circumferences": [
+      30,
+      37.8,
+      47.6
+    ],
+    "spring_resting_circumferences": [
+      2.5,
+      3.15,
+      3.97
+    ],
+    "chemical_cells": [
+      600,
+      756,
+      952
+    ],
+    "spring_cells": [
+      250,
+      315,
+      397
+    ],
+    "spring_physical_circumference": "actual qualified basal circumference for placement; full evolving physical circumference retained",
+    "largest_size_failure": "report, preserve failed state and run the two qualifying smaller sizes; never retune",
+    "B_withdrawal_excess_ratios": [
+      0.5,
+      1,
+      2
+    ],
+    "translation_framings": [
+      "fixed_angle",
+      "fixed_physical_scale"
+    ],
+    "spring_main_or_supplement": "assess after data; never preclude its native campaign"
+  },
+  "basals": {
+    "fresh_core_preparations": 12,
+    "initial_state": "fresh native homogeneous state at each size; no imported or remeshed old checkpoint",
+    "native_preparation_duration": 10,
+    "preparation_duration_search": false,
+    "native_support_chemical": 3,
+    "native_support_spring": 0.2,
+    "preparation_peaks": {
+      "wave_pinning": 0.1,
+      "goryachev": 0.1,
+      "holmes_model3": 1,
+      "spring": 4
+    },
+    "challenge_peaks": {
+      "wave_pinning": 0.1,
+      "goryachev": 6.4,
+      "holmes_model3": 1,
+      "spring": 4
+    },
+    "existing_rule": {
+      "two_consecutive_full_native_field_windows": 1000,
+      "window_scaled_range_and_projected_drift_tolerance": 0.0001,
+      "holdout_duration": 10000,
+      "holdout_scaled_excursion_tolerance": 0.001,
+      "final_1000_window_tolerance": 0.0001,
+      "minimum_primary_contrast": 0.05,
+      "exactly_one_half_contrast_region": true,
+      "exactly_one_peak_with_native_prominence_at_least": 0.05,
+      "native_conserved_amount_relative_tolerance": 1e-07,
+      "minimum_concentration_roundoff_floor": -5e-10
+    },
+    "separate_no_cue_control": {
+      "chemical_duration": 53000,
+      "spring_duration": 5300,
+      "reason": "entire longest A2 protocol, 2 times handover cap plus recovery",
+      "same_exact_pre_control_checkpoint_for_challenges": true,
+      "include_all_native_fields_and_spring_circumference": true
+    }
+  },
+  "placements": {
+    "axis": "short-route arc from native cue near support edge to interpolated initial 10%-contrast incumbent edge",
+    "chemical_support": 3,
+    "spring_support": 0.2,
+    "continuous_centres_without_mesh_snapping": true,
+    "absolute_gap_grids": {
+      "wave_pinning": [
+        0,
+        0.5,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        12
+      ],
+      "goryachev": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20
+      ],
+      "holmes_model3": [
+        0,
+        0.5,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        12
+      ],
+      "spring": [
+        0,
+        0.05,
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7
+      ]
+    },
+    "truncate_at_each_actual_antipode_and_add_antipode": true,
+    "requested_borderline_chemical": [
+      -1,
+      -2
+    ],
+    "requested_borderline_spring": [
+      -0.07,
+      -0.13
+    ],
+    "internal_reference_each_size_except_goryachev": true,
+    "actual_geometric_classes": [
+      "external",
+      "borderline",
+      "internal"
+    ],
+    "requested_role_and_actual_class_both_retained": true,
+    "50_percent_edge_reclassification": true,
+    "secondary_descriptors": [
+      "centre distance",
+      "target angle",
+      "short route",
+      "long route",
+      "both edge gaps",
+      "actual basal circumference",
+      "initial 10% and 50% edge locations"
+    ]
+  },
+  "experiment_A1": {
+    "continuous_native_cue": true,
+    "chemical_initial_horizon": 5000,
+    "chemical_extended_cap": 20000,
+    "spring_cap": 2000,
+    "readouts": [
+      "incumbent 50% excess loss",
+      "challenger reaching 50% basal incumbent excess",
+      "challenger excess first exceeds incumbent excess",
+      "native state at cap",
+      "incumbent resolution",
+      "global activity vector"
+    ],
+    "unresolved": "scientific lower bound at actual completed cap; a timeout or missing job is unavailable, never censoring"
+  },
+  "experiment_A2": {
+    "classes": [
+      "external",
+      "borderline"
+    ],
+    "own_A1_handover_duration_multipliers": [
+      0.5,
+      0.75,
+      1,
+      1.5,
+      2
+    ],
+    "chemical_cue_free_tail": 13000,
+    "spring_cue_free_tail": 1300,
+    "handover_unobserved": "A2 multipliers unavailable, not replaced by horizon",
+    "readouts": [
+      "bracketed shortest switching pulse on tested grid",
+      "winner",
+      "all individual brackets",
+      "complete native-field tail",
+      "separate finite-tail gate"
+    ],
+    "nonmonotone_pulse_fates": "preserve all tested fates; do not imply universal threshold or silently bisect"
+  },
+  "experiment_B": {
+    "classes": [
+      "external"
+    ],
+    "withdraw_at_challenger_to_incumbent_excess_ratio": [
+      0.5,
+      1,
+      2
+    ],
+    "exact_native_withdrawal_state_and_rhs": true,
+    "cue_free_horizon_chemical": 20000,
+    "cue_free_horizon_spring": 2000,
+    "analysis_axis": "measured two-region edge gap at withdrawal, with requested gap retained secondarily",
+    "readouts": [
+      "resolution time",
+      "winner",
+      "all lower bounds",
+      "measured withdrawal gap",
+      "instantaneous exact-RHS regional exchange budgets",
+      "global activity-vector magnitude and heading"
+    ],
+    "incumbent_collapses_before_ratio": "takeover during cue; preserve target ratio and exact terminal state, never classify as preparation or seed failure",
+    "two_region_geometry_unavailable": "explicit unavailable measured-gap status; preserve native history and scalar events",
+    "instantaneous_budget_convention": "freeze withdrawal spatial ROIs and withdrawal concentration floor for derivative; include Spring physical-weight dilation; report chemistry, diffusion and any geometric term; validate against symmetric state-direction finite difference",
+    "primary_measured_gap_contour": "Current global10%-contrast contour: instantaneous minimum+0.1*(maximum\u2212minimum), consistent with the brief initial10% edge-gap axis. Current25%,50%,75% contours retained as parallel sensitivities. Two resolved peaks without separate10% contours receive explicit overlapping/merged-contour status and unavailable primary gap, not invented zero-time resolution."
+  },
+  "controls": {
+    "all_basal_no_cue_controls": true,
+    "positivity_and_conservation_every_accepted_step": true,
+    "mirrored_placement_and_antipode_symmetry": true,
+    "mesh_and_timestep_subset": {
+      "models": [
+        "wave_pinning",
+        "goryachev"
+      ],
+      "size": 37.8,
+      "gaps": [
+        0,
+        4,
+        8
+      ],
+      "fine_mesh_factor": 2,
+      "max_step_factor": 0.5,
+      "fresh_fine_mesh_basals": true
+    },
+    "region_threshold_sensitivity": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "full_native_tail_gate_separate_from_fate": true,
+    "global_vector_direction_gate": "heading unavailable at magnitude <=1e-10; preserve magnitude and cancellation, never unwrap through undefined heading"
+  },
+  "main_panels": [
+    "fixed-size rotation, edge-gap definition, small and large rings",
+    "native near/far kymographs at one size in models with and without supported distance effect",
+    "A1 handover and B resolution versus edge gap, each size through antipode; borderline open symbols in shaded g<0 band; every lower bound visible",
+    "fixed physical gap versus fixed angle translation schematic",
+    "both fixed-angle A and fixed-physical-scale B translations, geometry-only remap and measured matched-gap size shift, checked against same-run activity headings"
+  ],
+  "translation_limitations": [
+    "no extrapolation past measured support",
+    "censoring propagated",
+    "matched-gap size shifts kept separate from geometric remapping",
+    "two-size fallback explicit",
+    "polarity-vector heading is not cell velocity or observed migration persistence"
+  ],
+  "supplements": [
+    "all internal references",
+    "50%-edge reclassification",
+    "full native histories and profiles",
+    "all A2 brackets",
+    "all B ratios",
+    "vector-rate time courses with magnitude coverage",
+    "mesh and timestep checks",
+    "all numerical and finite-tail failures"
+  ],
+  "out_of_scope": [
+    "debelly",
+    "moving cues",
+    "noise",
+    "dose variation",
+    "vector rate as headline readout"
+  ],
+  "completion_gates": [
+    "fresh basal qualification and independent audit",
+    "full compiled placement count/geometry/source audit",
+    "A1 execution and complete census",
+    "A2 exact own-handover dependency and complete census",
+    "B all three target ratios and full native tails",
+    "controls executed and independently checked",
+    "main figure plus complete supplement",
+    "scientific review of prospective claims against data",
+    "updated manuscript outline",
+    "commit and push to GitHub"
+  ]
+}

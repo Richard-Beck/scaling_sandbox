@@ -1,0 +1,70 @@
+{
+  "scope": "E0 only; A1-A4 and A7 interim precedes E1/E2 analysis or production",
+  "source_inventory": "polarity1d/manuscript/data/runs/signature_figure4_e0_20261020/inventory.json",
+  "heading": {
+    "complex_signal": "Retained P=M1/M1(initial); R=abs(P), not q1 coherence",
+    "minimum_R": 0.1,
+    "cosine": "cos(arg(P(t+lag))-arg(P(t))); both endpoints must be valid",
+    "lags": "Every scalar cadence from one step through half the analysis window",
+    "aggregation": "Sum eligible cosine numerators and pair counts over independent whole seeds",
+    "coverage": "Eligible endpoint pairs divided by all time-separated pairs; retain every lag"
+  },
+  "bootstrap": {
+    "resamples": 2000,
+    "unit": "Whole independent noisy realization; never individual frames",
+    "seed": 2026102004,
+    "pairing": "Independent conditions; reuse each condition's seed-resampling weights across its window/cadence sensitivities",
+    "interval": "2.5% and 97.5% empirical quantiles; retain infinite or unresolved endpoints",
+    "outer_strength_warning": "Two-seed ensembles have only two independent realizations despite 2000 bootstrap draws"
+  },
+  "persistence": {
+    "threshold": 0.36787944117144233,
+    "crossing": "First sampled crossing; linear interpolation is descriptive within its saved lag bracket",
+    "unresolved": "Crossing below two scalar cadence steps, including a first-lag crossing",
+    "censoring": "No crossing by the maximum requested lag is a lower bound; no exponential extrapolation",
+    "evaluable": "Coverage at the crossing bracket or censoring lag >=0.5 in both compared sizes, and persistence resolved or bounded",
+    "single_exponential": "Comparison only: exp(-lag/tau), weighted least squares on finite cosine values; fitted tau cannot replace an empirical bound"
+  },
+  "angular_MSD": {
+    "tracks": "Unwrap only contiguous R-valid sections; never bridge an undefined heading gap",
+    "fit_lags_in_cadences": [2,3,4,5,6,7,8,9,10],
+    "fit": "Free-intercept linear regression of MSD against lag; D_theta is half the signed slope",
+    "nonpositive_slope": "Retain the signed estimate and flag a nonpositive diffusivity as unresolved",
+    "coverage": "Report the separate fraction of possible pairs lying in valid contiguous sections",
+    "interpretation": "Measured short-lag angular mobility; free diffusion is not assumed"
+  },
+  "physical_site": {
+    "qualification": "Exactly one raw half-contrast component, contrast >=0.1 times the exact basal contrast, and R>=0.1 throughout each track",
+    "primary_coordinate": "Integrate shortest angular increments multiplied by midpoint actual circumference/(2*pi); reset the spatial origin at each valid track start",
+    "dilation_gauge": "Primary increments exclude an origin-dependent displacement caused by uniform circumference change",
+    "direct_map_sensitivity": "Unwrapped heading relative to the track's initial heading, multiplied by actual C(t)/(2*pi)",
+    "peak_sensitivity": "Peak maximum position from saved profiles; flag the coarser 40/4 cadence",
+    "Dx_conversion": "D_theta times the squared second-half actual mean circumference/(2*pi), reported beside direct physical-track MSD",
+    "geometry_reference": "Show the brief's ratio 9 and the measured squared large/small actual-circumference ratio"
+  },
+  "regime": {
+    "relative_contrast_gate": 0.1,
+    "single": "One raw half-contrast component and passed relative contrast gate",
+    "multiple": "At least two raw half-contrast components and passed relative contrast gate",
+    "low_contrast": "Current contrast below 0.1 times exact basal contrast",
+    "majority": "Strictly more than 50% of saved second-half time; otherwise mixed",
+    "forced": "Matched mean control spends >50% of second half in the union R<0.1 OR low contrast",
+    "missing_mean": "Unavailable forced-state classification; never silently treated as non-forced",
+    "E1_flag": "Unavailable in E0; no inference from unchanged single-front states"
+  },
+  "size_ratios": {
+    "primary": "Largest/smallest empirical persistence; propagate censoring intervals through each whole-seed bootstrap draw",
+    "censored_proxy": "Also show small/large short-lag D_theta ratio where persistence is censored, explicitly labelled a mobility proxy",
+    "matched_strengths": "Only strengths directly observed at both sizes enter a size ratio; Goryachev-only refinements remain separate context",
+    "f_half": "First crossing of half the actual weakest-noisy-input persistence, interpolated linearly against log(f) when resolved; otherwise retain bounds or inconclusive",
+    "no_fabrication": "Two censored persistence values do not yield a finite persistence ratio or a resolved f_half"
+  },
+  "robustness": {
+    "primary_window_fraction": [0.5,1.0],
+    "other_windows_fraction": [[0.5,0.75],[0.75,1.0],[0.875,1.0]],
+    "cadence_multiples": [1,2,4,8],
+    "forced_inclusion": "Report primary non-forced decisions and forced-inclusive results alongside",
+    "horizon_extension": "Unavailable until E4; no E0 extrapolation"
+  },
+  "decision_status": "Provisional per-model H1/H2 and explicit pending A6/E1/E2/E4 dependencies; no unconditional overall support claim from incomplete criteria"
+}

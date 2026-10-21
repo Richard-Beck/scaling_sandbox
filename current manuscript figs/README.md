@@ -1,10 +1,22 @@
 # Current manuscript figure copies
 
+[**Integrated manuscript outline**](../manuscript_outline/outline_v4.pdf) · [**Revised Figures 2–4 and legends**](../manuscript_outline/revision_20261020/revised_figures_2_4.pdf) · [**Report reader**](../manuscript_outline/revision_20261020/index.html).
+
+**20 October revisions:** Figures 2–4 have completed their native campaigns and independent scientific, source and display reviews. Figures 1, 5 and reserved Figure 6 retain their preceding content. The linked report is a working manuscript outline; it contains no invented experimental observations.
+
+Figure 2 uses equal-area cue widths, initiation and pulse trains to distinguish response signatures. Holmes shares the narrow-cue penalty with Wave-pinning, so that signature identifies a model class. Calibration-unavailable Holmes trains and deBelly numerical sensitivities remain explicit in the [Figure 2 reader and complete supplement](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/index.html).
+
+Figure 3 measures cue-driven handover and cue-free competition versus physical separation at fixed circumference. Complete active-region amounts include challenger activity beyond the cue. Distance effects vary by model, and handover differs from a complete turn of the measured activity heading. All bounds, pulse brackets and native histories are linked in the [Figure 3 reader](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/index.html).
+
+Figure 4 shows that a size advantage in heading persistence can coexist with multiple active regions. At input fraction 0.05, Wave-pinning, Holmes and Spring retain a persistence advantage across seven declared views, with pointwise whole-seed 95% uncertainty from 12 independent histories per size. These selected conditions reuse the same common-horizon cohort in both selectors. H1 and H3 remain inconclusive and H2 fails its overall criterion; local multiplicity is descriptive rather than a validated predictor. The [Figure 4 reader](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/figure4_complete_reader.html) links the statistical core and all 13 native-atlas appendix volumes. Simulated polarity-heading persistence remains distinct from observed migration and conditional OU persistence estimates.
+
+### Earlier 19 October consolidation
+
 [**Consolidated Figures 2–4: main PDF and legends**](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/consolidated_figure_set_20261019/figures_2_4_main.pdf) · [**64-page comprehensive supplement**](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/consolidated_figure_set_20261019/figures_2_4_supplement.pdf) · [**HTML reader and native-profile appendices**](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/consolidated_figure_set_20261019/index.html).
 
-[Figure selection and interpretation](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/BEST_EFFORT_FIGURES_20261019.md) · [Current scientific record](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/RESULTS.md).
+[Figure selection and interpretation](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/BEST_EFFORT_FIGURES_20261019.md) · [Historical scientific record](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/RESULTS.md).
 
-**19 October final scientific consolidation:** all selected experiments, main plates, legends and comprehensive supplements have passed independent scientific/source/display checks. Figure 2 covers five models and 97 qualified model–length states, three widths, five middle-width strength levels and five native withdrawal times: 3,492 core protocols plus two targeted deBelly withdrawals. It retains incumbent amount/extent/peak and links the all-length broadening response to a native deBelly example. All 53 failed finite field tails remain explicit.
+**19 October consolidation, superseded for Figures 2–4:** all selected experiments, main plates, legends and comprehensive supplements have passed independent scientific/source/display checks. Figure 2 covers five models and 97 qualified model–length states, three widths, five middle-width strength levels and five native withdrawal times: 3,492 core protocols plus two targeted deBelly withdrawals. It retains incumbent amount/extent/peak and links the all-length broadening response to a native deBelly example. All 53 failed finite field tails remain explicit.
 
 Figure 3 reports all 645 stationary-cue protocols across a narrower circumference range, with initial internal/straddling/external footprints distinguished. The measured complex activity vector connects early reorientation rates to native field histories. All outcomes, time/duration results and four 15-page native-profile appendices are retained. Finite-tail status is 620 pass, eight Holmes fail and 17 unavailable.
 
@@ -59,10 +71,10 @@ persistence separately from speed. The experiments span stable tetraploids,
 giant polyploids and treatment-induced PACCs; the collection does not establish
 that size alone causes their migration differences.
 
-For the present mechanism-figure discussion, use the
-[current length-mechanism PDF](../polarity1d/manuscript/figures/length_mechanisms_20261008/length_mechanisms.pdf)
+For the earlier mechanism-figure discussion, see the
+[historical length-mechanism PDF](../polarity1d/manuscript/figures/length_mechanisms_20261008/length_mechanisms.pdf)
 and its [reader](../polarity1d/manuscript/figures/length_mechanisms_20261008/index.html).
-The current review package is the
+The 17 October review package was the
 [vision-aligned three-figure checkpoint](../current%20manscript%20figs/vision_aligned_checkpoint.md).
 **Figure 1 includes all five established linear models; Figure 2 evaluates
 supported rings; Figure 3 reports replicated noisy-ring polarity memory.**

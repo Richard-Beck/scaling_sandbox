@@ -1,0 +1,29 @@
+{
+  "status": "predeclared_before_expanded_data_selection",
+  "purpose": "Comprehensive native-field supplement; no final main-example or framing selection.",
+  "group": "Canonical model, native size label, input fraction f, kind, sigma, experiment/stage, horizon and profile cadence. Keep all arms separate.",
+  "selection_window": "Last half of the complete native horizon, using retained scalar samples; no persistence-time estimate or outcome classification enters the medoid metric.",
+  "features": [
+    "Time-weighted mean current contrast divided by exact basal contrast",
+    "Time-weighted mean basal-M1-normalized |P|",
+    "Fraction of scalar time with |P|>=0.1",
+    "Qualified single-region time fraction",
+    "Qualified multiple-region time fraction",
+    "Low-contrast time fraction, contrast<0.1 times exact basal contrast",
+    "Time-weighted mean qualified current half-contrast region count"
+  ],
+  "time_weighting": "Trapezoidal scalar means for contrast and |P|; left-sample interval weights for coverage, region fractions and counts. The half-horizon boundary must be a retained scalar sample.",
+  "medoid": "Within-group pairwise L1 distances in the seven declared features, scaled featurewise by the condition IQR. If IQR is zero but the range is positive, use the range; constant features contribute zero. Minimize the sum of distances to all independent cases; scores tied within1e-12 times max(1,max absolute score) use stable case ID.",
+  "random": "Choose the distinct remaining independent case with the lowest SHA256 of the fixed master seed, full condition key and case ID. No measured feature enters this choice.",
+  "master_seed": 2026102011,
+  "singletons": "Deterministic controls with one independent case show one column and explicit no-distinct-random status.",
+  "snapshots_horizon_fractions": [0, 0.5, 0.75, 1],
+  "snapshot_rule": "Nearest retained native profile sample; exact ties choose the earlier saved time. Display each actual saved time. Do not interpolate source fields.",
+  "native_display": "Every retained native active-field sample is passed to the plot with concentration values unchanged. Shade the first half as discarded from the statistics; native profile snapshots and forcing/magnitude histories remain linked.",
+  "spatial_axis": "Physical arc from the fixed material origin, x=q*C(t). Spring uses actual circumference in every row and snapshot, never a fixed material coordinate mislabeled physical.",
+  "mesh_faces": "Mesh times include every original saved time and every inter-frame midpoint, preserving the exact actual circumference at every saved time, including extrema. Only midpoint boundary geometry is linearly interpolated. The nearest native field row is repeated on its two half-strips; native values are not interpolated or resampled to a fixed physical grid.",
+  "magnitude": "|P| is basal-first-moment normalized, as in Figure4; it is distinct from Figure3 instantaneous first-harmonic coherence.",
+  "independence": "Use the canonical verified native case census. Within a condition, observation companions/replays with a declared common independent-realization ID count once; prefer verified denser profiles. Show other arms separately as provenance, without adding independent seeds. Future non-E0 arms require canonical independence/reuse labels from controls/campaign.",
+  "exports": "Original PNG retained locally; portable lossless WebP requires exact RGBA pixel equality. Native NPZ/status links are explicitly local/HPC data. Export every candidate feature, scale, distance, score, source hash and selected role.",
+  "native_integrations": 0
+}

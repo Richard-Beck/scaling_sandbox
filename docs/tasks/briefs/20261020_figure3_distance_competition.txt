@@ -1,0 +1,61 @@
+Figure 3 revision brief
+
+Purpose. Figure 3 asks whether greater separation between an incumbent and a challenger slows competition and its resolution. Rotating the challenger around a cell of fixed size varies separation with every other size effect held fixed. The motivation, stated in the text, is that larger cells can hold active regions farther apart. The last panels translate the distance findings into reorientation of polarity direction, where the geometric angle effect enters.
+
+Prospective claim, to be settled by the data. Whether separation matters is model-dependent. For example, Goryachev may slow with distance while Wave-pinning may not. On the ring, enlargement then increases directional persistence through geometry in all models, plus a distance-driven slowdown in models that have one.
+
+Models and sizes. Wave-pinning, Goryachev, Holmes 3 and Spring, with native kinetics unchanged. deBelly is excluded. Use three circumferences one volume-doubling apart: C_ref, 1.26 C_ref and 1.59 C_ref. That is 30 / 37.8 / 47.6 for the chemical models and 2.5 / 3.15 / 3.97 for Spring, at the current grid densities. Prepare 12 fresh qualified single-region basals using the existing qualification rule. If a model fails at the largest size, report it and run that model at two sizes; don't retune.
+
+Separation axis. Use the edge gap g: the arc from the cue support's near edge to the incumbent's initial 10%-contrast edge, along the shorter route. Negative g means overlap. Record the centre distance, the target angle, the long route and both routes in parallel as secondary descriptors.
+
+Placements. Use one absolute gap grid per model, dense near the edge. Each size gets every point up to its own antipode, plus the antipode itself.
+- Wave-pinning and Holmes: 0, 0.5, 1, 2, 3, 4, 5, 6, 8, 10, 12.
+- Goryachev: 0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20.
+- Spring: 0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7.
+
+Add two borderline placements per size: −1 and −2, or −0.07 and −0.13 for Spring. Add one internal reference per size, except Goryachev, whose incumbent is narrower than the cue. That totals about 150 placements. Classes are fixed in advance:
+- External (g ≥ 0): the only placements that enter the claim.
+- Borderline: the support straddles the incumbent edge.
+- Internal: supplement only.
+Repeat the classification at the 50% edge as a sensitivity check.
+
+Experiment A, cue-driven takeover. This is the analogue of an optogenetic cue.
+- A1, about 150 runs: hold the existing native cue at each placement until the incumbent resolves. Chemical horizons start at 5000 units and extend to 20,000; Spring uses 2000. Unresolved runs are reported as lower bounds. Readouts: incumbent 50% excess loss, challenger reaching 50% of the basal incumbent excess, handover (challenger excess first exceeds incumbent excess), and the state at the cap.
+- A2, about 700 runs: for external and borderline placements, apply pulses of 0.5, 0.75, 1, 1.5 and 2 times each placement's own handover time, each followed by a cue-free tail of 13,000 units (1300 for Spring). Readouts: the bracketed shortest switching pulse and the winner.
+
+Experiment B, cue-free resolution of two coexisting regions. This is the analogue of spontaneous competition.
+- Seed a challenger with the same cue at each external placement. Withdraw the cue once the challenger-to-incumbent excess ratio reaches 0.5, 1 or 2, giving about 300–450 runs.
+- Then run cue-free until one region remains, or to the horizon, which again yields lower bounds if unresolved.
+- Readouts: the measured gap between the two regions at withdrawal (the analysis axis), resolution time, the winner, and the initial exchange rate between regions from the exact right-hand side at withdrawal.
+- If the incumbent collapses before the target ratio is reached, record that as takeover during the cue, not as a failure.
+
+Main figure:
+1. Design schematic: a challenger rotated on fixed-size rings, the edge-gap definition, small and large rings.
+2. Native kymographs, near versus far external placement, at one size and in two models: one with a distance effect, one without.
+3. Distance response: A1 handover time and B resolution time versus g, one curve per size, each to its antipode. Borderline placements sit in a shaded band at g < 0 with open symbols.
+4. Translation schematic: the same physical gap subtends a smaller angle on a larger ring, and the same angle needs a larger gap.
+5. Translation results. Show both framings unless the data make one moot:
+   - Fixed-angle challenge, from Experiment A: time to turn by θ is the measured takeover time at g(θ, C) = θC/2π − (w10 + s)/2. Split this into a geometry-only remap (the small cell's curve evaluated at the large cell's gaps) and the measured size shift at matched gap.
+   - Fixed-physical-scale challenge, from Experiment B: angular step per event is 2πΔx/C, and angular rate is that step divided by resolution time at the same gap.
+   - Check both against headings of the global activity vector measured directly in the same runs.
+   This is the panel where Wave-pinning and Goryachev separate. Both gain persistence from geometry; only Goryachev's adds a distance-driven slowdown.
+
+Controls and checks:
+- No-cue stability for every basal over the longest horizon used.
+- Conservation and positivity checks.
+- Antipode symmetry: a mirrored placement gives the same outcome.
+- Mesh and time-step refinement on a subset: two models, three gaps, one size each.
+- Region thresholds at 25%, 50% and 75% as sensitivity checks.
+- All lower bounds shown, never dropped.
+
+Supplement: internal references, 50%-edge reclassification, full histories and native profiles, all A2 brackets, all three B ratios, global vector-rate time courses, and the mesh checks.
+
+Out of scope: deBelly, moving cues, noise (Figure 4), the vector rate as a headline readout, and dose variation. Dose variation is optional later, at one size, as a robustness check.
+
+Scale: about 12 basal preparations plus roughly 1,200–1,300 integrations, comparable to two to three times the 645-protocol campaign. Holmes and the largest sizes will set the wall-clock time.
+
+Open decisions:
+1. The size span: three sizes at 1.26× steps, or C_ref and WGD only.
+2. Spring in the main figure, or as a supplement check only, given its broad incumbent.
+3. The B withdrawal ratios.
+4. Whether panel 5 shows both framings or leads with one.

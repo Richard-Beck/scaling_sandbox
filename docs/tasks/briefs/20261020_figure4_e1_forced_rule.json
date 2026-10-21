@@ -1,0 +1,14 @@
+{
+  "rule": "same_abnormal_majority_at_sigma1_both_lower_and_mean",
+  "root_approved": true,
+  "authority": "Root review, 20 October 2026, before any E1 production analysis",
+  "required_observed_arms": [0, 0.25, 0.5, 1],
+  "abnormal_majority_classes": ["multiple_fronts", "low_contrast"],
+  "majority_fraction": "strictly greater than 0.5",
+  "additional_forced_flag": "The sigma-one abnormal majority remains the same abnormal majority at both sigma 0.5 and 0.25 and in the exact matched sigma-zero mean control.",
+  "low_sigma_persistence": "Report separately when the abnormal majority persists at 0.5 and 0.25 without mean-control agreement; this alone is not additional forced-state proof.",
+  "healthy_single_front": "Never triggers the additional flag merely by persisting as sigma falls.",
+  "missing_arm_or_mean": "Additional forced-state flag unavailable.",
+  "baseline_mean_union_flag": "Independent of the additional E1 flag: matched mean spends more than half the window with R<0.1 or contrast below 0.1 times exact basal contrast.",
+  "scope": "Observed controls, not an inferred sigma-to-zero limit. No E1 result has been analyzed when this rule is frozen."
+}

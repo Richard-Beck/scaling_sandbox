@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "brief": "docs/tasks/briefs/20261020_figure2_signature_assays.txt",
+  "decisions": "docs/tasks/briefs/20261020_figure2_decisions.json",
+  "status": "Prospective checks. Panels A-F and stages 0-5 remain open; no scientific conclusion or manuscript integration is authorized by this file alone.",
+  "evidence_scope": "The supplied pilot numbers and interpretations are unverified. User subsequently authorized design from local documented solvers because external harness/pilots are unavailable. Pilot reproduction is a comparison target, not a completion prerequisite or verified observation.",
+  "confirmed_analysis_choices": {
+    "calibration": "Shortest sampled/bracketed continuous duration giving post-withdrawal replacement D >= 0.5 after declared native recovery; retain local monotonicity evidence and separate finite-field-tail flag.",
+    "positive_excess": "At each sampled native state use e = max(active - min(active), 0). Record the changing minimum explicitly; this is a descriptive floor rather than a conserved molecular species.",
+    "primary_replacement": "Disjoint incumbent and challenger halves of the full frozen reference domain; challenger on the right unless explicitly prepared otherwise. Physical integration weights follow Spring geometry; deBelly readouts use nominal solver coordinates with mechanical displacement retained separately.",
+    "secondary_readouts": "Fixed basal incumbent half-height support; challenger amounts measured using both fixed widest-cue support and each cue's own support. Overlapping supports receive explicit flags and cannot define primary replacement.",
+    "low_signal": "Flag low denominator and low contrast. A homogeneous state has undefined share; it is not incumbent or challenger replacement.",
+    "eligibility": "At least 1% frozen basal total excess; dimensionless contrast at least max(0.05,10% of frozen basal contrast); absolute native amount tolerance also enforced. Supplement includes 0.5/2-fold fraction sensitivities. Ineligible states: final_d=null, replacement=false, readout_eligible=false and explicit reason.",
+    "contrast": "(max(active)-min(active))/(abs(max(active))+abs(min(active))), with zero returned for a zero denominator. Thresholds apply to this dimensionless quantity.",
+    "spring_regions": "Own-cue support follows current physical geometry through the inverse reference-to-physical map. Fixed-widest support is mapped at basal geometry and remains material-fixed. Primary half partition is material-fixed."
+  },
+  "definitions": {
+    "primary_D": {
+      "math": "D = (E_R-E_L)/(E_R+E_L)",
+      "share": "s_R = E_R/(E_R+E_L) = (D+1)/2",
+      "threshold": "D >= 0.5 means at least 75% of total positive excess lies in the challenger half.",
+      "limits": "Undefined if the denominator is below the declared native amount tolerance. Low contrast is separately ineligible for a polarity-fate claim."
+    },
+    "spatial_commanded_area": {
+      "math": "A_cmd(t) = integral q_cmd(x,t) dx",
+      "meaning": "Integrated commanded perturbation over space during ON time, using the declared native coordinate and actual quadrature."
+    },
+    "cumulative_commanded_exposure": {
+      "math": "Q_cmd(T) = integral_0^T A_cmd(t) dt",
+      "meaning": "Time-integrated command; unequal times to replacement generally produce unequal cumulative exposure even when instantaneous spatial areas match."
+    },
+    "state_dependent_forcing": {
+      "math": "A_eff(t) = integral [F(active_state,q_on)-F(active_state,q_basal)] dx",
+      "meaning": "Where the cue changes a state-dependent reaction coefficient, this measured RHS difference need not equal commanded coefficient area or a molecular/photon dose."
+    },
+    "reported_tolerances": "Every assay table records absolute amount/contrast tolerances, event sampling and numerical convergence error. Declare thresholds before viewing the full outcomes. The source code's numerical defaults are operational safeguards, not a biological calibration.",
+    "numerical_error": "For a paired result use the largest change produced by planned grid, sampling and lattice checks as the observed numerical discrepancy. Report unresolved checks; do not assign zero error when a comparison is unavailable."
+  },
+  "checks": [
+    {
+      "id": "I01_commanded_area",
+      "panels": [
+        "C",
+        "F"
+      ],
+      "stages": [
+        1,
+        5
+      ],
+      "measurement": "Record intended and realized width, peak, spatial integral of command, clipping and coordinate measure at every output frame.",
+      "go": "Within each model-length-area level, all widths have the same measured spatial commanded area to the declared quadrature/actuation tolerance; native Spring geometry and support conversion are explicit.",
+      "no_go": "Width changes also change commanded spatial area beyond tolerance, or equal-area status is inferred only from nominal peak times nominal width without checking the implemented support.",
+      "permitted_conclusion": "Response to cue concentration at fixed spatially integrated commanded input.",
+      "withheld_conclusion": "Fixed total photon dose or fixed biochemical flux across models.",
+      "required_artifacts": [
+        "Per-frame cue-integral audit.",
+        "Exact source-term implementation and unit/coordinate definitions.",
+        "Geometry/clipping and fixed/own-support records."
+      ]
+    },
+    {
+      "id": "I02_effective_and_total_dose",
+      "panels": [
+        "C",
+        "F"
+      ],
+      "stages": [
+        1,
+        2
+      ],
+      "measurement": "Record whether the model cue is additive forcing or a multiplier of state-dependent kinetics, and compute actual RHS perturbation and cumulative commanded exposure where representable.",
+      "go": "Figure labels distinguish equal instantaneous spatial command from cumulative input to the event. Mechanism interpretations state whether width responses persist after considering measured effective forcing.",
+      "no_go": "Different replacement times are described as receiving the same total space-time dose, or equal coefficient area is called equal chemical input despite differing state-dependent production.",
+      "permitted_conclusion": "Assay discriminates under its documented native actuation.",
+      "withheld_conclusion": "Saturation isolated as the causal mediator without a targeted causal intervention or matched effective-forcing control."
+    },
+    {
+      "id": "I03_primary_partition_and_ROI",
+      "panels": [
+        "B",
+        "C",
+        "D",
+        "E"
+      ],
+      "stages": [
+        0,
+        1,
+        2,
+        4,
+        5
+      ],
+      "measurement": "Compute primary D on disjoint full-domain halves; compute separate fixed-incumbent, fixed-widest-challenger and own-cue amounts using fractional integration. Record interval overlap and domain clipping.",
+      "go": "Primary left/right amounts sum to total excess within integration tolerance, and D = 0.5 is exactly a 75% challenger-half share. Regional amount curves show both conventions; labels state that a broad cue can itself overlap incumbent support.",
+      "no_go": "Primary D uses overlapping ROIs, silently changes its population with cue width, double-counts activity, or treats a width-15.2 cue at L19 as geometrically disjoint without checking.",
+      "permitted_conclusion": "Full-domain half-partition replacement plus explicitly regional challenger-activity responses.",
+      "withheld_conclusion": "A region-dependent event is a universal replacement threshold."
+    },
+    {
+      "id": "I04_floor_signal_and_unpolarization",
+      "panels": [
+        "A",
+        "C",
+        "D",
+        "E"
+      ],
+      "stages": [
+        0,
+        1,
+        2,
+        3,
+        5
+      ],
+      "measurement": "Save current minimum, peak, raw active amount, positive-excess total, contrast and all regional amounts with D. Recompute sensitivity to an explicitly documented fixed basal floor as a diagnostic if changing-floor effects drive an interpretation.",
+      "go": "A claimed replacement has a resolvable denominator and declared contrast eligibility; homogeneous/weak states are separate outcomes. A claimed retained challenger signal has a visible absolute amount, not only a stable ratio of two vanishing amounts.",
+      "no_go": "D becomes extreme because its denominator approaches zero, both activities collapse while their ratio remains high, or an increase in E_C is caused only by the moving minimum without reporting that change.",
+      "permitted_conclusion": "Descriptive positive-excess activity share and contrast-qualified fate.",
+      "withheld_conclusion": "Molecular conservation, depletion, or persistence of an absolute activity mass inferred from current-min excess alone."
+    },
+    {
+      "id": "I05_calibration_and_censoring",
+      "panels": [
+        "D",
+        "E"
+      ],
+      "stages": [
+        0,
+        2,
+        3
+      ],
+      "measurement": "For each native basal, evaluate post-withdrawal D after the declared recovery horizon; retain every sampled cue duration, fate, contrast/denominator eligibility and field-tail flag.",
+      "go": "Each reported calibration is the shortest successful sampled/bracketed duration in the searched range, has a neighboring sampled failure bracket to the declared tolerance where available, and passes local monotonicity checks. If multiple passing windows occur, search and report them explicitly rather than relying on a global bisection assumption.",
+      "no_go": "A continuous-cue D crossing is substituted for user-confirmed post-withdrawal replacement; a single bracket is called globally minimal without inspecting the searched range; no success is replaced by an arbitrary finite duration.",
+      "permitted_conclusion": "Shortest observed/bracketed committing duration within the documented search and recovery horizon.",
+      "withheld_conclusion": "Global mathematical minimum or asymptotic permanence.",
+      "dependent_run_rule": "A model-length with unresolved/ineligible calibration is explicitly missing from dependent calibrated trains; do not silently borrow another length or threshold. Field-tail failure is retained separately and does not overwrite contrast-qualified replacement fate."
+    },
+    {
+      "id": "I06_width_signature",
+      "panels": [
+        "C",
+        "F"
+      ],
+      "stages": [
+        1,
+        5
+      ],
+      "measurement": "For every length and area level record narrow/broad time ratio and censoring bounds, full five-width curves, both regional amounts, primary D and numerical sensitivity.",
+      "go": "A positive concentration penalty requires narrow-cue replacement time to exceed broad-cue time beyond measured numerical discrepancy. A between-model discrimination requires the supported ratio or censoring interval to separate from the comparator after its numerical discrepancy. A size-amplification claim requires the declared length trend in the complete six-length results; report reversals explicitly.",
+      "no_go": "A censored run is assigned its horizon as an event time, a one-area result is generalized across all areas, or an overlap of plausible/numerical ranges is described as mechanistic separation.",
+      "permitted_conclusion": "Positive native concentration-response signature, with model/length/area scope.",
+      "withheld_conclusion": "Unique saturation mechanism, unless an independently designed causal perturbation supplies that evidence.",
+      "class_rule": "If Holmes 3 shares the supported penalty and timing signature, describe the common response class rather than a Wave-pinning-specific diagnostic."
+    },
+    {
+      "id": "I07_gap_retention",
+      "panels": [
+        "D",
+        "E",
+        "F"
+      ],
+      "stages": [
+        2,
+        3,
+        5
+      ],
+      "measurement": "At exact pulse/gap boundaries save D, E_C, E_I, total excess, peak, contrast and eligibility. For each informative gap compute gained-share retention relative to that run's pretrain basal share and report absolute losses as well.",
+      "retention_ratio_definition": "R_gap = (s_C_at_gap_end - s_C_basal)/(s_C_at_pulse_end - s_C_basal), undefined when the denominator is within declared numerical tolerance.",
+      "go": "A hold-versus-collapse contrast requires retained gained share and resolvable challenger amount in the hold model while the comparator loses gained share beyond numerical error. Report R_gap continuously for every informative gap. If a categorical retained-share probability is used, freeze the threshold before the noise campaign and show threshold sensitivity.",
+      "no_go": "A tiny change in D with disappearing absolute activity is called hold; an uninformative first pulse is omitted without an eligibility denominator; final replacement alone is used to infer retained activity during every gap.",
+      "permitted_conclusion": "Measured activity-share retention, reset or collapse during specified gaps.",
+      "withheld_conclusion": "A hidden integrator identified solely because a later pulse commits after activity collapse."
+    },
+    {
+      "id": "I08_timing_ratchet_and_size",
+      "panels": [
+        "D",
+        "E",
+        "F"
+      ],
+      "stages": [
+        0,
+        2,
+        3
+      ],
+      "measurement": "Compare all pulse counts, gaps and total-ON multipliers within a frozen native state; plot final fate and gap readouts. Preserve zero-gap controls and record the length-specific calibration that defines the pulse duration.",
+      "go": "The statement total-ON-only or gap-insensitive is limited to factors where final fate and the claimed readout remain unchanged within numerical error across every tested gap/pulse count. Report any reversals. Separate absolute physical gaps from calibration-scaled gaps when comparing sizes.",
+      "no_go": "Three pilot gap values are generalized to sixteenfold gaps, equal normalized ON is called equal absolute dose across sizes, or a finite set of final successes is called universal gap independence.",
+      "permitted_conclusion": "Finite tested-range timing signature and size dependence.",
+      "withheld_conclusion": "A permanent ratchet or size-independent memory time."
+    },
+    {
+      "id": "I09_noise_probability",
+      "panels": [
+        "E",
+        "F"
+      ],
+      "stages": [
+        3
+      ],
+      "measurement": "Retain all 432 seed-level records, calibrated schedules, two declared native noise amplitudes and every gap endpoint; record missing and ineligible trials.",
+      "go": "Retention probability reports numerator/denominator and uncertainty for each model-length-noise-gap condition and distinguishes activity loss, unpolarization and solver failure. The same prespecified retention criterion is applied across conditions with documented native scaling.",
+      "no_go": "A deterministic hold is called noise-robust without the noise arm, failed runs are discarded from coverage, or 12 seeds are treated as independent biological experiments.",
+      "permitted_conclusion": "Retention probability under the two declared noise processes and finite gaps.",
+      "withheld_conclusion": "Noise robustness under untested amplitudes, correlation structures or arbitrarily long gaps."
+    },
+    {
+      "id": "I10_native_numerics_and_tail",
+      "panels": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "stages": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "measurement": "Check 201/401 spatial representations at one length pair per model, event/output sampling, deBelly half-unit lattice, exact cue transitions, native mass/bounds where applicable and all withdrawn full-field tails.",
+      "go": "A qualitative claimed signature survives the planned checks or is explicitly qualified where it does not. Event times carry sampling/bracketing error. Field-tail criteria use frozen model-field scales and are recorded independently of scalar fate.",
+      "no_go": "An interpolated trajectory crosses an unsampled cue boundary, a default output interval misses gaps, a moving Spring grid is integrated as fixed length, or scalar final D is used as proof of field stationarity.",
+      "permitted_conclusion": "Numerically qualified finite-horizon native assay outcome.",
+      "withheld_conclusion": "Asymptotic stability from a finite tail or corrected deBelly qualification from deprecated centered-boundary data."
+    },
+    {
+      "id": "I11_initiation_and_dwell",
+      "panels": [
+        "B",
+        "F"
+      ],
+      "stages": [
+        0,
+        4,
+        5
+      ],
+      "measurement": "Freeze activation threshold, native zone, sampling and baseline per model; compare nominal, half and double strength and fixed-width overlays. Display activation and post-withdrawal replacement as distinct events.",
+      "go": "A Goryachev initiation signature requires a source-backed initiation-time/strength contrast beyond numerical error. A dwell-gated deBelly signature requires same-state comparisons in which pulse duration changes post-withdrawal fate and the claimed activity readout is shown explicitly.",
+      "no_go": "Flat activation time identifies Wave-pinning by exclusion; activation alone establishes commitment; retained user descriptions replace unavailable source evidence.",
+      "permitted_conclusion": "Operational initiation or dwell-response signature under documented protocols.",
+      "withheld_conclusion": "Unique intracellular mechanism from a model label."
+    },
+    {
+      "id": "I12_experimental_bridge_and_delivery",
+      "panels": [
+        "F"
+      ],
+      "stages": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "measurement": "Map each measured signature to an experimental actuator/readout and state its unresolved calibration; audit every proposed conclusion against complete campaign and supplementary evidence.",
+      "go": "Beam width, pulse timing and biosensor share are proposed measurable assays with explicit native-to-optical and image-analysis calibration requirements. The final figure connects activity organization to a testable persistence hypothesis while retaining observed migration and conditional OU results as separate evidence.",
+      "no_go": "A stationary one-dimensional field assay predicts cell displacement, cell turning, a migration persistence time or WGD causality without a specified motion model and independent evidence.",
+      "permitted_conclusion": "Distinct measurable activity-response signatures motivate cellular experiments.",
+      "withheld_conclusion": "Validated cell-movement prediction or completed experimental validation.",
+      "delivery_gate": "Keep all panels/stages open until their source-backed evidence exists. Integrate the revised manuscript outline only after campaign results and all briefs are complete; then validate and commit/push the scoped deliverables."
+    }
+  ],
+  "still_unfrozen_protocol_parameters": [
+    "Activation threshold, noise-retention threshold and model-specific absolute amount tolerances; fixed-basal fractions and dimensionless contrast floor are declared operational defaults with sensitivity checks.",
+    "Per-model native recovery horizons, calibration duration search ranges/tolerances and event sampling.",
+    "Noise amplitudes/process, prespecified retention probability threshold and its sensitivity range.",
+    "Numerical length pairs/representative cases and meaningful quantitative convergence tolerances."
+  ]
+}

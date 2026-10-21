@@ -1,0 +1,37 @@
+{
+  "status": "accepted_parser_capacity_recipe_ported_to_tracked_CLI",
+  "scope": "Execution capacity only; the scientific v3 auditor and its source/path checks remain unchanged.",
+  "portable_cli": "polarity1d/manuscript/code/mechanisms/signature_figure4_final_audit_csv_20261020.py",
+  "portable_cli_sha256": "f35e46dc88a00cdd6acbd6b89fa42970fffcba409073ce91a0e461232bde9299",
+  "auditor_sha256": "ba2c19889f0d18b6711636200e1a84f8e1c1e8a9eafc73a7e32010641944de64",
+  "CSV_field_size_limit_bytes": 67108864,
+  "published_largest_field_bytes": 145670,
+  "Python_default_limit_bytes": 131072,
+  "invocation_from_repository_root": "conda run -n scaling_sandbox python -B polarity1d/manuscript/code/mechanisms/signature_figure4_final_audit_csv_20261020.py --bundle polarity1d/manuscript/data/runs/signature_figure4_final_statistics_20261020",
+  "check_only_invocation_from_repository_root": "conda run -n scaling_sandbox python -B polarity1d/manuscript/code/mechanisms/signature_figure4_final_audit_csv_20261020.py --bundle polarity1d/manuscript/data/runs/signature_figure4_final_statistics_20261020 --check",
+  "source_selection": "Defaults to BUNDLE/frozen_sources_v3/signature_figure4_final_audit_20261020.py; --audit-source may supply the identical executable at its producer-bound path.",
+  "output": "The unchanged auditor writes results/final_analysis/independent_final_decision_audit.json. --check only validates the executable binding and CSV capacity and writes no receipt.",
+  "accepted_original_execution_wrapper": "polarity1d/manuscript/data/runs/signature_figure4_final_statistics_20261020/submit_independent_final_audit_v3_csv64m_20261020.slurm",
+  "accepted_original_execution_wrapper_sha256": "2c1043586f2dd7432b29bf52ed0a3e4b26035f0fde91c365ca65b329e1d5fbdf",
+  "accepted_audit_job": "21255578",
+  "accepted_producer_complete_sha256": "1b2849b67642b2f7767e80b2de1fa115113368a10982d42ecc760089fe0bd339",
+  "accepted_audit_sha256": "148e3fffe758e09ef1963aa327516a953015ba93b8a30ad15ad757412ffde5f5",
+  "capacity_recovery_receipt": "polarity1d/manuscript/data/runs/signature_figure4_final_statistics_20261020/results/final_audit_csv_capacity_recovery_20261020.json",
+  "capacity_recovery_receipt_sha256": "ae312020bc7760abf02384253b6cd694a0825e9ac2a2a1ceb7e291e5085a4494",
+  "focused_CLI_smoke": {
+    "passed": true,
+    "mode": "--check on accepted immutable bundle",
+    "result": {
+      "passed": true,
+      "check_only": true,
+      "auditor_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_final_statistics_20261020/frozen_sources_v3/signature_figure4_final_audit_20261020.py",
+      "auditor_sha256": "ba2c19889f0d18b6711636200e1a84f8e1c1e8a9eafc73a7e32010641944de64",
+      "csv_field_size_limit": 67108864,
+      "scientific_auditor_unchanged": true,
+      "receipt_written": false
+    },
+    "accepted_audit_receipt_unchanged": true,
+    "full_audit_or_analysis_rerun": false
+  },
+  "no_scientific_source_rule_tolerance_or_table_change": true
+}

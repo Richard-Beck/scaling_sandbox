@@ -1,0 +1,63 @@
+{
+  "created_utc": "2026-10-20T20:55:54.724193+00:00",
+  "status": "predeclared_before_condition_A5_statistics",
+  "primary_imaging": {
+    "region_contour": 0.5,
+    "smoothing": "Periodic Gaussian, physical standard deviation one kernel length",
+    "chemical_kernel": 1.5,
+    "spring_kernel": 0.15,
+    "chemical_cadence": 80,
+    "spring_cadence": 8,
+    "reason": "Common observation cadence across original and dense-profile experiments prevents a profile-cadence change from becoming an apparent change in birth rate."
+  },
+  "sensitivities": {
+    "region_contours": [
+      0.3,
+      0.5,
+      0.7
+    ],
+    "native_profile_downsampling": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "spatial_views": [
+      "raw",
+      "one-physical-kernel Gaussian"
+    ],
+    "basal_reference": "Exact retained basal processed with the same optics"
+  },
+  "complete_amount": "Piecewise-linear integral above instantaneous native minimum over complete native-peak watershed basins; imaging contour never truncates the amount. Resolve subcell saddle continuously. Ambiguous active saddles flag unavailable amounts. A former dominant below the imaging contour retains its resolved native-peak basins by unique spatial association. Missing, merged or unresolved former amounts are never assigned zero.",
+  "dominance": "Newborn versus previous dominant D=(E_new-E_old)/(E_new+E_old)>0.5 for at least two consecutive observed frames; both complete amounts must be available.",
+  "identity": "Maximum material-cell contour overlap, explicit observed splits and mergers. Initial tracks are left-censored; merger/low-contrast/window-end identities are right-censored. Lifetimes refer to observed contour components, not known physical birth/death times.",
+  "physical_arc": "Use each native frame actual circumference, including Spring; births divided by integrated perimeter-time exposure. The original Spring forcing remains material-attached and is distinct from the fixed-physical optical filter.",
+  "pilot_tasks": [
+    231,
+    465,
+    699,
+    933
+  ],
+  "source_sha256": {
+    "signature_figure4_regions_20261020.py": "a1ee9597ed0fb443507d1fa9be974dbf025c6fff77869a582c4bb709cda16225",
+    "signature_figure4_regions_campaign_20261020.py": "127d68241f74c7a0f5b3a43bee20a9867c237a810197ba2f6722f5306d160588"
+  },
+  "native_inventory_sha256": "4d27a562e5b7f308b2ec546b2db357bb6e08445599dffebfcca9a584fa7bf673",
+  "tests": "16 analytic and end-to-end adapter tests passed before freezing.",
+  "strict_takeover_qc_revision": {
+    "generated_utc": "2026-10-20T21:25:13.879135+00:00",
+    "primary": "Require newborn dominant among qualified observed regions AND pairD>0.5 in each of two frames. Independent pairwise streak retained; early pairwise event does not preempt later global event. Unresolved ordering remains unscorable. This corrects the operational interpretation after QC, not selection of an outcome-promoting statistic.",
+    "primary_count_field": "observed_takeovers",
+    "primary_fraction_field": "observed_takeovers_per_birth",
+    "pairwise_sensitivity_fields": [
+      "observed_pairwise_takeovers",
+      "observed_pairwise_takeovers_per_birth"
+    ],
+    "QC_before_revision": {
+      "pairwise_events": 1146,
+      "not_global_at_both_frames": 183
+    },
+    "new_run_root": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_regions_strict_20261020",
+    "native_integrations": 0
+  }
+}

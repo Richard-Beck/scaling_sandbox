@@ -1,0 +1,3406 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-20T18:55:07.926358+00:00",
+  "ready": false,
+  "integrations_run": 0,
+  "solver_imports": 0,
+  "requested_chemical_lengths": [
+    19.0,
+    23.0,
+    27.0,
+    31.0,
+    35.0,
+    39.0
+  ],
+  "extra_noise_lengths_wp_debelly": [
+    29.0
+  ],
+  "spring_mapping_convention": "L0=L/15; authorized comparison convention, not calibrated physical conversion",
+  "model_basals": {
+    "wave_pinning": [
+      {
+        "model": "wave_pinning",
+        "requested_length": 19.0,
+        "native_length": 19.0,
+        "checkpoint": "polarity1d/manuscript/data/establishment_basal/work/cases/case_0248/duration_0p68637668644.checkpoint.npz",
+        "expected_sha256": "ad28d62b02dbaa56b0f0b3dbac081df5281188cb22d25afb2d8b0517199e3b3f",
+        "actual_sha256": "ad28d62b02dbaa56b0f0b3dbac081df5281188cb22d25afb2d8b0517199e3b3f",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 33,
+        "native_response_peak": 0.1,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "active": 1.1920955500428942,
+          "inactive": 2.0
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.4276156324481598,
+          "initial_contrast": 0.9499192911557391,
+          "boundary_method": null,
+          "center_boundary_motion": null
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 10,
+        "state": {
+          "encoding": "state array with field rows",
+          "names": [
+            "active",
+            "inactive"
+          ],
+          "array": {
+            "shape": [
+              2,
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.1745689691136781,
+            "maximum": 1.8076354682171525,
+            "sha256_c_order_bytes": "97211a662bb081fb38cfe1bc0a9629e113ba1d054cfb83e25e737b7836fcb77b"
+          },
+          "active_row": 0
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 0.1745689691136781,
+          "maximum": 1.1244882602694173,
+          "sha256_c_order_bytes": "65eba5df015b2b8bb611dcb1632b7c82a0a6dc73300bc9a747e964956c352987",
+          "field": "active",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "fixed physical cell centres",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.0472636815920398,
+            "maximum": 18.95273631840796,
+            "sha256_c_order_bytes": "edab4ded6444efa9e18e3ae8b5ce9c16b5ea092adda6391fe037c80c3ce7571d"
+          },
+          "checkpoint_x_first_last": [
+            0.0472636815920398,
+            18.95273631840796
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.0472636815920398,
+            18.95273631840796
+          ],
+          "nominal_length": 19.0,
+          "initial_measure_length": 19.0,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "physical finite-volume cell widths",
+          "shape": [
+            201
+          ],
+          "sum": 19.0,
+          "first": 0.0945273631840796,
+          "interior": 0.0945273631840796,
+          "last": 0.0945273631840796,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      },
+      {
+        "model": "wave_pinning",
+        "requested_length": 23.0,
+        "native_length": 23.0,
+        "checkpoint": "polarity1d/manuscript/data/establishment_basal/work/cases/case_0290/duration_0p64151275757.checkpoint.npz",
+        "expected_sha256": "c8fa54b74b0a3037f04f58c9dc7eaf0d72659116b7dabb8987fe2c0873969a12",
+        "actual_sha256": "c8fa54b74b0a3037f04f58c9dc7eaf0d72659116b7dabb8987fe2c0873969a12",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 39,
+        "native_response_peak": 0.1,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "active": 1.1942383102649596,
+          "inactive": 2.0
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.42958208015718247,
+          "initial_contrast": 0.950147032103497,
+          "boundary_method": null,
+          "center_boundary_motion": null
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 10,
+        "state": {
+          "encoding": "state array with field rows",
+          "names": [
+            "active",
+            "inactive"
+          ],
+          "array": {
+            "shape": [
+              2,
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.17456896363858118,
+            "maximum": 1.8076354452474817,
+            "sha256_c_order_bytes": "10632d838c949488831e70c32c6143038ee196af9aea094230eecc6ec287355e"
+          },
+          "active_row": 0
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 0.17456896363858118,
+          "maximum": 1.1247159957420783,
+          "sha256_c_order_bytes": "f02eb1a38c4790514ca5870d4229e39e9f0fc3e53fea349c02d4c1cc8ed39a92",
+          "field": "active",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "fixed physical cell centres",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.05721393034825871,
+            "maximum": 22.942786069651742,
+            "sha256_c_order_bytes": "dc774b8336aa076c091c541542c7b591d342019cd89c5c6f722cc15b843af9ba"
+          },
+          "checkpoint_x_first_last": [
+            0.05721393034825871,
+            22.942786069651742
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.05721393034825871,
+            22.942786069651742
+          ],
+          "nominal_length": 23.0,
+          "initial_measure_length": 23.0,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "physical finite-volume cell widths",
+          "shape": [
+            201
+          ],
+          "sum": 23.000000000000004,
+          "first": 0.11442786069651742,
+          "interior": 0.11442786069651742,
+          "last": 0.11442786069651742,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      },
+      {
+        "model": "wave_pinning",
+        "requested_length": 27.0,
+        "native_length": 27.0,
+        "checkpoint": "polarity1d/manuscript/data/establishment_basal/work/cases/case_0332/duration_0p616708946622.checkpoint.npz",
+        "expected_sha256": "0ca4c2f6450e47aaecedce5b61404b21d0d2f8f23ea5cbec75b89005635e00d4",
+        "actual_sha256": "0ca4c2f6450e47aaecedce5b61404b21d0d2f8f23ea5cbec75b89005635e00d4",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 45,
+        "native_response_peak": 0.1,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "active": 1.1957271606087059,
+          "inactive": 2.0
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.43074197648135765,
+          "initial_contrast": 0.9501850236764753,
+          "boundary_method": null,
+          "center_boundary_motion": null
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 10,
+        "state": {
+          "encoding": "state array with field rows",
+          "names": [
+            "active",
+            "inactive"
+          ],
+          "array": {
+            "shape": [
+              2,
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.17456896348650863,
+            "maximum": 1.807635444608799,
+            "sha256_c_order_bytes": "e3adc1dc47a9730e6bfd91b0aaf929b3ccdbe509adad44a2c6f10f479fd9ef4d"
+          },
+          "active_row": 0
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 0.17456896348650863,
+          "maximum": 1.124753987162984,
+          "sha256_c_order_bytes": "bef2bac7656d69c632fbcd54e5e154ca1ffffb89cba5a6a0a9b0adf9f071fc11",
+          "field": "active",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "fixed physical cell centres",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.06716417910447761,
+            "maximum": 26.932835820895523,
+            "sha256_c_order_bytes": "f4a957a50ca3ddf726d14ddbcf05eca5a78550e190f5a227ad9ef4c0015cd9db"
+          },
+          "checkpoint_x_first_last": [
+            0.06716417910447761,
+            26.932835820895523
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.06716417910447761,
+            26.932835820895523
+          ],
+          "nominal_length": 27.0,
+          "initial_measure_length": 27.0,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "physical finite-volume cell widths",
+          "shape": [
+            201
+          ],
+          "sum": 26.999999999999993,
+          "first": 0.13432835820895522,
+          "interior": 0.13432835820895522,
+          "last": 0.13432835820895522,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      },
+      {
+        "model": "wave_pinning",
+        "requested_length": 31.0,
+        "native_length": 31.0,
+        "checkpoint": "polarity1d/manuscript/data/establishment_basal/work/cases/case_0374/duration_0p602968336413.checkpoint.npz",
+        "expected_sha256": "886e00c691403fec344abeb48d3a31f17b2e4e2af849a0229ca0779eafd08b2a",
+        "actual_sha256": "886e00c691403fec344abeb48d3a31f17b2e4e2af849a0229ca0779eafd08b2a",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 51,
+        "native_response_peak": 0.1,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "active": 1.1968211104582083,
+          "inactive": 2.0
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.43148269895847696,
+          "initial_contrast": 0.950191374480534,
+          "boundary_method": null,
+          "center_boundary_motion": null
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 10,
+        "state": {
+          "encoding": "state array with field rows",
+          "names": [
+            "active",
+            "inactive"
+          ],
+          "array": {
+            "shape": [
+              2,
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.1745689634822637,
+            "maximum": 1.8076354445909681,
+            "sha256_c_order_bytes": "73204662fec6963633c4c79b571a6f188e90dc7ca81edf55040f08d2c8208cc9"
+          },
+          "active_row": 0
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 0.1745689634822637,
+          "maximum": 1.1247603379627977,
+          "sha256_c_order_bytes": "a0014e1135d5019d255c7d5e902dcdbee98bf263039edc1b854c2182112cb93e",
+          "field": "active",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "fixed physical cell centres",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.07711442786069651,
+            "maximum": 30.9228855721393,
+            "sha256_c_order_bytes": "2caadfe6c256647f4cc0b25d9f2e848634a136b5327fb7c148a4fc15c3fbca8e"
+          },
+          "checkpoint_x_first_last": [
+            0.07711442786069651,
+            30.9228855721393
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.07711442786069651,
+            30.9228855721393
+          ],
+          "nominal_length": 31.0,
+          "initial_measure_length": 31.0,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "physical finite-volume cell widths",
+          "shape": [
+            201
+          ],
+          "sum": 31.0,
+          "first": 0.15422885572139303,
+          "interior": 0.15422885572139303,
+          "last": 0.15422885572139303,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      },
+      {
+        "model": "wave_pinning",
+        "requested_length": 35.0,
+        "native_length": 35.0,
+        "checkpoint": "polarity1d/manuscript/data/establishment_basal/work/cases/case_0416/duration_0p599581288606.checkpoint.npz",
+        "expected_sha256": "cec7663fe812a9fa3d38cd942e8e6abf9ec6710bc731e60f3228330b0be0e8e2",
+        "actual_sha256": "cec7663fe812a9fa3d38cd942e8e6abf9ec6710bc731e60f3228330b0be0e8e2",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 57,
+        "native_response_peak": 0.1,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "active": 1.1976582033368814,
+          "inactive": 2.0
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.43198431610447063,
+          "initial_contrast": 0.9501924387233169,
+          "boundary_method": null,
+          "center_boundary_motion": null
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 10,
+        "state": {
+          "encoding": "state array with field rows",
+          "names": [
+            "active",
+            "inactive"
+          ],
+          "array": {
+            "shape": [
+              2,
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.1745689634821446,
+            "maximum": 1.8076354445904679,
+            "sha256_c_order_bytes": "ed85078d022a600d33e7fadeee68d3bf53a2f018bf6e5312475fed98d1f5ee42"
+          },
+          "active_row": 0
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 0.1745689634821446,
+          "maximum": 1.1247614022054615,
+          "sha256_c_order_bytes": "fde3aa6acd3e110ebe52f3f9ca6d81156f83fc918db7c7c208d39f4e85e5778f",
+          "field": "active",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "fixed physical cell centres",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.08706467661691543,
+            "maximum": 34.91293532338309,
+            "sha256_c_order_bytes": "d5fc1fb2ad9a5a89e059f9de891faa06bcfff39da72eb10ae1c4235e3d8f9244"
+          },
+          "checkpoint_x_first_last": [
+            0.08706467661691543,
+            34.91293532338309
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.08706467661691543,
+            34.91293532338309
+          ],
+          "nominal_length": 35.0,
+          "initial_measure_length": 35.0,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "physical finite-volume cell widths",
+          "shape": [
+            201
+          ],
+          "sum": 35.0,
+          "first": 0.17412935323383086,
+          "interior": 0.17412935323383086,
+          "last": 0.17412935323383086,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      },
+      {
+        "model": "wave_pinning",
+        "requested_length": 39.0,
+        "native_length": 39.0,
+        "checkpoint": "polarity1d/manuscript/data/establishment_basal/work/cases/case_0458/duration_0p596213266828.checkpoint.npz",
+        "expected_sha256": "d91a36396c4d343538c9979ee46978360137ece9263280e416d6eda010c205e0",
+        "actual_sha256": "d91a36396c4d343538c9979ee46978360137ece9263280e416d6eda010c205e0",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 63,
+        "native_response_peak": 0.1,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "active": 1.1983188212022036,
+          "inactive": 2.0
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.432339666800684,
+          "initial_contrast": 0.9501926175719282,
+          "boundary_method": null,
+          "center_boundary_motion": null
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 10,
+        "state": {
+          "encoding": "state array with field rows",
+          "names": [
+            "active",
+            "inactive"
+          ],
+          "array": {
+            "shape": [
+              2,
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.1745689634821412,
+            "maximum": 1.807635444590454,
+            "sha256_c_order_bytes": "fb8f1d431efb94036de3b5096334f6d3fc803bf91dda2370e9b7ed588f8635a1"
+          },
+          "active_row": 0
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 0.1745689634821412,
+          "maximum": 1.1247615810540694,
+          "sha256_c_order_bytes": "d89231871d8a6590e69fc2e423d7960b4540e13e1770bd1036a5bc84033a9baa",
+          "field": "active",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "fixed physical cell centres",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.09701492537313433,
+            "maximum": 38.90298507462687,
+            "sha256_c_order_bytes": "ac7443b14c6514210017c92819bff0fd7d7e9b75b2bea7e662e40b1761f2525c"
+          },
+          "checkpoint_x_first_last": [
+            0.09701492537313433,
+            38.90298507462687
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.09701492537313433,
+            38.90298507462687
+          ],
+          "nominal_length": 39.0,
+          "initial_measure_length": 39.0,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "physical finite-volume cell widths",
+          "shape": [
+            201
+          ],
+          "sum": 38.99999999999999,
+          "first": 0.19402985074626866,
+          "interior": 0.19402985074626866,
+          "last": 0.19402985074626866,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      },
+      {
+        "model": "wave_pinning",
+        "requested_length": 29.0,
+        "native_length": 29.0,
+        "checkpoint": "polarity1d/manuscript/data/establishment_basal/work/cases/case_0353/duration_0p609799940632.checkpoint.npz",
+        "expected_sha256": "f06ab432c62885b3d69a0e0732e19e3d324b5a018faaec89ee033c7bd65a2de6",
+        "actual_sha256": "f06ab432c62885b3d69a0e0732e19e3d324b5a018faaec89ee033c7bd65a2de6",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 48,
+        "native_response_peak": 0.1,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "active": 1.1963130406594158,
+          "inactive": 2.0
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.43115058667205836,
+          "initial_contrast": 0.9501895305176764,
+          "boundary_method": null,
+          "center_boundary_motion": null
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 10,
+        "state": {
+          "encoding": "state array with field rows",
+          "names": [
+            "active",
+            "inactive"
+          ],
+          "array": {
+            "shape": [
+              2,
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.1745689634828722,
+            "maximum": 1.8076354445935243,
+            "sha256_c_order_bytes": "0fff97551423a5628b18b75166d2e72ef2421975dac19542fd9e84577eb40795"
+          },
+          "active_row": 0
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 0.1745689634828722,
+          "maximum": 1.1247584940005486,
+          "sha256_c_order_bytes": "a3e58212018dc0572946f4e614cca68c3049b9d37c775eef5fee39ffce1eb649",
+          "field": "active",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "fixed physical cell centres",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.07213930348258707,
+            "maximum": 28.927860696517413,
+            "sha256_c_order_bytes": "1426a75cfa39d9cb3c1e845d34746a0e6e86d0de737cbc0d8099493978cdc464"
+          },
+          "checkpoint_x_first_last": [
+            0.07213930348258707,
+            28.927860696517413
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.07213930348258707,
+            28.927860696517413
+          ],
+          "nominal_length": 29.0,
+          "initial_measure_length": 29.0,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "physical finite-volume cell widths",
+          "shape": [
+            201
+          ],
+          "sum": 28.999999999999993,
+          "first": 0.14427860696517414,
+          "interior": 0.14427860696517414,
+          "last": 0.14427860696517414,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      }
+    ],
+    "goryachev": [
+      {
+        "model": "goryachev",
+        "requested_length": 19.0,
+        "native_length": 19.0,
+        "checkpoint": "polarity1d/manuscript/data/establishment_basal/work/cases/case_1172/duration_0p0001953125.checkpoint.npz",
+        "expected_sha256": "be7ae90a293dd8e6ee4b68e0b77b37670d80d39216df7f56c64fa86e55bcb32c",
+        "actual_sha256": "be7ae90a293dd8e6ee4b68e0b77b37670d80d39216df7f56c64fa86e55bcb32c",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 99,
+        "native_response_peak": 6.4,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "active": 61.785211702853985,
+          "inactive": 1.75033
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.9417801391281135,
+          "initial_contrast": 61.67641806233078,
+          "boundary_method": null,
+          "center_boundary_motion": null
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 10,
+        "state": {
+          "encoding": "state array with field rows",
+          "names": [
+            "active",
+            "inactive"
+          ],
+          "array": {
+            "shape": [
+              2,
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 4.21396831791795e-19,
+            "maximum": 61.67641806233078,
+            "sha256_c_order_bytes": "b5d32522624ccf28876f0cb7aabdbaf8f07e5b118b8f5e51f4c277cc64474c50"
+          },
+          "active_row": 0
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 4.21396831791795e-19,
+          "maximum": 61.67641806233078,
+          "sha256_c_order_bytes": "0db130ee85b72c94c3310e7dd3aa06d12e0a9dbdccb4e1ce4ad1354b5056d139",
+          "field": "active",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "fixed physical cell centres",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.0472636815920398,
+            "maximum": 18.95273631840796,
+            "sha256_c_order_bytes": "edab4ded6444efa9e18e3ae8b5ce9c16b5ea092adda6391fe037c80c3ce7571d"
+          },
+          "checkpoint_x_first_last": [
+            0.0472636815920398,
+            18.95273631840796
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.0472636815920398,
+            18.95273631840796
+          ],
+          "nominal_length": 19.0,
+          "initial_measure_length": 19.0,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "physical finite-volume cell widths",
+          "shape": [
+            201
+          ],
+          "sum": 19.0,
+          "first": 0.0945273631840796,
+          "interior": 0.0945273631840796,
+          "last": 0.0945273631840796,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      },
+      {
+        "model": "goryachev",
+        "requested_length": 23.0,
+        "native_length": 23.0,
+        "checkpoint": "polarity1d/manuscript/data/establishment_basal/work/cases/case_1214/duration_0p0001953125.checkpoint.npz",
+        "expected_sha256": "5480a7547a3b7284832e4ca16957456b6f4895ceb7683207dbad68f66e2bb35d",
+        "actual_sha256": "5480a7547a3b7284832e4ca16957456b6f4895ceb7683207dbad68f66e2bb35d",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 105,
+        "native_response_peak": 6.4,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "active": 74.39158448549898,
+          "inactive": 1.75033
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.9515540663943168,
+          "initial_contrast": 74.26614473092121,
+          "boundary_method": null,
+          "center_boundary_motion": null
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 10,
+        "state": {
+          "encoding": "state array with field rows",
+          "names": [
+            "active",
+            "inactive"
+          ],
+          "array": {
+            "shape": [
+              2,
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 1.6553932755927495e-23,
+            "maximum": 74.26614473092121,
+            "sha256_c_order_bytes": "65cbcc9ddc5a812810b2ebebab6fc3194e01f53c96d0a1bd4734ff3ea5eae9d7"
+          },
+          "active_row": 0
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 1.6553932755927495e-23,
+          "maximum": 74.26614473092121,
+          "sha256_c_order_bytes": "8534ae092c8f15ef09f338cf58f7c8ac83bc09be2f646f20abb14f47e0542428",
+          "field": "active",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "fixed physical cell centres",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.05721393034825871,
+            "maximum": 22.942786069651742,
+            "sha256_c_order_bytes": "dc774b8336aa076c091c541542c7b591d342019cd89c5c6f722cc15b843af9ba"
+          },
+          "checkpoint_x_first_last": [
+            0.05721393034825871,
+            22.942786069651742
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.05721393034825871,
+            22.942786069651742
+          ],
+          "nominal_length": 23.0,
+          "initial_measure_length": 23.0,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "physical finite-volume cell widths",
+          "shape": [
+            201
+          ],
+          "sum": 23.000000000000004,
+          "first": 0.11442786069651742,
+          "interior": 0.11442786069651742,
+          "last": 0.11442786069651742,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      },
+      {
+        "model": "goryachev",
+        "requested_length": 27.0,
+        "native_length": 27.0,
+        "checkpoint": "polarity1d/manuscript/data/establishment_basal/work/cases/case_1256/duration_0p0001953125.checkpoint.npz",
+        "expected_sha256": "61506bdac0598e47582b31e43191544cb72393d0e72d36cafff24811f32111ee",
+        "actual_sha256": "61506bdac0598e47582b31e43191544cb72393d0e72d36cafff24811f32111ee",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 111,
+        "native_response_peak": 6.4,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "active": 86.3080884374591,
+          "inactive": 1.75033
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.9582991948848176,
+          "initial_contrast": 86.17798341592314,
+          "boundary_method": null,
+          "center_boundary_motion": null
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 10,
+        "state": {
+          "encoding": "state array with field rows",
+          "names": [
+            "active",
+            "inactive"
+          ],
+          "array": {
+            "shape": [
+              2,
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 6.651631172676749e-28,
+            "maximum": 86.17798341592314,
+            "sha256_c_order_bytes": "49180f1be140e2579dfe66e3102463e047d2ff75b01d41ca68806aaa4651057c"
+          },
+          "active_row": 0
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 6.651631172676749e-28,
+          "maximum": 86.17798341592314,
+          "sha256_c_order_bytes": "256d76d413381131fd2506e422f8f3533fa056d06df55c38cd9d6fa63aad3165",
+          "field": "active",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "fixed physical cell centres",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.06716417910447761,
+            "maximum": 26.932835820895523,
+            "sha256_c_order_bytes": "f4a957a50ca3ddf726d14ddbcf05eca5a78550e190f5a227ad9ef4c0015cd9db"
+          },
+          "checkpoint_x_first_last": [
+            0.06716417910447761,
+            26.932835820895523
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.06716417910447761,
+            26.932835820895523
+          ],
+          "nominal_length": 27.0,
+          "initial_measure_length": 27.0,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "physical finite-volume cell widths",
+          "shape": [
+            201
+          ],
+          "sum": 26.999999999999993,
+          "first": 0.13432835820895522,
+          "interior": 0.13432835820895522,
+          "last": 0.13432835820895522,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      },
+      {
+        "model": "goryachev",
+        "requested_length": 31.0,
+        "native_length": 31.0,
+        "checkpoint": "polarity1d/manuscript/data/establishment_basal/work/cases/case_1298/duration_0p0001953125.checkpoint.npz",
+        "expected_sha256": "fcd5c3351c92be725c248d1c3b814c50ce94319568dd8edf866fed1c8898f407",
+        "actual_sha256": "fcd5c3351c92be725c248d1c3b814c50ce94319568dd8edf866fed1c8898f407",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 117,
+        "native_response_peak": 6.4,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "active": 97.47784147369563,
+          "inactive": 1.75033
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.96320769061643,
+          "initial_contrast": 97.35660328249264,
+          "boundary_method": null,
+          "center_boundary_motion": null
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 10,
+        "state": {
+          "encoding": "state array with field rows",
+          "names": [
+            "active",
+            "inactive"
+          ],
+          "array": {
+            "shape": [
+              2,
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 2.7727175462356306e-32,
+            "maximum": 97.35660328249264,
+            "sha256_c_order_bytes": "4a1257a204566a8a54a467aae9089e494b242e908e6e0e89f9a1ec30c907eef1"
+          },
+          "active_row": 0
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 2.7727175462356306e-32,
+          "maximum": 97.35660328249264,
+          "sha256_c_order_bytes": "c72ffae03c928e3b446be4e03027f8501197e78c7e5e94a6f0c28a48dd9e6196",
+          "field": "active",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "fixed physical cell centres",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.07711442786069651,
+            "maximum": 30.9228855721393,
+            "sha256_c_order_bytes": "2caadfe6c256647f4cc0b25d9f2e848634a136b5327fb7c148a4fc15c3fbca8e"
+          },
+          "checkpoint_x_first_last": [
+            0.07711442786069651,
+            30.9228855721393
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.07711442786069651,
+            30.9228855721393
+          ],
+          "nominal_length": 31.0,
+          "initial_measure_length": 31.0,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "physical finite-volume cell widths",
+          "shape": [
+            201
+          ],
+          "sum": 31.0,
+          "first": 0.15422885572139303,
+          "interior": 0.15422885572139303,
+          "last": 0.15422885572139303,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      },
+      {
+        "model": "goryachev",
+        "requested_length": 35.0,
+        "native_length": 35.0,
+        "checkpoint": "polarity1d/manuscript/data/establishment_basal/work/cases/case_1340/duration_0p0001953125.checkpoint.npz",
+        "expected_sha256": "b3c1585daf666527e17b0103e49eb6991203979050d529cb28ec92a10ba2c3be",
+        "actual_sha256": "b3c1585daf666527e17b0103e49eb6991203979050d529cb28ec92a10ba2c3be",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 123,
+        "native_response_peak": 6.4,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "active": 107.86707070645356,
+          "inactive": 1.75033
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.9669195055108917,
+          "initial_contrast": 107.76629940189409,
+          "boundary_method": null,
+          "center_boundary_motion": null
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 10,
+        "state": {
+          "encoding": "state array with field rows",
+          "names": [
+            "active",
+            "inactive"
+          ],
+          "array": {
+            "shape": [
+              2,
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 1.2115485274345757e-36,
+            "maximum": 107.76629940189409,
+            "sha256_c_order_bytes": "9c1ddde02d2accbbd495ee5e4953d2b4da8ea50996a1322fa09d8a9a17e2322f"
+          },
+          "active_row": 0
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 1.2115485274345757e-36,
+          "maximum": 107.76629940189409,
+          "sha256_c_order_bytes": "54e1556f965d66b53f4d7e75d87ecb68279ce7c55ecb67be97d47b433602ffd0",
+          "field": "active",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "fixed physical cell centres",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.08706467661691543,
+            "maximum": 34.91293532338309,
+            "sha256_c_order_bytes": "d5fc1fb2ad9a5a89e059f9de891faa06bcfff39da72eb10ae1c4235e3d8f9244"
+          },
+          "checkpoint_x_first_last": [
+            0.08706467661691543,
+            34.91293532338309
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.08706467661691543,
+            34.91293532338309
+          ],
+          "nominal_length": 35.0,
+          "initial_measure_length": 35.0,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "physical finite-volume cell widths",
+          "shape": [
+            201
+          ],
+          "sum": 35.0,
+          "first": 0.17412935323383086,
+          "interior": 0.17412935323383086,
+          "last": 0.17412935323383086,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      },
+      {
+        "model": "goryachev",
+        "requested_length": 39.0,
+        "native_length": 39.0,
+        "checkpoint": "polarity1d/manuscript/data/establishment_basal/work/cases/case_1382/duration_0p0001953125.checkpoint.npz",
+        "expected_sha256": "6fab938cf66f4bc960bc64362b96e7e30009f49ad84103438ab31725c19e0297",
+        "actual_sha256": "6fab938cf66f4bc960bc64362b96e7e30009f49ad84103438ab31725c19e0297",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 129,
+        "native_response_peak": 6.4,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "active": 117.4640519231069,
+          "inactive": 1.75033
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.9698090957032707,
+          "initial_contrast": 117.39032913793658,
+          "boundary_method": null,
+          "center_boundary_motion": null
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 10,
+        "state": {
+          "encoding": "state array with field rows",
+          "names": [
+            "active",
+            "inactive"
+          ],
+          "array": {
+            "shape": [
+              2,
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 5.594181154451417e-41,
+            "maximum": 117.39032913793658,
+            "sha256_c_order_bytes": "13b5ff1253c3252d0830146d90dc7f346bae083830eb326473e5c18876f16812"
+          },
+          "active_row": 0
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 5.594181154451417e-41,
+          "maximum": 117.39032913793658,
+          "sha256_c_order_bytes": "ae953599d458b0fbd3bacbbbbcfda1d54a4682077d3384f47ad2ffb9b01a1f4b",
+          "field": "active",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "fixed physical cell centres",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.09701492537313433,
+            "maximum": 38.90298507462687,
+            "sha256_c_order_bytes": "ac7443b14c6514210017c92819bff0fd7d7e9b75b2bea7e662e40b1761f2525c"
+          },
+          "checkpoint_x_first_last": [
+            0.09701492537313433,
+            38.90298507462687
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.09701492537313433,
+            38.90298507462687
+          ],
+          "nominal_length": 39.0,
+          "initial_measure_length": 39.0,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "physical finite-volume cell widths",
+          "shape": [
+            201
+          ],
+          "sum": 38.99999999999999,
+          "first": 0.19402985074626866,
+          "interior": 0.19402985074626866,
+          "last": 0.19402985074626866,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      }
+    ],
+    "debelly": [
+      {
+        "model": "debelly",
+        "requested_length": 19.0,
+        "native_length": 19.0,
+        "checkpoint": "polarity1d/manuscript/data/runs/debelly_corrected_three_test_20261008/preparation/work/cases/case_0011/duration_23p8167619091.checkpoint.npz",
+        "expected_sha256": "59b6e1579903a3b3529708fcc0e69d713cab08018c75c4995678eede7c2bf80c",
+        "actual_sha256": "59b6e1579903a3b3529708fcc0e69d713cab08018c75c4995678eede7c2bf80c",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 165,
+        "native_response_peak": 3.6,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "rac": 4.617309168955857,
+          "rho": 0.7537066093124491,
+          "mca_bound": 0.11467984445312017,
+          "mca_unbound": 0.03204247466253892,
+          "displacement": 19.0,
+          "velocity": 0.06306085061170603,
+          "tension": 5.707345531212695,
+          "physical_length": 19.0
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.059873783308290414,
+          "initial_contrast": 0.21386300853314855,
+          "boundary_method": "independent_endpoints",
+          "center_boundary_motion": false
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 36,
+        "state": {
+          "encoding": "dictionary of state_<name> arrays",
+          "names": [
+            "rac",
+            "rho",
+            "mca_bound",
+            "mca_unbound",
+            "displacement",
+            "velocity",
+            "tension",
+            "raw_left_displacement",
+            "raw_right_displacement",
+            "left_boundary_displacement",
+            "right_boundary_displacement"
+          ],
+          "arrays": {
+            "rac": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.6644203147643388,
+              "maximum": 0.8782833232974874,
+              "sha256_c_order_bytes": "651caa975c72e86e30a7ac86e5261ff39752520e5a009615cb327acc41814bdc"
+            },
+            "rho": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.5811497100657231,
+              "maximum": 0.7113241933203773,
+              "sha256_c_order_bytes": "a373e9ad1a8ba52bdae1abdad8b2e1b52014c0bd411549e84fa4b553fcc45378"
+            },
+            "mca_bound": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.05769134740252156,
+              "maximum": 0.09746978817231901,
+              "sha256_c_order_bytes": "a0150d8c347fb906921919a06fdec5bcf2578df6b4d93076b30e659a6ac22a42"
+            },
+            "mca_unbound": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.016163195550728933,
+              "maximum": 0.027283976732925496,
+              "sha256_c_order_bytes": "09d9a8b16a239a654241f3949e5f9d6111bd961e2d61f373b59a1613a6c96ad4"
+            },
+            "displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -0.056819700971551354,
+              "maximum": -8.378859781507509e-05,
+              "sha256_c_order_bytes": "66a505b89493bdafe2e675e9f9fb7f445f4b3df3735a9f7cfb7aba521220d108"
+            },
+            "velocity": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -0.0022353257948891023,
+              "maximum": 0.0029105029568343233,
+              "sha256_c_order_bytes": "d2fafff52b13942c2a363ac9719312320b85b19a760aac60fac4f9227541ec84"
+            },
+            "tension": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.17728625754902755,
+              "maximum": 0.4064241721850997,
+              "sha256_c_order_bytes": "a2309637a3924e4c0d79a73ec870f8359dbc8a2fd71fa45f17f2c57698eb2d69"
+            },
+            "raw_left_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -0.05700418468127735,
+              "maximum": -0.05700418468127735,
+              "sha256_c_order_bytes": "8fc1f17d6fadd9b3163a25310fb15c835eac9520234ad12250c9fe15af633bac"
+            },
+            "raw_right_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.0,
+              "maximum": 0.0,
+              "sha256_c_order_bytes": "5560728cd337269adfd6161f2c48cdffaaeff9eca07f5fd09956967cf4c87e2f"
+            },
+            "left_boundary_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -0.05700418468127735,
+              "maximum": -0.05700418468127735,
+              "sha256_c_order_bytes": "8fc1f17d6fadd9b3163a25310fb15c835eac9520234ad12250c9fe15af633bac"
+            },
+            "right_boundary_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.0,
+              "maximum": 0.0,
+              "sha256_c_order_bytes": "5560728cd337269adfd6161f2c48cdffaaeff9eca07f5fd09956967cf4c87e2f"
+            }
+          },
+          "native_step": 0.5,
+          "center_boundary_motion": false,
+          "boundary_method": "independent_endpoints"
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 0.6644203147643388,
+          "maximum": 0.8782833232974874,
+          "sha256_c_order_bytes": "651caa975c72e86e30a7ac86e5261ff39752520e5a009615cb327acc41814bdc",
+          "field": "rac",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "fixed nominal solver cell centres; displacement retained separately",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.0472636815920398,
+            "maximum": 18.95273631840796,
+            "sha256_c_order_bytes": "edab4ded6444efa9e18e3ae8b5ce9c16b5ea092adda6391fe037c80c3ce7571d"
+          },
+          "checkpoint_x_first_last": [
+            0.0472636815920398,
+            18.95273631840796
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.0472636815920398,
+            18.95273631840796
+          ],
+          "nominal_length": 19.0,
+          "initial_measure_length": 19.0,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "nominal solver-cell widths; not a deformed-membrane measure",
+          "shape": [
+            201
+          ],
+          "sum": 19.0,
+          "first": 0.0945273631840796,
+          "interior": 0.0945273631840796,
+          "last": 0.0945273631840796,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      },
+      {
+        "model": "debelly",
+        "requested_length": 23.0,
+        "native_length": 23.0,
+        "checkpoint": "polarity1d/manuscript/data/runs/debelly_corrected_three_test_20261008/preparation/work/cases/case_0013/duration_0p00744087242898.checkpoint.npz",
+        "expected_sha256": "30b8c1a6d559175222eb769c5196c84402dab6c6755e4cab49f4a71a262b8791",
+        "actual_sha256": "30b8c1a6d559175222eb769c5196c84402dab6c6755e4cab49f4a71a262b8791",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 171,
+        "native_response_peak": 3.6,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "rac": 4.648905521030215,
+          "rho": 0.7474585843914151,
+          "mca_bound": 0.12339670164160053,
+          "mca_unbound": 0.03447911564242577,
+          "displacement": 23.0,
+          "velocity": 0.06554615463294038,
+          "tension": 5.483134981389959,
+          "physical_length": 23.0
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.0676557740097734,
+          "initial_contrast": 0.23795677434165963,
+          "boundary_method": "independent_endpoints",
+          "center_boundary_motion": false
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 36,
+        "state": {
+          "encoding": "dictionary of state_<name> arrays",
+          "names": [
+            "rac",
+            "rho",
+            "mca_bound",
+            "mca_unbound",
+            "displacement",
+            "velocity",
+            "tension",
+            "raw_left_displacement",
+            "raw_right_displacement",
+            "left_boundary_displacement",
+            "right_boundary_displacement"
+          ],
+          "arrays": {
+            "rac": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.6509717668961325,
+              "maximum": 0.8889285412377921,
+              "sha256_c_order_bytes": "590a1ec39682310f9be5052dfba0916bb240a60ca74c5ab37bb111f620661c29"
+            },
+            "rho": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.5799803749111011,
+              "maximum": 0.7327004804097573,
+              "sha256_c_order_bytes": "8d8fee86b16b4408d4ef9acea1b386f95a48469458b99b3f8444a1c5935de5d9"
+            },
+            "mca_bound": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.05348320444111485,
+              "maximum": 0.09893814630839794,
+              "sha256_c_order_bytes": "eadcbfbd8845d39f3e2b1af70e01a99cccae70eee75afd1cae183bce7507aa0e"
+            },
+            "mca_unbound": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.014986980339608831,
+              "maximum": 0.027698899054137,
+              "sha256_c_order_bytes": "939129f308e60e3490eb5c2099618dc1d1916a427e53ebdfa0d2ca882cc940b5"
+            },
+            "displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -0.37779579683164627,
+              "maximum": -0.0010178313035947093,
+              "sha256_c_order_bytes": "f10b9f6a3afe64e2949de9158084a975e964991a8d79e8e94efa28076c10b420"
+            },
+            "velocity": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -0.015043211220460847,
+              "maximum": -6.377947409220603e-06,
+              "sha256_c_order_bytes": "5e6e92949453e8f732ab60c30e1155224a4797d22c5eb4180a9d33f74d161da8"
+            },
+            "tension": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 1.2393019272082084,
+              "maximum": 1.7789884942172387,
+              "sha256_c_order_bytes": "8be3060c0a421a173f00ab01be1d6c3ef76781aa257a6ee176c9fae549018646"
+            },
+            "raw_left_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -0.3785022165019762,
+              "maximum": -0.3785022165019762,
+              "sha256_c_order_bytes": "484a104927507b44ac664dfc30ce40f687869f0d1902f15665d6462a1d4245ee"
+            },
+            "raw_right_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.0,
+              "maximum": 0.0,
+              "sha256_c_order_bytes": "5560728cd337269adfd6161f2c48cdffaaeff9eca07f5fd09956967cf4c87e2f"
+            },
+            "left_boundary_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -0.3785022165019762,
+              "maximum": -0.3785022165019762,
+              "sha256_c_order_bytes": "484a104927507b44ac664dfc30ce40f687869f0d1902f15665d6462a1d4245ee"
+            },
+            "right_boundary_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.0,
+              "maximum": 0.0,
+              "sha256_c_order_bytes": "5560728cd337269adfd6161f2c48cdffaaeff9eca07f5fd09956967cf4c87e2f"
+            }
+          },
+          "native_step": 0.5,
+          "center_boundary_motion": false,
+          "boundary_method": "independent_endpoints"
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 0.6509717668961325,
+          "maximum": 0.8889285412377921,
+          "sha256_c_order_bytes": "590a1ec39682310f9be5052dfba0916bb240a60ca74c5ab37bb111f620661c29",
+          "field": "rac",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "fixed nominal solver cell centres; displacement retained separately",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.05721393034825871,
+            "maximum": 22.942786069651742,
+            "sha256_c_order_bytes": "dc774b8336aa076c091c541542c7b591d342019cd89c5c6f722cc15b843af9ba"
+          },
+          "checkpoint_x_first_last": [
+            0.05721393034825871,
+            22.942786069651742
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.05721393034825871,
+            22.942786069651742
+          ],
+          "nominal_length": 23.0,
+          "initial_measure_length": 23.0,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "nominal solver-cell widths; not a deformed-membrane measure",
+          "shape": [
+            201
+          ],
+          "sum": 23.000000000000004,
+          "first": 0.11442786069651742,
+          "interior": 0.11442786069651742,
+          "last": 0.11442786069651742,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      },
+      {
+        "model": "debelly",
+        "requested_length": 27.0,
+        "native_length": 27.0,
+        "checkpoint": "polarity1d/manuscript/data/runs/debelly_corrected_three_test_20261008/preparation/work/cases/case_0015/duration_0p000709486326098.checkpoint.npz",
+        "expected_sha256": "319bcf1a2e18843d43a8e9a165ef2960aff7734e191c11442dbd4b425fe5ec4e",
+        "actual_sha256": "319bcf1a2e18843d43a8e9a165ef2960aff7734e191c11442dbd4b425fe5ec4e",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 177,
+        "native_response_peak": 3.6,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "rac": 4.668517965522696,
+          "rho": 0.740657629341512,
+          "mca_bound": 0.13054640670435697,
+          "mca_unbound": 0.03647584208485859,
+          "displacement": 27.0,
+          "velocity": 0.06712929740889488,
+          "tension": 5.360958118622364,
+          "physical_length": 27.0
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.07310936153921627,
+          "initial_contrast": 0.25475326713781843,
+          "boundary_method": "independent_endpoints",
+          "center_boundary_motion": false
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 36,
+        "state": {
+          "encoding": "dictionary of state_<name> arrays",
+          "names": [
+            "rac",
+            "rho",
+            "mca_bound",
+            "mca_unbound",
+            "displacement",
+            "velocity",
+            "tension",
+            "raw_left_displacement",
+            "raw_right_displacement",
+            "left_boundary_displacement",
+            "right_boundary_displacement"
+          ],
+          "arrays": {
+            "rac": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.6379778703412853,
+              "maximum": 0.8927311374791037,
+              "sha256_c_order_bytes": "7c108fe2f436dc55cfb40a10f1368a5c6ff6965c6ea230aafc742f2e16549ae7"
+            },
+            "rho": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.579740688321087,
+              "maximum": 0.7537374714952801,
+              "sha256_c_order_bytes": "b39d418f9b3ba303c0a8f7bf29ebfd0e561b2dc933040d628f9422f0f26c7911"
+            },
+            "mca_bound": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.050527473764255634,
+              "maximum": 0.09935461748057946,
+              "sha256_c_order_bytes": "6950fae004b5747bc82fc6b5647c88a916c8b2c30efbbef84b5a302435599cc5"
+            },
+            "mca_unbound": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.014160856976513493,
+              "maximum": 0.02781761514622215,
+              "sha256_c_order_bytes": "d670b877a93ebf8da6422eba5623ef9826978b8189afe3680553817e3e3046b5"
+            },
+            "displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -0.6704374381180076,
+              "maximum": -0.0019586454013901505,
+              "sha256_c_order_bytes": "47c3dacebada454b37169805c8299ab154071a8459bdab5702585e8fa1195fc6"
+            },
+            "velocity": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -0.02670809528515657,
+              "maximum": -2.337165874184025e-05,
+              "sha256_c_order_bytes": "ca5faeec839a41d12213737aa93f86ad61e457ab8822b50d49ed553cf703ce62"
+            },
+            "tension": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 1.510872886161443,
+              "maximum": 2.9161897793285405,
+              "sha256_c_order_bytes": "5f7dcd380d4993cbcabd0b3f988a7a01fe6385cde432de65be8dd0143a5f526a"
+            },
+            "raw_left_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -0.6714461158918893,
+              "maximum": -0.6714461158918893,
+              "sha256_c_order_bytes": "6348e8e97559d6df3c0f27cffd874a996a04dae443aec8371d0811defa92cf42"
+            },
+            "raw_right_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.0,
+              "maximum": 0.0,
+              "sha256_c_order_bytes": "5560728cd337269adfd6161f2c48cdffaaeff9eca07f5fd09956967cf4c87e2f"
+            },
+            "left_boundary_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -0.6714461158918893,
+              "maximum": -0.6714461158918893,
+              "sha256_c_order_bytes": "6348e8e97559d6df3c0f27cffd874a996a04dae443aec8371d0811defa92cf42"
+            },
+            "right_boundary_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.0,
+              "maximum": 0.0,
+              "sha256_c_order_bytes": "5560728cd337269adfd6161f2c48cdffaaeff9eca07f5fd09956967cf4c87e2f"
+            }
+          },
+          "native_step": 0.5,
+          "center_boundary_motion": false,
+          "boundary_method": "independent_endpoints"
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 0.6379778703412853,
+          "maximum": 0.8927311374791037,
+          "sha256_c_order_bytes": "7c108fe2f436dc55cfb40a10f1368a5c6ff6965c6ea230aafc742f2e16549ae7",
+          "field": "rac",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "fixed nominal solver cell centres; displacement retained separately",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.06716417910447761,
+            "maximum": 26.932835820895523,
+            "sha256_c_order_bytes": "f4a957a50ca3ddf726d14ddbcf05eca5a78550e190f5a227ad9ef4c0015cd9db"
+          },
+          "checkpoint_x_first_last": [
+            0.06716417910447761,
+            26.932835820895523
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.06716417910447761,
+            26.932835820895523
+          ],
+          "nominal_length": 27.0,
+          "initial_measure_length": 27.0,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "nominal solver-cell widths; not a deformed-membrane measure",
+          "shape": [
+            201
+          ],
+          "sum": 26.999999999999993,
+          "first": 0.13432835820895522,
+          "interior": 0.13432835820895522,
+          "last": 0.13432835820895522,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      },
+      {
+        "model": "debelly",
+        "requested_length": 31.0,
+        "native_length": 31.0,
+        "checkpoint": "polarity1d/manuscript/data/runs/debelly_corrected_three_test_20261008/preparation/work/cases/case_0017/duration_0p000174513346972.checkpoint.npz",
+        "expected_sha256": "02acf8d531728d2fe845d435aba59bb6f7d522f7a1cf22eda63988947157e238",
+        "actual_sha256": "02acf8d531728d2fe845d435aba59bb6f7d522f7a1cf22eda63988947157e238",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 183,
+        "native_response_peak": 3.6,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "rac": 4.68226225862561,
+          "rho": 0.7350017458235968,
+          "mca_bound": 0.13655162575129215,
+          "mca_unbound": 0.03815361261713606,
+          "displacement": 31.0,
+          "velocity": 0.06821445389594054,
+          "tension": 5.314589743052555,
+          "physical_length": 31.0
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.07896278816232695,
+          "initial_contrast": 0.272909923984872,
+          "boundary_method": "independent_endpoints",
+          "center_boundary_motion": false
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 36,
+        "state": {
+          "encoding": "dictionary of state_<name> arrays",
+          "names": [
+            "rac",
+            "rho",
+            "mca_bound",
+            "mca_unbound",
+            "displacement",
+            "velocity",
+            "tension",
+            "raw_left_displacement",
+            "raw_right_displacement",
+            "left_boundary_displacement",
+            "right_boundary_displacement"
+          ],
+          "arrays": {
+            "rac": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.6225598490386137,
+              "maximum": 0.8954697730234857,
+              "sha256_c_order_bytes": "4cec1eda24cccde8029bf9534610b04f7330588c7f54a9582a5e8e49c45fff38"
+            },
+            "rho": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.5783315245545715,
+              "maximum": 0.7790648276831117,
+              "sha256_c_order_bytes": "a88b4afd86d819d93a3afcc104c034792ab7cebefb40107c3e2b64ae1d33e803"
+            },
+            "mca_bound": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.048232010792433756,
+              "maximum": 0.09974241078829957,
+              "sha256_c_order_bytes": "b919366a26456d8a7ceadce1eeacfcbf58dcee3942275ca41f8eb0c4ab304a92"
+            },
+            "mca_unbound": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.01351969584842654,
+              "maximum": 0.027927351510842885,
+              "sha256_c_order_bytes": "b8ea41486b72edc525eb8a4438025c8a8d55fbb160eac170c976ce18b3ed37f6"
+            },
+            "displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -1.0004536801688526,
+              "maximum": -0.0031183753304552557,
+              "sha256_c_order_bytes": "ffaed659accb37adce1d26df423ccf61ac51a84468e7d0c48a707d5f7f7acd76"
+            },
+            "velocity": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -0.03985043619599469,
+              "maximum": -3.92402938425062e-05,
+              "sha256_c_order_bytes": "bf88251730ca6a0776b076bcac8e1ebd4a79f16f11e17778ce9d7e1cb477e26a"
+            },
+            "tension": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 1.506974475026996,
+              "maximum": 4.043798472350525,
+              "sha256_c_order_bytes": "4d61deb7c52929ac6803b48bf4a8da2ecd296dfe3e3c0904473b872532fc7341"
+            },
+            "raw_left_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -1.0016043450843826,
+              "maximum": -1.0016043450843826,
+              "sha256_c_order_bytes": "e3a30f2b027ba4bfb5f650c3a65d1f7f148a7123b814d8b192793b25bdc34d22"
+            },
+            "raw_right_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.0,
+              "maximum": 0.0,
+              "sha256_c_order_bytes": "5560728cd337269adfd6161f2c48cdffaaeff9eca07f5fd09956967cf4c87e2f"
+            },
+            "left_boundary_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -1.0016043450843826,
+              "maximum": -1.0016043450843826,
+              "sha256_c_order_bytes": "e3a30f2b027ba4bfb5f650c3a65d1f7f148a7123b814d8b192793b25bdc34d22"
+            },
+            "right_boundary_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.0,
+              "maximum": 0.0,
+              "sha256_c_order_bytes": "5560728cd337269adfd6161f2c48cdffaaeff9eca07f5fd09956967cf4c87e2f"
+            }
+          },
+          "native_step": 0.5,
+          "center_boundary_motion": false,
+          "boundary_method": "independent_endpoints"
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 0.6225598490386137,
+          "maximum": 0.8954697730234857,
+          "sha256_c_order_bytes": "4cec1eda24cccde8029bf9534610b04f7330588c7f54a9582a5e8e49c45fff38",
+          "field": "rac",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "fixed nominal solver cell centres; displacement retained separately",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.07711442786069651,
+            "maximum": 30.9228855721393,
+            "sha256_c_order_bytes": "2caadfe6c256647f4cc0b25d9f2e848634a136b5327fb7c148a4fc15c3fbca8e"
+          },
+          "checkpoint_x_first_last": [
+            0.07711442786069651,
+            30.9228855721393
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.07711442786069651,
+            30.9228855721393
+          ],
+          "nominal_length": 31.0,
+          "initial_measure_length": 31.0,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "nominal solver-cell widths; not a deformed-membrane measure",
+          "shape": [
+            201
+          ],
+          "sum": 31.0,
+          "first": 0.15422885572139303,
+          "interior": 0.15422885572139303,
+          "last": 0.15422885572139303,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      },
+      {
+        "model": "debelly",
+        "requested_length": 35.0,
+        "native_length": 35.0,
+        "checkpoint": "polarity1d/manuscript/data/runs/debelly_corrected_three_test_20261008/preparation/work/cases/case_0019/duration_8p17668166536e-05.checkpoint.npz",
+        "expected_sha256": "9c0b27e098eae5848604587900f0b52cb9f7d00f94402f0e827e0565e1362963",
+        "actual_sha256": "9c0b27e098eae5848604587900f0b52cb9f7d00f94402f0e827e0565e1362963",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 189,
+        "native_response_peak": 3.6,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "rac": 4.692756011830573,
+          "rho": 0.7304844665812397,
+          "mca_bound": 0.1417891880057776,
+          "mca_unbound": 0.03961737218477173,
+          "displacement": 35.0,
+          "velocity": 0.06900085586442756,
+          "tension": 5.327942676759945,
+          "physical_length": 35.0
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.08756324265735071,
+          "initial_contrast": 0.2986867060449879,
+          "boundary_method": "independent_endpoints",
+          "center_boundary_motion": false
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 36,
+        "state": {
+          "encoding": "dictionary of state_<name> arrays",
+          "names": [
+            "rac",
+            "rho",
+            "mca_bound",
+            "mca_unbound",
+            "displacement",
+            "velocity",
+            "tension",
+            "raw_left_displacement",
+            "raw_right_displacement",
+            "left_boundary_displacement",
+            "right_boundary_displacement"
+          ],
+          "arrays": {
+            "rac": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.5995554909744558,
+              "maximum": 0.8982421970194437,
+              "sha256_c_order_bytes": "1021fd746e7a6e418a4659710c94889c4256b8b6d6ab08515ecca340d5b9c284"
+            },
+            "rho": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.5757521182867577,
+              "maximum": 0.8176484993489957,
+              "sha256_c_order_bytes": "94bf5015b240c3404acf585d4adce34db6933a8cb613ff98c68057ad4268051e"
+            },
+            "mca_bound": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.04639203325407494,
+              "maximum": 0.10055069426835044,
+              "sha256_c_order_bytes": "8295089705e54f3f9a5c1a45f530a57d277f17b819dd3bfb01cf9e2da85594e9"
+            },
+            "mca_unbound": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.013006728194311944,
+              "maximum": 0.02815443872599927,
+              "sha256_c_order_bytes": "605ef2b33c09b23df8524cb590ecb3a381942836f22c602e6750461325b71317"
+            },
+            "displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -1.4662684093986202,
+              "maximum": -0.004864347586563771,
+              "sha256_c_order_bytes": "ded7cda77b38829d816e453f2ec1dc6e181e3af33154764b341ff7e8da74a6dc"
+            },
+            "velocity": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -0.058388940988969074,
+              "maximum": -5.87804297777398e-05,
+              "sha256_c_order_bytes": "02e960cff1d8afbb670ab11dd58bf08fe4c1cb0b650aff4dfccb4486321801a5"
+            },
+            "tension": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 1.3164409253545322,
+              "maximum": 5.586999197747676,
+              "sha256_c_order_bytes": "04e0e0babca9468390974976a758bad3217bf2ee8f99fb9338b5d988d18dba86"
+            },
+            "raw_left_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -1.4673940311692737,
+              "maximum": -1.4673940311692737,
+              "sha256_c_order_bytes": "3fba7b5d3b4da53e990a4f7d73bb05983ec681314554c8e97e5553420af7edff"
+            },
+            "raw_right_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.0,
+              "maximum": 0.0,
+              "sha256_c_order_bytes": "5560728cd337269adfd6161f2c48cdffaaeff9eca07f5fd09956967cf4c87e2f"
+            },
+            "left_boundary_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -1.4673940311692737,
+              "maximum": -1.4673940311692737,
+              "sha256_c_order_bytes": "3fba7b5d3b4da53e990a4f7d73bb05983ec681314554c8e97e5553420af7edff"
+            },
+            "right_boundary_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.0,
+              "maximum": 0.0,
+              "sha256_c_order_bytes": "5560728cd337269adfd6161f2c48cdffaaeff9eca07f5fd09956967cf4c87e2f"
+            }
+          },
+          "native_step": 0.5,
+          "center_boundary_motion": false,
+          "boundary_method": "independent_endpoints"
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 0.5995554909744558,
+          "maximum": 0.8982421970194437,
+          "sha256_c_order_bytes": "1021fd746e7a6e418a4659710c94889c4256b8b6d6ab08515ecca340d5b9c284",
+          "field": "rac",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "fixed nominal solver cell centres; displacement retained separately",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.08706467661691543,
+            "maximum": 34.91293532338309,
+            "sha256_c_order_bytes": "d5fc1fb2ad9a5a89e059f9de891faa06bcfff39da72eb10ae1c4235e3d8f9244"
+          },
+          "checkpoint_x_first_last": [
+            0.08706467661691543,
+            34.91293532338309
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.08706467661691543,
+            34.91293532338309
+          ],
+          "nominal_length": 35.0,
+          "initial_measure_length": 35.0,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "nominal solver-cell widths; not a deformed-membrane measure",
+          "shape": [
+            201
+          ],
+          "sum": 35.0,
+          "first": 0.17412935323383086,
+          "interior": 0.17412935323383086,
+          "last": 0.17412935323383086,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      },
+      {
+        "model": "debelly",
+        "requested_length": 39.0,
+        "native_length": 39.0,
+        "checkpoint": "polarity1d/manuscript/data/runs/debelly_corrected_three_test_20261008/preparation/work/cases/case_0021/duration_5p62733938281e-05.checkpoint.npz",
+        "expected_sha256": "0ba7dbd7bf96166f1714d8b598332e937ec01e844751f5c78dd3706905bd44e9",
+        "actual_sha256": "0ba7dbd7bf96166f1714d8b598332e937ec01e844751f5c78dd3706905bd44e9",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 195,
+        "native_response_peak": 3.6,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "rac": 4.7012852094549125,
+          "rho": 0.728421447756758,
+          "mca_bound": 0.14659005108217982,
+          "mca_unbound": 0.04095936675483433,
+          "displacement": 39.0,
+          "velocity": 0.06959425908760557,
+          "tension": 5.390231286630292,
+          "physical_length": 39.0
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.10025158087126029,
+          "initial_contrast": 0.34040341087243065,
+          "boundary_method": "independent_endpoints",
+          "center_boundary_motion": false
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 36,
+        "state": {
+          "encoding": "dictionary of state_<name> arrays",
+          "names": [
+            "rac",
+            "rho",
+            "mca_bound",
+            "mca_unbound",
+            "displacement",
+            "velocity",
+            "tension",
+            "raw_left_displacement",
+            "raw_right_displacement",
+            "left_boundary_displacement",
+            "right_boundary_displacement"
+          ],
+          "arrays": {
+            "rac": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.5618014475517934,
+              "maximum": 0.902204858424224,
+              "sha256_c_order_bytes": "f64ecba76a825a6022c01f5de5ebaa2134f03a8874fa1e678d5407744b76b971"
+            },
+            "rho": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.5700159598912612,
+              "maximum": 0.8836787935387164,
+              "sha256_c_order_bytes": "b373c91d4ded076ba3d9a4c444c1a9e46960768e63c5f7c884cb908f69a20010"
+            },
+            "mca_bound": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.0466555691114546,
+              "maximum": 0.09888027962601723,
+              "sha256_c_order_bytes": "d422b44193ce62e84e021a8d738241b6f2f185bd788b1b003580df9b3b72615f"
+            },
+            "mca_unbound": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.013085559855590494,
+              "maximum": 0.027688210300867495,
+              "sha256_c_order_bytes": "9de856caa15cee56ba0d68d8032d073d0c0b2b09c97e58df07742511cfa869f5"
+            },
+            "displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -2.3464401218912445,
+              "maximum": -0.008423295855206113,
+              "sha256_c_order_bytes": "21cd37d2991e725a291872671c7de1a86bbcdf0df47bece69e19edaebbe4a520"
+            },
+            "velocity": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -0.09339539497615343,
+              "maximum": -0.0001029886373270172,
+              "sha256_c_order_bytes": "8620b9971fae8435045cf399a3b91d7a7fb656d37c4d384dc2b279a8941921eb"
+            },
+            "tension": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.6483280677931016,
+              "maximum": 8.682375393624138,
+              "sha256_c_order_bytes": "3a4bff948a942aa6635f01b1884b03b4f9152dc048e8aac3c0a40ff021225e7c"
+            },
+            "raw_left_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -2.347028085343818,
+              "maximum": -2.347028085343818,
+              "sha256_c_order_bytes": "adaa01648bc760a0f1032475de83b61e6e2277df5f6aea254264e0eb9ff789de"
+            },
+            "raw_right_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.0,
+              "maximum": 0.0,
+              "sha256_c_order_bytes": "5560728cd337269adfd6161f2c48cdffaaeff9eca07f5fd09956967cf4c87e2f"
+            },
+            "left_boundary_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -2.347028085343818,
+              "maximum": -2.347028085343818,
+              "sha256_c_order_bytes": "adaa01648bc760a0f1032475de83b61e6e2277df5f6aea254264e0eb9ff789de"
+            },
+            "right_boundary_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.0,
+              "maximum": 0.0,
+              "sha256_c_order_bytes": "5560728cd337269adfd6161f2c48cdffaaeff9eca07f5fd09956967cf4c87e2f"
+            }
+          },
+          "native_step": 0.5,
+          "center_boundary_motion": false,
+          "boundary_method": "independent_endpoints"
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 0.5618014475517934,
+          "maximum": 0.902204858424224,
+          "sha256_c_order_bytes": "f64ecba76a825a6022c01f5de5ebaa2134f03a8874fa1e678d5407744b76b971",
+          "field": "rac",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "fixed nominal solver cell centres; displacement retained separately",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.09701492537313433,
+            "maximum": 38.90298507462687,
+            "sha256_c_order_bytes": "ac7443b14c6514210017c92819bff0fd7d7e9b75b2bea7e662e40b1761f2525c"
+          },
+          "checkpoint_x_first_last": [
+            0.09701492537313433,
+            38.90298507462687
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.09701492537313433,
+            38.90298507462687
+          ],
+          "nominal_length": 39.0,
+          "initial_measure_length": 39.0,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "nominal solver-cell widths; not a deformed-membrane measure",
+          "shape": [
+            201
+          ],
+          "sum": 38.99999999999999,
+          "first": 0.19402985074626866,
+          "interior": 0.19402985074626866,
+          "last": 0.19402985074626866,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      },
+      {
+        "model": "debelly",
+        "requested_length": 29.0,
+        "native_length": 29.0,
+        "checkpoint": "polarity1d/manuscript/data/runs/debelly_corrected_three_test_20261008/preparation/work/cases/case_0016/duration_0p000316611219397.checkpoint.npz",
+        "expected_sha256": "47aff95ce0f697e7ff7d33cb8520cafca88e842476f80fbfd99cb2806ac1d82d",
+        "actual_sha256": "47aff95ce0f697e7ff7d33cb8520cafca88e842476f80fbfd99cb2806ac1d82d",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 180,
+        "native_response_peak": 3.6,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "rac": 4.675913593322529,
+          "rho": 0.7376075909483985,
+          "mca_bound": 0.13366631180735414,
+          "mca_unbound": 0.03734742350399549,
+          "displacement": 29.0,
+          "velocity": 0.06771860566856953,
+          "tension": 5.329462806268416,
+          "physical_length": 29.0
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.07585051902329781,
+          "initial_contrast": 0.2632864407778708,
+          "boundary_method": "independent_endpoints",
+          "center_boundary_motion": false
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 36,
+        "state": {
+          "encoding": "dictionary of state_<name> arrays",
+          "names": [
+            "rac",
+            "rho",
+            "mca_bound",
+            "mca_unbound",
+            "displacement",
+            "velocity",
+            "tension",
+            "raw_left_displacement",
+            "raw_right_displacement",
+            "left_boundary_displacement",
+            "right_boundary_displacement"
+          ],
+          "arrays": {
+            "rac": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.6308610621129153,
+              "maximum": 0.894147502890786,
+              "sha256_c_order_bytes": "801e25e1d21b34a0b53bb758677883f557e1324a86f0d6fd39a468b77ade73b9"
+            },
+            "rho": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.5791710871333109,
+              "maximum": 0.7653796692775082,
+              "sha256_c_order_bytes": "cdcfb2caa7d68b6d2917b0857e9a7b94894529d21e0fde44d84cbdbddef6712f"
+            },
+            "mca_bound": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.04931220174839064,
+              "maximum": 0.09951560438414804,
+              "sha256_c_order_bytes": "b0f092fa07bc9dee5debf69a79b562740814417ce9a2dbe7c8dec9bf06a03252"
+            },
+            "mca_unbound": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.013821318297595675,
+              "maximum": 0.027863348787522058,
+              "sha256_c_order_bytes": "bf686d1ce617b3887fe890806663caf9c7f6b8c407d818b386b9f63319db8c83"
+            },
+            "displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -0.8256547765950106,
+              "maximum": -0.002493111810482812,
+              "sha256_c_order_bytes": "3e4061a588f85b9c2f3fd0b359193fb58db8c5821f4491c24a643a4fe9e63740"
+            },
+            "velocity": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -0.03289063005210837,
+              "maximum": -3.11812180079443e-05,
+              "sha256_c_order_bytes": "1c1212514b862f1c8402addeaf0e82f0bf984750c39b3798172d9d5d96bf997e"
+            },
+            "tension": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 1.5337628708525137,
+              "maximum": 3.455946400611872,
+              "sha256_c_order_bytes": "95cabcfa02f173f64fd1198bb2718b7c0f44cd7d4d5dc4c7d410e3d42602fc4f"
+            },
+            "raw_left_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -0.8267527819023757,
+              "maximum": -0.8267527819023757,
+              "sha256_c_order_bytes": "e7215258eae00fdcfd4676c22efcde40e9c2b2299b46706eb1c05db2153c4e2c"
+            },
+            "raw_right_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.0,
+              "maximum": 0.0,
+              "sha256_c_order_bytes": "5560728cd337269adfd6161f2c48cdffaaeff9eca07f5fd09956967cf4c87e2f"
+            },
+            "left_boundary_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": -0.8267527819023757,
+              "maximum": -0.8267527819023757,
+              "sha256_c_order_bytes": "e7215258eae00fdcfd4676c22efcde40e9c2b2299b46706eb1c05db2153c4e2c"
+            },
+            "right_boundary_displacement": {
+              "shape": [
+                201
+              ],
+              "dtype": "float64",
+              "finite": true,
+              "minimum": 0.0,
+              "maximum": 0.0,
+              "sha256_c_order_bytes": "5560728cd337269adfd6161f2c48cdffaaeff9eca07f5fd09956967cf4c87e2f"
+            }
+          },
+          "native_step": 0.5,
+          "center_boundary_motion": false,
+          "boundary_method": "independent_endpoints"
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 0.6308610621129153,
+          "maximum": 0.894147502890786,
+          "sha256_c_order_bytes": "801e25e1d21b34a0b53bb758677883f557e1324a86f0d6fd39a468b77ade73b9",
+          "field": "rac",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "fixed nominal solver cell centres; displacement retained separately",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.07213930348258707,
+            "maximum": 28.927860696517413,
+            "sha256_c_order_bytes": "1426a75cfa39d9cb3c1e845d34746a0e6e86d0de737cbc0d8099493978cdc464"
+          },
+          "checkpoint_x_first_last": [
+            0.07213930348258707,
+            28.927860696517413
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.07213930348258707,
+            28.927860696517413
+          ],
+          "nominal_length": 29.0,
+          "initial_measure_length": 29.0,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "nominal solver-cell widths; not a deformed-membrane measure",
+          "shape": [
+            201
+          ],
+          "sum": 28.999999999999993,
+          "first": 0.14427860696517414,
+          "interior": 0.14427860696517414,
+          "last": 0.14427860696517414,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      }
+    ],
+    "holmes_model3": [
+      {
+        "model": "holmes_model3",
+        "requested_length": 19.0,
+        "native_length": 19.0,
+        "matched_reference_length": null,
+        "checkpoint": null,
+        "expected_sha256": null,
+        "actual_sha256": null,
+        "exists": false,
+        "sha256_verified": false,
+        "cells": null,
+        "status": "exact_basal_missing"
+      },
+      {
+        "model": "holmes_model3",
+        "requested_length": 23.0,
+        "native_length": 23.0,
+        "matched_reference_length": null,
+        "checkpoint": null,
+        "expected_sha256": null,
+        "actual_sha256": null,
+        "exists": false,
+        "sha256_verified": false,
+        "cells": null,
+        "status": "exact_basal_missing"
+      },
+      {
+        "model": "holmes_model3",
+        "requested_length": 27.0,
+        "native_length": 27.0,
+        "matched_reference_length": null,
+        "checkpoint": null,
+        "expected_sha256": null,
+        "actual_sha256": null,
+        "exists": false,
+        "sha256_verified": false,
+        "cells": null,
+        "status": "exact_basal_missing"
+      },
+      {
+        "model": "holmes_model3",
+        "requested_length": 31.0,
+        "native_length": 31.0,
+        "matched_reference_length": null,
+        "checkpoint": null,
+        "expected_sha256": null,
+        "actual_sha256": null,
+        "exists": false,
+        "sha256_verified": false,
+        "cells": null,
+        "status": "exact_basal_missing"
+      },
+      {
+        "model": "holmes_model3",
+        "requested_length": 35.0,
+        "native_length": 35.0,
+        "matched_reference_length": null,
+        "checkpoint": null,
+        "expected_sha256": null,
+        "actual_sha256": null,
+        "exists": false,
+        "sha256_verified": false,
+        "cells": null,
+        "status": "exact_basal_missing"
+      },
+      {
+        "model": "holmes_model3",
+        "requested_length": 39.0,
+        "native_length": 39.0,
+        "matched_reference_length": null,
+        "checkpoint": null,
+        "expected_sha256": null,
+        "actual_sha256": null,
+        "exists": false,
+        "sha256_verified": false,
+        "cells": null,
+        "status": "exact_basal_missing"
+      }
+    ],
+    "spring": [
+      {
+        "model": "spring",
+        "requested_length": 19.0,
+        "native_length": 1.2666666666666666,
+        "matched_reference_length": null,
+        "checkpoint": null,
+        "expected_sha256": null,
+        "actual_sha256": null,
+        "exists": false,
+        "sha256_verified": false,
+        "cells": null,
+        "status": "exact_basal_missing"
+      },
+      {
+        "model": "spring",
+        "requested_length": 23.0,
+        "native_length": 1.5333333333333334,
+        "matched_reference_length": null,
+        "checkpoint": null,
+        "expected_sha256": null,
+        "actual_sha256": null,
+        "exists": false,
+        "sha256_verified": false,
+        "cells": null,
+        "status": "exact_basal_missing"
+      },
+      {
+        "model": "spring",
+        "requested_length": 27.0,
+        "native_length": 1.8,
+        "checkpoint": "polarity1d/manuscript/data/establishment_basal/work/cases/case_3062/duration_0.checkpoint.npz",
+        "expected_sha256": "c564d4d81f4c49bf68ac4278c87d8929084a95ab19dc075acf5c2df8c8f526fa",
+        "actual_sha256": "c564d4d81f4c49bf68ac4278c87d8929084a95ab19dc075acf5c2df8c8f526fa",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 303,
+        "native_response_peak": 4.0,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "active": 1.8378690907669955,
+          "inactive": 1.94455,
+          "length": 1.8
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.12303993408971371,
+          "initial_contrast": 0.4995248151847418,
+          "boundary_method": null,
+          "center_boundary_motion": null
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 11,
+        "state": {
+          "encoding": "interleaved active/inactive followed by two raw endpoints",
+          "array": {
+            "shape": [
+              404
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.0,
+            "maximum": 1.8493649234010596,
+            "sha256_c_order_bytes": "8bdb704801a53af621ee92a34c6e8199771fdf2bd64d419fef27344d6731603d"
+          },
+          "active_slice": "state[:-2:2]",
+          "inactive_slice": "state[1:-2:2]",
+          "raw_endpoints": [
+            0.0,
+            1.8493649234010596
+          ]
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 0.7077533055434564,
+          "maximum": 1.2072781207281982,
+          "sha256_c_order_bytes": "e7ac5cadb76ba22befb69278b613a4ba53516ce416ab4e3db205d0e0f1b86304",
+          "field": "active",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "material endpoint nodes; checkpoint x uses resting length",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.0,
+            "maximum": 1.8,
+            "sha256_c_order_bytes": "3aa19d5a1a5728c04c9d882ae9526cd06d83e77483495f9d705ac3f6e160702e"
+          },
+          "checkpoint_x_first_last": [
+            0.0,
+            1.8
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.0,
+            1.8493649234010596
+          ],
+          "nominal_length": 1.8,
+          "initial_measure_length": 1.8493649234010596,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "initial physical trapezoidal weights; half weight at each endpoint",
+          "shape": [
+            201
+          ],
+          "sum": 1.8493649234010592,
+          "first": 0.004623412308502649,
+          "interior": 0.009246824617005298,
+          "last": 0.004623412308502649,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      },
+      {
+        "model": "spring",
+        "requested_length": 31.0,
+        "native_length": 2.066666666666667,
+        "matched_reference_length": null,
+        "checkpoint": null,
+        "expected_sha256": null,
+        "actual_sha256": null,
+        "exists": false,
+        "sha256_verified": false,
+        "cells": null,
+        "status": "exact_basal_missing"
+      },
+      {
+        "model": "spring",
+        "requested_length": 35.0,
+        "native_length": 2.3333333333333335,
+        "matched_reference_length": null,
+        "checkpoint": null,
+        "expected_sha256": null,
+        "actual_sha256": null,
+        "exists": false,
+        "sha256_verified": false,
+        "cells": null,
+        "status": "exact_basal_missing"
+      },
+      {
+        "model": "spring",
+        "requested_length": 39.0,
+        "native_length": 2.6,
+        "checkpoint": "polarity1d/manuscript/data/establishment_basal/work/cases/case_3230/duration_0p00101088928605.checkpoint.npz",
+        "expected_sha256": "945c4cae7a74b0dd9de136a7f9e39e2a4b8b2368a17e870f5c6e0c27437fe0cf",
+        "actual_sha256": "945c4cae7a74b0dd9de136a7f9e39e2a4b8b2368a17e870f5c6e0c27437fe0cf",
+        "exists": true,
+        "sha256_verified": true,
+        "cells": 201,
+        "status": "verified",
+        "source_case_index": 327,
+        "native_response_peak": 4.0,
+        "native_background": 0.0,
+        "fixed_scales": {
+          "active": 1.8518533773463606,
+          "inactive": 1.94455,
+          "length": 2.6
+        },
+        "existing_gates": {
+          "eligible": true,
+          "preparation_status": "polarized",
+          "preparation_condition": "relative_20pct",
+          "initial_orientation": -0.12792714090820492,
+          "initial_contrast": 0.4997052157375679,
+          "boundary_method": null,
+          "center_boundary_motion": null
+        },
+        "gate_scope": "retained preparation eligibility; new withdrawn field tails not evaluated",
+        "all_checkpoint_arrays_finite": true,
+        "checkpoint_arrays_checked": 11,
+        "state": {
+          "encoding": "interleaved active/inactive followed by two raw endpoints",
+          "array": {
+            "shape": [
+              404
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.0,
+            "maximum": 2.6493676860405517,
+            "sha256_c_order_bytes": "aaf8de2d4417b1ca63a840174e107e0cf3df6df4725d8a793edfca566b5c4283"
+          },
+          "active_slice": "state[:-2:2]",
+          "inactive_slice": "state[1:-2:2]",
+          "raw_endpoints": [
+            0.0,
+            2.6493676860405517
+          ]
+        },
+        "active": {
+          "shape": [
+            201
+          ],
+          "dtype": "float64",
+          "finite": true,
+          "minimum": 0.7077532656342131,
+          "maximum": 1.207458481371781,
+          "sha256_c_order_bytes": "2c6fe07a777299ed655966d98257c84901b3cfbe87903e6a2e5264e48fa35851",
+          "field": "active",
+          "checkpoint_field_matches_state": true
+        },
+        "coordinates": {
+          "system": "material endpoint nodes; checkpoint x uses resting length",
+          "checkpoint_x": {
+            "shape": [
+              201
+            ],
+            "dtype": "float64",
+            "finite": true,
+            "minimum": 0.0,
+            "maximum": 2.6,
+            "sha256_c_order_bytes": "41521769d51a0ed98bccb1f430fd379127d0f15158e3afc67ad254dbf38993dd"
+          },
+          "checkpoint_x_first_last": [
+            0.0,
+            2.6
+          ],
+          "initial_measure_coordinates_first_last": [
+            0.0,
+            2.6493676860405517
+          ],
+          "nominal_length": 2.6,
+          "initial_measure_length": 2.6493676860405517,
+          "source_convention": "revision_five_model_compensation_20261019.regions"
+        },
+        "weights": {
+          "rule": "initial physical trapezoidal weights; half weight at each endpoint",
+          "shape": [
+            201
+          ],
+          "sum": 2.6493676860405517,
+          "first": 0.00662341921510138,
+          "interior": 0.01324683843020276,
+          "last": 0.00662341921510138,
+          "role": "existing initial integration measure; no challenger zone selected"
+        }
+      }
+    ]
+  },
+  "available_exact_lengths": {
+    "wave_pinning": [
+      5.0,
+      7.0,
+      9.0,
+      11.0,
+      12.0,
+      13.0,
+      15.0,
+      17.0,
+      18.0,
+      19.0,
+      21.0,
+      23.0,
+      25.0,
+      27.0,
+      29.0,
+      31.0,
+      33.0,
+      35.0,
+      37.0,
+      39.0
+    ],
+    "goryachev": [
+      3.0,
+      5.0,
+      7.0,
+      9.0,
+      11.0,
+      12.0,
+      13.0,
+      15.0,
+      17.0,
+      18.0,
+      19.0,
+      21.0,
+      23.0,
+      25.0,
+      27.0,
+      29.0,
+      31.0,
+      33.0,
+      35.0,
+      37.0,
+      39.0
+    ],
+    "debelly": [
+      18.0,
+      19.0,
+      21.0,
+      23.0,
+      25.0,
+      27.0,
+      29.0,
+      31.0,
+      33.0,
+      35.0,
+      37.0,
+      39.0
+    ],
+    "holmes_model3": [
+      10.0,
+      12.0,
+      14.0,
+      15.0,
+      16.0,
+      18.0,
+      20.0,
+      22.0,
+      24.0,
+      25.0,
+      26.0,
+      28.0,
+      30.0,
+      32.0,
+      34.0,
+      36.0,
+      38.0,
+      40.0,
+      42.0,
+      44.0,
+      46.0,
+      48.0,
+      50.0
+    ],
+    "spring": [
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0,
+      1.1,
+      1.2,
+      1.3,
+      1.4,
+      1.5,
+      1.6,
+      1.7,
+      1.8,
+      1.9,
+      2.0,
+      2.1,
+      2.2,
+      2.3,
+      2.4,
+      2.5,
+      2.6
+    ]
+  },
+  "verified_basal_count": 22,
+  "missing_requests": [
+    {
+      "model": "holmes_model3",
+      "requested_length": 19.0,
+      "native_length": 19.0,
+      "matched_reference_length": null,
+      "checkpoint": null,
+      "expected_sha256": null,
+      "actual_sha256": null,
+      "exists": false,
+      "sha256_verified": false,
+      "cells": null,
+      "status": "exact_basal_missing"
+    },
+    {
+      "model": "holmes_model3",
+      "requested_length": 23.0,
+      "native_length": 23.0,
+      "matched_reference_length": null,
+      "checkpoint": null,
+      "expected_sha256": null,
+      "actual_sha256": null,
+      "exists": false,
+      "sha256_verified": false,
+      "cells": null,
+      "status": "exact_basal_missing"
+    },
+    {
+      "model": "holmes_model3",
+      "requested_length": 27.0,
+      "native_length": 27.0,
+      "matched_reference_length": null,
+      "checkpoint": null,
+      "expected_sha256": null,
+      "actual_sha256": null,
+      "exists": false,
+      "sha256_verified": false,
+      "cells": null,
+      "status": "exact_basal_missing"
+    },
+    {
+      "model": "holmes_model3",
+      "requested_length": 31.0,
+      "native_length": 31.0,
+      "matched_reference_length": null,
+      "checkpoint": null,
+      "expected_sha256": null,
+      "actual_sha256": null,
+      "exists": false,
+      "sha256_verified": false,
+      "cells": null,
+      "status": "exact_basal_missing"
+    },
+    {
+      "model": "holmes_model3",
+      "requested_length": 35.0,
+      "native_length": 35.0,
+      "matched_reference_length": null,
+      "checkpoint": null,
+      "expected_sha256": null,
+      "actual_sha256": null,
+      "exists": false,
+      "sha256_verified": false,
+      "cells": null,
+      "status": "exact_basal_missing"
+    },
+    {
+      "model": "holmes_model3",
+      "requested_length": 39.0,
+      "native_length": 39.0,
+      "matched_reference_length": null,
+      "checkpoint": null,
+      "expected_sha256": null,
+      "actual_sha256": null,
+      "exists": false,
+      "sha256_verified": false,
+      "cells": null,
+      "status": "exact_basal_missing"
+    },
+    {
+      "model": "spring",
+      "requested_length": 19.0,
+      "native_length": 1.2666666666666666,
+      "matched_reference_length": null,
+      "checkpoint": null,
+      "expected_sha256": null,
+      "actual_sha256": null,
+      "exists": false,
+      "sha256_verified": false,
+      "cells": null,
+      "status": "exact_basal_missing"
+    },
+    {
+      "model": "spring",
+      "requested_length": 23.0,
+      "native_length": 1.5333333333333334,
+      "matched_reference_length": null,
+      "checkpoint": null,
+      "expected_sha256": null,
+      "actual_sha256": null,
+      "exists": false,
+      "sha256_verified": false,
+      "cells": null,
+      "status": "exact_basal_missing"
+    },
+    {
+      "model": "spring",
+      "requested_length": 31.0,
+      "native_length": 2.066666666666667,
+      "matched_reference_length": null,
+      "checkpoint": null,
+      "expected_sha256": null,
+      "actual_sha256": null,
+      "exists": false,
+      "sha256_verified": false,
+      "cells": null,
+      "status": "exact_basal_missing"
+    },
+    {
+      "model": "spring",
+      "requested_length": 35.0,
+      "native_length": 2.3333333333333335,
+      "matched_reference_length": null,
+      "checkpoint": null,
+      "expected_sha256": null,
+      "actual_sha256": null,
+      "exists": false,
+      "sha256_verified": false,
+      "cells": null,
+      "status": "exact_basal_missing"
+    }
+  ],
+  "blockers": [
+    "Requested exact Holmes lengths have no retained qualifying basals; fresh preparation is required.",
+    "Spring exact mapped resting-length basals need fresh preparation."
+  ],
+  "source_manifest": {
+    "path": "polarity1d/manuscript/data/runs/debelly_corrected_three_test_20261008/manifest.json",
+    "expected_sha256": "0b7271bbb7b65e3107c86fee4b52da8c7c33bff9a1c6b93fe7d99fd6cbcdfdde",
+    "actual_sha256": "0b7271bbb7b65e3107c86fee4b52da8c7c33bff9a1c6b93fe7d99fd6cbcdfdde",
+    "sha256_verified": true,
+    "terminal_complete": true,
+    "independent_validation_passed": true,
+    "independent_audit_sha256_verified": true
+  },
+  "source_hashes": {
+    "polarity1d/manuscript/data/runs/debelly_corrected_three_test_20261008/manifest.json": "0b7271bbb7b65e3107c86fee4b52da8c7c33bff9a1c6b93fe7d99fd6cbcdfdde",
+    "polarity1d/manuscript/data/runs/debelly_corrected_three_test_20261008/provenance.json": "5fe9e82e3d76ff68890b188830d95365ed27a8b5239a03b63c55d080f27586ac",
+    "polarity1d/manuscript/data/runs/debelly_corrected_three_test_20261008/results/status.json": "7d84bfa861e24e4c9bdfdb2ed59d02ea6e71673110c71e8188bd9482669b096b",
+    "polarity1d/manuscript/data/runs/debelly_corrected_three_test_20261008/results/validation.json": "21ef634dd6da854d352d8ab6955b0ee5484b3d46a31694c8cfd6af59bb360be1",
+    "polarity1d/manuscript/data/runs/debelly_corrected_three_test_20261008/results/independent_audit.json": "4c85e842d95f3e00fedd9b6d3e8e6b0d1fa466b8b718f0c71f2f46546e6d73a7",
+    "polarity1d/manuscript/code/core/native.py": "f94a71a1bff6eba0be19d00a0f498bf6eb7994645cb85323c42c60bb7084c8a4",
+    "polarity1d/manuscript/code/core/polarity_establishment.py": "1e5834d0127c31e185af4de14d2bea1789081ac43ff9530e0ee357d2c310d429",
+    "polarity1d/manuscript/code/mechanisms/revision_five_model_compensation_20261019.py": "55ce9b9737f619cb6cedefc39ac74f3287b83e7a63483a3529c61dd6e93c3738",
+    "polarity1d/manuscript/code/mechanisms/signature_native_preflight_20261020.py": "5076f43cc40490d05d0c102654b1c6ff7d9d64c09a47ed69166a1f6af790671c"
+  },
+  "retained_tail_gate_context": {
+    "recovery_horizon": 10000.0,
+    "sample_interval": 2.5,
+    "gate_window": 500.0,
+    "new_assay_fate_definition": null,
+    "new_assay_field_tail_evaluated": false,
+    "note": "Preparation eligibility, scalar fate and native full-field tail gates remain separate."
+  },
+  "existing_cue_geometry": {
+    "source": "polarity1d/manuscript/code/core/polarity_establishment.py:41",
+    "shape": "right-boundary half-cosine on distance d in [0,w]",
+    "signal_above_background": "a * (1 + cos(pi*d/w)) / 2",
+    "continuum_integral_if_0_lt_w_le_L": "a*w/2",
+    "sampled_integral": "sum(signal_above_background * model_native_weights)",
+    "new_brief_area_convention": null,
+    "warning": "Brief's native peak times3.8 area may use another cue convention. No shape or factor-of-two conversion has been assumed; domain clipping and discrete integration also matter."
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "generated_utc": "2026-10-20T22:10:27.933807+00:00",
+  "stage": "E4",
+  "status": "prospective_held_until_all_E1_E2_native_conditions_and_audits",
+  "native_integrations": 0,
+  "resources": {
+    "cpus": 1,
+    "qos": "small",
+    "memory": "8G",
+    "walltime": "08:00:00",
+    "native_soft_deadline_seconds": 28000
+  },
+  "resource_evidence": {
+    "largest_measured_baseline_spring_sigma2_wall_seconds": 2418.4471785072237,
+    "baseline4x_naive_seconds": 9673.788714028895,
+    "largest_measured_baseline_native_peak_MiB": 568.78125,
+    "baseline4x_naive_peak_MiB": 2275.125,
+    "measured_existing_selected_spring_sigma1_max_seconds": 2439.080312397331,
+    "noise_constructor": "Chemical generates fine coupling white/innovations/OU arrays before the declared-knot copy; max native grid1200 cells and horizon128000. Spring max300 cells/horizon12800 with knot/coupling.125. Memory reservation includes these simultaneous temporary arrays and dense native profile export.",
+    "output_raw_primary_plus_fullstate_bytes": 108989096024,
+    "output_estimate_scope": "Uncompressed primary/inactive profile and coupled-state payload only; allocated storage depends on compression and includes additional scalar/pattern/receipt files. Measured storage will supersede this estimate."
+  },
+  "initial_actual_production_tasks": [
+    {
+      "model": "wave_pinning",
+      "size": 60.0,
+      "fraction": 0.01,
+      "planned_grid_slots": [
+        612,
+        675,
+        687
+      ],
+      "selection": "Largest size, strongest literal-triggered f, first retained seed. Same-horizon matched mean and zero controls. Production manifest will bind exact seed identities."
+    },
+    {
+      "model": "goryachev",
+      "size": 60.0,
+      "fraction": 0.02,
+      "planned_grid_slots": [
+        204,
+        641,
+        678
+      ],
+      "selection": "Largest size, strongest literal-triggered f, first retained seed. Same-horizon matched mean and zero controls. Production manifest will bind exact seed identities."
+    },
+    {
+      "model": "holmes_model3",
+      "size": 60.0,
+      "fraction": 0.003,
+      "planned_grid_slots": [
+        348,
+        653,
+        681
+      ],
+      "selection": "Largest size, strongest literal-triggered f, first retained seed. Same-horizon matched mean and zero controls. Production manifest will bind exact seed identities."
+    },
+    {
+      "model": "spring_ring",
+      "size": 3.0,
+      "fraction": 0.001,
+      "planned_grid_slots": [
+        444,
+        661,
+        684
+      ],
+      "selection": "Largest size, strongest literal-triggered f, first retained seed. Same-horizon matched mean and zero controls. Production manifest will bind exact seed identities."
+    }
+  ],
+  "successful_initial_tasks_retained_in_full_coverage": true,
+  "full_planned_native_workers": 688,
+  "noisy": 624,
+  "means": 52,
+  "zeros": 12,
+  "original_seed_continuations": 374,
+  "new_independent_topups": 250,
+  "no_frozen_manifest_mutation": true,
+  "no_clipping_or_pathwise_normalization": true
+}

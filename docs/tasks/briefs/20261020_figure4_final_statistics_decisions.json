@@ -1,0 +1,71 @@
+{
+  "status": "frozen_before_future_response_outcomes_or_correlations",
+  "authority": "Root review on 20 October 2026 of final-statistics, E4 and window interpretations; subsequent implementation may not change these rules after outcomes are loaded.",
+  "scope": "A1-A4/A7 final hypothesis and coverage evaluation; root owns A5 measurement and the A6 owner supplies independently gated predictor results.",
+  "confidence_level": 0.95,
+  "bootstrap": {
+    "resamples": 2000,
+    "unit": "Whole independent seed; all measurements from one seed retain their joint bootstrap weight.",
+    "sizes_and_models": "Independent seed resampling across sizes and models unless exact paired identities are explicitly present.",
+    "E1": "Identical whole-seed weights across exact latent-Gaussian sigma pairs.",
+    "frames": "Time frames contribute a seed-level time average or distribution, never independent uncertainty replicates."
+  },
+  "coverage": {
+    "minimum_endpoint_pair_fraction": 0.5,
+    "evaluable": "Both compared sizes have empirical persistence resolved or bounded, and coverage at the crossing bracket or censoring lag is at least0.5.",
+    "undefined_heading": "Low contrast or missing heading coverage does not invent a finite persistence upper bound. Strong-input persistence criterion stays inconclusive.",
+    "missing_work": "Missing expected conditions, failed native/control/source gates and unavailable observation arms are not censoring."
+  },
+  "forced": {
+    "primary": "Exclude a comparison if either relevant size is forced under the separately retained matched-mean and reviewed additional E1 flags. Required but missing flags leave primary qualification unavailable.",
+    "sensitivity": "Report forced-inclusive decisions alongside primary decisions.",
+    "E1_rule_authority": "docs/tasks/briefs/20261020_figure4_e1_forced_rule.json",
+    "untested_E1_strengths": "Additional E1 flag is not applicable outside its preselected fixed-mean grid; matched-mean flag remains required."
+  },
+  "H1": {
+    "model": "Persistence-ratio95% CI lies strictly above1 at every evaluable input, no evaluable ratio CI lies below1, and largest-cell fhalf CI lies above and does not overlap the smallest-cell fhalf CI.",
+    "overall": "At least3 of4 models pass all required model criteria.",
+    "weak_baseline": "The actual weakest noisy input0.0001 remains the tolerance baseline. Censored/unavailable baselines stay bounded/inconclusive, never replaced by a stronger input.",
+    "no_vacuous_pass": "No evaluable input gives an inconclusive gain criterion. An unidentified ratio[0,infinity] cannot establish a gain."
+  },
+  "H2": {
+    "model": "Either an evaluable persistence-ratio CI lies strictly below1; or the ratio drops at least2fold from an earlier peak to a later CI including1 while large-cell multiple-front fraction is strictly above0.5 at every designed input over that qualified range.",
+    "peak_drop": "Use resolved point ratios, or a drop certified by finite observation bounds. Report bootstrap uncertainty; do not impose an additional unrequested drop-CI threshold.",
+    "overall": "At least2 models meet the model criterion AND the frozen A6 primary direct-tau predictor gate passes.",
+    "A6_authority": "docs/tasks/briefs/20261020_figure4_a6_decisions.json",
+    "A6_gate": "At least one predeclared primary predictor (multiple_front_fraction or region_count_mean) has pooled Spearman<=-0.6 and successful negative training and held-out associations in at least3 of4 planned model folds. Missing folds are not successes. Proxies and exploratory features cannot rescue this gate.",
+    "E0_Holmes": "The E0 main-view provisional peak-drop result cannot be promoted without the final common/long/window qualifications."
+  },
+  "H3": {
+    "strong_input": "At largest size, an observed f greater than the weakest input meets tauStrong_upper <0.5*tauWeak_lower, using empirical observation bounds. Required coverage and forced qualifications apply.",
+    "uncertainty_qualifier": "Also report the same inequality using95% whole-seed CI bounds. This is a visible uncertainty qualifier, not a hidden extra hard gate.",
+    "model_mode": "The strong-input largest-cell A4 majority is multiple_fronts or low_contrast. Evaluate every designed input and retain all qualifying/nonqualifying rows.",
+    "distinct_modes": "Overall requires different abnormal modes in at least two different models. Two modes within one model do not suffice.",
+    "E1_corroboration": "At identical f/C, the sigma-one abnormal majority occurs at at least one other observed positive sigma from the complete predeclared grid{0.25,0.5,2}. Evaluate this explicit existence rule over all three sigmas and report each; no selected best-sigma display. Primary corroboration must be non-forced under the reviewed flags.",
+    "fingerprints": "Both region-count and basal-normalized-contrast fingerprints separate the distinct-mode model pair through non-overlapping95% whole-seed bootstrap CIs of dimensionless within-model largest/smallest effects.",
+    "fingerprint_seed_summaries": "Each seed contributes a time-weighted mean observed optical region count and time-weighted mean optical contrast divided by that exact optically processed basal contrast, using the root-approved common imaging cadence/kernel/contour. Retain seed-level distributions as supporting data.",
+    "zero_denominators": "Unavailable; no pseudocount, dropped bootstrap draw or artificial finite size effect.",
+    "cross_model": "Only dimensionless within-model size effects enter cross-model comparisons; no cross-model native times or physical scales."
+  },
+  "arms": {
+    "common": "E2-augmented-E0 metrics at original sizes plus only genuinely new E3 sizes(C30/C50; Spring1.5/2.5), all at the original horizon. All E3 references remain checks; do not duplicate them or lose the E2 dense input grid.",
+    "longest": "A separate predeclared longest-qualified-arm decision table. Every one of the52 selected E4 conditions uses its completed long arm regardless of response; unselected conditions retain their sole common arm with that reason explicit.",
+    "qualification": "Exact source/control/native gates, exact Gaussian prefix and declared ODE-equivalence full scalar/profile/coupled-state prefix checks for available original seeds. New outer-grid seeds are explicit top-ups.",
+    "prefix_rule_authority": "docs/tasks/briefs/20261020_figure4_E4_prefix_equivalence_rule.json",
+    "prefix_tolerance": {"relative": 2e-7, "absolute": 2e-9, "grids": "exact", "field_interpolation": false},
+    "no_pooling": "No mixture of short and long time tracks within an estimator; no silent fallback when a preselected E4 arm or required gate is missing/failed. A completed long arm with undefined tau remains undefined.",
+    "new_and_old_seeds": "Report original-prefix and top-up populations; all12-seed long-arm results plus exact available original-seed sensitivity are retained.",
+    "observation_time": "Keep actual observation horizon, first-half discard, physical analysis windows and total forcing time visible."
+  },
+  "A7": {
+    "views": ["main", "analysis_first_half", "analysis_second_half", "late_quarter", "cadence_x2", "cadence_x4", "cadence_x8"],
+    "window_pairs": [["analysis_first_half", "analysis_second_half"], ["main", "late_quarter"]],
+    "incompatibility": "Disjoint95% empirical persistence intervals, including censoring bounds, or any A4 label change including loss of a majority to mixed, marks window_sensitive. Missing required views or coverage yields window_qualification_inconclusive.",
+    "mobility": "Dtheta CI incompatibility is reported separately; it cannot replace empirical persistence.",
+    "horizon": "Use the same interval/label comparison between common and long arms; incompatible results are horizon_sensitive. Keep early/late and original-prefix checks.",
+    "robust_support": "Distinguish robust-common+long support from qualified long-horizon-only support. Common-horizon inconclusiveness caused solely by censoring is not contrary evidence and cannot automatically veto otherwise qualified long-arm support.",
+    "unqualified_headline": "Requires support in both common and long tables where evaluable, with compatible evaluable windows/cadences. Missing checks cannot be counted as passes.",
+    "long_only": "A criterion newly established by E4 while the common arm was only censored is explicitly long-horizon-qualified, not rejected merely because E0 fhalf was unavailable.",
+    "no_hidden_gate": "Actual framing follows the complete criterion table, coverage and sensitivity labels; no further implicit hard gate is added."
+  }
+}

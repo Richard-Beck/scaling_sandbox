@@ -1,0 +1,142 @@
+{
+  "generated_utc": "2026-10-21T02:31:34.346809+00:00",
+  "approved_for_candidate_framing": true,
+  "no_clean_mapping": true,
+  "framing": "A size advantage in heading persistence can coexist with multiple active regions.",
+  "producer_complete_sha256": "1b2849b67642b2f7767e80b2de1fa115113368a10982d42ecc760089fe0bd339",
+  "independent_final_decision_audit_sha256": "148e3fffe758e09ef1963aa327516a953015ba93b8a30ad15ad757412ffde5f5",
+  "framing_selection": {
+    "path": "docs/tasks/briefs/20261020_figure4_framing_selection.json",
+    "sha256": "42cde0d1fa956dea311802f91587342e0681226059c797f7a622a4ea661ae77d"
+  },
+  "overall_interpretation": "H1 is inconclusive, H2 fails the declared overall gate and H3 is inconclusive in both arms and all seven views, with forced states shown separately. No model satisfies all H1 requirements (three required); only Holmes meets the main H2 model criterion (two required). The multiple-region predictor has Spearman+0.091 and0/4 successful sign folds; count has−0.389 and3/4, with one unavailable fold each. Neither reaches the required negative association magnitude0.6. No eligible distinct H3 mode pair satisfies the complete corroboration/fingerprint conjunction. The chosen main figure instead reports the robust f=0.05 observation in Wave-pinning, Holmes and Spring, with the full four-model overview alongside it. This is a conditional polarity result, not support for universal noise buffering or a validated multiplicity predictor.",
+  "retained_qualifications": "Finite-window bounds, unavailable comparisons and unbounded intervals remain explicit. Across all185 conditions, each arm has156 passing,17 failing and12 inconclusive descriptive window checks. For the52 preselected extended conditions, each view has50 passing and2 inconclusive horizon checks; the original-cohort check has the same counts. These are sensitivity qualifications, not additional hypothesis gates or equivalence proofs. At the selected input, all three-model size-ratio CIs remain above1 in all seven views; selected endpoint persistence/regime window checks pass. Native regimes and fixed-physical smoothed/downsampled imaging proxies stay distinct. Global-heading physical mobility is a proxy, literal single-region site MSD is separate, and neither establishes cell migration. Historical Spring sampling failures and original/repaired/E4 Gaussian-lineage accounting remain in the supplement.",
+  "model_summaries": [
+    {
+      "model": "wave_pinning",
+      "pattern": "At f=0.05, the large/small heading-persistence ratio is4.44 (95%CI3.20–9.07). The primary optical large-cell multiple-region time fraction is60.1% (51.1–69.3%), versus3.4% in small cells. Size-dependent heading persistence therefore coexists with multiple observed regions.",
+      "numeric_shortfalls": "H1 has5 supported gains among11 evaluable inputs, but no complete model pass. Its f½ CIs overlap: common small[0.0001,0.03], large[0.0001,0.1]; longest small[0.0001,0.02], large[0.0001,0.05]. H2 has no qualified reversal/drop range. H3 shows the multiple-region class, without a qualified distinct second class.",
+      "qualifications": "The f=0.05 size advantage survives all seven views and both arms. Late-quarter persistence is bounded, with an unbounded CI endpoint. Its direct geometry-normalized persistence CI includes1; the global-heading physical-mobility proxy increases and is a separate short-lag estimand.",
+      "criterion_refs": [
+        {
+          "arm": "common",
+          "view": "main",
+          "forced_inclusive": false,
+          "model": "wave_pinning",
+          "criterion": "H1_model",
+          "status": "inconclusive"
+        },
+        {
+          "arm": "common",
+          "view": "main",
+          "forced_inclusive": false,
+          "model": "wave_pinning",
+          "criterion": "H2_model",
+          "status": "inconclusive"
+        }
+      ]
+    },
+    {
+      "model": "goryachev",
+      "pattern": "Non-forced weak-input heading persistence remains censored. At f=0.05 the large-cell native low-contrast fraction is90.0%, while usable-pair coverage for persistence is0.131, below0.5. Those observations stay visible, with the operational forced-state flag.",
+      "numeric_shortfalls": "H1 has0 supported direct-ratio gains among5 evaluable non-forced inputs and unbounded overlapping f½ CIs. H2 has no qualifying non-forced range. Goryachev supplies the candidate contrast-loss class for H3, but forcing/coverage qualification and the full distinct-class fingerprint conjunction do not pass.",
+      "qualifications": "Forced-inclusive results remain separate. A numerical ratio computed from the remaining valid pairs does not establish an eligible persistent heading. The unmatched f=0.015 designed endpoint and its missing comparison remain explicit.",
+      "criterion_refs": [
+        {
+          "arm": "common",
+          "view": "main",
+          "forced_inclusive": false,
+          "model": "goryachev",
+          "criterion": "H1_model",
+          "status": "inconclusive"
+        },
+        {
+          "arm": "common",
+          "view": "main",
+          "forced_inclusive": false,
+          "model": "goryachev",
+          "criterion": "H2_model",
+          "status": "inconclusive"
+        }
+      ]
+    },
+    {
+      "model": "holmes_model3",
+      "pattern": "At f=0.05 the heading-persistence ratio is2.74 (95%CI2.20–3.47); the primary optical large-cell multiple-region fraction is83.0% (79.5–85.9%), versus9.8% in small cells. The same multiple-region class appears under strong input.",
+      "numeric_shortfalls": "H1 has4 supported gains among11 evaluable inputs; f½ CIs overlap (common small[0.0001,0.02], large[0.0001,0.03]; longest both[0.0001,0.02]). H2 passes for this model in main:2.228-fold drop from f=0.03 to0.3. Overall requires at least2 models, and the primary count predictor rho=−0.389 falls short of−0.6 by0.211.",
+      "qualifications": "The conditional H2 model result becomes inconclusive in the second-half and late-quarter views. The f=0.05 size advantage itself survives all seven views; its late-quarter upper bound is unbounded. This distinction remains visible rather than redefining the hypothesis after the window checks.",
+      "criterion_refs": [
+        {
+          "arm": "common",
+          "view": "main",
+          "forced_inclusive": false,
+          "model": "holmes_model3",
+          "criterion": "H1_model",
+          "status": "inconclusive"
+        },
+        {
+          "arm": "common",
+          "view": "main",
+          "forced_inclusive": false,
+          "model": "holmes_model3",
+          "criterion": "H2_model",
+          "status": "pass"
+        }
+      ]
+    },
+    {
+      "model": "spring_ring",
+      "pattern": "At f=0.05 the persistence ratio is1.167 (95%CI1.093–1.251), while the primary optical large-cell multiple-region fraction is53.0% (50.4–55.3%), versus0.08% in small cells. The count increase is therefore compatible with a modest positive heading-persistence size effect.",
+      "numeric_shortfalls": "H1 has7 supported gains among10 evaluable inputs, with overlapping f½ CIs: small[0.0001,0.003], large[0.0001,0.01]. The f=1 reversal, ratio0.877 (0.785–0.976), is operationally forced and cannot support the non-forced H2 call. H3 corroborates the same multiple-region class, not an eligible distinct second class.",
+      "qualifications": "Use the measured changing circumference: the actual geometric ratio at f=0.05 is8.534, rather than the resting-size reference9. Historical sampled-duration/cadence failures remain explicit; successful native replay does not establish all region-lifetime or duration convergence.",
+      "criterion_refs": [
+        {
+          "arm": "common",
+          "view": "main",
+          "forced_inclusive": false,
+          "model": "spring_ring",
+          "criterion": "H1_model",
+          "status": "inconclusive"
+        },
+        {
+          "arm": "common",
+          "view": "main",
+          "forced_inclusive": false,
+          "model": "spring_ring",
+          "criterion": "H2_model",
+          "status": "inconclusive"
+        }
+      ]
+    }
+  ],
+  "alternative_framings": [
+    {
+      "framing": "Persistence and global-heading mobility respond differently to enlargement.",
+      "supporting_panels": "S4/S5 geometry and mobility, S12 cadence checks, and the same f=0.05 small/large native comparisons. At that input, global-heading-derived physical-mobility ratios are1.845,3.606 and6.356 in Wave-pinning, Holmes and Spring, each withCI above1, alongside persistence ratios above1.",
+      "weaknesses": "The global-heading conversion is not one tracked site diffusivity. Short-lag slopes are cadence-sensitive; Wave-pinning direct excess-persistence CI includes the geometric reference, so the two source estimands cannot be collapsed into a strict common geometric claim.",
+      "further_runs": "Save finer scalar output and test converged short-lag slopes at the same fixed inputs; extend qualified single-region tracks to compare literal site MSD with the heading-derived proxy. No new integrations are included in this delivery."
+    },
+    {
+      "framing": "Model-dependent loss of a single persistent polarity pattern.",
+      "supporting_panels": "Full S2 regime/coverage maps, S7 fixed-mean sigma sweeps, S9 optical fingerprints and S0 H3 component/pair tables; the all-model main overview can lead this framing.",
+      "weaknesses": "Only the multiple-region class is qualified and corroborated across the eligible models. Goryachev contrast loss is forced/undercovered, and no distinct eligible pair passes the full fingerprint test. A descriptive difference cannot be promoted to a confirmed mechanism-specific failure law.",
+      "further_runs": "Sample additional fixed-mean Goryachev transition inputs with mean controls and sigma contrasts to seek an abnormal state with adequate heading coverage, then predeclare and retest the distinct-class fingerprints. Longer weak-input runs would also tighten the currently overlapping noise-tolerance bounds."
+    }
+  ],
+  "scientific_sources": {
+    "criteria.csv": "e8e44c61c642274880e0740999739ed01160343991a6e50abbef9d72f499d6bd",
+    "condition_metrics.csv": "8908c54fa2cd02a00e9a6ad9b905b6fb6b907bf414cce21b9e26604117b2d38d",
+    "size_ratios.csv": "deded32f96ff334a9106607c3d2a531d882697766da5c3d7d118d2bf2e885ea4",
+    "noise_tolerance.csv": "322ff4cf0624b79a477ff796f934652c734c7efb2714d9e706d4f99e3adef967",
+    "strong_input_candidates.csv": "9ac894ea52a7594ec2a30cea5fb5fe8a61a93d9f81e7f7db577dc2e1f649cf75",
+    "fingerprint_effects.csv": "dfea052f199407ced161db4cf2d593a097a08ffa704a58d7783232fd3eca8ba8",
+    "window_qualification.csv": "39a401246aad44e327cf792808bdf526ac317b2feec9d037f45f4820e377c3cd",
+    "horizon_qualification.csv": "a6d7858f7e8c7762c35f2b84665703ab8cdc1708ac4d401e99be03ed55b9a51e",
+    "original_seed_sensitivity.csv": "679a950b1d2f2e539e5ad89c7ac7c84f3362973cd15825054389c5144db33d0e"
+  },
+  "numeric_review_draft": {
+    "path": "polarity1d/manuscript/data/runs/signature_figure4_final_statistics_20261020/results/final_numeric_review_UNAPPROVED_20261020.json",
+    "sha256": "a93c40cfa3d1cbff006f20824c132d4dbdd6564b9ac5883f86e1d4d826d8ce33"
+  },
+  "whole_main_candidate_review_pending": true
+}

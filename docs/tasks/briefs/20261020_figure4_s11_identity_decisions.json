@@ -1,0 +1,53 @@
+{
+  "status": "predeclared_before_future_identity_binding_and_feature_selection",
+  "frozen_utc": "2026-10-20T22:33:02.680327+00:00",
+  "logical_coverage_sha256": "1b22d650de4e776cc6bbd3424c8a7fe54a015e0a4df10a093a301a3d7ebef2cd",
+  "physical_run_ID": {
+    "includes": [
+      "model",
+      "complete initial native state",
+      "complete initial geometry",
+      "forcing-law identity",
+      "forcing sigma",
+      "effective stochastic seed",
+      "native horizon"
+    ],
+    "excludes": [
+      "observation/profile cadence",
+      "origin/stage labels",
+      "NPZ container metadata",
+      "file location"
+    ],
+    "state": "Use every native state species/variable and geometry quantity required to restart the exact model. Activity alone is insufficient. Inactive pools and Spring geometry/rest-state variables remain included.",
+    "container_hashes": "When checkpoint NPZ container hashes differ, compute and compare actual fullstate/geometry arrays with an explicit model-native state schema; container inequality alone is not physical inequality. Preserve both original container hashes and the verified numeric identity.",
+    "independence": "Never merge different effective stochastic seeds or forcing laws merely because active fields, scalar summaries or initial active profiles match.",
+    "controls": "Deterministic mean/zero controls retain source dummy seeds as provenance, but effective stochastic seed is absent and stochastic independent-seed/bootstrap counts are zero."
+  },
+  "latent_Gaussian_cohort_ID": {
+    "purpose": "Preserve paired Gaussian driving paths across E1 sigma arms.",
+    "includes": "Declared paired latent-path family, model/geometry/condition context, native horizon and seed/path identity with actual Gaussian-knot hashes or exact native proof.",
+    "sigma": "Sigma branches remain distinct physical runs but share their declared latent Gaussian cohort. Do not count those branches as extra independent latent seed blocks.",
+    "no_guessing": "An equal integer seed or equal activity arrays alone cannot prove a shared latent cohort."
+  },
+  "E4_prefix_and_topup_relation": {
+    "purpose": "Separate the physical long run from its original-prefix relation and new independent top-up status.",
+    "preserve": [
+      "retained_prefix declaration and exact prefix audit",
+      "original physical run/cohort reference when verified",
+      "new_gaussian_path declaration",
+      "independent_noise_seed/top-up status",
+      "native source hashes"
+    ],
+    "horizon": "A different horizon is a different physical-run ID. Shared-prefix/continuation dependence is represented explicitly, never hidden by merging run IDs.",
+    "counts": "Report physical runs, observed histories and unique latent seed/cohort lineages separately. A longer view of a retained trajectory is not an extra independent seed."
+  },
+  "selection": "Use the canonical physical-run ID for stable medoid ties and deterministic random hashes within each frozen context/condition. Retain source observation IDs and exact canonical mappings on every page.",
+  "timing": "Freeze the exact canonical case-ID/fullstate/latent/prefix map and its input hashes before loading future selection features. No new native integration is needed.",
+  "missing_or_ambiguous_identity": "Fail the preselection identity gate and report the unresolved declaration; do not infer independence from active-field similarity.",
+  "future_features_loaded": false,
+  "required_contexts_unchanged": [
+    "common",
+    "E1_extra",
+    "E4_long"
+  ]
+}

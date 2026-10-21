@@ -1,0 +1,530 @@
+{
+  "updated_utc": "2026-10-21T03:53:46.183207+00:00",
+  "objective": "Revise figures from supplied briefs, integrate completed revisions into manuscript outline, then commit and push scoped changes.",
+  "goal_restored": true,
+  "test_observation": {
+    "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 /home/4473331/.conda/envs/scaling_sandbox/bin/python -B -m pytest -q polarity1d/manuscript/code/tests/test_signature*20261020.py",
+    "result": "416 passed, 8 subtests passed in19.63s",
+    "scope": "Unit, fixture and analytic checks. Completed native and export audits are recorded separately.",
+    "receipt": "docs/tasks/briefs/20261020_revision_final_test_check.json"
+  },
+  "figure2": {
+    "brief": "docs/tasks/briefs/20261020_figure2_signature_assays.txt",
+    "decisions": "docs/tasks/briefs/20261020_figure2_decisions.json",
+    "requirements": "docs/tasks/briefs/20261020_figure2_requirements.json",
+    "native_execution": "All450widths,1458definedtrains,486bounded-noiseconditions and fullS4/S5 complete and independently audited.162largest-Holmes train conditions unavailable due calibration. Finalmain/82pagesupplement reviewed/exported with stated numerical qualifications.",
+    "calibration_exception": "IndependentStage0 audit36/36 calibration workers and528 trialevaluations passed, retaining133 failed field tails separate fromfate. H27 extendedtau18125 ready; H31/35/39 no sampledcommit through100k ON.",
+    "status": "complete; independently reviewed final main and82-page supplement exported and identities rechecked",
+    "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/supporting/vectors/figure2_signature_assays.pdf",
+    "completion_review": "docs/tasks/briefs/20261020_figure2_completion_review.json"
+  },
+  "figure3": {
+    "brief": "docs/tasks/briefs/20261020_figure3_distance_competition.txt",
+    "decisions": "docs/tasks/briefs/20261020_figure3_decisions.json",
+    "requirements": "docs/tasks/briefs/20261020_figure3_requirements.json",
+    "native_execution": "12 freshbasals,176 A1/mirrors,545 A2,381 B(including24mirrors),12 A1numericcontrols and36 Bnumericcontrols completed and audited. Corrected subcell-region eventroots independentlyverified.",
+    "pending_question": null,
+    "dependent_work": "Complete. Reportintegration waits for Figure4fullcampaign.",
+    "measurement_decision": "User explicitly confirmed full challenger activity beyond the cue footprint. Complete active-region correction is being applied to preserved A1 histories and subsequent experiments.",
+    "status": "Complete; rootindependent scientific review passed, two-page main/seven-page supplement/1150history portableatlas and finalcontent exported.",
+    "completion_review": "docs/tasks/briefs/20261020_figure3_completion_review.json"
+  },
+  "delivery": {
+    "final_figures": "Figures2,3,4 complete and independently reviewed/exported with stated scientific qualifications.",
+    "updated_outline": "Completed: outline_v4.pdf39pages; focused revised_figures_2_4.pdf18pages; Figures1/5/6 exact JSON preserved; source/artifact/reader/printed-size checks passed.",
+    "commit_push": "All required scientific and report work complete; prepared for final scoped Git verification, commit and authorized push.",
+    "storage": "Final112-root native/export measurement plus local Git object-store inventory recorded in DATA_MANIFEST.md.",
+    "unrelated_dirty_changes": "Preserve pre-existing modifications and deletions; scope staging explicitly.",
+    "storage_measurement_helper": "scripts/measure_signature_revision_storage_20261020.py",
+    "shared_hunk_preparation": "Task-only shared patch regenerated at01:12UTC with current Figure4-only organizer block; git apply --cached --check passed and index remains empty. Regenerate again after final storage/organizer before staging.",
+    "outline_baseline_preflight": "Protected Figure1/5/6 assets and sources exist. Historical outline_v3 independent packaging validation passed at23:49UTC:6figures,13sheets,39pages,92exactsourcehashes. No integration of unfinishedF4 has run.",
+    "storage_measurement_helper_scope": "Final joint measurement also includes outline_v4 JSON/PDF/build manifest/validation plus the focused revision report folder. Final measurement remains pending all producers.",
+    "integration_peer_review": "docs/tasks/briefs/20261020_report_integration_peer_review.json"
+  },
+  "scope_confirmation": {
+    "user_instruction": "The revision brief for Figure4 will be the last revision brief. Once revisions for Figures2–4 are complete, integrate the report and push the result.",
+    "figures_requiring_revision": [
+      2,
+      3,
+      4
+    ],
+    "figure4_brief_body": "docs/tasks/briefs/figure_4.txt",
+    "integration_order": "Complete and verify all three requested figure revisions before report/manuscript-outline integration and scoped GitHub commit/push."
+  },
+  "figure4": {
+    "status": "Complete: all native campaigns, scientific decisions, source/display audits, root and peer reviews, final export, one organizer and exact publication inventory finished.",
+    "requirements": "docs/tasks/briefs/20261020_figure4_requirements.json",
+    "source_sha256": "a76c60e07ee3800bff86a085eb613303b4e4440452c2cba6efde611f3a5ebec7",
+    "corrected_inventory_sha256": "0b54893b597819719443d0d2d77b524284eed61b6800edb1182e722daab8f5e7",
+    "interim_delivery": "docs/tasks/briefs/20261020_figure4_e0_delivery.json",
+    "strict_A5_inventory": "polarity1d/manuscript/data/runs/signature_figure4_e0_corrected_basals_20261020/inventory.json",
+    "strict_A5_root": "polarity1d/manuscript/data/runs/signature_figure4_regions_strict_20261020",
+    "strict_A5_all_views_audit_sha256": "bd4e9821390d908b2018621c32ffd6f6b634fbc34733897255ea67e0d744417d",
+    "future_A5_preparer": "polarity1d/manuscript/code/mechanisms/signature_figure4_regions_stage_20261020.py",
+    "final_statistics_contract": "polarity1d/manuscript/data/runs/signature_figure4_final_statistics_20261020/inputs/final_analysis_contract_v3.json",
+    "S11_distribution": "All actual plotted native values exported per-page as lossless roundtrippable CSV.gz in measured HPC source archive; compact Git reader includes exact archive paths/hashes/q grids/selections, portable figures and all statistical CSVs. E0 fullfields expected1.35–1.68GiBcompressed, expanded dense/long arms larger.",
+    "native_counts_snapshot": {
+      "signature_figure4_E1_ready_20261020": {
+        "complete_results": 792,
+        "planned": 792
+      },
+      "signature_figure4_E1_gory_companions_20261020": {
+        "complete_results": 72,
+        "planned": 72
+      },
+      "signature_figure4_E2_transition_20261020": {
+        "complete_results": 468,
+        "planned": 468
+      }
+    },
+    "normalized_roots_reserved": {
+      "E1": "polarity1d/manuscript/data/runs/signature_figure4_E1_analysis_20261020",
+      "E2": "polarity1d/manuscript/data/runs/signature_figure4_E2_analysis_20261020",
+      "E3": "polarity1d/manuscript/data/runs/signature_figure4_E3_analysis_20261020",
+      "E4": "polarity1d/manuscript/data/runs/signature_figure4_E4_analysis_20261020",
+      "E4_original_seed_sensitivity": "polarity1d/manuscript/data/runs/signature_figure4_E4_original_seed_analysis_20261020"
+    },
+    "fine_A5_engineering_gate": "polarity1d/manuscript/data/runs/signature_figure4_regions_fine_resource_pilot_20261020/results/engineering_gate.json",
+    "final_statistics_active": "polarity1d/manuscript/data/runs/signature_figure4_final_statistics_20261020/ACTIVE_FINAL_ANALYSIS.json",
+    "final_statistics_v2_source_freeze_sha256": "d6e7d48116a8dcbdc76516f164837762dc50b5c67d39816e0ed587b22d27c03c",
+    "E4_scheduling_authority": "docs/tasks/briefs/20261020_figure4_E4_execution_resources_v2.json",
+    "portable_supplement": "SmallS0–S12core/index plus numberedlosslessnative-atlasPDFvolumes<90MiBeach, completeperpageCSVregistry. FullnumericnativefieldCSV.gz verified onHPC, compact publicarchive inventories; allstatisticalCSVsportable.",
+    "required_S11_contexts": [
+      "canonicalcommonσ1 E2augmentedE0+newE3sizes, allmean/zero controls, exactdensecompanionprecedence",
+      "E1extraσ.25/.5/2 atall24conditions; σ1/σ0/controlreferences reusecommon pages",
+      "E4long all52noise+52matchedmean+12zero groups; keptseparatefromcommon; longestselector referencescommon/E4, no third duplicatecohort"
+    ],
+    "final_statistics_v3_source_freeze_sha256": "f37ffb5144144935c1c71e5f0255ec96a0742d143a4f582293be21832cc0791a",
+    "finite_bound_clarification": "docs/tasks/briefs/20261020_figure4_bound_eligibility_clarification.json",
+    "E2_native_master_sha256": "cb9c07399860c817a7c7bab3846546691b12aac0f78a4be3c39c9f2afa611ee0",
+    "E2_normalized_inventory_sha256": "73c3017af753660bf458b165b5f0d07a437f4f6d6d6176fa87a6d05768e6eb6a",
+    "S11_E0v2_prototype_gate": "polarity1d/manuscript/data/runs/signature_figure4_native_atlas_E0_v2_20261020/results/portable_export/completion_gate.json",
+    "S11_E0v2_prototype_complete": true,
+    "E2_normalized_status_sha256": "450836b83b631562c6da7e67a8b261ed5b3d1e3e3705330e128fb043467d1ac6",
+    "E2_A5_inventory_sha256": "5509f90eaa5818c6ee3d43b6f1b40a74656b7d4d01f9535aaacbc00add6de505",
+    "E2_A5_jobs": {
+      "measure": "21241517",
+      "collect": "21241518",
+      "independent_audit": "21241519",
+      "audit_master": "21241520"
+    },
+    "E1_normalized_status_sha256": "4e94fa8d1d837ac635b62e1bd1cd75d8295dbd45f4213f74522e34c21c9ffd60",
+    "E3_manifest_sha256": "c35634d15aa7195ee807dd1d183e652dcd2e4397fdaf20384bc26eb508c40a53",
+    "E4_manifest_sha256": "615308a5b16e1ac76ff5c6a410bef28e990132a25421fd72939034b6a51faf1a",
+    "E4_preflight_sha256": "423ceee9508e027847281c75b8528e1460e939b7bdf6a2ce606c6e77aae96e41",
+    "E2_A5_completion_sha256": "e93bf81fdfa415b9bc1b0163cebc6f72149c7f7023906af737b5773ac1a71226",
+    "E2_A5_point_review": "docs/tasks/briefs/20261020_figure4_A5_E2_point_review.json",
+    "A3_literal_coordinate_correction": "Additively frozen read-only tables will make literal theta*actualC/(2pi), relative to materialoriginq0, the primary site-MSD measure per brief. Midpoint-arc and reanchored coordinates stay labelled sensitivities; original delivered evidence unchanged. Persistence and H1-H3 estimands unchanged.",
+    "E1_A5_completion_sha256": "c6728fb3192d498794e507671d3938cf7a54da5b67e9189fb27dfe7d570c2256",
+    "E1_A5_point_review": "docs/tasks/briefs/20261020_figure4_A5_E1_point_review.json",
+    "S11_controller": "polarity1d/manuscript/code/mechanisms/signature_figure4_atlas_final_20261020.py",
+    "S11_context_plan": "Will bind common/E1_extra/E4_long at full normalized-stage acceptance, independently of A5/A6 so nativeatlas executes concurrently.",
+    "final_publication_inventory": "Renderer will provide exact accepted final/E0/S9/S12 artifact allowlist; superseded layouts/sourceaggregates stay local with ledger, no deletions.",
+    "E4_prefix_repair": {
+      "original_case": "E4_0361",
+      "model": "spring_ring",
+      "C_label": 1.0,
+      "f": 0.0001,
+      "seed": 202610192300001,
+      "failure": "Derived P_imag and q2 at exactly original3200 cap exceed existing prefix tolerance; all earlier scalar/profile samples and all coupled native-state checks passed.",
+      "cause": "Native BDF old stopping-boundary interpolation effect.",
+      "action": "Frozen replay to original cap then continuation with global-time forcing and original basal/M1 reference; qualify pilot before any selected replacement. Preserve every original attempt. Explicit688-slot source selection and full independent re-audit.",
+      "tolerance_unchanged": true,
+      "original_production_continues": true
+    },
+    "early_S11_execution": "Assessed and declined as nonminimal: global full physical/latent/prefix map binds all3contexts, so complete all-stage gate retained. No early candidate features loaded.",
+    "geometric_qualifiers": "Additive separate CSV from unchangedv3source ratios: directexcess-persistence and Dxratio CIs, unavailable/unbounded/conflicting sources explicit, not a hypothesis gate.",
+    "E3_native_master_sha256": "3c420135cfd641a6618d395be63345689053e5dc49572587778356c18d5b2f18",
+    "E3_normalized_status_sha256": "401fef2abaa8941a3ff1bffe7d9d19f672759792cd3f19c595ad6e9936bf75ab",
+    "A5_common": {
+      "root": "polarity1d/manuscript/data/runs/signature_figure4_regions_common_20261020",
+      "cases": 1945,
+      "expected_groups": 390,
+      "inventory_sha256": "65379cd919a523857adcc82eb611c16185e0b8de44f0ef73a2319c919341b4de",
+      "jobs": {
+        "measure": "21247311",
+        "collect": "21247312",
+        "independent_audit": "21247313",
+        "audit_master": "21247314"
+      },
+      "complete_sha256": "df364c959d6c89128d27e59ac2c4946c7bc7ed100f54e0a36c6a6d2223f33c00",
+      "all_views_native_audit_sha256": "8d0da5258b66c9324bb7fdcad22dcab4d6cf0c600d463470e070fee907a01a0e",
+      "point_review": "docs/tasks/briefs/20261020_figure4_A5_common_point_review.json",
+      "primary_estimates_independently_checked": 2340,
+      "status": "complete and independently audited"
+    },
+    "E4_recovery_recipe": "docs/tasks/briefs/20261020_figure4_E4_recovery_recipe.json",
+    "E4_recovery_recipe_sha256": "5e6c3325c8f1eaf0664e4b245c2a29bb6a3abb1bacf5b97a93f5aa54e6f1b916",
+    "E4_recovery_pilots": {
+      "Spring": "21245724",
+      "Holmes": "21245785",
+      "Spring_accepted_receipt": "polarity1d/manuscript/data/runs/signature_figure4_E4_prefix_repair_pilot_20261020/results/accepted_native_prefix_replay_receipt_20261020.json",
+      "Spring_accepted_receipt_sha256": "1269a0d09caf055712d12d07040fa3fe23ace75cf98943597b747684371f32dd",
+      "Spring_independent_audit_sha256": "9185c83fc5a28034efea524c4189fa5f2a63cb5e16dcc6e218493947ed2b2271",
+      "Spring_exact_prefix_checks": 23,
+      "Spring_failed_only_batch01_native": "21250326",
+      "Holmes_accepted_receipt": "polarity1d/manuscript/data/runs/signature_figure4_E4_chemical_prefix_repair_pilot_20261020/results/accepted_native_prefix_replay_receipt_20261020.json",
+      "Holmes_accepted_receipt_sha256": "4f7f25c1ab45d3851a7de6e4819fc79070f2318ece11747285a4c772c9d5d72c",
+      "Holmes_exact_scalar_profile_prefix_checks": 40,
+      "Holmes_old_cap_full_state_maximum_absolute_difference": 1.776e-15,
+      "chemical_failed_only_batch01_native": "21250402",
+      "Spring_failed_only_batch02_native": "21250410"
+    },
+    "obsolete_derived_jobs_cancelled": [
+      "21245407",
+      "21245413",
+      "21245518"
+    ],
+    "A3_route_ambiguity": "Native-M1 heading and peak coordinates: primary splits tracks at exactly antipodal sampled steps without dropping either frame; every-lag lost-pair coverage/tie counts explicit. +pi/-pi winding choices retained as sensitivities. Newimmutablev2derivedclosures; no native/H1-H3 changes.",
+    "A3_literal_v2_release": {
+      "groups": 501,
+      "path": "polarity1d/manuscript/data/runs/signature_figure4_final_statistics_20261020/results/literal_site_v2_release_20261020.json",
+      "sha256": "1f07501f538ad261ab4ef4497ef8b8f9be59da8b3ef4c6a82589be6345768e7e",
+      "main_heading_ties": 0,
+      "main_peak_ties_by_stage": {
+        "E0": 18,
+        "E1": 51,
+        "E2": 21,
+        "E3": 24
+      },
+      "H1_H2_H3_unchanged": true
+    },
+    "E4_original_census_snapshot": {
+      "utc": "2026-10-21T00:21:00+00:00",
+      "passed": 637,
+      "strict_derived_prefix_failed": 51,
+      "live": 0,
+      "planned_scientific_slots": 688,
+      "all_native_integrations_completed_full_horizon": 688,
+      "native_integration_failures": 0,
+      "missing": 0,
+      "replacement_pilots": 2,
+      "other_actual_retry_tasks": 49,
+      "all_actual_failed_slots_covered_exactly_once": true,
+      "terminal_census_sha256": "8598ab2b21332cb49686ed149c75acff474997394d7ed566010bc17628537e89"
+    },
+    "common_observation_checkpoint": {
+      "root": "polarity1d/manuscript/data/runs/signature_figure4_final_statistics_20261020/results/common_observation_checkpoint_20261020",
+      "status_sha256": "7a4d8632c1cd8962f75ac11a298ea1665ec50b5a5713473e2d3cc448f30d6a40",
+      "conditions": 185,
+      "view_rows": 1295,
+      "condition_metrics_sha256": "467b804f6a02a99eacba7a931f351e69aea25a48d2fc5854606c375cba1c813a",
+      "size_ratios_sha256": "64129c9b219db664c66d26157ac4d13289dc220c2c8270d171c976c93f35da8a",
+      "noise_tolerance_sha256": "2436af07cdc39e53bac3e0289cf19ade682cddeab3ac5f827a99b15062c6b681",
+      "canonical_full_stage_release": false,
+      "later_canonical_three_table_byte_equality_required": true,
+      "purpose": "Run common S9 and A6 while recovered E4 completes; final A6 export rebinds to canonical full-stage status."
+    },
+    "E4_selected_native_root_reserved": "polarity1d/manuscript/data/runs/signature_figure4_E4_selected_native_20261020",
+    "S11_execution_resources": {
+      "common_GiB": 16,
+      "E1_extra_GiB": 16,
+      "E4_long_GiB": 32,
+      "basis": "Frozen actual clocks and full native quadrilateral count; actual four-model pilots reviewed before production. No future features or outcomes used."
+    },
+    "A6_common_checkpoint": {
+      "root": "polarity1d/manuscript/data/runs/signature_figure4_a6_common_checkpoint_20261020",
+      "complete_sha256": "e2a5558253e1c1adf87b901c05cdf2b35af3337900899ad0a6c3a6c1ce86d197",
+      "independent_audit_sha256": "440bec5d858e887d161d4a7cf425cede8c80c237aac7b0b79447581d4d6e685a",
+      "checkpoint_receipt_sha256": "14f52ed54425b0888597aa0b9074ee50e7425a16ada939240696fddec0e89e31",
+      "multiple_fraction": {
+        "Spearman": 0.0909,
+        "successful_folds": 0,
+        "unavailable_folds": 1
+      },
+      "region_count": {
+        "Spearman": -0.389,
+        "successful_folds": 3,
+        "unavailable_folds": 1
+      },
+      "frozen_magnitude_gate_passed": false,
+      "canonical_rebind_and_full_stage_release_required": true,
+      "final_hypothesis_truth": false
+    },
+    "first_recovery_batch_accepted": {
+      "path": "polarity1d/manuscript/data/runs/signature_figure4_E4_recovery_spring_batch01_20261020/results/accepted_native_recovery_batch_20261020.json",
+      "sha256": "f7b41f386d8176adef618a0d040489c7df1fc134b9b5e836075728b6bfa10603",
+      "original_slots": [
+        373,
+        384,
+        396
+      ],
+      "full_independent_native_audit_passed": true,
+      "all_old_prefix_fields_bitwise_exact": true
+    },
+    "common_display_checkpoint": {
+      "gate": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/common_measurement_display_checkpoint_20261020.json",
+      "sha256": "4a4d112c20f9b8888d7e8b3f19aef5d977eb4eef835f2b690b891c79c51068d1",
+      "pages": 180,
+      "root_review": "docs/tasks/briefs/20261020_figure4_common_display_point_review.json",
+      "final_literal_footer_layout_fix_pending": false,
+      "canonical_three_table_equality_pending": true,
+      "literal_layout_v3_review": "docs/tasks/briefs/20261020_figure4_literal_layout_review_v3.json",
+      "current_master_sha256": "599d5a0a9ae6bfb1f17bd2817f05a940bb0ffb0ae106970c9f9376e47b454f51"
+    },
+    "WP617_recovery_accepted": {
+      "native_batch": "signature_figure4_E4_recovery_chemical_batch02_20261020",
+      "receipt_sha256": "a55a005526eed8d983083f9f5341f29dc9a8610bdd971d92735a99995c8a1287",
+      "independent_native_audit_sha256": "e1021abc8ac4bfbbb805688d041b0bf7310f320ba5327f27d65480767aff3a05",
+      "prefix_checks": 41,
+      "maximum_absolute_difference": 6.66e-16,
+      "model_specific_independent_qualification": true
+    },
+    "S0_H3_presentation": "Renderer adding complete existing per-model/strength strong-input, native-regime, E1 preset-sigma and optical-fingerprint components, plus every nested distinct-model pair, from unchanged audited outputs. The308rawcriteriacells and activev3 scientific gates are unchanged.",
+    "E4_recovery_latest": "All51actual failed-prefix replacements completed and passed their complete independent source audits. Selected688scientific slots frozen:637preferred originals+51repairs. Root independently verified exactmanifestf690b333 and688jobs. Fresh whole selected-cohort native/source/forcing audit and full raw rehash/census are running; no native work remains. Normalization queued after selected master/control projection.",
+    "A6_final_roots": {
+      "common": "polarity1d/manuscript/data/runs/signature_figure4_a6_common_20261020",
+      "longest": "polarity1d/manuscript/data/runs/signature_figure4_a6_longest_20261020",
+      "common_rebind_requires": "Exact three scientific input CSVs and all five A6outputCSVs byteequal the accepted commoncheckpoint before fresh canonical source/audit binding."
+    },
+    "original_route_cleanup": {
+      "original_audit_shards": "21245382 completed",
+      "original_audit_collector": "21245383 completed with637pass/51prefixfail/0missing",
+      "cancelled_superseded_jobs": [
+        "21245384",
+        "21245386",
+        "21245387"
+      ],
+      "receipt_sha256": "1eb4e3b749126004aa4e7bd7322175325bc5ecf891452779525242e14adaa1be",
+      "all_original_arrays_and_attempts_retained": true
+    },
+    "E4_selected_controller": {
+      "job": "21251063",
+      "plan_root": "polarity1d/manuscript/data/runs/signature_figure4_E4_horizon_20261020/results/selected_source_controller_v2_20261020",
+      "plan_sha256": "a9fc1a4afc6ea5fb2766d4ba4db0207847c6c90fa86a9c799e0c8fb883772c90",
+      "full_source_audit_collectors": [
+        "21250597",
+        "21250660",
+        "21250789",
+        "21250825"
+      ],
+      "new_native_integrations": 0,
+      "full_selected_audit_required": true
+    },
+    "execution_job_history": {
+      "E2_normalization": "21240988",
+      "E1_normalization": "21240989",
+      "E1E2_complete_native_gate": "21240863",
+      "fresh_Spring_1p5_basal": "21240864",
+      "E2_analysis_final_collect": "21241283",
+      "E3_native": "21243176",
+      "E3_native_master": "21243885",
+      "E3_normalization": "21244115",
+      "E4_watch": "21245028",
+      "E4_remainder": "21245029",
+      "E4_native_master": "original21245386 cancelled as superseded; fresh selected688 master pending complete recoveredsources",
+      "E4_numerical_control_prefix_gate": "original21245387 cancelled as superseded; fresh selected688 projection pending complete recoveredsources",
+      "E4_normalization": "obsolete original-chain job21245407 cancelled; fresh recovered selected-source gate required",
+      "E4_original_seed_followup": "obsolete original-chain job21245413 cancelled; fresh recovered selected-source gate required",
+      "E3_literal_followup": "superseded by accepted literal-v2 E3 release",
+      "E4_literal_followup": "obsolete original-chain job21245518 cancelled; fresh v2 followup required after recovered E4 normalization"
+    },
+    "pending_execution": {},
+    "longest_cohort_arithmetic": {
+      "receipt": "polarity1d/manuscript/data/runs/signature_figure4_final_statistics_20261020/results/longest_cohort_arithmetic_20261020.json",
+      "sha256": "7209ed56433dbf9c34b3a23edf11beb77a006bf10ef8eb7827f5480f66ce69ed",
+      "expected_noise": 1990,
+      "expected_means": 185,
+      "expected_distinct_horizon_zeros": 32,
+      "expected_cases": 2207,
+      "expected_groups": 402,
+      "scope": "Design arithmetic; actual accepted prepared inventory remains authority. A transient2195/390forecast was corrected before use."
+    },
+    "latest_render_reviews": {
+      "global_heading_Dx_scope": "Root viewed actual common scope layout v2. Dx from global heading transformed by actual C is a physical-mobility proxy; multi-region values are not a tracked site trajectory. Literal single-region A3 remains separate.",
+      "unbounded_bootstrap_CI": "Root viewed actual common tau correction: four finite points with explicit upper-unbounded CI now have CI-infinity annotations and exact finite lower segments. Empirical observation bounds remain distinct.",
+      "coincident_observation_bounds": "Implemented and root-viewed actual common tau v3: nested coloured triangles stay at exact coordinates, coincident counts and shared chemical/Spring size legend are explicit, finite points remain visible. Independent display projection binds all185 original condition fields, four upper-unbounded CI markers and86 coincident-bound observations. Final source/collision audit still required.",
+      "publication_directory_links": "Actual organizer guide vectors/data/metadata directory links are permitted only with approved or existing tracked descendants; missing and local-only directory/file links still reject. Regression passed.",
+      "main_adapter": "Streams native17-digit values into declared NumPy arrays and verifies binary hashes; shared within-pair physical/time/activity limits, matched native horizons, actual array/expanded mesh resource metadata. Final statistical panels purpose-built for main readability.",
+      "no_clean_mapping_memo": "Mandatory final-package gate for explicit no_clean_mapping=true: exact reviewed producer/audit/framing; four model patterns and numeric shortfalls;2–3 full alternatives; exact audited S0 memo PDF/CSV coverage.",
+      "organizer_order": "All final exports/navigation, then final organizer once, then exact publication allowlist. No later topic rewrite. F4-only preview filter is inside existing block and exposes final content PNGs plus accepted E0 preview; superseded candidate PNGs remain local.",
+      "framing": "No final framing or native example identities chosen before complete final scientific gates.",
+      "compact_main_layout": "Root viewed actual common full4-model/all-input rho overview at01:30UTC. Core annotations/ticks now>=10.5pt on6.25x2.7in components; explicit F4 asset minimum printed width>=12in will be preserved by outline assembler. No main framing or native IDs selected."
+    },
+    "common_robust_observation_candidate": {
+      "scientific_selection_approved": false,
+      "scope": "Read-only common observations; final canonical/longest/window/regime and geometry qualification still required",
+      "input_fraction": 0.05,
+      "models": [
+        "wave_pinning",
+        "holmes_model3",
+        "spring_ring"
+      ],
+      "observations": "All seven direct tau-ratio views have CI>1, nonforced and evaluable. Main large-cell multiple-front fractions .6389/.8569/.6586; main rho4.4377/2.7406/1.1673. Global-heading-derived Dx ratios1.8449/3.6063/6.3564 (main CI>1) mean increased physical proxy mobility, not reduced site mobility. Gory same input remains forced/low-coverage. No claim yet of A7 raw-label robustness or final H1/H2/H3 support."
+    },
+    "E4_selected_native_manifest_sha256": "f690b333283f173df8f21cf45e7c94b91430f800da8319ce04c8c9220eb96724",
+    "E4_selected_native_authority_sha256": "281bc433fcd136115273814c7e49e6fed4157e6f095a5c5f72c783b49910d33f",
+    "E4_normalization_execution_freeze_sha256": "5b25df6ad4bec9c204b790f024b60df6c0b933ee63575ffa5b198486dca94182",
+    "E4_selected_native_gate": {
+      "passed": true,
+      "completed_utc": "2026-10-21T01:31:46+00:00",
+      "scientific_qualification": false,
+      "native_master_sha256": "161fc02d83c25ce488d13d18c2887e33b2cb8ea32127dc61343ef46738261a0e",
+      "control_projection_sha256": "4447c951dac0fe588ab57060da1f7522de6890012dd0679a355e3eae8fcf4348",
+      "census_sha256": "026ed10873eec4f6275dc4a2db8f9e11b4dbda9ea62e263aa32bf525b928051f",
+      "status_sha256": "3e713f6857002c253b715aa21c1199331b80bed0bfb73c2e2ac93f6f9142911c",
+      "noise": 624,
+      "mean": 52,
+      "zero": 12,
+      "conditions": 52,
+      "preferred_originals": 637,
+      "qualified_replacements": 51
+    },
+    "E4_normalized_preparation": {
+      "root": "polarity1d/manuscript/data/runs/signature_figure4_E4_analysis_20261020",
+      "inventory_sha256": "16f73ab8f2d132966722fa74740d21c2ba113bbe2efe877dea2b124cb37fda0d",
+      "freeze_sha256": "b0fac4144449acd3e00f72c39706821c19937cbf6ae8f4d38d1329ddf66dc4da",
+      "analysis_status": "Complete and independently audited",
+      "status_sha256": "cbf6617218923b28c647162e4f30def6e8c56a2dfb386c83b2df8dff8db5aa9e",
+      "independent_estimand_audit_sha256": "d777ade5e519eb2e07713c135da3d35dc5bf1b14e6dc3dcc79455a5cce80f977"
+    },
+    "canonical_observation_release": {
+      "common_status_sha256": "4f2a6b5feb54a3dcc013b63e979969f8f008dbc097e8f5bc901d70306e0ea6b5",
+      "longest_status_sha256": "d8d8acaa4e370d3a00d43ad1125445cdabb10154408dca81141bf75dcee74784",
+      "conditions_per_arm": 185,
+      "common_three_table_byte_equality_sha256": "039d130ba41a30666bbaef279687f3591bcea729d8865bde65a9f07f78923af6",
+      "S11_metrics_plan": "polarity1d/manuscript/data/runs/signature_figure4_final_statistics_20261020/results/atlas_context_projection/metrics_plan.json",
+      "S11_metrics_plan_sha256": "ae446700b10960daaaabfc900ebb4fea6266b467b80f514925ba3152ce399cf8"
+    },
+    "A5_longest": {
+      "root": "polarity1d/manuscript/data/runs/signature_figure4_regions_longest_20261020",
+      "inventory_sha256": "eca52a12687704b4b0899f758858153f17c016248f526b08a53b361844fd39e0",
+      "cases": 2207,
+      "noise": 1990,
+      "mean": 185,
+      "distinct_horizon_zeros": 32,
+      "groups": 402,
+      "jobs": {
+        "measure": "21251752",
+        "collect": "21251753",
+        "independent_audit": "21251754",
+        "audit_master": "21251755"
+      },
+      "root_inventory_check": "All noise conditions have one horizon and exact horizon-matched mean and zero controls;624long noise cases. Source freeze digests match queued preparer.",
+      "status": "Complete; exact primary points and all-view native audit passed. See A5_longest_complete."
+    },
+    "A5_longest_root_review_job": "21254182",
+    "A5_longest_root_review_output": "docs/tasks/briefs/20261020_figure4_A5_longest_point_review.json",
+    "canonical_common_A6": {
+      "complete_sha256": "fa479f2d510595cfae5603c8096de71e19a246c263f7f92e7c9c342afe22da52",
+      "independent_audit_sha256": "b421c841341f71773c7bb17033e280142712ff29250ba4f51c9f4b3c02a1e46f",
+      "five_table_equality_receipt_sha256": "abc7a5b3f4c42d7a5b9430b59dd2aecc4e2f34f2744c3f57e111e6afb31daa9b",
+      "primary_predictor_gate_passed": false,
+      "scope": "Canonical common arm; final longest-arm H2 call remains pending."
+    },
+    "literal_E4_v2": {
+      "status_sha256": "4746b3e1ab046ebe805d8ed3df787c8cc4197316f0f81e4cb7851b02fef4c78d",
+      "release_sha256": "cdddc2d8e35aae8d5c02ac598d8a78d809955c2709dc4d2f6f993847e884cec2",
+      "main_heading_and_peak_antipodal_ties": 0,
+      "H1_H2_H3_changed": false
+    },
+    "S11_physical_binding": {
+      "distinct_physical_runs": 3497,
+      "groups": {
+        "common": 390,
+        "E1_extra": 72,
+        "E4_long": 116
+      },
+      "binding_sha256": "b5f57e843a5f46a9c24241998ac93d2d9e30eda9a0a82aa7eb571847f1a60f32",
+      "production_release": "Completed under reviewed pilot resource release; full source and export audits passed."
+    },
+    "S11_complete": {
+      "status": "All3requiredcontextnative/page/selection/PDF/CSV/portableaudits complete; root13volumecheck passed.",
+      "coverage_master_sha256": "f67b97732e713499a8fdc8b43f06d9163d8a94ab61f5f9f6cba7e8cf8be17d5e",
+      "complete_sha256": "0706d507d0cf76621f9b83657d0f23b3901d3e639d6457bf317b8cfc5010abae",
+      "pages": 578,
+      "PDF_volumes": 13,
+      "selected_histories": 887,
+      "native_float64_values_roundtrip_checked": 3894671100,
+      "root_review": "docs/tasks/briefs/20261020_figure4_S11_root_review.json",
+      "root_review_sha256": "6496c9603b23ae182b1b41a78064dd44477f3a6aacf7a897ec25f70fbe5c2ba5",
+      "source_physical_binding_sha256": "b5f57e843a5f46a9c24241998ac93d2d9e30eda9a0a82aa7eb571847f1a60f32",
+      "fullfield_distribution": "HPC-only exactnativeCSVs; Git carrieslosslessPDFs/figures andcompactperpage companions/inventories.",
+      "crosswalk_current_archive_audit_sha256": "3b5f2fd73518ff7823fa609f185586c790c19a6f345832c0e6619ddfe1aeb3f0",
+      "actual_native_CSV_shards": 1539,
+      "native_CSV_logical_bytes": 23872213133
+    },
+    "original_seed_E4_complete": {
+      "cases": 438,
+      "noise": 374,
+      "mean": 52,
+      "zero": 12,
+      "groups": 52,
+      "status_sha256": "07de1f8eb531bc5dd54382c7aec16948554abf6c1d14094b5b3952802c2af26c",
+      "independent_audit_sha256": "1d2a68fdf0153cedb7724c8e2a92774ce3b23abbf64ab71481158b99564f5437"
+    },
+    "contract_provenance_peer_review_sha256": "6b80c4827b7e4f0bc4c75d7da5562518df2f3b6c0d1dd310d01e3b88967bd082",
+    "A5_longest_complete": {
+      "cases": 2207,
+      "groups": 402,
+      "primary_points_independently_checked": 2412,
+      "maximum_absolute_error": 3.552713678800501e-15,
+      "root_review_sha256": "6578c5c7d0358771822cd053530f22d02f8cf00503cdd1ce9d70eb4d26de8fdb",
+      "complete_sha256": "07ff4363043083952ddfbe246f67347bc8d4332b032f216ea99c24c7d7c01a38",
+      "metrics_sha256": "3047e49ddb216ad1f8ea29453250d6faeee06212e707d521f81fb152723ff846",
+      "independent_all_views_sha256": "f8ecccb52e6ea16b55fba72b110137e67a59f68553cb7b8cd412cf8729988d75"
+    },
+    "final_statistics_complete": {
+      "producer_sha256": "1b2849b67642b2f7767e80b2de1fa115113368a10982d42ecc760089fe0bd339",
+      "independent_audit_sha256": "148e3fffe758e09ef1963aa327516a953015ba93b8a30ad15ad757412ffde5f5",
+      "criteria": 308,
+      "independent_checks": 33319,
+      "raw_overall_both_arms_all_seven_views": {
+        "H1": "inconclusive",
+        "H2": "fail",
+        "H3": "inconclusive"
+      },
+      "CSV_capacity_recovery": "Identicalfrozenauditor raisedparserfieldcapacity only; originalfailedparse preserved, no numeric rule/source/table change."
+    },
+    "framing_selection": {
+      "path": "docs/tasks/briefs/20261020_figure4_framing_selection.json",
+      "sha256": "42cde0d1fa956dea311802f91587342e0681226059c797f7a622a4ea661ae77d",
+      "framing": "A size advantage in heading persistence can coexist with multiple active regions.",
+      "no_clean_mapping": true,
+      "main_panels": 4,
+      "status": "Carried unchanged into approved final main and complete supporting package."
+    },
+    "interpretation_memo": {
+      "path": "docs/tasks/briefs/20261020_figure4_interpretation_memo_v3.json",
+      "sha256": "c3cd84d861ecdbf85c4de34d0cc928756f1a8f61d131afa787246c60315ab98d",
+      "version_note": "V3 makes explicit that selectedf.05 observations are common-only and reused bylongestselector, notindependentE4replication; no estimates/criteria/selectionchange. V1/V2preserved."
+    },
+    "main_sources_review": {
+      "path": "docs/tasks/briefs/20261020_figure4_main_sources_review_v2.json",
+      "sha256": "631442e4b9cb5f86069115e1792dbadc828ad60d8ab4bb631cef95ddea619b53",
+      "scope": "Exact 73 B/C/D source rows and fixed full-field medoids, declared display viewports and original framing/memo sources preserved."
+    },
+    "framing_peer_review_sha256": "73b3272f05b23b131184f8d2ba8bfefc47a900dac19b25f0c0fb20efd8253006",
+    "portable_audit_CLI": "polarity1d/manuscript/code/mechanisms/signature_figure4_final_audit_csv_20261020.py",
+    "main_candidate_review": {
+      "path": "docs/tasks/briefs/20261020_figure4_main_candidate_review.json",
+      "sha256": "58c2a7bb4e64693bdadef5160d6b1e994329fb6e1f677d5eb020d877e99d2541",
+      "approved_for_main_export": true,
+      "whole_figure4_completion_approved": false
+    },
+    "candidate": {
+      "handoff": "polarity1d/manuscript/data/runs/signature_figure4_final_statistics_20261020/results/final_package_source_20261020/root_review_handoff.json",
+      "content_sha256": "952e89b0d317afe1c90b94ff147d9f5103518256983e6d4d92ec1fce2612789f",
+      "export_audit_sha256": "aa632549d7920550fae362b5ceedfcd9058cb3888d7f30d1a0dab580f2fbb3c9",
+      "scientific_pages": 1868,
+      "core_pdf_pages": 1291,
+      "native_appendix_pages": 578,
+      "native_volumes": 13
+    },
+    "completion_review": {
+      "path": "docs/tasks/briefs/20261020_figure4_completion_review.json",
+      "sha256": "edf2c63d5ee75d6c6625f56d20f5003f87110a01c4be8383a79b35189964d768"
+    },
+    "final_export": {
+      "content_sha256": "e2e12be7b66b2f1c536280a0c13c39323366e17fbc177affcd699927122fd88a",
+      "audit_sha256": "039019b9c63d66f3a6a276ebc1a865e488721989751d47efd0d614fbaf8a35e5",
+      "publication_pathspec_sha256": "cf719ebedc973cfb2e3c6eacf73e4c33cba34968d89883af1522062e42b1cb08",
+      "portable_files": 4380
+    },
+    "historical_checkpoint_note": "Earlier forecasts/progress details are retained as provenance; current status, final export and completion review fields are authoritative."
+  },
+  "root_next_actions": [
+    "Complete exact scoped staging including only owned shared hunks; verify all report inputs are tracked and protected pre-existing changes remain unstaged.",
+    "Commit and push the completed reviewed report and figure revisions; mark the active goal complete only after actual remote delivery."
+  ]
+}

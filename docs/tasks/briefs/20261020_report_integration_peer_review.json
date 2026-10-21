@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-21T03:44:30.800895+00:00",
+  "reviewer": "/root/figure2_controls",
+  "passed": true,
+  "complete": true,
+  "scope": "Independent read-only integration review of final report JSON, HTML, provenance and prose; only this review receipt was written.",
+  "reviewed_files": [
+    {
+      "path": "manuscript_outline/outline_v3.json",
+      "sha256": "28b9e9829322a542f87fe94700f377690d24f619396c8e1400eef03b3d78cbaf"
+    },
+    {
+      "path": "manuscript_outline/outline_v4.json",
+      "sha256": "77ff018f99efec6315a48adc6cb715e1224340b0d42f80c42ce969c0cfaaafd0"
+    },
+    {
+      "path": "manuscript_outline/revision_20261020/revised_figures_2_4.json",
+      "sha256": "717761b6631f9fafa14932618514b193767858b2c0cd6daca544f3514d2a8462"
+    },
+    {
+      "path": "manuscript_outline/revision_20261020/index.html",
+      "sha256": "7d652e252753ad621c7b5ac0db5db9e8c528c0ec853b2ba3c97a5b8314f47152"
+    },
+    {
+      "path": "manuscript_outline/revision_20261020/integration.json",
+      "sha256": "65b04816c66201ed3bb7eda34f4cc08040e28d337c6e4b3dd780bbc8d2940402"
+    },
+    {
+      "path": "current manuscript figs/README.md",
+      "sha256": "7939da25db53bba2608dd781f79613a53504b5d4e566fada9c23dfe8b5bbf078"
+    },
+    {
+      "path": "manuscript_outline/README.md",
+      "sha256": "96424396a35c1550aeb4a68384579a9fa1f10103e7b8aa878c95355b71111403"
+    },
+    {
+      "path": "manuscript_outline/prepare_revision_20261020.py",
+      "sha256": "f36d7860a9788da6d6a810fcf2f254e46f6949c52c238b670683ac2bd55a773e"
+    },
+    {
+      "path": "scripts/build_manuscript_outline_v2.py",
+      "sha256": "15082f57151c191c26c5c3f085942873fa2909d7659ee2ccd94d2a1eb480bb93"
+    },
+    {
+      "path": "manuscript_outline/outline_v4.build_manifest.json",
+      "sha256": "fcc863d7abc2a40206d387b9291eb1a91bfb919f1230cebe381737f315451bbc"
+    },
+    {
+      "path": "manuscript_outline/revision_20261020/revised_figures_2_4.build_manifest.json",
+      "sha256": "d3167ef3d86a99c894cf1c5c7d77397a42b3cd23d2d03d8c3b7cfa65cc0817e9"
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/content.json",
+      "sha256": "e2e12be7b66b2f1c536280a0c13c39323366e17fbc177affcd699927122fd88a"
+    }
+  ],
+  "checks": {
+    "protected_sections_exact_json_equal_to_v3": {
+      "figure1": true,
+      "figure5": true,
+      "figure6": true
+    },
+    "focused_sections_exact_json_equal_to_integrated": {
+      "figure2": true,
+      "figure3": true,
+      "figure4": true
+    },
+    "figure4_reviewed_content_sha256": "e2e12be7b66b2f1c536280a0c13c39323366e17fbc177affcd699927122fd88a",
+    "figure4_all_reviewed_fields_preserved": true,
+    "figure4_only_assembly_additions": [
+      "assets[].page_title",
+      "assets[].page_size"
+    ],
+    "figure4_all_24_source_paths_exist": true,
+    "integration_record_small_file_hashes_match": {
+      "source_outline": true,
+      "outline": true,
+      "integration_plan": true,
+      "generator": true,
+      "reviewed_figure4_content": true
+    },
+    "figure4_exact_13_ordered_volume_metadata_and_links": true,
+    "volume_page_counts": [
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      50,
+      40,
+      50,
+      22,
+      50,
+      50,
+      16
+    ],
+    "html_all_narrative_legend_limitations_paragraphs_exact": {
+      "figure2": true,
+      "figure3": true,
+      "figure4": true
+    },
+    "html_local_href_src_count": 32,
+    "html_missing_local_href_src": [],
+    "figure4_html_minimum_width_px": 1152,
+    "figure4_horizontal_scroll_enabled": true,
+    "figure4_printed_minimum_inches": 12,
+    "build_manifest_widths": [
+      {
+        "manifest": "manuscript_outline/outline_v4.build_manifest.json",
+        "page": 15,
+        "printed_width_inches": 12.1,
+        "pdf": {
+          "path": "manuscript_outline/outline_v4.pdf",
+          "bytes": 4928259,
+          "sha256": "72fcbc2d736d3e337b141189e8ea734c7dafde4f9600b5866217b577c090fa6f",
+          "pages": 39
+        }
+      },
+      {
+        "manifest": "manuscript_outline/revision_20261020/revised_figures_2_4.build_manifest.json",
+        "page": 11,
+        "printed_width_inches": 12.1,
+        "pdf": {
+          "path": "manuscript_outline/revision_20261020/revised_figures_2_4.pdf",
+          "bytes": 2178988,
+          "sha256": "64bcc6c537db7cd6e6ec4d2ec4eb099c45b93bf832b02a64f258b244f4c01df1",
+          "pages": 18
+        }
+      }
+    ],
+    "readmes_final_after_obsolete_title_only_statement_removed": true
+  },
+  "manual_semantic_review": [
+    "Figure 4 retains exact approved heading-persistence/coexisting-regions title and all reviewed qualifications. The f=0.05 selected conditions use the same common-horizon histories in both selectors and are explicitly not independent E4 corroboration.",
+    "H1 and H3 remain inconclusive, H2 fails overall, and failed A6 predictive support leaves multiplicity descriptive. No simulated cell-velocity or migration-persistence law is claimed.",
+    "Native raw-region categories, optical-count observations, global-heading mobility proxy and qualified single-region literal site MSDs remain distinct; seven-view, finite-bound, forced and numerical qualifications remain in the unchanged Figure 4 content.",
+    "Figure 3 distinguishes complete-region handover from a full measured heading turn, limits geometric remapping to observed support, and distinguishes possible region-center steps/rates from observed global-vector heading changes.",
+    "Both READMEs clearly identify the current 20 October replacements, label earlier material as superseded history, and retain simulated polarity/observed migration/conditional OU distinctions."
+  ],
+  "findings": [],
+  "not_repeated": [
+    "Native integrations, scientific producers, tests, full-CSV science audits, full supplement PDF source audits, PDF visual review, storage inventory and the root-owned full report packaging verifier."
+  ],
+  "pdf_scope": "Read accepted build-manifest widths/page counts only; root independently verified and visually reviewed the PDFs."
+}

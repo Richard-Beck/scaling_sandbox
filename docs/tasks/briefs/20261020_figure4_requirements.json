@@ -1,0 +1,240 @@
+{
+  "source": {
+    "path": "docs/tasks/briefs/figure_4.txt",
+    "dated_verbatim_copy": "docs/tasks/briefs/20261020_figure4_noise_persistence.txt",
+    "sha256": "a76c60e07ee3800bff86a085eb613303b4e4440452c2cba6efde611f3a5ebec7",
+    "read_complete": true,
+    "date": "2026-10-20"
+  },
+  "status": "E0 intake; existing evidence inventory and analysis preparation",
+  "final_brief": true,
+  "integration_dependency": "Complete and independently verify requested Figures2\u20134 before report/manuscript-outline integration and scoped GitHub commit/push.",
+  "scope": {
+    "models": [
+      "wave_pinning",
+      "goryachev",
+      "holmes_model3",
+      "spring"
+    ],
+    "excluded": [
+      "debelly"
+    ],
+    "native_kinetics_unchanged": true,
+    "chemical_circumferences": [
+      20,
+      40,
+      60
+    ],
+    "spring_resting_circumferences": [
+      1,
+      2,
+      3
+    ],
+    "physical_arc": "Use actual physical circumference for Spring at every measured frame; preserve and disclose original forcing coordinate convention.",
+    "existing_evidence": [
+      "revision_noise_strength_replication_scoped_20261019",
+      "existing broad-strength/core dependencies and mean/no-input controls verified from frozen manifests",
+      "26-case Goryachev refinement"
+    ],
+    "forcing": "Original F4 lognormal input f*I_ref*exp(sigma*Z\u2212sigma^2/2), original sigma1, Gaussian OU knots and declared spatial kernel; not the bounded inter-pulse Figure2 process.",
+    "chemical_kernel": 1.5,
+    "spring_kernel": 0.15,
+    "chemical_OU_tau": 50,
+    "spring_OU_tau": 5,
+    "chemical_horizon": 32000,
+    "spring_horizon": 3200,
+    "discard_first_fraction": 0.5,
+    "scalar_cadence": {
+      "chemical": 5,
+      "spring": 0.5
+    },
+    "existing_profile_cadence": {
+      "chemical": 40,
+      "spring": 4
+    }
+  },
+  "experiments": [
+    {
+      "id": "E0",
+      "new_integrations": 0,
+      "design": "Reanalyse all existing noisy cases, matched-mean controls and no-input controls.",
+      "required_first_delivery": "Interim supplement subset A1\u2013A4 andA7 with provisionalH1/H2 call, delivered before E1/E2 analyses begin."
+    },
+    {
+      "id": "E1",
+      "new_integrations": 864,
+      "models": 4,
+      "fixed_means_per_model": 2,
+      "sizes": 3,
+      "sigmas": [
+        0.25,
+        0.5,
+        2
+      ],
+      "seeds": 12,
+      "mean_selection": "Transition strength and one strong strength chosen from E0 maps; sigma1 exists and sigma0 is matched mean.",
+      "gate": "E0 interim delivered first; preserve fixed mean across sigma and native forcing law."
+    },
+    {
+      "id": "E2",
+      "new_integrations": 432,
+      "models": 4,
+      "sizes": 3,
+      "strengths": [
+        0.005,
+        0.02,
+        0.05
+      ],
+      "seeds": 12,
+      "profile_cadence": "Same as scalar cadence, chemical5/Spring0.5.",
+      "gate": "E0 interim delivered first."
+    },
+    {
+      "id": "E3",
+      "new_integrations": 480,
+      "models": 4,
+      "chemical_circumferences": [
+        30,
+        50
+      ],
+      "spring_resting_circumferences": [
+        1.5,
+        2.5
+      ],
+      "central_strength_count": 5,
+      "seeds": 12,
+      "strength_selection": "Freeze five central strengths from the verified existing inventory before execution.",
+      "gate": "E1 andE2 follow E0; E3 follows those stages."
+    },
+    {
+      "id": "E4",
+      "new_integrations_approximate": [
+        100,
+        200
+      ],
+      "trigger": "Every size\u2013f condition whose E0 heading cosine remains above0.8 at the longest usable lag.",
+      "horizon_multiplier": 4,
+      "seeds": 12,
+      "profile_cadence": "Same as scalar cadence, chemical5/Spring0.5.",
+      "gate": "Trigger inventory from E0; execution after E1/E2. All finite horizons/censoring remain explicit."
+    }
+  ],
+  "analysis": {
+    "A1": {
+      "heading_autocorrelation": "Full scalar cadence, lags one cadence through half the analysis window. Require both endpointR>=0.1; report per-lag usable-pair coverage.",
+      "uncertainty": "2000 whole-seed bootstrap resamples; never frame bootstrap.",
+      "tau_p": "First lag with C=1/e; lower bound if not reached, unresolved below two cadence steps.",
+      "comparison": "Single-exponential fit retained separately.",
+      "angular_diffusivity": "Initial unwrapped-heading MSD slope over2\u201310 cadence steps; do not bridge undefined headings without a declared method."
+    },
+    "A2": {
+      "persistence_ratio": "tau_p(largest)/tau_p(smallest), bootstrapCI; Dtheta(small)/Dtheta(large) alternative when tau censored.",
+      "noise_tolerance": "fhalf where tau_p falls to half weakest-input value, interpolate in logf, withCI and censoring/unavailability."
+    },
+    "A3": {
+      "site": "Heading angle times actualC/(2pi) in single-qualified-region frames; peak maximum sensitivity.",
+      "physical_diffusivity": "Dtheta*(actualC/(2pi))^2; retain physical-site MSD to distinguish diffusion and confinement.",
+      "excess_persistence": "Persistence ratio divided by geometric circumference-ratio squared; reference size ratio3 gives9. ActualSpringcircumferences must be explicit."
+    },
+    "A4": {
+      "state_fractions": [
+        "single qualified region",
+        "two or more qualified regions",
+        "contrast below10% of basal"
+      ],
+      "regime": "Class occupying more than50% of second-half time, otherwise mixed; verify mutually exclusive treatment against existing descriptor definitions.",
+      "primary_forced_state": "Matched-mean control more than50% of secondhalf withR<0.1 or lowcontrast.",
+      "E1_forced_state": "Also record evidence that the abnormal regime persists as sigma approaches0; declare operational rule before analysis."
+    },
+    "A5": {
+      "tracking": "Frame-to-frame overlap; full regions beyond forcing footprint.",
+      "statistics": [
+        "simultaneous region count distribution/mean",
+        "region lifetime survival with censoring",
+        "physical and fractional region width",
+        "births per time per perimeter",
+        "birth position relative to dominant region, branching versus opposite de novo",
+        "newborn takeover D>0.5 versus previous dominant for at least2frames",
+        "dominant-heading turning angles at several frame intervals"
+      ],
+      "threshold_fractions": [
+        0.3,
+        0.5,
+        0.7
+      ],
+      "temporal_downsampling": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "spatial_smoothing": "One native forcing-kernel length, mapped to actual physical arc; main observables shown in imaging-mimicking form.",
+      "cadence_limitation": "E0 lifetimes limited to40 chemical/4Spring profile cadence; E2/E4 fine profiles use5/0.5."
+    },
+    "A6": {
+      "conditions": "All nonforced conditions; compare small,large,andlarge/small changes inA5 observables withlog persistence ratio.",
+      "statistics": [
+        "within-model Spearman",
+        "across-model Spearman",
+        "leave-one-model-out sign prediction"
+      ]
+    },
+    "A7": {
+      "checks": [
+        "first versus second half ofanalysiswindow",
+        "late-quarter window",
+        "E4 extended horizon",
+        "cadence downsampling",
+        "with/without forced conditions"
+      ]
+    },
+    "cross_model_rule": "Within-model ratios across size; never absolute native time comparisons."
+  },
+  "decision_criteria": {
+    "evaluable": "Usable-pair coverage>=0.5 in both sizes and tau resolved orbounded; primary model/regime decisions on nonforced cases, forcedinclusive alongside.",
+    "H1_model": "Ratio>1 withCI excluding1 at every evaluablef, nof with ratio<1(CI), and fhalf riseswithsize withnonoverlapping small/largeCI.",
+    "H1_overall": "Atleast3of4models.",
+    "H2_model": "Some evaluablef ratio<1 withCI excluding1, or ratio falls>=2foldfrompeak toCI including1 while largecellmultiplefront fraction>0.5 across thatrange.",
+    "H2_overall": "Atleast2models and A6 multiplefront fraction/regioncount predictslogratio withabsoluteSpearman>=0.6 andcorrectsignin>=3of4leaveonemodeloutfolds.",
+    "H3_model": "Stronginput largecelltau belowhalfweakvalue andlargecellregime multiplefront orlowcontrast dominated.",
+    "H3_overall": "Atleast2distinctfailuremodes, survivesforcedexclusion, appearsinE1fixedmean, andregioncount/contrastfingerprintCIsnonoverlap.",
+    "geometric_qualifier": "Morethangeometry ifratioabovegeometricexpectation(CI) orDxfalls(CI); geometricifDxflatwithinCI; lessthan ifDxrises. Per-modelqualifier,nothypothesisgate.",
+    "outcomes": "Pass,fail,orinconclusive withdecidingnumbers; weakinput\u00d7stronginput patterns canconflict."
+  },
+  "supplement": {
+    "layout": "Rowsmodels,colorsizes C20blue/C40green/C60orange, intermediateinterpolated; forcedstatesgreyedbutshown; CSVforEVERYpage.",
+    "required": [
+      "S0decisiontableandmemo",
+      "S1designforcinginventoryseedscoverage",
+      "S2regimeheatmaps",
+      "S3allcorrelationcurvesCIcoverageandshortlagMSD",
+      "S4tauandDtheta-vs-size,Csquared,excesspersistence",
+      "S5physicalsiteMSDandDx",
+      "S6tau-vs-fandfhalf",
+      "S7sigmafixedmeansweepwithmeancontrol",
+      "S8densetransitiongrid",
+      "S9onepageperA5statisticwithallsensitivities",
+      "S10A6scattercorrelationsleaveonemodelout",
+      "S11nativeatlasmodel-size-fmedoidandrandomseedwithsnapshots",
+      "S12windowhorizoncadenceforcedrobustness"
+    ]
+  },
+  "main_figure": {
+    "maximum_panels": 5,
+    "panel_A": "Always nativeexamplekymographs smallversuslarge fromtherelevantregime.",
+    "persistence": "Showtauorratio,neversinglelagcosine.",
+    "comparisons": "Everycomparisonshowssmallversuslarge; forcedgrey; imaging-mimickingprotrusionreadouts.",
+    "framing": "Select H1,H2,H1weak+H3,H2+H3,orno-clean-mappinglayoutonlyfromcompletedcriteria.",
+    "no_clean_mapping": "Best-attemptrobustobservation>=3models survivingforced/windowchecks,fullregimeoverview; allsupplementpagesmandatory; S0memoexplainsfailedcriteriaand2\u20133alternativeframingswithsupport,weaknesses,furtherneededruns."
+  },
+  "deliverables": [
+    "InterimE0supplementsubset+provisionalH1/H2callbeforeE1/E2analysis",
+    "FinalsupplementPDF S0\u2013S12withperpageCSVs",
+    "DecisiontableCSVandS0render",
+    "Mainfigurecandidateoronepercandidateframingifnocleanmapping",
+    "READMEversionsforcedflagscensoringallsensitivities",
+    "UpdatedDATA_MANIFESTforalllargegroups",
+    "IntegrationofcompletedFigures2\u20134andscopedcommit/push"
+  ],
+  "updated_utc": "2026-10-20T20:14:14.652306+00:00"
+}

@@ -1,0 +1,171 @@
+# Figure 4 brief: experiments, analyses, supplement, decision criteria and figure construction
+
+**Scope.** Four ring models: Wave-pinning, Goryachev, Holmes 3 and Spring. The existing campaign (`revision_noise_strength_replication_scoped_20261019`, plus the 26-case Goryachev refinement) is the starting point:
+
+- Chemical circumferences 20, 40 and 60; Spring resting circumferences 1, 2 and 3.
+- Lognormal input I = f·I_ref·exp(σZ − σ²/2) with σ = 1. Spatial kernel 1.5 (Spring 0.15); OU knot relaxation time 50 (Spring 5).
+- Horizon 32,000 (Spring 3,200). The first half is discarded.
+- Scalar cadence 5 (Spring 0.5); profile cadence 40 (Spring 4).
+- Twelve seeds at f = 0.001–0.1; two seeds at the outer strengths.
+
+Use physical arc throughout, including Spring's actual circumference.
+
+## 1. Experiments
+
+| ID | Purpose | Design | Runs (approx.) |
+|---|---|---|---|
+| E0 | Reanalysis | All existing noisy cases, mean controls and no-input controls | 0 new |
+| E1 | Separate fluctuation from mean (needed for H3 and the forced-state flags) | At fixed mean f, σ ∈ {0.25, 0.5, 2} (σ = 1 exists; σ = 0 is the mean control). Two f per model: the transition strength and one strong strength (e.g. 0.01 and 0.1; adjust per model from the E0 maps). All three sizes, 12 seeds. | 864 |
+| E2 | Resolve the transitions (needed for H2) | f ∈ {0.005, 0.02, 0.05} at all sizes, 12 seeds. Save profiles at scalar cadence (5; Spring 0.5) for region tracking. | 432 |
+| E3 | Scaling slope | Intermediate sizes C30 and C50 (Spring 1.5 and 2.5) at the five central f, 12 seeds | 480 |
+| E4 | Uncensor persistence | Horizon ×4 for any size–f where persistence exceeds the E0 window (heading cosine > 0.8 at the longest usable lag), 12 seeds | ~100–200 |
+
+- **Cadence.** E2 and E4 should save profiles at scalar cadence. Region lifetimes from E0 are limited to the 40-unit profile cadence and must be flagged as such.
+- **Storage.** Update `DATA_MANIFEST.md` if outputs approach 2 GiB.
+- **Order.** E0 analyses first, then E1 + E2, then E3 + E4.
+
+## 2. Analyses
+
+**A1. Heading persistence.**
+- Compute heading autocorrelation C(lag) at full scalar cadence, from one cadence step up to half the analysis window. Use only pairs where both endpoints have R ≥ 0.1, and report usable-pair coverage alongside.
+- Uncertainty: 2,000 whole-seed bootstrap resamples, as in the current pipeline.
+- Persistence time τ_p is the lag where C = 1/e. Report it as a lower bound if it isn't reached, and as unresolved if it falls below 2 cadence steps.
+- Also report a single-exponential fit for comparison.
+- Short-lag angular diffusivity D_θ: initial slope of the unwrapped-heading MSD over the first 2–10 cadence steps. This stays measurable at strong input, where long-lag cosines read zero.
+
+**A2. Size effect and noise tolerance.**
+- Persistence ratio Ρ(f) = τ_p(largest) / τ_p(smallest), with bootstrap CI. Equivalently, use D_θ(small)/D_θ(large) where τ_p is censored.
+- Noise tolerance f½(C): the input strength where τ_p falls to half its weakest-input value, interpolated in log f, with CI.
+
+**A3. Geometric null.**
+- Site position = heading angle × C/2π, in frames with a single qualified region. A peak-maximum version serves as sensitivity.
+- Physical diffusivity D_x = D_θ·(C/2π)².
+- Plot physical site MSD against lag to show whether the site diffuses freely or is confined (a plateau).
+- Excess persistence = Ρ / (C_large/C_small)², where the geometric expectation is 9 for chemical rings and 9 for Spring.
+
+**A4. Regime classification, per condition.**
+- Fraction of second-half time spent in each state, using the existing descriptor definitions:
+  - **single front:** exactly one qualified region
+  - **multiple fronts:** two or more qualified regions
+  - **low contrast:** contrast below 10% of basal
+- The regime label is the class occupying more than 50% of time; otherwise the condition is "mixed".
+- **Forced-state flag:** the matched mean control spends more than 50% of its second half with R < 0.1 or low contrast. Also flag a condition if E1 shows its regime persists as σ falls toward 0.
+
+**A5. Protrusion-proxy statistics.**
+- Track regions frame to frame by overlap. Use profile cadence, or scalar cadence where E2/E4 saved it. For each condition, report:
+  - number of simultaneous regions (distribution and mean)
+  - region lifetime (survival curve with censoring)
+  - region width (physical, and as a fraction of circumference)
+  - births per unit time per unit perimeter
+  - birth position relative to the dominant region: angular distance distribution, distinguishing branching near the front from de novo births opposite it
+  - takeovers: a newborn region becomes dominant, defined as Fig. 2 dominance D > 0.5 against the previous dominant region for at least 2 frames
+  - dominant-heading turning-angle distribution at several frame intervals
+- Sensitivities:
+  - region threshold: min + 0.3, 0.5 or 0.7 × contrast
+  - temporal downsampling ×1, ×2, ×4 and ×8, to mimic imaging frame intervals
+  - spatial smoothing equal to one kernel length, to mimic optical resolution
+
+**A6. Observable-to-prediction test.**
+- Across all non-forced conditions, correlate each A5 statistic in small and large cells (and their large-to-small change) with log Ρ.
+- Report Spearman correlations within and across models, and leave-one-model-out sign prediction.
+
+**A7. Robustness.**
+- First versus second half of the analysis window; late-quarter window.
+- E4 horizon extension.
+- Cadence downsampling.
+- Results with and without forced-state conditions.
+
+All cross-model comparisons use within-model ratios across size, never absolute native times.
+
+## 3. Supplement (comprehensive)
+
+Layout throughout: rows are models; colour encodes size (existing C20 blue, C40 green, C60 orange, with intermediate sizes interpolated). Forced-state conditions are greyed but shown. Every page has a CSV of plotted values.
+
+| Page | Content |
+|---|---|
+| S1 | Design, forcing law, condition inventory, seeds and coverage |
+| S2 | Regime overview heatmaps (f × size) per model: τ_p, Ρ, single/multiple/low-contrast fractions, coverage, forced-state flag |
+| S3 | All C(lag) curves (model × size × f) with CIs and coverage strips; short-lag heading MSD |
+| S4 | τ_p and D_θ against size at each f, with the C² line; excess persistence |
+| S5 | Physical site MSD against lag; D_x against size |
+| S6 | τ_p against f for each size; f½ against size |
+| S7 | E1 σ sweep: τ_p and regime fractions against σ at fixed mean, with the mean control at σ = 0 |
+| S8 | E2 dense transition grid |
+| S9 | A5 statistics, one page per statistic, with threshold, cadence and smoothing sensitivity |
+| S10 | A6 predictor analysis: scatter plots, correlations, leave-one-model-out results |
+| S11 | Native atlas: kymographs for every model × size × f (medoid plus one random seed), with snapshots |
+| S12 | Robustness: windows, horizon extension, cadence, forced-state inclusion and exclusion |
+| S0 | Decision table (front page): every criterion in section 4 marked pass, fail or inconclusive per model, with the deciding numbers |
+
+## 4. Decision criteria
+
+**Evaluable condition:** usable-pair coverage ≥ 0.5 in both sizes, and τ_p resolved or bounded. A model–regime result is decided on non-forced conditions. Report the forced-state-inclusive result alongside it.
+
+| Hypothesis | Supported for a model if | Supported overall if |
+|---|---|---|
+| **H1: size buffers noise** | Ρ > 1 with CI excluding 1 at every evaluable f; no f with Ρ < 1 (CI); f½ rises with size (C20 and C60 CIs don't overlap) | Holds in ≥ 3 of 4 models |
+| **H2: advantage window, then reversal** | Either: some evaluable f has Ρ < 1 with CI excluding 1. Or: Ρ falls ≥ 2-fold from its peak to a CI including 1, while the large-cell multiple-front fraction exceeds 0.5 over that range. | Holds in ≥ 2 models, and in A6 the multiple-front fraction (or region count) predicts log Ρ with \|Spearman\| ≥ 0.6, correct sign in ≥ 3 of 4 leave-one-model-out folds |
+| **H3: model-specific failure** | At strong input (large-cell τ_p below half its weak-input value), the model's regime is multiple-front or low-contrast dominated | ≥ 2 distinct failure modes across models; the split survives forced-state exclusion and appears in E1 at fixed mean; fingerprints separate (region count and contrast distributions with non-overlapping CIs) |
+| **Geometric qualifier** | **More than geometry:** Ρ above the geometric expectation (CI), or D_x falls with size (CI). **Geometric:** D_x flat within CI. **Less than geometry:** D_x rises with size. | Reported per model; not a gate |
+
+H1 and H2 concern overlapping input ranges and can conflict. H3 concerns strong input only. Outcomes are therefore read as weak-input result × strong-input result.
+
+## 5. Main figure construction
+
+**Shared rules**
+- Five panels at most, one message per panel. Legend text states the observed result.
+- Persistence is shown as τ_p or Ρ, never a single-lag cosine.
+- Every comparison shows small against large cells.
+- Protrusion statistics are shown in their imaging-mimicking form (downsampled and smoothed).
+- Forced-state conditions are greyed.
+- Panel A is always example kymographs, small against large, taken from the regime the message is about.
+
+**H1 (with H3 not supported)**
+- *Message:* enlargement raises the noise tolerance of polarity direction; where shown, the gain exceeds geometry.
+- *Panels:*
+  - A. Kymographs at the transition strength.
+  - B. τ_p against size at 2–3 strengths, with the C² line.
+  - C. f½ against size for all models.
+  - D. Physical site mobility against size.
+  - E. Turning-angle and region-count summaries as the measurable signature of robustness.
+
+**H2**
+- *Message:* enlargement increases persistence only below a fragmentation threshold, and protrusion multiplicity shows which side of it a cell is on.
+- *Panels:*
+  - A. Kymographs from the advantage window and the reversal regime.
+  - B. Regime map (f × size) with Ρ contours.
+  - C. Ρ(f) per model, with the large-cell multiple-front fraction overlaid.
+  - D. Protrusion fingerprints by regime.
+  - E. Predictor scatter: multiple-front fraction against log Ρ.
+
+**H3, combined with H1 at weak input (current leading guess)**
+- *Message:* enlarged cells are more persistent; how they lose persistence under strong input is mechanism-specific and measurable.
+- *Panels:*
+  - A. Kymographs: weak-input small against large, plus the two large-cell failure modes.
+  - B. τ_p against size at weak input with the C² line, all models.
+  - C. f½ against size.
+  - D. Large-cell regime fractions against f per model, showing fragmentation against contrast loss.
+  - E. Fingerprints separating the failure modes, linked to the Fig. 2 mechanisms. Site mobility goes in an inset or to the supplement.
+
+**H2 combined with H3**
+- Use the H2 layout, and colour panel D by failure mode.
+
+**No clean mapping (mixed, model-dependent or inconclusive)**
+- Build a best-attempt figure around the most robust observation: a result that holds in ≥ 3 models and survives forced-state exclusion and the window checks.
+  - A. Kymographs.
+  - B. Full regime overview (Ρ heatmaps), so heterogeneity is visible rather than hidden.
+  - C–D. The robust result or results.
+  - E. Optional: the most promising observable from A6, even if below threshold, labelled as such.
+- Supplement completeness becomes the priority. Every S-page is required, not optional.
+- The S0 decision table carries a short decision memo:
+  - the observed pattern in plain words, per model and regime
+  - which criteria failed and by how much
+  - 2–3 alternative main-figure framings, each with its supporting panels, weaknesses and what further runs would resolve it
+
+## 6. Deliverables
+
+- Supplement PDF (S0–S12) with per-page CSVs.
+- Decision table: CSV plus its S0 rendering.
+- Main-figure candidate: one, or one per framing in the no-clean-mapping case.
+- A README recording versions, forced-state flags, censoring and all sensitivity settings.
+- Stage 1 (E0 with A1–A4 and A7) should be delivered as an interim supplement subset with a provisional H1/H2 call before E1/E2 analyses begin, so you can redirect early.
