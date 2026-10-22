@@ -5,6 +5,7 @@ import hashlib
 import json
 import math
 from pathlib import Path
+import subprocess
 
 from pypdf import PdfReader
 
@@ -92,6 +93,8 @@ def main():
     assert sha(ROOT/render['renderer']) == render['renderer_sha256']
     for path, expected in render.get('code_sha256', {}).items():
         assert sha(ROOT/path) == expected, path
+        committed = subprocess.check_output(['git', 'show', render['code_commit']+':'+path], cwd=ROOT)
+        assert hashlib.sha256(committed).hexdigest() == expected, (path, 'uncommitted build source')
     main_page = PdfReader(FIG/'figure4_main.pdf')
     assert len(main_page.pages) == 1
     page = main_page.pages[0]
