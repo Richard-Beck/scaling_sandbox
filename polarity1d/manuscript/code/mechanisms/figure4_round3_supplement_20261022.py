@@ -9,6 +9,10 @@ from figure4_round3_render_20261022 import (MODELS,NAMES,SIZES,primary,read_csv,
     write_csv,write_json,n,finite,equivalent_size,size_color,style_axis,log_f,
     facet,alpha_panel,NULLS,NULL_NAMES,first)
 
+METRIC_LABELS={'Ds':r'$D_s$','lambda_eff':r'$\lambda_{\mathrm{eff}}$',
+               'MSD_exponent':'MSD power exponent','valid_fraction':'Valid heading fraction',
+               'bootstrap_valid_fraction':'Valid bootstrap fraction'}
+
 
 def main_rows(rows):
     return [r for r in primary(rows) if n(r,'flicker_frames',default=5)==5 and math.isclose(n(r,'MSD_range_fraction',default=.25),.25)]
@@ -63,7 +67,7 @@ def supplement(data, output):
                     rr=sorted([r for r in rows if r.get('model')==model and math.isclose(equivalent_size(r),size)],key=lambda r:n(r,'f'))
                     yy=[n(r,metric) if (n(r,metric)>0 if logy else finite(n(r,metric))) else math.nan for r in rr]
                     ax.plot([n(r,'f') for r in rr],yy,'o-',color=size_color(model,size),ms=2,lw=.65)
-                log_f(ax);facet(ax,NAMES[model]);ax.set_ylabel(metric.replace('_',' '));style_axis(ax)
+                log_f(ax);facet(ax,NAMES[model]);ax.set_ylabel(METRIC_LABELS.get(metric,metric.replace('_',' ')));style_axis(ax)
                 if logy:ax.set_yscale('log')
                 if limits:ax.set_ylim(limits)
             finish(fig,title)
@@ -85,27 +89,29 @@ def supplement(data, output):
                 t=tracked.get(key(d))
                 if t and n(t,metric)>0 and n(d,metric)>0:matched.append((t,d))
             if not matched:
-                notice('Detector-free versus tracked '+metric,'No positive matched estimates are available. Zero switch contributions are empirical zeros and cannot appear on logarithmic axes. Undefined conditions remain in the source records.');continue
+                notice('Detector-free versus tracked '+METRIC_LABELS[metric],'No positive matched estimates are available. Zero switch contributions are empirical zeros and cannot appear on logarithmic axes. Undefined conditions remain in the source records.');continue
             fig,axes=grid()
             for ax,model in zip(axes.flat,MODELS):
                 points=[(t,d) for t,d in matched if t['model']==model]
                 for t,d in points:ax.plot(n(t,metric),n(d,metric),'o',color=size_color(model,equivalent_size(t)),ms=3)
                 vals=[n(r,metric) for pair in points for r in pair]
                 limits=(min(vals)/2,max(vals)*2) if vals else (1e-8,1.)
-                ax.plot(limits,limits,color='.65',lw=.6);ax.set(xscale='log',yscale='log',xlim=limits,ylim=limits,xlabel='Tracked '+metric,ylabel='Detector-free '+metric)
+                ax.plot(limits,limits,color='.65',lw=.6);ax.set(xscale='log',yscale='log',xlim=limits,ylim=limits,xlabel='Tracked '+METRIC_LABELS[metric],ylabel='Detector-free '+METRIC_LABELS[metric])
                 facet(ax,NAMES[model]);style_axis(ax)
-            finish(fig,'Detector-free versus tracked '+metric+'; five circumference shades')
+                if not points:ax.text(.5,.65,'No positive paired\nestimates',transform=ax.transAxes,ha='center',fontsize=7)
+            finish(fig,'Detector-free versus tracked '+METRIC_LABELS[metric]+'; five circumference shades')
             write_csv(data/('supplement_scatter_'+metric+'.csv'),[dict(model=t['model'],C_label=t['C_label'],f=t['f'],tracked=n(t,metric),detector_free=n(d,metric)) for t,d in matched])
         for metric in ['Ds','lambda_eff']:
             for step in [1,2]:
                 rr=[r for r in detector if n(r,'detector_free_step',default=1)==step]
-                if rr:trend(rr,metric,f'Detector-free {metric}; cadence multiplier {step}',logy=True)
+                if rr:trend(rr,metric,f'Detector-free {METRIC_LABELS[metric]}; cadence multiplier {step}',logy=True)
 
         if main and all_tracks:
             for metric in ['Ds','lambda_eff']:
                 fig,axes=grid()
                 ratios=[]
                 for ax,model in zip(axes.flat,MODELS):
+                    has_value=False
                     for size in SIZES:
                         for hold,fraction,ls in [(2,.25,'--'),(10,.25,':'),(5,.125,'-.'),(5,.5,'-')]:
                             rr=sorted([r for r in all_tracks if r.get('model')==model and math.isclose(equivalent_size(r),size) and n(r,'flicker_frames')==hold and math.isclose(n(r,'MSD_range_fraction'),fraction)],key=lambda r:n(r,'f'))
@@ -113,11 +119,13 @@ def supplement(data, output):
                             for r in rr:
                                 baseline=tracked.get(key(r),{});value=n(r,metric)/n(baseline,metric) if n(baseline,metric)>0 else math.nan
                                 xx.append(n(r,'f'));yy.append(value if value>0 else math.nan)
+                                has_value|=finite(value) and value>0
                                 ratios.append(dict(model=model,C_label=r['C_label'],f=r['f'],metric=metric,hold=hold,MSD_fraction=fraction,ratio=value))
-                            ax.plot(xx,yy,ls,color=size_color(model,size),lw=.6)
+                            ax.plot(xx,yy,ls,color=size_color(model,size),lw=.6,marker='o',ms=1.8)
                     ax.axhline(1,color='.65',lw=.5);log_f(ax);ax.set_yscale('log');ax.set_ylabel('Sensitivity / primary');facet(ax,NAMES[model]);style_axis(ax)
+                    if not has_value:ax.text(.5,.65,'No positive primary\nvalue for this ratio',transform=ax.transAxes,ha='center',fontsize=7)
                 fig.text(.1,.025,'Dashed: hold 2; dotted: hold 10; dash-dot: MSD range 1/8; solid: MSD range 1/2. Primary hold 5, range 1/4.',fontsize=6)
-                finish(fig,'Tracked sensitivity: '+metric)
+                finish(fig,'Tracked sensitivity: '+METRIC_LABELS[metric])
                 write_csv(data/('supplement_sensitivity_'+metric+'.csv'),ratios)
         else:notice('Tracked sensitivity','The declared 2/10-frame persistence and 1/8,1/2-tenure MSD sensitivities await tracked compact records.')
 
