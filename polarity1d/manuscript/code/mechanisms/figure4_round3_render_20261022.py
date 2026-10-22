@@ -168,6 +168,8 @@ def ramp_key(fig, models, y, *, x=.74, width=.225, labels=True):
 def bounded_point(ax, x, y, lo, hi, color, *, marker="o", open_marker=False, ms=2.1, lw=.46):
     """Intervals clipped to limits use outward edge triangles, never hidden tails."""
     ymin, ymax = ax.get_ylim()
+    point_below = finite(y) and y < ymin
+    point_above = finite(y) and y > ymax
     if finite(y):
         if ymin <= y <= ymax:
             ax.plot(x, y, marker, ms=ms, color=color, mec=color, mew=.55, mfc="white" if open_marker else color, zorder=4,clip_on=False)
@@ -177,9 +179,11 @@ def bounded_point(ax, x, y, lo, hi, color, *, marker="o", open_marker=False, ms=
         bottom, top = max(lo, ymin), min(hi, ymax)
         if top >= bottom:
             ax.plot([x, x], [bottom, top], color=color, lw=lw, alpha=.8, zorder=2)
-        if lo < ymin:
+        # The point triangle already identifies its occupied edge. An open CI
+        # triangle there would cover its fill and falsely imply a forced point.
+        if lo < ymin and not point_below:
             ax.plot(x, ymin, "v", color=color, mfc="white", ms=2.6, mew=.55, clip_on=False, zorder=5)
-        if hi > ymax:
+        if hi > ymax and not point_above:
             ax.plot(x, ymax, "^", color=color, mfc="white", ms=2.6, mew=.55, clip_on=False, zorder=5)
 
 
