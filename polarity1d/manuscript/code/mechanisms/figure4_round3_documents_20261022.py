@@ -99,6 +99,21 @@ def create(out=OUT):
           f'Tracked diffusivity is finite in {tracked_count} exported conditions; a finite predicted/observed ratio is available in {predicted_count}. Zero counted switches give an empirical switch contribution of zero; a log axis omits that zero rather than displaying a positive substitute. `jump_no_event_upper95 = 3 / valid_time` is a Poisson zero-count reference bound under a constant-hazard assumption, not an assumption-free confidence bound for these models. Whole-seed bootstrap intervals are separate and can be [0, 0] when no event was observed. Insufficient tenures do not imply a fitted diffusivity, and undefined measures are never imputed. Every unavailable decomposition quantity has a status/reason in `drift_decomposition.csv` or `omitted_estimates.csv`.','',
           'Null simulations can be too stable at weak input or decorrelate before the shortest declared lag at strong input. Such cells have no eligible local exponent; analytic formulas are used only for validation, never as replacements in the main panels. The simulated null analytic-check diagnostics and precision shortfalls are retained even if they are unfavorable.','']
     if planned:text.extend([f'The frozen new campaign contains {len(planned)} model–size–input conditions. The current source contains {len(observed_keys)} observed conditions, leaving {len(pending_design)} planned cells without source observations. The local-neighborhood census uses the represented input union and can include missing neighborhood members; it must not be confused with completed new-campaign conditions. [Every planned condition](campaign_manifest.json).',''])
+    switch_field='n_switches_with_missing_adjacent_centroid'
+    switch_checked=[r for r in decomp if finite(n(r,switch_field))]
+    if switch_checked:
+        switch_affected=[r for r in switch_checked if n(r,switch_field)>0]
+        switch_total=sum(int(n(r,switch_field)) for r in switch_affected)
+        text.extend([f'The corrected switch diagnostic is available for {len(switch_checked)}/{len(decomp)} primary tracked conditions (five-frame hold, MSD range one quarter of median dominance tenure). Across their actual retained ensembles, {switch_total} counted replacements in {len(switch_affected)} conditions lack the accepted centroid immediately before or after the event; the earlier centroid-adjacency gate would have suppressed these observed replacements. This diagnostic counts events, not independent histories. [All condition-level counts and actual ensemble sizes](../data/drift_decomposition.csv), column `{switch_field}`. Every affected primary condition is listed below as (circumference label, input, counted replacements with a missing adjacent centroid).',''])
+        for model in MODELS:
+            affected=sorted([r for r in switch_affected if r.get('model')==model],key=lambda r:(n(r,'C_label'),n(r,'f')))
+            if affected:
+                text.extend([NAMES[model]+': '+', '.join(f'({r.get("C_label")}, {r.get("f")}, {int(n(r,switch_field))})' for r in affected)+'.',''])
+    seed0_audit=read_csv(data/'seed0_switch_contract_audit.csv')
+    if seed0_audit:
+        restored=[r for r in seed0_audit if n(r,'restored_switches')>0]
+        restored_total=sum(int(n(r,'restored_switches')) for r in restored)
+        text.extend([f'A separate [initial-cohort seed-0 switch-contract audit](../data/seed0_switch_contract_audit.csv) checks {len(seed0_audit)} condition archives and records {restored_total} restored replacements across {len(restored)} affected conditions. Its scope is replicate 0 from the initial 260-condition campaign, not the complete final ensembles or a bootstrap analysis. The CSV retains every audited condition, event times, dominance and centroid exposure/tenure diagnostics, archive paths and per-archive SHA-256 hashes. Its limited-scope event counts must not be substituted for the final primary-condition counts above.',''])
     precision_unmet=[r for r in single if n(r,'SE_log_k')>.07]
     undefined_rate=[r for r in single if not finite(n(r,'k'))]
     low_boot=[r for r in single if finite(n(r,'k')) and n(r,'bootstrap_valid_fraction')<.975]
