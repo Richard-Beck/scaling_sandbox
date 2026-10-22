@@ -266,10 +266,14 @@ def organize_group(name,dry_run=False):
      raise AssertionError((str(path),relative,'artifact hash mismatch'))
     declared_hashes+=1
   source_root=REPO
-  if name=='revision_round2_20261022/figure2' and path.name=='campaign_manifest.json':
+  native_campaign_roots={
+   'revision_round2_20261022/figure2':'signature_holmes_retention_round2_20261022',
+   'revision_round3_20261022/figure4':'signature_figure4_round3_compact_20261022',
+  }
+  if name in native_campaign_roots and path.name=='campaign_manifest.json':
    # This retained native manifest declares run-relative frozen sources.
    # Verify its exact identity before resolving those immutable inputs.
-   source_root=REPO/'polarity1d/manuscript/data/runs/signature_holmes_retention_round2_20261022'
+   source_root=REPO/'polarity1d/manuscript/data/runs'/native_campaign_roots[name]
    if sha(source_path(path))!=sha(source_root/'manifest.json'):
     raise AssertionError((str(path),'native manifest identity mismatch'))
   for relative,digest in manifest.get('source_sha256',{}).items():
