@@ -12,6 +12,7 @@ import math
 import os
 from pathlib import Path
 import shlex
+import shutil
 import subprocess
 import sys
 import time
@@ -20,6 +21,56 @@ import figure4_round3_campaign_20261022 as C
 
 ESTIMATOR = C.CODE / "figure4_round3_estimators_20261022.py"
 NULL_RECEIPT = C.MS / "figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure4/supporting/metadata/null_analysis_receipt.json"
+
+
+def publish_receipts(out):
+    """Refresh small final receipts after status changes, without rerendering.
+
+    The receipt index deliberately excludes itself and the render receipt, so
+    publishing it cannot create a recursive provenance hash dependency.
+    """
+    out = Path(out).resolve()
+    metadata = NULL_RECEIPT.parent
+    metadata.mkdir(parents=True, exist_ok=True)
+    allocation = C.read(out / "results/allocation.json")
+    sources = {
+        "campaign_status.json": out / "status.json",
+        "campaign_final_allocation.json": out / "results/allocation.json",
+        "campaign_pipeline_status.json": out / "results/pipeline_status.json",
+        "campaign_final_rebuild_execution.json": out / "results/final_rebuild_execution.json",
+        "campaign_mean_control_status.json": out / "matched_mean_controls/status.json",
+        "campaign_lower_sigma_status.json": out / "lower_sigma_controls/status.json",
+        "campaign_storage_receipt.json": C.ROOT / "reports/figure4_round3_storage_20261022.json",
+        "campaign_native_retirement_execution.json": C.ROOT / "reports/figure4_round3_retirement_20261022/execution.json",
+    }
+    if allocation.get("precision_source"):
+        sources["campaign_final_precision.json"] = Path(allocation["precision_source"])
+    records = []
+    for name, source in sources.items():
+        if source.is_file():
+            target = metadata / name
+            shutil.copy2(source, target)
+            records.append(dict(file=name, source=str(source), sha256=C.sha(target)))
+    status = C.read(out / "status.json")
+    progress_path = metadata / "campaign_progress_receipt.json"
+    progress = C.read(progress_path) if progress_path.exists() else {}
+    progress.update(generated_utc=C.now(), status=status.get("status"), complete=status.get("complete", False),
+        precision_qualified=status.get("precision_qualified", False), source_status=status,
+        source_status_path=str(out / "status.json"), source_status_sha256=C.sha(out / "status.json"),
+        last_integrity_collection_utc=status.get("last_integrity_collection_utc", status.get("generated_utc")), verified_compact_seeds=status.get("native_seeds_complete"),
+        final_allocated_seed_count=status.get("native_seeds_expected"), failed_seed_count=len(status.get("failed_seeds", [])),
+        running_seeds_at_last_collection=status.get("running_seeds"),
+        storage_record=dict(allocated_bytes=status.get("allocated_bytes"),
+            measurement_time=status.get("last_integrity_collection_utc", status.get("generated_utc")),
+            measurement="Allocated storage recorded by the latest compact campaign collection; exact source status hash retained. Small later receipt writes can follow this measurement."),
+        old_native_deletion_performed=status.get("old_native_deletion_performed", False))
+    C.write(progress_path, progress)
+    records.append(dict(file=progress_path.name, source=str(out / "status.json"), sha256=C.sha(progress_path)))
+    result = dict(generated_utc=C.now(), files=records, precision_conditions=len(C.read(allocation["precision_source"])["conditions"]) if allocation.get("precision_source") else None,
+        pipeline_status=C.read(out / "results/pipeline_status.json").get("status") if (out / "results/pipeline_status.json").exists() else None,
+        hash_cycle_avoidance="This index and render_receipt.json are excluded from its source hashes.")
+    C.write(metadata / "campaign_publication_receipts.json", result)
+    return result
 
 
 def run_command(command, receipt):
@@ -71,6 +122,7 @@ def finalize(out, rebuild_command):
         null_receipt_sha256=C.sha(NULL_RECEIPT), old_native_deletion_performed=False)
     C.write(out / "results/pipeline_status.json", result)
     C.update_storage(out)
+    publish_receipts(out)
     return result
 
 
@@ -205,13 +257,14 @@ def stage(out, batch, rebuild_command=None):
             optional_extensions="Not automatically run; largest weak-input undefined conditions remain listed for a bounded extension if needed.")
     C.write(out / "results/pipeline_status.json", result)
     C.update_storage(out)
+    publish_receipts(out)
     return result
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="action", required=True)
-    for name in ("launch", "stage", "finalize"):
+    for name in ("launch", "stage", "finalize", "publish"):
         p = sub.add_parser(name)
         p.add_argument("--out", type=Path, default=C.DEFAULT)
         p.add_argument("--rebuild-command")
@@ -224,10 +277,12 @@ def main():
         result = launch(args.out, args.rebuild_command, args.additional_dependency)
     elif args.action == "stage":
         result = stage(args.out, args.batch, args.rebuild_command)
-    else:
+    elif args.action == "finalize":
         if not args.rebuild_command:
             parser.error("finalize requires --rebuild-command")
         result = finalize(args.out, args.rebuild_command)
+    else:
+        result = publish_receipts(args.out)
     print(json.dumps(result, indent=2, allow_nan=False))
 
 

@@ -652,12 +652,15 @@ def collect(out, precision=None):
         allocation.update(precision_evaluated=True, precision_source=str(Path(precision).resolve()), precision_sha256=sha(precision))
         write(out / "results/allocation.json", allocation)
     complete = not missing and not failed and not running and converged
+    retirement_execution = ROOT / "reports/figure4_round3_retirement_20261022/execution.json"
+    old_deleted = retirement_execution.exists() and read(retirement_execution).get("complete", False)
     status = dict(generated_utc=now(), status="COMPLETE" if complete else "INCOMPLETE", complete=complete,
         native_seeds_complete=len(rows), native_seeds_expected=sum(allocation["targets"].values()),
         missing_seeds=missing, running_seeds=running, failed_seeds=failed, precision_qualified=converged,
         unresolved_precision_conditions=unresolved, allocated_bytes=allocated(out),
         undefined_rate_conditions=undefined,
         native_profiles_retained=False, old_native_deletion_permitted=complete,
+        old_native_deletion_performed=old_deleted,
         qualification="COMPLETE requires all allocated seeds plus 2000-resample precision assessment: finite SE(logk)<=.07,384seed cap, or an explicitly undefined rate. Undefined lag/rates are omitted rather than imputed. No old native deletion occurs here.")
     write(out / "status.json", status)
     return status

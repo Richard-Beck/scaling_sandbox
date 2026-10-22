@@ -184,7 +184,21 @@ def execute(campaign):
     summary.update(generated_utc=result["generated_utc"], execution=result)
     C.write(REPORT / "summary.json", summary)
     document(summary, "EXECUTED_AFTER_COMPACT_COMPLETE")
+    status = C.read(campaign / "status.json")
+    status.update(last_integrity_collection_utc=status["generated_utc"], generated_utc=C.now(), old_native_deletion_performed=True,
+        old_native_reclaimed_allocated_bytes=result["measured_reclaimed_allocated_bytes"],
+        old_native_retirement_execution=str(REPORT / "execution.json"))
+    C.write(campaign / "status.json", status)
+    pipeline_path = campaign / "results/pipeline_status.json"
+    if pipeline_path.exists():
+        pipeline_status = C.read(pipeline_path)
+        pipeline_status.update(generated_utc=C.now(), old_native_deletion_performed=True,
+            old_native_reclaimed_allocated_bytes=result["measured_reclaimed_allocated_bytes"],
+            old_native_retirement_execution=str(REPORT / "execution.json"))
+        C.write(pipeline_path, pipeline_status)
     C.update_storage(campaign)
+    import figure4_round3_pipeline_20261022 as pipeline
+    pipeline.publish_receipts(campaign)
     return result
 
 
