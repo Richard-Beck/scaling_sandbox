@@ -13,6 +13,7 @@ REPORT=ROOT/'figures/length_mechanisms_20261008'
 DEV=REPORT/'dev'
 RECORDS=DEV/'_organization'
 GROUPS={
+ 'revision_round2_20261022/figure4':('revision_round2_figure4_', 'figure4_round2_', 'S0_common_', 'S0_longest_'),
  'signature_figure4_20261020':('signature_figure4_', 'figure4_E0_'),
  'signature_assays_20261020':('signature_figure2_', 'figure2_signature_assays'),
  'revision_program_20261020/figure3_distance':('signature_figure3_', 'figure3_distance_20261020'),
@@ -48,7 +49,7 @@ GROUPS={
  'native_reversal':('MCA_', 'Fig9F_', 'old_pole_Rac_'),
  'L29_fullstate':('L29_',),
 }
-TITLES={'resting_state':'Native resting state','basal_feedback_controls':'Basal feedback controls','tension_rho_ablation':'Global tension→Rho ablation','beta0_reversal':'Beta=0 reversal','no_protrusion':'Polarization with protrusion disabled','native_reversal':'Native reversal and MCA budgets','L29_fullstate':'L=29 full-state example','figure_x_reversal_overview':'Figure X: reversal overview','figure_z_mca_redistribution':'Figure Z: MCA redistribution distance and speed','deBelly_redraft':'deBelly redraft with Figures X Y and Z'}
+TITLES={'revision_round2_20261022/figure4':'Figure 4 round-2 persistence reanalysis: author-review interim','resting_state':'Native resting state','basal_feedback_controls':'Basal feedback controls','tension_rho_ablation':'Global tension→Rho ablation','beta0_reversal':'Beta=0 reversal','no_protrusion':'Polarization with protrusion disabled','native_reversal':'Native reversal and MCA budgets','L29_fullstate':'L=29 full-state example','figure_x_reversal_overview':'Figure X: reversal overview','figure_z_mca_redistribution':'Figure Z: MCA redistribution distance and speed','deBelly_redraft':'deBelly redraft with Figures X Y and Z'}
 TITLES['mca_threshold_profiles']='Steady MCA profiles near the lower polarity limit'
 TITLES['mca_molecular_fates']='MCA molecular residence and first-exit fate'
 TITLES['stimulated_endpoint']='Stimulated-end protrusion and cortical velocity'
@@ -119,6 +120,10 @@ def organize_group(name,dry_run=False):
  text=f'# {TITLES.get(name,name)}\n\n[All development experiments]({os.path.relpath(DEV/"README.md",folder)})\n\n'
  if exists(folder/'CURRENT_REVIEW.html'):text+='[Current review checkpoint — start here](CURRENT_REVIEW.html)\n\n'
  if exists(folder/'index.html'):text+='[Interactive scientific reader](index.html)\n\n'
+ if name=='revision_round2_20261022/figure4':
+  text+='Rate-based size gains coexist with erosion below single-front geometry at stronger input; the frozen overall H1 remains inconclusive (Case B).\n\n'
+  text+='Since 20 October, the interim replaces the primary persistence-time readout with decay-rate ratios, actual-circumference normalization and fixed-lag noise tolerance, with old/new S0 calls retained side by side. No revised main is composed before author review.\n\n'
+  text+='[Scientific README: message, changes, methods and every remaining qualification](supporting/metadata/scientific_readme.md) · [Case decision and pending work](supporting/metadata/interim_summary.json)\n\n'
  if name=='signature_figure4_20261020':
   text=text.replace('[Interactive scientific reader](index.html)','[Delivered E0 interim reader](index.html)')
   if exists(folder/'figure4_complete_reader.html'):

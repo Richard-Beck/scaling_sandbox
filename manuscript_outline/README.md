@@ -1,3 +1,21 @@
+# Round-2 review interim (22 October 2026)
+
+[**outline_v5**](outline_v5.pdf) · [**Round-2 reader**](revision_round2_20261022/index.html) · [**Figure 4 interim and data**](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/index.html).
+
+The new rate-based persistence analysis and old/new S0 decision tables are integrated as review-interim supplementary sheets. The brief requires author review here, before the Figure 4 main and the Figure 3/2 revisions. The preceding main artwork is retained and labelled; this is a partial work-package handoff. Figures 1, 5 and 6 remain identical to outline_v4.
+
+Rebuild after the analysis and S0 producer finish, using the existing `scaling_sandbox` environment:
+
+```sh
+python -B manuscript_outline/prepare_revision_round2_20261022.py
+python -B scripts/build_manuscript_outline_v2.py --input manuscript_outline/outline_v5.json --output manuscript_outline/outline_v5.pdf
+python -B scripts/verify_manuscript_outline.py manuscript_outline/outline_v5.json --report manuscript_outline/outline_v5.validation.json
+```
+
+[Interim integration and protected-section receipt](revision_round2_20261022/integration.json). The 20 October edition below remains the preceding completed composition.
+
+---
+
 # Manuscript outline and revised figures
 
 [**Integrated manuscript outline**](../manuscript_outline/outline_v4.pdf) · [**Revised Figures 2–4 and legends**](../manuscript_outline/revision_20261020/revised_figures_2_4.pdf) · [**Report reader**](../manuscript_outline/revision_20261020/index.html).

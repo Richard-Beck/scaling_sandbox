@@ -1,0 +1,197 @@
+# Brief: Figures 2–4 revision, round 2
+
+## 0. Shared narrative and rules
+
+**Thread across the three figures**
+1. Enlarged cells resist imposed replacement through class-specific mechanisms (Fig. 2).
+2. Larger cells can hold active regions farther apart, and in mass-conserved models, far-apart regions resolve very slowly (Fig. 3).
+3. Under fluctuating input, large cells gain heading persistence. Where multiple fronts coexist, that gain falls below the geometric expectation (Fig. 4, pending the reanalysis in section 1).
+
+Each figure's title and the first sentence of its legend state that figure's part of this thread.
+
+**Presentation rules for all three figures**
+- **Titles** state the message. Remove "AUDITED FINAL", hashes, slot IDs, seeds and atlas references from main figures; they belong in metadata.
+- **Legends** start with the observed result and its implication. Methods detail goes to the supplement methods. Say "native units" once per legend, not on every axis.
+- **Colours:** fixed model colours across all figures (WP blue, Goryachev red, deBelly purple, Holmes green, Spring gold). Size is encoded by lightness (small light, large dark) or line style, the same in every figure.
+- **Panel count:** at most six per figure. Robustness, sensitivity and numerical panels go to the supplement.
+- **Bounds:** censored values use one convention everywhere (open triangle at the bound, with an arrow). They are never omitted.
+- **No retuning of models.** Existing supplements stay complete. Superseded main panels move to the supplement rather than being deleted.
+
+**Order**
+1. Figure 4 reanalysis first, because it decides Figure 4's message.
+2. Figure 3 recomposition.
+3. Figure 2 recomposition, plus the Holmes runs.
+4. Integration into outline_v5.
+
+Deliver an interim after the Figure 4 reanalysis (section 1.4) and stop for my review before building the Figure 4 main.
+
+---
+
+## 1. Figure 4: reanalysis and recomposition
+
+### 1.1 New persistence estimand (existing outputs only, no new runs)
+
+The 1/e persistence time τ_p is censored wherever memory stays near 1, which is exactly where the size effect was clearest. Replace it as the primary estimand.
+
+- **Heading autocorrelation:** C(ℓ) = ⟨cos Δθ(ℓ)⟩, keeping the existing coverage rule (both endpoints R ≥ 0.1) and the whole-seed bootstrap.
+- **Rotational decay rate at lag ℓ:** k(ℓ) = −ln C(ℓ) / ℓ. For rotational diffusion, this is the angular diffusivity D_θ.
+- **Lag set:** chemical models 250, 500, 1000, 2000, 4000 and 8000; Spring at one tenth of those.
+- **Usable lag:** coverage ≥ 0.5 in both sizes, and the bootstrap CI of 1 − C excludes 0 in at least one size.
+- **Primary size ratio:**
+  - Ρ_k(ℓ) = k_small(ℓ) / k_large(ℓ), at the shortest usable lag where C_small ≤ 0.98.
+  - As a secondary estimate, regress −ln C on ℓ over lags where 0.2 ≤ C ≤ 0.98, separately for each size, and report the ratio of slopes.
+- **Censoring:** if the large cell's 1 − C is indistinguishable from 0 at every usable lag, report a one-sided lower bound using the CI upper limit of k_large.
+- **Lag consistency:** report Ρ_k at every usable lag. A ratio that drifts by more than 1.5× across lags marks the condition "non-exponential". Keep it, flagged.
+- **Geometric normalization:** Ρ_geo = Ρ_k / (C_large / C_small)².
+  - Ρ_geo = 1: pure geometry with size-independent physical mobility.
+  - Ρ_geo > 1: site stabilization beyond geometry.
+  - Ρ_geo < 1: erosion of the geometric advantage.
+  - Label this as relative to the single-front geometric expectation. It is not a site diffusivity.
+- **Noise tolerance f½(C):** the input where C at a fixed reference lag (chemical 2000, Spring 200) falls to 0.5, interpolated in log f across all designed inputs, including 0.005, 0.015, 0.02 and 0.05. Report CIs and bounds.
+
+### 1.2 Re-run the decision table (S0) with the new estimand
+
+- Keep the existing criteria text. Substitute Ρ_k for Ρ, and the new f½.
+- Add Ρ_geo against f per model as a reported outcome, not a gate.
+- Report both arms, all views, and results with and without forced-state conditions, as before.
+- Keep the old τ_p-based calls in the supplement, side by side with the new ones.
+
+### 1.3 Figure 4 main figure
+
+**Case A: H1 passes at weak-to-intermediate input under Ρ_k.** Expected; this is the primary plan.
+
+- **Title:** "Enlarged cells hold heading longer under fluctuating input; coexisting fronts erode the advantage below geometry". Adjust the second clause to whatever Ρ_geo actually shows.
+- **A. Kymographs.** Small and large rings for Wave-pinning and one other model, at a weak-to-intermediate f where both sizes are single-front (about 0.003–0.01), plus one large-cell example at strong input showing multiple fronts.
+  - Draw each panel's width proportional to its circumference rather than padding the small ring on the large ring's axis.
+  - Use a shared colour scale within a model.
+- **B. Heading autocorrelation.** C(ℓ) for small and large cells at the panel-A input, one subpanel per model, log-linear axes, with bootstrap bands. This is what the eye should see: the slopes differ.
+- **C. Headline: size effect against input.** Ρ_k against f, one line per model.
+  - Reference lines at 1 and at the geometric expectation (9 for a 3× circumference step).
+  - Marker fill shows the large cell's regime: single front, multiple fronts or low contrast.
+  - Forced-state conditions are greyed. Bounds use the shared convention.
+- **D. Multiple-front fraction against f.** Small and large cells for each model, x-axis aligned with C. This is the explanation for erosion in C and the link to Fig. 3.
+- **E. Noise tolerance f½ against size**, all models. Include it only if CIs separate in at least two models; otherwise move it to the supplement.
+
+**Case B: H1 still inconclusive under Ρ_k.**
+- Keep the current framing.
+- Replace current panel C (seven-view robustness) with Ρ_k against f (as in C above).
+- Move the seven-view panel to the supplement.
+- Fix panel A's layout as described above.
+- Stop and report before finalizing.
+
+### 1.4 Supplement additions for Figure 4
+
+- C(ℓ) and k(ℓ) for every model × size × f, with coverage.
+- Ρ_k at every usable lag, with the lag-consistency flags.
+- Old τ_p estimand against the new one.
+- Ρ_geo against f.
+- The seven-view robustness panel, moved from the main figure.
+
+**Interim deliverable:** the new S0 table, Ρ_k and Ρ_geo against f for all models, and a one-paragraph statement of which case (A or B) applies.
+
+---
+
+## 2. Figure 3: recomposition (no required new runs)
+
+**Message:** distance matters most for resolving coexisting regions, not for driven takeover. At matched distance, size dominates takeover time. Larger cells reach larger separations, where coexisting regions in mass-conserved models persist.
+
+### 2.1 New analysis: decompose the size effect
+
+For each model, for driven handover (A1) and for cue-free resolution (B, ratio 1):
+
+- **Matched gap g_m:** the largest gap reached at both the smallest and largest sizes. This is normally the smallest size's antipode; interpolate within each size's measured curve.
+- **Size at matched gap:** T_large(g_m) / T_small(g_m).
+- **Extra separation:** T_large(antipode_large) / T_large(g_m).
+- **Total:** T_large(antipode_large) / T_small(antipode_small). This equals the product of the two terms above.
+- Repeat for the middle size against the smallest.
+- Use the same lower-bound convention throughout. Where T is censored, the corresponding term is a one-sided bound. Never substitute the horizon cap.
+
+### 2.2 Figure 3 main figure
+
+- **Title:** "Separation slows the resolution of coexisting regions more than it slows driven takeover".
+- **A. Design schematic.** Keep the current schematic, compressed. Add one small inset: the same gap on small and large rings. This replaces the translation page's geometry content.
+- **B. Native kymographs, two contrasts:**
+  - B1: Goryachev driven handover at g = 2 against g = 8 (distance slows takeover).
+  - B2: Wave-pinning cue-free resolution, near against far withdrawal gap at one size (far regions coexist).
+- **C. Driven handover against initial edge gap.** The current C1, one subpanel per model, with borderline placements open and the antipode of each size marked by a tick.
+- **D. Cue-free resolution against withdrawal gap.** The current C2 promoted; ratio 1 in the main figure.
+  - Lower bounds drawn clearly. Holmes is mostly bounds; show them, and state the fraction in the legend.
+  - Mark each size's antipode.
+- **E. Decomposition** (section 2.1). Per model: horizontal bars of log₁₀ time ratio, split into size-at-matched-gap and extra-separation, for A1 and B side by side. Bounds are drawn as open-ended bars.
+
+**Legend points to state:**
+- Goryachev handover rises with gap. Holmes is flat. Wave-pinning and Spring rise near the edge and then plateau. Do not describe Wave-pinning as having no distance effect.
+- Resolution in Wave-pinning, Holmes and Spring rises steeply with gap and is often unresolved at large sizes.
+- Size at matched gap dominates handover.
+
+### 2.3 Move to the supplement
+
+- The whole translation page (fixed-angle remap, actual/target angle insets, "potential angular step / time").
+- B at ratios 0.5 and 2.
+- A2 pulse brackets, 50%-edge reclassification and numerics, as already planned.
+
+### 2.4 Optional runs (only if the decomposition is undefined because of censoring)
+
+Extend the cue-free horizon 4× for B ratio-1 cases that are censored at the two smaller sizes and fall inside the matched-gap range. Report the count first, before submitting.
+
+---
+
+## 3. Figure 2: recomposition plus targeted Holmes runs
+
+**Message:** replacement resistance in enlarged cells arises through three mechanism classes, and the shape and timing of a cue tell them apart.
+
+| Class | Models | Initiation slows with L | Narrow-cue penalty at equal area | Share held through gaps | Commits after in-gap collapse |
+|---|---|---|---|---|---|
+| Initiation-limited | Goryachev | yes | no | no (resets) | no |
+| Mass-conserved, saturating | Wave-pinning, Holmes | no | yes, grows with L | yes (ratchet) | — |
+| Slow non-activity state | deBelly, Spring | no | no | no (collapses) | yes |
+
+Verify every cell of this table against the final data before it goes into the figure. Change the class membership if any model departs, and say so.
+
+### 3.1 New runs: Holmes at large L
+
+- Holmes L31, L35 and L39 have no calibration, because no continuous cue commits by 10⁵.
+- Run 4-pulse trains with pulse length equal to one quarter of 1.5× the Holmes L27 calibration duration, at gaps 0, 0.1, 0.5, 1, 4 and 16× the pulse length.
+- **Primary readout:** D at the end of each pulse and each gap; this measures retention and does not need commitment. Fate is secondary.
+- Add one bounded-noise retention check at L39, matching S3.
+- Report "no continuous commitment by 10⁵" as a finding: extreme replacement resistance at large L.
+
+### 3.2 Figure 2 main figure
+
+- **Title:** as in the message above.
+- **A. Incumbent organization.** Keep, compressed to one row with three small panels.
+- **B. Initiation.** Activation time divided by each model's own L19 value, log y, all models on one axis or small multiples sharing a y-axis.
+  - deBelly's interval-censored first step is shown as bound markers, not tall bars.
+  - Keep the reporter-threshold sensitivity in the supplement.
+- **C. Equal-area width test.** Narrow ÷ broad replacement-time ratio against L, all models on one axis, coloured by model and grouped by class. Bounds use the shared convention. Move the Wave-pinning L39 profile inset to the supplement, or keep it small.
+- **D. Train fate maps.** Gap against L, ordered by class. Holmes includes the L31–L39 retention runs, using D at the end of each gap where fate is unavailable, with a visibly distinct marker.
+- **E. Gap-retention traces.** One L39 trace per model, ordered by class: Holmes L39 from the new runs, deBelly with its numerical-qualification marker.
+- **F. Class table.** Rows are classes, columns are signatures, and a final column gives the measurement: beam width at fixed photon dose; pulse trains; biosensor share at the end of each gap. This replaces the per-model table.
+
+### 3.3 Supplement additions for Figure 2
+
+- Holmes large-L train and noise pages.
+- Class-membership check: every table cell with the number that decides it.
+- The current per-model panel F table, moved here.
+
+---
+
+## 4. Deliverables and acceptance
+
+**Per figure:**
+- Main PNG, PDF and SVG; supplement PDF; CSVs of plotted values.
+- A short README stating the message, what changed since 20 October and every remaining qualification.
+
+**Acceptance checks:**
+- Every number in titles and legends matches the CSVs.
+- Bounds are never drawn as point estimates.
+- Model colours are identical across Figs 2–4.
+- No main panel is a robustness or methods panel.
+- Each legend's first sentence states a result.
+
+**Integration:** outline_v5 with Figs 1, 5 and 6 unchanged, plus a one-paragraph cross-figure narrative using the thread in section 0, adjusted to the actual Figure 4 result.
+
+**Stop points for my review:**
+1. Figure 4 interim (section 1.4).
+2. Any change to Figure 2 class membership.
+3. Figure 3 optional runs, if section 2.4 is triggered.

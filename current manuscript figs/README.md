@@ -1,3 +1,11 @@
+# Latest round-2 review interim (22 October 2026)
+
+[**outline_v5**](../manuscript_outline/outline_v5.pdf) · [**Review-interim reader**](../manuscript_outline/revision_round2_20261022/index.html) · [**Figure 4 new estimand, S0 and CSVs**](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/index.html).
+
+The requested persistence-rate reanalysis is the first review stop. New sheets are integrated as interim supplementary material; the main Figure 4 has not been recomposed. Figures 2–3 retain the 20 October composition pending review and later work, including the new Holmes retention runs. Figures 1, 5 and 6 are unchanged. The preceding completed edition and its full supplements remain linked below.
+
+---
+
 # Current manuscript figure copies
 
 [**Integrated manuscript outline**](../manuscript_outline/outline_v4.pdf) · [**Revised Figures 2–4 and legends**](../manuscript_outline/revision_20261020/revised_figures_2_4.pdf) · [**Report reader**](../manuscript_outline/revision_20261020/index.html).
