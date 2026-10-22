@@ -118,6 +118,13 @@ def main():
     scientific = read(FIG/'supporting/metadata/estimator_verification.json')
     assert scientific['passed']
     assert sha(ROOT/scientific['test_source']) == scientific['test_sha256']
+    parallel = read(FIG/'supporting/metadata/compact_parallel_equivalence.json')
+    assert parallel['passed'] and parallel['scientific_CSVs_byte_identical']
+    assert parallel['scientific_CSV_SHA256']['serial'] == parallel['scientific_CSV_SHA256']['parallel4']
+    for path, expected in parallel['code_sha256'].items():
+        assert sha(ROOT/path) == expected, path
+    parallel_test = parallel['focused_regression_test']
+    assert parallel_test['passed'] and sha(ROOT/parallel_test['path']) == parallel_test['sha256']
     analysis = read(FIG/'supporting/metadata/analysis_receipt.json')
     assert bool(analysis.get('completed_campaign')) == integration['campaign_complete']
     cohort = scientific_cohort()
@@ -126,7 +133,7 @@ def main():
         exact_vector_main_embedded=True, width_mm=180, height_mm=render['height_mm'],
         protected_sections=list(integration['protected_sections']),
         source_hashes_verified=len(render['inputs'])+len(render['outputs'])+len(render.get('documentation', {})),
-        scientific_checks=scientific['test_count'], supplement_pages=len(PdfReader(FIG/'figure4_supplement.pdf').pages),
+        scientific_checks=scientific['test_count']+parallel_test['tests_run'], supplement_pages=len(PdfReader(FIG/'figure4_supplement.pdf').pages),
         scientific_cohort=cohort)
     (DEST/'verification.json').write_text(json.dumps(result, indent=2)+'\n')
     print(json.dumps(result, indent=2))
