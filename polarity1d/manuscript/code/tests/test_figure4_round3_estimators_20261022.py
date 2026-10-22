@@ -149,6 +149,12 @@ class Estimators(unittest.TestCase):
         self.assertEqual(result['n_switches'],1);self.assertEqual(result['n_scored_switches'],0)
         self.assertAlmostEqual(result['lambda_s'],1/6)
 
+    def test_two_frame_tenure_uses_global_five_frame_P_heading_windows(self):
+        ids=np.r_[np.zeros(10,int),np.ones(2,int),np.full(10,2,int)];P=np.exp(1j*ids)
+        result,_=E.drift_jump(np.arange(len(ids)),20.,ids,[{int(i):float(i)} for i in ids],hold=2,P=P)
+        self.assertEqual(result['n_switches'],2);self.assertEqual(result['n_scored_switches'],2)
+        self.assertTrue(np.isfinite(result['lambda_eff']));self.assertGreater(result['lambda_eff'],0.)
+
     def test_uniform_dilation_does_not_move_intrinsic_heading(self):
         C=np.linspace(2.,3.,101);ids=np.zeros(101,int);maps=[{0:np.pi/3} for _ in ids]
         values=S.seed_sums(C,ids,maps,1.,20)

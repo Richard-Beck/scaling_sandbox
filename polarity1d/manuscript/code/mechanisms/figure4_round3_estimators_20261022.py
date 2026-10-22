@@ -238,7 +238,9 @@ def drift_jump(time, circumference, dominant_ids, track_headings, *, hold=5, ran
     for (a, b), (c, d) in zip(sections[:-1], sections[1:]):
         if b != c or ids[a] == ids[c]:continue
         counted_switches+=1
-        if b-a < 5 or d-c < 5 or not np.all(jump_valid[b-5:b]) or not np.all(jump_valid[c:c+5]):continue
+        if b<5 or c+5>len(heading):continue
+        if P is None and (b-a<5 or d-c<5):continue
+        if not np.all(jump_valid[b-5:b]) or not np.all(jump_valid[c:c+5]):continue
         before = np.mean(np.exp(1j * jump_heading[b-5:b])); after = np.mean(np.exp(1j * jump_heading[c:c+5]))
         if abs(before) > 1e-12 and abs(after) > 1e-12: jumps.append(float(np.angle(after * np.conj(before))))
     valid_time = base['valid_time']
