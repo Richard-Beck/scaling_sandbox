@@ -197,6 +197,13 @@ def compact(out,campaign,tracked=True):
     allocation=json.loads((campaign/'results/allocation.json').read_text());targets=allocation['targets']
     precision_path=Path(allocation.get('precision_source',''))
     if not precision_path.is_file() or digest(precision_path)!=allocation.get('precision_sha256'):raise ValueError('Final whole-seed precision receipt is missing or changed')
+    precision_rows=json.loads(precision_path.read_text()).get('conditions',[]);precision={r['condition_id']:r for r in precision_rows}
+    if len(precision)!=len(manifest['conditions']):raise ValueError('Final precision receipt omits or duplicates designed conditions')
+    for condition in manifest['conditions']:
+        cid=condition['condition_id'];assessment=precision.get(cid,{})
+        if assessment.get('n_seeds')!=targets[cid]:raise ValueError('Final precision cohort differs from the allocated independent seeds: '+cid)
+        unresolved=(assessment.get('se_log_k') is not None and assessment['se_log_k']>.07) or assessment.get('reason')=='bootstrap_valid_fraction_below_0.975'
+        if unresolved and targets[cid]<384:raise ValueError('Final cohort remains below the requested precision before384seed cap: '+cid)
     records=read_csv(campaign/'results/compact_index.csv');per={}
     for row in records:
         if row['status'].lower()!='complete':continue
