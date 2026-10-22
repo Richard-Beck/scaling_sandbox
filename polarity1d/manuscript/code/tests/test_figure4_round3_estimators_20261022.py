@@ -73,6 +73,18 @@ class Estimators(unittest.TestCase):
         support=np.unique(np.round(summary['Cboot'][:,0],12))
         np.testing.assert_allclose(support,[-.9,89.1/101,.9],atol=1e-12)
 
+    def test_precision_cli_and_final_compact_use_identical_bootstrap(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            directory=Path(tmp);records=[];moments=[];time=np.arange(801)*5.;target,lags=E.lag_grid('wave_pinning',time[-1]-time[0],5.)
+            for seed in range(2):
+                theta=np.cumsum(np.random.default_rng(seed+70).normal(0,np.sqrt(.02),len(time)));P=np.exp(1j*theta);path=directory/f'seed{seed}.npz'
+                np.savez(path,time=time,P_real=P.real,P_imag=P.imag,circumference=np.array(20.));moments.append(E.seed_moments(P,abs(P)>=.1,5.,lags))
+                records.append(dict(condition_id='wave_pinning:C20:f0.01',model='wave_pinning',size=20.,fraction=.01,compact=str(path),status='COMPLETE'))
+            index=directory/'index.csv';output=directory/'precision.json';E.write_csv(index,records)
+            with patch('sys.argv',['estimator','precision','--input',str(index),'--output',str(output)]):E.main()
+            report=json.loads(output.read_text())['conditions'][0];expected=E.summarize(moments,[20.,20.],('compact',('wave_pinning',20.,.01)),target,lags);j=E.analysis_lag(expected)
+            self.assertEqual(report['analysis_lag'],float(lags[j]));self.assertAlmostEqual(report['se_log_k'],float(np.std(np.log(expected['kboot'][:,j]),ddof=1)),places=13)
+
     def test_physical_brownian_msd_recovers_diffusivity(self):
         rng=np.random.default_rng(19);dt=20.;Ds=.002;C=20.
         x=np.r_[0.,np.cumsum(rng.normal(0,np.sqrt(2*Ds*dt),10000))]

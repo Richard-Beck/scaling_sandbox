@@ -310,7 +310,7 @@ def main():
                 t=z['time'].astype(float);P=z['P_real'].astype(float)+1j*z['P_imag'].astype(float)
                 target,lags=lag_grid(key[0],t[-1]-t[0],float(np.median(np.diff(t))))
                 values.append(seed_moments(P,abs(P)>=.1,float(np.median(np.diff(t))),lags));circ.append(float(z['circumference'].mean()))
-        s=summarize(values,circ,key,target,lags);j=analysis_lag(s)
+        s=summarize(values,circ,('compact',key),target,lags);j=analysis_lag(s)
         with np.errstate(invalid='ignore',divide='ignore'):
             logboot=np.log(s['kboot'][:,j]) if j is not None else np.full(DRAW_COUNT,np.nan)
         valid=float(np.isfinite(logboot).mean());se=float(np.std(logboot[np.isfinite(logboot)],ddof=1)) if valid>=.975 else None
