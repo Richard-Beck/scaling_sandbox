@@ -111,6 +111,14 @@ def main():
            if pending else 'Model estimates use the new compact high-replication campaign. ')
         + 'The revision uses no hypothesis gates; the preceding S0 record remains historical.')
     document['overview'] = [p.replace(old, replacement) for p in document['overview']]
+    for supporting in document['supplementary']:
+        if supporting.get('title') == 'Figure 4: complete revised evidence':
+            supporting['title'] = 'Historical Figure 4: previous supplement and decision record'
+            supporting['text'] = ['Historical evidence from the preceding Figure 4 edition, preserved unchanged. '
+                                  + p for p in supporting['text']]
+        if isinstance(supporting.get('text'), str):
+            supporting['text'] = supporting['text'].replace(
+                'Revised Figure 4 also displays', 'The historical Figure 4 edition also displays')
     protected = {}
     for ident in ('figure1', 'figure2', 'figure3', 'figure5', 'figure6'):
         previous = next(s for s in baseline['sections'] if s['id'] == ident)
