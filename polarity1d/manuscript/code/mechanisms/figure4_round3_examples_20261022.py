@@ -33,7 +33,7 @@ def prepare(out=OUT,campaign=None):
         endpoint=[r for r in lag if r['model']==model and n(r,'C_label') in (small,large) and math.isclose(n(r,'lag'),ref)]
         fs=sorted({n(r,'f') for r in endpoint})
         halves={c:n(next((r for r in tols if r['model']==model and math.isclose(n(r,'C_label'),c) and math.isclose(n(r,'reference_lag'),ref)),{}),'fhalf') for c in (small,large)}
-        midpoint=math.sqrt(halves[small]*halves[large]) if all(v>0 for v in halves.values()) else .03
+        midpoint=math.sqrt(halves[small]*halves[large]) if all(finite(v) and v>0 for v in halves.values()) else math.nan
         qualified=[]
         for f in fs:
             a=next((r for r in endpoint if n(r,'f')==f and n(r,'C_label')==small),{})
@@ -43,8 +43,11 @@ def prepare(out=OUT,campaign=None):
         if not candidates:
             selection.append(dict(model=model,status='unavailable_no_ref_correlations'))
             continue
-        chosen=min(candidates,key=lambda f:abs(math.log(f/midpoint)))
-        reason='C_small(reference)<0.4 and C_large(reference)>0.6; nearest log tolerance midpoint among qualifying designed inputs' if qualified else 'No designed input satisfies the two reference-correlation inequalities; nearest designed input to the log midpoint of endpoint noise tolerances'
+        if not qualified and not finite(midpoint):
+            selection.append(dict(model=model,status='unavailable_no_qualifying_input_or_finite_tolerance_midpoint',selection_reason='No designed input satisfies the reference-correlation inequalities and an endpoint noise tolerance is unresolved; no input is substituted'))
+            continue
+        chosen=min(candidates,key=lambda f:abs(math.log(f/midpoint))) if finite(midpoint) else min(qualified)
+        reason=('C_small(reference)<0.4 and C_large(reference)>0.6; nearest log tolerance midpoint among qualifying designed inputs' if finite(midpoint) else 'C_small(reference)<0.4 and C_large(reference)>0.6; lowest qualifying designed input, endpoint tolerance midpoint unavailable') if qualified else 'No designed input satisfies the two reference-correlation inequalities; nearest designed input to the log midpoint of endpoint noise tolerances'
         a=next((r for r in analysis if r['model']==model and n(r,'C_label')==small and math.isclose(n(r,'f'),chosen)),{})
         k=n(a,'k');requested=6/k if k>0 else math.nan
         horizon=3200. if model=='spring_ring' else 32000.

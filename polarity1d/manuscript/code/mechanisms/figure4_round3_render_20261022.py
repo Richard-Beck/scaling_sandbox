@@ -291,6 +291,7 @@ def alpha_panel(ax, rows, model, *, null=False, first_axis=False, ylabel=False):
         xs = [n(row, "f") * offset for row in selected]
         ys = [n(row, "alpha") for row in selected]
         ax.plot(xs, ys, color=color, lw=.67, zorder=1)
+        if null:continue
         for row, x, y in zip(selected, xs, ys):
             if not finite(y):
                 continue
@@ -323,6 +324,7 @@ def fold_panel(ax, rows, *, null=False):
         marker = None if null else ("o", "s", "^", "D")[index]
         legend_name=dict(drift="Drift",same_rate="+ same-rate jumps",perimeter="+ perimeter-rate jumps")[group] if null else NAMES[group]
         ax.plot(x, y, ls=style, color=color, lw=.8, marker=marker, ms=2., mfc="white" if group == "goryachev" else color, mew=.5, label=legend_name)
+        if null:continue
         for row, xx, yy in zip(selected, x, y):
             if finite(yy):
                 bounded_point(ax, xx, yy, n(row, "fold_ci_lower", "fhalf_fold_ci_lower", "ci_lower"), n(row, "fold_ci_upper", "fhalf_fold_ci_upper", "ci_upper"), color, marker=marker or "o", open_marker=group == "goryachev", ms=0 if null else 2.)
