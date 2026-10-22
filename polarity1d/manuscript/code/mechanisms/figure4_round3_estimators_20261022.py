@@ -195,19 +195,23 @@ def tenure_sections(ids):
 def drift_jump(time, circumference, dominant_ids, track_headings, *, hold=5, range_fraction=.25, P=None,max_lag=None):
     """track_headings[frame] maps retained identity to its native region heading.
 
+    Dominance tenures and switch exposure use the persistence-filtered IDs.
     Flicker suppression retains the accepted identity's centroid, rather than
-    substituting the instantaneous winner's coordinate. Missing tracked regions
-    split the valid tenure and remain missing.
+    substituting the instantaneous winner's coordinate. A missing accepted
+    centroid splits only its displacement segment; it does not erase an
+    observed dominant-ID interval or change its tenure length.
     """
     time = np.asarray(time, float); C = np.broadcast_to(circumference, time.shape)
-    dt = float(np.median(np.diff(time))); ids = smooth_flicker(dominant_ids, hold)
-    heading = np.array([track_headings[i].get(int(identity), math.nan) for i, identity in enumerate(ids)])
+    dt = float(np.median(np.diff(time))); dominant = smooth_flicker(dominant_ids, hold)
+    tenures=tenure_sections(dominant);durations=[(b-a)*dt for a,b in tenures]
+    heading = np.array([track_headings[i].get(int(identity), math.nan) for i, identity in enumerate(dominant)])
+    ids=dominant.copy()
     ids[~np.isfinite(heading)] = -1
-    sections = tenure_sections(ids); durations = [(b - a) * dt for a, b in sections]
-    valid_time=float(np.sum((ids[:-1]>=0)&(ids[1:]>=0))*dt)
-    base = dict(flicker_frames=hold, MSD_range_fraction=range_fraction, n_tenures=len(sections),
+    sections = tenure_sections(ids)
+    valid_time=float(np.sum((dominant[:-1]>=0)&(dominant[1:]>=0))*dt)
+    base = dict(flicker_frames=hold, MSD_range_fraction=range_fraction, n_tenures=len(tenures),n_centroid_segments=len(sections),
                 source_cadence=dt,flicker_hold_time=hold*dt,jump_heading_mean_window=5*dt,
-                valid_time=valid_time, n_switches=0,
+                valid_time=valid_time, n_switches=0,n_switches_with_missing_adjacent_centroid=0,
                 Ds=math.nan, MSD_exponent=math.nan, lambda_s=math.nan, mean_cos_jump=math.nan,
                 lambda_eff=math.nan, status='unavailable_no_valid_tenures')
     if not durations: return base, []
@@ -234,10 +238,11 @@ def drift_jump(time, circumference, dominant_ids, track_headings, *, hold=5, ran
     exponent = float(np.polyfit(np.log(lag[power]), np.log(MSD[power]), 1)[0]) if power.sum() >= 3 else math.nan
     jump_heading=heading if P is None else np.angle(np.asarray(P,complex))
     jump_valid=np.isfinite(jump_heading) if P is None else np.isfinite(P)&(abs(np.asarray(P))>=.1)
-    jumps = [];counted_switches=0
-    for (a, b), (c, d) in zip(sections[:-1], sections[1:]):
-        if b != c or ids[a] == ids[c]:continue
+    jumps = [];counted_switches=0;missing_adjacent_centroid=0
+    for (a, b), (c, d) in zip(tenures[:-1], tenures[1:]):
+        if b != c or dominant[a] == dominant[c]:continue
         counted_switches+=1
+        if not np.isfinite(heading[b-1]) or not np.isfinite(heading[c]):missing_adjacent_centroid+=1
         if b<5 or c+5>len(heading):continue
         if P is None and (b-a<5 or d-c<5):continue
         if not np.all(jump_valid[b-5:b]) or not np.all(jump_valid[c:c+5]):continue
@@ -248,7 +253,7 @@ def drift_jump(time, circumference, dominant_ids, track_headings, *, hold=5, ran
     mean_cos = float(np.cos(jumps).mean()) if jumps else math.nan
     base.update(Ds=Ds, MSD_exponent=exponent, lambda_s=lam, mean_cos_jump=mean_cos,
                 lambda_eff=lam*(1-mean_cos) if jumps and len(jumps)==counted_switches else 0. if counted_switches==0 and valid_time>0 else math.nan,
-                n_switches=counted_switches,n_scored_switches=len(jumps),jump_heading_source='whole_P' if P is not None else 'tracked_region',
+                n_switches=counted_switches,n_switches_with_missing_adjacent_centroid=missing_adjacent_centroid,n_scored_switches=len(jumps),jump_heading_source='whole_P' if P is not None else 'tracked_region',
                 median_tenure=float(np.median(durations)), MSD_max_lag=maxstep*dt,
                 status='resolved' if np.isfinite(Ds) and len(jumps)==counted_switches else 'unavailable_MSD_range' if not np.isfinite(Ds) else 'unavailable_jump_heading_windows',
                 jump_angles=jumps)

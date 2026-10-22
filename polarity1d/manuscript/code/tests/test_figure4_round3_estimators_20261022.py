@@ -142,6 +142,28 @@ class Estimators(unittest.TestCase):
         self.assertEqual(r['valid_time'],38.);self.assertEqual(r['n_switches'],1)
         self.assertAlmostEqual(r['lambda_eff'],(1-np.cos(1))/38)
 
+    def test_ignored_flicker_centroid_gap_preserves_dominance_tenure(self):
+        ids=np.repeat([1,2,3],[5,3,8]);velocity=.02
+        # Identity 1 is absent during the ignored three-frame identity-2 flicker.
+        # Its centroid must not be interpolated or replaced by identity 2's.
+        heads=[{int(identity):100.*identity+velocity*frame} for frame,identity in enumerate(ids)]
+        r,curve=E.drift_jump(np.arange(len(ids)),2*np.pi,ids,heads,P=np.ones(len(ids),complex))
+        self.assertEqual(r['n_switches'],1);self.assertEqual(r['n_scored_switches'],1)
+        self.assertEqual(r['n_switches_with_missing_adjacent_centroid'],1)
+        self.assertEqual(r['valid_time'],15.);self.assertAlmostEqual(r['lambda_s'],1/15)
+        self.assertEqual(r['n_tenures'],2);self.assertEqual(r['n_centroid_segments'],2)
+        self.assertEqual(r['median_tenure'],8.);self.assertEqual(r['MSD_max_lag'],2.)
+        np.testing.assert_allclose([row['MSD'] for row in curve],[(velocity*row['lag'])**2 for row in curve],rtol=1e-9)
+        self.assertEqual([row['eligible_pairs'] for row in curve],[11,9])
+
+    def test_genuine_missing_dominant_gap_does_not_count_switch(self):
+        ids=np.repeat([1,-1,3],[5,3,8]);heads=[{} if identity<0 else {int(identity):.01*frame} for frame,identity in enumerate(ids)]
+        r,_=E.drift_jump(np.arange(len(ids)),20.,ids,heads,P=np.ones(len(ids),complex))
+        self.assertEqual(r['n_switches'],0);self.assertEqual(r['valid_time'],11.)
+        self.assertEqual(r['n_switches_with_missing_adjacent_centroid'],0)
+        self.assertEqual(r['lambda_s'],0.);self.assertEqual(r['lambda_eff'],0.)
+        self.assertEqual(r['n_tenures'],2);self.assertEqual(r['median_tenure'],6.5)
+
     def test_initial_short_tenure_is_observed_before_confirmed_switch(self):
         ids=np.r_[np.ones(2,int),np.full(5,2,int)]
         np.testing.assert_array_equal(E.smooth_flicker(ids,5),ids)

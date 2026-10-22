@@ -324,6 +324,12 @@ def _compact_tracked_worker_init():
     for name in ('OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS'):os.environ[name]='1'
 
 
+def _compact_seed0_switch_indices(seed):
+    """Export adjacent accepted-dominant switches, with genuine ID gaps intact."""
+    filtered=E.smooth_flicker(seed['ids'],5)
+    return np.flatnonzero((filtered[1:]!=filtered[:-1])&(filtered[1:]>=0)&(filtered[:-1]>=0))+1
+
+
 def _compact_tracked_condition(task):
     """Unchanged scientific operations for one condition, with local histories."""
     key,seed_rows,s,context=task
@@ -350,8 +356,8 @@ def _compact_tracked_condition(task):
         rows.append(dict(base,**measure,**ci,kobs=kobs,kpred=kp,kpred_over_kobs=kp/kobs if kobs>0 else math.nan,analysis_lag=s['lags'][j] if j is not None else math.nan))
         if hold==5 and fraction==.25:msdrows.extend(dict(base,**m) for m in msd)
     for step in [1,2]:mles.append(dict(base,**E.wrapped_mixture_mle(P,base['C_mean'],dt,step,seed_labels)))
-    seed=seeds[0];filtered=E.smooth_flicker(seed['ids'],5)
-    for index in np.flatnonzero((filtered[1:]!=filtered[:-1])&(filtered[1:]>=0)&(filtered[:-1]>=0))+1:
+    seed=seeds[0]
+    for index in _compact_seed0_switch_indices(seed):
         events.append(dict(model=key[0],C_label=key[1],f=key[2],replicate=0,time=seed['time'][index]))
     execution=dict(worker_pid=os.getpid(),peak_resident_memory_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
     return rows,msdrows,mles,events,execution

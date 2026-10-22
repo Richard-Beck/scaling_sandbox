@@ -14,6 +14,18 @@ import figure4_round3_estimators_20261022 as E
 
 
 class ParallelTracked(unittest.TestCase):
+    def test_switch_ticks_preserve_dominance_despite_missing_centroid(self):
+        # A two-frame flicker retains identity 1, but its centroid disappears.
+        # Dominance was continuously observed, so both persistent replacements
+        # count even though the ignored identity cannot supply identity 1's MSD.
+        ids=np.repeat([1,2,3,4],[6,2,6,6]);time=np.arange(len(ids))*5.
+        headings=[{int(identity):.2*identity} for identity in ids]
+        seed=dict(ids=ids,time=time,headings=headings)
+        self.assertEqual(A._compact_seed0_switch_indices(seed).tolist(),[8,14])
+        measure,_=E.drift_jump(time,np.full(len(ids),20.),ids,headings,P=.8*np.exp(1j*np.arange(len(ids))*.01))
+        self.assertEqual(measure['n_switches'],2)
+        self.assertEqual(measure['valid_time'],95.)
+
     def test_serial_and_parallel_tracked_exports_are_byte_identical(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);groups={};contexts={};trackgroups={};t=np.arange(201)*5.
