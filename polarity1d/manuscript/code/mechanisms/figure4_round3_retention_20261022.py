@@ -35,20 +35,25 @@ def selected(path, root):
 
 def inventory(campaign_roots):
     records, inode_paths = [], defaultdict(list)
+    def add(path, root):
+        s = path.lstat()
+        kind = "file" if stat.S_ISREG(s.st_mode) else "directory" if stat.S_ISDIR(s.st_mode) else "symlink" if stat.S_ISLNK(s.st_mode) else "other"
+        row = dict(path=str(path.relative_to(C.ROOT)), campaign=root.name,
+            allocated_bytes=s.st_blocks * 512, logical_bytes=s.st_size,
+            device=s.st_dev, inode=s.st_ino, nlink=s.st_nlink, mtime_ns=s.st_mtime_ns,
+            kind=kind, selected=kind == "file" and selected(path, root))
+        records.append(row)
+        inode_paths[s.st_dev, s.st_ino].append(row)
     for root in campaign_roots:
         for base, dirs, files in os.walk(root, followlinks=False):
+            add(Path(base), root)
+            for name in dirs:
+                if (Path(base) / name).is_symlink():
+                    add(Path(base) / name, root)
             dirs[:] = [d for d in dirs if not (Path(base) / d).is_symlink()]
             for name in files:
                 path = Path(base) / name
-                s = path.lstat()
-                if not stat.S_ISREG(s.st_mode):
-                    continue
-                row = dict(path=str(path.relative_to(C.ROOT)), campaign=root.name,
-                    allocated_bytes=s.st_blocks * 512, logical_bytes=s.st_size,
-                    device=s.st_dev, inode=s.st_ino, nlink=s.st_nlink, mtime_ns=s.st_mtime_ns,
-                    selected=selected(path, root))
-                records.append(row)
-                inode_paths[s.st_dev, s.st_ino].append(row)
+                add(path, root)
     total, remove, retained, reclaim = 0, 0, 0, 0
     for paths in inode_paths.values():
         allocated = paths[0]["allocated_bytes"]
@@ -62,7 +67,9 @@ def inventory(campaign_roots):
             reclaim += allocated
     return records, dict(total_unique_allocated_bytes=total,
         selected_unique_allocated_bytes=remove, retained_unique_allocated_bytes=retained,
-        estimated_reclaimable_bytes=reclaim, files=len(records),
+        estimated_reclaimable_bytes=reclaim, files=sum(r["kind"] == "file" for r in records),
+        directories=sum(r["kind"] == "directory" for r in records),
+        symlinks=sum(r["kind"] == "symlink" for r in records), entries=len(records),
         selected_paths=sum(r["selected"] for r in records),
         hard_link_rule="Each inode counted once across72campaign roots; reclaimed allocation requires every hard link selected. Links outside this inventory reduce the reclaim estimate.")
 
@@ -82,7 +89,8 @@ The exact [reviewable plan](reports/figure4_round3_retirement_20261022/summary.j
 and [path/stat ledger](reports/figure4_round3_retirement_20261022/delete_plan.jsonl)
 cover {len(summary['roots'])} old Figure 4 noise campaign roots:
 **{summary['total_unique_allocated_bytes']:,} allocated bytes**
-({summary['total_unique_allocated_bytes']/2**30:.3f} GiB), counting hard links once.
+({summary['total_unique_allocated_bytes']/2**30:.3f} GiB), including directory
+and symbolic-link allocation and counting hard-linked files once.
 The {summary['selected_paths']:,} selected native profile/coupled-state paths
 occupy **{summary['selected_unique_allocated_bytes']:,} unique allocated bytes**;
 estimated reclaim is **{summary['estimated_reclaimable_bytes']:,} bytes**
@@ -181,7 +189,7 @@ def execute(campaign):
         compact_campaign_manifest_sha256=C.sha(campaign / "manifest.json"),
         compact_complete_seeds=status["native_seeds_complete"], original_plan_sha256=C.sha(REPORT / "delete_plan.jsonl"))
     C.write(REPORT / "execution.json", result)
-    summary.update(generated_utc=result["generated_utc"], execution=result)
+    summary.update(generated_utc=result["generated_utc"], status="EXECUTED_AFTER_COMPACT_COMPLETE", execution=result)
     C.write(REPORT / "summary.json", summary)
     document(summary, "EXECUTED_AFTER_COMPACT_COMPLETE")
     status = C.read(campaign / "status.json")

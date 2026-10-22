@@ -42,6 +42,7 @@ def publish_receipts(out):
         "campaign_lower_sigma_status.json": out / "lower_sigma_controls/status.json",
         "campaign_storage_receipt.json": C.ROOT / "reports/figure4_round3_storage_20261022.json",
         "campaign_native_retirement_execution.json": C.ROOT / "reports/figure4_round3_retirement_20261022/execution.json",
+        "campaign_retirement_plan.json": C.ROOT / "reports/figure4_round3_retirement_20261022/summary.json",
     }
     if allocation.get("precision_source"):
         sources["campaign_final_precision.json"] = Path(allocation["precision_source"])

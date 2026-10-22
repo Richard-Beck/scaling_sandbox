@@ -78,10 +78,17 @@ def load_module(name, path):
 def allocated(path):
     """One traversal, hard-linked inode counted once, without following links."""
     seen, total = set(), 0
-    for base, _, files in os.walk(path, followlinks=False):
-        for name in files:
-            p = Path(base) / name
-            st = p.lstat()
+    for base, dirs, files in os.walk(path, followlinks=False):
+        directory = Path(base)
+        entries = [directory] + [directory / name for name in files]
+        entries += [directory / name for name in dirs if (directory / name).is_symlink()]
+        for p in entries:
+            try:
+                st = p.lstat()
+            except FileNotFoundError:
+                # Producers atomically rename temporary compact/status files.
+                # An active traversal is explicitly not an atomic snapshot.
+                continue
             key = (st.st_dev, st.st_ino)
             if key not in seen:
                 seen.add(key)
@@ -112,7 +119,7 @@ def update_storage(out):
         personal_quota_status=prelaunch["personal_quota_status"],
         immutable_manifest_sha256=sha(out / "manifest.json"),
         old_noise_native_deleted=retired,
-        measurement="Allocated512byte blocks; hard-linked inode counted once; active-producer traversal, not an atomic snapshot.")
+        measurement="Allocated512byte blocks including files, directories and symbolic links; hard-linked inode counted once; active-producer traversal, not an atomic snapshot.")
     report_path = ROOT / "reports/figure4_round3_storage_20261022.json"
     write(report_path, report)
     marker = "figure4-round3-compact-storage-20261022"
