@@ -10,8 +10,14 @@ import gzip
 import hashlib
 import json
 import math
+import os
+from concurrent.futures import ProcessPoolExecutor
+from multiprocessing import get_context
 from pathlib import Path
+import resource
 import time
+for _thread_variable in ('OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS'):
+    os.environ[_thread_variable]='1'
 import numpy as np
 import figure4_round3_estimators_20261022 as E
 
@@ -305,37 +311,70 @@ def export_round2_comparison(data,first12,full):
     E.write_csv(data/'round2_comparison.csv',rows)
 
 
-def compact_tracked(out,groups,contexts,trackgroups):
+def _compact_tracked_worker_limit(requested=None):
+    """Stay within this SLURM task; ordinary interactive imports use one CPU."""
+    allocated=1
+    if os.environ.get('SLURM_JOB_ID') or os.environ.get('SLURM_JOBID'):
+        try:allocated=max(1,int(os.environ.get('SLURM_CPUS_PER_TASK','1')))
+        except ValueError:allocated=1
+    return allocated if requested is None else max(1,min(allocated,int(requested)))
+
+
+def _compact_tracked_worker_init():
+    for name in ('OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS'):os.environ[name]='1'
+
+
+def _compact_tracked_condition(task):
+    """Unchanged scientific operations for one condition, with local histories."""
+    key,seed_rows,s,context=task
     rows=[];msdrows=[];mles=[];events=[]
-    for key,seed_rows in trackgroups.items():
-        # Load exactly one condition's tracked histories at a time. The full
-        # campaign contains tens of millions of frames and must not be cached.
-        seeds=[]
-        for row in seed_rows:
-            with np.load(row['compact'],allow_pickle=False) as z:
-                t=z['time'].astype(float);C=z['circumference'].astype(float);P=z['P_real'].astype(float)+1j*z['P_imag'].astype(float)
-                offsets=z['region_offset'];region_ids=z['region_id'];head=z['region_heading']
-                maps=[{int(region_ids[j]):float(head[j]) for j in range(int(a),int(b)) if np.isfinite(head[j])} for a,b in zip(offsets[:-1],offsets[1:])]
-                seeds.append(dict(time=t,P=P,C=C,ids=z['dominant_track_id'].astype(int),headings=maps,cadence=float(np.median(np.diff(t)))))
-        dt=seeds[0]['cadence'];ids=[];maps=[];C=[];P=[];seed_labels=[]
-        for seed_index,seed in enumerate(seeds):
-            if not np.isclose(seed['cadence'],dt):raise ValueError('Mixed compact cadence within a condition')
-            ids.extend([-1]+list(seed['ids']));maps.extend([{}]+seed['headings']);C.extend([seed['C'][0]]+list(seed['C']));P.extend([complex(np.nan)]+list(seed['P']))
-            seed_labels.extend([-1]+[seed_index]*len(seed['P']))
-        P=np.asarray(P);C=np.asarray(C);t=np.arange(len(ids))*dt
-        base=dict(model=key[0],C_label=key[1],f=key[2],C_mean=groups[key]['circumference'],n_seeds=len(seeds),**contexts[key])
-        for hold,fraction in [(5,.25),(2,.25),(10,.25),(5,.125),(5,.5)]:
-            measure,msd=E.drift_jump(t,C,ids,maps,hold=hold,range_fraction=fraction,P=P);measure.pop('jump_angles',None)
-            s=groups[key];j=E.analysis_lag(s);kobs=s['k'][j] if j is not None else math.nan;kp=(2*np.pi/base['C_mean'])**2*measure['Ds']+measure['lambda_eff']
-            ci=tracked_uncertainty(seeds,measure,s) if hold==5 and fraction==.25 else {}
-            rows.append(dict(base,**measure,**ci,kobs=kobs,kpred=kp,kpred_over_kobs=kp/kobs if kobs>0 else math.nan,analysis_lag=s['lags'][j] if j is not None else math.nan))
-            if hold==5 and fraction==.25:msdrows.extend(dict(base,**m) for m in msd)
-        for step in [1,2]:mles.append(dict(base,**E.wrapped_mixture_mle(P,base['C_mean'],dt,step,seed_labels)))
-        seed=seeds[0];filtered=E.smooth_flicker(seed['ids'],5)
-        for index in np.flatnonzero((filtered[1:]!=filtered[:-1])&(filtered[1:]>=0)&(filtered[:-1]>=0))+1:
-            events.append(dict(model=key[0],C_label=key[1],f=key[2],replicate=0,time=seed['time'][index]))
+    # Each worker loads one condition; full campaign histories stay off heap.
+    seeds=[]
+    for row in seed_rows:
+        with np.load(row['compact'],allow_pickle=False) as z:
+            t=z['time'].astype(float);C=z['circumference'].astype(float);P=z['P_real'].astype(float)+1j*z['P_imag'].astype(float)
+            offsets=z['region_offset'];region_ids=z['region_id'];head=z['region_heading']
+            maps=[{int(region_ids[j]):float(head[j]) for j in range(int(a),int(b)) if np.isfinite(head[j])} for a,b in zip(offsets[:-1],offsets[1:])]
+            seeds.append(dict(time=t,P=P,C=C,ids=z['dominant_track_id'].astype(int),headings=maps,cadence=float(np.median(np.diff(t)))))
+    dt=seeds[0]['cadence'];ids=[];maps=[];C=[];P=[];seed_labels=[]
+    for seed_index,seed in enumerate(seeds):
+        if not np.isclose(seed['cadence'],dt):raise ValueError('Mixed compact cadence within a condition')
+        ids.extend([-1]+list(seed['ids']));maps.extend([{}]+seed['headings']);C.extend([seed['C'][0]]+list(seed['C']));P.extend([complex(np.nan)]+list(seed['P']))
+        seed_labels.extend([-1]+[seed_index]*len(seed['P']))
+    P=np.asarray(P);C=np.asarray(C);t=np.arange(len(ids))*dt
+    base=dict(model=key[0],C_label=key[1],f=key[2],C_mean=s['circumference'],n_seeds=len(seeds),**context)
+    for hold,fraction in [(5,.25),(2,.25),(10,.25),(5,.125),(5,.5)]:
+        measure,msd=E.drift_jump(t,C,ids,maps,hold=hold,range_fraction=fraction,P=P);measure.pop('jump_angles',None)
+        j=E.analysis_lag(s);kobs=s['k'][j] if j is not None else math.nan;kp=(2*np.pi/base['C_mean'])**2*measure['Ds']+measure['lambda_eff']
+        ci=tracked_uncertainty(seeds,measure,s) if hold==5 and fraction==.25 else {}
+        rows.append(dict(base,**measure,**ci,kobs=kobs,kpred=kp,kpred_over_kobs=kp/kobs if kobs>0 else math.nan,analysis_lag=s['lags'][j] if j is not None else math.nan))
+        if hold==5 and fraction==.25:msdrows.extend(dict(base,**m) for m in msd)
+    for step in [1,2]:mles.append(dict(base,**E.wrapped_mixture_mle(P,base['C_mean'],dt,step,seed_labels)))
+    seed=seeds[0];filtered=E.smooth_flicker(seed['ids'],5)
+    for index in np.flatnonzero((filtered[1:]!=filtered[:-1])&(filtered[1:]>=0)&(filtered[:-1]>=0))+1:
+        events.append(dict(model=key[0],C_label=key[1],f=key[2],replicate=0,time=seed['time'][index]))
+    execution=dict(worker_pid=os.getpid(),peak_resident_memory_KiB=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
+    return rows,msdrows,mles,events,execution
+
+
+def compact_tracked(out,groups,contexts,trackgroups,workers=None):
+    rows=[];msdrows=[];mles=[];events=[];execution=[]
+    worker_count=min(_compact_tracked_worker_limit(workers),max(1,len(trackgroups)))
+    _compact_tracked_worker_init()
+    tasks=((key,seed_rows,groups[key],contexts[key]) for key,seed_rows in trackgroups.items())
+    def collect(results):
+        for condition_rows,condition_msd,condition_mles,condition_events,record in results:
+            rows.extend(condition_rows);msdrows.extend(condition_msd);mles.extend(condition_mles);events.extend(condition_events);execution.append(record)
+    if worker_count==1:collect(map(_compact_tracked_condition,tasks))
+    else:
+        # Spawn workers inherit one BLAS thread before NumPy imports. map keeps
+        # manifest condition order, preserving CSV bytes and all RNG identities.
+        with ProcessPoolExecutor(max_workers=worker_count,mp_context=get_context('spawn'),initializer=_compact_tracked_worker_init) as pool:
+            collect(pool.map(_compact_tracked_condition,tasks,chunksize=1))
     data=out/'supporting/data';E.write_csv(data/'drift_decomposition.csv',rows);E.write_csv(data/'within_tenure_msd.csv',msdrows);E.write_csv(data/'detector_free_mle.csv',mles);E.write_csv(data/'seed0_switch_events.csv',events)
-    return dict(conditions=len(trackgroups),jump_heading_source='whole_P',drift_coordinate='tracked-region physical centroid, local unwrap within tenure')
+    return dict(conditions=len(trackgroups),workers=worker_count,allocated_cpus=_compact_tracked_worker_limit(),BLAS_threads=1,
+                worker_pids=sorted({r['worker_pid'] for r in execution}),maximum_worker_peak_resident_memory_KiB=max((r['peak_resident_memory_KiB'] for r in execution),default=0),
+                jump_heading_source='whole_P',drift_coordinate='tracked-region physical centroid, local unwrap within tenure')
 
 
 def fallback(out, tracked=True):
