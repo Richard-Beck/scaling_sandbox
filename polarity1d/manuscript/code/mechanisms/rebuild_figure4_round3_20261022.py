@@ -36,6 +36,9 @@ def rebuild(output=R.OUT,*,campaign=None,prepare_round2=False,nulls='none',prepa
                 path=Path(campaign)/relative
                 if path.exists():shutil.copy2(path,output/'supporting/metadata'/name)
         elif prepare_round2:A.fallback(output)
+        if campaign is not None or prepare_round2:
+            import figure4_round3_spring_coordinate_sensitivity_20261022 as S
+            S.run(output,source='compact' if campaign is not None else 'round2',campaign=Path(campaign) if campaign is not None else None)
         if nulls!='none':A.nulls(output,nulls)
     if prepare_examples or prepare_round2 or campaign is not None:
         import figure4_round3_examples_20261022 as X

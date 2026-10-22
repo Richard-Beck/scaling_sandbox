@@ -151,19 +151,44 @@ def supplement(data, output):
                 finish(fig,NAMES[model]+': within-tenure MSD; increasing input from purple to yellow')
         else:notice('Within-tenure MSD exponents','No tracked physical-centroid tenures support MSD fits in these records.')
 
+        coordinate=read_csv(data/'spring_coordinate_sensitivity.csv')
+        if coordinate:
+            fig,ax=plt.subplots(figsize=(7.0866,4.8))
+            for size in SIZES:
+                q=sorted([r for r in coordinate if math.isclose(equivalent_size(r),size)],key=lambda r:n(r,'f'))
+                x=np.array([n(r,'f') for r in q]);y=100*(np.array([n(r,'literal_over_arc_Ds') for r in q])-1)
+                ax.plot(x,y,'o-',color=size_color('spring_ring',size),lw=.75,ms=2.5,label=f'C={size/20:g}')
+                for row,xx,yy in zip(q,x,y):
+                    low=100*(n(row,'literal_over_arc_Ds_ci_lower')-1);high=100*(n(row,'literal_over_arc_Ds_ci_upper')-1)
+                    if finite(low) and finite(high):ax.plot([xx,xx],[low,high],color=size_color('spring_ring',size),lw=.45)
+            ax.axhline(0,color='.65',lw=.6);log_f(ax);ax.set_ylabel(r'$(D_s^{\mathrm{literal}}/D_s^{\mathrm{arc}}-1)\times100\%$');style_axis(ax)
+            ax.legend(frameon=False,fontsize=6,loc='best',ncol=5)
+            fig.text(.1,.025,'Primary: integrate midpoint-circumference × wrapped angular increments. Sensitivity: unwrapped angle × instantaneous circumference at a fixed coordinate origin. Whole-seed 95% intervals.',fontsize=6,wrap=True)
+            finish(fig,'Spring physical-coordinate convention sensitivity')
+        else:notice('Spring physical-coordinate convention sensitivity','No literal-coordinate sensitivity record is available; the main uses intrinsic arclength increments.')
+
         comparison=read_csv(data/'round2_comparison.csv')
         if comparison:
             if any('measure' in r for r in comparison):
                 for measure,label in [('k_at_fixed_reference','Fixed-lag decay rate'),('fhalf_first_downcrossing','Noise tolerance')]:
                     selected=[r for r in comparison if r.get('measure')==measure]
-                    fig,axes=grid()
-                    for ax,model in zip(axes.flat,MODELS):
-                        q=[r for r in selected if r.get('model')==model and n(r,'matched_P_round2_value')>0 and n(r,'round3_first12_value')>0]
-                        for r in q:ax.plot(n(r,'matched_P_round2_value'),n(r,'round3_first12_value'),'o',ms=3,color=size_color(model,equivalent_size(r)))
-                        vals=[n(r,k) for r in q for k in ('matched_P_round2_value','round3_first12_value')];limits=(min(vals)/2,max(vals)*2) if vals else (1e-5,1.)
-                        ax.plot(limits,limits,color='.6',lw=.6);ax.set(xscale='log',yscale='log',xlim=limits,ylim=limits,xlabel='Round 2, matched P definition',ylabel='Round 3, first 12 histories');facet(ax,NAMES[model]);style_axis(ax)
-                    fig.text(.1,.025,'Rate comparisons use the actual old 12-history subset. Tolerance crosses an input grid whose old replication can vary; all seed counts and original/matched-P baselines remain in CSV.',fontsize=6,wrap=True)
-                    finish(fig,'Round-2 versus round-3: '+label)
+                    for column,cohort in [('full_round3_value','full new cohort'),('round3_first12_value','first 12 new histories (diagnostic)')]:
+                        if not any(n(r,column)>0 for r in selected):continue
+                        fig,axes=grid()
+                        for ax,model in zip(axes.flat,MODELS):
+                            q=[r for r in selected if r.get('model')==model and n(r,'matched_P_round2_value')>0 and n(r,column)>0]
+                            for r in q:
+                                color=size_color(model,equivalent_size(r));old12=n(r,'n_old_seeds')==12
+                                ax.plot(n(r,'matched_P_round2_value'),n(r,column),'o' if old12 else 's',mfc=color if old12 else 'white',mec=color,mew=.6,ms=3)
+                                lowx,highx=n(r,'matched_P_round2_ci_lower'),n(r,'matched_P_round2_ci_upper')
+                                prefix='full_round3' if column=='full_round3_value' else 'round3_first12'
+                                lowy,highy=n(r,prefix+'_ci_lower'),n(r,prefix+'_ci_upper')
+                                if lowx>0 and finite(highx):ax.plot([lowx,highx],[n(r,column)]*2,color=color,lw=.4)
+                                if lowy>0 and finite(highy):ax.plot([n(r,'matched_P_round2_value')]*2,[lowy,highy],color=color,lw=.4)
+                            vals=[n(r,k) for r in q for k in ('matched_P_round2_value',column)];limits=(min(vals)/2,max(vals)*2) if vals else (1e-5,1.)
+                            ax.plot(limits,limits,color='.6',lw=.6);ax.set(xscale='log',yscale='log',xlim=limits,ylim=limits,xlabel='Round 2, matched P definition',ylabel='Round 3, '+cohort);facet(ax,NAMES[model]);style_axis(ax)
+                        fig.text(.1,.025,'Filled circles: old ensemble has 12 histories. Open squares: old count differs or varies over the tolerance grid. Actual old/new counts and all intervals remain in CSV.',fontsize=6,wrap=True)
+                        finish(fig,'Round-2 versus round-3: '+label+'; '+cohort)
             # Find explicit old/new columns while preserving the full CSV.
             for old,new,label in [('round2_k','round3_k','Round-2 versus round-3 k'),('round2_fhalf','round3_fhalf','Round-2 versus round-3 noise tolerance')]:
                 if not any(n(r,old)>0 and n(r,new)>0 for r in comparison):continue

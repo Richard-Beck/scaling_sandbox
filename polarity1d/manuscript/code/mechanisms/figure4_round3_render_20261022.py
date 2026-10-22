@@ -366,13 +366,14 @@ def model_examples(fig, grids, data, exported):
         label = NAMES[model] + (rf", $f={chosen_f:g}$" if finite(chosen_f) else "")
         fig.text((bounds.x0 + bounds.x1) / 2, bounds.y1 + .007, label, ha="center", fontsize=6.8)
         ax = fig.add_subplot(outer[1])
-        rr = [row for row in correlations if row.get("model") == model and math.isclose(n(row, "f"), chosen_f, rel_tol=1e-8)]
+        rr = [row for row in correlations if row.get("model") == model and math.isclose(n(row, "f"), chosen_f, rel_tol=1e-8) and any(math.isclose(equivalent_size(row),size) for size in (20,60))]
         aa = next((row for row in end_alpha if row.get("model") == model and math.isclose(n(row, "f"), chosen_f, rel_tol=1e-8)), {})
         value = n(aa, "alpha", "end_to_end_alpha")
         annotation = rf"$\alpha_{{20,60}}={value:.2g}$" if finite(value) else r"$\alpha_{20,60}$ unavailable"
         lo, hi = n(aa, "alpha_ci_lower"), n(aa, "alpha_ci_upper")
-        if finite(lo) and finite(hi):
-            annotation += f"\n95% CI [{lo:.2g}, {hi:.2g}]"
+        if not math.isnan(lo) and not math.isnan(hi):
+            bound=lambda value:('−∞' if value<0 else '∞') if math.isinf(value) else f'{value:.2g}'
+            annotation += f"\n95% CI [{bound(lo)}, {bound(hi)}]"
         correlation(ax, rr, model, annotation=annotation, legend=j == 0)
         if j == 0:
             ax.set_ylabel(r"Heading $C(\ell)$", labelpad=2)
@@ -422,7 +423,7 @@ def decomposition(fig, grid, data, exported, omissions):
                     x.append(n(row, "f"))
                     y.append(value if finite(value) and (value >= 0 if i == 3 else value > 0) else math.nan)
                     if not finite(y[-1]):
-                        reason='Empirical zero omitted from logarithmic axis; event-rate upper bound retained in source' if value==0 and i<3 else first(row, key + "_status", "status", "reason", default="Undefined in compact record")
+                        reason=('Empirical zero omitted from logarithmic axis; Poisson zero-count reference bound and whole-seed CI remain distinct in source' if key=='lambda_eff' else 'Empirical zero omitted from logarithmic axis; exact zero preserved in source') if value==0 and i<3 else first(row, key + "_status", "status", "reason", default="Undefined in compact record")
                         if key=='kpred_over_kobs' and (not finite(n(row,'kobs')) or n(row,'kobs')<=0):reason='Observed k unavailable at any eligible single-condition analysis lag'
                         elif key=='kpred_over_kobs' and not finite(n(row,'kpred')):reason='Prediction unavailable because a drift or switch ingredient is undefined'
                         elif str(reason)=='resolved':reason='Quantity is undefined despite other resolved tracked ingredients; inspect source fields'
@@ -464,15 +465,18 @@ def render(out=OUT):
     b_alpha = read_csv(data / "null_B_local_alpha.csv")
     for j, kind in enumerate(NULLS):
         alpha_panel(fig.add_subplot(bgrid[j]),b_alpha,kind,null=True,first_axis=j==0,ylabel=j==0)
-    fold_panel(fig.add_subplot(bgrid[4]),read_csv(data/"null_B_noise_tolerance_folds.csv") or read_csv(data/"null_B_fhalf.csv"),null=True)
-    exported["B_alpha"] = b_alpha
+    bfolds=read_csv(data/"null_B_noise_tolerance_folds.csv") or read_csv(data/"null_B_fhalf.csv")
+    fold_panel(fig.add_subplot(bgrid[4]),bfolds,null=True)
+    exported["B_alpha"] = [dict(r,f_display=n(r,'f'),C_equivalent=equivalent_size(r)) for r in b_alpha]
+    exported['B_folds']=[dict(r,C_display=equivalent_size(r)) for r in bfolds if n(r,'reference_lag','tau_ref',default=2000)==2000]
     cgrid = outer[2].subgridspec(1,6,width_ratios=[1,1,1,1,.17,1.13],wspace=.35)
     c_alpha = primary(read_csv(data/"local_alpha.csv"))
     for j, model in enumerate(MODELS):
         alpha_panel(fig.add_subplot(cgrid[j]),c_alpha,model,ylabel=j==0)
     folds = primary(read_csv(data/"noise_tolerance_folds.csv"))
     fold_panel(fig.add_subplot(cgrid[5]),folds)
-    exported["C_alpha"],exported["C_folds"] = c_alpha,folds
+    exported["C_alpha"]=[dict(r,f_display=n(r,'f')*np.exp(np.linspace(-.04,.04,5)[int(np.argmin(abs(np.asarray(SIZES)-equivalent_size(r))))]),C_equivalent=equivalent_size(r)) for r in c_alpha]
+    exported["C_folds"]=[dict(r,C_display=equivalent_size(r)) for r in folds if n(r,'reference_lag')==(200 if r.get('model')=='spring_ring' else 2000)]
     model_examples(fig,outer[3].subgridspec(1,4,wspace=.39),data,exported)
     decomposition(fig,outer[4].subgridspec(4,4,wspace=.31,hspace=.20),data,exported,omissions)
     for letter,index in zip("ABCDE",range(5)):
@@ -487,12 +491,6 @@ def render(out=OUT):
         bounds=cgrid[j].get_position(fig)
         ramp_key(fig,[model],cy,x=bounds.x0+.12*bounds.width,width=bounds.width*.87)
     fig.text(.81,cy+.002,"C; Spring ×20 in fold panel",fontsize=5.5,ha="left",va="center")
-    ey=outer[4].get_position(fig).y1+.012
-    for j,model in enumerate(MODELS):
-        bounds=outer[4].get_position(fig)
-        cell_width=bounds.width/4.93
-        cell_x=bounds.x0+j*cell_width*1.31
-        ramp_key(fig,[model],ey,x=cell_x+.12*cell_width,width=cell_width*.87)
     for extension in ("png","pdf","svg"):
         fig.savefig(out/("figure4_main."+extension),dpi=450 if extension=="png" else 300)
     plt.close(fig)

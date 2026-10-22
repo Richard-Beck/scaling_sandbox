@@ -4,10 +4,12 @@ from pathlib import Path
 import unittest
 import tempfile
 import json
+from unittest.mock import patch
 import numpy as np
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'mechanisms'))
 import figure4_round3_estimators_20261022 as E
 import figure4_round3_analysis_20261022 as A
+import figure4_round3_spring_coordinate_sensitivity_20261022 as S
 
 
 class Estimators(unittest.TestCase):
@@ -17,6 +19,40 @@ class Estimators(unittest.TestCase):
             (campaign/'manifest.json').write_text(json.dumps({'conditions':[]}));(campaign/'status.json').write_text(json.dumps({'complete':False,'status':'RUNNING'}))
             with self.assertRaisesRegex(ValueError,'precision qualification must be COMPLETE'):A.compact(output,campaign)
             self.assertFalse(output.exists())
+
+    def test_old_two_seed_conditions_compare_against_full_new_cohort(self):
+        old=dict(arm='common',view='main',model='wave_pinning',C_label='20',f='.01',lag='2000',n_seeds='2',k='.2',k_ci_lower='.1',k_ci_upper='.3')
+        key=('wave_pinning',20.,.01)
+        def summary(k,n):return dict(lags=np.array([2000.]),k=np.array([k]),kboot=np.full((2000,1),k),n_seeds=n)
+        with tempfile.TemporaryDirectory() as tmp:
+            directory=Path(tmp);(directory/'round2_matched_P_condition_lag_metrics.csv').touch()
+            def read(path):
+                return [old] if Path(path).name in ['condition_lag_metrics.csv','round2_matched_P_condition_lag_metrics.csv'] else []
+            with patch.object(A,'read_csv',side_effect=read):A.export_round2_comparison(directory,{key:summary(.12,12)},{key:summary(.1,96)})
+            row=A.read_csv(directory/'round2_comparison.csv')[0]
+            self.assertEqual(int(row['n_old_seeds']),2);self.assertEqual(int(row['n_new_seeds']),96)
+            self.assertAlmostEqual(float(row['round3_first12_value']),.12);self.assertAlmostEqual(float(row['full_round3_value']),.1)
+
+    def test_fhalf_comparison_preserves_variable_seed_counts_by_input(self):
+        def moment(f,n):return dict(arm='common',view='main',model='wave_pinning',C_label='20',f=str(f),lag='2000',n_seeds=str(n),k='.2',k_ci_lower='.1',k_ci_upper='.3')
+        def tol(value):return dict(arm='common',view='main',forced_inclusive='True',model='wave_pinning',C_label='20',reference_lag='2000',fhalf=str(value),fhalf_ci_lower='.01',fhalf_ci_upper='.1',status='resolved')
+        def summary(n):return dict(lags=np.array([2000.]),k=np.array([.1]),kboot=np.full((2000,1),.1),n_seeds=n)
+        keys=[('wave_pinning',20.,f) for f in [.01,.1]]
+        with tempfile.TemporaryDirectory() as tmp:
+            directory=Path(tmp)
+            for name in ['round2_matched_P_condition_lag_metrics.csv','round2_matched_P_noise_tolerance.csv']:(directory/name).touch()
+            def read(path):
+                path=Path(path)
+                if path.name in ['condition_lag_metrics.csv','round2_matched_P_condition_lag_metrics.csv']:return [moment(.01,2),moment(.1,12)]
+                if path.name=='round3_first12_noise_tolerance.csv':return [tol(.04)]
+                if path.name=='round2_matched_P_noise_tolerance.csv':return [tol(.025)]
+                if path==directory/'noise_tolerance.csv':return [tol(.03)]
+                return [tol(.02)]
+            with patch.object(A,'read_csv',side_effect=read):A.export_round2_comparison(directory,{k:summary(12) for k in keys},{keys[0]:summary(96),keys[1]:summary(192)})
+            row=next(r for r in A.read_csv(directory/'round2_comparison.csv') if r['measure']=='fhalf_first_downcrossing')
+            self.assertEqual(json.loads(row['old_seed_counts_by_f']),{'0.01':2,'0.1':12})
+            self.assertEqual(json.loads(row['new_seed_counts_by_f']),{'0.01':96,'0.1':192})
+            self.assertEqual(row['n_old_seeds'],'');self.assertAlmostEqual(float(row['full_round3_value']),.03)
 
     def test_endpoint_cosine_with_missing_middle(self):
         # Endpoint-only eligibility keeps a lag pair even if its interior is invalid.
@@ -93,6 +129,17 @@ class Estimators(unittest.TestCase):
         result,_=E.drift_jump(np.arange(len(ids)),20.,ids,[{1:0.,2:1.} for _ in ids])
         self.assertEqual(result['n_switches'],1);self.assertEqual(result['n_scored_switches'],0)
         self.assertAlmostEqual(result['lambda_s'],1/6)
+
+    def test_uniform_dilation_does_not_move_intrinsic_heading(self):
+        C=np.linspace(2.,3.,101);ids=np.zeros(101,int);maps=[{0:np.pi/3} for _ in ids]
+        values=S.seed_sums(C,ids,maps,1.,20)
+        self.assertEqual(float(values['intrinsic_arc'][0].sum()),0.)
+        self.assertGreater(float(values['literal_fixed_origin'][0].sum()),0.)
+
+    def test_fixed_circumference_coordinate_conventions_agree(self):
+        C=np.full(101,2.);heading=np.linspace(.2,1.4,101);ids=np.zeros(101,int)
+        values=S.seed_sums(C,ids,[{0:a} for a in heading],1.,20)
+        np.testing.assert_allclose(values['intrinsic_arc'],values['literal_fixed_origin'],atol=1e-12)
 
     def test_detector_free_does_not_bridge_seed_separator(self):
         P=np.r_[np.exp(1j*np.arange(15)*.01),complex(np.nan),np.exp(1j*np.arange(15)*.02)]

@@ -12,7 +12,12 @@ from figure4_round3_render_20261022 import (OUT, ROOT, REPO, MODELS, NAMES,
 
 
 def fmt(value):
-    return f"{value:.4g}" if finite(value) else "unavailable"
+    if value is None:return 'unavailable'
+    try:value=float(value)
+    except (TypeError,ValueError):return 'unavailable'
+    if math.isnan(value):return 'unavailable'
+    if math.isinf(value):return '−∞' if value<0 else '∞'
+    return f"{value:.4g}"
 
 
 def span(rows, key):
@@ -39,6 +44,10 @@ def create(out=OUT):
     null_receipt_path=meta/'null_analysis_receipt.json'
     null_receipt=json.loads(null_receipt_path.read_text()) if null_receipt_path.exists() else {}
     seed_counts=sorted({int(n(r,'n_seeds')) for r in lag if finite(n(r,'n_seeds'))})
+    planned_path=meta/'campaign_manifest.json'
+    planned=json.loads(planned_path.read_text()).get('conditions',[]) if planned_path.exists() else []
+    observed_keys={(r.get('model'),n(r,'C_label'),n(r,'f')) for r in single}
+    pending_design=[r for r in planned if (r.get('model'),n(r,'size'),n(r,'fraction')) not in observed_keys]
     unresolved=[r for r in alpha if not finite(n(r,'alpha'))]
     tracked_count=sum(finite(n(r,'Ds')) for r in decomp)
     predicted_count=sum(finite(n(r,'kpred')) and n(r,'kobs')>0 for r in decomp)
@@ -72,8 +81,9 @@ def create(out=OUT):
           f'{len(unresolved)} of {len(alpha)} local size neighborhoods have no reported exponent. Every failed neighborhood remains a row in `local_alpha.csv` and `omitted_estimates.csv`; the omission reasons identify missing members, inadequate endpoint coverage, or no shared lag with all neighborhood correlations strictly between 0.03 and 0.995. A nearly empty Goryachev facet is retained as an estimation result. No absent size or input is interpolated into a neighborhood.','',
           f'Available local exponents span {span(alpha,"alpha")}. The plotting range is −1.5 to 4: outward triangles preserve off-scale estimates and interval tails. Wild exponents are retained, not clipped in the data or smoothed into the main figure.','',
           f'The retained model ensembles contain {", ".join(map(str,seed_counts)) or "unavailable"} independent histories per condition. A 2,000-resample bootstrap does not increase the number of independent histories. Sparse original ensembles remain identified in the compact files.','',
-          f'Tracked diffusivity is finite in {tracked_count} exported conditions; a finite predicted/observed ratio is available in {predicted_count}. Zero counted switches give an empirical switch contribution of zero, with a positive event-rate upper bound retained in the data; a log axis omits that zero rather than displaying a positive substitute. Insufficient tenures do not imply a fitted diffusivity, and undefined measures are never imputed. Every unavailable decomposition quantity has a status/reason in `drift_decomposition.csv` or `omitted_estimates.csv`.','',
+          f'Tracked diffusivity is finite in {tracked_count} exported conditions; a finite predicted/observed ratio is available in {predicted_count}. Zero counted switches give an empirical switch contribution of zero; a log axis omits that zero rather than displaying a positive substitute. `jump_no_event_upper95 = 3 / valid_time` is a Poisson zero-count reference bound under a constant-hazard assumption, not an assumption-free confidence bound for these models. Whole-seed bootstrap intervals are separate and can be [0, 0] when no event was observed. Insufficient tenures do not imply a fitted diffusivity, and undefined measures are never imputed. Every unavailable decomposition quantity has a status/reason in `drift_decomposition.csv` or `omitted_estimates.csv`.','',
           'Null simulations can be too stable at weak input or decorrelate before the shortest declared lag at strong input. Such cells have no eligible local exponent; analytic formulas are used only for validation, never as replacements in the main panels. The simulated null analytic-check diagnostics and precision shortfalls are retained even if they are unfavorable.','']
+    if planned:text.extend([f'The frozen new campaign contains {len(planned)} model–size–input conditions. The current source contains {len(observed_keys)} observed conditions, leaving {len(pending_design)} planned cells without source observations. The local-neighborhood census uses the represented input union and can include missing neighborhood members; it must not be confused with completed new-campaign conditions. [Every planned condition](campaign_manifest.json).',''])
     text.extend(['**The null B curves cannot cover the full analytic sketch under the declared lag rule.** At weak input, correlation can remain above 0.995 at the maximum lag of 16,000; at strong input, it can already be below 0.03 at the minimum lag of 250. The permitted local-neighborhood lag window therefore truncates the simulated curves, including possible asymptotic regimes. More independent histories do not repair this time-resolution limit. The shared-estimator and no-imputation requirements take precedence over drawing a complete analytic-looking curve.',''])
     text.extend(['[Every omitted estimate, with exact model/size/input and reason](../data/omitted_estimates.csv) · [Complete local-neighborhood census, including unselected lags](../data/local_alpha.csv) · [Every observed lag, correlation, coverage and interval](../data/condition_lag_metrics.csv). These inventories include each failed condition; no failed condition is removed from its designed grid.',''])
     for model in MODELS:
@@ -98,6 +108,15 @@ def create(out=OUT):
     null_a=read_csv(data/'null_A_acf.csv')
     deviations=[abs(n(r,'C')-n(r,'analytic_C')) for r in null_a if finite(n(r,'C')) and finite(n(r,'analytic_C'))]
     if deviations:text.extend([f'Null A maximum absolute simulated-minus-analytic autocorrelation deviation is {max(deviations):.4g} across the displayed endpoint/lag records. [All autocorrelations and analytic checks](../data/null_A_acf.csv).',''])
+    negatives=[r for r in null_a if n(r,'C')<0]
+    if negatives:
+        lowest=min(negatives,key=lambda r:n(r,'C'))
+        text.extend([f'Null A has {len(negatives)} negative finite-ensemble autocorrelation points; the minimum is {n(lowest,"C"):.5g} for {lowest.get("model")}, C={lowest.get("C_label")}, lag={lowest.get("lag")}. They are retained on the displayed slightly negative ordinate and in CSV. At long lags, a 1,000-history ensemble can fluctuate around a small positive expected correlation; no history or seed was replaced to suppress this behavior.',''])
+    spring_coordinate=read_csv(data/'spring_coordinate_sensitivity.csv')
+    spring_ratios=[n(r,'literal_over_arc_Ds') for r in spring_coordinate if finite(n(r,'literal_over_arc_Ds'))]
+    if spring_ratios:
+        effect=max(abs(v-1) for v in spring_ratios)*100
+        text.extend([f'Spring physical-coordinate sensitivity: {len(spring_ratios)}/{len(spring_coordinate)} condition ratios are finite. Literal fixed-origin coordinate / intrinsic-arc diffusivity spans {min(spring_ratios):.8g}–{max(spring_ratios):.8g}, a maximum point-estimate change of {effect:.4g}%. Both definitions use identical tenures and the fixed primary MSD range; all available primary intrinsic-arc estimates are independently reproduced. The alternative is a sensitivity check and does not replace or tune the primary ingredient. [Every ratio, interval and coordinate convention](../data/spring_coordinate_sensitivity.csv).',''])
     text.extend(['For B, the literal Bernoulli probability λΔt exceeds one at strong inputs. The simulator therefore uses the exact sampled Brownian-plus-Poisson-reset transition, with reset probability 1 − exp(−λΔt); every reset is uniform. A retains its requested Bernoulli-step experiment and validates against the corresponding discrete-step rate. This protocol qualification is recorded, rather than silently clipping a probability.','',
                  'Provisional tracking cadence varies with the retained observation cohort: chemical records include cadences 5 and 40, and Spring records include 0.5 and 4. A five-frame hold therefore spans 25 or 200 native chemical time units, and 2.5 or 20 Spring time units. The new compact campaign uses the scalar analysis cadence (5 and 0.5), giving hold times 25 and 2.5. `source_cadence` and `flicker_hold_time` identify the exact value for every tracked condition in [the decomposition CSV](../data/drift_decomposition.csv). This temporal-resolution difference qualifies provisional ingredients and switch ticks; no mixed cadence is pooled within a condition.',''])
     for limitation in receipt.get('limitations',[]):
@@ -119,8 +138,10 @@ def create(out=OUT):
                  '$$\n\\alpha=-\\frac{\\operatorname{Cov}(\\ln \\bar C,\\ln k)}{\\operatorname{Var}(\\ln \\bar C)}.\n\\tag{2}\n$$','',
                  'The single-condition analysis lag is the eligible correlation closest to 0.5 in absolute correlation distance. Noise tolerance uses the first downward crossing of absolute correlation 0.5 at reference lag 2,000 for chemical models and 200 for Spring, interpolated linearly in logarithmic input. Forced conditions are included and encoded by open markers. Reference-lag sensitivities (1,000/4,000, or 100/400 for Spring) remain in the compact records. Missing crossings, left/right censoring and gaps are retained explicitly.','',
                  'Confidence intervals are pointwise 95% whole-seed bootstrap intervals from 2,000 resamples. Every time point, lag and tracked event belonging to a resampled independent history is resampled together. Size ensembles are independent. Undefined logarithms or inadequate valid-draw fractions remain undefined or unbounded according to the estimator receipt.','',
-                 'A tenure is a maximal interval with a constant dominant largest-amount track ID after requiring a replacement to persist for five frames. Physical centroids are unwrapped within tenures. The primary diffusivity fits MSD = 2Dₛτ through the origin through one quarter of the median tenure. The jump rate counts persistent replacements per valid time; mean jump cosine uses five-frame mean headings before and after each replacement.','',
-                 '$$\n\\lambda_{\\mathrm{eff}}=\\lambda\\left(1-\\langle\\cos\\Delta\\theta\\rangle\\right),\\qquad k_{\\mathrm{pred}}=\\left(\\frac{2\\pi}{\\bar C}\\right)^2D_s+\\lambda_{\\mathrm{eff}}.\n\\tag{3}\n$$','',
+                 'A tenure is a maximal interval with a constant dominant largest-amount track ID after requiring a replacement to persist for five frames. The primary physical coordinate integrates wrapped angular centroid increments multiplied by midpoint circumference, within each valid tenure. A uniform dilation at fixed material angle therefore contributes no heading-changing drift. This is an intrinsic arclength increment convention, rather than the literal product of unwrapped angle and instantaneous circumference. Spring coordinate sensitivity is retained separately where available.','',
+                 '$$\n\\Delta s_i=\\frac{C_i+C_{i+1}}{4\\pi}\\,\\operatorname{wrap}(\\theta_{i+1}-\\theta_i),\\qquad s_j=\\sum_{i<j}\\Delta s_i.\n\\tag{3}\n$$','',
+                 'The primary diffusivity fits MSD = 2Dₛτ through the origin through one quarter of the median tenure. The jump rate counts persistent replacements per valid time; mean jump cosine uses five-frame mean headings before and after each replacement.','',
+                 '$$\n\\lambda_{\\mathrm{eff}}=\\lambda\\left(1-\\langle\\cos\\Delta\\theta\\rangle\\right),\\qquad k_{\\mathrm{pred}}=\\left(\\frac{2\\pi}{\\bar C}\\right)^2D_s+\\lambda_{\\mathrm{eff}}.\n\\tag{4}\n$$','',
                  'The detector-free mixture uses wrapped-Gaussian angular increments with variance 2Dθδ plus uniform relocations of weight 1 − exp(−λδ), at the shortest cadence and twice that cadence. Physical diffusivity is DθC²/(4π²). Declared tracked sensitivities use persistence thresholds of 2 and 10 frames, and MSD fit limits of one eighth and one half of median tenure. The supplementary PDF shows the available comparisons and explicitly identifies diagnostics that await compact records.','',
                  '## Rebuild, portable records and provenance','',
                  'From the repository root, run:','',

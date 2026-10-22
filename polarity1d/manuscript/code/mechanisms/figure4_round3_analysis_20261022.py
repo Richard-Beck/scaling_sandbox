@@ -250,7 +250,7 @@ def compact(out,campaign,tracked=True):
         if len(groups)%20==0:print('compact conditions',len(groups),flush=True)
     data=out/'supporting/data';result=export_analysis(groups,contexts,data)
     export_analysis(first12,{k:dict(v,source='completed_compact_first12') for k,v in contexts.items()},data,prefix='round3_first12_')
-    export_round2_comparison(data,first12)
+    export_round2_comparison(data,first12,groups)
     E.write_csv(data/'extended_conditions.csv',extended if extended else [dict(status='none',n_seeds=96)])
     E.write_csv(data/'forcing_conditions.csv',forcing_rows)
     if tracked:result['tracked']=compact_tracked(out,groups,contexts,trackgroups)
@@ -264,7 +264,7 @@ def compact(out,campaign,tracked=True):
     return result
 
 
-def export_round2_comparison(data,first12):
+def export_round2_comparison(data,first12,full):
     matched_path=data/'round2_matched_P_condition_lag_metrics.csv'
     matched=read_csv(matched_path) if matched_path.exists() else []
     original=read_csv(ROUND2/'supporting/data/condition_lag_metrics.csv')
@@ -273,22 +273,35 @@ def export_round2_comparison(data,first12):
     rows=[]
     for key,s in first12.items():
         ref=200. if key[0]=='spring_ring' else 2000.;old=old_index.get((*key,ref));newP=matched_index.get((*key,ref))
-        if old is None or int(old['n_seeds'])!=12:continue
+        if old is None:continue
         j=int(np.flatnonzero(np.isclose(s['lags'],ref))[0]);lo,hi=E.percentile(s['kboot'][:,j],True)
-        rows.append(dict(measure='k_at_fixed_reference',model=key[0],C_label=key[1],f=key[2],reference_lag=ref,n_old_seeds=12,n_new_seeds=12,
+        complete=full[key];k=int(np.flatnonzero(np.isclose(complete['lags'],ref))[0]);flo,fhi=E.percentile(complete['kboot'][:,k],True)
+        comparison_values=np.array([float(old['k']),float(newP['k']) if newP else math.nan,complete['k'][k]])
+        rows.append(dict(measure='k_at_fixed_reference',model=key[0],C_label=key[1],f=key[2],reference_lag=ref,n_old_seeds=int(old['n_seeds']),old_12seed_subset=int(old['n_seeds'])==12,n_new_seeds=complete['n_seeds'],n_new_first12_seeds=s['n_seeds'],
                          original_round2_value=old['k'],original_round2_ci_lower=old['k_ci_lower'],original_round2_ci_upper=old['k_ci_upper'],
                          matched_P_round2_value=newP['k'] if newP else math.nan,matched_P_round2_ci_lower=newP['k_ci_lower'] if newP else math.nan,matched_P_round2_ci_upper=newP['k_ci_upper'] if newP else math.nan,
-                         round3_first12_value=s['k'][j],round3_first12_ci_lower=lo,round3_first12_ci_upper=hi,status='resolved' if newP else 'matched_P_baseline_unavailable'))
+                         round3_first12_value=s['k'][j],round3_first12_ci_lower=lo,round3_first12_ci_upper=hi,
+                         full_round3_value=complete['k'][k],full_round3_ci_lower=flo,full_round3_ci_upper=fhi,
+                         status='resolved' if np.all(np.isfinite(comparison_values)&(comparison_values>0)) else 'matched_P_baseline_unavailable' if newP is None else 'unavailable_nonpositive_or_undefined_rate'))
     original_tol=read_csv(ROUND2/'supporting/data/noise_tolerance.csv');matched_tol=read_csv(data/'round2_matched_P_noise_tolerance.csv') if (data/'round2_matched_P_noise_tolerance.csv').exists() else []
     orig_index={(r['model'],float(r['C_label']),float(r['reference_lag'])):r for r in original_tol if r['arm']=='common' and r['view']=='main' and r['forced_inclusive']=='True'}
     match_index={(r['model'],float(r['C_label']),float(r['reference_lag'])):r for r in matched_tol}
+    full_tol={(r['model'],float(r['C_label']),float(r['reference_lag'])):r for r in read_csv(data/'noise_tolerance.csv')}
     for r in read_csv(data/'round3_first12_noise_tolerance.csv'):
         key=r['model'],float(r['C_label']),float(r['reference_lag']);old=orig_index.get(key);newP=match_index.get(key)
         if old is None:continue
-        rows.append(dict(measure='fhalf_first_downcrossing',model=key[0],C_label=key[1],reference_lag=key[2],n_new_seeds=12,
+        old_counts={str(f):int(record['n_seeds']) for (m,c,f,lag),record in old_index.items() if (m,c,lag)==key}
+        new_counts={str(f):s['n_seeds'] for (m,c,f),s in full.items() if (m,c)==key[:2]};complete=full_tol.get(key,{})
+        nold=next(iter(set(old_counts.values()))) if len(set(old_counts.values()))==1 else None
+        nnew=next(iter(set(new_counts.values()))) if len(set(new_counts.values()))==1 else None
+        rows.append(dict(measure='fhalf_first_downcrossing',model=key[0],C_label=key[1],reference_lag=key[2],n_old_seeds=nold,n_new_seeds=nnew,n_new_first12_seeds=12,
+                         old_seed_counts_by_f=old_counts,new_seed_counts_by_f=new_counts,old_12seed_subset=all(n==12 for n in old_counts.values()),
                          original_round2_value=old['fhalf'],original_round2_ci_lower=old['fhalf_ci_lower'],original_round2_ci_upper=old['fhalf_ci_upper'],
                          matched_P_round2_value=newP['fhalf'] if newP else math.nan,matched_P_round2_ci_lower=newP['fhalf_ci_lower'] if newP else math.nan,matched_P_round2_ci_upper=newP['fhalf_ci_upper'] if newP else math.nan,
-                         round3_first12_value=r['fhalf'],round3_first12_ci_lower=r['fhalf_ci_lower'],round3_first12_ci_upper=r['fhalf_ci_upper'],status='resolved' if newP else 'matched_P_baseline_unavailable'))
+                         round3_first12_value=r['fhalf'],round3_first12_ci_lower=r['fhalf_ci_lower'],round3_first12_ci_upper=r['fhalf_ci_upper'],
+                         full_round3_value=complete.get('fhalf',math.nan),full_round3_ci_lower=complete.get('fhalf_ci_lower',math.nan),full_round3_ci_upper=complete.get('fhalf_ci_upper',math.nan),
+                         original_round2_status=old['status'],matched_P_round2_status=newP['status'] if newP else 'unavailable',full_round3_status=complete.get('status','unavailable'),
+                         status='resolved' if newP and all(z.get('status')=='resolved' for z in [old,newP,complete]) else 'bounded_or_unavailable_fhalf'))
     E.write_csv(data/'round2_comparison.csv',rows)
 
 
