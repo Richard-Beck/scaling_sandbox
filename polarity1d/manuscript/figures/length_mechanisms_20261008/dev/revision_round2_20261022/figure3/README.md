@@ -1,0 +1,15 @@
+# Figure 3 · round 2 (22 October 2026)
+
+**Message:** separation slows cue-free resolution more than driven takeover. At matched gap, size dominates the driven-handover increase. Enlarged cells access farther-separated coexisting regions.
+
+[Main PNG](figure3_main.png) · [PDF](figure3_main.pdf) · [SVG](figure3_main.svg) · [complete supplement (11 pages)](figure3_supplement.pdf) · [legend](legend.md).
+
+Since 20 October, the main figure has five panels, a same-gap size inset, the requested Goryachev/Wave-pinning native contrasts, separate driven and cue-free curves, and the new matched-gap decomposition. Model colours now match Figure 4 round 2. The translation page and both superseded main pages are retained in the supplement, followed by the complete existing supplement. The [existing reader](../../revision_program_20261020/figure3_distance/index.html) retains all four native-profile appendix volumes and 1,150 native-history images.
+
+**Qualifications:** cue-free B times are saved-sample intervals, not exact roots. Withdrawal gaps differ from initial cue gaps; an antipodal-placement endpoint need not have exactly antipodal withdrawal centers. Interpolation is confined to adjacent eligible measured placements and assumes piecewise-linear curves. Numerator censoring yields a lower bound only with a resolved denominator; two censored times leave the ratio indeterminate. Holmes B has 18/23 eligible main-curve bounds; its decomposition is indeterminate. Wave-pinning large B has a lower-bounded size/total effect and indeterminate extra-separation ratio. Spring large B has lower-bounded size/total terms and an indeterminate extra-separation ratio because matched-gap interpolation touches a censored neighbor. Main bars never substitute horizon caps for unresolved times. Goryachev B includes a nonmonotone response and an approximately 4% fine-mesh timing qualification. Topology-ineligible/unseeded cases remain explicit in the evidence CSVs; handover, native-field stationarity, activity heading, migration summaries and conditional OU estimates remain separate.
+
+**Review stop:** 9 optional Holmes extensions qualify under section 2.4 (5 smallest, 4 middle), from 20,000 to proposed 80,000. [Candidate CSV](optional_extension_candidates.csv). **No extension submitted.** Large-size terms may remain censored even after these extensions.
+
+**CSVs:** [decomposition terms](decomposition_terms.csv), [summary](decomposition_summary.csv), [interpolation provenance](interpolation_queries.csv), [A1 plotted values](A1_plotted_values.csv), [B ratio-1 evidence](B_ratio1_plotted_values.csv). Infinite interval upper endpoints mean censoring; zero-to-infinity ratio intervals mean indeterminate. B finite representative values are geometric centers of brackets; full endpoints are retained. A1 unavailable topology is never censoring.
+
+Rebuild: `/home/4473331/.conda/envs/scaling_sandbox/bin/python polarity1d/manuscript/code/mechanisms/revision_round2_figure3_20261022.py` from repository root. Existing completed outputs only; no SLURM work. Generated at 2026-10-22T10:50:57.480493+00:00.

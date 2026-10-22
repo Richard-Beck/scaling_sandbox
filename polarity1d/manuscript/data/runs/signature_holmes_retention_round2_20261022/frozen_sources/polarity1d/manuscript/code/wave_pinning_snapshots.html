@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wave-pinning · continuous reversal cue</title>
+<style>
+:root{color-scheme:light;--ink:#192e3f;--muted:#546877;--line:#d8e2e8;--active:#c45520;--inactive:#176a9b}
+*{box-sizing:border-box}body{margin:0;background:#f2f5f7;color:var(--ink);font:15px system-ui,sans-serif}main{max-width:1440px;margin:auto;padding:28px}h1{font-size:28px;margin:0 0 8px;font-weight:650}p{line-height:1.5;margin:8px 0;color:var(--muted)}a{color:#176a9b}header{margin-bottom:22px}.stamp{font-size:12px}.controls{position:sticky;top:0;z-index:5;background:#fff;padding:14px 18px;border:1px solid var(--line);border-radius:12px;box-shadow:0 3px 15px #192e3f0b}.bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.time{font-size:23px;font-variant-numeric:tabular-nums;min-width:168px}.bar input[type=range]{flex:1;min-width:160px;accent-color:#176a9b}.bar input[type=number]{width:64px;padding:7px}button,select{border:1px solid #c8d6df;background:white;border-radius:7px;padding:7px 11px;color:var(--ink);cursor:pointer;font:inherit}button:hover{background:#edf5fa}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #63a7d4;outline-offset:2px}.options{display:flex;gap:22px;flex-wrap:wrap;font-size:13px;margin-top:10px}.options label{display:flex;gap:6px;align-items:center}.strip{display:flex;gap:5px;overflow-x:auto;padding:10px 0 3px;scrollbar-width:thin}.strip button{white-space:nowrap;padding:5px 8px;font-size:12px}.strip button[aria-current=true]{background:#192e3f;color:white;border-color:#192e3f}.legend{display:flex;gap:20px;flex-wrap:wrap;font-size:13px;margin:15px 2px}.legend span{display:flex;align-items:center;gap:7px}.swatch{display:inline-block;width:22px;height:3px;background:var(--active)}.swatch.blue{background:var(--inactive)}.swatch.dash{background:none;border-top:2px dashed #9aa7af}.swatch.cue{height:12px;background:#faedd3;border:1px solid #dec595}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.card{background:white;border:1px solid var(--line);border-radius:12px;padding:16px 17px 10px}.card h2{font-size:18px;margin:0 0 4px;font-weight:650}.sub{font-size:12px;color:var(--muted)}.plots{margin-top:8px}.plot{width:100%;display:block;height:auto}.metrics{display:flex;gap:15px;flex-wrap:wrap;justify-content:space-between;margin:4px 0;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}.links{display:flex;gap:14px;margin-top:8px;font-size:12px}.pending{padding:90px 5px;text-align:center;color:var(--muted)}details{margin-top:22px;border:1px solid var(--line);background:#fff;border-radius:9px;padding:14px}summary{cursor:pointer;font-weight:600}.method{font-size:13px;line-height:1.6}.method li{margin:8px 0}footer{font-size:12px;color:var(--muted);margin-top:20px}#error{color:#ae2929;white-space:pre-wrap} @media(max-width:760px){main{padding:14px}.grid{grid-template-columns:1fr}h1{font-size:23px}.time{min-width:140px}.controls{position:relative}.options{gap:12px}}
+</style>
+<main>
+<header><h1>Wave-pinning · continuous reversal cue</h1>
+<p>Lengths 15 and 30 µm. Fixed 3 µm support versus 20% of length. Both native fields, every 5 s from cue onset through 300 s.</p>
+<p class="stamp" id="stamp"></p></header>
+<section class="controls" aria-label="Snapshot controls">
+<div class="bar"><button id="prev" aria-label="Previous snapshot">←</button><button id="play">Play</button><button id="next" aria-label="Next snapshot">→</button><strong class="time" id="timeLabel"></strong><input id="frame" type="range" min="0" max="60" value="0" step="1" aria-label="Snapshot index"><label>Index <input id="index" type="number" min="0" max="60" value="0" aria-label="Snapshot index number"></label><button id="save">Save snapshot SVG</button></div>
+<div class="options"><label><input id="initial" type="checkbox" checked>Show onset profile</label><label><input id="zoom" type="checkbox">Zoom inactive range at each time</label><label>Position axis <select id="axis"><option value="physical">Physical (µm)</option><option value="relative">Relative (x / L)</option></select></label><span>← / →: step · Home / End: endpoints · Space: play</span></div>
+<nav class="strip" id="strip" aria-label="All 61 snapshot times"></nav>
+</section>
+<div class="legend"><span><i class="swatch"></i>Active</span><span><i class="swatch blue"></i>Inactive</span><span><i class="swatch dash"></i>Same field at onset</span><span><i class="swatch cue"></i>Right-cue support (peak 0.1)</span></div>
+<section class="grid" id="cards" aria-label="Four synchronized cases"></section>
+<div id="error"></div>
+<details><summary>Preparation and display notes</summary><div class="method">
+<ul><li>The reversal cue is the native right-end raised-cosine patch, extra peak 0.1, switched on at t = 0 and held continuously through t = 300 s. The t = 0 field is the exact pre-cue checkpoint. Basal kinetics remain active.</li>
+<li>Fixed support is 3 µm at both lengths. Relative support is 3 µm at L = 15 and 6 µm at L = 30. The two L = 15 experiments therefore coincide.</li>
+<li>L = 15 uses the exact selected, corrected basal-release checkpoints. L = 30 is absent from the retained length grid and is prepared freshly from native rest, separately for each width, with the same finite-left-patch duration search, strongest-endpoint selection and verified basal release. No profile is interpolated, reflected or substituted. Frozen L = 31 field scales are used only for L = 30 convergence diagnostics.</li>
+<li>Active and inactive use separate concentration axes. Each field shares one fixed axis across all cases and all times; inactive zoom optionally changes its axis at each snapshot, still shared across cases. The inactive axis is offset from zero to expose its smaller changes. Profiles are native concentrations without renormalization.</li>
+<li>Shading marks cue support, not a concentration field. Dashed lines show each case’s own onset state. Solid profiles join the 201 recorded finite-volume cell centers; snapshots are native solver output at the displayed time without time interpolation.</li>
+<li>These continuous-cue trajectories are a diagnostic experiment. They do not apply the finite-pulse withdrawal/recovery response gates of the manuscript comparison.</li></ul>
+<div id="preparations"></div></div></details>
+<footer>Self-contained viewer: works from a local file without a server or external libraries. Producer status and generation time are recorded above. Manual refresh loads newly generated data while work runs. <a href="status.json">Status</a> · <a href="validation.json">Validation</a> · <a href="../manifest.json">Protocol</a></footer>
+</main>
+<script id="snapshotData" type="application/json">__SNAPSHOT_DATA__</script>
+<script>
+'use strict';
+const data=JSON.parse(document.getElementById('snapshotData').textContent);
+const $=id=>document.getElementById(id),ready=data.cases.filter(c=>!c.pending);
+let frame=0,timer=null;
+const stamp=new Date(data.generated_at).toISOString().replace('T',' ').replace('.000Z',' UTC').replace('Z',' UTC');
+$('stamp').textContent=`Data generated ${stamp} · Producer ${data.producer} · ${ready.length}/4 cases available · 61 snapshots per case`;
+if(data.errors.length)$('error').textContent='Execution errors: '+data.errors.map(e=>e.traceback).join('\n');
+const fmt=v=>Math.abs(v)<.001&&v!==0?v.toExponential(2):Number(v.toPrecision(5)).toString();
+function range(field,i=null){let lo=Infinity,hi=-Infinity;for(const c of ready){const rows=i===null?c[field]:[c[field][i],...($('initial').checked?[c[field][0]]:[])];for(const row of rows)for(const v of row){lo=Math.min(lo,v);hi=Math.max(hi,v)}}if(!Number.isFinite(lo))return[0,1];if(field==='active')lo=0;const pad=Math.max((hi-lo)*.07,.0001);return[field==='active'?0:lo-pad,hi+pad]}
+const limits={active:range('active'),inactive:range('inactive')};
+function plot(c,field,i){
+ const W=640,H=200,p={l:65,r:16,t:25,b:38},w=W-p.l-p.r,h=H-p.t-p.b;
+ const relative=$('axis').value==='relative',xmax=relative?1:c.length;
+ const bounds=field==='inactive'&&$('zoom').checked?range(field,i):limits[field],lo=bounds[0],hi=bounds[1];
+ const sx=x=>p.l+(relative?x/c.length:x)/xmax*w,sy=y=>p.t+(hi-y)/(hi-lo)*h;
+ const color=field==='active'?'#c45520':'#176a9b',clip=`clip-${c.case_index}-${field}`;
+ const line=row=>row.map((v,j)=>(j?'L':'M')+sx(c.x[j]).toFixed(3)+','+sy(v).toFixed(3)).join(' ');
+ let parts=[`<svg class="plot" role="img" aria-label="${field} at ${data.time[i]} seconds, length ${c.length}, ${c.condition}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}"><title>${field} concentration at ${data.time[i]} s</title><defs><clipPath id="${clip}"><rect x="${p.l}" y="${p.t}" width="${w}" height="${h}"/></clipPath></defs><rect x="${p.l}" y="${p.t}" width="${w}" height="${h}" fill="#fff"/><rect x="${sx(c.length-c.width)}" y="${p.t}" width="${w*c.width/c.length}" height="${h}" fill="#faedd3"/>`];
+ for(let j=0;j<=4;j++){const v=lo+(hi-lo)*j/4,y=sy(v);parts.push(`<line x1="${p.l}" x2="${W-p.r}" y1="${y}" y2="${y}" stroke="#e4ebef"/><text x="${p.l-9}" y="${y+4}" text-anchor="end" fill="#546877" font-size="11">${fmt(v)}</text>`)}
+ for(let j=0;j<=5;j++){const v=xmax*j/5,x=p.l+w*j/5;parts.push(`<line x1="${x}" x2="${x}" y1="${p.t+h}" y2="${p.t+h+4}" stroke="#9babb6"/><text x="${x}" y="${p.t+h+18}" text-anchor="middle" fill="#546877" font-size="11">${fmt(v)}</text>`)}
+ parts.push(`<line x1="${p.l}" x2="${p.l}" y1="${p.t}" y2="${p.t+h}" stroke="#9babb6"/><line x1="${p.l}" x2="${W-p.r}" y1="${p.t+h}" y2="${p.t+h}" stroke="#9babb6"/>`);
+ if($('initial').checked)parts.push(`<path class="onset" d="${line(c[field][0])}" fill="none" stroke="#9aa7af" stroke-width="1.5" stroke-dasharray="5 4" clip-path="url(#${clip})"/>`);
+ parts.push(`<path class="field" d="${line(c[field][i])}" fill="none" stroke="${color}" stroke-width="2.5" clip-path="url(#${clip})"/><text x="${p.l}" y="15" fill="${color}" font-size="13" font-weight="600">${field==='active'?'Active':'Inactive'} · native concentration</text><text x="${p.l+w/2}" y="${H-3}" text-anchor="middle" fill="#546877" font-size="11">${relative?'Relative position (x / L)':'Position (µm)'} · left → right</text></svg>`);
+ return parts.join('');
+}
+for(const c of data.cases){const card=document.createElement('article');card.className='card';card.id='case-'+c.case_index;const title=c.condition==='fixed_20pct'?'Fixed physical width':'20% relative width';card.innerHTML=`<h2>L = ${c.length} µm · ${title}</h2><div class="sub">Cue support ${c.width} µm (${fmt(100*c.width/c.length)}% of length) · peak ${c.amplitude}</div><div class="plots"></div><div class="metrics"></div><div class="links"></div>`;$('cards').append(card);if(c.pending){card.querySelector('.plots').innerHTML='<div class="pending">Preparation / simulation running. Refresh manually for new data.</div>'}else{card.querySelector('.links').innerHTML=`<a href="../${c.csv}" download>All profiles CSV</a><a href="../${c.data}" download>Native arrays NPZ</a><a href="../work/cases/case_${String(c.case_index).padStart(4,'0')}.json">Preparation record</a>`}}
+for(let i=0;i<data.time.length;i++){const b=document.createElement('button');b.textContent=data.time[i]+' s';b.dataset.index=i;b.onclick=()=>{stop();setFrame(i)};$('strip').append(b)}
+$('preparations').innerHTML='<p><b>Selected preparation:</b></p>'+ready.map(c=>`<p>L = ${c.length}, ${c.condition}: ${c.establishment_summary?'fresh left pulse '+fmt(c.establishment_summary.cue_duration)+' s; verified basal release':'retained corrected basal release'}; onset orientation ${fmt(c.initial_orientation)}; maximum relative mass error ${c.maximum_relative_mass_error.toExponential(2)}.</p>`).join('');
+function render(){
+ $('timeLabel').textContent=`t = ${data.time[frame]} s / 300 s`;$('frame').value=frame;$('index').value=frame;
+ for(const b of $('strip').children)b.setAttribute('aria-current',Number(b.dataset.index)===frame?'true':'false');
+ for(const c of ready){const card=$('case-'+c.case_index);card.querySelector('.plots').innerHTML=plot(c,'active',frame)+plot(c,'inactive',frame);const inactive=c.inactive[frame];card.querySelector('.metrics').innerHTML=`<span>Snapshot ${frame+1} / 61 · cue ON</span><span>Orientation ${fmt(c.orientation[frame])}</span><span>Inactive span ${fmt(Math.max(...inactive)-Math.min(...inactive))}</span>`}
+ window.viewerState={frame,time:data.time[frame],cases:ready.length,playing:timer!==null};
+}
+function setFrame(i){frame=Math.max(0,Math.min(60,Math.round(Number(i)||0)));render();$('strip').children[frame].scrollIntoView({block:'nearest',inline:'nearest'})}
+function stop(){if(timer!==null)clearInterval(timer);timer=null;$('play').textContent='Play';render()}
+function play(){if(timer!==null){stop();return}if(frame===60)setFrame(0);$('play').textContent='Pause';timer=setInterval(()=>{if(frame>=60){stop();return}setFrame(frame+1)},250);render()}
+$('frame').oninput=()=>{const i=$('frame').value;stop();setFrame(i)};$('index').onchange=()=>{const i=$('index').value;stop();setFrame(i)};
+$('prev').onclick=()=>{stop();setFrame(frame-1)};$('next').onclick=()=>{stop();setFrame(frame+1)};$('play').onclick=play;
+for(const id of ['initial','zoom','axis'])$(id).onchange=render;
+$('frame').addEventListener('wheel',e=>{e.preventDefault();stop();setFrame(frame+(e.deltaY>0?1:-1))},{passive:false});
+document.addEventListener('keydown',e=>{if(['INPUT','SELECT','TEXTAREA'].includes(e.target.tagName))return;if(['ArrowLeft','ArrowRight','Home','End',' '].includes(e.key)){e.preventDefault();if(e.key===' '){play();return}stop();setFrame(e.key==='Home'?0:e.key==='End'?60:frame+(e.key==='ArrowRight'?1:-1))}});
+$('save').onclick=()=>{let svg='<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="970" viewBox="0 0 1320 970"><rect width="1320" height="970" fill="white"/><g font-family="sans-serif"><text x="25" y="30" font-size="21">Wave-pinning · continuous right cue · t = '+data.time[frame]+' s</text><text x="25" y="53" font-size="13" fill="#546877">Orange active · blue inactive · dashed onset · pale shading cue support · peak 0.1</text>';for(const c of ready){const col=c.case_index%2,row=Math.floor(c.case_index/2),x=col*660+10,y=row*445+77;svg+=`<g transform="translate(${x},${y})"><text x="55" y="15" font-size="16">L = ${c.length} µm · ${c.condition==='fixed_20pct'?'Fixed 3 µm':'20% relative ('+c.width+' µm)'}</text><g transform="translate(0,25)">${plot(c,'active',frame).replace('<svg ','<svg width="640" height="200" ')}</g><g transform="translate(0,230)">${plot(c,'inactive',frame).replace('<svg ','<svg width="640" height="200" ')}</g></g>`}svg+='</g></svg>';const url=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml'}));const a=document.createElement('a');a.href=url;a.download='wave_pinning_t'+String(data.time[frame]).padStart(3,'0')+'s.svg';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+render();
+</script>
+</html>
