@@ -109,7 +109,12 @@ def main():
     assert len(publication.pages) == 2
     assert publication.pages[0].get_contents().get_data() == page.get_contents().get_data()
     assert sha(DEST/'figure4_with_legend.pdf') == integration['publication_pdf_sha256']
-    assert read(ROOT/'manuscript_outline/outline_v9.validation.json')['passed']
+    build = read(ROOT/'manuscript_outline/outline_v9.build_manifest.json')
+    validation = read(ROOT/'manuscript_outline/outline_v9.validation.json')
+    assert validation['passed']
+    assert sha(ROOT/build['pdf']['path']) == build['pdf']['sha256'] == validation['pdf_sha256']
+    for source in build['inputs']:
+        assert sha(ROOT/source['path']) == source['sha256'], source['path']
     scientific = read(FIG/'supporting/metadata/estimator_verification.json')
     assert scientific['passed']
     assert sha(ROOT/scientific['test_source']) == scientific['test_sha256']
