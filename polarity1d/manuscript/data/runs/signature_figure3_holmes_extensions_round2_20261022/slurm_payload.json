@@ -1,0 +1,21 @@
+{
+  "generated_utc": "2026-10-22T13:02:57.839962+00:00",
+  "sbatch_arguments": [
+    "sbatch",
+    "--parsable",
+    "--qos=small",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--mem=4G",
+    "--time=01:00:00",
+    "--signal=B:USR1@60",
+    "--array=0-8",
+    "--job-name=figure3-Holmes-80k",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure3_holmes_extensions_round2_20261022/logs/%A_%a.out",
+    "--error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure3_holmes_extensions_round2_20261022/logs/%A_%a.err",
+    "--wrap",
+    "exec env PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 /home/4473331/.conda/envs/scaling_sandbox/bin/python /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure3_holmes_extensions_round2_20261022/frozen_sources/code/mechanisms/figure3_holmes_extensions_20261022.py worker --run /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure3_holmes_extensions_round2_20261022 --slot \"$SLURM_ARRAY_TASK_ID\""
+  ],
+  "no_concurrency_throttle": true,
+  "resource_reason": "Nine serial CPU-only sparse BDF integrations; existing small QoS suits one CPU/4GB/one hour"
+}

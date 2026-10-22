@@ -36,6 +36,8 @@ Each folder contains its PNG previews and related supporting vectors, data, capt
 - [Figure 2 revision: shape and timing signature assays](signature_assays_20261020/README.md)
 - [Figure 3 revision: distance, competition and measured polarity geometry](revision_program_20261020/figure3_distance/README.md)
 - [Figure 4 revision: native noisy-ring persistence and regime measurements](signature_figure4_20261020/README.md)
-- [Figure 4 round-2 persistence reanalysis: author-review interim](revision_round2_20261022/figure4/README.md)
+- [Figure 4 round-2 heading decay rates: author-authorized Case A](revision_round2_20261022/figure4/README.md)
+- [Figure 3 round-2 short-range separation and matched-gap size effects](revision_round2_20261022/figure3/README.md)
+- [Figure 2 round-2 replacement-resistance signatures](revision_round2_20261022/figure2/README.md)
 
 [Reversible cleanup records](_organization/) preserve the original paths and metadata. After regenerating exports, run `python polarity1d/manuscript/code/mechanisms/organize_length_dev.py` from the repository root. Current renderers write directly into these experiment folders; the organizer also collects outputs from frozen older entry points.

@@ -1,6 +1,29 @@
-# Round-2 review interim (22 October 2026)
+# Completed Figures 2–4 round 2 (22 October 2026)
 
-[**outline_v5**](outline_v5.pdf) · [**Round-2 reader**](revision_round2_20261022/index.html) · [**Figure 4 interim and data**](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/index.html).
+[**Integrated outline_v5**](outline_v5.pdf) · [**Figures with legends**](revision_round2_20261022/revised_figures_2_4.pdf) · [**Three main plates**](revision_round2_20261022/figures_2_4.pdf) · [**Reader and complete supplements**](revision_round2_20261022/completion.html).
+
+Figures 2–4 are complete, including the 32 Holmes train/noise histories, all nine approved Figure 3 extensions, the corrected short-range interpretation and the Figure 4 Case A main. Six Figure 3 extensions resolve; three remain censored at 80,000. Holmes class membership is unchanged. Numerical and finite-horizon qualifications remain explicit. Figure 4 H1 is explicitly **post hoc**, with frozen calls alongside; geometry and multiple-front fractions are descriptive. Figures 1, 5 and 6 retain their exact preceding content and artwork.
+
+Enlarged cells resist imposed replacement through distinct initiation, spatial and temporal response signatures (Figure 2). Distance between competing regions matters only at short range; enlarged cells resist replacement and resolve coexistence slowly mainly because of size itself (Figure 3). Spring's middle size is the supported exception in which extra accessible separation adds a substantial resolution-time contribution. Enlarged cells hold heading longer under fluctuating input — at or above the geometric expectation at weak input — and the advantage declines as input strengthens. (Figure 4). Geometry and multiple-front fractions are descriptive: erosion below the single-front geometric expectation can also occur while a single front persists. Observed migration summaries, conditional OU velocity-memory estimates and simulated polarity-heading readouts remain separate evidence.
+
+[Requirement-by-requirement acceptance](revision_round2_20261022/completion_acceptance.json). Generated 2026-10-22T13:51:12.001470+00:00. Earlier editions and their dated status notes are preserved below.
+
+---
+
+<!-- preserved earlier editions -->
+# Historical 7 a.m. round-2 follow-up (22 October 2026)
+
+[**Follow-up reader**](revision_round2_20261022/followup.html) · [**In-progress outline review**](revision_round2_20261022/outline_v5_in_progress.pdf) · [**Figures 2–4 main plates**](revision_round2_20261022/figures_2_4_in_progress.pdf).
+
+Figures 3 and 4 are recomposed. Figure 4 uses author-authorized Case A: its explicitly **post hoc** H1 domain passes in both main-view arms; frozen H1 remains inconclusive alongside it. H2/H3/A6 gates are retired. Geometric ratios and multiple-front fractions are descriptive; single-front conditions can also fall below geometry. Goryachev remains in the supplement.
+
+Figure 2 is **in progress**: the specified Holmes large-size retention campaign is frozen and verified, but SLURM socket permissions prevented submission. Class membership is unchanged. Nine optional Figure 3 Holmes horizon extensions are enumerated and unsubmitted for author review. Final outline_v5 integration awaits completion of Figure 2; the separately named in-progress review preserves Figures 1, 5 and 6 exactly.
+
+---
+
+# Historical round-2 review interim (22 October 2026)
+
+[**outline_v5**](revision_round2_20261022/historical_interim/outline_v5.pdf) · [**Round-2 reader**](revision_round2_20261022/index.html) · [**Figure 4 interim and data**](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/index.html).
 
 The new rate-based persistence analysis and old/new S0 decision tables are integrated as review-interim supplementary sheets. The brief requires author review here, before the Figure 4 main and the Figure 3/2 revisions. The preceding main artwork is retained and labelled; this is a partial work-package handoff. Figures 1, 5 and 6 remain identical to outline_v4.
 

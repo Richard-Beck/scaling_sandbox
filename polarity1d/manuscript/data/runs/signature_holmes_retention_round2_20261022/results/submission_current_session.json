@@ -1,0 +1,22 @@
+{
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--partition=red",
+    "--qos=small",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--mem=8G",
+    "--time=01:00:00",
+    "--array=0-31",
+    "--job-name=F2-Holmes-retention",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_holmes_retention_round2_20261022/logs/%A_%a.out",
+    "--error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_holmes_retention_round2_20261022/logs/%A_%a.err",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_holmes_retention_round2_20261022/worker.sh"
+  ],
+  "returncode": 0,
+  "stdout": "21279666\n",
+  "stderr": "",
+  "submitted": true,
+  "generated_utc": "2026-10-22T13:02:09.988273+00:00"
+}

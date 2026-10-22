@@ -1,22 +1,9 @@
-# Figure 4 round-2 persistence reanalysis: author-review interim
+# Figure 4 — round 2, author-authorized Case A
 
-[All development experiments](../../README.md)
+Enlarged cells hold heading longer under fluctuating input — at or above the geometric expectation at weak input — and the advantage declines as input strengthens.
 
-[Interactive scientific reader](index.html)
+[Main PNG](figure4_main.png) · [PDF](figure4_main.pdf) · [SVG](figure4_main.svg) · [Supplement](figure4_supplement.pdf) · [Plotted CSVs](supporting/data/)
 
-Rate-based size gains coexist with erosion below single-front geometry at stronger input; the frozen overall H1 remains inconclusive (Case B).
+Since 20 October: replaces τ with decay-rate ratios, adds absolute fixed-lag noise tolerance and descriptive geometry/multiple-front outcomes, composes Case A, and removes Goryachev from the main. The H1 domain amendment is **post hoc**; frozen and amended calls appear alongside in S0, for both arms, all views and both forcing choices. H2/H3/A6 gates are retired. Frozen interim tables remain unchanged. Non-exponential conditions, unavailable lags and censoring remain explicit; open triangles and arrows denote bounds.
 
-Since 20 October, the interim replaces the primary persistence-time readout with decay-rate ratios, actual-circumference normalization and fixed-lag noise tolerance, with old/new S0 calls retained side by side. No revised main is composed before author review.
-
-[Scientific README: message, changes, methods and every remaining qualification](supporting/metadata/scientific_readme.md) · [Case decision and pending work](supporting/metadata/interim_summary.json)
-
-- [S0 common inclusive](S0_common_inclusive.png) · [SVG](supporting/vectors/S0_common_inclusive.svg)
-- [S0 common primary](S0_common_primary.png) · [SVG](supporting/vectors/S0_common_primary.svg)
-- [S0 longest inclusive](S0_longest_inclusive.png) · [SVG](supporting/vectors/S0_longest_inclusive.svg)
-- [S0 longest primary](S0_longest_primary.png) · [SVG](supporting/vectors/S0_longest_primary.svg)
-- [figure4 noise tolerance](figure4_noise_tolerance.png) · [PDF](supporting/vectors/figure4_noise_tolerance.pdf) · [SVG](supporting/vectors/figure4_noise_tolerance.svg)
-- [figure4 old new](figure4_old_new.png) · [PDF](supporting/vectors/figure4_old_new.pdf) · [SVG](supporting/vectors/figure4_old_new.svg)
-- [figure4 rho geo](figure4_rho_geo.png) · [PDF](supporting/vectors/figure4_rho_geo.pdf) · [SVG](supporting/vectors/figure4_rho_geo.svg)
-- [figure4 rho k](figure4_rho_k.png) · [PDF](supporting/vectors/figure4_rho_k.pdf) · [SVG](supporting/vectors/figure4_rho_k.svg)
-
-Supporting files: [vectors](supporting/vectors/), [data](supporting/data/), [metadata and audits](supporting/metadata/).
+Enlarged cells hold heading longer under fluctuating input — at or above the geometric expectation at weak input — and the advantage declines as input strengthens. The geometric statement describes model-specific weakest measurable point estimates: f = 0.003 for Wave-pinning and Holmes, and f = 0.0003–0.001 for Spring. Confidence intervals also admit sub-geometric gains in Holmes and Spring. At the shared displayed input f = 0.003, Spring is already below its actual geometric expectation (rate ratio 7.55 versus geometry 8.55), while its large-cell regime is still classified as single front. (A) Native activity kymographs for small and large Wave-pinning and Holmes at f = 0.003, plus a large Wave-pinning example at f = 0.1; width is proportional to circumference, with shared activity scales within each model. (B) Heading autocorrelation at f = 0.003 on model-specific logarithmic ordinates with whole-seed 95% bootstrap bands; intervals extending below zero continue beyond the positive plotting range. (C) Small/large rotational decay-rate ratio at the shortest usable lag satisfying the frozen lag rule, with pointwise 95% CIs. Reference lines show unity and nominal single-front geometry (9); actual-circumference normalization is reported in the supplement. Marker fill describes the large-cell regime; squares flag non-exponential lag dependence. (D) Multiple-front fractions with bootstrap intervals, reported descriptively: Holmes and Spring can fall below geometry while still single-front, so these data do not establish multiple fronts as the cause of erosion. (E) Fixed-reference-lag noise tolerance increases with size; smallest/largest CIs separate in all three shown models. Small cells are lighter solid, large cells darker dotted. Native units are used. Post hoc H1 amendment: evaluate gains and supported reversals only at inputs strictly below the point estimate of the largest cell’s own f½; strict CI and size noise-tolerance rules are unchanged. Both main-view observation arms pass the amended H1 overall, while frozen rate H1 is inconclusive in both; all calls appear alongside in S0. H2/H3/A6 τ gates are retired. Goryachev is excluded from the main because its ratios derive from forced or non-exponential conditions, and remains complete in the supplement. Simulated polarity heading is distinct from migration persistence and conditional OU estimates.

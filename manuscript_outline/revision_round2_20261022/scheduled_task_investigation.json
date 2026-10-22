@@ -1,0 +1,149 @@
+{
+  "generated_utc": "2026-10-22T13:36:49.168178+00:00",
+  "question": "Why did the scheduled Figures 2\u20134 round-2 tasks appear complete while the brief was unfinished?",
+  "findings": [
+    {
+      "finding": "The jobs ran, but the wrapper reports process/turn completion rather than scientific deliverable completion.",
+      "evidence": "worker.py lines205\u2013217 and263\u2013269: approval never, workspace-write; completed requires process exit0 and turn.completed only."
+    },
+    {
+      "finding": "The first job stopped at the requested Figure4 interim review; later work remained.",
+      "evidence": "manuscript_outline/revision_round2_20261022/delivery_status.json"
+    },
+    {
+      "finding": "The morning follow-up produced partial Figure2/3/4 revisions but could not access SLURM, original Git metadata or GitHub within its execution restrictions. Required Holmes histories, optional continuations, final integration and publication were outstanding.",
+      "evidence": "manuscript_outline/revision_round2_20261022/followup_delivery.json"
+    },
+    {
+      "finding": "The final author corrections arrived after the follow-up job ended and were not executed by that job.",
+      "evidence": "Finished2026-10-22T11:00:48Z versus urgent_user_steering_20261022T110301Z.txt."
+    }
+  ],
+  "original_receipts": [
+    {
+      "run": "20261022T005632Z-figures-round2",
+      "started": {
+        "job_id": "21272252",
+        "host": "hpctpa3pc0029",
+        "lead": {
+          "model": "gpt-6.1-sol",
+          "reasoning": "medium"
+        },
+        "additional_agents": 2,
+        "prompt_sha256": "959b309915798598bce12b1d5019abe46801a6c169ed58803aae165d34ef2a71",
+        "user_prompt_sha256": "9950af6a613e90d2c70b57fd2e8373b69a140a484a8d325c06ecf905e86c6fff",
+        "state": "working",
+        "thread_id": "01a1611d-d007-7682-a571-6dd70dadf116",
+        "turn_started": true,
+        "evidence": {
+          "event": "item.completed",
+          "item_type": "agent_message",
+          "item_id": "item_0"
+        },
+        "at": "2026-10-22T00:58:41Z"
+      },
+      "finished": {
+        "job_id": "21272252",
+        "host": "hpctpa3pc0029",
+        "lead": {
+          "model": "gpt-6.1-sol",
+          "reasoning": "medium"
+        },
+        "additional_agents": 2,
+        "prompt_sha256": "959b309915798598bce12b1d5019abe46801a6c169ed58803aae165d34ef2a71",
+        "user_prompt_sha256": "9950af6a613e90d2c70b57fd2e8373b69a140a484a8d325c06ecf905e86c6fff",
+        "state": "completed",
+        "exit_code": 0,
+        "thread_id": "01a1611d-d007-7682-a571-6dd70dadf116",
+        "handoff_acknowledged": true,
+        "at": "2026-10-22T01:31:46Z"
+      },
+      "evidence": [
+        {
+          "path": "/home/4473331/.local/state/red-codex-tasks/20261022T005632Z-figures-round2/started.json",
+          "sha256": "34bcdf137b814dea6847bc4333a82f7d6a4edfe45d3f9fdeb6bcded801f4001b"
+        },
+        {
+          "path": "/home/4473331/.local/state/red-codex-tasks/20261022T005632Z-figures-round2/finished.json",
+          "sha256": "cacc7abe5b0d7aa38d22dec5a41ea2e44cea496ee2ee6fd116b99f2a438bd179"
+        },
+        {
+          "path": "/home/4473331/.local/state/red-codex-tasks/20261022T005632Z-figures-round2/worker.py",
+          "sha256": "8ba8a27b7f0c376628737751acf502f485b8a8730ecab64532fb4f148e0381b6"
+        },
+        {
+          "path": "/home/4473331/.local/state/red-codex-tasks/20261022T005632Z-figures-round2/final.txt",
+          "sha256": "f09be5990d8acb91603a7563aa1b5b9c2ccedd849f14183b75075ba1c0144139"
+        },
+        {
+          "path": "/home/4473331/.local/state/red-codex-tasks/20261022T005632Z-figures-round2/prompt.txt",
+          "sha256": "959b309915798598bce12b1d5019abe46801a6c169ed58803aae165d34ef2a71"
+        }
+      ]
+    },
+    {
+      "run": "20261022T104311Z-figures-round2-followup",
+      "started": {
+        "job_id": "21278314",
+        "host": "hpctpa3pc0027",
+        "lead": {
+          "model": "gpt-6.1-sol",
+          "reasoning": "medium"
+        },
+        "additional_agents": 2,
+        "prompt_sha256": "c0352925c0ca32b23dd03644060a605ba7de5f416447e732cf8a45066ac0f4bc",
+        "user_prompt_sha256": "ecc4812a45a351b08cbf56436b7565b5edcf773ce0fd75712477d346fc806fcc",
+        "state": "working",
+        "thread_id": "01a16335-4b59-7001-9f56-5a6961f67aa9",
+        "turn_started": true,
+        "evidence": {
+          "event": "item.completed",
+          "item_type": "agent_message",
+          "item_id": "item_0"
+        },
+        "at": "2026-10-22T10:43:31Z"
+      },
+      "finished": {
+        "job_id": "21278314",
+        "host": "hpctpa3pc0027",
+        "lead": {
+          "model": "gpt-6.1-sol",
+          "reasoning": "medium"
+        },
+        "additional_agents": 2,
+        "prompt_sha256": "c0352925c0ca32b23dd03644060a605ba7de5f416447e732cf8a45066ac0f4bc",
+        "user_prompt_sha256": "ecc4812a45a351b08cbf56436b7565b5edcf773ce0fd75712477d346fc806fcc",
+        "state": "completed",
+        "exit_code": 0,
+        "thread_id": "01a16335-4b59-7001-9f56-5a6961f67aa9",
+        "handoff_acknowledged": true,
+        "at": "2026-10-22T11:00:48Z"
+      },
+      "evidence": [
+        {
+          "path": "/home/4473331/.local/state/red-codex-tasks/20261022T104311Z-figures-round2-followup/started.json",
+          "sha256": "05ca1dc3fca1e00045cb2a1a6901303ba3ea1c4a9aa309371cfb3f7ce1e55ffc"
+        },
+        {
+          "path": "/home/4473331/.local/state/red-codex-tasks/20261022T104311Z-figures-round2-followup/finished.json",
+          "sha256": "da1be73f87a55fe143be875ee4436231fbab06c1a315a20f0109736d711c468e"
+        },
+        {
+          "path": "/home/4473331/.local/state/red-codex-tasks/20261022T104311Z-figures-round2-followup/worker.py",
+          "sha256": "8ba8a27b7f0c376628737751acf502f485b8a8730ecab64532fb4f148e0381b6"
+        },
+        {
+          "path": "/home/4473331/.local/state/red-codex-tasks/20261022T104311Z-figures-round2-followup/final.txt",
+          "sha256": "07c94d7b9c5a0cd7d5376f9b7edbc21f7fa25e0b06784a4eed98c858a6f317cb"
+        },
+        {
+          "path": "/home/4473331/.local/state/red-codex-tasks/20261022T104311Z-figures-round2-followup/prompt.txt",
+          "sha256": "c0352925c0ca32b23dd03644060a605ba7de5f416447e732cf8a45066ac0f4bc"
+        }
+      ]
+    }
+  ],
+  "resolution": "Complete the scientific brief in the authorized interactive session; require independent native-data audits and requirement-by-requirement acceptance before declaring completion. Do not treat the earlier wrapper state as a deliverable acceptance.",
+  "completion_evidence": "completion_acceptance.json and completion_delivery.json record the final scientific and publication outcome separately.",
+  "runner_implementation_changed": false
+}

@@ -1,13 +1,12 @@
 {
   "title": "Cell enlargement, polarity competition and migration persistence",
-  "subtitle": "Working manuscript outline with the round-2 persistence reanalysis and explicit review stop",
+  "subtitle": "Working manuscript outline with revised figures, complete retained supplements and explicit scientific qualifications",
   "date": "22 October 2026",
-  "stage": "Round-2 Figure 4 interim — awaiting author review; later revisions pending",
+  "stage": "Completed round-2 Figures 2–4, including approved Holmes follow-up",
   "overview": [
     "Working hypothesis: WGD-associated enlargement changes how established polarity is organized and replaced; these changes may provide a physical basis for greater migration persistence. The theoretical contribution tests size under unchanged local kinetic parameters. Length differs between model cells to represent WGD-associated enlargement, rather than elongation during a turn. Existing migration observations supply empirical motivation; new paired WGD motility results retain a substantial, explicitly reserved contribution.",
-    "Enlarged cells resist imposed replacement through model-specific response signatures (Figure 2). Larger rings can support more widely separated active regions, whose cue-free resolution can be slow in mass-conserved models (Figure 3). Case B: the complete frozen H1 remains inconclusive in the common and longest main-view arms without forced conditions. Its unchanged requirement is a ratio CI strictly above one at every evaluable input, no supported reversal, and non-overlapping size noise-tolerance CIs; weak-to-intermediate gains alone do not satisfy it. At input 0.003, the rate ratios are 19.12, 11.00, 7.55 for Wave-pinning, Holmes and Spring; at 0.05 they are 4.63, 2.53, 1.18, with geometric-normalized ratios 0.51, 0.28, 0.14 and multiple-front majorities. Thus resolved size gains can coexist with erosion below the single-front geometric expectation, while Spring's 0.05 ratio CI includes one. Main-view size noise-tolerance CIs separate in these three models. Goryachev remains coverage/lag/forcing qualified. Updated H2 model calls are reported, but H2 overall retains its legacy direct-time A6 predictor gate, and H3 retains its legacy time-bound definition; neither is a fully revalidated rate-based hypothesis. Stop for review before rebuilding the Figure 4 main. These are polarity-heading readouts; observed migration summaries and conditional OU velocity-memory estimates remain separate evidence.",
-    "This is a working manuscript outline. Figures 1 and 5 and the reserved Figure 6 experimental section retain their preceding content. Activity polarity, modelled replacement, observed migration and conditional OU velocity memory remain distinct readouts; their biological connection is an experimental hypothesis.",
-    "Round-2 delivery stops at the Figure 4 reanalysis, as requested in the brief. The new estimand, geometric normalization and old/new S0 tables are integrated as review-interim supplementary sheets. The Figure 4 main is not recomposed; Figures 2 and 3 retain their 20 October artwork pending review and the subsequent work package. No Holmes retention runs or optional Figure 3 horizon extensions have been launched."
+    "Enlarged cells resist imposed replacement through distinct initiation, spatial and temporal response signatures (Figure 2). Distance between competing regions matters only at short range; enlarged cells resist replacement and resolve coexistence slowly mainly because of size itself (Figure 3). Spring's middle size is the supported exception in which extra accessible separation adds a substantial resolution-time contribution. Enlarged cells hold heading longer under fluctuating input — at or above the geometric expectation at weak input — and the advantage declines as input strengthens. (Figure 4). Geometry and multiple-front fractions are descriptive: erosion below the single-front geometric expectation can also occur while a single front persists. Observed migration summaries, conditional OU velocity-memory estimates and simulated polarity-heading readouts remain separate evidence.",
+    "This is a working manuscript outline. Figures 1 and 5 and the reserved Figure 6 experimental section retain their preceding content. Activity polarity, modelled replacement, observed migration and conditional OU velocity memory remain distinct readouts; their biological connection is an experimental hypothesis."
   ],
   "sections": [
     {
@@ -67,138 +66,107 @@
     },
     {
       "id": "figure2",
-      "title": "Figure 2. Shape and timing distinguish replacement responses",
-      "role": "Test whether shape and timing of a measured challenge distinguish explanations for size-dependent replacement resistance.",
-      "status": "final",
+      "title": "Figure 2. Replacement resistance in enlarged cells arises through three mechanism classes; cue shape and timing distinguish their signatures",
+      "role": "Distinguish replacement-resistance mechanisms using initiation, equal-area cue widths and measured pulse/gap retention.",
+      "status": "qualified_complete",
       "assets": [
         {
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/figure2_signature_assays.png",
-          "caption": "Five-model shape and timing signature assays",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/figure2_round2.png",
+          "caption": "Figure 2 round2 with completed Holmes retention",
           "page_size": [
-            11.8,
-            16.1
+            12.5,
+            16.375999999999998
           ],
-          "minimum_printed_width_inches": 10.0,
-          "page_title": "Figure 2. Shape and timing distinguish replacement responses"
+          "minimum_printed_width_inches": 10,
+          "page_title": "Figure 2. Shape and timing distinguish mechanism classes"
         }
       ],
       "legend": [
-        "A, Retained organization of all 97 qualified basal states. Excess amount is integrated inside the interpolated basal half-height core. Amount, extent and native peak signal are divided by each model's own reference values; Spring retains its physical domain and native resting-length convention.",
-        "B, Reporter initiation: first cue-site positive-excess peak reaching 10% of the exact L19 basal excess peak, held fixed within each model across all lengths, widths and strengths. The fixed physical-width raised-cosine cue has support 3.8 chemical units or 0.1 Spring units. Dotted, solid and dashed coloured curves have 0.5, 1 and 2 times the reference commanded spatial input area. Grey open-square curves retain the same peak at relative support 20% of length for the three focal models; this diagnostic changes spatial area with length. Bars are saved-sample crossing brackets. deBelly events in the first native update remain in the interval (0, 0.5]; substep interpolation is descriptive only. Open diamonds at zero denote a footprint already above the reporter threshold before cue application. Native clocks are shown separately.",
-        "C, Time to eligible D ≥ 0.5 during continuous cue ON for width 0.95 divided by width 7.6 (Spring widths 0.025 and 0.2), at the central fixed commanded spatial area equal to native reference peak times 3.8 (Spring times 0.1). Bars propagate both sampled crossing brackets; upward triangles and arrows are strict finite-cap lower bounds when the narrow arm remains below replacement at its native horizon. Censored bounds are not finite replacement times and cannot be ranked as measured ratios. The profile inset compares exact native L39 fields at the predeclared saved time nearest 1500 with one common concentration scale.",
-        "D, Final activity dominance after four equal pulses with total ON 1.5 times each model–length's postwithdrawal commitment calibration, then 10,000 native cue-free units (4000 for deBelly). Gap durations are multiples of one pulse. E, Four pulses with gaps four times one pulse at L39 where calibrated; otherwise the largest calibrated length is used. This deterministic fallback shows Holmes 3 at L27, explicitly labelled, because L39 has no sampled continuous-cue commitment through 100,000 ON units. Selection depends on calibration availability, not train fate. Shading marks cue ON; circles and squares mark pulse and gap endpoints. Time is divided by each model's actual pulse duration, printed in native units. F, The trace-length column preserves this exception beside the numerical signature summary. Shared responses at calibrated lengths do not establish a matched-length comparison at L39.",
-        "Dominance D is the positive active-signal excess in the challenger half minus that in the incumbent half, divided by their sum. The instantaneous profile minimum is the common floor. Eligible D = 0.5 means 75% challenger share; low-activity states require explicit amount and contrast gates and receive no invented D. A square marks a failed finite native-field tail independently of final fate. Grey dagger cells have no sampled continuous-cue commitment through the explicitly searched finite cap, so no calibration duration or train trajectory is assigned. Plain grey cells lack a completed independent audit; neither is censoring of an executed train.",
-        "Commitment calibration is the shortest sampled continuous ON duration, bracketed by native-duration bisection, that yields eligible D ≥ 0.5 after withdrawal and the declared model-native recovery period. The finite native-field tail is evaluated independently and does not redefine scalar replacement. Native clocks differ between models; no absolute cross-model time ranking is used.",
-        "The deBelly trace and summary carry an asterisk because later-gap commitment timing is numerically sensitive. At L39, the third-gap endpoint is D = −0.586 with the native 0.5-unit update and D = +0.190 in the separately qualified 0.25-unit companion. The first two gaps still collapse and final replacement agrees, but later-gap timing and field-tail status are not resolution invariant. The L39 401-cell train also has native endpoint-field sensitivity despite phase-D and fate agreement. S5 retains exact-native-start and separately qualified quarter-step preparations, every endpoint, native-field errors and all gate outcomes. Noisy deBelly ensembles use the native 0.5-unit update and remain conditional on that numerical scheme.",
-        "All five models keep their native kinetics. Commanded spatial input area per ON time is not calibrated photon dose or realized activated molecular amount. A width penalty or gap retention is an observable signature, not a causal allocation to a particular feedback term or unique molecular identification. Holmes 3 and Spring determine whether supported signatures are shared. Polarity replacement is distinct from observed migration and conditional OU persistence estimates.",
-        "S3 reports conditional retention through weakly driven gaps, separately from final replacement. At the third gap with gap duration 16 times one pulse, using the predeclared 80% raw-share criterion with D ≥ 0, counts at mean input 0.5% and 2% of native peak are Wave-pinning L19: 11/12 and 8/12; Wave-pinning L29: 12/12 and 12/12; Wave-pinning L39: 12/12 and 12/12; deBelly L19: 12/12 and 11/12; deBelly L29: 0/12 and 0/12; deBelly L39: 0/12 and 0/12. These are independent-seed denominators, with exact 95% intervals shown in S3; the three gaps of one trajectory are not independent replicates. Mean and zero controls remain visible. Weak describes instantaneous bounded input (maximum 1% or 4% of native peak); at L39 with gap multiple 16 and mean input 2%, whole-domain gap exposure is about 2.46 times targeted ON exposure. This commanded native-coordinate coefficient is not photon dose or realized activation. deBelly retention remains conditional on the native 0.5-unit update."
+        "Enlarged cells resist replacement through distinct initiation, cue-width and gap-retention signatures, supporting three mechanism classes in the deterministic cue assays.",
+        "A, Incumbent amount, extent and peak across the retained 97 states. B, Initiation normalized to each model’s L19 value at central area and the fixed 10% L19 reporter threshold. Brackets propagate saved-sample intervals. deBelly L19 and L39 initiation both lie in (0, 0.5] native units; its normalized ratio is unavailable. Its separate native-time inset places open downward triangles at the measured upper bounds 0.5 and at the actual lengths 19 and 39, with arrows toward smaller times.",
+        "C, Narrow/broad replacement-time ratio at fixed commanded spatial area. Open triangles and arrows are one-sided bounds; question marks denote uninformative ratios. Wave-pinning has a growing large penalty. Holmes grows from about 29 at L19 to above 133 at L23; growth through L39 is unresolved because both width arms are censored. Goryachev and Spring have modest penalties rather than exact width invariance. Commanded area is not calibrated photon dose.",
+        "D, Four equal pulses with total ON 1.5 times the model-length commitment calibration; final D after recovery is the colour. For Holmes L31, L35 and L39, diamonds identify the last inter-pulse gap-end D from the targeted L27-referenced protocol; this endpoint is distinct from final fate. Gap0 uses the zero-duration boundary after the third pulse. No continuous commitment by 100,000 at these three lengths is extreme finite-horizon replacement resistance. Crosses preserve failed field tails, including 31 of the 36 deBelly fate cells.",
+        "E, L39 gap4 histories. Shading marks cue ON; circles and squares mark pulse and gap endpoints. The deBelly trace includes full recovery to its measured final fate; other traces show through one pulse duration of recovery, with full post-recovery D stated in each plot. Holmes retains more than 84% of raw challenger share through all three gaps, although D is slightly negative in the first two and final D remains below 0.5. Retention of share differs from the secondary S3 criterion requiring D at least zero. F, The class table has a numerical evidence row for every model and signature; membership is unchanged. deBelly early collapse and final replacement survive its separate quarter-step check, while later-gap timing and endpoint fields remain sensitive. All native kinetics are unchanged. These polarity readouts are distinct from observed migration and conditional OU persistence.",
+        "The separate Holmes L39 gap16 transfer has heterogeneous bounded input during gaps: S3 successes are 8/12, 9/12, 10/12 after gaps 1–3. Raw share ratios span 0.02152–1.78070; final D spans -0.063410–0.999944. Ten of twelve noisy histories replace, while matched-mean and zero controls do not. The class table describes gaps without added input; this separate transfer demonstrates variable retention and fate under spatially heterogeneous input."
       ],
       "narrative": [
-        "Narrow-to-broad replacement-time ratios at L19 and L39 are Wave-pinning: 3.99–4.05 → >11.1; Goryachev: 1.17–1.18 → 1.12–1.13; deBelly*: 0.962–1.04 → 0.955–0.97; Holmes 3: 29–29.1 → uninformative; Spring: 1.2–1.36 → 1.15–1.18. These are sampled bounds, not fitted scaling laws.",
-        "Activity-share trajectories and their exact gap endpoints test whether an early challenged state persists through cue-free gaps. A later retained replacement does not establish that early activity itself persisted."
+        "Enlarged cells resist replacement through distinct initiation, cue-width and gap-retention signatures, supporting three mechanism classes in the deterministic cue assays.",
+        "The targeted Holmes measurements report activity at every pulse and gap endpoint, independently of eventual replacement.",
+        "No continuous commitment by 100,000 at Holmes L31, L35 and L39 is a finite-horizon finding of extreme replacement resistance."
       ],
       "measurements": [
         "Vary physical cue support at fixed commanded spatial input area and measure time to eligible75% challenger activity share.",
         "Apply equal-total-ON pulse trains, measure activity share at every pulse and gap endpoint, then report postwithdrawal fate and field stability independently."
       ],
       "limitations": [
-        "Native-to-optical calibration is absent. Native clocks, reporter species, amount scales and stimulus channels differ across models.",
-        "Observable signatures do not uniquely identify a molecular mechanism or allocate causation to one feedback term. All five models determine whether responses are shared.",
-        "deBelly early activity collapse and final replacement survive the qualified quarter-step check, but the third-gap dominance sign and finite-field-tail status change; the L39 refined-mesh train also has endpoint-field sensitivity. Later commitment timing and native-step noise probabilities are not claimed to be numerically invariant.",
-        "Finite native-field tails qualify only the declared horizon; deterministic activity replacement does not measure migration persistence."
+        "deBelly normalized initiation unresolved within first-update intervals",
+        "Holmes width-penalty growth through L39 uninformative; moderate-length growth verified",
+        "deBelly later-gap timing and endpoint fields remain numerically sensitive",
+        "Holmes share retention is distinct from S3 D>=0 retention success and from commitment",
+        "Modest Goryachev/Spring width penalties qualify binary no-penalty wording; no class change",
+        "Selected mechanistic signatures do not causally allocate replacement resistance",
+        "Bounded heterogeneous Holmes gap input gives S3 successes 8/12, 9/12, 10/12; some histories lose share or replace, unlike deterministic/mean controls. Integrated gap exposure is 2.46 times ON exposure; deterministic class membership does not imply universal noisy-gap retention."
       ],
       "sources": [
         {
-          "label": "Independent coverage and scientific source receipts",
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/supporting/metadata/coverage.json"
+          "label": "Class evidence CSV",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/class_membership_check.csv"
         },
         {
-          "label": "Sampled width-ratio bounds",
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/supporting/data/width_ratio_sampled_bounds.json"
-        },
-        {
-          "label": "Selected pulse/gap endpoint measurements",
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/supporting/data/selected_train_endpoints.json"
-        },
-        {
-          "label": "Material deBelly temporal qualification and all phase gates",
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/supporting/data/figure2_S5_debelly_temporal_comparisons.json"
-        },
-        {
-          "label": "Complete bounded-noise retention and finite-seed uncertainty",
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/supporting/metadata/S3_display_audit.json"
-        },
-        {
-          "label": "All numerical companions and material qualifications",
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/supporting/metadata/S5_combined_display_audit.json"
+          "label": "Holmes endpoints",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/holmes_large_L_endpoints.csv"
         }
       ],
-      "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/supporting/vectors/figure2_signature_assays.pdf",
-      "supplement_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/supporting/vectors/figure2_signature_assays_complete_supplement.pdf",
-      "reader": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/index.html"
+      "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/figure2_round2.pdf",
+      "supplement_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/figure2_round2_supplement.pdf",
+      "reader": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/README.md"
     },
     {
       "id": "figure3",
-      "title": "Figure 3. Separation affects native competition differently across models",
-      "role": "Test whether greater incumbent–challenger separation slows competition at fixed circumference, then examine its geometric translation into measured activity direction.",
-      "purpose": "Hold each native basal and cell size fixed while rotating one native cue. Separate cue-driven takeover, cue-free two-region resolution and actual global-heading reorientation.",
-      "status": "final",
-      "main_pages": 2,
-      "supplement_pages": 7,
+      "title": "Figure 3. Separation slows the resolution of coexisting regions at short range; at matched separation, cell size dominates both driven takeover and resolution.",
+      "role": "Separate matched-gap size effects from extra accessible separation for driven handover and cue-free resolution.",
+      "purpose": "Existing-output recomposition and interval-safe decomposition without model retuning.",
+      "status": "round2_complete_with_censoring",
+      "main_pages": 1,
+      "supplement_pages": 12,
       "assets": [
         {
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/figure3_distance_main.png",
-          "caption": "Fixed-size cue placement, native histories and separation responses",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/figure3_main.png",
+          "caption": "Separation slows the resolution of coexisting regions at short range; at matched separation, cell size dominates both driven takeover and resolution.",
           "page_size": [
-            11.0,
-            15.842857142857143
+            12,
+            17.633333333333333
           ],
-          "minimum_printed_width_inches": 9.5,
-          "page_title": "Figure 3. Separation and native competition"
-        },
-        {
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/figure3_distance_translation.png",
-          "caption": "Measured-width geometry remaps and direct native-heading qualifications",
-          "page_size": [
-            11.0,
-            13.1
-          ],
-          "minimum_printed_width_inches": 9.5,
-          "page_title": "Figure 3. Geometry and measured activity direction"
+          "minimum_printed_width_inches": 10,
+          "page_title": "Figure 3. Separation slows the resolution of coexisting regions at short range; at matched separation, cell size dominates both driven takeover and resolution."
         }
       ],
-      "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/supporting/vectors/figure3_distance_main.pdf",
-      "supplement_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/supporting/vectors/figure3_distance_supplement.pdf",
-      "reader": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/index.html",
+      "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/figure3_main.pdf",
+      "supplement_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/figure3_supplement.pdf",
+      "reader": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/index.html",
       "legend": [
-        "A, A native cue is rotated at fixed size. The primary initial gap g runs from the incumbent initial 10%-contrast edge to the cue support near edge along the shorter route. Chemical circumferences are 30, 37.8 and 47.6; Spring resting-size labels are 2.5, 3.15 and 3.97, with actual circumference recorded. All 12 fresh single-region basals qualify without retuning. External placements alone enter the distance claim; borderline negative gaps use open symbols and internal references are supplementary.",
-        "B, Native Goryachev and Holmes 3 active-field histories at circumference 37.8 and external gaps 2 and 8. The dashed white line marks independently replayed complete-region handover. Holmes 3 uses active Rac. Chemical A1 histories complete 5, 000 or 20, 000 native units according to the retained continuation rule; Spring completes 2, 000. Every bound uses its actual completed horizon.",
-        "C1, Continuous-cue handover is the first time challenger excess active amount exceeds incumbent excess while two resolved, spatially associated regions exist. C2, Cue-free resolution follows seeding to complete-region challenger/incumbent ratio 1; all 0.5/1/2 results are supplementary. Its axis uses the measured current global 10%-contrast gap at withdrawal. Triangles retain completed finite-cap time lower bounds. Unseeded, overlapping-contour, merged and single-region outcomes remain explicit. Lines do not bridge unavailable, censored or topology-changing placements.",
-        "D, Requested center angle combines the physical edge gap, half the measured incumbent width and half the cue support, divided by circumference and expressed in radians. The relation is typeset in the main panel. A fixed edge gap is not automatically a fixed center displacement when native incumbent width changes with size. Current B widths, actual circumference, short/long routes and measured center displacement are retained.",
-        "E, Solid curves show measured handover time for requested cue angle; dashed curves evaluate the reference-size handover curve at larger-cell measured-width gaps. The geometry-only remap stops within observed reference support and does not interpolate through missing/censored neighbors. The inset directly measures actual global-heading angle at handover, typically about half the requested angle. Handover time is not time to complete the requested angular turn.",
-        "F, The fixed-physical-scale view divides measured region-center angular step by measured cue-free resolution time, with censoring propagated. This conditional potential rate is distinct from the directly observed vector-heading change. Full-angle target-time brackets,50/90/99% sensitivities, final headings, coherence coverage and cancellation gaps are supplementary.",
-        "Complete active amounts integrate native active concentration above a common instantaneous minimum over the two full valley-bounded basins, including signal outside the cue. Continuous boundary position uses a local three-point parabolic minimum; actual field amounts use exact piecewise-linear fractional-cell integration. Active flat/nonunique saddles are unscorable. Single moving regions and merged fields do not supply invented two-region handovers or competition times.",
-        "The global vector is the first spatial harmonic divided by instantaneous mean active field; R = |M₁|/M₀ is coherence, unlike Figure 4 basal-M1-normalized magnitude. Raw exact-direction availability uses R > 10⁻¹⁰, with displayed R ≥ 0.05 and 0.1/0.2 sensitivities. Direction-quality/cancellation gaps break angle unwrapping. All 1, 150 histories include saved-interval principal angular-rate time courses; these are not instantaneous RHS rates or counts of unobserved complete turns.",
-        "A2 uses 0.5, 0.75, 1, 1.5 and 2 times each placement own corrected handover, then 13, 000 cue-free chemical units or 1, 300 Spring units. B withdraws at first valid ratios 0.5, 1 or 2, then 20, 000 chemical units or 2, 000 Spring units. Native finite-field stationarity is reported independently of scalar/spatial fate. No finite cap substitutes for an unavailable own handover.",
-        "All native positivity and conserved-pool audits pass. All 24 B mirrors agree. A1 handover and B seed-time numerical differences are at most 0.0449%;35/36 B resolution brackets overlap. Goryachev C37.8, gap 4, ratio 1 shifts from 1040–1060 to 1080–1100 units on the finer mesh, about 4% in resolution timing. Native clocks differ; no absolute cross-model time ranking or cell-velocity law is imposed."
+        "Separation slows the resolution of coexisting regions at short range; at matched separation, cell size dominates both driven takeover and resolution. Times and gaps use native units.",
+        "A. A native cue is rotated at fixed cell size. The initial gap runs from the incumbent 10%-contrast edge to the cue support near edge. The inset holds the physical gap at 4 across small and large Wave-pinning rings; changing native widths also changes center separation. A1 measures continuous-cue complete-region handover. B withdraws the cue at complete-region challenger/incumbent excess ratio 1 and measures the first single resolved peak.",
+        "B. Left: Goryachev continuous-cue histories at circumference 37.8 and gaps 2 and 8; white dashed lines mark native continuous handover roots. Right: Wave-pinning at circumference 47.6, measured withdrawal gaps 2.78 and 14.84; the near condition resolves within 1140–1160, while the far condition remains unresolved through 20,000. Colour scales are shared within each model; the different assay time windows are shown explicitly. Native species are active chemical species. These maps display fields, not cell trajectories.",
+        "C. Goryachev handover rises with gap, whereas Holmes is nearly flat. Wave-pinning and Spring rise near the edge and then plateau; Wave-pinning does have a distance effect. Open circles are borderline placements. An × at the axis floor denotes an unavailable genuine two-region handover, not a time estimate. Size is consistently encoded by lightness and line style. The coloured top ticks mark initial antipodal-placement gaps.",
+        "D. Equal-amount cue-free resolution rises steeply at short range: approximately gaps 0–5 in Wave-pinning, 2–5.5 in Holmes, and 0.2–0.7 in Spring (the transition shifts with size). Thereafter observed curves flatten or remain unresolved. Holmes has 12/23 eligible ratio-1 main-curve times censored. The nine approved Holmes continuations to 80,000 resolve six histories; three middle-size histories remain unresolved at 80,000. Other Holmes lower bounds retain 20,000. These mixed horizons do not establish a downturn with gap. Unresolved times use open triangles and upward arrows; finite brackets use intervals, and lines do not bridge censored or ineligible placements. Top ticks mark each size's measured withdrawal gap in the initial-antipodal-cue trajectory; they do not assert exactly antipodal withdrawal centers. Goryachev includes a nonmonotone near-edge response. All alternate, merged and unseeded cases remain in the CSV and original native reader.",
+        "E. Each larger size is compared with the smallest size at the largest shared measured gap, using piecewise-linear interpolation inside measured support. Solid bars represent size at matched gap; hatched bars represent extra separation to the larger-size antipodal-placement endpoint. Bars give log₁₀ time ratios; finite B interval limits are marked. Open-ended bars retain one-sided bounds. A question mark means both relevant times are censored and the ratio is indeterminate. Such bars cannot be stacked into a measured total. Total ratios and all interpolation sources are tabulated separately. Size at matched gap dominates driven handover in all four models and the identifiable cue-free comparisons. Extra separation adds at most 1.15× for driven handover and about 1.01–1.07× in resolved Wave-pinning/Goryachev cue-free comparisons; Spring middle size is the supported exception (1.75×), with a larger matched-gap size term (4.29×). After extension, the Holmes middle-size matched-gap term is ≥2.37; its large-size term is only ≥0.618 and does not establish a positive size effect. Holmes extra-separation terms remain indeterminate. Enlarged cells' access to farther separations therefore does not generally explain their slower resolution.",
+        "The complete translation page, earlier main plate, all three B seeding ratios, A2 pulse brackets, 50%-edge reclassification, direct heading checks and numerical controls remain in the supplement and original reader. The finer-mesh Goryachev B ratio-1 gap-4 comparison has about 4% resolution-time sensitivity. Finite horizons establish lower bounds rather than permanent arrest; scalar/spatial fate and native-field stationarity are separate. The only new simulations are the nine approved Holmes cue-free continuations; no model retuning is included. Simulated activity heading, observed migration and conditional OU persistence remain distinct."
       ],
       "narrative": [
-        "Under continuous forcing, Goryachev handover increases with separation, while Holmes 3 is nearly flat over valid two-region placements. Wave-pinning and Spring show near-edge increases followed by broad plateaux. These are model-dependent responses under the declared cue, not a universal absence of distance effects in Wave-pinning.",
-        "Cue-free competition has a different distance response: Wave-pinning, Holmes 3 and Spring can coarsen very slowly, with many large-size resolution lower bounds. Goryachev includes a nonmonotone near-edge response at ratio 1; the full curve and every ratio are retained.",
-        "Actual global-heading measurements qualify the proposed geometry-to-persistence inference. Complete-region handover typically occurs at about half the requested cue angle. Cue-free fields can resolve to an intermediate heading, so a potential center step is not always the realized angular event. These data do not establish an unconditional geometry-driven persistence gain."
+        "Separation slows the resolution of coexisting regions at short range; at matched separation, cell size dominates both driven takeover and resolution. Times and gaps use native units.",
+        "At matched separation, size dominates both driven takeover and cue-free resolution. Extra separation contributes substantially in the supported Spring middle-size exception.",
+        "The nine approved Holmes continuations extend the original exact endpoints to 80,000; unresolved conditions remain lower bounds and ratios of two censored times remain indeterminate.",
+        "The Holmes large-size matched-gap lower bound is below one and does not establish a positive large-size effect; the full qualification is retained in the legend and decomposition CSV."
       ],
       "measurements": [
-        "At fixed native size, vary only cue placement and measure complete-region handover, incumbent 50% excess loss and challenger reaching 50% of basal incumbent excess.",
-        "Seed two complete regions to a declared excess ratio, withdraw the cue and measure their actual 10%-contrast separation, first single-peak resolution time, winner association and exact cue-free RHS exchange budget.",
-        "Measure the same-run global activity vector, its coherence, actual angular displacement, full-target time brackets and saved-interval angular rates; compare them with geometric remaps."
+        "Measure complete-region continuous-cue handover against initial edge gap at fixed circumference.",
+        "Withdraw at challenger/incumbent excess ratio 1 and measure first single-region resolution against the actual withdrawal gap.",
+        "Decompose size at matched gap and extra separation using interpolation only within measured support; propagate censoring and saved-sample brackets."
       ],
       "limitations": [
-        "Basal width, center displacement and edge gap differ; fixed edge gap is not automatically fixed physical center step across sizes.",
-        "A native activity-vector heading is not observed migration direction, a cell velocity law or a conditional OU persistence estimate.",
-        "Finite caps produce lower bounds, not proof of permanent arrest. Scalar/spatial winner and full native-field stationarity remain separate.",
-        "Two resolved peaks with merged primary 10% contours are ineligible for the primary B gap claim. One moving/merged region is a separate outcome.",
-        "The finer-mesh Goryachev B ratio 1 example has about 4% resolution-time sensitivity despite seed-time and winner agreement.",
-        "The native-pattern responses do not uniquely identify a molecular mechanism or provide causal allocation to one kinetic term. No noise, moving cue, dose sweep or deBelly ring enters this figure."
+        "Censored ratios remain bounds or indeterminate; no horizon point substitution.",
+        "Nine approved Holmes extensions completed; three still censored at 80,000. Other cases retain 20,000. Holmes large-size matched-gap bound does not establish a positive size effect."
       ],
       "claims": [
         "Separation response depends on the model and on whether competition is externally driven or cue-free.",
@@ -247,7 +215,12 @@
             "cases": 19
           }
         ],
-        "original_A1_continuation_rule": "Chemical5,000-unit histories extend to20,000 unless the retained fixed-footprint incumbent excess is at most10% and a cue-associated single threshold region exists. This original continuation gate does not define the corrected full-region handover."
+        "original_A1_continuation_rule": "Chemical5,000-unit histories extend to20,000 unless the retained fixed-footprint incumbent excess is at most10% and a cue-associated single threshold region exists. This original continuation gate does not define the corrected full-region handover.",
+        "Holmes_approved_B_extensions": {
+          "cases": 9,
+          "cue_free_horizon": 80000,
+          "original_horizon": 20000
+        }
       },
       "full_region_definition": {
         "signal": "Native active species; active Rac for Holmes3",
@@ -391,8 +364,10 @@
         "B_cue_phase_single_region_takeovers": 39,
         "B_ineligible_primary_contours": 28,
         "B_unreached_seed_caps": 7,
-        "B_resolution_lower_bounds": 52,
-        "native_history_images": 1150
+        "B_resolution_lower_bounds": 46,
+        "native_history_images": 1150,
+        "approved_Holmes_extensions": 9,
+        "Holmes_ratio1_censored": 12
       },
       "controls": {
         "no_cue_duration_chemical": 53000,
@@ -437,196 +412,125 @@
         {
           "label": "Lossless full native-history pixel audit",
           "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/supporting/metadata/lossless_pixel_audit.json"
+        },
+        {
+          "label": "Current B evidence including all nine extensions",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/B_complete_with_extensions.csv"
+        },
+        {
+          "label": "Matched-gap decomposition and censoring",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/decomposition_terms.csv"
+        },
+        {
+          "label": "Measured short-range evidence",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/short_range_evidence.csv"
+        },
+        {
+          "label": "Independent native-field and decomposition validation",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/verification.json"
         }
       ],
       "provenance": {
-        "generated_utc": "2026-10-20T21:21:21.502349+00:00",
-        "generator_sha256": "3a9707472fe35b83f5b3308c1cb8cd2a774235ce4c2b907d6155d0f0ce2fb175",
-        "source_csv_sha256": {
+        "generated_utc": "2026-10-22T13:06:06.568258+00:00",
+        "source_sha256": {
           "A1_complete_region_evidence.csv": "f4515141558554e0e22c4b46191cf60dc3994e647c9e1706d11295a9e6d5f783",
-          "B_complete_region_evidence_and_geometry.csv": "7bb4b44b91d27c272b7950f8a3ee4836eb18276e84066b475c4671d1706fa0cb",
-          "A1_direct_heading_check.csv": "d96b9059d340f20066b6ecafad73459fd6685e30b3e28076f89f58033e8f4f29"
-        }
+          "B_complete_region_evidence_and_geometry.csv": "7bb4b44b91d27c272b7950f8a3ee4836eb18276e84066b475c4671d1706fa0cb"
+        },
+        "model_colors": {
+          "wave_pinning": "#2878b5",
+          "goryachev": "#c83b3b",
+          "holmes_model3": "#36944c",
+          "spring": "#c59a25"
+        },
+        "main_panels": 5,
+        "supplement_pages": 12,
+        "existing_supplement_pages_preserved": true,
+        "optional_extension_count": 9,
+        "extensions_submitted": 9,
+        "extensions_completed": 9,
+        "extension_collection_sha256": "ac43423a9aa80778cd4f6b1eb933894888ddd5d741a62c1f12011c4a110741c8",
+        "extension_campaign": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure3_holmes_extensions_round2_20261022",
+        "holmes_B_censored": 12,
+        "holmes_B_eligible": 23,
+        "decomposition_rows": 48,
+        "finite_product_identity": "passed",
+        "bounds": "interval arithmetic; no horizon point estimates",
+        "generator_sha256": "0bbd4fa6f37df08bdb372cfa83dfc034ce7f393d352400d852dae431f045bb92"
       }
     },
     {
-      "title": "Figure 4. Heading persistence under fluctuating input — round-2 reanalysis pending review",
-      "role": "Review the rate-based persistence estimand before selecting the revised main composition. The following main artwork is retained from 20 October; the new interim sheets follow in the supplementary section.",
+      "title": "Figure 4. Enlarged cells hold heading longer under fluctuating input — at or above the geometric expectation at weak input — and the advantage declines as input strengthens.",
+      "role": "Measure the heading decay-rate advantage and describe geometric normalization and spatial organization under fluctuating input.",
       "legend": [
-        "Case B: the complete frozen H1 remains inconclusive in the common and longest main-view arms without forced conditions. Its unchanged requirement is a ratio CI strictly above one at every evaluable input, no supported reversal, and non-overlapping size noise-tolerance CIs; weak-to-intermediate gains alone do not satisfy it. At input 0.003, the rate ratios are 19.12, 11.00, 7.55 for Wave-pinning, Holmes and Spring; at 0.05 they are 4.63, 2.53, 1.18, with geometric-normalized ratios 0.51, 0.28, 0.14 and multiple-front majorities. Thus resolved size gains can coexist with erosion below the single-front geometric expectation, while Spring's 0.05 ratio CI includes one. Main-view size noise-tolerance CIs separate in these three models. Goryachev remains coverage/lag/forcing qualified. Updated H2 model calls are reported, but H2 overall retains its legacy direct-time A6 predictor gate, and H3 retains its legacy time-bound definition; neither is a fully revalidated rate-based hypothesis. Stop for review before rebuilding the Figure 4 main. The retained artwork below uses the previous estimand; new rate-based values and decisions appear in the round-2 interim supplement.",
-        "A. Native activity kymographs show the fixed, reviewed f=0.05 medoids for Wave-pinning C₀=20/60 and Spring C₀=1/3. Physical arc, native time and activity colour limits are shared within each model pair. Wave-pinning shows the full 0–32000 native horizon, with a white dashed line at the retained second-half analysis start. Spring shows the declared fixed final one-sixteenth viewport 3000–3200 for both sizes; its full 0–3200 histories remain in S11 and all statistics use the full declared analysis window. Full native grids and exact selected IDs are in the source inventories; concentrations are neither resampled nor quantized. Spring boundary geometry follows its actual circumference.",
-        "B. Ρ=τₚ(largest)/τₚ(smallest) uses direct heading persistence, with a logarithmic colour scale centred on one. The full grid retains all four models and every designed input. ? is unidentified or unavailable; arrows are one-sided empirical bounds; ↕ is a finite empirical interval; † marks an upper-unbounded bootstrap CI. Bound cells have no fabricated ratio colour. S/M/L/X denote the largest-cell native single-front/multiple-front/low-contrast/mixed regime. Grey retains operational forcing; hatching marks an input not designed for that model.",
-        "C. Direct persistence ratios at f=0.05 are shown for all seven declared windows/cadences. Circles are finite ratios; open right-pointing triangles are empirical lower bounds. Horizontal intervals and vertical caps show whole-seed 95% bootstrap uncertainty. A dagger is an unbounded CI upper endpoint; its finite lower endpoint remains distinct from the empirical bound. All three models have a positive lower confidence bound above one in every shown view. Sampling variants reuse the same independent histories.",
-        "D. Primary optical region-count quotients compare large/small within each model at f=0.05. The imaging proxy uses fixed physical Gaussian smoothing 1.5 (Spring 0.15), threshold 0.5 and native cadence 80 (Spring 8). Caps retain the exact whole-seed 95% intervals, including Spring’s narrow interval. These counts describe observed local organization and are not a validated predictor of persistence.",
-        "The selected f=0.05 conditions were not selected for E4 extension. Their common and longest-arm tables reuse the same common-horizon cohort; agreement between those arms is not independent long-horizon corroboration. Each selected size has 12 independent noisy seeds. Native clocks differ between chemical models and Spring; no cross-model absolute time or amplitude ranking is implied.",
-        "Figure 4 R is the native first-mode magnitude divided by its exact no-input basal first-mode magnitude. It can exceed one and differs from Figure 3 coherence |M1|/M0. Global-heading-derived physical-mobility proxies are distinct from qualified single-region literal site MSDs."
+        "Enlarged cells hold heading longer under fluctuating input — at or above the geometric expectation at weak input — and the advantage declines as input strengthens. The geometric statement describes model-specific weakest measurable point estimates: f = 0.003 for Wave-pinning and Holmes, and f = 0.0003–0.001 for Spring. Confidence intervals also admit sub-geometric gains in Holmes and Spring. At the shared displayed input f = 0.003, Spring is already below its actual geometric expectation (rate ratio 7.55 versus geometry 8.55), while its large-cell regime is still classified as single front. (A) Native activity kymographs for small and large Wave-pinning and Holmes at f = 0.003, plus a large Wave-pinning example at f = 0.1; width is proportional to circumference, with shared activity scales within each model. (B) Heading autocorrelation at f = 0.003 on model-specific logarithmic ordinates with whole-seed 95% bootstrap bands; intervals extending below zero continue beyond the positive plotting range. (C) Small/large rotational decay-rate ratio at the shortest usable lag satisfying the frozen lag rule, with pointwise 95% CIs. Reference lines show unity and nominal single-front geometry (9); actual-circumference normalization is reported in the supplement. Marker fill describes the large-cell regime; squares flag non-exponential lag dependence. (D) Multiple-front fractions with bootstrap intervals, reported descriptively: Holmes and Spring can fall below geometry while still single-front, so these data do not establish multiple fronts as the cause of erosion. (E) Fixed-reference-lag noise tolerance increases with size; smallest/largest CIs separate in all three shown models. Small cells are lighter solid, large cells darker dotted. Native units are used. Post hoc H1 amendment: evaluate gains and supported reversals only at inputs strictly below the point estimate of the largest cell’s own f½; strict CI and size noise-tolerance rules are unchanged. Both main-view observation arms pass the amended H1 overall, while frozen rate H1 is inconclusive in both; all calls appear alongside in S0. H2/H3/A6 τ gates are retired. Goryachev is excluded from the main because its ratios derive from forced or non-exponential conditions, and remains complete in the supplement. Simulated polarity heading is distinct from migration persistence and conditional OU estimates."
       ],
       "narrative": [
-        "Case B: the complete frozen H1 remains inconclusive in the common and longest main-view arms without forced conditions. Its unchanged requirement is a ratio CI strictly above one at every evaluable input, no supported reversal, and non-overlapping size noise-tolerance CIs; weak-to-intermediate gains alone do not satisfy it. At input 0.003, the rate ratios are 19.12, 11.00, 7.55 for Wave-pinning, Holmes and Spring; at 0.05 they are 4.63, 2.53, 1.18, with geometric-normalized ratios 0.51, 0.28, 0.14 and multiple-front majorities. Thus resolved size gains can coexist with erosion below the single-front geometric expectation, while Spring's 0.05 ratio CI includes one. Main-view size noise-tolerance CIs separate in these three models. Goryachev remains coverage/lag/forcing qualified. Updated H2 model calls are reported, but H2 overall retains its legacy direct-time A6 predictor gate, and H3 retains its legacy time-bound definition; neither is a fully revalidated rate-based hypothesis. Stop for review before rebuilding the Figure 4 main.",
-        "Geometric normalization is relative to the single-front geometric expectation; it is not a site diffusivity.",
-        "S0 substitutes the new size ratio and fixed-lag noise tolerance. Its explicitly direct-tau A6 predictor gate and H3 fingerprints remain historical, as recorded in the decision audit."
+        "Enlarged cells hold heading longer under fluctuating input — at or above the geometric expectation at weak input — and the advantage declines as input strengthens.",
+        "Post hoc H1 passes in both main-view observation arms; frozen rate H1 remains inconclusive. All seven views, both arms and both forcing choices remain alongside in S0.",
+        "Geometry and multiple-front fractions are descriptive. The data do not establish multiple fronts as the cause of the declining advantage."
       ],
       "measurements": [
-        "Common observations use native chemical 32000 and Spring 3200 horizons. Longest observations use the frozen per-condition selector, including chemical 128000 or Spring 12800 where E4 was preselected. Mixed per-size horizons remain explicit; raw total-count quotients are unavailable when exposures differ.",
-        "Persistence and its empirical bounds come from measured heading correlations with declared coverage. Bootstrap uncertainty resamples whole independent seed histories. Deterministic matched-mean/zero controls have 0 independent stochastic seeds and 0 seed-bootstrap resamples.",
-        "Primary optical counts and strict dominant-newborn takeovers use complete observed-region amounts. A takeover requires the newborn to be largest among qualified regions and its pairwise D against the previous dominant region to exceed 0.5 for two frames. With three or more regions this does not mean 75% of whole-cell activity.",
-        "Spring forcing is material attached, with physical correlation length 0.15 C/C_basal; fixed physical optical smoothing is separate. Literal A3 positions use the fixed material-origin angle times actual circumference, splitting unresolved antipodal edges; paired ±π routes are deterministic sensitivities."
+        "Use endpoint coverage R ≥ 0.1 and a whole-seed bootstrap. Select the shortest usable lag at which small-cell autocorrelation is at most 0.98; report every usable lag and flag drift greater than 1.5-fold.",
+        "Measure fixed-reference-lag noise tolerance at autocorrelation 0.5 across every designed input, using log-input interpolation and explicit bounds.",
+        "Normalize the rate ratio by actual mean-circumference geometry, relative to the single-front expectation; this is not site diffusivity."
       ],
       "limitations": [
-        "All 308 S0 rows cover both arms, all seven views, and both forcing choices; old calls appear alongside updated calls.",
-        "Frozen H1 applies to every evaluable input, with at least three of four models required overall; no weak-input-only gate was introduced.",
-        "The authorized fhalf substitution uses absolute heading autocorrelation 0.5 at the fixed reference lag, replacing the historical weakest-input-relative tolerance; the original authority text is retained verbatim as provenance.",
-        "H2 overall is a mixed-estimand replay with the frozen legacy direct-tau A6 predictor gate, not a new-rate predictor validation.",
-        "H3 is retained as its legacy tauStrong/tauWeak empirical-bound result; a new-rate H3 was not defined or validated.",
-        "Geometric normalization is relative to the single-front expectation, is not site diffusivity, and is not a decision gate.",
-        "Non-exponential lag dependence, unavailable exact saved-time lags, forced states, and one-sided bounds remain explicit in the metric tables.",
-        "The association between multiple fronts and diminished geometric advantage is descriptive, not an independently validated causal or predictive claim.",
-        "The modeled activity heading is distinct from observed migration summaries and conditional OU persistence estimates.",
-        "H1 is inconclusive, H2 fails the overall criterion and H3 is inconclusive; the positive selected comparison is not support for those full hypotheses.",
-        "The three-model selected comparison uses 12 independent seeds per size; Goryachev remains visible in the full overview and is forced/undercovered at this input.",
-        "Late-quarter Wave-pinning/Holmes persistence ratios are bounded, not finite point estimates; unbounded bootstrap upper endpoints must remain visible.",
-        "The persistence direction and native majority-regime labels pass selected A7 checks; short-lag mobility itself is cadence-sensitive in some selected conditions and is not promoted as a robust headline.",
-        "Primary optical counts are imaging proxies at threshold 0.5, fixed physical smoothing 1.5/0.15 and cadence 80/8 in native units; native regime fractions remain distinct.",
-        "Heading persistence and local activity regions are simulated polarity observables, not measured migration persistence or a cell-velocity law.",
-        "Geometric qualifications and literal single-region site MSD remain in S4/S5; the global-heading-derived physical-mobility proxy is not one tracked site diffusivity.",
-        "Historical Spring sampled-duration/cadence failures, finite-window bounds, coverage exclusions and E4 source-recovery/original-cohort distinctions remain explicit.",
-        "Short-lag global-heading physical-mobility estimates may increase while angular persistence increases. In multiple-region states they do not measure diffusion of one tracked site. Selected mobility estimates have cadence sensitivity and are excluded from the headline.",
-        "E4 native source repair is an engineering acceptance under unchanged tolerances, not a stationarity/persistence conclusion. Retained prefixes, sigma branches, route choices, numerical companions and common/longest references are not extra independent seed replicates.",
-        "All 578 required native-atlas pages are retained in 13 numbered lossless appendix volumes. The core PDF is the statistical supplement and appendix index. Full 17-significant-digit native CSV.gz fields remain verified in the HPC archive; every page has portable exact-source inventories and compact companions.",
-        "For Spring C0=3, f=1, seed202610192320800, the original full numerical gate failed 12 scalar-observation cadence comparisons. The accepted stable scope passes 180 rows and excludes all 18 q90 multiregion-span rows, including six passing ODE-only comparisons. These are consecutive saved multiregion-mask durations, not tracked individual lifetimes. The full-window q90 changes from 10 to 7.15 when scalar cadence changes from 0.5 to 0.05. Exact sigma-one replay preserves an existing path and forcing; it does not establish numerical or observation convergence. Numerical companions and dense samples are not independent scientific seeds.",
-        "Author review is required before Figure 4 main composition and the later Figure 3/2 revisions. The complete round-2 work package is not yet delivered."
+        "The H1 domain restriction to inputs below the largest size's estimated noise tolerance is post hoc.",
+        "Weak-input geometric comparisons describe point estimates; Holmes and Spring confidence intervals also admit sub-geometric gains.",
+        "Non-exponential lags, forcing, off-grid lags and nonpositive autocorrelations remain explicit. Goryachev is complete in the supplement.",
+        "H2, H3 and A6 tau-based gates are retired; their frozen historical calls are preserved for provenance.",
+        "Simulated activity-heading persistence is distinct from observed migration and conditional OU persistence estimates."
       ],
       "id": "figure4",
-      "status": "round2_interim_pending_author_review",
+      "status": "round2_complete_Case_A_posthoc",
       "assets": [
         {
-          "minimum_printed_width_inches": 12.0,
-          "recommended_printed_width_inches": 14.0,
-          "minimum_display_width_px": 1152,
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/figure4_revision_main.png",
-          "caption": "20 October main artwork retained pending round-2 review; see the new interim sheets",
-          "page_title": "Figure 4. Previous main artwork — round-2 composition awaits review",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_main.png",
+          "caption": "Enlarged cells hold heading longer under fluctuating input — at or above the geometric expectation at weak input — and the advantage declines as input strengthens.",
+          "page_title": "Figure 4. Enlarged cells hold heading longer under fluctuating input",
           "page_size": [
-            13.5,
-            16.361651785714287
-          ]
+            16.5,
+            21
+          ],
+          "minimum_printed_width_inches": 14
         }
       ],
-      "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_revision_main.pdf",
-      "supplement_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_revision_complete_supplement.pdf",
-      "reader": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/figure4_complete_reader.html",
+      "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_main.pdf",
+      "supplement_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_supplement.pdf",
+      "reader": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/index.html",
       "main_source_data": [
         {
           "panel": "A",
-          "measurement": "Native active-field histories at f=0.05; exact small/large medoids",
-          "rows": 55220,
-          "portable_CSVs": [
-            {
-              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0001_MAIN_A_part011.csv",
-              "sha256": "c07e6af3ee9ca7f07d3e3573075dc96f03a0b4907d5e62d72dd77ce1e70052c6",
-              "rows": 4,
-              "distribution": "portable"
-            },
-            {
-              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0001_MAIN_A_part012.csv.gz",
-              "sha256": "4163a127a55152b1ed15a563e6c7bc135d1a4bff6ff1ccc52706e847c3727704",
-              "rows": 800,
-              "distribution": "portable"
-            },
-            {
-              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0001_MAIN_A_part013.csv",
-              "sha256": "df5830ed59ad2c28d745c000c5d77e4223597912dff52cbb03b00ae9d582826b",
-              "rows": 2,
-              "distribution": "portable"
-            },
-            {
-              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0001_MAIN_A_part014.csv.gz",
-              "sha256": "e6af5e2315b30b30273315b72a8d1062eb35172b2d516cbb44061f0a604f55a6",
-              "rows": 2400,
-              "distribution": "portable"
-            },
-            {
-              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0001_MAIN_A_part015.csv",
-              "sha256": "b70277d3bbb9b779a843ecc830bd2ee8f346be3b516be3d7c5e854c55c61aa76",
-              "rows": 2,
-              "distribution": "portable"
-            },
-            {
-              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0001_MAIN_A_part016.csv.gz",
-              "sha256": "d9c578c3e5551386145c7b6f35c94aadd474950e3c14d5d2ec3dc77fa3a07fea",
-              "rows": 200,
-              "distribution": "portable"
-            },
-            {
-              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0001_MAIN_A_part017.csv",
-              "sha256": "6184c0a672d9c3cc87fc91bbf2b69f936b06669f395357870494830959b16459",
-              "rows": 2,
-              "distribution": "portable"
-            },
-            {
-              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0001_MAIN_A_part018.csv.gz",
-              "sha256": "6dc54db9e84c4c13a9337ff72f81108becc7be73ca41db24165fadd7f960a090",
-              "rows": 600,
-              "distribution": "portable"
-            },
-            {
-              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0001_MAIN_A_part019.csv",
-              "sha256": "faec7c2e5d77a34bd7ae27d482b37b2d432f5fb923e05c5f125aa759cc7d282b",
-              "rows": 2,
-              "distribution": "portable"
-            }
-          ],
-          "HPC_archive_inventory": {
-            "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0001_MAIN_A_HPC_archive_inventory.csv",
-            "sha256": "38663a0d31dfd9ab375a669a5222b16f8b31a70ff263b52671a4344df7284c7d",
-            "rows": 10,
-            "distribution": "portable_archive_inventory"
-          }
+          "measurement": "Native f=0.003 paired activity histories and f=0.1 large Wave-pinning",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/data/main_native_kymographs.csv.gz",
+          "sha256": "2fdc1d035a6ea90c87a8e7da36be0507d239c2e94933751010835271984d130f"
         },
         {
           "panel": "B",
-          "measurement": "persistence_ratio_overview",
-          "rows": 49,
-          "portable_CSVs": [
-            {
-              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0002_MAIN_B.csv",
-              "sha256": "3840c3b6ff7e956df62e262cf378ff6361a9b84da0b938611bf2406b8b82039d",
-              "rows": 49,
-              "distribution": "portable"
-            }
-          ],
-          "HPC_archive_inventory": null
+          "measurement": "Heading autocorrelation and whole-seed confidence bands",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/data/main_autocorrelation.csv",
+          "sha256": "316b35d3a8dfeb235df7f009693dab3f59999f8a9340528a88708821d10fc90e"
         },
         {
           "panel": "C",
-          "measurement": "persistence_ratio_all_views",
-          "rows": 21,
-          "portable_CSVs": [
-            {
-              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0003_MAIN_C.csv",
-              "sha256": "b3e963d430a805a36c4dac9984fef5e710441671ca95248564cdc0ee84b2a2df",
-              "rows": 21,
-              "distribution": "portable"
-            }
-          ],
-          "HPC_archive_inventory": null
+          "measurement": "Primary decay-rate size ratio against input",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/data/main_size_ratios.csv",
+          "sha256": "faf8881c347b46f4ca852c6977d885bdc8e232c6a9beb8ce664c8584721e146c"
         },
         {
           "panel": "D",
-          "measurement": "fingerprint_region_count",
-          "rows": 3,
-          "portable_CSVs": [
-            {
-              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0004_MAIN_D.csv",
-              "sha256": "f8c7c47831ec2a931993e618ffa005fe20d63e4558c67d9fe305faf6189e9fa5",
-              "rows": 3,
-              "distribution": "portable"
-            }
-          ],
-          "HPC_archive_inventory": null
+          "measurement": "Descriptive multiple-front fractions",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/data/main_multiple_fronts.csv",
+          "sha256": "2b3152990720b81a50543af4ad5cc55c92fd45548f6f7aa29c41e04572472f45"
+        },
+        {
+          "panel": "E",
+          "measurement": "Fixed-reference-lag noise tolerance",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/data/main_noise_tolerance.csv",
+          "sha256": "8b9dcbc3e5d7955c7d6958154949a0a311af984f80e629271537954ecaa15f1a"
         }
       ],
-      "supplement_scope": "S0–S12 statistical core and complete native-atlas appendix index; native pages are in all linked appendix volumes",
+      "supplement_scope": "New rate, geometry, fixed-lag tolerance, all-lag consistency and post hoc/frozen S0 analyses, followed by the complete retained 20 October supplement and superseded main artwork.",
       "supplement_volumes": [
         {
           "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_001.pdf",
@@ -829,20 +733,37 @@
           "sha256": "edf2c63d5ee75d6c6625f56d20f5003f87110a01c4be8383a79b35189964d768"
         },
         {
-          "label": "Combined round-2 interim supplement",
-          "path": "manuscript_outline/revision_round2_20261022/figure4_interim_complete_supplement.pdf"
+          "label": "Frozen and post hoc H1 decisions",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/data/S0_posthoc_H1.csv"
         },
         {
-          "label": "Round-2 interim summary and qualifications",
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/metadata/interim_summary.json"
+          "label": "Every lag and lag-consistency flags",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/data/all_lag_size_ratios.csv"
         },
         {
-          "label": "Rate estimand source and scalar-history receipt",
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/metadata/analysis_receipt.json"
+          "label": "Complete lag-by-lag ratio supplement",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_all_lag_ratios.pdf"
         },
         {
-          "label": "Exact old-S0 replay and new-estimand audit",
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/metadata/S0_decision_replay_audit.json"
+          "label": "Source and rendering receipt",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/metadata/main_render_receipt.json"
+        }
+      ],
+      "equations": [
+        {
+          "math": "C(\\ell)=\\langle\\cos[\\theta(t+\\ell)-\\theta(t)]\\rangle,\\qquad k(\\ell)=-\\frac{\\ln C(\\ell)}{\\ell}",
+          "number": "1",
+          "description": "Both endpoints must satisfy the declared magnitude rule. The logarithmic rate is defined only for positive autocorrelation."
+        },
+        {
+          "math": "\\rho_k=\\frac{k_{\\mathrm{small}}}{k_{\\mathrm{large}}},\\qquad \\rho_{\\mathrm{geo}}=\\frac{\\rho_k}{(\\mathcal{C}_{\\mathrm{large}}/\\mathcal{C}_{\\mathrm{small}})^2}",
+          "number": "2",
+          "description": "Calligraphic C denotes actual mean circumference. Geometric normalization is a relative single-front expectation."
+        },
+        {
+          "math": "C(\\ell_{\\mathrm{ref}};f_{1/2})=\\frac{1}{2}",
+          "number": "3",
+          "description": "The fixed reference lag is 2,000 for chemical models and 200 for Spring; crossing interpolation is logarithmic in input fraction."
         }
       ]
     },
@@ -1281,139 +1202,6 @@
         {
           "label": "Prior physical motion, magnitude and coverage evidence",
           "path": "manuscript_outline/assets/noise_v2/noise_interpretation_v2.content.json"
-        }
-      ]
-    },
-    {
-      "id": "figure4_round2_interim",
-      "title": "Figure 4 round-2 review interim",
-      "role": "New persistence estimand and old/new decision table; these sheets are review material, not a recomposed main figure.",
-      "assets": [
-        {
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/S0_common_inclusive.png",
-          "caption": "Round-2 review interim: S0 common inclusive",
-          "page_size": [
-            14.4,
-            12.2
-          ],
-          "minimum_printed_width_inches": 12.5,
-          "page_title": "Figure 4 round-2 review interim"
-        },
-        {
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/S0_common_primary.png",
-          "caption": "Round-2 review interim: S0 common primary",
-          "page_size": [
-            14.4,
-            12.2
-          ],
-          "minimum_printed_width_inches": 12.5,
-          "page_title": "Figure 4 round-2 review interim"
-        },
-        {
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/S0_longest_inclusive.png",
-          "caption": "Round-2 review interim: S0 longest inclusive",
-          "page_size": [
-            14.4,
-            12.2
-          ],
-          "minimum_printed_width_inches": 12.5,
-          "page_title": "Figure 4 round-2 review interim"
-        },
-        {
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/S0_longest_primary.png",
-          "caption": "Round-2 review interim: S0 longest primary",
-          "page_size": [
-            14.4,
-            12.2
-          ],
-          "minimum_printed_width_inches": 12.5,
-          "page_title": "Figure 4 round-2 review interim"
-        },
-        {
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_noise_tolerance.png",
-          "caption": "Round-2 review interim: figure4 noise tolerance",
-          "page_size": [
-            16.4,
-            8.0
-          ],
-          "minimum_printed_width_inches": 14.5,
-          "page_title": "Figure 4 round-2 review interim"
-        },
-        {
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_old_new.png",
-          "caption": "Round-2 review interim: figure4 old new",
-          "page_size": [
-            16.4,
-            8.0
-          ],
-          "minimum_printed_width_inches": 14.5,
-          "page_title": "Figure 4 round-2 review interim"
-        },
-        {
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_rho_geo.png",
-          "caption": "Round-2 review interim: figure4 rho geo",
-          "page_size": [
-            16.4,
-            8.0
-          ],
-          "minimum_printed_width_inches": 14.5,
-          "page_title": "Figure 4 round-2 review interim"
-        },
-        {
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_rho_k.png",
-          "caption": "Round-2 review interim: figure4 rho k",
-          "page_size": [
-            16.4,
-            8.0
-          ],
-          "minimum_printed_width_inches": 14.5,
-          "page_title": "Figure 4 round-2 review interim"
-        }
-      ],
-      "legend": [
-        "Case B: the complete frozen H1 remains inconclusive in the common and longest main-view arms without forced conditions. Its unchanged requirement is a ratio CI strictly above one at every evaluable input, no supported reversal, and non-overlapping size noise-tolerance CIs; weak-to-intermediate gains alone do not satisfy it. At input 0.003, the rate ratios are 19.12, 11.00, 7.55 for Wave-pinning, Holmes and Spring; at 0.05 they are 4.63, 2.53, 1.18, with geometric-normalized ratios 0.51, 0.28, 0.14 and multiple-front majorities. Thus resolved size gains can coexist with erosion below the single-front geometric expectation, while Spring's 0.05 ratio CI includes one. Main-view size noise-tolerance CIs separate in these three models. Goryachev remains coverage/lag/forcing qualified. Updated H2 model calls are reported, but H2 overall retains its legacy direct-time A6 predictor gate, and H3 retains its legacy time-bound definition; neither is a fully revalidated rate-based hypothesis. Stop for review before rebuilding the Figure 4 main.",
-        "Model colours are fixed across the new sheets. Bounds use open triangles and arrows; unavailable values carry explicit labels. Native units are retained.",
-        "The S0 tables pair old and revised calls across both observation arms, all seven views and both forcing selections. H3 and the A6 predictor gate retain their stated historical tau definitions."
-      ],
-      "narrative": [
-        "Case B: the complete frozen H1 remains inconclusive in the common and longest main-view arms without forced conditions. Its unchanged requirement is a ratio CI strictly above one at every evaluable input, no supported reversal, and non-overlapping size noise-tolerance CIs; weak-to-intermediate gains alone do not satisfy it. At input 0.003, the rate ratios are 19.12, 11.00, 7.55 for Wave-pinning, Holmes and Spring; at 0.05 they are 4.63, 2.53, 1.18, with geometric-normalized ratios 0.51, 0.28, 0.14 and multiple-front majorities. Thus resolved size gains can coexist with erosion below the single-front geometric expectation, while Spring's 0.05 ratio CI includes one. Main-view size noise-tolerance CIs separate in these three models. Goryachev remains coverage/lag/forcing qualified. Updated H2 model calls are reported, but H2 overall retains its legacy direct-time A6 predictor gate, and H3 retains its legacy time-bound definition; neither is a fully revalidated rate-based hypothesis. Stop for review before rebuilding the Figure 4 main."
-      ],
-      "measurements": [],
-      "limitations": [
-        "All 308 S0 rows cover both arms, all seven views, and both forcing choices; old calls appear alongside updated calls.",
-        "Frozen H1 applies to every evaluable input, with at least three of four models required overall; no weak-input-only gate was introduced.",
-        "The authorized fhalf substitution uses absolute heading autocorrelation 0.5 at the fixed reference lag, replacing the historical weakest-input-relative tolerance; the original authority text is retained verbatim as provenance.",
-        "H2 overall is a mixed-estimand replay with the frozen legacy direct-tau A6 predictor gate, not a new-rate predictor validation.",
-        "H3 is retained as its legacy tauStrong/tauWeak empirical-bound result; a new-rate H3 was not defined or validated.",
-        "Geometric normalization is relative to the single-front expectation, is not site diffusivity, and is not a decision gate.",
-        "Non-exponential lag dependence, unavailable exact saved-time lags, forced states, and one-sided bounds remain explicit in the metric tables.",
-        "The association between multiple fronts and diminished geometric advantage is descriptive, not an independently validated causal or predictive claim.",
-        "The modeled activity heading is distinct from observed migration summaries and conditional OU persistence estimates.",
-        "User review of the Figure 4 interim (mandatory stop).",
-        "Build/recompose the Figure 4 main only after review.",
-        "Figure 3 decomposition/recomposition and any conditional extension-run count remain subsequent work.",
-        "Figure 2 targeted Holmes retention runs, class verification, and recomposition remain subsequent work."
-      ],
-      "sources": [
-        {
-          "label": "Complete interim reader",
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/index.html"
-        },
-        {
-          "label": "Scientific methods and qualifications",
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/metadata/scientific_readme.md"
-        },
-        {
-          "label": "Lag-by-lag condition measurements",
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/data/condition_lag_metrics.csv"
-        },
-        {
-          "label": "Primary size ratios and geometric normalization",
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/data/size_ratios.csv"
-        },
-        {
-          "label": "Fixed-reference-lag noise tolerance",
-          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/data/noise_tolerance.csv"
         }
       ]
     }

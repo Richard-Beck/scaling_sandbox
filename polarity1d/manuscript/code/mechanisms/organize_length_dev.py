@@ -13,6 +13,8 @@ REPORT=ROOT/'figures/length_mechanisms_20261008'
 DEV=REPORT/'dev'
 RECORDS=DEV/'_organization'
 GROUPS={
+ 'revision_round2_20261022/figure2':('revision_round2_figure2_', 'figure2_round2_'),
+ 'revision_round2_20261022/figure3':('revision_round2_figure3_', 'figure3_round2_'),
  'revision_round2_20261022/figure4':('revision_round2_figure4_', 'figure4_round2_', 'S0_common_', 'S0_longest_'),
  'signature_figure4_20261020':('signature_figure4_', 'figure4_E0_'),
  'signature_assays_20261020':('signature_figure2_', 'figure2_signature_assays'),
@@ -74,6 +76,9 @@ TITLES['revision_program_20261019']='Figures 2–4: mechanisms, geometry and spo
 TITLES['signature_assays_20261020']='Figure 2 revision: shape and timing signature assays'
 TITLES['signature_figure4_20261020']='Figure 4 revision: native noisy-ring persistence and regime measurements'
 TITLES['revision_program_20261020/figure3_distance']='Figure 3 revision: distance, competition and measured polarity geometry'
+TITLES['revision_round2_20261022/figure2']='Figure 2 round-2 replacement-resistance signatures'
+TITLES['revision_round2_20261022/figure3']='Figure 3 round-2 short-range separation and matched-gap size effects'
+TITLES['revision_round2_20261022/figure4']='Figure 4 round-2 heading decay rates: author-authorized Case A'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def write(p,value):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(value,indent=2,ensure_ascii=False)+'\n')
 def group(name):
@@ -227,6 +232,10 @@ def organize_group(name,dry_run=False):
  if any(p.suffix=='.html' for p in (folder/'supporting/viewers').glob('*')):
   text+='\n[Interactive readers and status](supporting/viewers/)\n'
  readme=folder/'README.md'
+ # Round-2 generators own the scientific message, qualifications and links.
+ # Organization must preserve that narrative rather than restore an interim.
+ if name.startswith('revision_round2_20261022/') and readme.exists():
+  text=readme.read_text()
  index=DEV/'README.md'
  index_before=index.read_text()
  entry=f'- [{TITLES.get(name,name)}]({name}/README.md)\n'
@@ -254,8 +263,15 @@ def organize_group(name,dry_run=False):
     if not exists(target) or sha(source_path(target))!=digest:
      raise AssertionError((str(path),relative,'artifact hash mismatch'))
     declared_hashes+=1
+  source_root=REPO
+  if name=='revision_round2_20261022/figure2' and path.name=='campaign_manifest.json':
+   # This retained native manifest declares run-relative frozen sources.
+   # Verify its exact identity before resolving those immutable inputs.
+   source_root=REPO/'polarity1d/manuscript/data/runs/signature_holmes_retention_round2_20261022'
+   if sha(source_path(path))!=sha(source_root/'manifest.json'):
+    raise AssertionError((str(path),'native manifest identity mismatch'))
   for relative,digest in manifest.get('source_sha256',{}).items():
-   target=(REPO/relative).resolve()
+   target=(source_root/relative).resolve()
    if not target.exists() or sha(target)!=digest:
     raise AssertionError((str(path),relative,'source hash mismatch'))
    source_hashes+=1

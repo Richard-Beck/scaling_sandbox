@@ -1,0 +1,93 @@
+{
+  "generated_utc": "2026-10-22T13:48:23.048898+00:00",
+  "complete": true,
+  "requirements": {
+    "3.1_Holmes_18_targeted_trains": {
+      "passed": true,
+      "evidence": "holmes_large_L_endpoints.csv"
+    },
+    "3.1_Holmes_bounded_noise_12_seeds_and_controls": {
+      "passed": true,
+      "evidence": "holmes_L39_bounded_noise_retention.csv"
+    },
+    "3.1_variable_noise_retention_and_fates": {
+      "passed": true,
+      "evidence": "holmes_L39_bounded_noise_retention.csv; holmes_L39_noise_fates.csv",
+      "summary": {
+        "S3_successes": [
+          8,
+          9,
+          10
+        ],
+        "eligible": [
+          12,
+          12,
+          12
+        ],
+        "minimum_raw_share_retention": 0.021519948171515816,
+        "maximum_raw_share_retention": 1.7806966092291074,
+        "minimum_final_D": -0.06340976972759493,
+        "maximum_final_D": 0.9999437469524795,
+        "final_replacements": 10,
+        "independent_seeds": 12
+      }
+    },
+    "3.1_primary_exact_D_and_share_endpoints": {
+      "passed": true,
+      "evidence": "holmes_large_L_endpoints.csv"
+    },
+    "3.1_continuous_commitment_horizon_finding": {
+      "passed": true,
+      "evidence": "design_parameters.csv"
+    },
+    "3.2_six_main_panels_A_to_F": {
+      "passed": true,
+      "evidence": "figure2_round2.svg"
+    },
+    "3.2_native_censoring_without_ratio_point_estimates": {
+      "passed": true,
+      "evidence": "initiation_normalized.csv; equal_area_width_ratios.csv"
+    },
+    "3.2_Holmes_large_L_distinct_gap_endpoint_diamonds": {
+      "passed": true,
+      "evidence": "train_fates_and_retention.csv"
+    },
+    "3.2_L39_examples_for_every_model": {
+      "passed": true,
+      "evidence": "gap_retention_traces.csv"
+    },
+    "3.2_all_20_class_signature_cells": {
+      "passed": true,
+      "evidence": "class_membership_check.csv",
+      "qualification": "Unresolved deBelly initiation and extreme-Holmes width growth stay explicit; no membership change"
+    },
+    "3.3_new_Holmes_train_noise_pages_and_class_checks": {
+      "passed": true,
+      "evidence": "supporting/figure2_round2_additions.pdf"
+    },
+    "3.3_prior_per_model_table_and_complete_supplement_preserved": {
+      "passed": true,
+      "evidence": "figure2_round2_supplement.pdf",
+      "original_pages_preserved": 83,
+      "decoded_page_content_identity_verified": true
+    },
+    "author_steering_deBelly_failed_field_tails": {
+      "passed": true,
+      "evidence": "train_fates_and_retention.csv; legend.json",
+      "count": 31
+    },
+    "4_PNG_PDF_SVG_supplement_CSV_README_legend": {
+      "passed": true,
+      "evidence": "supporting/metadata/verification.json"
+    }
+  },
+  "model_palette": {
+    "wave_pinning": "#2878b5",
+    "goryachev": "#c83b3b",
+    "debelly": "#82599c",
+    "holmes_model3": "#36944c",
+    "spring": "#c59a25"
+  },
+  "class_membership_changed": false,
+  "no_retuning": true
+}

@@ -1,0 +1,463 @@
+{
+  "passed": true,
+  "generated_utc": "2026-10-22T13:51:04.618876+00:00",
+  "requirements_checked": 73,
+  "checks": [
+    {
+      "requirement": "Complete scientific execution, not a successful agent exit",
+      "status": "proved",
+      "evidence": [
+        "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/supporting/metadata/verification.json",
+        "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/verification.json",
+        "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/metadata/completion_scientific_audit.json"
+      ]
+    },
+    {
+      "requirement": "3.1 All 32 Holmes trajectories independently audited",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/data/runs/signature_holmes_retention_round2_20261022/results/independent_native_readout_audit.json"
+    },
+    {
+      "requirement": "3.1 L31/L35/L39 × six prescribed gaps",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/data/runs/signature_holmes_retention_round2_20261022/manifest.json"
+    },
+    {
+      "requirement": "3.1 Four pulses each one quarter of 1.5×L27 calibration",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/data/runs/signature_holmes_retention_round2_20261022/manifest.json"
+    },
+    {
+      "requirement": "3.1 L39 S3-matched bounded-input check and controls",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/data/runs/signature_holmes_retention_round2_20261022/manifest.json"
+    },
+    {
+      "requirement": "3.1 D at every pulse and inter-pulse gap endpoint",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/holmes_large_L_endpoints.csv"
+    },
+    {
+      "requirement": "3.1 Noise successes and failures independently counted by gap without pseudoreplication",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/holmes_L39_bounded_noise_retention.csv"
+    },
+    {
+      "requirement": "3.3 Every class-table cell has numerical evidence",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/class_membership_check.csv"
+    },
+    {
+      "requirement": "Author class-membership stop remains untriggered",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/class_membership_check.csv"
+    },
+    {
+      "requirement": "3.2D Complete maps distinguish 18 large-L retention endpoints",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/train_fates_and_retention.csv"
+    },
+    {
+      "requirement": "7:03 correction: failed deBelly field tails remain visible",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/train_fates_and_retention.csv"
+    },
+    {
+      "requirement": "3.2B deBelly first-update ratios remain unavailable",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/initiation_normalized.csv"
+    },
+    {
+      "requirement": "3.2E All five L39 histories include new Holmes measurements",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/gap_retention_traces.csv"
+    },
+    {
+      "requirement": "3.1 No continuous commitment by 100,000 explicitly reported",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/legend.json"
+    },
+    {
+      "requirement": "Figure 2 acceptance: 3.1_Holmes_18_targeted_trains",
+      "status": "proved",
+      "evidence": "holmes_large_L_endpoints.csv"
+    },
+    {
+      "requirement": "Figure 2 acceptance: 3.1_Holmes_bounded_noise_12_seeds_and_controls",
+      "status": "proved",
+      "evidence": "holmes_L39_bounded_noise_retention.csv"
+    },
+    {
+      "requirement": "Figure 2 acceptance: 3.1_variable_noise_retention_and_fates",
+      "status": "proved",
+      "evidence": "holmes_L39_bounded_noise_retention.csv; holmes_L39_noise_fates.csv"
+    },
+    {
+      "requirement": "Figure 2 acceptance: 3.1_primary_exact_D_and_share_endpoints",
+      "status": "proved",
+      "evidence": "holmes_large_L_endpoints.csv"
+    },
+    {
+      "requirement": "Figure 2 acceptance: 3.1_continuous_commitment_horizon_finding",
+      "status": "proved",
+      "evidence": "design_parameters.csv"
+    },
+    {
+      "requirement": "Figure 2 acceptance: 3.2_six_main_panels_A_to_F",
+      "status": "proved",
+      "evidence": "figure2_round2.svg"
+    },
+    {
+      "requirement": "Figure 2 acceptance: 3.2_native_censoring_without_ratio_point_estimates",
+      "status": "proved",
+      "evidence": "initiation_normalized.csv; equal_area_width_ratios.csv"
+    },
+    {
+      "requirement": "Figure 2 acceptance: 3.2_Holmes_large_L_distinct_gap_endpoint_diamonds",
+      "status": "proved",
+      "evidence": "train_fates_and_retention.csv"
+    },
+    {
+      "requirement": "Figure 2 acceptance: 3.2_L39_examples_for_every_model",
+      "status": "proved",
+      "evidence": "gap_retention_traces.csv"
+    },
+    {
+      "requirement": "Figure 2 acceptance: 3.2_all_20_class_signature_cells",
+      "status": "proved",
+      "evidence": "class_membership_check.csv"
+    },
+    {
+      "requirement": "Figure 2 acceptance: 3.3_new_Holmes_train_noise_pages_and_class_checks",
+      "status": "proved",
+      "evidence": "supporting/figure2_round2_additions.pdf"
+    },
+    {
+      "requirement": "Figure 2 acceptance: 3.3_prior_per_model_table_and_complete_supplement_preserved",
+      "status": "proved",
+      "evidence": "figure2_round2_supplement.pdf"
+    },
+    {
+      "requirement": "Figure 2 acceptance: author_steering_deBelly_failed_field_tails",
+      "status": "proved",
+      "evidence": "train_fates_and_retention.csv; legend.json"
+    },
+    {
+      "requirement": "Figure 2 acceptance: 4_PNG_PDF_SVG_supplement_CSV_README_legend",
+      "status": "proved",
+      "evidence": "supporting/metadata/verification.json"
+    },
+    {
+      "requirement": "2.4 Nine approved exact-endpoint continuations completed",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/verification.json"
+    },
+    {
+      "requirement": "2.4 Six resolved and three censored at 80,000",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/B_complete_with_extensions.csv"
+    },
+    {
+      "requirement": "2.1 All 48 decomposition terms and interpolation queries checked",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/verification.json"
+    },
+    {
+      "requirement": "2.1 Censoring never substituted as a ratio point",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/decomposition_terms.csv"
+    },
+    {
+      "requirement": "7:03 correction: exact Figure 3 message",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/content.json"
+    },
+    {
+      "requirement": "7:03 correction: measured short-range gap ranges reported",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/short_range_evidence.csv"
+    },
+    {
+      "requirement": "2.2 Native kymograph values and source hashes checked",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/verification.json"
+    },
+    {
+      "requirement": "2.2 Holmes bounds stated after reanalysis",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/verification.json"
+    },
+    {
+      "requirement": "2.3 Full former main/supplement pages retained",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/verification.json"
+    },
+    {
+      "requirement": "1.1 Existing-output correlation, rate, coverage and whole-seed uncertainty",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/metadata/completion_scientific_audit.json"
+    },
+    {
+      "requirement": "1.4 Every usable lag and lag-consistency flag displayed",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_all_lag_ratios.pdf"
+    },
+    {
+      "requirement": "1.1 Fixed-reference-lag tolerance includes all added designed inputs",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/data/noise_tolerance.csv"
+    },
+    {
+      "requirement": "Author-authorized Case A: amended pass with frozen calls alongside",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/data/S0_posthoc_H1.csv"
+    },
+    {
+      "requirement": "1.2 Both observation arms, all views, both forcing choices",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/data/S0_posthoc_H1.csv"
+    },
+    {
+      "requirement": "Author correction: H2/H3/A6 gates retired",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/data/S0_retired_gates.csv"
+    },
+    {
+      "requirement": "1.4 Old tau and seven-view robustness retained",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/metadata/main_render_receipt.json"
+    },
+    {
+      "requirement": "1.4 Complete superseded main and original supplement preserved",
+      "status": "proved",
+      "evidence": {
+        "original_pages": 1292,
+        "supplement": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_supplement.pdf"
+      }
+    },
+    {
+      "requirement": "Author correction: Goryachev excluded from Figure 4 main",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/data/main_size_ratios.csv"
+    },
+    {
+      "requirement": "Author correction: geometry and multiplicity descriptive, weak inputs model-specific",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/metadata/main_legend.md"
+    },
+    {
+      "requirement": "0 Fixed model hues across all main figures",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/metadata/main_render_receipt.json"
+    },
+    {
+      "requirement": "4 Figure 2 main PNG",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/figure2_round2.png"
+    },
+    {
+      "requirement": "4 Figure 2 main PDF",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/figure2_round2.pdf"
+    },
+    {
+      "requirement": "4 Figure 2 main SVG",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/figure2_round2.svg"
+    },
+    {
+      "requirement": "4 Figure 2 complete supplement",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/figure2_round2_supplement.pdf"
+    },
+    {
+      "requirement": "4 Figure 2 README and plotted CSVs",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/README.md"
+    },
+    {
+      "requirement": "0 Figure 2 message-led title and legend",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2"
+    },
+    {
+      "requirement": "4 Figure 3 main PNG",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/figure3_main.png"
+    },
+    {
+      "requirement": "4 Figure 3 main PDF",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/figure3_main.pdf"
+    },
+    {
+      "requirement": "4 Figure 3 main SVG",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/figure3_main.svg"
+    },
+    {
+      "requirement": "4 Figure 3 complete supplement",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/figure3_supplement.pdf"
+    },
+    {
+      "requirement": "4 Figure 3 README and plotted CSVs",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/README.md"
+    },
+    {
+      "requirement": "0 Figure 3 message-led title and legend",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3"
+    },
+    {
+      "requirement": "4 Figure 4 main PNG",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_main.png"
+    },
+    {
+      "requirement": "4 Figure 4 main PDF",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_main.pdf"
+    },
+    {
+      "requirement": "4 Figure 4 main SVG",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_main.svg"
+    },
+    {
+      "requirement": "4 Figure 4 complete supplement",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_supplement.pdf"
+    },
+    {
+      "requirement": "4 Figure 4 README and plotted CSVs",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/README.md"
+    },
+    {
+      "requirement": "0 Figure 4 message-led title and legend",
+      "status": "proved",
+      "evidence": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4"
+    },
+    {
+      "requirement": "0 Main panel counts at most six",
+      "status": "proved",
+      "evidence": {
+        "figure2": 6,
+        "figure3": 5,
+        "figure4": 5
+      }
+    },
+    {
+      "requirement": "4 figure1 content and artwork unchanged",
+      "status": "proved",
+      "evidence": "manuscript_outline/outline_v4.build_manifest.json"
+    },
+    {
+      "requirement": "4 figure5 content and artwork unchanged",
+      "status": "proved",
+      "evidence": "manuscript_outline/outline_v4.build_manifest.json"
+    },
+    {
+      "requirement": "4 figure6 content and artwork unchanged",
+      "status": "proved",
+      "evidence": "manuscript_outline/outline_v4.build_manifest.json"
+    },
+    {
+      "requirement": "7:03 correction: cross-figure narrative and Spring exception",
+      "status": "proved",
+      "evidence": "manuscript_outline/revision_round2_20261022/completion_integration.json"
+    },
+    {
+      "requirement": "4 Integrated outline_v5 renders and exact current source hashes pass",
+      "status": "proved",
+      "evidence": "manuscript_outline/outline_v5.validation.json"
+    },
+    {
+      "requirement": "HTML reports show generation time without timed self-refresh",
+      "status": "proved",
+      "evidence": "manuscript_outline/revision_round2_20261022/completion.html"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/figure2_round2.png",
+      "sha256": "12603cc168f1ffe1be5bd0f93ee5a561a8b73ef0eec8d13af3482c9816d55d8f",
+      "bytes": 525019
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/figure2_round2.pdf",
+      "sha256": "78947d977ad7ddf0454b055e6331f9b6f01da55ccaf32b39bd8870a304ede520",
+      "bytes": 67541
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/figure2_round2.svg",
+      "sha256": "a36387729004f65879a564e11a5e532fc9a11c9b8da81199f5b1652c9637d33b",
+      "bytes": 269552
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/figure2_round2_supplement.pdf",
+      "sha256": "3275fa75a225bd92d0d1bc4a6a0278599f23fc1c2707dd49fa5b118545721dad",
+      "bytes": 1713072
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/figure3_main.png",
+      "sha256": "4701483a9c1ea63b4822d5c861428fdf8d5c5ffc7a75e02441f20ffda0366948",
+      "bytes": 563309
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/figure3_main.pdf",
+      "sha256": "31a3f646c9a6880fee721fbd1d33279c8d7c4ab2cb265a58a7650dd73daa403a",
+      "bytes": 132214
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/figure3_main.svg",
+      "sha256": "ec95b6d502cbf91a10f60ea35afa71f96f12d88029773e2eb15ab6983787f0af",
+      "bytes": 399328
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/figure3_supplement.pdf",
+      "sha256": "a626152093a91e7ba255d12dfc0c6e7fc2d32fa2d422c8bc9fdf6b476e0da2dc",
+      "bytes": 388121
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_main.png",
+      "sha256": "bf07a23a42270069f32242fbb57fe422c29fa8e0e53846ae7d97703d1af8b1fc",
+      "bytes": 965393
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_main.pdf",
+      "sha256": "76bf5f0f13116ad242434a62cd572caed34198eb4586e099ff317629fda7f895",
+      "bytes": 202440
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_main.svg",
+      "sha256": "08091e94ee1cc6af332619399ea91e19f7d193a4b9d3310b2a0ed679e4c90895",
+      "bytes": 636242
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_supplement.pdf",
+      "sha256": "73abff9afceba332ed9d25a80268f30ec92e9424392205ff1c3f21aa2540b04b",
+      "bytes": 99837826
+    }
+  ],
+  "all_required_work_complete": true,
+  "remaining_scientific_qualifications": [
+    "deBelly normalized initiation unresolved within first-update intervals",
+    "Holmes width-penalty growth through L39 uninformative; moderate-length growth verified",
+    "deBelly later-gap timing and endpoint fields remain numerically sensitive",
+    "Holmes share retention is distinct from S3 D>=0 retention success and from commitment",
+    "Modest Goryachev/Spring width penalties qualify binary no-penalty wording; no class change",
+    "Selected mechanistic signatures do not causally allocate replacement resistance",
+    "Bounded heterogeneous Holmes gap input gives S3 successes 8/12, 9/12, 10/12; some histories lose share or replace, unlike deterministic/mean controls. Integrated gap exposure is 2.46 times ON exposure; deterministic class membership does not imply universal noisy-gap retention.",
+    "Censored ratios remain bounds or indeterminate; no horizon point substitution.",
+    "Nine approved Holmes extensions completed; three still censored at 80,000. Other cases retain 20,000. Holmes large-size matched-gap bound does not establish a positive size effect.",
+    "The H1 domain restriction to inputs below the largest size's estimated noise tolerance is post hoc.",
+    "Weak-input geometric comparisons describe point estimates; Holmes and Spring confidence intervals also admit sub-geometric gains.",
+    "Non-exponential lags, forcing, off-grid lags and nonpositive autocorrelations remain explicit. Goryachev is complete in the supplement.",
+    "H2, H3 and A6 tau-based gates are retired; their frozen historical calls are preserved for provenance.",
+    "Simulated activity-heading persistence is distinct from observed migration and conditional OU persistence estimates."
+  ],
+  "delivery_commit_and_remote_verification": "Recorded separately after commit/push; this report covers scientific work and artifacts."
+}

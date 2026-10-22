@@ -228,3 +228,24 @@ These are component measurements of the revision and repository metadata. Do not
 Other root directories are individually below the inventory threshold and are
 primarily source, configuration, tools, Git metadata or small working assets.
 This inventory has not independently revalidated every historical dataset.
+
+## Round-2 follow-up retained outputs (22 October 2026)
+
+Measured 2026-10-22T10:58:36.332652+00:00. These smaller groups are recorded for continuity; they do not update the older whole-workspace total above. Native inputs were not modified. No simulations were executed in this follow-up.
+
+| Root-relative group | Allocated storage | Purpose and scientific status |
+| --- | ---: | --- |
+| `polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/` | 0.3937 GiB (422,731,776 allocated bytes) | Completed Figure 3/4 recompositions, post hoc/frozen H1 side-by-side, complete retained supplements, plotted CSVs, and Figure 2 in-progress review. |
+| `polarity1d/manuscript/data/runs/signature_holmes_retention_round2_20261022/` | 0.0206 GiB (22,069,248 allocated bytes) | Frozen source/checkpoint campaign for 18 Holmes deterministic trains plus L39 bounded-noise controls/replicates (32 workers); unsubmitted because scheduler socket access failed. |
+| `manuscript_outline/revision_round2_20261022/` | 0.0284 GiB (30,474,240 allocated bytes) | In-progress review outline, validation, historical interim and recovery bundle; final outline_v5 integration deferred until Holmes measurements exist. |
+
+## Round-2 completion retained outputs (22 October 2026)
+
+Measured 2026-10-22T13:51:12.281884+00:00 using allocated blocks (`du -sB1`), after the scientific producers stopped. This updates the round-2 groups below; the older whole-workspace total remains an explicitly dated historical measurement. Original inputs were preserved and no scientific data were deleted.
+
+| Root-relative group | Allocated storage | Purpose and scientific status |
+| --- | ---: | --- |
+| `polarity1d/manuscript/data/runs/signature_holmes_retention_round2_20261022/` | 40.5760 GiB (43,568,185,344 allocated bytes) | Completed and independently audited native evidence: 18 Holmes L31–L39 four-pulse trains, 12 L39 bounded-input seeds and two controls. Exact checkpoints, frozen sources, all native phase fields and joined trajectories are scientifically authoritative; retain these raw outputs. |
+| `polarity1d/manuscript/data/runs/signature_figure3_holmes_extensions_round2_20261022/` | 0.3641 GiB (390,971,392 allocated bytes) | Nine approved exact-endpoint Holmes cue-free continuations through 80,000; six resolutions and three lower bounds, with native fields, conservation and resolution audits. Required evidence for the revised decomposition. |
+| `polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/` | 0.3969 GiB (426,123,264 allocated bytes) | Completed derived Figure 2–4 artwork, complete retained supplements, plotted-value CSVs and scientific/display acceptance. Includes the HPC-only 164 MiB whole-seed bootstrap archive; do not mistake derived presentation for the underlying native trajectories. |
+| `manuscript_outline/revision_round2_20261022/` | 0.4145 GiB (445,022,208 allocated bytes) | Final manuscript reader, main plates and legends, exact-source acceptance, archived review interim and historical recovery bundles. Final integration is complete; previous in-progress artifacts are retained history. |

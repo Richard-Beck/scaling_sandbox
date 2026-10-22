@@ -1,0 +1,1282 @@
+{
+  "title": "Cell enlargement, polarity competition and migration persistence",
+  "subtitle": "Review candidate; final outline_v5 integration is deferred until Figures 2–4 are complete",
+  "date": "22 October 2026",
+  "stage": "Round-2 follow-up IN PROGRESS: Figure 2 awaits Holmes SLURM runs",
+  "overview": [
+    "Working hypothesis: WGD-associated enlargement changes how established polarity is organized and replaced; these changes may provide a physical basis for greater migration persistence. The theoretical contribution tests size under unchanged local kinetic parameters. Length differs between model cells to represent WGD-associated enlargement, rather than elongation during a turn. Existing migration observations supply empirical motivation; new paired WGD motility results retain a substantial, explicitly reserved contribution.",
+    "Enlarged cells resist imposed replacement through distinct initiation, spatial and temporal response signatures (Figure 2); the proposed class interpretation still awaits the specified Holmes large-size retention measurements. At matched distance, size dominates driven takeover, while enlarged cells reach larger separations where cue-free resolution in mass-conserved models becomes very slow or unresolved (Figure 3). Enlarged cells hold heading longer under fluctuating input — at or above the geometric expectation at weak input — and the advantage declines as input strengthens. (Figure 4). Weak-input geometric comparisons describe point estimates; Holmes and Spring intervals also admit sub-geometric gains. Observed migration summaries, conditional OU velocity-memory estimates and simulated polarity-heading readouts remain separate evidence.",
+    "This is a working manuscript outline. Figures 1 and 5 and the reserved Figure 6 experimental section retain their preceding content. Activity polarity, modelled replacement, observed migration and conditional OU velocity memory remain distinct readouts; their biological connection is an experimental hypothesis.",
+    "This in-progress review is separate from outline_v5. Figures 3 and 4 are recomposed; Figure 2 has explicit missing Holmes measurements. No class membership changes or optional Figure 3 horizon extensions were made. Scheduler socket permissions prevented the prepared Holmes campaign from being submitted."
+  ],
+  "sections": [
+    {
+      "id": "figure1",
+      "title": "Figure 1. Enlargement changes the cue duration required for lasting polarity replacement",
+      "role": "Comparative theoretical foundation: five established models, three finite challenges, and two distinct scalar replacement gates.",
+      "assets": [
+        {
+          "path": "polarity1d/manuscript/figures/main_polarity.png",
+          "caption": "Current canonical comparison, 10 October Spearman revision; corrected independent-endpoint deBelly.",
+          "page_size": [
+            11.8,
+            10.19
+          ],
+          "page_title": "Figure 1. Five models and three finite challenges",
+          "minimum_printed_width_inches": 10.0
+        }
+      ],
+      "legend": [
+        "A, Example wave-pinning preparation from a homogeneous state using a finite left patch. The cue ends at 0.773 native time units, whereas the subsequent basal relaxation establishes the polarized profile later (reported establishment arrival about 116). Coloured profiles and orientation samples distinguish input duration from autonomous development. The grey late interval is verification, not additional stimulation. Profiles are scaled for display.",
+        "B, Three rightward finite challenges restart the identical qualifying nominal-amplitude, relative-20% basal checkpoint at each model and length: fixed physical support 3 (Spring 0.2 native length units), relative support 20%, and a linear ramp with constant physical slope. Patch peaks remain fixed within each model; a fixed-slope ramp has a larger peak in a longer domain. Goryachev patches use the independently selected, length-independent multiplier K=64 (peak 6.4), which makes this a response-permissive comparison rather than a calibrated equal biochemical dose across models.",
+        "C, Spearman rank correlation between length and the shortest tested passing pulse duration, separately for orientation replacement and strength replacement, across Wave-pinning, Goryachev, corrected deBelly, Holmes 3 and Spring. Each cell reports the correlation and included successful-length count. All audited scalar successes enter, including those failing the separate native-field tail criterion. At least four distinct successful lengths and nonconstant durations are required; censored and preparation-ineligible cases receive no invented time. The companion duration curves retain all lengths and field-status markers.",
+        "After each positive pulse, input returns to the native basal value for 10,000 native time units. Orientation requires all 201 final-500 samples to have scalar orientation above 0.05 and contrast at least 0.05, with orientation range below 0.005. Strength additionally requires every tail orientation to be within 1% of the absolute initial leftward scalar orientation; it does not compare individual pole heights or amounts. The separate native-field tail flag requires pointwise range and projected 500-unit drift within 0.1% of frozen field scales. The reported duration excludes preparation and recovery. It is the shortest passing tested duration, with sampled fail/pass boundaries refined to 1%; narrower unobserved intervals are not excluded.",
+        "deBelly uses independently commanded corrected endpoints, rather than the deprecated in-loop centered extension. Spring length and time retain native units and are not silently converted to micrometres or seconds. Model-specific axes and stimulus definitions prevent interpreting cross-model amplitudes or clocks as biologically calibrated equivalents."
+      ],
+      "narrative": [
+        "Fixed-width and relative-width patches show perfectly increasing rank order among observed successes in Wave-pinning, Goryachev, Holmes 3 and Spring; enlargement often increases the finite stimulation required for a retained response.",
+        "The response depends on the cue geometry and model. Spring has a negative constant-slope association (Spearman correlation -0.874 for both gates), while Holmes orientation under the constant-slope cue is nearly unassociated with length (0.047).",
+        "Corrected deBelly curves are nonmonotone despite moderate positive rank correlations. The full duration curves and eligibility ranges are essential to the result.",
+        "These are deterministic polarity-replacement experiments. They motivate, but do not measure, spontaneous polarity memory or migration persistence."
+      ],
+      "measurements": [
+        "Mechanism-linked cellular follow-up would match local input support, amplitude and duration, track the original and challenged activity regions through stimulation and withdrawal, and distinguish orientation replacement from recovered activity strength. This validation is proposed and has no experimental results in this outline."
+      ],
+      "limitations": [
+        "Correlations are conditional on observed scalar success, rather than an unbiased summary of all possible sizes or a universal scaling law. Ineligible starts are distinct from responses unobserved by the finite horizon.",
+        "A retained scalar response can coexist with a changing native field. Only 13 of the 72 corrected deBelly scalar successes pass the separate native-field tail flag. Resolution checks from the earlier centered-deBelly campaign cannot qualify the corrected replacement thresholds."
+      ],
+      "sources": [
+        {
+          "label": "Three-test protocol and Spearman rule",
+          "path": "polarity1d/manuscript/THREE_TESTS.md"
+        },
+        {
+          "label": "Correlation table",
+          "path": "polarity1d/manuscript/data/derived/length_correlations.csv"
+        },
+        {
+          "label": "Corrected endpoint method",
+          "path": "polarity1d/manuscript/DEBELLY_BOUNDARIES.md"
+        },
+        {
+          "label": "Current duration curves",
+          "path": "polarity1d/manuscript/figures/supplement_width_response.png"
+        }
+      ]
+    },
+    {
+      "id": "figure2",
+      "title": "Figure 2. Replacement resistance in enlarged cells arises through three mechanism classes; cue shape and timing distinguish their signatures — IN PROGRESS",
+      "role": "Recomposed mechanism-class candidate; specified Holmes large-size retention measurements are pending.",
+      "status": "in_progress_pending_Holmes_SLURM",
+      "assets": [
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/figure2_round2_pending.png",
+          "caption": "Figure 2 round2 pending Holmes retention",
+          "page_size": [
+            12.5,
+            16.375999999999998
+          ],
+          "minimum_printed_width_inches": 10,
+          "page_title": "Figure 2. Shape and timing distinguish mechanism classes"
+        }
+      ],
+      "legend": [
+        "Enlarged cells resist replacement through distinct initiation, spatial and temporal signatures; the proposed three-class interpretation remains conditional on the pending Holmes large-length retention runs.",
+        "A, Incumbent amount, extent and peak across the retained 97 states. B, Initiation normalized to each model’s L19 value at central area and the fixed 10% L19 reporter threshold. Brackets propagate saved-sample intervals. deBelly L19 and L39 initiation both lie in (0, 0.5] native units; its ratio is unresolved and is not assigned a point estimate. The open downward symbols show those upper bounds schematically, outside the ratio scale.",
+        "C, Narrow/broad replacement-time ratio at fixed commanded spatial area. Open triangles and arrows are one-sided bounds; question marks denote uninformative ratios. Holmes large-length width curves do not establish a growing penalty when both arms are censored. Commanded area is not calibrated photon dose.",
+        "D, Four equal pulses with total ON 1.5 times the model-length commitment calibration; final D after recovery is the colour. Open diamonds identify unexecuted Holmes large-length retention conditions, whose future endpoint D will be distinct from post-recovery fate. No continuous commitment by 100,000 at Holmes L31, L35 and L39 is a finding of extreme finite-horizon replacement resistance.",
+        "E, L39 gap4 histories. Holmes L39 is pending, with no L27 substitution. Shading marks cue ON; circles and squares mark pulse and gap endpoints. F, Proposed classes with explicit unresolved cells. No membership changes have been made. deBelly later-gap timing and endpoint-field sensitivity remain qualified; its early collapse and final replacement survive the separate quarter-step check. All native kinetics are unchanged. Polarity readouts are distinct from observed migration and conditional OU persistence."
+      ],
+      "narrative": [
+        "Existing response signatures motivate three proposed classes, with unresolved cells clearly marked.",
+        "No continuous commitment by 100,000 at Holmes L31, L35 and L39 demonstrates extreme finite-horizon replacement resistance.",
+        "Large-size Holmes pulse and noise-retention results are unavailable: the frozen campaign could not contact SLURM."
+      ],
+      "measurements": [
+        "Vary physical cue support at fixed commanded spatial input area and measure time to eligible75% challenger activity share.",
+        "Apply equal-total-ON pulse trains, measure activity share at every pulse and gap endpoint, then report postwithdrawal fate and field stability independently."
+      ],
+      "limitations": [
+        "32 targeted Holmes workers prepared but submission blocked; no large-L retention data",
+        "deBelly normalized initiation unresolved within first-update intervals",
+        "Holmes large-L equal-area growth uninformative; no membership change"
+      ],
+      "sources": [
+        {
+          "label": "Class evidence CSV",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/class_membership_check.csv"
+        }
+      ],
+      "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/figure2_round2_pending.pdf",
+      "supplement_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/figure2_round2_supplement.pdf",
+      "reader": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/index.html"
+    },
+    {
+      "id": "figure3",
+      "title": "Figure 3. Separation slows the resolution of coexisting regions more than it slows driven takeover",
+      "role": "Separate matched-gap size effects from extra accessible separation for driven handover and cue-free resolution.",
+      "purpose": "Existing-output recomposition and interval-safe decomposition without model retuning.",
+      "status": "round2_review",
+      "main_pages": 1,
+      "supplement_pages": 11,
+      "assets": [
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/figure3_main.png",
+          "caption": "Separation slows the resolution of coexisting regions more than it slows driven takeover",
+          "page_size": [
+            12,
+            17.633333333333333
+          ],
+          "minimum_printed_width_inches": 10,
+          "page_title": "Figure 3. Separation slows the resolution of coexisting regions more than it slows driven takeover"
+        }
+      ],
+      "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/figure3_main.pdf",
+      "supplement_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/figure3_supplement.pdf",
+      "reader": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/index.html",
+      "legend": [
+        "Separation slows cue-free resolution more strongly than driven handover; enlarged cells can sustain larger separations where coexisting regions persist. Times and gaps use native units.",
+        "A. A native cue is rotated at fixed cell size. The initial gap runs from the incumbent 10%-contrast edge to the cue support near edge. The inset holds the physical gap at 4 across small and large Wave-pinning rings; changing native widths also changes center separation. A1 measures continuous-cue complete-region handover. B withdraws the cue at complete-region challenger/incumbent excess ratio 1 and measures the first single resolved peak.",
+        "B. Left: Goryachev continuous-cue histories at circumference 37.8 and gaps 2 and 8; white dashed lines mark native continuous handover roots. Right: Wave-pinning at circumference 47.6, measured withdrawal gaps 2.78 and 14.84; the near condition resolves within 1140–1160, while the far condition remains unresolved through 20,000. Colour scales are shared within each model; the different assay time windows are shown explicitly. Native species are active chemical species. These maps display fields, not cell trajectories.",
+        "C. Goryachev handover rises with gap, whereas Holmes is nearly flat. Wave-pinning and Spring rise near the edge and then plateau; Wave-pinning does have a distance effect. Open circles are borderline placements. An × at the axis floor denotes an unavailable genuine two-region handover, not a time estimate. Size is consistently encoded by lightness and line style. The coloured top ticks mark initial antipodal-placement gaps.",
+        "D. Equal-amount cue-free resolution rises steeply with gap in Wave-pinning, Holmes and Spring, with unresolved large-size conditions retained as open triangles and upward arrows. Holmes has 18/23 eligible ratio-1 main-curve times censored. Finite brackets are drawn as intervals, and lines do not bridge censored or ineligible placements. Top ticks mark each size's measured withdrawal gap in the initial-antipodal-cue trajectory; they do not assert exactly antipodal withdrawal centers. Goryachev includes a nonmonotone near-edge response. All alternate, merged and unseeded cases remain in the CSV and original native reader.",
+        "E. Each larger size is compared with the smallest size at the largest shared measured gap, using piecewise-linear interpolation inside measured support. Solid bars represent size at matched gap; hatched bars represent extra separation to the larger-size antipodal-placement endpoint. Bars give log₁₀ time ratios; finite B interval limits are marked. Open-ended bars retain one-sided bounds. A question mark means both relevant times are censored and the ratio is indeterminate. Such bars cannot be stacked into a measured total. Total ratios and all interpolation sources are tabulated separately. Size at matched gap dominates the driven-handover time increase in all four models.",
+        "The complete translation page, earlier main plate, all three B seeding ratios, A2 pulse brackets, 50%-edge reclassification, direct heading checks and numerical controls remain in the supplement and original reader. The finer-mesh Goryachev B ratio-1 gap-4 comparison has about 4% resolution-time sensitivity. Finite horizons establish lower bounds rather than permanent arrest; scalar/spatial fate and native-field stationarity are separate. No model retuning or new simulation is included. Simulated activity heading, observed migration and conditional OU persistence remain distinct."
+      ],
+      "narrative": [
+        "Separation slows cue-free resolution more strongly than driven handover; enlarged cells can sustain larger separations where coexisting regions persist. Times and gaps use native units.",
+        "E. Each larger size is compared with the smallest size at the largest shared measured gap, using piecewise-linear interpolation inside measured support. Solid bars represent size at matched gap; hatched bars represent extra separation to the larger-size antipodal-placement endpoint. Bars give log₁₀ time ratios; finite B interval limits are marked. Open-ended bars retain one-sided bounds. A question mark means both relevant times are censored and the ratio is indeterminate. Such bars cannot be stacked into a measured total. Total ratios and all interpolation sources are tabulated separately. Size at matched gap dominates the driven-handover time increase in all four models."
+      ],
+      "measurements": [
+        "At fixed native size, vary only cue placement and measure complete-region handover, incumbent 50% excess loss and challenger reaching 50% of basal incumbent excess.",
+        "Seed two complete regions to a declared excess ratio, withdraw the cue and measure their actual 10%-contrast separation, first single-peak resolution time, winner association and exact cue-free RHS exchange budget.",
+        "Measure the same-run global activity vector, its coherence, actual angular displacement, full-target time brackets and saved-interval angular rates; compare them with geometric remaps."
+      ],
+      "limitations": [
+        "Censored ratios remain bounds or indeterminate; no horizon point substitution.",
+        "Nine optional Holmes horizon extensions await user review and have not been submitted."
+      ],
+      "claims": [
+        "Separation response depends on the model and on whether competition is externally driven or cue-free.",
+        "Goryachev has a stronger continuous-cue handover distance response than Holmes 3 over valid external two-region placements.",
+        "Measured global heading qualifies the proposed geometry-only persistence translation; complete-region handover is typically near half the requested angle."
+      ],
+      "mechanistic_scope": "Fixed-size rotation isolates separation from changes in size, incumbent extent and pool size. The observed responses constrain mechanism classes, but are not a kinetic-term ablation, molecular-transport measurement or unique causal identification.",
+      "actual_horizons": {
+        "chemical_A1_initial": 5000,
+        "chemical_A1_extended_cap": 20000,
+        "spring_A1": 2000,
+        "counts_including_A1_mirrors": [
+          {
+            "model": "goryachev",
+            "native_horizon": 5000.0,
+            "cases": 41
+          },
+          {
+            "model": "goryachev",
+            "native_horizon": 20000.0,
+            "cases": 3
+          },
+          {
+            "model": "holmes_model3",
+            "native_horizon": 5000.0,
+            "cases": 7
+          },
+          {
+            "model": "holmes_model3",
+            "native_horizon": 20000.0,
+            "cases": 38
+          },
+          {
+            "model": "spring",
+            "native_horizon": 2000.0,
+            "cases": 40
+          },
+          {
+            "model": "wave_pinning",
+            "native_horizon": 5000.0,
+            "cases": 28
+          },
+          {
+            "model": "wave_pinning",
+            "native_horizon": 20000.0,
+            "cases": 19
+          }
+        ],
+        "original_A1_continuation_rule": "Chemical5,000-unit histories extend to20,000 unless the retained fixed-footprint incumbent excess is at most10% and a cue-associated single threshold region exists. This original continuation gate does not define the corrected full-region handover."
+      },
+      "full_region_definition": {
+        "signal": "Native active species; active Rac for Holmes3",
+        "floor": "Common instantaneous profile minimum",
+        "region": "Two complete periodic watersheds bounded by intervening subcell parabolic saddles",
+        "amount": "Piecewise-linear integral of concentration minus common floor, including fractional boundary cells",
+        "handover": "First continuous EC>EI crossing in genuine two-region topology; D=0 crossing, distinct from D ≥ 0.5 replacement",
+        "ambiguities": "Active flat/nonunique saddles, merged/single-region movement and unresolved spatial identity remain explicit unavailable/alternate outcomes"
+      },
+      "direct_heading_check": {
+        "median_handover_angle_fraction": {
+          "goryachev": 0.49685392578904086,
+          "holmes_model3": 0.5145211857461528,
+          "spring": 0.5301203906745141,
+          "wave_pinning": 0.4877847601018439
+        },
+        "coherence": "Instantaneous |M₁|/M₀",
+        "exact_direction_floor": 1e-10,
+        "reporter_floor": 0.05,
+        "sensitivity_floors": [
+          0.1,
+          0.2
+        ],
+        "target_fractions": [
+          1.0,
+          0.5,
+          0.9,
+          0.99
+        ]
+      },
+      "observed_A1_endpoints": [
+        {
+          "model": "goryachev",
+          "size_label": 30.0,
+          "first_valid_external_gap": 0.0,
+          "first_valid_handover_time": 103.05511619421802,
+          "antipode_gap": 12.051420799663097,
+          "antipode_handover_time": 207.32616762438332
+        },
+        {
+          "model": "goryachev",
+          "size_label": 37.8,
+          "first_valid_external_gap": 0.0,
+          "first_valid_handover_time": 149.48724168383137,
+          "antipode_gap": 15.945737305170852,
+          "antipode_handover_time": 396.7258343561677
+        },
+        {
+          "model": "goryachev",
+          "size_label": 47.6,
+          "first_valid_external_gap": 0.0,
+          "first_valid_handover_time": 234.04026543978603,
+          "antipode_gap": 20.8296380611994,
+          "antipode_handover_time": 832.8025489022245
+        },
+        {
+          "model": "holmes_model3",
+          "size_label": 30.0,
+          "first_valid_external_gap": 1.0,
+          "first_valid_handover_time": 134.5991661267031,
+          "antipode_gap": 6.290121068428686,
+          "antipode_handover_time": 137.1117646521022
+        },
+        {
+          "model": "holmes_model3",
+          "size_label": 37.8,
+          "first_valid_external_gap": 1.0,
+          "first_valid_handover_time": 480.3830515661402,
+          "antipode_gap": 8.568245530142622,
+          "antipode_handover_time": 493.1122712925305
+        },
+        {
+          "model": "holmes_model3",
+          "size_label": 47.6,
+          "first_valid_external_gap": 2.0,
+          "first_valid_handover_time": 3206.35701887352,
+          "antipode_gap": 11.430774820925198,
+          "antipode_handover_time": 3314.9036067540314
+        },
+        {
+          "model": "spring",
+          "size_label": 2.5,
+          "first_valid_external_gap": 0.0,
+          "first_valid_handover_time": 2.567039992175156,
+          "antipode_gap": 0.4295858941963892,
+          "antipode_handover_time": 3.6084960430316233
+        },
+        {
+          "model": "spring",
+          "size_label": 3.15,
+          "first_valid_external_gap": 0.0500000000000001,
+          "first_valid_handover_time": 6.916718677110077,
+          "antipode_gap": 0.5997057812209392,
+          "antipode_handover_time": 8.806376916348167
+        },
+        {
+          "model": "spring",
+          "size_label": 3.97,
+          "first_valid_external_gap": 0.1,
+          "first_valid_handover_time": 27.711304160740244,
+          "antipode_gap": 0.8142077866752455,
+          "antipode_handover_time": 30.74292974616957
+        },
+        {
+          "model": "wave_pinning",
+          "size_label": 30.0,
+          "first_valid_external_gap": 0.0,
+          "first_valid_handover_time": 46.79776330789889,
+          "antipode_gap": 7.718622018522912,
+          "antipode_handover_time": 79.08715373790744
+        },
+        {
+          "model": "wave_pinning",
+          "size_label": 37.8,
+          "first_valid_external_gap": 0.4999999999999991,
+          "first_valid_handover_time": 134.40833408580312,
+          "antipode_gap": 10.43331383222106,
+          "antipode_handover_time": 171.26409662289
+        },
+        {
+          "model": "wave_pinning",
+          "size_label": 47.6,
+          "first_valid_external_gap": 1.0,
+          "first_valid_handover_time": 367.50608324839845,
+          "antipode_gap": 13.843417428476684,
+          "antipode_handover_time": 463.3648613442801
+        }
+      ],
+      "coverage": {
+        "fresh_basals": 12,
+        "main_A1_placements": 152,
+        "A1_mirrors": 24,
+        "valid_handover_refinements": 133,
+        "unavailable_external_or_borderline_handover": 34,
+        "A2_native_runs": 545,
+        "A2_shortest_tested_switch_brackets": 72,
+        "A2_no_observed_switch_at_tested_durations": 37,
+        "primary_B_runs": 357,
+        "B_mirrors": 24,
+        "B_total_eligible_withdrawals": 307,
+        "B_cue_phase_single_region_takeovers": 39,
+        "B_ineligible_primary_contours": 28,
+        "B_unreached_seed_caps": 7,
+        "B_resolution_lower_bounds": 52,
+        "native_history_images": 1150
+      },
+      "controls": {
+        "no_cue_duration_chemical": 53000,
+        "no_cue_duration_spring": 5300,
+        "fine_mesh_basals": 2,
+        "A1_numeric_runs": 12,
+        "A1_control_roots": 10,
+        "B_numeric_runs": 36,
+        "B_status_eligibility_winner_agreement": "36/36",
+        "B_resolution_bracket_overlap": "35/36",
+        "B_fine_mesh_exception": "Goryachev C37.8, initial gap4, ratio1:1040–1060 versus1080–1100"
+      },
+      "sources": [
+        {
+          "label": "Complete corrected A1 evidence",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/supporting/data/A1_complete_region_evidence.csv"
+        },
+        {
+          "label": "All A2 switching brackets and unavailable calibrations",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/supporting/data/A2_all_switching_brackets.csv"
+        },
+        {
+          "label": "All B gap, fate, censoring and actual-heading measurements",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/supporting/data/B_complete_region_evidence_and_geometry.csv"
+        },
+        {
+          "label": "Support-limited measured geometry remaps",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/supporting/data/A1_fixed_angle_geometry_remap.csv"
+        },
+        {
+          "label": "Direct global-heading target checks",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/supporting/data/A1_heading_target_time_brackets.csv"
+        },
+        {
+          "label": "B numerical convergence including the material exception",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/supporting/data/B_control_convergence.csv"
+        },
+        {
+          "label": "Final artifacts and source-link audit",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/supporting/metadata/final_artifact_audit.json"
+        },
+        {
+          "label": "Lossless full native-history pixel audit",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/supporting/metadata/lossless_pixel_audit.json"
+        },
+        {
+          "label": "Round-2 decomposition and native-source audit",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure3/audit.json"
+        }
+      ],
+      "provenance": {
+        "generated_utc": "2026-10-22T10:54:28.337793+00:00",
+        "source_sha256": {
+          "A1_complete_region_evidence.csv": "f4515141558554e0e22c4b46191cf60dc3994e647c9e1706d11295a9e6d5f783",
+          "B_complete_region_evidence_and_geometry.csv": "7bb4b44b91d27c272b7950f8a3ee4836eb18276e84066b475c4671d1706fa0cb"
+        },
+        "model_colors": {
+          "wave_pinning": "#2878b5",
+          "goryachev": "#c83b3b",
+          "holmes_model3": "#36944c",
+          "spring": "#c59a25"
+        },
+        "main_panels": 5,
+        "supplement_pages": 11,
+        "existing_supplement_pages_preserved": true,
+        "optional_extension_count": 9,
+        "extensions_submitted": 0,
+        "holmes_B_censored": 18,
+        "holmes_B_eligible": 23,
+        "decomposition_rows": 48,
+        "finite_product_identity": "passed",
+        "bounds": "interval arithmetic; no horizon point estimates",
+        "generator_sha256": "f5008b37a7488e1765c6ad8a0876c89f502ce4760e91637ba181c998cdad9c16"
+      }
+    },
+    {
+      "title": "Figure 4. Enlarged cells hold heading longer under fluctuating input — at or above the geometric expectation at weak input — and the advantage declines as input strengthens.",
+      "role": "Decay-rate size advantage and descriptive spatial organization under fluctuating input.",
+      "legend": [
+        "Enlarged cells hold heading longer under fluctuating input — at or above the geometric expectation at weak input — and the advantage declines as input strengthens. The geometric statement describes weak-input point estimates; confidence intervals also admit sub-geometric gains in Holmes and Spring. (A) Native activity kymographs for small and large Wave-pinning and Holmes at f = 0.003, plus a large Wave-pinning example at f = 0.1; width is proportional to circumference, with shared activity scales within each model. (B) Heading autocorrelation at f = 0.003 on model-specific logarithmic ordinates with whole-seed 95% bootstrap bands; intervals extending below zero continue beyond the positive plotting range. (C) Small/large rotational decay-rate ratio at the shortest usable lag satisfying the frozen lag rule, with pointwise 95% CIs. Reference lines show unity and nominal single-front geometry (9); actual-circumference normalization is reported in the supplement. Marker fill describes the large-cell regime; squares flag non-exponential lag dependence. (D) Multiple-front fractions with bootstrap intervals, reported descriptively: Holmes and Spring can fall below geometry while still single-front, so these data do not establish multiple fronts as the cause of erosion. (E) Fixed-reference-lag noise tolerance increases with size; smallest/largest CIs separate in all three shown models. Small cells are lighter solid, large cells darker dotted. Native units are used. Post hoc H1 amendment: evaluate gains and supported reversals only at inputs strictly below the point estimate of the largest cell’s own f½; strict CI and size noise-tolerance rules are unchanged. Both main-view observation arms pass the amended H1 overall, while frozen rate H1 is inconclusive in both; all calls appear alongside in S0. H2/H3/A6 τ gates are retired. Goryachev is excluded from the main because its ratios derive from forced or non-exponential conditions, and remains complete in the supplement. Simulated polarity heading is distinct from migration persistence and conditional OU estimates."
+      ],
+      "narrative": [
+        "Enlarged cells hold heading longer under fluctuating input — at or above the geometric expectation at weak input — and the advantage declines as input strengthens.",
+        "Post hoc H1 passes in both main-view arms; the frozen rate H1 remains inconclusive. The H1 domain uses inputs below the point estimate of the largest size’s own noise tolerance.",
+        "Geometry and multiple-front fractions are descriptive; erosion below geometry also occurs in single-front conditions."
+      ],
+      "measurements": [
+        "Common observations use native chemical 32000 and Spring 3200 horizons. Longest observations use the frozen per-condition selector, including chemical 128000 or Spring 12800 where E4 was preselected. Mixed per-size horizons remain explicit; raw total-count quotients are unavailable when exposures differ.",
+        "Persistence and its empirical bounds come from measured heading correlations with declared coverage. Bootstrap uncertainty resamples whole independent seed histories. Deterministic matched-mean/zero controls have 0 independent stochastic seeds and 0 seed-bootstrap resamples.",
+        "Primary optical counts and strict dominant-newborn takeovers use complete observed-region amounts. A takeover requires the newborn to be largest among qualified regions and its pairwise D against the previous dominant region to exceed 0.5 for two frames. With three or more regions this does not mean 75% of whole-cell activity.",
+        "Spring forcing is material attached, with physical correlation length 0.15 C/C_basal; fixed physical optical smoothing is separate. Literal A3 positions use the fixed material-origin angle times actual circumference, splitting unresolved antipodal edges; paired ±π routes are deterministic sensitivities."
+      ],
+      "limitations": [
+        "The H1 domain amendment is post hoc.",
+        "Weak-input geometric comparisons describe point estimates; not all model CIs exclude sub-geometric values.",
+        "Non-exponential lag dependence and forcing qualifications remain explicit. Goryachev is retained only in the supplement.",
+        "H2, H3 and A6 tau gates are retired; frozen historical calls remain for provenance.",
+        "Simulated polarity heading is distinct from migration and OU persistence."
+      ],
+      "id": "figure4",
+      "status": "round2_Case_A_posthoc",
+      "assets": [
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_main.png",
+          "caption": "Enlarged cells hold heading longer under fluctuating input — at or above the geometric expectation at weak input — and the advantage declines as input strengthens.",
+          "page_title": "Figure 4. Enlarged cells hold heading longer under fluctuating input",
+          "page_size": [
+            16.5,
+            21
+          ],
+          "minimum_printed_width_inches": 14
+        }
+      ],
+      "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_main.pdf",
+      "supplement_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/figure4_supplement.pdf",
+      "reader": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/figure4_complete_reader.html",
+      "main_source_data": [
+        {
+          "panel": "A",
+          "measurement": "Native active-field histories at f=0.05; exact small/large medoids",
+          "rows": 55220,
+          "portable_CSVs": [
+            {
+              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0001_MAIN_A_part011.csv",
+              "sha256": "c07e6af3ee9ca7f07d3e3573075dc96f03a0b4907d5e62d72dd77ce1e70052c6",
+              "rows": 4,
+              "distribution": "portable"
+            },
+            {
+              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0001_MAIN_A_part012.csv.gz",
+              "sha256": "4163a127a55152b1ed15a563e6c7bc135d1a4bff6ff1ccc52706e847c3727704",
+              "rows": 800,
+              "distribution": "portable"
+            },
+            {
+              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0001_MAIN_A_part013.csv",
+              "sha256": "df5830ed59ad2c28d745c000c5d77e4223597912dff52cbb03b00ae9d582826b",
+              "rows": 2,
+              "distribution": "portable"
+            },
+            {
+              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0001_MAIN_A_part014.csv.gz",
+              "sha256": "e6af5e2315b30b30273315b72a8d1062eb35172b2d516cbb44061f0a604f55a6",
+              "rows": 2400,
+              "distribution": "portable"
+            },
+            {
+              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0001_MAIN_A_part015.csv",
+              "sha256": "b70277d3bbb9b779a843ecc830bd2ee8f346be3b516be3d7c5e854c55c61aa76",
+              "rows": 2,
+              "distribution": "portable"
+            },
+            {
+              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0001_MAIN_A_part016.csv.gz",
+              "sha256": "d9c578c3e5551386145c7b6f35c94aadd474950e3c14d5d2ec3dc77fa3a07fea",
+              "rows": 200,
+              "distribution": "portable"
+            },
+            {
+              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0001_MAIN_A_part017.csv",
+              "sha256": "6184c0a672d9c3cc87fc91bbf2b69f936b06669f395357870494830959b16459",
+              "rows": 2,
+              "distribution": "portable"
+            },
+            {
+              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0001_MAIN_A_part018.csv.gz",
+              "sha256": "6dc54db9e84c4c13a9337ff72f81108becc7be73ca41db24165fadd7f960a090",
+              "rows": 600,
+              "distribution": "portable"
+            },
+            {
+              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0001_MAIN_A_part019.csv",
+              "sha256": "faec7c2e5d77a34bd7ae27d482b37b2d432f5fb923e05c5f125aa759cc7d282b",
+              "rows": 2,
+              "distribution": "portable"
+            }
+          ],
+          "HPC_archive_inventory": {
+            "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0001_MAIN_A_HPC_archive_inventory.csv",
+            "sha256": "38663a0d31dfd9ab375a669a5222b16f8b31a70ff263b52671a4344df7284c7d",
+            "rows": 10,
+            "distribution": "portable_archive_inventory"
+          }
+        },
+        {
+          "panel": "B",
+          "measurement": "persistence_ratio_overview",
+          "rows": 49,
+          "portable_CSVs": [
+            {
+              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0002_MAIN_B.csv",
+              "sha256": "3840c3b6ff7e956df62e262cf378ff6361a9b84da0b938611bf2406b8b82039d",
+              "rows": 49,
+              "distribution": "portable"
+            }
+          ],
+          "HPC_archive_inventory": null
+        },
+        {
+          "panel": "C",
+          "measurement": "persistence_ratio_all_views",
+          "rows": 21,
+          "portable_CSVs": [
+            {
+              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0003_MAIN_C.csv",
+              "sha256": "b3e963d430a805a36c4dac9984fef5e710441671ca95248564cdc0ee84b2a2df",
+              "rows": 21,
+              "distribution": "portable"
+            }
+          ],
+          "HPC_archive_inventory": null
+        },
+        {
+          "panel": "D",
+          "measurement": "fingerprint_region_count",
+          "rows": 3,
+          "portable_CSVs": [
+            {
+              "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/data/figure4_complete_0004_MAIN_D.csv",
+              "sha256": "f8c7c47831ec2a931993e618ffa005fe20d63e4558c67d9fe305faf6189e9fa5",
+              "rows": 3,
+              "distribution": "portable"
+            }
+          ],
+          "HPC_archive_inventory": null
+        }
+      ],
+      "supplement_scope": "S0–S12 statistical core and complete native-atlas appendix index; native pages are in all linked appendix volumes",
+      "supplement_volumes": [
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_001.pdf",
+          "label": "S11 native atlas appendix 001",
+          "pages": 50,
+          "sha256": "b57f3a86ed01530c91843b4b5d820cb58819d37cc37e32bafa72eb3ae5befb5f"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_002.pdf",
+          "label": "S11 native atlas appendix 002",
+          "pages": 50,
+          "sha256": "ac16f88488f1180090c5d1d66293394d272616e126fa8bd3c4e1338e5ce019f8"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_003.pdf",
+          "label": "S11 native atlas appendix 003",
+          "pages": 50,
+          "sha256": "7d56536952b10f07513a4de9ff5dc7be4c0245c051b41b993923a479284c835c"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_004.pdf",
+          "label": "S11 native atlas appendix 004",
+          "pages": 50,
+          "sha256": "22716e5112f34728d4e675466845ea11c1deff3ea5781c33149c5faaf1232a7b"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_005.pdf",
+          "label": "S11 native atlas appendix 005",
+          "pages": 50,
+          "sha256": "8ca7d32f8f8d45516e2b48f5ec547cc55c306b9f16b7ef2bf4922a5f896d42b7"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_006.pdf",
+          "label": "S11 native atlas appendix 006",
+          "pages": 50,
+          "sha256": "23bf3a635ad639ff84697382870ab30547f130faf2fc49ffcdd3826ad16262a1"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_007.pdf",
+          "label": "S11 native atlas appendix 007",
+          "pages": 50,
+          "sha256": "65401e8378b1b13f9467bd341979243557d7a2863f6faf1b4bb3914300a0139c"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_008.pdf",
+          "label": "S11 native atlas appendix 008",
+          "pages": 40,
+          "sha256": "4b72c21c4e5e62c36d4548edf7627f52a1a490adce7ac6047e228d9a59b7728d"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_009.pdf",
+          "label": "S11 native atlas appendix 009",
+          "pages": 50,
+          "sha256": "a9745647da32d38d5b0042f5c2bdb560641cd2263eaf5bb77095f28c02c2575a"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_010.pdf",
+          "label": "S11 native atlas appendix 010",
+          "pages": 22,
+          "sha256": "ba856d48cea660a7ce8b22de709f07bd0ac5c62fe84a3cd5de0e8c768b8a3ca6"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_011.pdf",
+          "label": "S11 native atlas appendix 011",
+          "pages": 50,
+          "sha256": "fd20983c4995ae8e9818c9c8e81a7dfe335ec6f37bd7131de640ef85d17891ba"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_012.pdf",
+          "label": "S11 native atlas appendix 012",
+          "pages": 50,
+          "sha256": "e1e6b6c9a74ed76e2c5b1d6c1c1287b3c33bf2a3d59f5bbbdd01d24d15e91e5b"
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_013.pdf",
+          "label": "S11 native atlas appendix 013",
+          "pages": 16,
+          "sha256": "46d70a82f7514b1b706b0ef913205da17350641a69f24760d9fe8bcdd28de1b7"
+        }
+      ],
+      "sources": [
+        {
+          "label": "E0",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_E0.json",
+          "sha256": "e08b7a504dc499aa3cb0341ab3c81e07efd8acae9b0f7cb3dfe2e04c7bf332ef"
+        },
+        {
+          "label": "E1",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_E1.json",
+          "sha256": "4e94fa8d1d837ac635b62e1bd1cd75d8295dbd45f4213f74522e34c21c9ffd60"
+        },
+        {
+          "label": "E2",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_E2.json",
+          "sha256": "450836b83b631562c6da7e67a8b261ed5b3d1e3e3705330e128fb043467d1ac6"
+        },
+        {
+          "label": "E3",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_E3.json",
+          "sha256": "401fef2abaa8941a3ff1bffe7d9d19f672759792cd3f19c595ad6e9936bf75ab"
+        },
+        {
+          "label": "E4",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_E4.json",
+          "sha256": "cbf6617218923b28c647162e4f30def6e8c56a2dfb386c83b2df8dff8db5aa9e"
+        },
+        {
+          "label": "A1",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_A1.json",
+          "sha256": "1b2849b67642b2f7767e80b2de1fa115113368a10982d42ecc760089fe0bd339"
+        },
+        {
+          "label": "A2",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_A2.json",
+          "sha256": "1b2849b67642b2f7767e80b2de1fa115113368a10982d42ecc760089fe0bd339"
+        },
+        {
+          "label": "A3",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_A3.json",
+          "sha256": "1b2849b67642b2f7767e80b2de1fa115113368a10982d42ecc760089fe0bd339"
+        },
+        {
+          "label": "A4",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_A4.json",
+          "sha256": "1b2849b67642b2f7767e80b2de1fa115113368a10982d42ecc760089fe0bd339"
+        },
+        {
+          "label": "A5",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_A5.json",
+          "sha256": "f8ecccb52e6ea16b55fba72b110137e67a59f68553cb7b8cd412cf8729988d75"
+        },
+        {
+          "label": "A6",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_A6.json",
+          "sha256": "35c36faeecbabfb658a55ba2a12f3a06048900a86f14f798ac3c23d655c25cc7"
+        },
+        {
+          "label": "A7",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_A7.json",
+          "sha256": "148e3fffe758e09ef1963aa327516a953015ba93b8a30ad15ad757412ffde5f5"
+        },
+        {
+          "label": "windows_and_coverage",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_windows_and_coverage.json",
+          "sha256": "148e3fffe758e09ef1963aa327516a953015ba93b8a30ad15ad757412ffde5f5"
+        },
+        {
+          "label": "common_horizon",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_common_horizon.json",
+          "sha256": "4f2a6b5feb54a3dcc013b63e979969f8f008dbc097e8f5bc901d70306e0ea6b5"
+        },
+        {
+          "label": "long_horizon",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_long_horizon.json",
+          "sha256": "d8d8acaa4e370d3a00d43ad1125445cdabb10154408dca81141bf75dcee74784"
+        },
+        {
+          "label": "framing",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_framing.json",
+          "sha256": "631442e4b9cb5f86069115e1792dbadc828ad60d8ab4bb631cef95ddea619b53"
+        },
+        {
+          "label": "independent_final_decision_audit",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_independent_final_decision_audit.json",
+          "sha256": "148e3fffe758e09ef1963aa327516a953015ba93b8a30ad15ad757412ffde5f5"
+        },
+        {
+          "label": "final_statistics_producer",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_final_statistics_producer.json",
+          "sha256": "1b2849b67642b2f7767e80b2de1fa115113368a10982d42ecc760089fe0bd339"
+        },
+        {
+          "label": "S11_full_atlas_coverage",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_S11_full_atlas_coverage.json",
+          "sha256": "f67b97732e713499a8fdc8b43f06d9163d8a94ab61f5f9f6cba7e8cf8be17d5e"
+        },
+        {
+          "label": "reviewed_interpretation_memo",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_reviewed_interpretation_memo.json",
+          "sha256": "c3cd84d861ecdbf85c4de34d0cc928756f1a8f61d131afa787246c60315ab98d"
+        },
+        {
+          "label": "reviewed_interpretation_memo_display",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_reviewed_interpretation_memo_display.json",
+          "sha256": "fb9ec6db0ec368e7d1b34d70984ce446da1f76322fbd1b695f2f6366623cd4b7"
+        },
+        {
+          "label": "main_display_audit",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/scientific_evidence_main_display_audit.json",
+          "sha256": "cbba37e6179c79390a00a1f7d00f0b4da537e39347d44ff13fa489139c25fe50"
+        },
+        {
+          "label": "Historical Spring observation-cadence qualification",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/metadata/historical_Spring_numerical_qualification.json",
+          "sha256": "215e88bcb5e1bff94d99e0140cfb2c5078f697c032e59f61ae831ebedfe75f66"
+        },
+        {
+          "label": "Independent Figure 4 completion review",
+          "path": "docs/tasks/briefs/20261020_figure4_completion_review.json",
+          "sha256": "edf2c63d5ee75d6c6625f56d20f5003f87110a01c4be8383a79b35189964d768"
+        },
+        {
+          "label": "Amended and frozen H1 calls",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/data/S0_posthoc_H1.csv"
+        },
+        {
+          "label": "Main source and render receipt",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure4/supporting/metadata/main_render_receipt.json"
+        }
+      ]
+    },
+    {
+      "id": "figure5",
+      "title": "Figure 5. Published migration summaries support a persistence hypothesis with conditional OU interpretation",
+      "role": "Existing empirical support, with observed migration summaries kept separate from fitted velocity-memory parameters.",
+      "assets": [
+        {
+          "path": "manuscript_outline/assets/migration_v2/figure5_migration_v2.png",
+          "caption": "Reassembled Figure 5: original A and C–F numerical evidence, revised MSD/curve-shape panel B.",
+          "page_size": [
+            11.8,
+            10.78
+          ],
+          "page_title": "Figure 5. Migration observations and conditional OU interpretation",
+          "minimum_printed_width_inches": 10.0
+        },
+        {
+          "path": "manuscript_outline/assets/migration_v2/figure5b_msd_detail.png",
+          "caption": "Figure 5B continued: enlarged detail with explicit raster-sample caveat.",
+          "page_size": [
+            11.8,
+            11.98
+          ],
+          "page_title": "Figure 5. Migration observations and conditional OU interpretation",
+          "minimum_printed_width_inches": 10.0
+        }
+      ],
+      "legend": [
+        "A, Published/digitized enlarged or polyploid-group to reference-group ratios for nine migration summaries, alongside primary Ornstein–Uhlenbeck (OU) fit predictions. Xuan contributes sampled mean speed and population mean-squared displacement (MSD) at the last shared lag, approximately 10.95 h; Hosny summaries are group medians. Mallin central-bar statistic is not specified by the source and retains the historical mean approximation. These distinct source summaries are not interchangeable measures of persistence.",
+        "B, Upper: twelve chosen display samples from each digitized Xuan population MSD curve (small points) and the unchanged fitted analytical OU expectation (solid lines), on logarithmic lag and MSD axes. These are samples of the published raster curves, not recovered experimental lag positions or independent cell observations; the original experimental lag grid is unknown. The open circle identifies the crossover of the full digitized traces at approximately 2.32 h, computed by linear interpolation in native lag and MSD. The open diamond identifies the different fitted OU crossover at approximately 1.11 h. Lower: descriptive slopes of log(MSD) versus log(lag) fitted in six equal log-lag windows of the full digitized curves (points), and matching-window moving OU slopes (solid lines). Each window spans approximately 0.304 decades; both observed and model slopes use the same full window support. Observed raster columns remain correlated and give no biological sample size or confidence interval. These slopes are newly calculated curve-shape summaries, not author-reported local exponents or fitted OU memory times. A constant power-law exponent would appear horizontal; reference values 1 and 2 indicate diffusive and straight-line scaling. The model does not reproduce the complete observed curvature or the observed crossover. The analytical fit, all fitting targets and numerical inputs to A and C–F are unchanged.",
+        "C, Representative Xuan primary-fit model-generated tracks, with sampled speed, total path length and directness (net displacement divided by path length). Both groups use identical spatial scales. The tracks are simulations, not published individual-cell trajectories; a slower sampled trajectory can nevertheless have greater endpoint directness. Dashed chords illustrate the contribution of finite-time displacements.",
+        "D, With reference-group parameters fixed, vary enlarged-group persistence and velocity-noise ratios. Separate surfaces show change in the descriptive data-misfit score and in the total regularized objective; the selected fit and equal-group reference are marked. The heuristic score is not a calibrated likelihood, and the surfaces are not confidence regions.",
+        "E, Primary paired persistence and velocity-noise estimates for Xuan 2018, Mallin 2023, Jemaà 2017, Jemaà 2023 and the Hosny hypoxic baseline. F, Enlarged/reference persistence folds under the primary 10-minute prior, 5- and 20-minute alternatives and stronger/weaker pooling, with the pooled geometric mean. Priors and pooling define conditional sensitivity scenarios, not uncertainty intervals. The Jemaà comparisons constrain speed alone, leaving persistence/noise tradeoffs dependent on hierarchy and priors.",
+        "The fitted population contrasts span stable tetraploids, giant polyploids and treatment-induced polyaneuploid cancer cells (PACCs). The inherited WGD+/WGD− labels in the artwork are comparison shorthand and do not establish matched WGD-only interventions in every study. Hosny observations derive from the recovered preprint; equivalence to the journal version remains unresolved."
+      ],
+      "narrative": [
+        "Xuan combines lower sampled speed (0.64-fold) with greater late-lag population MSD (2.08-fold); Mallin combines shorter path length (0.52-fold) with greater directness (3.12-fold). Persistence-related behaviour therefore deserves analysis separately from speed.",
+        "Hosny baseline PACCs have greater median path length (1.77-fold) and directness (1.67-fold). Signed migration index is a separate directional summary.",
+        "All five primary OU comparisons infer longer velocity memory. The pooled primary persistence fold is about 15.8, and remains above one across the declared prior/pooling scenarios; this is a conditional model result.",
+        "The fit does not reproduce the complete Xuan curve shape within its raster envelope, and data-only sensitivity has rank 18 of 22. Optimization completion does not establish model adequacy or uniquely identified persistence times.",
+        "The observed Xuan curves cross near 2.32 h while the unchanged fitted OU curves cross near 1.11 h. Matched-window slopes make the remaining curve-shape discrepancy visible; fitted persistence is a conditional summary.",
+        "Lower sampled speed can coexist with greater late-lag displacement in the enlarged-group comparison. Its causal connection to polarity mechanisms requires matched activity and migration measurements."
+      ],
+      "measurements": [
+        "The new WGD assay should measure matched trajectories directly, with declared sampling and observation duration, and assess speed, displacement, directness and lag-dependent MSD before considering fitted persistence. An activity-polarity memory measurement would complement these quantities without equating activity and velocity."
+      ],
+      "limitations": [
+        "Neither these heterogeneous group comparisons nor the OU fits establish that enlargement alone causes persistence. Cell identity, induction/treatment and acquisition differences require explicit treatment in the new experiments.",
+        "The requested observed-point/model-line and curve-shape display is implemented. The original experimental lag grid remains unknown; neither display samples nor raster-derived slopes supply independent biological replicates. The observed/model crossover discrepancy remains visible."
+      ],
+      "sources": [
+        {
+          "label": "Refined OU analysis",
+          "path": "wgd_langevin/refined_ou_20261003/README.md"
+        },
+        {
+          "label": "Original panel legend",
+          "path": "wgd_langevin/refined_ou_20261003/figures/main_03_migration_OU_caption.md"
+        },
+        {
+          "label": "Observed folds",
+          "path": "wgd_langevin/refined_ou_20261003/figures/main_03_observation_folds.csv"
+        },
+        {
+          "label": "Fit results and adequacy",
+          "path": "wgd_langevin/refined_ou_20261003/results/RESULTS.md"
+        },
+        {
+          "label": "Hosny sensitivity supplement",
+          "path": "wgd_langevin/refined_ou_20261003/figures/supp_04_Hosny_sensitivity.png"
+        },
+        {
+          "label": "Revised display, exact preserved inputs and direct-user feedback",
+          "path": "manuscript_outline/assets/migration_v2/provenance.json"
+        },
+        {
+          "label": "Migration display numerical and preservation checks",
+          "path": "manuscript_outline/assets/migration_v2/validation.json"
+        }
+      ]
+    },
+    {
+      "id": "figure6",
+      "title": "Figure 6. RESERVED: new WGD motility-assay results",
+      "role": "A substantial new experimental results section and main figure. No observations are available; the panel layout is a proposal, not an experimental result.",
+      "assets": [
+        {
+          "path": "manuscript_outline/assets/planned_WGD_results.png",
+          "caption": "Explicit placeholder. Every panel is pending acquisition, analysis and author review; no mock observations are displayed.",
+          "page_size": [
+            11.8,
+            10.38
+          ],
+          "page_title": "Figure 6. RESERVED: new WGD motility results",
+          "minimum_printed_width_inches": 10.0
+        }
+      ],
+      "legend": [
+        "A, Proposed experimental context: the SUM-159 chemically induced WGD+/− pair is the agreed starting pilot with the Speros collaboration. Imaging should first be optimized for that pair before expansion to additional cell lines. Ploidy/group identity, physical size and morphology need to be documented so the intended comparison is clear.",
+        "B, Reserved for representative experimental fields and trajectories under the selected acquisition conditions. The eventual panel should state sampling interval, usable duration, spatial scale, track eligibility and exclusions. Number of independent preparations and biological replicates remains to be specified.",
+        "C, Reserved for empirical motility summaries: sampled speed, accumulated path length, endpoint displacement/directness and lag-dependent MSD. The final readouts, follow-up window and analysis plan are to be settled before interpreting the data; this placeholder does not imply that all listed measurements will be technically feasible.",
+        "D, Reserved for the measured relationship between WGD-associated enlargement and migration behaviour, including size distributions and controls needed to interpret the group contrast. Any activity/protrusion measurements arising from the mechanism proposals require a separately agreed assay and should be distinguished from the basic motility pilot. Statistical models, uncertainty reporting and sample-size targets remain open."
+      ],
+      "narrative": [
+        "This major results section will test whether the planned paired experimental system exhibits the migration behaviour motivating the theoretical work.",
+        "Its conclusions must follow the acquired observations, including null or opposing results. Simulation output and literature fits cannot fill this gap.",
+        "Agreement between increased polarity resistance or activity memory and migration persistence would support the proposed connection; causal attribution requires appropriate perturbations and controls."
+      ],
+      "measurements": [
+        "Pending decisions include plating density, acquisition duration and cadence, field/condition throughput, tracking and exclusion rules, replicate structure, confirmation of WGD status, size quantification and the statistical analysis. The known throughput versus spatial/temporal resolution trade-off should be resolved by the pilot.",
+        "Mechanism validation can subsequently examine incumbent extent, early challenger growth, local loss/rebound, site fates and global activity-polarity correlation under characterized perturbations. These activity experiments are proposals alongside the theoretical mechanisms and are separate from the reserved motility-results contribution."
+      ],
+      "limitations": [
+        "No pilot acquisition, sample size, effect estimate, significance claim or experimental outcome is supplied by the available evidence."
+      ],
+      "sources": [
+        {
+          "label": "Author manuscript vision and supplied collaboration context",
+          "path": "MANUSCRIPT_VISION.md"
+        }
+      ]
+    }
+  ],
+  "supplementary": [
+    {
+      "title": "Figure 2: complete revised evidence",
+      "text": [
+        "The comprehensive supplement retains the full designed condition grid, unavailable measurements, finite-horizon bounds, native histories, controls and the stated numerical and observational sensitivities. Earlier figure versions remain development history."
+      ],
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/supporting/vectors/figure2_signature_assays_complete_supplement.pdf",
+      "sources": [
+        {
+          "label": "Figure reader and source data",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_assays_20261020/index.html"
+        },
+        {
+          "label": "Independent completion review",
+          "path": "docs/tasks/briefs/20261020_figure2_completion_review.json"
+        }
+      ]
+    },
+    {
+      "title": "Figure 3: complete revised evidence",
+      "text": [
+        "The comprehensive supplement retains the full designed condition grid, unavailable measurements, finite-horizon bounds, native histories, controls and the stated numerical and observational sensitivities. Earlier figure versions remain development history."
+      ],
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/supporting/vectors/figure3_distance_supplement.pdf",
+      "sources": [
+        {
+          "label": "Figure reader and source data",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261020/figure3_distance/index.html"
+        },
+        {
+          "label": "Independent completion review",
+          "path": "docs/tasks/briefs/20261020_figure3_completion_review.json"
+        }
+      ]
+    },
+    {
+      "title": "Figure 4: complete revised evidence",
+      "text": [
+        "The comprehensive supplement retains the full designed condition grid, unavailable measurements, finite-horizon bounds, native histories, controls and the stated numerical and observational sensitivities. Earlier figure versions remain development history. S0–S12 statistical core and complete native-atlas appendix index; native pages are in all linked appendix volumes. Every numbered appendix below is part of the complete supplement."
+      ],
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_revision_complete_supplement.pdf",
+      "sources": [
+        {
+          "label": "Figure reader and source data",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/figure4_complete_reader.html"
+        },
+        {
+          "label": "Independent completion review",
+          "path": "docs/tasks/briefs/20261020_figure4_completion_review.json"
+        },
+        {
+          "label": "S11 native atlas appendix 001",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_001.pdf"
+        },
+        {
+          "label": "S11 native atlas appendix 002",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_002.pdf"
+        },
+        {
+          "label": "S11 native atlas appendix 003",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_003.pdf"
+        },
+        {
+          "label": "S11 native atlas appendix 004",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_004.pdf"
+        },
+        {
+          "label": "S11 native atlas appendix 005",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_005.pdf"
+        },
+        {
+          "label": "S11 native atlas appendix 006",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_006.pdf"
+        },
+        {
+          "label": "S11 native atlas appendix 007",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_007.pdf"
+        },
+        {
+          "label": "S11 native atlas appendix 008",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_008.pdf"
+        },
+        {
+          "label": "S11 native atlas appendix 009",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_009.pdf"
+        },
+        {
+          "label": "S11 native atlas appendix 010",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_010.pdf"
+        },
+        {
+          "label": "S11 native atlas appendix 011",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_011.pdf"
+        },
+        {
+          "label": "S11 native atlas appendix 012",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_012.pdf"
+        },
+        {
+          "label": "S11 native atlas appendix 013",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/signature_figure4_20261020/supporting/vectors/figure4_S11_native_atlas_appendix_013.pdf"
+        }
+      ]
+    },
+    {
+      "id": "supplement1",
+      "title": "Earlier supporting material: S1. Full cue-duration response curves",
+      "role": "Essential curve context for the main comparison heatmap.",
+      "assets": [
+        {
+          "path": "polarity1d/manuscript/figures/supplement_width_response.png",
+          "caption": "Canonical corrected five-model duration curves; source working number Supplement 1.",
+          "page_size": [
+            11.8,
+            14.617241379310345
+          ],
+          "page_title": "S1. Full cue-duration response curves",
+          "minimum_printed_width_inches": 10.0
+        }
+      ],
+      "legend": [
+        "Five model rows and three finite-cue columns retain the complete sampled length dependence. Coloured curves distinguish orientation from strength replacement. Open success markers retain scalar successes that fail the separate native-field tail flag; triangles indicate no passing pulse within the tested range; crosses indicate ineligible preparations. Missing values are not zero response times. Each duration excludes preparation and the subsequent 10,000-unit basal recovery. Spring uses native length and time. See Figure 1 for exact gates and stimulus conventions."
+      ],
+      "narrative": [
+        "Corrected deBelly is nonmonotone across all three geometries. The positive rank coefficients summarize association rather than its full curve shape.",
+        "Constant-slope Spring shows the opposite association to its patch responses. Holmes orientation under that cue varies with little monotone association. Censoring and native-field flags restrict interpretation even where rank correlation is strong."
+      ],
+      "sources": [
+        {
+          "label": "Current figure legend and gate definitions",
+          "path": "polarity1d/manuscript/figures/CAPTIONS.md"
+        }
+      ]
+    },
+    {
+      "title": "Earlier supporting material: S2. Numerical qualification and preparation provenance",
+      "path": "polarity1d/manuscript/THREE_TESTS.md",
+      "text": "Exact common starting states, duration-boundary audits, corrected deBelly endpoint controls and selected mesh diagnostics; source histories remain distinguishable from compact committed summaries."
+    },
+    {
+      "title": "Earlier supporting material: S3. Mechanism and stochastic sensitivity",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/VISION_CHECKPOINT_REQUIREMENTS.md",
+      "text": "Complete gain/recovery grids, clock qualification, finite-cue definitions, outcome tables, site/vector diagnostics and numerical/noise controls accompany the mechanism checkpoint. Revised Figure 4 also displays both strengths, complete half-window diagnostics, physical-site eligibility and matched C20/C60 native examples; compact source tables support portable rerendering."
+    },
+    {
+      "id": "supplement4",
+      "title": "Earlier supporting material: S4. Migration-model adequacy and Hosny sensitivity",
+      "role": "Supporting conditional sensitivity analysis; it is not an independent biological replication.",
+      "assets": [
+        {
+          "path": "wgd_langevin/refined_ou_20261003/figures/supp_04_Hosny_sensitivity.png",
+          "caption": "Existing Hosny sensitivity supplement from the refined OU analysis.",
+          "page_size": [
+            11.8,
+            10.082111064010174
+          ],
+          "page_title": "S4. Migration-model adequacy and Hosny sensitivity",
+          "minimum_printed_width_inches": 10.0
+        }
+      ],
+      "legend": [
+        "The retained supplement explores signed-drift and leave-Hosny-out sensitivity within the declared OU hierarchy. Its fitted changes and descriptive-score profiles are conditional on the model and supplied summaries, not confidence intervals. Data-only identifiability, Xuan population-curve residuals and prior/pooling assumptions remain part of the adequacy assessment. Representative movie diagnostics are separate: acquisition timing is uncertain and nuclear appearance does not establish ploidy."
+      ],
+      "sources": [
+        {
+          "label": "Original Hosny supplement caption",
+          "path": "wgd_langevin/refined_ou_20261003/figures/supp_04_Hosny_sensitivity_caption.md"
+        },
+        {
+          "label": "Sensitivity methods and results",
+          "path": "wgd_langevin/refined_ou_20261003/scripts/hosny_sensitivity/METHODS.md"
+        }
+      ]
+    },
+    {
+      "title": "Earlier supporting material: Gain and small-loss recovery: supporting evidence",
+      "assets": [],
+      "legend": [
+        "Calculated native input gain is separate from observed post-cue activity. The small-loss recovery contrast persists through stored finite trajectories but weakens with time; actual damage is only about0.22–0.285% of core activity, with no reporter calibration."
+      ],
+      "narrative": [],
+      "measurements": [],
+      "limitations": [
+        "Small-loss assays are not the finite optical challenge or a universal stability measure."
+      ],
+      "sources": [
+        {
+          "label": "Finite-time and amplitude audit",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure2/optogenetic_revision/discussion_sheet/README.md"
+        },
+        {
+          "label": "All97 gain/recovery values",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure2/supporting/data/all97_gain_recovery.csv"
+        }
+      ]
+    },
+    {
+      "title": "Earlier supporting material: Selected native pulse and causal controls",
+      "assets": [],
+      "legend": [
+        "WP L15 T20/T60 starts from the same basal state and illustrates withdrawal-dependent domain survival. Evolved interventions have endpoint- and cue-specific limits."
+      ],
+      "narrative": [],
+      "measurements": [],
+      "limitations": [
+        "WP4× mobility passes orientation only at one dose; both conditions fail the stronger full-polarity-strength gate. Mobility is changed during cue and recovery."
+      ],
+      "sources": [
+        {
+          "label": "Retained WP short/long pulse artwork",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/revision_20261010/editorial/assets/wave_pinning_withdrawal.png"
+        },
+        {
+          "label": "Endpoint-qualified controls",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure2/supporting/data/selected_evolved_interventions.csv"
+        }
+      ]
+    },
+    {
+      "title": "Earlier supporting material: Stationary-cue endpoint-vector alternative",
+      "text": [
+        "An alternative view displays all 240 measured endpoint vectors on equal coordinate scales, with weak-resultant, overlap and finite-tail flags retained. It is available for discussion without replacing the complete withdrawal/retention map in the current review."
+      ],
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure3/standard_angles_sizes/vector_grid/README.md"
+    },
+    {
+      "title": "Earlier supporting material: Spring: every native medoid",
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/figure4_spring_all_histories.png",
+      "caption": "Spring: every native medoid"
+    },
+    {
+      "title": "Earlier supporting material: Spring magnitude, geometry and controls",
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/figure4_spring_magnitude_geometry_controls.png",
+      "caption": "Spring magnitude, geometry and controls"
+    },
+    {
+      "title": "Earlier supporting material: Spring full/half-window memory",
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/figure4_spring_memory_windows.png",
+      "caption": "Spring full/half-window memory"
+    },
+    {
+      "title": "Earlier supporting material: Spring increment tails",
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/figure4_spring_increment_tails.png",
+      "caption": "Spring increment tails"
+    },
+    {
+      "title": "Earlier supporting material: Spring short/long-lag geometry and circular mixing",
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/figure4_spring_endpoint_lag_sensitivity.png",
+      "caption": "Spring short/long-lag geometry and circular mixing"
+    },
+    {
+      "title": "Earlier supporting material: Spring largest sampled increment native context",
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/figure4_spring_large_increment_context.png",
+      "caption": "Spring largest sampled increment native context"
+    },
+    {
+      "title": "Earlier supporting material: All chemical models including Goryachev",
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/figure4_stochastic_revision.png",
+      "caption": "All chemical models including Goryachev"
+    },
+    {
+      "title": "Earlier supporting material: Chemical memory: both strengths",
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/figure4_both_strengths_memory.png",
+      "caption": "Chemical memory: both strengths"
+    },
+    {
+      "title": "Earlier supporting material: Chemical magnitude and controls",
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/figure4_magnitude_controls.png",
+      "caption": "Chemical magnitude and controls"
+    },
+    {
+      "title": "Earlier supporting material: Chemical increment tails",
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/figure4_increment_tails.png",
+      "caption": "Chemical increment tails"
+    },
+    {
+      "title": "Earlier supporting material: Chemical site-gate sensitivity",
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/figure4_site_gate_sensitivity.png",
+      "caption": "Chemical site-gate sensitivity"
+    },
+    {
+      "title": "Earlier supporting material: Original chemical medoids, all18 conditions",
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/vision_noise_selected_histories.png",
+      "caption": "Original chemical medoids, all18 conditions"
+    },
+    {
+      "title": "Earlier supporting material: Goryachev lowest-resultant diagnostic",
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/vision_noise_20261017/vision_noise_lowest_resultant_diagnostic.png",
+      "caption": "Goryachev lowest-resultant diagnostic"
+    },
+    {
+      "title": "Earlier supporting material: Spring active amount and spatial first harmonic",
+      "path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/figure4/figure4_spring_amount_spatial_balance.png",
+      "caption": "Spring active amount and spatial first harmonic"
+    },
+    {
+      "title": "Earlier supporting material: Preserved complete mechanism and assay checkpoint",
+      "text": [
+        "The preceding outline retains all-five mechanism-to-measurement sheets, ring gain/recovery and finite-cue maps, and noise magnitude, controls and full/first/last-window diagnostics. Its numerical evidence is preserved; the revised main-figure claims are stated in this edition."
+      ],
+      "path": "manuscript_outline/outline_v2.pdf",
+      "sources": [
+        {
+          "label": "Prior all-five mechanism evidence crosswalk",
+          "path": "manuscript_outline/mechanism_crosswalk_v2.json"
+        },
+        {
+          "label": "Prior complete ring and noise checkpoint",
+          "path": "current manscript figs/vision_aligned_checkpoint.md"
+        },
+        {
+          "label": "Prior physical motion, magnitude and coverage evidence",
+          "path": "manuscript_outline/assets/noise_v2/noise_interpretation_v2.content.json"
+        }
+      ]
+    }
+  ],
+  "references": [
+    {
+      "label": "Reviewed primary literature and extraction map",
+      "path": "literature_review/migration_data/studies.csv"
+    },
+    {
+      "label": "Scientific scope and author direction",
+      "path": "MANUSCRIPT_VISION.md"
+    },
+    {
+      "label": "Direct-user preference evidence and foundational figure audit",
+      "path": "reports/manuscript_foundation_audit_20261017.md"
+    },
+    {
+      "label": "Mechanism checkpoint intake and live-producer evidence",
+      "path": "reports/manuscript_mechanism_intake_20261017.md"
+    },
+    {
+      "label": "Source checkout, evidence selection and reproduction",
+      "path": "reports/manuscript_checkout_audit_20261017.md"
+    },
+    {
+      "label": "Independent critical assessment and repair decisions",
+      "path": "reports/manuscript_coherence_review_v1_20261017.md"
+    },
+    {
+      "label": "Portable original/renumbered mechanism replay and source closure",
+      "path": "manuscript_outline/PORTABLE_MECHANISM_RENDER.md"
+    },
+    {
+      "label": "Second-edition integration decisions and validation scope",
+      "path": "manuscript_outline/REVISION_NOTES.md"
+    },
+    {
+      "label": "Figures 2–4 revision specification",
+      "path": "docs/tasks/29_10_19_revision_program.md"
+    },
+    {
+      "label": "Figure 2 October 20 revision brief",
+      "path": "docs/tasks/briefs/20261020_figure2_signature_assays.txt"
+    },
+    {
+      "label": "Figure 3 October 20 revision brief",
+      "path": "docs/tasks/briefs/20261020_figure3_distance_competition.txt"
+    },
+    {
+      "label": "Figure 4 October 20 revision brief",
+      "path": "docs/tasks/briefs/figure_4.txt"
+    }
+  ]
+}

@@ -1,8 +1,8 @@
-# Figure 4 round-2 interim: heading decay and geometry
+# Figure 4 round-2 analysis: heading decay and geometry
 
-The decay-rate estimand exposes size advantages at weak and intermediate fluctuating input that the censored 1/e persistence time could not resolve. With coexisting fronts, Wave-pinning, Holmes and Spring show size ratios below the single-front geometric expectation. These are simulated activity-heading readouts; they remain distinct from empirical migration summaries, conditional OU persistence estimates, and one-dimensional polarity-reversal measurements. Length models WGD-associated enlargement, motivated in part by greater observed migration persistence.
+The decay-rate estimand exposes size advantages at weak and intermediate fluctuating input that the censored 1/e persistence time could not resolve. The advantage declines as input strengthens. Holmes and Spring can fall below the single-front geometric expectation while still single-front; multiple-front fractions are descriptive and do not establish a cause of erosion. These are simulated activity-heading readouts; they remain distinct from empirical migration summaries, conditional OU persistence estimates, and one-dimensional polarity-reversal measurements. Length models WGD-associated enlargement, motivated in part by greater observed migration persistence.
 
-This is the mandatory review interim. **No new Figure 4 main has been composed.** The final case selection and full S0 criteria are in `interim_summary.json` and the decision tables. Existing simulations, calibrated parameters, original observation selectors, and the four-model Figure 4 campaign are retained. deBelly was absent from that campaign and has no invented Figure 4 arm.
+The author reviewed the mandatory interim and authorized **Case A**. The current main, legend and decision are in `main_summary.json`; `interim_summary.json` and `scientific_readme_interim.md` preserve the earlier review stop. H1 is now also reported in an explicitly **post hoc** domain restricted to inputs below the point estimate of the largest size’s own noise tolerance. Frozen rate H1 remains inconclusive beside the amended pass in both main-view arms. The original strict confidence-interval and noise-tolerance rules are unchanged. H2/H3/A6 tau-based gates are retired, with all frozen calls retained for provenance. Existing simulations, calibrated parameters, original observation selectors, and the four-model Figure 4 campaign are retained. deBelly was absent from that campaign and has no invented Figure 4 arm.
 
 ## Changes since 20 October
 
@@ -29,7 +29,12 @@ This ratio is **relative to the single-front geometric expectation**, not a site
 
 Noise tolerance is the first downward crossing of absolute heading autocorrelation 0.5 at lag 2000 (chemical) or 200 (Spring), interpolated linearly in log input. Every designed input is retained, including 0.005, 0.015, 0.02 and 0.05 where designed. Missing, low-coverage and excluded forced inputs cannot be silently bridged: their crossing is bounded. Left/right censoring and bootstrap intervals are explicit. The forced-excluded analysis requires a confirmed false forced flag; missing qualification remains unavailable.
 
-## Review exports
+## Main figure and complete supplementary exports
+
+- `figure4_main.png`, PDF and SVG: author-authorized Case A.
+- `figure4_supplement.pdf`: complete retained original supplement and superseded main, new S0, C/k/coverage, old/new comparison, robustness and every usable lag.
+- `figure4_all_lag_ratios.pdf`: both arms, all seven views and all four models, with non-exponential flags and explicit counts of ratios undefined because a logarithm is unavailable.
+- `S0_posthoc_H1.csv`, `S0_posthoc_input_domain.csv`, `S0_retired_gates.csv` and `S0_retired_A6.csv`: amended/frozen calls and retired gates.
 
 - Root PNGs and matching `supporting/vectors` PDF/SVG: rate ratio, geometric normalization, noise tolerance, and old-versus-new comparison.
 - `figure4_reanalysis_supplement.pdf`: all seven views, both observation arms, both forcing choices for noise tolerance, and C/k/coverage for every model–size–input condition.
@@ -41,8 +46,8 @@ Noise tolerance is the first downward crossing of absolute heading autocorrelati
 
 Open triangles and arrows denote bounds. Finite interval bounds display both endpoints. Crosses show unavailable comparisons at a labelled plotting baseline, never as point estimates. Open rate-ratio circles/squares flag non-exponential conditions; marker shape gives regime, grey gives forced status. CIs are pointwise rather than simultaneous. Sparse historical two-seed ensembles remain identified in source tables. Lag selection and the C≤0.98 threshold can make the weakest inputs unavailable even when their heading is visibly stable.
 
-Native scalar archives and the 164 MiB whole-seed bootstrap NPZ are retained on the HPC filesystem. The bootstrap NPZ is excluded from Git due to per-file hosting limits. The source tables and all review artwork are portable; the renderer reads the retained summaries. The analysis receipt identifies native scalar hashes, accepted stage manifests, original metric table, and owned analysis outputs. No new large-output group approaches 2 GiB; no simulation outputs were created, enlarged, moved or deleted.
+Native scalar archives and the 164 MiB whole-seed bootstrap NPZ are retained on the HPC filesystem. The bootstrap NPZ is excluded from Git due to per-file hosting limits. The source tables and review artwork are portable. The interim renderer reads retained summaries; the main redraw checks the hashed native profile archives on HPC. Its complete plotted kymograph CSV is included alongside the scalar plotted-value CSVs. The analysis receipt identifies native scalar hashes, accepted stage manifests, original metric table, and owned analysis outputs. No new large-output group approaches 2 GiB; no simulation outputs were created, enlarged, moved or deleted.
 
-The old τ-based H3 persistence-loss criterion and A6 direct-τ predictor have not been relabelled as new rate-based tests; their dependency is explicitly retained in the new S0 documentation. The broader original decision criteria can therefore remain inconclusive or fail even when particular rate ratios resolve a size effect. No local gain is substituted for the frozen overall H1 gate.
+The old τ-based H2/H3/A6 criteria remain historical records and are not new rate-based tests. Their gates have been retired by author instruction. The explicitly post hoc amended H1 domain is paired with the unmodified frozen calls across both observation arms, all seven views and both forcing choices. Geometric normalization and multiple-front fractions are reported as outcomes, not decision gates.
 
 The final confidence-interval audit conservatively expanded C intervals to [−1,1] and k intervals to [0,∞] for 79 finite-C Goryachev lag rows with more than 2.5% undefined whole-seed bootstrap correlations. Only three of these rows had observed coverage at least 0.5. The valid-draw fraction is exported. This correction changed no usable-lag flags, primary rate ratios, noise tolerances or S0 calls. The affected Goryachev supplement pages were regenerated from the corrected CSV.

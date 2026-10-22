@@ -1,11 +1,47 @@
 {
-  "generated_utc": "2026-10-22T10:52:15.242449+00:00",
-  "status": "qualified_in_progress",
+  "generated_utc": "2026-10-22T13:48:23.048898+00:00",
+  "status": "qualified_complete",
+  "producer_state": "stopped",
+  "main_panels": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+  ],
+  "large_size_line_style": "dotted",
+  "debelly_native_time_bounds_separate": true,
+  "readme_sha256": "14ef9ffa204ee0c2e7be80b7aa744602a45c44f3c8bca26d90e005a5051608b8",
   "reporter_source_audit_verified": true,
   "organization_source_digest_verified": true,
   "source_train_count": 1458,
   "source_reporter_count": 450,
-  "bound_convention": "open triangle with arrow; uninformative and unavailable values explicitly marked",
+  "new_Holmes_workers": 32,
+  "noise_transfer_summary": {
+    "S3_successes": [
+      8,
+      9,
+      10
+    ],
+    "eligible": [
+      12,
+      12,
+      12
+    ],
+    "minimum_raw_share_retention": 0.021519948171515816,
+    "maximum_raw_share_retention": 1.7806966092291074,
+    "minimum_final_D": -0.06340976972759493,
+    "maximum_final_D": 0.9999437469524795,
+    "final_replacements": 10,
+    "independent_seeds": 12
+  },
+  "independent_native_audit_sha256": "827d4644c03936550eacbcb699e4fac432ed91568b601e3d87a176300f3075b1",
+  "class_evidence_cells": 20,
+  "fate_or_retention_cells": 180,
+  "debelly_failed_field_tails_visible": 31,
+  "complete_supplement_pages": 96,
+  "bound_convention": "open triangle with arrow; uninformative values explicitly marked",
   "palette": {
     "wave_pinning": "#2878b5",
     "goryachev": "#c83b3b",
@@ -14,26 +50,40 @@
     "spring": "#c59a25"
   },
   "class_membership_changed": false,
-  "complete": false,
-  "pending": "32 Holmes native workers; SLURM blocked",
+  "complete": true,
+  "qualifications": [
+    "deBelly normalized initiation unresolved within first-update intervals",
+    "Holmes width-penalty growth through L39 uninformative; moderate-length growth verified",
+    "deBelly later-gap timing and endpoint fields remain numerically sensitive",
+    "Holmes share retention is distinct from S3 D>=0 retention success and from commitment",
+    "Modest Goryachev/Spring width penalties qualify binary no-penalty wording; no class change",
+    "Selected mechanistic signatures do not causally allocate replacement resistance",
+    "Bounded heterogeneous Holmes gap input gives S3 successes 8/12, 9/12, 10/12; some histories lose share or replace, unlike deterministic/mean controls. Integrated gap exposure is 2.46 times ON exposure; deterministic class membership does not imply universal noisy-gap retention."
+  ],
   "sha256": {
     "figure2_round2_pending.png": "32205a5f69c0d9ad81833ca2df4c323aa3be9c2c7f3a33ba8fa96e71622800e1",
-    "gap_retention_traces.csv": "2e53afb72c40d5ddb73d3b4f744dae671a5545b09f2c150fa48ceb14ae351917",
+    "figure2_round2_preview.svg": "e085de00d92c9ff04f73b289278c8ce6f6bc48a0cc1a3c2139552e9cd1808874",
+    "design_parameters.csv": "767902c1cb7ddde4d864e648807af667e44e03bfdf31aeb7467c96e80611d977",
+    "figure2_round2.pdf": "78947d977ad7ddf0454b055e6331f9b6f01da55ccaf32b39bd8870a304ede520",
+    "holmes_L39_noise_fates.csv": "9a01bfa04927435afaaafc7f65c16ab4192fbcb2d052898ed0befddf0039862f",
+    "train_fates_and_retention.csv": "d57ddcc6bd525bc12b425181111f8921983cb606dc263787fe20e77e4548ed15",
+    "figure2_round2.svg": "a36387729004f65879a564e11a5e532fc9a11c9b8da81199f5b1652c9637d33b",
+    "gap_retention_traces.csv": "6b2092b0597c3d04d4f2a3d7ece20ac0b402dc2644fe30888cba08520b94f41e",
+    "figure2_round2.png": "12603cc168f1ffe1be5bd0f93ee5a561a8b73ef0eec8d13af3482c9816d55d8f",
     "equal_area_width_ratios.csv": "8b1e4f963dcb64b282ca80380148f59a54dad2019cc13aafbcde4bb86f681c8b",
+    "holmes_L39_bounded_noise_retention.csv": "23f7ca5a03d0228cb1d72aa571992dbe6698ca27cbef049979d8a8bdbac7fe3a",
     "figure2_round2_pending.pdf": "05f43a18ed47a0c733d779f7ce1856ba6c4429c6bc8d7b8e530da36b1e9f8514",
     "train_fates_and_pending_retention.csv": "dbe8bc4134f5fae193ea4096ae1894075771ac26b37e39547387c999c9a89953",
-    "figure2_round2_supplement.pdf": "1c84700d9d2f729bc483fad9e80177e9f391b4cb3a3be94a68c3812ee4b2eede",
+    "holmes_large_L_endpoints.csv": "61a99a60b1b28fb9fb31672a68cbb3c9a6c1f555577a0889591aed0a82d0cce7",
+    "figure2_round2_supplement.pdf": "3275fa75a225bd92d0d1bc4a6a0278599f23fc1c2707dd49fa5b118545721dad",
     "incumbent_organization.csv": "1737d2e9be4110b06b295bf8550841a9f49fc5e4e24015e6d3734548db5767a5",
-    "all_selected_train_endpoints.csv": "06910eb53bcf647ad08d18a87b5df69b1947c5dbdba03965c2c582f72332ab3c",
+    "all_selected_train_endpoints.csv": "8378687fc8d19463b6e40c6e539c18ae674d863201b192908a6b8a8e47ca5bbb",
+    "debelly_numerical_qualification.csv": "2b41d11bff6296b33caa819f2241c626b3223a244e1667368bea04f69de0fd87",
+    "figure2_round2_preview.png": "12603cc168f1ffe1be5bd0f93ee5a561a8b73ef0eec8d13af3482c9816d55d8f",
     "figure2_round2_pending.svg": "5468f5a6c42997fadd8c84f3db42472f8835c063f019fa52bb5ea055ccf2e27a",
-    "initiation_normalized.csv": "c8c38297337e1fdfc30e9712c7f2e7137c6af73991a2bf1650eb66c5a60adf3a",
-    "class_membership_check.csv": "e2f921c6e1d810c0c59158a7099445072b595f6b309cf1de727bcd64a3c7dde2",
-    "legend.json": "b1fa1e84b12e30ed940931f6c67d674c10be26409a90702187641caa50645349"
-  },
-  "prior_artifact_digest_checks": 4,
-  "python_ast_parse_pass": true,
-  "png_visually_inspected": true,
-  "csv_count": 7,
-  "new_output_allocated_bytes": 6029312,
-  "reference_normalization_identity_checked": true
+    "initiation_normalized.csv": "67e55cdfe6da70707794b9fff271f9a8fb7601a26a3c6062b6c2d71b43a21428",
+    "class_membership_check.csv": "3f6668241ced78ca7ecfb473c00fc30667d7673442049fe334d3c110f0091193",
+    "legend.json": "171eba1d68849838575cdd3502c672ea5f95433ad4084fa267d46f1c87cd6301",
+    "figure2_round2_preview.pdf": "4d77ae4b2ea2515750f63cede413fde614011361a14bc49bd0165e8c2c18963c"
+  }
 }

@@ -1,0 +1,23 @@
+{
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--partition=red",
+    "--qos=small",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--mem=8G",
+    "--time=01:00:00",
+    "--array=0-31",
+    "--dependency=aftercorr:21279666",
+    "--job-name=F2-Holmes-final-audit",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_holmes_retention_round2_20261022/logs/final_audit_%A_%a.out",
+    "--error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_holmes_retention_round2_20261022/logs/final_audit_%A_%a.err",
+    "--wrap",
+    "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 /home/4473331/.conda/envs/scaling_sandbox/bin/python -B /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_holmes_retention_round2_20261022/results/frozen_independent_audit_source/worker.py worker --task \"$SLURM_ARRAY_TASK_ID\""
+  ],
+  "returncode": 0,
+  "stdout": "21279960\n",
+  "stderr": "",
+  "submitted": true
+}

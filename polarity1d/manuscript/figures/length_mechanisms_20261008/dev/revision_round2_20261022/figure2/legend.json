@@ -1,11 +1,11 @@
 {
   "id": "figure2",
   "title": "Replacement resistance in enlarged cells arises through three mechanism classes; cue shape and timing distinguish their signatures",
-  "status": "in_progress_pending_Holmes_SLURM",
+  "status": "qualified_complete",
   "assets": [
     {
-      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/figure2_round2_pending.png",
-      "caption": "Figure 2 round2 pending Holmes retention",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/figure2_round2.png",
+      "caption": "Figure 2 round2 with completed Holmes retention",
       "page_size": [
         12.5,
         14.5
@@ -15,21 +15,30 @@
     }
   ],
   "legend": [
-    "Enlarged cells resist replacement through distinct initiation, spatial and temporal signatures; the proposed three-class interpretation remains conditional on the pending Holmes large-length retention runs.",
-    "A, Incumbent amount, extent and peak across the retained 97 states. B, Initiation normalized to each model\u2019s L19 value at central area and the fixed 10% L19 reporter threshold. Brackets propagate saved-sample intervals. deBelly L19 and L39 initiation both lie in (0, 0.5] native units; its ratio is unresolved and is not assigned a point estimate. The open downward symbols show those upper bounds schematically, outside the ratio scale.",
-    "C, Narrow/broad replacement-time ratio at fixed commanded spatial area. Open triangles and arrows are one-sided bounds; question marks denote uninformative ratios. Holmes large-length width curves do not establish a growing penalty when both arms are censored. Commanded area is not calibrated photon dose.",
-    "D, Four equal pulses with total ON 1.5 times the model-length commitment calibration; final D after recovery is the colour. Open diamonds identify unexecuted Holmes large-length retention conditions, whose future endpoint D will be distinct from post-recovery fate. No continuous commitment by 100,000 at Holmes L31, L35 and L39 is a finding of extreme finite-horizon replacement resistance.",
-    "E, L39 gap4 histories. Holmes L39 is pending, with no L27 substitution. Shading marks cue ON; circles and squares mark pulse and gap endpoints. F, Proposed classes with explicit unresolved cells. No membership changes have been made. deBelly later-gap timing and endpoint-field sensitivity remain qualified; its early collapse and final replacement survive the separate quarter-step check. All native kinetics are unchanged. Polarity readouts are distinct from observed migration and conditional OU persistence."
+    "Enlarged cells resist replacement through distinct initiation, cue-width and gap-retention signatures, supporting three mechanism classes in the deterministic cue assays.",
+    "A, Incumbent amount, extent and peak across the retained 97 states. B, Initiation normalized to each model\u2019s L19 value at central area and the fixed 10% L19 reporter threshold. Brackets propagate saved-sample intervals. deBelly L19 and L39 initiation both lie in (0, 0.5] native units; its normalized ratio is unavailable. Its separate native-time inset places open downward triangles at the measured upper bounds 0.5 and at the actual lengths 19 and 39, with arrows toward smaller times.",
+    "C, Narrow/broad replacement-time ratio at fixed commanded spatial area. Open triangles and arrows are one-sided bounds; question marks denote uninformative ratios. Wave-pinning has a growing large penalty. Holmes grows from about 29 at L19 to above 133 at L23; growth through L39 is unresolved because both width arms are censored. Goryachev and Spring have modest penalties rather than exact width invariance. Commanded area is not calibrated photon dose.",
+    "D, Four equal pulses with total ON 1.5 times the model-length commitment calibration; final D after recovery is the colour. For Holmes L31, L35 and L39, diamonds identify the last inter-pulse gap-end D from the targeted L27-referenced protocol; this endpoint is distinct from final fate. Gap0 uses the zero-duration boundary after the third pulse. No continuous commitment by 100,000 at these three lengths is extreme finite-horizon replacement resistance. Crosses preserve failed field tails, including 31 of the 36 deBelly fate cells.",
+    "E, L39 gap4 histories. Shading marks cue ON; circles and squares mark pulse and gap endpoints. The deBelly trace includes full recovery to its measured final fate; other traces show through one pulse duration of recovery, with full post-recovery D stated in each plot. Holmes retains more than 84% of raw challenger share through all three gaps, although D is slightly negative in the first two and final D remains below 0.5. Retention of share differs from the secondary S3 criterion requiring D at least zero. F, The class table has a numerical evidence row for every model and signature; membership is unchanged. deBelly early collapse and final replacement survive its separate quarter-step check, while later-gap timing and endpoint fields remain sensitive. All native kinetics are unchanged. These polarity readouts are distinct from observed migration and conditional OU persistence.",
+    "The separate Holmes L39 gap16 transfer has heterogeneous bounded input during gaps: S3 successes are 8/12, 9/12, 10/12 after gaps 1\u20133. Raw share ratios span 0.02152\u20131.78070; final D spans -0.063410\u20130.999944. Ten of twelve noisy histories replace, while matched-mean and zero controls do not. The class table describes gaps without added input; this separate transfer demonstrates variable retention and fate under spatially heterogeneous input."
   ],
   "limitations": [
-    "32 targeted Holmes workers prepared but submission blocked; no large-L retention data",
     "deBelly normalized initiation unresolved within first-update intervals",
-    "Holmes large-L equal-area growth uninformative; no membership change"
+    "Holmes width-penalty growth through L39 uninformative; moderate-length growth verified",
+    "deBelly later-gap timing and endpoint fields remain numerically sensitive",
+    "Holmes share retention is distinct from S3 D>=0 retention success and from commitment",
+    "Modest Goryachev/Spring width penalties qualify binary no-penalty wording; no class change",
+    "Selected mechanistic signatures do not causally allocate replacement resistance",
+    "Bounded heterogeneous Holmes gap input gives S3 successes 8/12, 9/12, 10/12; some histories lose share or replace, unlike deterministic/mean controls. Integrated gap exposure is 2.46 times ON exposure; deterministic class membership does not imply universal noisy-gap retention."
   ],
   "sources": [
     {
       "label": "Class evidence CSV",
       "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/class_membership_check.csv"
+    },
+    {
+      "label": "Holmes endpoints",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/figure2/holmes_large_L_endpoints.csv"
     }
   ]
 }
