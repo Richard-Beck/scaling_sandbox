@@ -13,6 +13,7 @@ REPORT=ROOT/'figures/length_mechanisms_20261008'
 DEV=REPORT/'dev'
 RECORDS=DEV/'_organization'
 GROUPS={
+ 'revision_round3_20261022/figure4':('revision_round3_figure4_', 'figure4_round3_',),
  'revision_round2_20261022/figure2':('revision_round2_figure2_', 'figure2_round2_'),
  'revision_round2_20261022/figure3':('revision_round2_figure3_', 'figure3_round2_'),
  'revision_round2_20261022/figure4':('revision_round2_figure4_', 'figure4_round2_', 'S0_common_', 'S0_longest_'),
@@ -79,6 +80,7 @@ TITLES['revision_program_20261020/figure3_distance']='Figure 3 revision: distanc
 TITLES['revision_round2_20261022/figure2']='Figure 2 round-2 replacement-resistance signatures'
 TITLES['revision_round2_20261022/figure3']='Figure 3 round-2 short-range separation and matched-gap size effects'
 TITLES['revision_round2_20261022/figure4']='Figure 4 round-2 heading decay rates: author-authorized Case A'
+TITLES['revision_round3_20261022/figure4']='Figure 4 round-3 nulls for size-dependent heading persistence'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def write(p,value):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(value,indent=2,ensure_ascii=False)+'\n')
 def group(name):
@@ -234,7 +236,7 @@ def organize_group(name,dry_run=False):
  readme=folder/'README.md'
  # Round-2 generators own the scientific message, qualifications and links.
  # Organization must preserve that narrative rather than restore an interim.
- if name.startswith('revision_round2_20261022/') and readme.exists():
+ if name.startswith(('revision_round2_20261022/','revision_round3_20261022/')) and readme.exists():
   text=readme.read_text()
  index=DEV/'README.md'
  index_before=index.read_text()
