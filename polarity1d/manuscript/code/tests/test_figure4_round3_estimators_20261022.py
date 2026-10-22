@@ -61,6 +61,13 @@ class Estimators(unittest.TestCase):
         self.assertEqual(moment[1,0],5)
         self.assertAlmostEqual(moment[0,0]/moment[1,0],np.cos(.74),places=13)
 
+    def test_full_window_lag_includes_single_endpoint_pair(self):
+        for model,cadence,longest in [('wave_pinning',5.,16000.),('spring_ring',.5,1600.)]:
+            target,lags=E.lag_grid(model,3200*cadence,cadence)
+            self.assertEqual(lags[-1],longest)
+            moment=E.seed_moments(np.ones(3201,complex),np.ones(3201,bool),cadence,lags)
+            self.assertEqual(moment[1,-1],1);self.assertEqual(moment[2,-1],1)
+
     def test_explicit_moment_over_amount_changes_eligibility(self):
         archive={'M1_real':np.full(5,.5),'M1_imag':np.zeros(5),'M0':np.full(5,10.),'P_real':np.ones(5),'P_imag':np.zeros(5)}
         P=A.normalized_P(archive)
