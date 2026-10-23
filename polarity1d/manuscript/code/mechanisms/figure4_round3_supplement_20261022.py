@@ -4,6 +4,7 @@ import math
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
+from matplotlib.ticker import MaxNLocator, ScalarFormatter
 
 from figure4_round3_render_20261022 import (MODELS,NAMES,SIZES,primary,read_csv,
     write_csv,write_json,n,finite,equivalent_size,size_color,style_axis,log_f,
@@ -101,6 +102,11 @@ def supplement(data, output):
                 limits=((min(vals)/2,max(vals)*2) if vals else (1e-8,1.)) if log_scale else (0.,max(vals)*1.05 if vals and max(vals)>0 else 1.)
                 scale='log' if log_scale else 'linear'
                 ax.plot(limits,limits,color='.65',lw=.6,zorder=1);ax.set(xscale=scale,yscale=scale,xlim=limits,ylim=limits,xlabel='Tracked '+METRIC_LABELS[metric],ylabel='Detector-free '+METRIC_LABELS[metric])
+                if not log_scale:
+                    for axis in (ax.xaxis,ax.yaxis):
+                        formatter=ScalarFormatter(useMathText=True)
+                        formatter.set_powerlimits((-2,2));formatter.set_useOffset(False)
+                        axis.set_major_locator(MaxNLocator(nbins=4,min_n_ticks=3));axis.set_major_formatter(formatter)
                 facet(ax,NAMES[model]);style_axis(ax)
                 if not points:ax.text(.5,.65,'No '+('positive' if log_scale else 'defined')+' paired\nestimates',transform=ax.transAxes,ha='center',fontsize=7)
             if not log_scale:fig.text(.1,.025,'Linear axes retain empirical zeros; only undefined pairs are omitted. Open markers identify forced conditions; no undefined value is imputed.',fontsize=6,wrap=True)
