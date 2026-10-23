@@ -1,88 +1,78 @@
 {
   "id": "figure3",
-  "title": "Local edge pulses expose coupled boundary motion and test an untuned prediction of polarity-domain drift.",
-  "status": "round5_complete",
+  "title": "Enlargement slows both turning routes and selectively suppresses boundary susceptibility.",
+  "status": "round5_review_complete",
   "legend": [
-    "A. Native Wave-pinning active species u versus arc position centred on the incumbent\u2019s initial centre, at C = 30 for (i) gap \u22121 (straddling) and (ii) gap 4 (separated). Rows show 0%, 50% and 90% of the target heading under continuous cue, then the final cue-free profile. Grey shading marks the fixed cue support in every row; open diamonds mark an inter-region saddle where resolved, and black ticks on the arc axis mark heading. Each column shares its y-scale.",
-    "B. Time to 50% of the angle from initial activity-vector heading to the cue direction versus initial cue edge gap (near edge of cue support minus the incumbent\u2019s 10%-contrast boundary).. Time and length retain each model\u2019s native units. Curves, gaps, brackets and three Figure 3 sizes are unchanged; lighter solid, intermediate dashed and darker dotted lines denote increasing C. Filled i\u2013ii markers identify A.",
-    "Vertical lines mark the first tested gap with two resolved regions and a saddle at the 50% crossing for each C, using that size\u2019s line style; the existing periodic watershed detector is applied to the native saved-field interpolant. Light grey bands mark sampled near-antipode placements with undefined heading at one or more sizes (activity-vector coherence R < 0.05 or a cancellation interval); that size\u2019s curve breaks there. Open up-triangles mark censored time lower bounds; horizon caps are not measured values.",
-    "For the relaxation row only, cue-off occurs at 95% heading or at 20,000 if 95% is not reached, restarting from the full native event state after an identical cue-on replay. No-cue relaxation stops when max |\u2202u/\u2202t| reaches the existing tolerance 2.2683 \u00d7 10\u207b\u2077 (native activity per native time; the original 10\u207b\u2074 scaled-RHS tolerance over 1,000 time units), or after four times the cue-on duration. i: cue off at 95% heading, t = 790.5; relaxed for 258.6, stopped at stationarity; ii: cue off at 95% heading, t = 227.6; relaxed for 291.3, stopped at stationarity.",
-    "C. Control-subtracted displacement of the pulsed falling half-contrast edge, divided by peak input a, at f = 0.001. Shading denotes Figure 4 circumference: chemical C = 20, 30, 40, 50, 60; Spring resting C = 1, 1.5, 2, 2.5, 3. The stationary polarized state at each declared constant mean is used, without noise or retuning. A Gaussian pulse centered on the boundary has spatial SD \u2113 = 1.5 and duration \u03c4 = 50 (Spring 0.15 and 5). Peak a is 10\u207b\u2074 of the native reference: 10\u207b\u2075 Wave-pinning, 10\u207b\u2074 Holmes, 4 \u00d7 10\u207b\u2074 Spring and 6.4 \u00d7 10\u207b\u2074 Goryachev. The grey interval is pulse-on. Inset A\u2082\u2080\u03c4 is displacement integrated through 20\u03c4 divided by pulse dose a\u03c4. Both edges, a/2 and 2a are checked in the supplement. A residual positional offset is allowed because translation is neutral; this is not an infinite displacement integral. Largest/smallest terminal displacement per pulse dose is 0.701 Wave-pinning, 0.914 Holmes, 0.989 Spring and 0.0878 Goryachev.",
-    "D. The prescribed independent-edge prediction, D\u209b = (Dleft + Dright)/4, against physical tracked domain drift measured in Figure 4 at f \u2264 0.01 (markers). Colors and shading match C. Each measured terminal edge gain per pulse dose scales the native spatial response shape, normalized to give unit response to that exact localized pulse; this extra spatial-shape assumption is explicit. The native linearization supplies its shape only, while measured C amplitudes supply its gain; the imposed discrete spatial covariance and phase-averaged OU-knot interpolation enter the exact lognormal covariance \u03bc\u00b2[exp(\u03c3\u00b2C\u2093C\u209c) \u2212 1], with \u03c3 = 1. There is no diffusion fitting or parameter adjustment. Line: 1:1; horizontal bars: Figure 4 whole-seed-bootstrap 95% CI. This predicts Figure 4\u2019s tracked drift, not total heading decay. The independent prediction/observation medians are Wave-pinning 0.511, Holmes 0.540, Spring 0.534, Goryachev 0.437. Goryachev spans 0.00359\u20134.01 across conditions, so a single bias does not summarize its failure. Goryachev C20/C30 at f = 0.01 has no polarized boundary at the declared mean, so its prediction is undefined.",
-    "The edge-independence supplement measures simultaneous half-contrast displacements from existing Figure 4 exemplar profiles, seeds 0 and 1, using uninterrupted single-region intervals and exposing float16 precision limits. At quarter-window lag, resolved median correlations are Wave-pinning 0.980, Holmes 0.983, Spring 0.997, Goryachev 0.759. Positive common motion violates edge independence. Retaining the native shared translation covariance doubles the prediction; this sensitivity is supplementary and does not adjust any parameter. Goryachev\u2019s disagreement and short valid-region exposure remain explicit.",
-    "Cellular counterpart of C: photoactivation straddling a leading-edge boundary, tracking both flanking boundaries and their displacement after withdrawal. Native units are not calibrated between models. deBelly is excluded from rings."
+    "A. Wave-pinning activity at C = 30 for a cue straddling the incumbent boundary (i, gap \u22121) or separated from it (ii, gap 4). Rows show 0%, 50% and 90% of cue-direction heading, then the relaxed cue-free profile. Grey: cue support; diamonds: inter-region saddles; ticks: heading.",
+    "B. Half-turn time versus cue-edge gap from the incumbent\u2019s 10%-contrast boundary. Increasing sizes use lighter solid, intermediate dashed and darker dotted curves; chemical C = 30, 37.8, 47.6, Spring 2.5, 3.15, 3.97. Vertical lines mark the first resolved two-region saddle at half-turn; grey bands mark undefined heading at \u22651 size; triangles are time lower bounds. Enlargement slows both turning routes. C\u2013D use different size grids, so these panels do not establish a matched-size relation between strong-cue turning and weak-pulse response.",
+    "C. Control-subtracted displacement of the pulsed half-contrast boundary divided by peak input a, at f = 0.001. A Gaussian pulse has SD \u2113 = 1.5 and duration \u03c4 = 50 (Spring 0.15 and 5); peak a = 10\u207b\u2074 of the native input reference. Shades denote chemical C = 20\u201360 or Spring resting C = 1\u20133. Insets show displacement integrated to 20\u03c4, divided by pulse dose a\u03c4, then normalized to the smallest size on a common 0\u20131.1 axis. Largest/smallest terminal gains are 0.701 Wave-pinning, 0.914 Holmes, 0.989 Spring and 0.0878 Goryachev. Both edges and half/double amplitudes are checked in the supplement.",
+    "D. Above: predicted versus Figure 4 physical tracked drift for f \u2264 0.01. Filled markers retain shared translation; open markers retain the rejected independent-edge candidate. Measured pulse gain sets response amplitude; the unchanged native linearization supplies spatial shape, and the exact input covariance supplies forcing statistics. Nothing is fitted to drift. Below: predicted versus measured D\u209b(C)/D\u209b(Cmin) at the same f, removing the dominant input-strength scaling. Wave-pinning at f = 0.001 gives C60/C20 = 0.49 predicted and 0.47 measured. Lines: 1:1; bars: whole-seed-bootstrap 95% CI. Goryachev C20/C30 at f = 0.01 have no polarized mean-state boundary; the normalized prediction at that f also lacks its C20 reference.",
+    "Wave-pinning, Holmes and Spring have shared-translation prediction/observation medians 1.021, 1.080 and 1.069. Resolved quarter-window edge correlations are 0.980, 0.983 and 0.997 in the two exemplar seeds, refuting edge independence. Goryachev retains large quantitative disagreement. Tracked drift is conditional on trackable domains and is distinct from total heading decay.",
+    "Two cellular assays follow: vary photoactivation offset from straddling to separated placement and measure half-turn time; separately apply a weak brief boundary pulse and track both boundaries through withdrawal. The second assay measures susceptibility and common translation; it does not uniquely assign Figure 2 mechanism classes. Native units are not calibrated across models."
   ],
-  "role": "Cue placement separates sliding from takeover; local boundary response tests a no-retuning prediction of physical domain drift.",
+  "role": "Size-dependent susceptibility links deterministic boundary perturbation to weak-input domain drift; cue position separates two slower turning routes in enlarged rings.",
   "narrative": [
-    "Cue placement relative to the incumbent boundary separates sliding from takeover, and enlargement slows half-turn reorientation. In the weak-input deterministic response the two boundaries share a long-lived translation: the prescribed independent-edge approximation gives median prediction/observation ratios 0.511, 0.540 and 0.534 in Wave-pinning, Holmes and Spring. Existing noise exemplars confirm correlated boundary motion. Goryachev does not give a general drift-based explanation of heading persistence."
+    "Cue placement separates sliding of the incumbent from takeover by a new region; enlargement slows both routes. Weak boundary susceptibility changes differently across models: terminal response at the largest size is 70% of the smallest-size response in Wave-pinning, 9% in Goryachev, 91% in Holmes and 99% in Spring.",
+    "The deterministic boundary response predicts physical domain drift without fitting when shared translation is retained. Wave-pinning\u2019s C60/C20 drift ratio at f = 0.001 is 0.494 predicted and 0.473 measured. Holmes and Spring show much weaker susceptibility changes. The independent-edge approximation is refuted by boundary co-motion; Goryachev\u2019s drift prediction remains quantitatively inconsistent and does not explain its full heading persistence."
   ],
   "measurements": [
-    "Photoactivate across a leading-edge half-contrast boundary; measure both boundary responses, fluctuations and covariance."
+    "Vary photoactivation offset from straddling to separated placement; measure time to half-turn.",
+    "Apply a weak brief pulse across the leading-edge boundary; measure both boundary displacements, common translation and covariance. This readout complements rather than uniquely identifies the Figure 2 mechanism classes."
   ],
   "limitations": [
-    "The local pulse alone does not identify spatial susceptibility; the unchanged native Jacobian supplies it and is separately checked against both terminal pulse gains. Independence is a tested approximation and fails at long lag. Exemplar edge correlations use two seeds and bounded float16 profiles; unresolved short-lag displacements are flagged. Goryachev C20/C30 f=.01 has no stationary polarized boundary at constant mean. Physical tracked drift is conditional on trackable single-region intervals and is distinct from global heading decay."
-  ],
-  "assets": [
-    {
-      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/figure3_round5.png",
-      "native_pdf_page": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/figure3_round5.pdf",
-      "page_size": [
-        16.2,
-        12.9
-      ],
-      "minimum_printed_width_inches": 16.2,
-      "page_title": ""
-    }
-  ],
-  "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/figure3_round5.pdf",
-  "supplement_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/figure3_round5_supplement.pdf",
-  "reader": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/index.html",
-  "sources": [
-    {
-      "label": "Preserved A/B source tables",
-      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/supporting/metadata/preserved_AB.json"
-    },
-    {
-      "label": "Deterministic frozen protocol",
-      "path": "polarity1d/manuscript/data/runs/figure3_round5_edge_pulses_v2_20261023/manifest.json"
-    },
-    {
-      "label": "Prediction and measured drift",
-      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/supporting/data/edge_prediction_comparison.csv"
-    },
-    {
-      "label": "Both edges and amplitude checks",
-      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/supporting/data/pulse_response_summary.csv"
-    },
-    {
-      "label": "Exemplar edge independence",
-      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/supporting/data/edge_independence_summary.csv"
-    },
-    {
-      "label": "Methods and results",
-      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/METHODS_RESULTS.md"
-    }
+    "Panel B and C\u2013D use different size grids and perturbation strengths; a matched-size comparison is not established. One pulse does not identify spatial response shape; native linearization supplies that explicit assumption, while measured pulse gain supplies amplitude. Two float16 exemplar seeds support the covariance check, with short-lag precision limits. Goryachev\u2019s unresolved mean-state boundaries and quantitative drift disagreement remain visible. Physical domain drift is not total heading decay or empirical cell migration persistence."
   ],
   "equations": [
     {
       "math": "D_s^{\\mathrm{ind}}=\\frac{D_L+D_R}{4},\\qquad D_s=\\frac{D_L+D_R+2D_{LR}}{4}",
       "number": "3.1",
-      "description": "The main panel applies edge independence; the supplement retains the measured positive boundary coupling."
+      "description": "Open markers test independent edges; filled markers retain the untuned shared-translation covariance."
     },
     {
-      "math": "\\widehat g_{e,j}=\\frac{M_e}{Q_e}g_j,\\qquad M_e=\\frac{\\Delta x_e(20\\tau)}{a\\tau},\\quad Q_e=\\sum_j g_jh_{e,j}",
+      "math": "\\widehat g_{e,j}=\\frac{M_e}{Q_e}g_j,\\qquad M_e=\\frac{\\Delta x_e(20\\tau)}{a\\tau},\\quad Q_e=\\sum_jg_jh_{e,j}",
       "number": "3.2",
-      "description": "Measured terminal displacement per pulse dose supplies gain. The unchanged native linearization supplies only the spatial shape g; h is the actual localized pulse shape. No measured diffusion enters."
+      "description": "Measured terminal displacement per pulse dose supplies amplitude; the unchanged native response supplies spatial shape. The covariance derivation is in the methods and supplement."
+    }
+  ],
+  "assets": [
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/figure3_round5_review.png",
+      "native_pdf_page": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/figure3_round5_review.pdf",
+      "page_size": [
+        16.2,
+        15.5
+      ],
+      "minimum_printed_width_inches": 16.2,
+      "page_title": ""
+    }
+  ],
+  "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/figure3_round5_review.pdf",
+  "supplement_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/figure3_round5_review_supplement.pdf",
+  "reader": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/index.html",
+  "sources": [
+    {
+      "label": "Physical diffusion prediction and observed drift",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/supporting/data/edge_prediction_comparison.csv"
     },
     {
-      "math": "K_u(j,k;t,t+v)=\\mu^2\\{\\exp[\\sigma^2C_x(j-k)C_t(t,t+v)]-1\\}",
-      "number": "3.3",
-      "description": "This is the declared lognormal covariance, with the exact discrete circular spatial kernel and variance-normalized OU-knot interpolation; the knot phase is averaged."
+      "label": "Size-normalized prediction and observed drift",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/supporting/data/size_normalized_prediction_comparison.csv"
     },
     {
-      "math": "D_e=\\sum_{j,k}\\widehat g_{e,j}\\widehat g_{e,k}\\int_0^\\infty\\overline{K_u(j,k;t,t+v)}^{\\,t}\\,\\mathrm{d}v",
-      "number": "3.4",
-      "description": "Native linear response and the convention MSD = 2Dt give each marginal edge diffusivity. The time integral is evaluated without generating new stochastic inputs."
+      "label": "Normalized integrated boundary response",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/supporting/data/normalized_integrated_edge_response.csv"
+    },
+    {
+      "label": "Methods and covariance derivation",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/METHODS_RESULTS_review.md"
+    },
+    {
+      "label": "Both boundary assays and numerical checks",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/supporting/metadata/numerical_checks.json"
+    },
+    {
+      "label": "Reviewed main/supplement preservation",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023/figure3/supporting/metadata/reviewed_49754ab_preservation.json"
     }
   ]
 }

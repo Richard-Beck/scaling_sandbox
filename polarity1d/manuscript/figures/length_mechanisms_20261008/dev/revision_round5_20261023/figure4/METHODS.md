@@ -1,4 +1,35 @@
-# Figure 4 methods: existing-campaign event and heading analysis
+# Native-amplitude heading accounting used in the main figure
+
+The original normalized point-region reconstruction has a unit-modulus moment for a single region even when the native field has a broad active profile and $|P|<1$. Its unscaled motion fraction is therefore approximately $1/|P|$, with an offsetting residual. This is a normalization artefact, not evidence that a distinct biological process cancels motion. The main panel instead expresses the same three Shapley changes at the native endpoint mean moment amplitude. It does not change the native profiles, region detection, endpoints, lag, moment eligibility, births, takeover records or measured total heading loss.
+
+Let
+
+$$
+r_t=|P_t|,\qquad \widetilde Q_t=r_tQ_t,\qquad \bar r=\frac{r_0+r_1}{2}. \tag{A.1}
+$$
+
+For each original symmetric Shapley change of $Q$, use
+
+$$
+\Delta P_j=\bar r\,\Delta Q_j,\qquad j\in\{\mathrm{motion,amount,membership}\}. \tag{A.2}
+$$
+
+The remainder closes the measured native moment change exactly:
+
+$$
+\Delta P_{\mathrm R}=\Delta P-\bar r\,\Delta Q
+=\Delta(P-rQ)+\bar Q\,\Delta r,\qquad\bar Q=\frac{Q_0+Q_1}{2}. \tag{A.3}
+$$
+
+It contains native amplitude variation, within-region shape, unresolved activity and background; it is not a pure background term. Project the four components with equation 4.5 below. The same exact signed identity holds. In a single rigidly translating domain, $P_t=r_te^{\mathrm i\theta_t}$ and $Q_t=e^{\mathrm i\theta_t}$, so the radial remainder is orthogonal to the unit-heading chord: motion contributes exactly one and remainder zero, even when $r_t$ varies. A synthetic test varies both heading and amplitude at three lags; multiregion and full-campaign checks also close numerically. The corrected campaign contains the same 170 eligible conditions and 45,696 source histories. It was reanalysed through heading-only SLURM job 21333382 without regenerating events or noisy model runs.
+
+`heading_amplitude_condition_metrics.csv` and `heading_amplitude_seed_metrics.csv` contain the main accounting. Original `birth_heading_condition_metrics.csv` and per-condition `seeds.csv` remain unchanged. The reviewed main and 40-page supplement are saved under `supporting/historical_unscaled_20261023/` and appended unchanged after the new supplementary pages. This convention is descriptive and not uniquely causal.
+
+For the time-horizon check, use certified births with at least 80τ of remaining record, pool f>0.01, and hold this cohort fixed at every horizon from 1τ to 80τ. The supplementary curves show observed five-frame-dominance incidence for the same cohort, not lifetime probability. Extending a finite horizon cannot by itself identify lifetime success or remove certification selection.
+
+## Original unscaled accounting retained as a diagnostic
+
+# Original event and unscaled-heading methods
 
 The unchanged completed campaign contains 260 designed conditions and 45,696 independent histories (96–384 per condition). No new noisy trajectories were generated. New analysis reads every compact archive, not the bounded illustration profiles. Source cohort, hashes, cadence, controls, drift and correlation estimates are inherited from round 4. Chemical saved cadence is 5; Spring cadence is 0.5. A five-frame hold therefore spans five samples (first-to-fifth elapsed time 20 or 2); the historical switch convention is retained.
 
@@ -28,7 +59,7 @@ $$
 
 Half-width includes the full-basin amount, not the truncated half-contrast contour amount. This plateau approximation and any negative distance remain explicit. Distance bins are $d\leq0$, $0<d\leq C_{\rm birth}/6$ and $d>C_{\rm birth}/6$. They are scaled relative to actual birth circumference; this avoids mixing the different native length scales.
 
-A takeover requires that the newborn identity become globally dominant for at least five consecutive saved frames. The event time is the fifth frame. A common follow-up of 20 independent noise-block durations is used: 1,000 chemical time units or 100 Spring units. Births with shorter remaining observation are excluded. Successes must occur by this horizon. The result is an observed common-horizon probability conditional on certification, not lifetime probability or the probability for all births. Pool designed inputs $f>0.01$ without balancing their event counts. Report each input separately in `takeover_by_condition_distance.csv`; short-followup exclusions, surviving/censored tracks and median available follow-up are recorded. Independent histories, including histories with zero events, are resampled together for 2,000 whole-history pointwise bootstrap draws. Bootstrap intervals do not resolve systematic certification selection.
+A takeover requires that the newborn identity become globally dominant for at least five consecutive saved frames. The event time is the fifth frame. A common follow-up of 20 noise correlation times is used: 1,000 chemical time units or 100 Spring units. Births with shorter remaining observation are excluded. Successes must occur by this horizon. The result is an observed common-horizon probability conditional on certification, not lifetime probability or the probability for all births. Pool designed inputs $f>0.01$ without balancing their event counts. Report each input separately in `takeover_by_condition_distance.csv`; short-followup exclusions, surviving/censored tracks and median available follow-up are recorded. Independent histories, including histories with zero events, are resampled together for 2,000 whole-history pointwise bootstrap draws. Bootstrap intervals do not resolve systematic certification selection.
 
 ## Exact endpoint moment convention
 
@@ -39,7 +70,7 @@ P_t=\frac{M_{1,t}}{M_{0,t}},\qquad
 Q_t=\frac{\sum_{i\in I_t} A_{i,t}e^{\mathrm i\theta_{i,t}}}{\sum_{i\in I_t} A_{i,t}},\qquad R_t=P_t-Q_t. \tag{4.3}
 $$
 
-The complete-basin amounts and excess-weighted half-contrast centroids do not reconstruct each region’s first moment exactly. Therefore $R$ includes within-region shape and amplitude, centroids defined by a different support, untracked activity, and diffuse background. It is a **moment residual**, not solely background. In a broad single domain, $|Q|=1$ while $|P|<1$; substantial cancelling motion/residual contributions are consequently expected under this mandated normalization.
+The complete-basin amounts and excess-weighted half-contrast centroids do not reconstruct each region’s first moment exactly. Therefore $R$ includes within-region shape and amplitude, centroids defined by a different support, untracked activity, and diffuse background. It is a **moment residual**, not solely background. In a broad single domain, $|Q|=1$ while $|P|<1$; substantial cancelling motion/residual contributions are consequently expected under this unit-normalized point-region convention.
 
 For a lag pair, form three binary endpoint operations. Motion changes the positions of shared identities. Coexisting amount changes the amounts of shared identities. Membership removes identities present only at the first endpoint and inserts identities present only at the second, with their observed endpoint positions/amounts. Membership includes unclassified splits, mergers and threshold appearances/disappearances, not only the certified no-parent births of panel E(i). At each of the eight hybrids, recompute the normalization in $Q$. Average the contribution of each operation over the six possible orders (the three-factor Shapley convention):
 

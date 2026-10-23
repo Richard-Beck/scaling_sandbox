@@ -10,6 +10,7 @@ def documents(legend_only=False):
     out=A.OUT;data=out/'supporting/data';meta=out/'supporting/metadata'
     rows=A.read_csv(data/'birth_heading_condition_metrics.csv');fits=A.read_csv(data/'weak_input_drift_exponents.csv')
     receipt=json.loads((meta/'round5_analysis_receipt.json').read_text())
+    amplitude_aware=(data/'heading_amplitude_condition_metrics.csv').exists()
     exponents={m:(min(float(r['exponent']) for r in fits if r['model']==m),max(float(r['exponent']) for r in fits if r['model']==m)) for m in ('wave_pinning','holmes_model3','spring_ring')}
     exponent_text='; '.join(R.NAMES[m]+f' {v[0]:.2f}–{v[1]:.2f}' for m,v in exponents.items())
     panels=[
@@ -19,11 +20,31 @@ def documents(legend_only=False):
       ('D','Physical within-tenure drift Dₛ is normalized by the smallest size at the same input. Unity gives the equal-physical-drift geometric expectation α=2. Weak-input log–log fits for f≤0.01 give exponents '+exponent_text+'. The second row shows the existing event-based predicted/observed decay only where f≤0.01 and multiple regions occupy at most 5% of frames. 45/47 eligible point comparisons lie within 15% (Wave-pinning 16/16; Holmes 15/16; Spring 14/14; Goryachev 0/1). These point predictions assign the scored-event mean angular loss to unscored replacements; this remains an assumption. Goryachev uses separate logarithmic ordinate ranges: 10⁻⁷–2 for normalized drift and 0.003–3.3 for decay ratio; other models use 0.2–8 and 0.3–3.3. The actual mean circumference, C̄, enters physical-to-angular conversion. Figure 3D independently predicts this measured drift from deterministic edge responses.'),
       ('E','i, Certified secondary-domain birth rates per actual perimeter-time. A new track must persist at least five saved frames, have an incumbent in the preceding frame, and have a conservative support enclosure disjoint from every preceding region. The curves are lower bounds, not estimates of all no-overlap births: original masks and parent IDs were discarded. All persistent secondary onsets, including unresolved splits, supply upper bounds in the supplement. Exact split counts are unavailable for all 260 conditions. ii, Probability of five-frame global dominance within a common follow-up of 20 noise blocks (1000 chemical units; 100 Spring), conditional on certified no-parent births. Births with shorter available follow-up are excluded; pointwise 95% whole-history bootstrap intervals are shown. Designed inputs f>0.01 are pooled without input reweighting. Distance d is the shortest centroid arc minus Aᵢₙ꜀/(2h), where incumbent full-basin excess amount Aᵢₙ꜀ and global contrast h from the preceding frame estimate a plateau half-width. This is an explicit plateau approximation. Curves distinguish d≤0, 0<d≤C/6 and d>C/6; circumference bins use nominal size while exposure uses actual circumference. The Figure 2B–C asymmetry motivates measuring initiation and replacement separately. The observed takeover decline applies to this finite-horizon, certified subset; unequal certification prevents a population-level birth/takeover claim. iii, Exact signed allocation of eligible endpoint heading loss over each condition’s existing analysis lag: M, shared-region motion; A, shared-region amount; B, track membership changes; R, moment residual. Membership includes unclassified splits and mergers. Three-factor symmetric Shapley changes of the normalized point-region moment plus the measured-moment residual sum exactly to the observed moment change. Their projections sum to 1−cos Δθ. Signed pooled fractions sum to one and may be negative or exceed one; cancellations are retained. The residual includes within-region shape and amplitude, unresolved activity and diffuse background. The symmetric-log color scale is linear for |fraction|≤0.1 and spans −10 to 10; black dots mark values outside that range. Gray cells lack an eligible lag or valid endpoint/hybrid moments. These are convention-dependent descriptive allocations, not causal fractions.')
     ]
+    panels=[(p,('Matched small- and large-ring kymographs are centred on their initial activity heading to the nearest spatial bin. '
+        'Time increases upward; black outside ticks mark persistent dominant-region replacements. Activity scales are shared within '
+        'Wave-pinning, Holmes and Spring; Goryachev uses 0–9.2 at C20 and 0–83 at C60. Ensemble C(ℓ) curves are below. '
+        'A low-contrast initial heading may have weak biological meaning despite a defined numerical centre.') if p=='C' else t) for p,t in panels]
+    if amplitude_aware:
+        panels=[(p,('i, Certified no-parent secondary births per actual perimeter-time: new tracks persist at least five frames, '
+          'have a preceding incumbent, and have conservative support enclosures disjoint from all previous regions. Rates are lower bounds; '
+          'discarded masks prevent exact birth/split classification. ii, Observed incidence of five-frame global dominance by 20τ '
+          '(1000 chemical units; 100 Spring), conditional on certified births with that follow-up. Inputs f>0.01 are pooled. '
+          'Distance d subtracts estimated incumbent half-width (preceding full-basin amount divided by twice global contrast h) from '
+          'the shortest centroid arc. Vertical intervals are 95% whole-history bootstrap intervals. A lower finite-horizon incidence '
+          'can reflect delayed or less frequent takeover; lifetime success remains unidentified. Figure 2B–C motivates separating '
+          'initiation from incumbent removal. iii, Native-amplitude-aware signed heading-loss allocation over the condition’s analysis lag. M, shared-region '
+          'motion; A, coexisting amount; B, track membership including unresolved splits/mergers; R, amplitude/shape/background remainder. '
+          'Point-region Shapley changes are scaled by mean native endpoint moment amplitude, so pure rigid translation gives M=1, R=0. '
+          'Components sum exactly to observed heading loss but are descriptive, convention-dependent shares. The symmetric-log color '
+          'scale is linear within ±0.05 and spans ±1; dots indicate values outside ±1, gray unavailable pairs. The unit-normalized '
+          'point-region diagnostic and its normalization artefact are preserved in the supplement; eligibility and equations are detailed in Methods.') if p=='E' else t) for p,t in panels]
     narrative=[
       'Enlargement extends heading memory and raises noise tolerance, while the size advantage weakens as input strengthens. The weak-input drift in Wave-pinning, Holmes and Spring is close to quadratic in input, connecting Figure 4 to the deterministic edge-response test in Figure 3.',
       'Direct event accounting distinguishes persistent secondary onsets from certifiable no-parent births. Certified takeover probability declines with size in each model at a common finite follow-up, but different certification fractions and pooled inputs limit population inference. Per-perimeter birth direction varies by model; it is not a universal consequence of enlargement.',
       'Signed heading-loss accounting closes numerically while showing substantial cancellation between point-region changes and the moment residual. This exposes the limitations of a point-domain reconstruction; it does not establish that one mechanism causes a specified fraction of native heading loss.'
     ]
+    if amplitude_aware:
+        narrative[2]='At native moment amplitude, eligible weak-input heading loss is allocated almost entirely to domain motion. As secondary domains appear, membership changes and the amplitude/shape/background remainder can grow; the pattern varies with model and size. This exact accounting remains descriptive, and the original unit-normalized point-region artefact is retained as a supplementary diagnostic.'
     limitations=[
       'Exact no-overlap birth counts and split counts cannot be recovered for the full campaign because compact records discard native masks/parent IDs. Lower/upper birth bounds and conditional takeovers are reported instead. The global-contrast plateau estimate is not a recovered per-region plateau.',
       'Native clocks are not calibrated between models. A takeover is five-frame global dominance within 20 noise blocks, not a lifetime success probability. Full-history right censoring, short-followup exclusions and per-condition counts are retained in CSV. Inputs f>0.01 are pooled without reweighting; size cohorts can differ in their event-weighted input composition.',
@@ -55,6 +76,7 @@ def documents(legend_only=False):
         revised.append((p,t))
     panels=revised
     limitations=[t.replace('20 noise blocks','20 noise correlation times') for t in limitations]
+    limitations[1]+=' A lower incidence by 20τ does not distinguish slower takeover from a lower lifetime probability. A fixed-cohort supplementary incidence curve extends observation to 80τ without extrapolating beyond it.'
     equations=[
       dict(math=r'P_t=\frac{M_{1,t}}{M_{0,t}}=Q_t+R_t,\qquad Q_t=\frac{\sum_{i\in I_t}A_{i,t}e^{\mathrm{i}\theta_{i,t}}}{\sum_{i\in I_t}A_{i,t}}',number='4.1',
         description='A is complete region excess amount; θ is the tracked contour centroid angle. R is the measured moment residual, including region shape/amplitude, untracked activity and background.'),
@@ -65,6 +87,11 @@ def documents(legend_only=False):
       dict(math=r'k(\ell)=-\frac{\ln C(\ell)}{\ell},\qquad k\propto\bar C^{-\alpha}',number='4.4',
         description='C(ℓ) is activity-heading autocorrelation; C̄ is actual mean circumference. Endpoint eligibility uses |P|≥0.1. Drift closure is shown only at f≤0.01 and multiple-region fraction≤0.05.')
     ]
+    if amplitude_aware:
+        equations[0]=dict(math=r'Q_t=\frac{\sum_{i\in I_t}A_{i,t}e^{\mathrm{i}\theta_{i,t}}}{\sum_{i\in I_t}A_{i,t}},\qquad r_t=|P_t|,\quad\widetilde Q_t=r_tQ_t',number='4.1',
+            description='Q is the normalized point-region moment; P=M₁/M₀ is measured from the native field. Its amplitude r prevents the unit-modulus single-region normalization artefact.')
+        equations[1]=dict(math=r'\Delta P_j=\bar r\,\Delta Q_j\ (j=\mathrm{M,A,B}),\qquad\Delta P_{\mathrm{R}}=\Delta P-\bar r\,\Delta Q',number='4.2',
+            description='The three ΔQ components use the symmetric Shapley convention for motion, coexisting amount and membership; r̄ is mean endpoint native amplitude. R closes the native moment change and includes amplitude variation, shape and background. This is an accounting convention, not causal attribution.')
     legend=dict(id='figure4',title='Enlargement extends heading memory as fluctuating input changes domain dynamics',
       role='Size-dependent heading persistence, edge drift and secondary-domain competition under fluctuating input.',
       status='complete_existing_campaign_with_partial_identification',
@@ -74,6 +101,9 @@ def documents(legend_only=False):
       narrative=narrative,equations=equations,measurements=['Measure lateral-edge fluctuations, secondary-protrusion births per actual perimeter-time, finite-horizon takeover probability and leading-edge displacement after boundary-straddling photoactivation. Preserve separate WGD-associated cell-size, observed migration and simulated polarity-heading readouts.'],
       limitations=limitations,sources=sources,main_pdf=str((out/'figure4_main.pdf').relative_to(A.REPO)),
       supplement_pdf=str((out/'figure4_supplement.pdf').relative_to(A.REPO)),reader=str((out/'index.html').relative_to(A.REPO)),campaign_completed=True)
+    if amplitude_aware:
+        for label,path in [('Native-amplitude heading accounting',meta/'heading_amplitude_analysis_receipt.json'),('Native-amplitude condition metrics',data/'heading_amplitude_condition_metrics.csv')]:
+            legend['sources'].append(dict(label=label,path=str(path.relative_to(A.REPO)),sha256=R.sha(path)))
     (out/'legend.json').write_text(json.dumps(legend,indent=2,ensure_ascii=False)+'\n')
     methods=r'''# Figure 4 methods: existing-campaign event and heading analysis
 
@@ -150,6 +180,41 @@ The angular loss of unscored replacements is represented by the scored-event mea
 '''
     methods=methods.replace('B_t=P_t-Q_t','R_t=P_t-Q_t').replace('Therefore $B$','Therefore $R$').replace('$\\Delta B$','$\\Delta R$')
     methods=methods.replace('20 independent noise-block durations','20 noise correlation times').replace('20 noise blocks','20 noise correlation times')
+    methods=methods.replace('under this mandated normalization','under this unit-normalized point-region convention')
+    if amplitude_aware:
+        amended=r'''# Native-amplitude heading accounting used in the main figure
+
+The original normalized point-region reconstruction has a unit-modulus moment for a single region even when the native field has a broad active profile and $|P|<1$. Its unscaled motion fraction is therefore approximately $1/|P|$, with an offsetting residual. This is a normalization artefact, not evidence that a distinct biological process cancels motion. The main panel instead expresses the same three Shapley changes at the native endpoint mean moment amplitude. It does not change the native profiles, region detection, endpoints, lag, moment eligibility, births, takeover records or measured total heading loss.
+
+Let
+
+$$
+r_t=|P_t|,\qquad \widetilde Q_t=r_tQ_t,\qquad \bar r=\frac{r_0+r_1}{2}. \tag{A.1}
+$$
+
+For each original symmetric Shapley change of $Q$, use
+
+$$
+\Delta P_j=\bar r\,\Delta Q_j,\qquad j\in\{\mathrm{motion,amount,membership}\}. \tag{A.2}
+$$
+
+The remainder closes the measured native moment change exactly:
+
+$$
+\Delta P_{\mathrm R}=\Delta P-\bar r\,\Delta Q
+=\Delta(P-rQ)+\bar Q\,\Delta r,\qquad\bar Q=\frac{Q_0+Q_1}{2}. \tag{A.3}
+$$
+
+It contains native amplitude variation, within-region shape, unresolved activity and background; it is not a pure background term. Project the four components with equation 4.5 below. The same exact signed identity holds. In a single rigidly translating domain, $P_t=r_te^{\mathrm i\theta_t}$ and $Q_t=e^{\mathrm i\theta_t}$, so the radial remainder is orthogonal to the unit-heading chord: motion contributes exactly one and remainder zero, even when $r_t$ varies. A synthetic test varies both heading and amplitude at three lags; multiregion and full-campaign checks also close numerically. The corrected campaign contains the same 170 eligible conditions and 45,696 source histories. It was reanalysed through heading-only SLURM job 21333382 without regenerating events or noisy model runs.
+
+`heading_amplitude_condition_metrics.csv` and `heading_amplitude_seed_metrics.csv` contain the main accounting. Original `birth_heading_condition_metrics.csv` and per-condition `seeds.csv` remain unchanged. The reviewed main and 40-page supplement are saved under `supporting/historical_unscaled_20261023/` and appended unchanged after the new supplementary pages. This convention is descriptive and not uniquely causal.
+
+For the time-horizon check, use certified births with at least 80τ of remaining record, pool f>0.01, and hold this cohort fixed at every horizon from 1τ to 80τ. The supplementary curves show observed five-frame-dominance incidence for the same cohort, not lifetime probability. Extending a finite horizon cannot by itself identify lifetime success or remove certification selection.
+
+## Original unscaled accounting retained as a diagnostic
+
+'''
+        methods=amended+methods.replace('# Figure 4 methods: existing-campaign event and heading analysis','# Original event and unscaled-heading methods',1)
     if not legend_only:(out/'METHODS.md').write_text(methods)
     table=['| Model | Small birth lower–upper | Large birth lower–upper | Small→large certification |','|---|---:|---:|---:|']
     for m in R.MODELS:
@@ -176,6 +241,21 @@ The exact endpoint heading-loss allocation preserves large signed cancellations.
 The restricted historical drift/replacement closure has 47 finite point comparisons and 45 within 15%. The Goryachev comparison is 0.283; one Holmes comparison is 0.843. The existing all-input event-angle scoring limitation remains: missing-angle bounds permit agreement within 15% in 24/33 multiple-front-majority conditions, so the unscored angles prevent a general claim that an additional heading-loss process is required. The new exact allocation does not depend on that claim.
 '''
     results=results.replace('20-noise-block','20-noise-correlation-time')
+    if amplitude_aware:
+        amended_results='''# Main heading-accounting result at native moment amplitude
+
+The corrected signed accounting removes the unit-point-moment normalization artefact. At weak input f=0.001, Wave-pinning C20 has motion 0.9991 and remainder 0.0009; Spring C1 has motion 0.9999 and remainder 0.0001. All new condition fractions lie between −0.002294 and 1.002294. Exact complex-moment closure is within 1.15×10⁻¹⁶ and heading-loss closure within 1.78×10⁻¹⁵. The original 170 eligible conditions, pairs, lags and measured total loss are unchanged.
+
+At f=0.03, smallest→largest native-amplitude fractions (motion, amount, membership, remainder) are Wave-pinning (0.760, 0.001, 0.231, 0.008)→(0.523, 0.027, 0.316, 0.134); Holmes (0.791, 0.009, 0.153, 0.048)→(0.291, 0.082, 0.257, 0.370); Spring (0.929, 0, 0.071, 0)→(0.572, 0.020, 0.297, 0.111). This is a descriptive shift among accounting terms. It does not establish that membership changes cause heading loss, and it does not establish a universal increase with size at every input. For example, the largest Wave-pinning/Holmes rings at f=0.1 have substantial remainder fractions (0.570/0.530). Goryachev remains strongly conditioned by eligibility: at f=0.03, C60 has membership 0.680 and remainder 0.319 but only 1.09% pair coverage.
+
+Birth and main 20τ takeover data are unchanged. In a supplementary fixed 80τ-followup cohort, smallest/largest observed incidence at 20τ and 80τ is nearly the same at the printed precision: Wave-pinning approximately 0.547/0.227→0.547/0.228; Holmes 0.505/0.244→0.505/0.245; Spring 0.753/0.417 at both horizons; Goryachev 0.380/0.072 at both. This checks delay through the observed 80τ horizon; lifetime probability remains unidentified, and selection/pooling limitations persist.
+
+## Original birth results and unscaled-heading diagnostic
+
+The following archived accounting uses unit-normalized Q and therefore includes the normalization artefact; its large motion/residual cancellation is not the main result.
+
+'''
+        results=amended_results+results
     if not legend_only:(out/'RESULTS.md').write_text(results)
     availability=[dict(condition_id=r['condition_id'],model=r['model'],C_label=r['C_label'],f=r['f'],
         exact_no_parent_births='partially_identified_only',exact_splits='unavailable_missing_parent_masks',
@@ -206,6 +286,10 @@ Analysis used SLURM job 21332720 (260 single-core condition tasks, small QoS, no
 Key CSVs: `birth_heading_condition_metrics.csv`, `birth_heading_seed_metrics.csv`, `takeover_by_condition_distance.csv`, `takeover_by_size_distance.csv`, `takeover_seed_counts.csv`, `weak_input_drift_exponents.csv`, `kymograph_centering.csv`, `plotted_D.csv`, and `requested_measure_availability.csv`. Per-condition retained event rows live under `supporting/condition_analysis/` and cover the entire campaign.
 '''
     readme=readme.replace('20-noise-block','20-noise-correlation-time')
+    if amplitude_aware:
+        readme=readme.replace('Every historical supplementary page is appended unchanged after the eight new pages.',
+            'Six new supplementary pages are followed by the reviewed unscaled main and all 40 reviewed supplementary pages, unchanged (47 pages total).')
+        readme+='\nThe main heading allocation now uses native endpoint amplitude (SLURM 21333382, heading-only). Original unscaled metrics and reviewed main/supplement are preserved under `supporting/historical_unscaled_20261023/`. Main metric tables: `heading_amplitude_condition_metrics.csv`, `heading_amplitude_seed_metrics.csv`; fixed-cohort incidence sensitivity: `takeover_incidence_by_size.csv`.\n'
     if not legend_only:(out/'README.md').write_text(readme)
     generated=datetime.now(timezone.utc).isoformat()
     page=f'''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Figure 4 — enlargement and heading memory</title><style>body{{font:16px/1.5 system-ui,sans-serif;max-width:1080px;margin:2rem auto;padding:0 1rem;color:#222}}img{{width:100%;height:auto}}a{{color:#17619c}}li{{margin:.5rem 0}}small{{color:#666}}</style><h1>Enlargement extends heading memory</h1><p>Generated {generated}. Analysis complete; reload manually to read newly generated files.</p><p><a href="figure4_main.pdf">Main PDF</a> · <a href="figure4_supplement.pdf">Full supplement</a> · <a href="METHODS.md">Methods</a> · <a href="RESULTS.md">Results</a> · <a href="supporting/data/requested_measure_availability.csv">Missing cases</a></p><img src="figure4_main.png" alt="Figure4 panels A–E, with size-dependent heading memory, drift, bounded births, finite-horizon takeover and signed heading-loss decomposition"><h2>Legend</h2>'''
@@ -215,6 +299,8 @@ Key CSVs: `birth_heading_condition_metrics.csv`, `birth_heading_seed_metrics.csv
     (meta/'round5_document_receipt.json').write_text(json.dumps(dict(generated_utc=generated,title=legend['title'],
         update_mode='legend_reader_only' if legend_only else 'all_documents',
         document_source_sha256=R.sha(Path(__file__)),noise_protocol_verified_from='original campaign manifest and per-worker noise_audit.json',
+        main_heading_convention='native_endpoint_amplitude_scaled_shapley' if amplitude_aware else 'unscaled_point_region_shapley',
+        heading_amplitude_analysis=json.loads((meta/'heading_amplitude_analysis_receipt.json').read_text()) if amplitude_aware else None,
         noise_sigma=1,noise_chemical=dict(ell=1.5,tau=50),noise_spring=dict(basal_ell=.15,tau=5),
         requested_measure_cases=260,exact_split_unavailable=260,analysis_receipt=receipt,
         retained_historical_supplement=json.loads((meta/'supplement_preservation.json').read_text())),indent=2))

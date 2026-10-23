@@ -1,16 +1,16 @@
-# Figure 3 round 5
+# Figure3: size-dependent boundary susceptibility and drift
 
-[Main PDF](figure3_round5.pdf) · [complete supplement](figure3_round5_supplement.pdf) · [legend](legend.md) · [methods/results](METHODS_RESULTS.md) · [reader](index.html).
+[Main PDF](figure3_round5_review.pdf) · [supplement](figure3_round5_review_supplement.pdf) · [legend](legend.md) · [methods/results](METHODS_RESULTS_review.md) · [reader](index.html).
 
-Cue placement relative to the incumbent boundary separates sliding from takeover, and enlargement slows half-turn reorientation. In the weak-input deterministic response the two boundaries share a long-lived translation: the prescribed independent-edge approximation gives median prediction/observation ratios 0.511, 0.540 and 0.534 in Wave-pinning, Holmes and Spring. Existing noise exemplars confirm correlated boundary motion. Goryachev does not give a general drift-based explanation of heading persistence.
+Cue placement separates sliding of the incumbent from takeover by a new region; enlargement slows both routes. Weak boundary susceptibility changes differently across models: terminal response at the largest size is 70% of the smallest-size response in Wave-pinning, 9% in Goryachev, 91% in Holmes and 99% in Spring.
 
-Deterministic campaign: `polarity1d/manuscript/data/runs/figure3_round5_edge_pulses_v2_20261023`. SLURM array 21332598, 120 independent one-core tasks, 4 GB each, small QoS, 45-minute limit. Existing-profile edge analysis: SLURM 21332996 (cohort-corrected; first pass 21332981), one core / 4 GB. No new noise campaign. First failed API attempt is preserved under `figure3_round5_edge_pulses_20261023`, plus the incomplete preparation under `_prepare_failed`; scientific v2 inputs are frozen and valid. An unused solver-only retry in `figure3_round5_edge_numeric_retry_20261023` was canceled after the original strict run completed; no retry output supplies a figure datum.
+The deterministic boundary response predicts physical domain drift without fitting when shared translation is retained. Wave-pinning’s C60/C20 drift ratio at f = 0.001 is 0.494 predicted and 0.473 measured. Holmes and Spring show much weaker susceptibility changes. The independent-edge approximation is refuted by boundary co-motion; Goryachev’s drift prediction remains quantitatively inconsistent and does not explain its full heading persistence.
 
-Rebuild using the existing scaling_sandbox Python:
+No new native integrations, stochastic histories or parameter changes. The main displays the untuned shared-translation prediction and keeps the rejected independent-edge candidate. C insets use a shared normalized zero-based scale; D includes a fixed-input size comparison. The reviewed edition remains intact and is appended in the supplement.
+
+Rebuild:
 
 ```sh
-python -B polarity1d/manuscript/code/mechanisms/figure3_round5_render_20261023.py
-python -B polarity1d/manuscript/code/mechanisms/figure3_round5_checks_20261023.py
+python -B polarity1d/manuscript/code/mechanisms/figure3_round5_review_20261023.py
+python -B polarity1d/manuscript/code/mechanisms/figure3_round5_review_checks_20261023.py
 ```
-
-Every preceding supplement and main page is appended unchanged after the new supplement pages. Source hashes establish A/B preservation. No timed refresh. All data tables retain undefined statuses.

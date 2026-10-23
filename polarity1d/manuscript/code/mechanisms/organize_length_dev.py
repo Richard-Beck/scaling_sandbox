@@ -256,9 +256,9 @@ def organize_group(name,dry_run=False):
  if any(p.suffix=='.html' for p in (folder/'supporting/viewers').glob('*')):
   text+='\n[Interactive readers and status](supporting/viewers/)\n'
  readme=folder/'README.md'
- # Round-2 generators own the scientific message, qualifications and links.
+ # Revision generators own the scientific message, qualifications and links.
  # Organization must preserve that narrative rather than restore an interim.
- if name.startswith(('revision_round2_20261022/','revision_round3_20261022/','revision_round4_20261023/')) and readme.exists():
+ if name.startswith(('revision_round2_20261022/','revision_round3_20261022/','revision_round4_20261023/','revision_round5_20261023/')) and readme.exists():
   text=readme.read_text()
  index=DEV/'README.md'
  index_before=index.read_text()
@@ -309,9 +309,18 @@ def organize_group(name,dry_run=False):
    if not target.exists() or sha(target)!=digest:
     raise AssertionError((str(path),relative,'source hash mismatch'))
    source_hashes+=1
- # Check every selected-topic Markdown/HTML link, including the generated
+ # Reviewed snapshots retain their original relative links and byte hashes.
+ # Their links describe the old commit layout, rather than the active reader.
+ # Keep their hashes protected; check links in current documents below.
+ historical_document_roots=[folder/'supporting/historical/reviewed_49754ab',
+  folder/'supporting/historical_unscaled_20261023']
+ historical_documents={p.resolve() for p in existing
+  if any(root in p.parents for root in historical_document_roots)
+  and p.suffix in ['.md','.html']}
+ # Check current selected-topic Markdown/HTML links, including the generated
  # landing page. Other-topic targets may be read for existence only.
- documents={p.resolve():p.read_text() for p in existing if p.suffix in ['.md','.html']}
+ documents={p.resolve():p.read_text() for p in existing
+  if p.suffix in ['.md','.html'] and p.resolve() not in historical_documents}
  documents.update({dest:source.read_text() for source,dest in moves.items() if dest.suffix in ['.md','.html']})
  documents[readme.resolve()]=text
  links=0
@@ -332,6 +341,7 @@ def organize_group(name,dry_run=False):
   mode='single_group',group=name,dry_run=bool(dry_run),
   declared_artifact_hashes_checked=declared_hashes,source_hashes_checked=source_hashes,local_links_checked=links,
   historical_manifest_receipts_preserved=len(historical_manifests),
+  historical_document_links_retained_in_original_commit_context=[rel(path) for path in sorted(historical_documents)],
   preserved_existing_file_hashes_checked=len(protected),
   preview_and_supporting_moves=[dict(old=rel(source),new=rel(dest),sha256=moved_digests[source]) for source,dest in moves.items()],
   selected_topic_readme_changed=readme_changed,

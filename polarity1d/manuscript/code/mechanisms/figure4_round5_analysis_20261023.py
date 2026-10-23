@@ -54,7 +54,7 @@ def dense(z):
         finite[good]&=np.isfinite(A[good,j])&np.isfinite(e[good,j])&z['region_amount_available'][ix]
     return ids,A,e,finite
 
-def decomposition(z,lag):
+def decomposition(z,lag,amplitude_aware=False):
     """Exact endpoint Shapley moment changes and signed heading-loss projection."""
     t=z['time'].astype(float);dt=float(np.median(np.diff(t)))
     steps=int(round(lag/dt)) if np.isfinite(lag) else 0
@@ -101,7 +101,14 @@ def decomposition(z,lag):
     result['empty_hybrid_excluded']=int((coherence&amounts&~valid_hybrid).sum())
     result['eligible_pairs']=int(ok.sum())
     if not ok.any():return result
-    residual=p1-p0-(states[(1,1,1)]-states[(0,0,0)])
+    if amplitude_aware:
+        # Preserve the original three-factor point-region attribution while
+        # expressing its changes at the native endpoint mean moment amplitude.
+        # For P=r*exp(i theta), this makes a pure rigid translation M=1 and
+        # leaves the radial-amplitude term orthogonal to the heading chord.
+        rbar=.5*(r0+r1)
+        contributions=[rbar*c for c in contributions]
+    residual=p1-p0-sum(contributions)
     contributions.append(residual)
     deltaH=p1[ok]/r1[ok]-p0[ok]/r0[ok]
     losses=[np.real(c[ok]*np.conjugate(deltaH))/(r0[ok]+r1[ok]) for c in contributions]
@@ -178,6 +185,80 @@ def worker(index):
 
 def events_schema():
     return ('track_id','birth_frame','birth_time','persistent_frames','certified_no_parent','secondary','incumbent_id','takeover_5frames','takeover_time','distance','distance_over_C','distance_bin','incumbent_halfwidth','followup','right_censored')
+
+def heading_worker(index):
+    """Heading-only revision: no birth detection, event writing, or simulation."""
+    manifest=json.loads((CAMPAIGN/'manifest.json').read_text());condition=manifest['conditions'][index]
+    records=[r for r in read_csv(CAMPAIGN/'results/compact_index.csv') if r['condition_id']==condition['condition_id']]
+    prior=read_csv(OUT/'supporting/condition_analysis'/f'c{index:03d}'/'seeds.csv')
+    lag=float(prior[0]['analysis_lag']);result=[]
+    for row in records:
+        with np.load(row['compact'],allow_pickle=False) as z:dec=decomposition(z,lag,amplitude_aware=True)
+        result.append(dict(condition_id=condition['condition_id'],model=condition['model'],C_label=condition['size'],f=condition['fraction'],
+            replicate=int(row['replicate']),convention='native_endpoint_amplitude_scaled_shapley',**dec))
+    dest=OUT/'supporting/heading_amplitude_analysis'/f'c{index:03d}'
+    write_csv(dest/'seeds.csv',result)
+    # One fixed 80-tau observable cohort for every time on a descriptive
+    # cumulative-incidence curve. An event need not stay observed until 80tau;
+    # its native finite identity may end earlier, but the record must extend.
+    ev=read_csv(OUT/'supporting/condition_analysis'/f'c{index:03d}'/'events.csv')
+    tau=5. if condition['model']=='spring_ring' else 50.
+    cohort=[e for e in ev if e['certified_no_parent']=='True' and float(e['followup'])>=80*tau and int(e['distance_bin'])>=0]
+    incidence=[]
+    for b in (-1,0,1,2):
+        members=[e for e in cohort if b==-1 or int(e['distance_bin'])==b]
+        for horizon in (1,2,5,10,20,40,80):
+            incidence.append(dict(condition_id=condition['condition_id'],model=condition['model'],C_label=condition['size'],f=condition['fraction'],
+                distance_bin=b,followup_tau=80,horizon_tau=horizon,births=len(members),
+                takeovers=sum(e['takeover_5frames']=='True' and float(e['takeover_time'])-float(e['birth_time'])<=horizon*tau for e in members)))
+    write_csv(dest/'incidence.csv',incidence)
+    (dest/'complete.json').write_text(json.dumps(dict(n_seeds=len(result),convention='native_endpoint_amplitude_scaled_shapley',
+        birth_event_records_unchanged=True),indent=2))
+    print(condition['condition_id'],len(result),'heading-only',flush=True)
+
+def heading_collect():
+    manifest=json.loads((CAMPAIGN/'manifest.json').read_text());seedall=[];summaries=[];incidence=[]
+    raw={r['condition_id']:r for r in read_csv(OUT/'supporting/data/birth_heading_condition_metrics.csv')}
+    for c in manifest['conditions']:
+        dest=OUT/'supporting/heading_amplitude_analysis'/f"c{c['condition_index']:03d}"
+        if not (dest/'complete.json').exists():raise ValueError('Missing '+str(dest))
+        seeds=read_csv(dest/'seeds.csv');seedall.extend(seeds);incidence.extend(read_csv(dest/'incidence.csv'))
+        row=dict(raw[c['condition_id']]);row['convention']='native_endpoint_amplitude_scaled_shapley'
+        assert len(seeds)==int(row['n_seeds'])
+        for key in ('potential_pairs','eligible_pairs','low_coherence_excluded','amount_or_centroid_excluded','empty_hybrid_excluded','total_heading_loss'):
+            value=sum(float(s[key]) for s in seeds)
+            assert abs(value-float(row[key]))<max(1e-7,abs(value)*1e-12),key
+        row['max_complex_closure_error']=max(float(s['max_complex_closure_error']) for s in seeds)
+        row['max_heading_closure_error']=max(float(s['max_heading_closure_error']) for s in seeds)
+        weights=np.random.default_rng(20261024+c['condition_index']).multinomial(len(seeds),np.full(len(seeds),1/len(seeds)),size=2000)
+        denominator=weights@np.array([float(s['total_heading_loss']) for s in seeds])
+        for component in COMPONENTS:
+            value=sum(float(s[component+'_loss']) for s in seeds);row[component+'_loss']=value
+            row[component+'_fraction']=value/float(row['total_heading_loss']) if float(row['total_heading_loss'])>1e-10 else math.nan
+            numerator=weights@np.array([float(s[component+'_loss']) for s in seeds])
+            boot=np.divide(numerator,denominator,out=np.full(2000,np.nan),where=denominator>1e-10);finite=boot[np.isfinite(boot)]
+            ci=np.percentile(finite,[2.5,97.5]) if len(finite) else (math.nan,math.nan)
+            row[component+'_fraction_ci_lower'],row[component+'_fraction_ci_upper']=ci
+        summaries.append(row)
+    data=OUT/'supporting/data'
+    write_csv(data/'heading_amplitude_condition_metrics.csv',summaries);write_csv(data/'heading_amplitude_seed_metrics.csv',seedall)
+    write_csv(data/'takeover_incidence_condition.csv',incidence)
+    pooled=[]
+    for model in sorted({r['model'] for r in incidence}):
+        for size in sorted({float(r['C_label']) for r in incidence if r['model']==model}):
+            for b in (-1,0,1,2):
+                for horizon in (1,2,5,10,20,40,80):
+                    rr=[r for r in incidence if r['model']==model and float(r['C_label'])==size and int(r['distance_bin'])==b and int(r['horizon_tau'])==horizon and float(r['f'])>.01]
+                    n=sum(int(r['births']) for r in rr);k=sum(int(r['takeovers']) for r in rr)
+                    pooled.append(dict(model=model,C_label=size,distance_bin=b,horizon_tau=horizon,followup_tau=80,births=n,takeovers=k,
+                        incidence=k/n if n else math.nan,cohort='certified_births_at_least_80tau_available_followup',pooled_f='f>0.01'))
+    write_csv(data/'takeover_incidence_by_size.csv',pooled)
+    receipt=dict(conditions=len(summaries),histories=len(seedall),eligible_conditions=sum(float(r['eligible_pairs'])>0 for r in summaries),
+        convention='native_endpoint_amplitude_scaled_shapley',original_unscaled_metrics='birth_heading_condition_metrics.csv',
+        max_complex_closure_error=max(r['max_complex_closure_error'] for r in summaries),
+        max_heading_closure_error=max(r['max_heading_closure_error'] for r in summaries),birth_event_records_unchanged=True,no_noise_simulations=True)
+    (OUT/'supporting/metadata/heading_amplitude_analysis_receipt.json').write_text(json.dumps(receipt,indent=2))
+    print(json.dumps(receipt,indent=2))
 
 def collect():
     manifest=json.loads((CAMPAIGN/'manifest.json').read_text());summaries=[];bins=[];seedall=[];seedbins=[]
@@ -256,5 +337,9 @@ def collect():
     print(json.dumps(receipt,indent=2))
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('mode',choices=['worker','collect']);parser.add_argument('--index',type=int)
-    args=parser.parse_args();worker(args.index) if args.mode=='worker' else collect()
+    parser=argparse.ArgumentParser();parser.add_argument('mode',choices=['worker','collect','heading-worker','heading-collect']);parser.add_argument('--index',type=int)
+    args=parser.parse_args()
+    if args.mode=='worker':worker(args.index)
+    elif args.mode=='collect':collect()
+    elif args.mode=='heading-worker':heading_worker(args.index)
+    else:heading_collect()

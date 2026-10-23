@@ -37,6 +37,33 @@ def main():
         for path, expected in record['asset_sha256'].items():
             assert sha(ROOT / path) == expected, ('protected artwork changed', path)
     assert [s['id'] for s in document['sections']] == [f'figure{i}' for i in range(1, 7)]
+    figures = ROOT / 'polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023'
+    scientific_checks = {}
+    for ident, filename in [('figure3', 'review_validation.json'),
+                            ('figure4', 'scientific_validation.json')]:
+        check_path = figures / ident / 'supporting/metadata' / filename
+        check = read(check_path)
+        assert check['passed'] is True, ('scientific validation failed', ident)
+        scientific_checks[ident] = dict(path=str(check_path.relative_to(ROOT)),
+                                       sha256=sha(check_path), passed=True)
+    artifact_checks = 0
+    for record in read(figures / 'figure3/supporting/metadata/review_validation.json')['artifacts']:
+        assert sha(ROOT / record['path']) == record['sha256'], ('post-review artifact changed', record['path'])
+        artifact_checks += 1
+    preservation = read(figures / 'figure3/supporting/metadata/reviewed_49754ab_preservation.json')
+    for record in preservation['reviewed_main_and_supplement'] + preservation['unchanged_scientific_data']:
+        assert sha(ROOT / record['path']) == record['sha256'], ('reviewed evidence changed', record['path'])
+        artifact_checks += 1
+    render = read(figures / 'figure4/supporting/metadata/round5_render_receipt.json')
+    for filename, expected in render['source_sha256'].items():
+        path = ROOT / 'polarity1d/manuscript/code/mechanisms' / filename
+        assert sha(path) == expected, ('Figure 4 producer changed', filename)
+        artifact_checks += 1
+    for filename, expected in render['output_sha256'].items():
+        assert sha(figures / 'figure4' / filename) == expected, ('Figure 4 output changed', filename)
+        artifact_checks += 1
+    assert len(PdfReader(figures / 'figure3/figure3_round5_review_supplement.pdf').pages) == 28
+    assert len(PdfReader(figures / 'figure4/figure4_supplement.pdf').pages) == 47
     native_pages = []
     for ident in ('figure3', 'figure4'):
         section = next(s for s in document['sections'] if s['id'] == ident)
@@ -84,6 +111,8 @@ def main():
                   figure3_4_publication_pages_preserved=True, native_figure_pages_integrated=True,
                   no_new_noise_campaign=True, prospective_observables=5,
                   verbatim_reviews_verified=len(reviews),
+                  scientific_validation_receipts=scientific_checks,
+                  current_and_preserved_artifact_hashes_checked=artifact_checks,
                   reader_links_checked=len(local_links),
                   scope='Packaging, baseline preservation, native artwork and links; scientific checks are recorded with each figure.')
     (DEST / 'verification.json').write_text(json.dumps(result, indent=2) + '\n')

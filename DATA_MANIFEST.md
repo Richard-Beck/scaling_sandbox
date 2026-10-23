@@ -513,3 +513,25 @@ Measured **2026-10-23T13:05:36.887264+00:00** using allocated storage (`du -s -B
 [Measurement receipt](reports/figure4_scoring_storage_20261023.json). All new output groups are below 2 GiB. The existing compact campaign was also remeasured on 23 October at **28,756,893,696 allocated bytes (26.781944 GiB)**, unchanged from its preceding storage receipt. It remains scientifically authoritative simulation evidence; this revision changes only its derived analysis and presentation.
 
 <!-- figure4-scoring-revision-20261023 end -->
+
+<!-- figures3-4-edge-birth-storage-20261023 begin -->
+
+## Figures 3–4 edge response and secondary-domain revision, 23 October 2026
+
+Measured **2026-10-23T19:13:40.275178+00:00** using allocated storage (`du -sx -B1`) for each named path. These targeted measurements supersede only their corresponding dated groups; the older whole-workspace totals are historical. Related new outputs are grouped below, including the diagnostic deterministic attempts. No original data were moved or removed, and no new noise campaign was generated. Separate group measurements can overlap through hard links to earlier derived exports; do not sum them as storage growth.
+
+| Path / related output group | Measured allocated storage | Purpose and scientific status |
+| --- | ---: | --- |
+| `polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023` | 0.290665 GiB (312,098,816 bytes) | New Figures 3–4, source tables, deterministic response summaries, certified-event records, exact signed heading accounting, supplements and validation. Derived data only; pre-existing scientific evidence is retained. |
+| `manuscript_outline/revision_figures3_4_20261023` | 0.004395 GiB (4,718,592 bytes) | Standalone figures and legends, pilot observables, archived verbatim prompt/brief, Claude response and preservation hashes, integration and link checks. |
+| `manuscript_outline/outline_v11.pdf` | 0.007362 GiB (7,905,280 bytes) | Integrated outline. Figures 1, 2, 5 and reserved Figure 6 preserve baseline sections and artwork. |
+| `polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022` | 26.781944 GiB (28,756,893,696 bytes) | Pre-existing authoritative compact noise campaign: 260 conditions and 45,696 histories. Read for analysis; no new noisy simulations or changes to original scientific records. |
+| `.git` | 3.078323 GiB (3,305,324,544 bytes) | Versioned scientific source, portable evidence and repository history, including the initial requested checkpoint. Native compact noise histories remain outside Git. |
+| `polarity1d/manuscript/data/runs/figure3_round5_edge_numeric_retry_20261023` | 0.002647 GiB (2,842,624 bytes) | Retained diagnostic preparation/API-failure or canceled numerical-retry record. Not used as scientific response evidence; original frozen files preserved. |
+| `polarity1d/manuscript/data/runs/figure3_round5_edge_pulses_20261023` | 0.015381 GiB (16,515,072 bytes) | Retained diagnostic preparation/API-failure or canceled numerical-retry record. Not used as scientific response evidence; original frozen files preserved. |
+| `polarity1d/manuscript/data/runs/figure3_round5_edge_pulses_20261023_prepare_failed` | 0.001778 GiB (1,908,736 bytes) | Retained diagnostic preparation/API-failure or canceled numerical-retry record. Not used as scientific response evidence; original frozen files preserved. |
+| `polarity1d/manuscript/data/runs/figure3_round5_edge_pulses_v2_20261023` | 0.031647 GiB (33,980,416 bytes) | Active frozen deterministic campaign: 120 conditions; 118 polarized responses and two homogeneous Goryachev mean-state exclusions. Half/double amplitude checks; original strict solver results used. |
+
+[Machine-readable storage receipt](reports/figures3_4_round5_storage_20261023.json). Scientific limitations are explicit: births and splits are only partially identifiable from compact records; takeover probabilities condition on certification and finite follow-up; signed moment accounting is descriptive. Claude's reviews are preserved verbatim separately from the responses. Inventory confers no deletion permission.
+
+<!-- figures3-4-edge-birth-storage-20261023 end -->

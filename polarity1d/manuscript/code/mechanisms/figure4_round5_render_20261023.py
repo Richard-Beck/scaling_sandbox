@@ -139,6 +139,8 @@ def drift(fig,spec):
 
 def birth_panels(fig,spec):
     rows=read(DATA/'birth_heading_condition_metrics.csv');takeovers=read(DATA/'takeover_by_size_distance.csv')
+    heading_rows=read(DATA/'heading_amplitude_condition_metrics.csv') or rows
+    amplitude_aware=(DATA/'heading_amplitude_condition_metrics.csv').exists()
     grid=spec.subgridspec(3,4,height_ratios=[1,1,2.35],wspace=.36,hspace=.38)
     symbols=('o','s','^');linestyles=('-','--',':');labels=(r'$d\leq0$',r'$0<d\leq C/6$',r'$d>C/6$')
     maps=[]
@@ -173,13 +175,14 @@ def birth_panels(fig,spec):
         matrix=np.full((len(sizes)*5-1,len(fs)),np.nan)
         for si,size in enumerate(sizes):
             for fi,f in enumerate(fs):
-                r=next(r for r in rows if r['model']==model and n(r,'C_label')==size and n(r,'f')==f)
+                r=next(r for r in heading_rows if r['model']==model and n(r,'C_label')==size and n(r,'f')==f)
                 for ci,c in enumerate(A.COMPONENTS):matrix[si*5+ci,fi]=n(r,c+'_fraction')
         cmap=plt.get_cmap('RdBu_r').copy();cmap.set_bad('#eeeeee')
         # Explicit clipping preserves source signed fractions (which may exceed
         # one); black dot denotes values beyond this displayed scale.
-        im=ax.imshow(matrix,aspect='auto',cmap=cmap,norm=SymLogNorm(linthresh=.1,vmin=-10,vmax=10),interpolation='nearest',origin='upper')
-        for yi,xi in zip(*np.where(np.isfinite(matrix)&(abs(matrix)>10))):ax.plot(xi,yi,'.',color='black',ms=1.6)
+        limit=1. if amplitude_aware else 10.
+        im=ax.imshow(matrix,aspect='auto',cmap=cmap,norm=SymLogNorm(linthresh=.05 if amplitude_aware else .1,vmin=-limit,vmax=limit),interpolation='nearest',origin='upper')
+        for yi,xi in zip(*np.where(np.isfinite(matrix)&(abs(matrix)>limit))):ax.plot(xi,yi,'.',color='black',ms=1.6)
         for si,size in enumerate(sizes):
             if si:ax.axhline(si*5-.9,color='white',lw=2)
             ax.text(-.085,1-(si*5+1.5)/matrix.shape[0],f'{size:g}',ha='right',va='center',transform=ax.transAxes,fontsize=5.5)
@@ -192,15 +195,17 @@ def birth_panels(fig,spec):
         if j==0:ax.set_ylabel('iii   Signed heading-loss fraction       C',labelpad=16,fontsize=6)
         maps.append(im)
     pos=grid[2,3].get_position(fig)
-    cax=fig.add_axes([pos.x1+.012,pos.y0,.009,pos.height]);bar=fig.colorbar(maps[-1],cax=cax,ticks=[-10,-1,-.1,0,.1,1,10],extend='both')
-    bar.set_ticklabels(['−10','−1','−0.1','0','0.1','1','10'])
+    ticks=[-1,-.1,0,.1,1] if amplitude_aware else [-10,-1,-.1,0,.1,1,10]
+    cax=fig.add_axes([pos.x1+.012,pos.y0,.009,pos.height]);bar=fig.colorbar(maps[-1],cax=cax,ticks=ticks,extend='both')
+    bar.set_ticklabels(['−1','−0.1','0','0.1','1'] if amplitude_aware else ['−10','−1','−0.1','0','0.1','1','10'])
     bar.ax.tick_params(labelsize=5,length=2,pad=1);bar.outline.set_linewidth(.35)
     bounds=grid[2,0].get_position(fig)
-    fig.text(.082,bounds.y1+.005,'M motion   A amount   B membership   R residual; gray unavailable; • |fraction| > 10',fontsize=5.5)
+    fig.text(.082,bounds.y1+.005,('Native amplitude; ' if amplitude_aware else '')+'M motion   A amount   B membership   R residual; gray unavailable; • |fraction| > '+('1' if amplitude_aware else '10'),fontsize=5.5)
     bounds=grid[1,0].get_position(fig)
     fig.text(.082,bounds.y1+.005,r'Pooled $f > 0.01$; $\tau=50$ (Spring 5); $d=\mathrm{arc}-A_{\rm inc}/(2h)$, $h$ = global contrast',fontsize=5.5)
 
 def supplement():
+    if (DATA/'heading_amplitude_condition_metrics.csv').exists():return amplitude_supplement()
     temp=OUT/'figure4_round5_new_supplement.pdf'
     with PdfPages(temp) as pdf:
         def save(fig,title,caption=''):
@@ -286,6 +291,73 @@ def supplement():
     META.joinpath('supplement_preservation.json').write_text(json.dumps(dict(new_pages=len(newreader.pages),historical_pages=len(oldreader.pages),
         historical_source=str((OLD/'figure4_supplement.pdf').relative_to(A.REPO)),historical_sha256=R.sha(OLD/'figure4_supplement.pdf'),
         total_pages=len(writer.pages),historical_pages_appended_without_rendering=True),indent=2))
+
+def amplitude_supplement():
+    """New diagnostic pages, followed by the exact reviewed main+supplement."""
+    raw=read(DATA/'birth_heading_condition_metrics.csv');aware=read(DATA/'heading_amplitude_condition_metrics.csv')
+    temp=OUT/'figure4_amplitude_new_supplement.pdf';history=OUT/'supporting/historical_unscaled_20261023'
+    with PdfPages(temp) as pdf:
+        def save(fig,title,caption=''):
+            fig.text(.065,.97,title,ha='left',va='top',fontsize=11)
+            if caption:fig.text(.065,.025,caption,ha='left',va='bottom',fontsize=7,wrap=True)
+            pdf.savefig(fig);plt.close(fig)
+        fig,axes=plt.subplots(2,4,figsize=(8.27,8.8));fig.subplots_adjust(left=.09,right=.97,bottom=.2,top=.84,hspace=.33,wspace=.35)
+        for j,model in enumerate(MODELS):
+            for i,component in enumerate(('motion','moment_residual')):
+                ax=axes[i,j]
+                for dataset,ls,label in ((raw,'--','Unscaled Q'),(aware,'-','Native amplitude')):
+                    rr=sorted([r for r in dataset if r['model']==model and n(r,'f')==.001],key=lambda r:n(r,'C_label'))
+                    ax.plot([n(r,'C_label') for r in rr],[n(r,component+'_fraction') for r in rr],ls,color=R.COLORS[model],lw=1,marker='o',ms=3,label=label)
+                ax.axhline(1 if i==0 else 0,color='.65',lw=.5);R.style_axis(ax)
+                ax.set_ylim((-.1,8.5) if i==0 else (-7.5,1.))
+                ax.set_xlim((.9,3.1) if model=='spring_ring' else (18,62))
+                ax.set_xticks([1,2,3] if model=='spring_ring' else [20,40,60])
+                if not any(r['model']==model and n(r,'f')==.001 and np.isfinite(n(r,component+'_fraction')) for r in aware):
+                    ax.text(.5,.5,'No eligible\nanalysis lag',transform=ax.transAxes,ha='center',va='center',fontsize=7)
+                if i==0:R.facet(ax,NAMES[model])
+                if i==1:ax.set_xlabel('Circumference C')
+                if j==0:ax.set_ylabel(('Motion fraction','Residual fraction')[i])
+            if j==0:axes[0,j].legend(frameon=False,fontsize=6.5)
+        fig.text(.07,.13,r'$Q=\frac{\sum_i A_i e^{\mathrm{i}\theta_i}}{\sum_i A_i},\quad r_t=|P_t|,\quad\Delta P_j=\bar r\,\Delta Q_j\ (j=\mathrm{M,A,B})$',fontsize=9)
+        fig.text(.07,.087,r'$\Delta P_{\mathrm{R}}=\Delta P-\bar r\,\Delta Q,\qquad\bar r=(r_0+r_1)/2$',fontsize=9)
+        fig.text(.94,.13,'(S4.1)',fontsize=9,ha='right');fig.text(.94,.087,'(S4.2)',fontsize=9,ha='right')
+        save(fig,'S4.A   Native amplitude removes the point-region normalization artefact',
+            'At f=0.001, the original unit-modulus single-region Q creates M≈1/|P| and R≈1−1/|P|.\nThe main allocation scales each Shapley ΔQ component by mean native amplitude. Pure rigid translation\nhas M=1 and R=0 even with variable amplitude. The residual retains amplitude/shape/background effects.\nThis remains an exact descriptive convention, not causal attribution. Missing Goryachev estimates remain absent.')
+        for model in MODELS:
+            sizes=sorted({n(r,'C_label') for r in aware if r['model']==model})
+            fig,axes=plt.subplots(5,1,figsize=(8.27,10.5));fig.subplots_adjust(left=.11,right=.95,bottom=.08,top=.91,hspace=.48)
+            for ax,size in zip(axes,sizes):
+                rr=sorted([r for r in aware if r['model']==model and n(r,'C_label')==size],key=lambda r:n(r,'f'))
+                for ci,c in enumerate(A.COMPONENTS):
+                    x=np.array([n(r,'f') for r in rr]);y=np.array([n(r,c+'_fraction') for r in rr])
+                    ax.plot(x,y,label=COMP_LABELS[ci],lw=.85,color=plt.get_cmap('tab10')(ci))
+                    ax.fill_between(x,[n(r,c+'_fraction_ci_lower') for r in rr],[n(r,c+'_fraction_ci_upper') for r in rr],color=plt.get_cmap('tab10')(ci),alpha=.12)
+                ax.axhline(0,color='.7',lw=.4);ax.axhline(1,color='.7',lw=.4);R.log_f(ax);R.style_axis(ax)
+                ax.set_ylabel(f'C{size:g}\nSigned fraction');ax.set_ylim(-.5,1.5)
+            axes[0].legend(frameon=False,ncol=4,fontsize=7,loc='upper left')
+            save(fig,'S4.B   '+NAMES[model]+': amplitude-aware signed heading-loss allocation',
+                'Pointwise whole-history bootstrap intervals (2,000 draws). Source CSV retains values outside the displayed limits.\nSame endpoint pairs, lag and raw moments as the unscaled diagnostic; only the accounting convention changes.')
+        incidence=read(DATA/'takeover_incidence_by_size.csv')
+        fig,axes=plt.subplots(2,2,figsize=(8.27,8.5));fig.subplots_adjust(left=.1,right=.96,bottom=.15,top=.9,hspace=.35,wspace=.28)
+        for ax,model in zip(axes.ravel(),MODELS):
+            sizes=sorted({n(r,'C_label') for r in incidence if r['model']==model})
+            for size in sizes:
+                rr=sorted([r for r in incidence if r['model']==model and n(r,'C_label')==size and n(r,'distance_bin')==-1],key=lambda r:n(r,'horizon_tau'))
+                ax.plot([n(r,'horizon_tau') for r in rr],[n(r,'incidence') for r in rr],'-o',ms=2.5,lw=.8,color=R.size_color(model,size*20 if model=='spring_ring' else size),label=f'C{size:g}')
+            R.facet(ax,NAMES[model]);ax.set_xscale('log');ax.set_xticks([1,5,20,80],['1','5','20','80']);ax.set_ylim(0,1)
+            ax.set_xlabel(r'Time since birth / $\tau$');ax.set_ylabel('Observed takeover incidence');R.style_axis(ax)
+            ax.legend(frameon=False,fontsize=6,ncol=2)
+        save(fig,'S4.C   A fixed follow-up cohort separates observation window from outcome',
+            'Certified births with at least 80τ available record follow-up; the same cohort is used at every plotted horizon.\nAll distance bins are included, and f>0.01 is pooled. Curves are descriptive; no extrapolation to lifetime success.\nA lower incidence at 20τ can reflect delayed takeover, a lower eventual incidence, or both.')
+    from pypdf import PdfReader,PdfWriter
+    writer=PdfWriter();new=PdfReader(temp);prior_main=PdfReader(history/'figure4_main.pdf');prior_supp=PdfReader(history/'figure4_supplement.pdf')
+    for reader in (new,prior_main,prior_supp):
+        for page in reader.pages:writer.add_page(page)
+    with (OUT/'figure4_supplement.pdf').open('wb') as stream:writer.write(stream)
+    META.joinpath('supplement_preservation.json').write_text(json.dumps(dict(new_pages=len(new.pages),historical_pages=len(prior_main.pages)+len(prior_supp.pages),
+        historical_source=str(history.relative_to(A.REPO)),historical_supplement_sha256=R.sha(history/'figure4_supplement.pdf'),
+        total_pages=len(writer.pages),historical_pages_appended_without_rendering=True,
+        reviewed_unscaled_main_included=True,reviewed_unscaled_supplement_pages=len(prior_supp.pages)),indent=2))
 
 def render():
     copy_baseline()
