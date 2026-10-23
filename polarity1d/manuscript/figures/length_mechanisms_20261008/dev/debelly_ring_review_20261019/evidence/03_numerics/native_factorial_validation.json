@@ -1,0 +1,2310 @@
+{
+  "generated_utc": "2026-10-19T17:06:43.696278+00:00",
+  "passed": true,
+  "scheduler": "21188688_0|21188707|COMPLETED|0:0|00:11:20|\n21188688_0.batch|21188707.batch|COMPLETED|0:0|00:11:20|615540K\n21188688_0.extern|21188707.extern|COMPLETED|0:0|00:11:20|\n21188688_1|21188688|COMPLETED|0:0|00:11:34|\n21188688_1.batch|21188688.batch|COMPLETED|0:0|00:11:34|906476K\n21188688_1.extern|21188688.extern|COMPLETED|0:0|00:11:34|",
+  "scope": "Independent completed factorial audit. Four-corner features read native cells; only bounded 10 s prefixes and 5 s suffixes replayed, no production submission or new scientific law.",
+  "source_sha256": {
+    "polarity1d/manuscript/code/mechanisms/validation_debelly_gap_factorial_result_20261019.py": "1fb7b0bfa5bdca1aa023cdde689710e2548a2168bb203bda8d3b57f553062c1f",
+    "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/manifest.json": "7304c792f771c6fa3ea9e34001e9e219f471c096940e421f7e2cc5b51adf0cb3",
+    "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/validation_preflight.json": "993c24713c5211141b869f7e84d0ae8765d52114f9efcd064d31ed9ba4b59f02",
+    "polarity1d/manuscript/code/mechanisms/validation_debelly_gap_oscillation_20261019.py": "9e9c2e823d96fe2580e66ea746c8831431721133997feb99e00d9887f65a45e7",
+    "polarity1d/manuscript/data/runs/debelly_gap_oscillation_C50_20261019/validation_analysis.json": "9496ef747c91f7cfdf1fb25cd5e60a6e44a9281d60c8132aa1cc3bda3e2c97be",
+    "polarity1d/manuscript/data/runs/debelly_gap_oscillation_C50_20261019/validation_features_coarse.npz": "fc532eca9ed0c8ade1d159bc5e669f3b66d89f8ea4a058c8fdd2189aba63603f",
+    "polarity1d/manuscript/data/runs/debelly_gap_oscillation_C50_20261019/validation_features_refined.npz": "b56e42adf1b6908b5ee4f9c4e6d67f2555643f7433788a030f5f2c7a43b8428d"
+  },
+  "new_corner_audits": {
+    "N324_dt0p25": {
+      "corner": {
+        "name": "N324_dt0p25",
+        "N": 324,
+        "dt": 0.25
+      },
+      "passed": true,
+      "basal": {
+        "protocol_end": 14000.0,
+        "holdout_start": 4000.0,
+        "independent_holdout_scaled_excursion": 1.3989100575717428e-06,
+        "full_state_qualified": true,
+        "polarity_eligible": true,
+        "eligibility": {
+          "gaps": 1,
+          "active_components": 1,
+          "Rac_contrast": 0.24647151911201126
+        },
+        "invariants": {
+          "frames": 2897,
+          "minimum_values": {
+            "R": 0.6444955305647108,
+            "Q": 0.579953788730146,
+            "b": 0.05191707588116825,
+            "c": 0.014549312948128727,
+            "u": -0.5242072891272195,
+            "v": -0.020971805006324878,
+            "T": 1.4141132233339553
+          },
+          "all_fields_finite": true,
+          "all_chemical_fields_nonnegative": true,
+          "maximum_total_MCA_error": 3.552713678800501e-15,
+          "initial_native_tension_reconstruction_error": 4.440892098500626e-16,
+          "maximum_post_initial_native_tension_reconstruction_error": 4.440892098500626e-16,
+          "initial_tension_note": "A conservatively duplicated seed retains original T averages before the first refined mechanical solve; initial graph consistency is assessed separately and basal requalification is mandatory.",
+          "each_gap_identity_position_and_birth_clock_constant": true,
+          "raw_and_imposed_controllers_equal": true,
+          "initial_cells": 324,
+          "final_cells": 324
+        },
+        "windows": {
+          "windows": 14,
+          "passing_windows": 12,
+          "maximum_independent_range_or_rate_difference": 0.0
+        },
+        "pools": {
+          "native_updates": 56000,
+          "dt": 0.25,
+          "pools": {
+            "bound": {
+              "amount_change": -1.0506700936829816e-05,
+              "native_executed_exchange": 11.824704580224909,
+              "signed_cap_export": 30.59405461369518,
+              "uniform_replacement": 18.76933952679155,
+              "cumulative_closure_residual": -2.2215118633539532e-11,
+              "maximum_step_closure_residual": 2.189275236791355e-15,
+              "maximum_step_stock_roundoff": 0.0
+            },
+            "unbound": {
+              "amount_change": 1.050670093749595e-05,
+              "native_executed_exchange": -5.255448879224092,
+              "signed_cap_export": -4.431842365049524e-05,
+              "uniform_replacement": 5.255415067501634,
+              "cumulative_closure_residual": -2.5490720645393594e-13,
+              "maximum_step_closure_residual": 9.952433842330688e-16,
+              "maximum_step_stock_roundoff": 0.0
+            }
+          },
+          "sequential_numerical_exchange": 6.569255701000817,
+          "total_signed_cap_export": 30.59401029527153,
+          "total_uniform_deficit": 24.024754594293185,
+          "maximum_saved_pool_stock_error": 0.0,
+          "maximum_executed_exchange_identity_error": 1.2220449261898803e-15,
+          "cumulative_closed_form_identity_residual": -5.040845630331892e-14,
+          "zero_inventory_change_E_over_L": 0.21472392638036805,
+          "measured_E_over_L": 0.21472358927773946,
+          "interpretation": "Executed native per-pool exchange is retained. Its summed sequential residual is numerical; uniform correction is a distinct reservoir operation, not a biological attribution."
+        }
+      },
+      "response": {
+        "exact_own_qualified_seed": true,
+        "clock_reset_declared": true,
+        "protocol_end": 31000.0,
+        "invariant_audit": {
+          "frames": 6297,
+          "minimum_values": {
+            "R": 0.5615163473894482,
+            "Q": 0.06087756204594022,
+            "b": 0.03575101495120571,
+            "c": 0.010040733692645578,
+            "u": -3.179255798433196,
+            "v": -0.14938228104113857,
+            "T": -3.5207756216301416
+          },
+          "all_fields_finite": true,
+          "all_chemical_fields_nonnegative": true,
+          "maximum_total_MCA_error": 4.440892098500626e-15,
+          "initial_native_tension_reconstruction_error": 4.440892098500626e-16,
+          "maximum_post_initial_native_tension_reconstruction_error": 3.552713678800501e-15,
+          "initial_tension_note": "A conservatively duplicated seed retains original T averages before the first refined mechanical solve; initial graph consistency is assessed separately and basal requalification is mandatory.",
+          "each_gap_identity_position_and_birth_clock_constant": true,
+          "raw_and_imposed_controllers_equal": true,
+          "initial_cells": 324,
+          "final_cells": 330
+        },
+        "windows": {
+          "windows": 30,
+          "passing_windows": 0,
+          "maximum_independent_range_or_rate_difference": 0.0
+        },
+        "pools": {
+          "native_updates": 124000,
+          "dt": 0.25,
+          "pools": {
+            "bound": {
+              "amount_change": -3.681451695491944e-06,
+              "native_executed_exchange": 18.205072324505025,
+              "signed_cap_export": 47.14488722908646,
+              "uniform_replacement": 28.939811223178992,
+              "cumulative_closure_residual": -4.9254822442890145e-11,
+              "maximum_step_closure_residual": 3.2205141331509424e-15,
+              "maximum_step_stock_roundoff": 8.881784197001252e-16
+            },
+            "unbound": {
+              "amount_change": 3.6814516946037656e-06,
+              "native_executed_exchange": -8.076142998206995,
+              "signed_cap_export": 0.02700046282943127,
+              "uniform_replacement": 8.103147142490117,
+              "cumulative_closure_residual": -1.9966250874858815e-12,
+              "maximum_step_closure_residual": 1.2899159821874728e-15,
+              "maximum_step_stock_roundoff": 2.220446049250313e-16
+            }
+          },
+          "sequential_numerical_exchange": 10.128929326298026,
+          "total_signed_cap_export": 47.171887691915884,
+          "total_uniform_deficit": 37.04295836566911,
+          "maximum_saved_pool_stock_error": 0.0,
+          "maximum_executed_exchange_identity_error": 1.567295555490733e-15,
+          "cumulative_closed_form_identity_residual": 3.2975454768524096e-16,
+          "zero_inventory_change_E_over_L": 0.21472392638036805,
+          "measured_E_over_L": 0.2147238497736413,
+          "interpretation": "Executed native per-pool exchange is retained. Its summed sequential residual is numerical; uniform correction is a distinct reservoir operation, not a biological attribution."
+        },
+        "checkpoints_exact": {
+          "checkpoint_18000": true,
+          "checkpoint_23000": true,
+          "final_state": true
+        },
+        "gap_events": 12,
+        "births": 6,
+        "final_next_id": 8,
+        "bounded_native_replay": {
+          "actual_response_prefix_0_to_10_and_suffix_30995_to_31000_exact": true,
+          "native_updates_replayed": 60,
+          "all_saved_native_fields_widths_controllers_next_id_and_per_step_ledger_exact": true,
+          "protocol_clock_restored_for_suffix": true
+        }
+      },
+      "source_sha256": {
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/manifest.json": "4c00393d7a76e693b242c826c1ab3b0302cd4c7f3c0f4066eaa07e3c5c92474f",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/initial_state.npz": "ac237287e34e116d40aabad8d88a0f00aa82ea4f70ad7770b33911445b889ea6",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/initial_state.json": "84fdccb376c699b44afaa0020fb60ccfed2d8e80f358591dec1ba956c53ecfca",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/basal/preholdout_state.npz": "829fd06b3e240ff775b880fd5f933790a5cf3ef236e242d49b3b421cf436427a",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/basal/preholdout_state.json": "3349f2a7e6eeecd446cba3eba146329bf8379edf342ba5173ddfbb5c6dc6a5c0",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/basal/qualified_state.npz": "8874961b2860b48f338b8012d58325a17218948698f85b9dbd20d958d9576240",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/basal/qualified_state.json": "2c6aea29c630a4d52c1dd55579ba356baf36e43e4ac612a3867fcaed5c861ebb",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/initial_state.npz": "8874961b2860b48f338b8012d58325a17218948698f85b9dbd20d958d9576240",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/initial_state.json": "2c6aea29c630a4d52c1dd55579ba356baf36e43e4ac612a3867fcaed5c861ebb",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/seed_manifest.json": "364cd76600b2cf40b111ff000f25d4047bc63b6ad06d72d1be8cc6b7342d98e6",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/basal/native_profiles.npz": "60ca5cbb7a79180c3ac2299e8570c3c09a08bd0abc8ffdd6fa33e15120249858",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/basal/diagnostics.json": "4f91d9fbb7b3455b281f31a58242bf0b669645971f5e939c4d5489aeb6cf4523",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/basal/events.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/basal/pool_budgets.npz": "55d78a09ce971538ba0bf0efb4e72b4b31d25454d7f787b573b9c90cafc5d568",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/basal/summary.json": "173842169328958c1c58d5b5c50c1c11dab375984198c371a8b29200bbcfa4c0",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/basal/windows.json": "db418f1b1ed7f46132437f400bfb31ece0d2434910302c964837e993d27946f7",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/native_profiles.npz": "c2a5e942079bf17c237f19ddbbfdc776d674c541675b4d7359037bc3c32da36f",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/diagnostics.json": "b75c97142d2843ed3faaeaa5d974c64de243344f4230f8bef2bc65aa914f1b01",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/events.json": "4db969a60e84b3c92111738a51960624c457afee50a5dadb93d9bcd942a870b8",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/pool_budgets.npz": "7652cf869a1fcc1059687870051a23eb8889ac3e8f46ae4f51c8dbc1b1aeb19e",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/summary.json": "2f2ec8d693a17cfd87bf120c485d61cb4c1979ff1bde4f8a4fb31df2d4d2de79",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/windows.json": "4db488870368d59d4b94a2ff65e734eaac991eb31ea54ecfdaf9adde4b3f6569",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/checkpoint_18000.npz": "e21e6f609a7eba0c2228d801aead00679e6a8480f235b8e7873d2c02c294d087",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/checkpoint_18000.json": "f225f5217fdef70e833d4831ecaef3ae822e7ce272bd000f10a1c33d00da670f",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/checkpoint_23000.npz": "cea303337d92ea4ecac6f013d847618cef99ec555c1c832dd6e093d2e38811d8",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/checkpoint_23000.json": "9c5d7ce4bea982fd63e91cec50b80e41b4415c1ebdba8e02e239c5b622075dd2",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/final_state.npz": "5750b35d828a448bd2ab2f90f4293bdb991ace9c72e9c54910de28cd3a1e423d",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/final_state.json": "bf012cb54e356bc8e3dfbcd8347dccc8e4b23091a5ae2f3eddb73db43cda3353"
+      }
+    },
+    "N648_dt0p5": {
+      "corner": {
+        "name": "N648_dt0p5",
+        "N": 648,
+        "dt": 0.5
+      },
+      "passed": true,
+      "basal": {
+        "protocol_end": 14000.0,
+        "holdout_start": 4000.0,
+        "independent_holdout_scaled_excursion": 5.20906580285062e-06,
+        "full_state_qualified": true,
+        "polarity_eligible": true,
+        "eligibility": {
+          "gaps": 1,
+          "active_components": 1,
+          "Rac_contrast": 0.24658761102623972
+        },
+        "invariants": {
+          "frames": 2897,
+          "minimum_values": {
+            "R": 0.6444583581090049,
+            "Q": 0.5800091344586266,
+            "b": 0.05188977035106182,
+            "c": 0.014541713390001447,
+            "u": -0.525591876319552,
+            "v": -0.020969375551008806,
+            "T": 1.4192114734384482
+          },
+          "all_fields_finite": true,
+          "all_chemical_fields_nonnegative": true,
+          "maximum_total_MCA_error": 4.440892098500626e-15,
+          "initial_native_tension_reconstruction_error": 0.008346090275954232,
+          "maximum_post_initial_native_tension_reconstruction_error": 4.440892098500626e-16,
+          "initial_tension_note": "A conservatively duplicated seed retains original T averages before the first refined mechanical solve; initial graph consistency is assessed separately and basal requalification is mandatory.",
+          "each_gap_identity_position_and_birth_clock_constant": true,
+          "raw_and_imposed_controllers_equal": true,
+          "initial_cells": 648,
+          "final_cells": 648
+        },
+        "windows": {
+          "windows": 14,
+          "passing_windows": 12,
+          "maximum_independent_range_or_rate_difference": 0.0
+        },
+        "pools": {
+          "native_updates": 28000,
+          "dt": 0.5,
+          "pools": {
+            "bound": {
+              "amount_change": -6.778541106200464e-08,
+              "native_executed_exchange": 15.118985365470925,
+              "signed_cap_export": 30.54654925058296,
+              "uniform_replacement": 15.427563817317631,
+              "cumulative_closure_residual": 8.991918321044068e-12,
+              "maximum_step_closure_residual": 2.7495367094232392e-15,
+              "maximum_step_stock_roundoff": 0.0
+            },
+            "unbound": {
+              "amount_change": 6.77854092856478e-08,
+              "native_executed_exchange": -4.3196908628122035,
+              "signed_cap_export": 2.6938251326664553e-05,
+              "uniform_replacement": 4.319717868848937,
+              "cumulative_closure_residual": 2.6645352591003757e-15,
+              "maximum_step_closure_residual": 1.413257531834855e-15,
+              "maximum_step_stock_roundoff": 0.0
+            }
+          },
+          "sequential_numerical_exchange": 10.799294502658723,
+          "total_signed_cap_export": 30.546576188834287,
+          "total_uniform_deficit": 19.74728168616657,
+          "maximum_saved_pool_stock_error": 0.0,
+          "maximum_executed_exchange_identity_error": 2.9004576518332215e-15,
+          "cumulative_closed_form_identity_residual": -9.328590519139598e-14,
+          "zero_inventory_change_E_over_L": 0.3535353535353535,
+          "measured_E_over_L": 0.3535353499488495,
+          "interpretation": "Executed native per-pool exchange is retained. Its summed sequential residual is numerical; uniform correction is a distinct reservoir operation, not a biological attribution."
+        }
+      },
+      "response": {
+        "exact_own_qualified_seed": true,
+        "clock_reset_declared": true,
+        "protocol_end": 31000.0,
+        "invariant_audit": {
+          "frames": 6297,
+          "minimum_values": {
+            "R": 0.5613775168364914,
+            "Q": 0.0611210555155226,
+            "b": 0.03648034277516069,
+            "c": 0.010751948176661278,
+            "u": -3.200231405832419,
+            "v": -0.1497009910472518,
+            "T": -3.600959347663461
+          },
+          "all_fields_finite": true,
+          "all_chemical_fields_nonnegative": true,
+          "maximum_total_MCA_error": 5.329070518200751e-15,
+          "initial_native_tension_reconstruction_error": 4.440892098500626e-16,
+          "maximum_post_initial_native_tension_reconstruction_error": 3.552713678800501e-15,
+          "initial_tension_note": "A conservatively duplicated seed retains original T averages before the first refined mechanical solve; initial graph consistency is assessed separately and basal requalification is mandatory.",
+          "each_gap_identity_position_and_birth_clock_constant": true,
+          "raw_and_imposed_controllers_equal": true,
+          "initial_cells": 648,
+          "final_cells": 654
+        },
+        "windows": {
+          "windows": 30,
+          "passing_windows": 0,
+          "maximum_independent_range_or_rate_difference": 0.0
+        },
+        "pools": {
+          "native_updates": 62000,
+          "dt": 0.5,
+          "pools": {
+            "bound": {
+              "amount_change": -1.0742625186299648e-05,
+              "native_executed_exchange": 21.168366770390136,
+              "signed_cap_export": 42.80010431765215,
+              "uniform_replacement": 21.631726804617056,
+              "cumulative_closure_residual": 1.9770851622524788e-11,
+              "maximum_step_closure_residual": 3.0441144396875508e-15,
+              "maximum_step_stock_roundoff": 4.440892098500626e-16
+            },
+            "unbound": {
+              "amount_change": 1.074262518496738e-05,
+              "native_executed_exchange": -6.026184863721204,
+              "signed_cap_export": 0.03068789894625383,
+              "uniform_replacement": 6.056883505292776,
+              "cumulative_closure_residual": -1.3322676295501878e-13,
+              "maximum_step_closure_residual": 1.6966612034589879e-15,
+              "maximum_step_stock_roundoff": 4.440892098500626e-16
+            }
+          },
+          "sequential_numerical_exchange": 15.142181906668933,
+          "total_signed_cap_export": 42.830792216598404,
+          "total_uniform_deficit": 27.688610309909834,
+          "maximum_saved_pool_stock_error": 0.0,
+          "maximum_executed_exchange_identity_error": 3.779257722741347e-15,
+          "cumulative_closed_form_identity_residual": -4.108833953024295e-14,
+          "zero_inventory_change_E_over_L": 0.3535353535353535,
+          "measured_E_over_L": 0.353534948176859,
+          "interpretation": "Executed native per-pool exchange is retained. Its summed sequential residual is numerical; uniform correction is a distinct reservoir operation, not a biological attribution."
+        },
+        "checkpoints_exact": {
+          "checkpoint_18000": true,
+          "checkpoint_23000": true,
+          "final_state": true
+        },
+        "gap_events": 12,
+        "births": 6,
+        "final_next_id": 8,
+        "bounded_native_replay": {
+          "actual_response_prefix_0_to_10_and_suffix_30995_to_31000_exact": true,
+          "native_updates_replayed": 30,
+          "all_saved_native_fields_widths_controllers_next_id_and_per_step_ledger_exact": true,
+          "protocol_clock_restored_for_suffix": true
+        }
+      },
+      "source_sha256": {
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/manifest.json": "33c715aa25b0f5219244ba89fee8a46ed26c66e1ee93516ea27192e7736977f0",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/initial_state.npz": "635ec9760b9e366004f53c5300a44076efedf54b19e35a603aa3dbb3548e7792",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/initial_state.json": "84fdccb376c699b44afaa0020fb60ccfed2d8e80f358591dec1ba956c53ecfca",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/basal/preholdout_state.npz": "8b7ca5cce0a24d2597acc5fb7c5af4b827a22750235aed60b807629a5d9003b6",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/basal/preholdout_state.json": "46c22576c37c3783e7cb9e221874ac9225ed5da1619070b1ab1a4230476a0d18",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/basal/qualified_state.npz": "ffa27c4cfaabbf936b20e429c36818152e060c033a3fc6392dce42f6e5140075",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/basal/qualified_state.json": "e4e8e6d9def13250478aa22c1052270e92e8042bac920d9d12a33ba0f4abc940",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/response/initial_state.npz": "ffa27c4cfaabbf936b20e429c36818152e060c033a3fc6392dce42f6e5140075",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/response/initial_state.json": "e4e8e6d9def13250478aa22c1052270e92e8042bac920d9d12a33ba0f4abc940",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/response/seed_manifest.json": "d8200fa568a0d7de17de9e20a79b16b263ef1cfa6c08e34862b3389e6cdc5295",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/basal/native_profiles.npz": "6aaf3c4372b3ebca98f3555f0b0e6a2d8a52b8120ac8ff111e33e26894b8ea65",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/basal/diagnostics.json": "a99905ecc6cd89c08d36cb6735b0cfaa012544d3076a38894f5702eb8914f892",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/basal/events.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/basal/pool_budgets.npz": "8177d9abdd5f1cf3855e977aa6841c244167d5acaf85cb3df24bd99c5341d3d9",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/basal/summary.json": "ec8b08a1c10b9be5c432c442c31e4bb940e552884a0c592e559bdbc54ba7441d",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/basal/windows.json": "d58ac103971c4b3a73ae254a585da892e87bba19907cad344308c69b462a506b",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/response/native_profiles.npz": "fe72f87dd4e632c362b1286dfd834267379d6a3bee44fec8c1ae1d813d67c25e",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/response/diagnostics.json": "90ad2523b0a1af4dbdb5db5cd49a6c43c4f15afba6bed9c15b9097e59c1d2472",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/response/events.json": "9e0e1cf42115b410210447f090612c06d9419c3267b6be64fd42cccd2e69426d",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/response/pool_budgets.npz": "03f9621195b5dea01da17fc36ce39c49f05e9e00d56159caaba0b70df8d54388",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/response/summary.json": "22a00cfef0fefc9f79d49500dcef3d9fd2a088e8680e861eee5200fb36c84f91",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/response/windows.json": "6c6af7d412a23728c50323e1de07764c99795e08e2a74410fba040d7148e8e2c",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/response/checkpoint_18000.npz": "1fc14b0d5e95836564c9cdc718882bc619c312f2664cb90fd4c3301c9482b42f",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/response/checkpoint_18000.json": "3ff5bc97e8c4af04137b7ba0f8200eb3e4b404be5bd807942d8523d1232c9679",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/response/checkpoint_23000.npz": "8c4d857c388d85841b659fe6f78b0c8c89d16f2e2a19a2e0f998303f8c1bf972",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/response/checkpoint_23000.json": "199845304626ad63314ee8cefd69753019506950eed92b50e9f57077db67c14b",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/response/final_state.npz": "aba5d5cc93c1dff61a8d5a2400303aaacecbe25d137b81d5e2d1e71740feaa85",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/response/final_state.json": "245cc3c088690a911056cd14b8cb50826f57c4c7543fd22d88a1ebabdef58cd3"
+      }
+    }
+  },
+  "four_corner_readouts": {
+    "N324_dt0p5": {
+      "point_minimum_to_minimum_returns_seconds": [
+        15115.0
+      ],
+      "patch_minimum_to_minimum_returns_seconds": [
+        15110.0
+      ],
+      "point_complete_cycle_excursions": [
+        0.17790681944473963
+      ],
+      "patch_complete_cycle_excursions": [
+        0.1726316018597287
+      ],
+      "postcue_gap_births": [
+        {
+          "time": 8658.5,
+          "x": 31.867283950617143,
+          "id": 4
+        },
+        {
+          "time": 16287.5,
+          "x": 19.945987654320962,
+          "id": 5
+        },
+        {
+          "time": 23800.0,
+          "x": 31.905864197530722,
+          "id": 6
+        }
+      ],
+      "adjacent_gap_birth_intervals": [
+        7629.0,
+        7512.5
+      ],
+      "every_other_gap_birth_returns": [
+        15141.5
+      ],
+      "late_all_local_maximum_counts": [
+        1
+      ],
+      "late_active_peak_counts": [
+        1
+      ],
+      "late_active_component_counts": [
+        1
+      ],
+      "late_gap_counts": [
+        1
+      ],
+      "late_phase_minmax_um": [
+        20.963094493992813,
+        30.89411290503684
+      ],
+      "late_native_peak_minmax_um": [
+        18.441358024691347,
+        33.410493827160366
+      ],
+      "late_total_vector_magnitude_minmax": [
+        0.08650271587566513,
+        0.10274073348619017
+      ],
+      "maximum_point_reconstruction_difference": 0.0009506642771713869,
+      "late_maximum_native_peak_sample_jump_um": 0.3086419753086389,
+      "initial_target_point_Rac": 0.6453368277952677,
+      "initial_target_patch_Rac": 0.6456097909423568,
+      "initial_activity_vector_position_um": 9.005063683422732e-09,
+      "initial_total_vector_magnitude": 0.08704639268520244,
+      "birth_turn_next_birth_segments": [
+        {
+          "birth": 8658.5,
+          "birth_x": 31.867283950617143,
+          "next_birth": 16287.5,
+          "next_birth_x": 19.945987654320962,
+          "first_intervening_vector_turn": 9135.0,
+          "opening_to_turn": 476.5,
+          "turn_to_next_opening": 7152.5
+        },
+        {
+          "birth": 16287.5,
+          "birth_x": 19.945987654320962,
+          "next_birth": 23800.0,
+          "next_birth_x": 31.905864197530722,
+          "first_intervening_vector_turn": 16750.0,
+          "opening_to_turn": 462.5,
+          "turn_to_next_opening": 7050.0
+        }
+      ],
+      "selected_complete_cycle_MCA_identities": {
+        "first_complete_point_trough_return": {
+          "start": 9095.0,
+          "end": 24210.0,
+          "dt": 0.5,
+          "steps": 30230,
+          "sequential_numerical_exchange": 6.257390320105286,
+          "signed_total_cap_export": 17.69947503876853,
+          "uniform_deficit_correction": 11.442084718661963,
+          "unbound_inventory_change": -9.583481497266177e-08,
+          "direct_identity_residual": -1.1546319456101628e-14,
+          "closed_identity_residual": -9.717016542348628e-15,
+          "measured_E_over_L": 0.3535353622861266,
+          "zero_inventory_change_E_over_L": 0.3535353535353535,
+          "endpoint_correction": 8.750799055424576e-09,
+          "roundoff_correction": -2.5568930483056005e-14,
+          "window_convention": "Step end time > start and <= end.",
+          "native_pools": {
+            "bound": {
+              "amount_change": 9.583481519470638e-08,
+              "native_executed_exchange": 8.768096571909448,
+              "signed_cap_export": 17.707225162531586,
+              "uniform_replacement": 8.939128686454659,
+              "cumulative_closure_residual": 2.2950530365051236e-12
+            },
+            "unbound": {
+              "amount_change": -9.583481497266177e-08,
+              "native_executed_exchange": -2.510706251804163,
+              "signed_cap_export": -0.007750123763055956,
+              "uniform_replacement": 2.502956032207304,
+              "cumulative_closure_residual": -1.0116352200384426e-12
+            }
+          },
+          "source_sha256": {
+            "polarity1d/manuscript/data/runs/debelly_rac_gap_challenge_C50_20261019/challenges/02/pool_budgets.npz": "d3dd084472834310bd5316161bb1c46172583cee4f1d2a445ee0aac22b0d6f7f"
+          }
+        },
+        "first_complete_same_sector_birth_return": {
+          "start": 8658.5,
+          "end": 23800.0,
+          "dt": 0.5,
+          "steps": 30283,
+          "sequential_numerical_exchange": 6.281217034433656,
+          "signed_total_cap_export": 17.766871040256607,
+          "uniform_deficit_correction": 11.485654005821653,
+          "unbound_inventory_change": 1.9984014443252818e-14,
+          "direct_identity_residual": -1.0658141036401503e-14,
+          "closed_identity_residual": -7.942074247970292e-15,
+          "measured_E_over_L": 0.3535353535353255,
+          "zero_inventory_change_E_over_L": 0.3535353535353535,
+          "endpoint_correction": -1.81784384019135e-15,
+          "roundoff_correction": -2.5815257554845794e-14,
+          "window_convention": "Step end time > start and <= end.",
+          "native_pools": {
+            "bound": {
+              "amount_change": -1.9095836023552692e-14,
+              "native_executed_exchange": 8.801527425233308,
+              "signed_cap_export": 17.774694617283796,
+              "uniform_replacement": 8.973167192048166,
+              "cumulative_closure_residual": 2.3021584638627246e-12
+            },
+            "unbound": {
+              "amount_change": 1.9984014443252818e-14,
+              "native_executed_exchange": -2.520310390799655,
+              "signed_cap_export": -0.007823577027191471,
+              "uniform_replacement": 2.5124868137734864,
+              "cumulative_closure_residual": -1.0027534358414414e-12
+            }
+          },
+          "source_sha256": {
+            "polarity1d/manuscript/data/runs/debelly_rac_gap_challenge_C50_20261019/challenges/02/pool_budgets.npz": "d3dd084472834310bd5316161bb1c46172583cee4f1d2a445ee0aac22b0d6f7f"
+          }
+        }
+      }
+    },
+    "N648_dt0p25": {
+      "point_minimum_to_minimum_returns_seconds": [
+        12765.0
+      ],
+      "patch_minimum_to_minimum_returns_seconds": [
+        12760.0
+      ],
+      "point_complete_cycle_excursions": [
+        0.18316808488110525
+      ],
+      "patch_complete_cycle_excursions": [
+        0.17645352086809374
+      ],
+      "postcue_gap_births": [
+        {
+          "time": 11275.5,
+          "x": 31.98302469135816,
+          "id": 4
+        },
+        {
+          "time": 17629.75,
+          "x": 20.042438271604922,
+          "id": 5
+        },
+        {
+          "time": 24039.0,
+          "x": 32.00231481481495,
+          "id": 6
+        },
+        {
+          "time": 30396.75,
+          "x": 20.052083333333314,
+          "id": 7
+        }
+      ],
+      "adjacent_gap_birth_intervals": [
+        6354.25,
+        6409.25,
+        6357.75
+      ],
+      "every_other_gap_birth_returns": [
+        12763.5,
+        12767.0
+      ],
+      "late_all_local_maximum_counts": [
+        1
+      ],
+      "late_active_peak_counts": [
+        1
+      ],
+      "late_active_component_counts": [
+        1
+      ],
+      "late_gap_counts": [
+        1
+      ],
+      "late_phase_minmax_um": [
+        20.31606084939793,
+        30.906118776438404
+      ],
+      "late_native_peak_minmax_um": [
+        18.711419753086382,
+        33.37191358024701
+      ],
+      "late_total_vector_magnitude_minmax": [
+        0.08625647229433135,
+        0.10258633823395213
+      ],
+      "maximum_point_reconstruction_difference": 0.00015346120177983646,
+      "late_maximum_native_peak_sample_jump_um": 0.23148148148148806,
+      "initial_target_point_Rac": 0.6453446527481176,
+      "initial_target_patch_Rac": 0.6456175743098308,
+      "initial_activity_vector_position_um": 5.349220713481314e-06,
+      "initial_total_vector_magnitude": 0.08695472464511432,
+      "birth_turn_next_birth_segments": [
+        {
+          "birth": 11275.5,
+          "birth_x": 31.98302469135816,
+          "next_birth": 17629.75,
+          "next_birth_x": 20.042438271604922,
+          "first_intervening_vector_turn": 11705.0,
+          "opening_to_turn": 429.5,
+          "turn_to_next_opening": 5924.75
+        },
+        {
+          "birth": 17629.75,
+          "birth_x": 20.042438271604922,
+          "next_birth": 24039.0,
+          "next_birth_x": 32.00231481481495,
+          "first_intervening_vector_turn": 18065.0,
+          "opening_to_turn": 435.25,
+          "turn_to_next_opening": 5974.0
+        },
+        {
+          "birth": 24039.0,
+          "birth_x": 32.00231481481495,
+          "next_birth": 30396.75,
+          "next_birth_x": 20.052083333333314,
+          "first_intervening_vector_turn": 24470.0,
+          "opening_to_turn": 431.0,
+          "turn_to_next_opening": 5926.75
+        }
+      ],
+      "selected_complete_cycle_MCA_identities": {
+        "first_complete_point_trough_return": {
+          "start": 11655.0,
+          "end": 24420.0,
+          "dt": 0.25,
+          "steps": 51060,
+          "sequential_numerical_exchange": 3.259342091830808,
+          "signed_total_cap_export": 15.179221626361945,
+          "uniform_deficit_correction": 11.9198795345451,
+          "unbound_inventory_change": -2.528290421466295e-08,
+          "direct_identity_residual": 2.220446049250313e-15,
+          "closed_identity_residual": 2.504046127873399e-15,
+          "measured_E_over_L": 0.2147239280155359,
+          "zero_inventory_change_E_over_L": 0.21472392638036805,
+          "endpoint_correction": 1.634970178321839e-09,
+          "roundoff_correction": 1.9752446563822972e-13,
+          "window_convention": "Step end time > start and <= end.",
+          "native_pools": {
+            "bound": {
+              "amount_change": 2.528290465875216e-08,
+              "native_executed_exchange": 5.8744816281689145,
+              "signed_cap_export": 15.186887489235314,
+              "uniform_replacement": 9.31240588636336,
+              "cumulative_closure_residual": -1.4056311670174182e-11
+            },
+            "unbound": {
+              "amount_change": -2.528290421466295e-08,
+              "native_executed_exchange": -2.6151395363381083,
+              "signed_cap_export": -0.007665862873368376,
+              "uniform_replacement": 2.607473648181741,
+              "cumulative_closure_residual": 9.459100169806334e-14
+            }
+          },
+          "source_sha256": {
+            "polarity1d/manuscript/data/runs/debelly_rac_gap_sensitivity_C50_20261019_continuation/prefix_history/pool_budgets.npz": "79ed13f46cd418b60f56c9f3feebd8c40fefa8f19efcceb69cf670e76fa1cde9",
+            "polarity1d/manuscript/data/runs/debelly_rac_gap_sensitivity_C50_20261019_continuation/challenges/00/pool_budgets.npz": "0af8d802bba2baa2efe9936aa1dd6878cba4ae8943e241c7781e7953029c36b1"
+          }
+        },
+        "first_complete_same_sector_birth_return": {
+          "start": 11275.5,
+          "end": 24039.0,
+          "dt": 0.25,
+          "steps": 51054,
+          "sequential_numerical_exchange": 3.2584957303301096,
+          "signed_total_cap_export": 15.175280115523387,
+          "uniform_deficit_correction": 11.916784385207228,
+          "unbound_inventory_change": -5.551115123125783e-15,
+          "direct_identity_residual": 2.220446049250313e-15,
+          "closed_identity_residual": 2.3107804202433983e-15,
+          "measured_E_over_L": 0.21472392638056592,
+          "zero_inventory_change_E_over_L": 0.21472392638036805,
+          "endpoint_correction": 3.59067333099804e-16,
+          "roundoff_correction": 1.9738181981384792e-13,
+          "window_convention": "Step end time > start and <= end.",
+          "native_pools": {
+            "bound": {
+              "amount_change": 2.6645352591003757e-15,
+              "native_executed_exchange": 5.872975593640466,
+              "signed_cap_export": 15.182963394569553,
+              "uniform_replacement": 9.309987800943146,
+              "cumulative_closure_residual": -1.4056311670174182e-11
+            },
+            "unbound": {
+              "amount_change": -5.551115123125783e-15,
+              "native_executed_exchange": -2.614479863310357,
+              "signed_cap_export": -0.007683279046166002,
+              "uniform_replacement": 2.6067965842640812,
+              "cumulative_closure_residual": 1.0436096431476471e-13
+            }
+          },
+          "source_sha256": {
+            "polarity1d/manuscript/data/runs/debelly_rac_gap_sensitivity_C50_20261019_continuation/prefix_history/pool_budgets.npz": "79ed13f46cd418b60f56c9f3feebd8c40fefa8f19efcceb69cf670e76fa1cde9",
+            "polarity1d/manuscript/data/runs/debelly_rac_gap_sensitivity_C50_20261019_continuation/challenges/00/pool_budgets.npz": "0af8d802bba2baa2efe9936aa1dd6878cba4ae8943e241c7781e7953029c36b1"
+          }
+        }
+      }
+    },
+    "N324_dt0p25": {
+      "point_minimum_to_minimum_returns_seconds": [
+        13080.0
+      ],
+      "patch_minimum_to_minimum_returns_seconds": [
+        13080.0
+      ],
+      "point_complete_cycle_excursions": [
+        0.18283684909064113
+      ],
+      "patch_complete_cycle_excursions": [
+        0.17619528172983268
+      ],
+      "postcue_gap_births": [
+        {
+          "time": 10532.5,
+          "x": 31.867283950617143,
+          "id": 4
+        },
+        {
+          "time": 17125.0,
+          "x": 19.945987654320962,
+          "id": 5
+        },
+        {
+          "time": 23608.75,
+          "x": 31.82870370370356,
+          "id": 6
+        },
+        {
+          "time": 30205.75,
+          "x": 19.926697530864175,
+          "id": 7
+        }
+      ],
+      "adjacent_gap_birth_intervals": [
+        6592.5,
+        6483.75,
+        6597.0
+      ],
+      "every_other_gap_birth_returns": [
+        13076.25,
+        13080.75
+      ],
+      "late_all_local_maximum_counts": [
+        1
+      ],
+      "late_active_peak_counts": [
+        1
+      ],
+      "late_active_component_counts": [
+        1
+      ],
+      "late_gap_counts": [
+        1
+      ],
+      "late_phase_minmax_um": [
+        20.38298709502634,
+        30.85319004377922
+      ],
+      "late_native_peak_minmax_um": [
+        18.59567901234567,
+        33.25617283950605
+      ],
+      "late_total_vector_magnitude_minmax": [
+        0.08627316128085541,
+        0.10252531099484899
+      ],
+      "maximum_point_reconstruction_difference": 0.0009251178290551332,
+      "late_maximum_native_peak_sample_jump_um": 0.3086419753086389,
+      "initial_target_point_Rac": 0.6453961026825376,
+      "initial_target_patch_Rac": 0.6456694627083455,
+      "initial_activity_vector_position_um": 3.372540904331105e-06,
+      "initial_total_vector_magnitude": 0.0869757122995411,
+      "birth_turn_next_birth_segments": [
+        {
+          "birth": 10532.5,
+          "birth_x": 31.867283950617143,
+          "next_birth": 17125.0,
+          "next_birth_x": 19.945987654320962,
+          "first_intervening_vector_turn": 10985.0,
+          "opening_to_turn": 452.5,
+          "turn_to_next_opening": 6140.0
+        },
+        {
+          "birth": 17125.0,
+          "birth_x": 19.945987654320962,
+          "next_birth": 23608.75,
+          "next_birth_x": 31.82870370370356,
+          "first_intervening_vector_turn": 17565.0,
+          "opening_to_turn": 440.0,
+          "turn_to_next_opening": 6043.75
+        },
+        {
+          "birth": 23608.75,
+          "birth_x": 31.82870370370356,
+          "next_birth": 30205.75,
+          "next_birth_x": 19.926697530864175,
+          "first_intervening_vector_turn": 24060.0,
+          "opening_to_turn": 451.25,
+          "turn_to_next_opening": 6145.75
+        }
+      ],
+      "selected_complete_cycle_MCA_identities": {
+        "first_complete_point_trough_return": {
+          "start": 10940.0,
+          "end": 24020.0,
+          "dt": 0.25,
+          "steps": 52320,
+          "sequential_numerical_exchange": 3.3800145185120942,
+          "signed_total_cap_export": 15.741209989728318,
+          "uniform_deficit_correction": 12.361195471237856,
+          "unbound_inventory_change": -1.0547638984448326e-07,
+          "direct_identity_residual": 5.773159728050814e-15,
+          "closed_identity_residual": 6.606473171788769e-15,
+          "measured_E_over_L": 0.2147239329579918,
+          "zero_inventory_change_E_over_L": 0.21472392638036805,
+          "endpoint_correction": 6.577328341555193e-09,
+          "roundoff_correction": 2.950789795237233e-13,
+          "window_convention": "Step end time > start and <= end.",
+          "native_pools": {
+            "bound": {
+              "amount_change": 1.0547639073266168e-07,
+              "native_executed_exchange": 6.091772298985139,
+              "signed_cap_export": 15.74895615539251,
+              "uniform_replacement": 9.657183961904574,
+              "cumulative_closure_residual": -2.0811796730413334e-11
+            },
+            "unbound": {
+              "amount_change": -1.0547638984448326e-07,
+              "native_executed_exchange": -2.7117577804730413,
+              "signed_cap_export": -0.007746165664190912,
+              "uniform_replacement": 2.704011509333281,
+              "cumulative_closure_residual": -8.202327705930657e-13
+            }
+          },
+          "source_sha256": {
+            "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/pool_budgets.npz": "7652cf869a1fcc1059687870051a23eb8889ac3e8f46ae4f51c8dbc1b1aeb19e"
+          }
+        },
+        "first_complete_same_sector_birth_return": {
+          "start": 10532.5,
+          "end": 23608.75,
+          "dt": 0.25,
+          "steps": 52305,
+          "sequential_numerical_exchange": 3.377952133283161,
+          "signed_total_cap_export": 15.73160564926848,
+          "uniform_deficit_correction": 12.353653516006936,
+          "unbound_inventory_change": -3.1086244689504383e-15,
+          "direct_identity_residual": 1.0658141036401503e-14,
+          "closed_identity_residual": 1.1390740674524146e-14,
+          "measured_E_over_L": 0.21472392638066387,
+          "zero_inventory_change_E_over_L": 0.21472392638036805,
+          "endpoint_correction": 1.9396688359087063e-16,
+          "roundoff_correction": 2.950424798046507e-13,
+          "window_convention": "Step end time > start and <= end.",
+          "native_pools": {
+            "bound": {
+              "amount_change": 4.440892098500626e-15,
+              "native_executed_exchange": 6.0880593971843915,
+              "signed_cap_export": 15.739351206543994,
+              "uniform_replacement": 9.651291809380417,
+              "cumulative_closure_residual": -2.0811796730413334e-11
+            },
+            "unbound": {
+              "amount_change": -3.1086244689504383e-15,
+              "native_executed_exchange": -2.7101072639012282,
+              "signed_cap_export": -0.007745557275513674,
+              "uniform_replacement": 2.702361706626517,
+              "cumulative_closure_residual": -8.055778266680136e-13
+            }
+          },
+          "source_sha256": {
+            "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/pool_budgets.npz": "7652cf869a1fcc1059687870051a23eb8889ac3e8f46ae4f51c8dbc1b1aeb19e"
+          }
+        }
+      }
+    },
+    "N648_dt0p5": {
+      "point_minimum_to_minimum_returns_seconds": [
+        14690.0
+      ],
+      "patch_minimum_to_minimum_returns_seconds": [
+        14685.0
+      ],
+      "point_complete_cycle_excursions": [
+        0.17760039206229306
+      ],
+      "patch_complete_cycle_excursions": [
+        0.17241643947375707
+      ],
+      "postcue_gap_births": [
+        {
+          "time": 8685.5,
+          "x": 31.98302469135816,
+          "id": 4
+        },
+        {
+          "time": 16053.5,
+          "x": 20.00385802469134,
+          "id": 5
+        },
+        {
+          "time": 23372.0,
+          "x": 31.96373456790137,
+          "id": 6
+        },
+        {
+          "time": 30745.0,
+          "x": 20.013503086419735,
+          "id": 7
+        }
+      ],
+      "adjacent_gap_birth_intervals": [
+        7368.0,
+        7318.5,
+        7373.0
+      ],
+      "every_other_gap_birth_returns": [
+        14686.5,
+        14691.5
+      ],
+      "late_all_local_maximum_counts": [
+        1
+      ],
+      "late_active_peak_counts": [
+        1
+      ],
+      "late_active_component_counts": [
+        1
+      ],
+      "late_gap_counts": [
+        1
+      ],
+      "late_phase_minmax_um": [
+        21.076150606852647,
+        30.93106895023232
+      ],
+      "late_native_peak_minmax_um": [
+        18.4799382716049,
+        33.44907407407416
+      ],
+      "late_total_vector_magnitude_minmax": [
+        0.08650066225707317,
+        0.10279839476880998
+      ],
+      "maximum_point_reconstruction_difference": 0.00023698474620548193,
+      "late_maximum_native_peak_sample_jump_um": 0.308641975308646,
+      "initial_target_point_Rac": 0.6452854870655447,
+      "initial_target_patch_Rac": 0.6455580108189336,
+      "initial_activity_vector_position_um": 1.2823508092857743e-06,
+      "initial_total_vector_magnitude": 0.0870256762477274,
+      "birth_turn_next_birth_segments": [
+        {
+          "birth": 8685.5,
+          "birth_x": 31.98302469135816,
+          "next_birth": 16053.5,
+          "next_birth_x": 20.00385802469134,
+          "first_intervening_vector_turn": 9140.0,
+          "opening_to_turn": 454.5,
+          "turn_to_next_opening": 6913.5
+        },
+        {
+          "birth": 16053.5,
+          "birth_x": 20.00385802469134,
+          "next_birth": 23372.0,
+          "next_birth_x": 31.96373456790137,
+          "first_intervening_vector_turn": 16505.0,
+          "opening_to_turn": 451.5,
+          "turn_to_next_opening": 6867.0
+        },
+        {
+          "birth": 23372.0,
+          "birth_x": 31.96373456790137,
+          "next_birth": 30745.0,
+          "next_birth_x": 20.013503086419735,
+          "first_intervening_vector_turn": 23825.0,
+          "opening_to_turn": 453.0,
+          "turn_to_next_opening": 6920.0
+        }
+      ],
+      "selected_complete_cycle_MCA_identities": {
+        "first_complete_point_trough_return": {
+          "start": 9095.0,
+          "end": 23785.0,
+          "dt": 0.5,
+          "steps": 29380,
+          "sequential_numerical_exchange": 5.997011634640696,
+          "signed_total_cap_export": 16.962975322145653,
+          "uniform_deficit_correction": 10.965963687495874,
+          "unbound_inventory_change": -9.721657012740081e-08,
+          "direct_identity_residual": -3.375077994860476e-14,
+          "closed_identity_residual": -3.325511077655163e-14,
+          "measured_E_over_L": 0.35353536279755265,
+          "zero_inventory_change_E_over_L": 0.3535353535353535,
+          "endpoint_correction": 9.262389770128801e-09,
+          "roundoff_correction": -1.893054753260657e-13,
+          "window_convention": "Step end time > start and <= end.",
+          "native_pools": {
+            "bound": {
+              "amount_change": 9.7216569461267e-08,
+              "native_executed_exchange": 8.403489277643851,
+              "signed_cap_export": 16.97064831129279,
+              "uniform_replacement": 8.567159130856151,
+              "cumulative_closure_residual": 9.35784782996052e-12
+            },
+            "unbound": {
+              "amount_change": -9.721657012740081e-08,
+              "native_executed_exchange": -2.4064776430031563,
+              "signed_cap_export": -0.007672989147136391,
+              "uniform_replacement": 2.3988045566397225,
+              "cumulative_closure_residual": -2.7267077484793845e-13
+            }
+          },
+          "source_sha256": {
+            "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/response/pool_budgets.npz": "03f9621195b5dea01da17fc36ce39c49f05e9e00d56159caaba0b70df8d54388"
+          }
+        },
+        "first_complete_same_sector_birth_return": {
+          "start": 8685.5,
+          "end": 23372.0,
+          "dt": 0.5,
+          "steps": 29373,
+          "sequential_numerical_exchange": 5.993911812403875,
+          "signed_total_cap_export": 16.954207697951443,
+          "uniform_deficit_correction": 10.960295885538475,
+          "unbound_inventory_change": -2.1538326677728037e-14,
+          "direct_identity_residual": -3.197442310920451e-14,
+          "closed_identity_residual": -2.928330552424044e-14,
+          "measured_E_over_L": 0.35353535353516474,
+          "zero_inventory_change_E_over_L": 0.3535353535353535,
+          "endpoint_correction": 2.0531432357703024e-15,
+          "roundoff_correction": -1.8963948272499204e-13,
+          "window_convention": "Step end time > start and <= end.",
+          "native_pools": {
+            "bound": {
+              "amount_change": 2.398081733190338e-14,
+              "native_executed_exchange": 8.399165119560399,
+              "signed_cap_export": 16.961896280146664,
+              "uniform_replacement": 8.562731160576934,
+              "cumulative_closure_residual": 9.354295116281719e-12
+            },
+            "unbound": {
+              "amount_change": -2.1538326677728037e-14,
+              "native_executed_exchange": -2.4052533071565265,
+              "signed_cap_export": -0.007688582195221768,
+              "uniform_replacement": 2.3975647249615415,
+              "cumulative_closure_residual": -2.5845992013273644e-13
+            }
+          },
+          "source_sha256": {
+            "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/response/pool_budgets.npz": "03f9621195b5dea01da17fc36ce39c49f05e9e00d56159caaba0b70df8d54388"
+          }
+        }
+      }
+    }
+  },
+  "descriptive_factorial_contrasts": {
+    "first_complete_point_return_seconds": {
+      "N324_dt0p5": 15115.0,
+      "N648_dt0p25": 12765.0,
+      "N324_dt0p25": 13080.0,
+      "N648_dt0p5": 14690.0
+    },
+    "halve_dt_at_N324": -2035.0,
+    "halve_dt_at_N648": -1925.0,
+    "double_initial_N_at_dt0p5": -425.0,
+    "double_initial_N_at_dt0p25": -315.0,
+    "two_level_interaction": 110.0,
+    "scope": "Descriptive conditional differences of first available complete fixed-site trough returns, including own basal requalification; not asymptotic convergence or a pure local truncation-error estimate."
+  },
+  "independent_all_four_feature_crosschecks": {
+    "N324_dt0p5": {
+      "source_sha256": "6b4fd37b8551300a3f55ba37325aab4bfc8e654ec2d5ced63563b4257a441cef",
+      "time_exact": true,
+      "maximum_differences": {
+        "point20": 0.0,
+        "patch20": 8.881784197001252e-16,
+        "phase": 2.4513724383723456e-13,
+        "vector_strength_total": 1.7763568394002505e-15,
+        "peak_x": 0.0,
+        "Rmin": 0.0,
+        "Rmax": 0.0,
+        "contrast": 0.0,
+        "active_components": 0.0,
+        "active_peak_count": 0.0,
+        "peak_count": 0.0,
+        "gap_count": 0.0,
+        "cells": 0.0
+      }
+    },
+    "N648_dt0p25": {
+      "source_sha256": "d06febabcf8a53121d7c0cef02dc9dec99c614a0aec0b13c0c5b31de3cd6b2a4",
+      "time_exact": true,
+      "maximum_differences": {
+        "point20": 0.0,
+        "patch20": 8.881784197001252e-16,
+        "phase": 1.1315393066979595e-12,
+        "vector_strength_total": 8.049116928532385e-15,
+        "peak_x": 0.0,
+        "Rmin": 0.0,
+        "Rmax": 0.0,
+        "contrast": 0.0,
+        "active_components": 0.0,
+        "active_peak_count": 0.0,
+        "peak_count": 0.0,
+        "gap_count": 0.0,
+        "cells": 0.0
+      }
+    },
+    "N324_dt0p25": {
+      "source_sha256": "ad519506f92f5f8e2c3b76a875386db1b67fa8011c2a6a61a1345cec00f765e0",
+      "time_exact": true,
+      "maximum_differences": {
+        "point20": 0.0,
+        "patch20": 1.3322676295501878e-15,
+        "phase": 2.504663143554353e-13,
+        "vector_strength_total": 1.790234627208065e-15,
+        "peak_x": 0.0,
+        "Rmin": 0.0,
+        "Rmax": 0.0,
+        "contrast": 0.0,
+        "active_components": 0.0,
+        "active_peak_count": 0.0,
+        "peak_count": 0.0,
+        "gap_count": 0.0,
+        "cells": 0.0
+      }
+    },
+    "N648_dt0p5": {
+      "source_sha256": "aa3220b853cac66bd1c1edaca29f3ba9b574e596a8299b4350296fbae0772a13",
+      "time_exact": true,
+      "maximum_differences": {
+        "point20": 0.0,
+        "patch20": 8.881784197001252e-16,
+        "phase": 1.1297629498585593e-12,
+        "vector_strength_total": 8.0629947163402e-15,
+        "peak_x": 0.0,
+        "Rmin": 0.0,
+        "Rmax": 0.0,
+        "contrast": 0.0,
+        "active_components": 0.0,
+        "active_peak_count": 0.0,
+        "peak_count": 0.0,
+        "gap_count": 0.0,
+        "cells": 0.0
+      }
+    }
+  },
+  "new_feature_details": {
+    "N324_dt0p25": {
+      "label": "N324_dt0p25",
+      "profiles": 6297,
+      "duplicate_samples_removed": 0,
+      "protocol_time_start": 0.0,
+      "protocol_time_end": 31000.0,
+      "source_sha256": {
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/native_profiles.npz": "c2a5e942079bf17c237f19ddbbfdc776d674c541675b4d7359037bc3c32da36f",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/diagnostics.json": "b75c97142d2843ed3faaeaa5d974c64de243344f4230f8bef2bc65aa914f1b01",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/events.json": "4db969a60e84b3c92111738a51960624c457afee50a5dadb93d9bcd942a870b8"
+      },
+      "analysis_start": 2000.0,
+      "analysis_end": 31000.0,
+      "extrema": {
+        "point20": {
+          "prominence": 0.02,
+          "minimum_separation_seconds": 1000.0,
+          "maxima": [
+            {
+              "time": 17125.0,
+              "value": 0.9072951826783908,
+              "prominence": 0.1814733657861508
+            }
+          ],
+          "minima": [
+            {
+              "time": 10940.0,
+              "value": 0.7244583335877497,
+              "prominence": 0.1678570970152904
+            },
+            {
+              "time": 24020.0,
+              "value": 0.72582181689224,
+              "prominence": 0.18147209213897697
+            }
+          ],
+          "maximum_to_maximum_periods": [],
+          "minimum_to_minimum_periods": [
+            13080.0
+          ],
+          "complete_peak_cycles": [],
+          "complete_trough_cycles": [
+            {
+              "start": 10940.0,
+              "end": 24020.0,
+              "period": 13080.0,
+              "excursion": 0.18283684909064113
+            }
+          ]
+        },
+        "patch20": {
+          "prominence": 0.02,
+          "minimum_separation_seconds": 1000.0,
+          "maxima": [
+            {
+              "time": 17125.0,
+              "value": 0.9068080602353598,
+              "prominence": 0.17511421675294436
+            }
+          ],
+          "minima": [
+            {
+              "time": 10970.0,
+              "value": 0.7306127785055271,
+              "prominence": 0.1586798790817442
+            },
+            {
+              "time": 24050.0,
+              "value": 0.7316938434824154,
+              "prominence": 0.17511421675294436
+            }
+          ],
+          "maximum_to_maximum_periods": [],
+          "minimum_to_minimum_periods": [
+            13080.0
+          ],
+          "complete_peak_cycles": [],
+          "complete_trough_cycles": [
+            {
+              "start": 10970.0,
+              "end": 24050.0,
+              "period": 13080.0,
+              "excursion": 0.17619528172983268
+            }
+          ]
+        },
+        "phase": {
+          "prominence": 0.5,
+          "minimum_separation_seconds": 1000.0,
+          "maxima": [
+            {
+              "time": 10985.0,
+              "value": 30.85319004377922,
+              "prominence": 9.89008505918877
+            },
+            {
+              "time": 24060.0,
+              "value": 30.815512204437884,
+              "prominence": 9.809222652190158
+            }
+          ],
+          "minima": [
+            {
+              "time": 17565.0,
+              "value": 21.006289552247726,
+              "prominence": 9.809222652190158
+            }
+          ],
+          "maximum_to_maximum_periods": [
+            13075.0
+          ],
+          "minimum_to_minimum_periods": [],
+          "complete_peak_cycles": [
+            {
+              "start": 10985.0,
+              "end": 24060.0,
+              "period": 13075.0,
+              "excursion": 9.846900491531496
+            }
+          ],
+          "complete_trough_cycles": []
+        }
+      },
+      "windows": [
+        {
+          "start": 1000.0,
+          "end": 11000.0,
+          "ranges": {
+            "point20": {
+              "min": 0.7244583335877497,
+              "max": 4.4760616159189635,
+              "range": 3.7516032823312138
+            },
+            "patch20": {
+              "min": 0.7306127785055271,
+              "max": 3.697180383561963,
+              "range": 2.966567605056436
+            },
+            "point32": {
+              "min": 0.6647333881596472,
+              "max": 0.9072951410824226,
+              "range": 0.24256175292277538
+            },
+            "patch32": {
+              "min": 0.6714751072033787,
+              "max": 0.9067791414723768,
+              "range": 0.23530403426899815
+            },
+            "Rmax": {
+              "min": 0.8897284151607955,
+              "max": 4.476334990676177,
+              "range": 3.5866065755153818
+            },
+            "Rmin": {
+              "min": 0.5623786391252044,
+              "max": 0.6672647709551077,
+              "range": 0.10488613182990336
+            },
+            "contrast": {
+              "min": 0.2375170139229632,
+              "max": 3.913956351550973,
+              "range": 3.67643933762801
+            },
+            "halfcontrast_width": {
+              "min": 5.709876543209878,
+              "max": 22.0679012345679,
+              "range": 16.35802469135802
+            },
+            "phase": {
+              "min": 20.104867266928476,
+              "max": 30.85319004377922,
+              "range": 10.748322776850745
+            },
+            "peak_x": {
+              "min": 19.212962962962948,
+              "max": 33.10185185185172,
+              "range": 13.888888888888772
+            },
+            "vector_strength_excess": {
+              "min": 0.6179703065828367,
+              "max": 0.8707319512933868,
+              "range": 0.25276164471055007
+            }
+          },
+          "phase_endpoint_signed_change_um": 10.555493374376312,
+          "active_peak_counts": [
+            1
+          ],
+          "component_counts": [
+            1
+          ],
+          "gap_counts": [
+            1
+          ],
+          "median_raw_template_RMS": 0.03895310410977842,
+          "median_phase_aligned_template_RMS": 0.013880660721235215,
+          "template_MSE_reduction_fraction": 0.8588872948866705
+        },
+        {
+          "start": 11000.0,
+          "end": 21000.0,
+          "ranges": {
+            "point20": {
+              "min": 0.7250642519373722,
+              "max": 0.9072951826783908,
+              "range": 0.1822309307410186
+            },
+            "patch20": {
+              "min": 0.7307554705891206,
+              "max": 0.9068080602353598,
+              "range": 0.17605258964623915
+            },
+            "point32": {
+              "min": 0.7201876661415313,
+              "max": 0.8936065454178762,
+              "range": 0.17341887927634492
+            },
+            "patch32": {
+              "min": 0.7272178206781321,
+              "max": 0.8907063788891266,
+              "range": 0.1634885582109945
+            },
+            "Rmax": {
+              "min": 0.8897282379250819,
+              "max": 0.9072956185191499,
+              "range": 0.017567380594067927
+            },
+            "Rmin": {
+              "min": 0.6268312346445452,
+              "max": 0.6672662118341152,
+              "range": 0.04043497718957001
+            },
+            "contrast": {
+              "min": 0.23752958084827613,
+              "max": 0.2700663090872756,
+              "range": 0.032536728238999446
+            },
+            "halfcontrast_width": {
+              "min": 17.746913580246904,
+              "max": 22.0679012345679,
+              "range": 4.320987654320994
+            },
+            "phase": {
+              "min": 21.006289552247726,
+              "max": 30.851975760020427,
+              "range": 9.845686207772701
+            },
+            "peak_x": {
+              "min": 18.59567901234567,
+              "max": 33.25617283950605,
+              "range": 14.66049382716038
+            },
+            "vector_strength_excess": {
+              "min": 0.6713485863228463,
+              "max": 0.7286561954462291,
+              "range": 0.05730760912338273
+            }
+          },
+          "phase_endpoint_signed_change_um": -5.590582290423601,
+          "active_peak_counts": [
+            1
+          ],
+          "component_counts": [
+            1
+          ],
+          "gap_counts": [
+            1
+          ],
+          "median_raw_template_RMS": 0.03845620410017889,
+          "median_phase_aligned_template_RMS": 0.010438866975221327,
+          "template_MSE_reduction_fraction": 0.8735410683741306
+        },
+        {
+          "start": 21000.0,
+          "end": 31000.0,
+          "ranges": {
+            "point20": {
+              "min": 0.72582181689224,
+              "max": 0.907293909031217,
+              "range": 0.18147209213897697
+            },
+            "patch20": {
+              "min": 0.7316938434824154,
+              "max": 0.9068121094164961,
+              "range": 0.17511826593408075
+            },
+            "point32": {
+              "min": 0.7180758355078772,
+              "max": 0.9072969470153808,
+              "range": 0.18922111150750354
+            },
+            "patch32": {
+              "min": 0.7255275854451138,
+              "max": 0.9067751763491526,
+              "range": 0.18124759090403886
+            },
+            "Rmax": {
+              "min": 0.8897302077205649,
+              "max": 0.907302864387117,
+              "range": 0.017572656666552167
+            },
+            "Rmin": {
+              "min": 0.626719098828688,
+              "max": 0.6672658505694434,
+              "range": 0.04054675174075539
+            },
+            "contrast": {
+              "min": 0.23753114291134336,
+              "max": 0.27036880636137717,
+              "range": 0.032837663450033805
+            },
+            "halfcontrast_width": {
+              "min": 17.746913580246904,
+              "max": 22.0679012345679,
+              "range": 4.320987654320994
+            },
+            "phase": {
+              "min": 20.96310498459045,
+              "max": 30.815512204437884,
+              "range": 9.852407219847432
+            },
+            "peak_x": {
+              "min": 18.59567901234567,
+              "max": 33.10185185185172,
+              "range": 14.50617283950605
+            },
+            "vector_strength_excess": {
+              "min": 0.6713445596136473,
+              "max": 0.728691084466262,
+              "range": 0.05734652485261471
+            }
+          },
+          "phase_endpoint_signed_change_um": -3.8594513909278305,
+          "active_peak_counts": [
+            1
+          ],
+          "component_counts": [
+            1
+          ],
+          "gap_counts": [
+            1
+          ],
+          "median_raw_template_RMS": 0.05173976895475062,
+          "median_phase_aligned_template_RMS": 0.016266027571764617,
+          "template_MSE_reduction_fraction": 0.8610933309141273
+        },
+        {
+          "start": 2000.0,
+          "end": 31000.0,
+          "ranges": {
+            "point20": {
+              "min": 0.7244583335877497,
+              "max": 0.9072951826783908,
+              "range": 0.18283684909064113
+            },
+            "patch20": {
+              "min": 0.7306127785055271,
+              "max": 0.9068121094164961,
+              "range": 0.17619933091096907
+            },
+            "point32": {
+              "min": 0.6835514279043705,
+              "max": 0.9072969470153808,
+              "range": 0.22374551911101026
+            },
+            "patch32": {
+              "min": 0.6943385057040672,
+              "max": 0.9067791414723768,
+              "range": 0.21244063576830963
+            },
+            "Rmax": {
+              "min": 0.8897282379250819,
+              "max": 0.907302864387117,
+              "range": 0.017574626462035114
+            },
+            "Rmin": {
+              "min": 0.626719098828688,
+              "max": 0.6672662118341152,
+              "range": 0.04054711300542713
+            },
+            "contrast": {
+              "min": 0.2375170139229632,
+              "max": 0.27036880636137717,
+              "range": 0.03285179243841396
+            },
+            "halfcontrast_width": {
+              "min": 17.129629629629626,
+              "max": 22.0679012345679,
+              "range": 4.938271604938272
+            },
+            "phase": {
+              "min": 20.38298709502634,
+              "max": 30.85319004377922,
+              "range": 10.470202948752881
+            },
+            "peak_x": {
+              "min": 18.59567901234567,
+              "max": 33.25617283950605,
+              "range": 14.66049382716038
+            },
+            "vector_strength_excess": {
+              "min": 0.6713445596136473,
+              "max": 0.7446707620759494,
+              "range": 0.07332620246230215
+            }
+          },
+          "phase_endpoint_signed_change_um": 1.0189549836426544,
+          "active_peak_counts": [
+            1
+          ],
+          "component_counts": [
+            1
+          ],
+          "gap_counts": [
+            1
+          ],
+          "median_raw_template_RMS": 0.04382978647268008,
+          "median_phase_aligned_template_RMS": 0.01348280671600575,
+          "template_MSE_reduction_fraction": 0.8640023421641934
+        },
+        {
+          "start": 12000.0,
+          "end": 30000.0,
+          "ranges": {
+            "point20": {
+              "min": 0.72582181689224,
+              "max": 0.9072951826783908,
+              "range": 0.1814733657861508
+            },
+            "patch20": {
+              "min": 0.7316938434824154,
+              "max": 0.9068080602353598,
+              "range": 0.17511421675294436
+            },
+            "point32": {
+              "min": 0.7201876661415313,
+              "max": 0.9072969470153808,
+              "range": 0.18710928087384948
+            },
+            "patch32": {
+              "min": 0.7272178206781321,
+              "max": 0.9067751763491526,
+              "range": 0.1795573556710205
+            },
+            "Rmax": {
+              "min": 0.8897282379250819,
+              "max": 0.907302864387117,
+              "range": 0.017574626462035114
+            },
+            "Rmin": {
+              "min": 0.626719098828688,
+              "max": 0.6672662118341152,
+              "range": 0.04054711300542713
+            },
+            "contrast": {
+              "min": 0.23752958084827613,
+              "max": 0.27036880636137717,
+              "range": 0.032839225513101034
+            },
+            "halfcontrast_width": {
+              "min": 17.746913580246904,
+              "max": 22.0679012345679,
+              "range": 4.320987654320994
+            },
+            "phase": {
+              "min": 21.006289552247726,
+              "max": 30.815512204437884,
+              "range": 9.809222652190158
+            },
+            "peak_x": {
+              "min": 18.59567901234567,
+              "max": 33.10185185185172,
+              "range": 14.50617283950605
+            },
+            "vector_strength_excess": {
+              "min": 0.6713485863228463,
+              "max": 0.728691084466262,
+              "range": 0.05734249814341563
+            }
+          },
+          "phase_endpoint_signed_change_um": -7.8302237444492455,
+          "active_peak_counts": [
+            1
+          ],
+          "component_counts": [
+            1
+          ],
+          "gap_counts": [
+            1
+          ],
+          "median_raw_template_RMS": 0.04399426188527824,
+          "median_phase_aligned_template_RMS": 0.012716865702108802,
+          "template_MSE_reduction_fraction": 0.8534507391147423
+        }
+      ],
+      "retarget": {
+        "openings": [
+          {
+            "event": "open",
+            "time": 10532.5,
+            "id": 4,
+            "x": 31.867283950617143,
+            "detected_peak_Rac": 0.9072958925646543,
+            "inserted_face_Rac": 0.9072958925646543,
+            "initialized_U": 0.11676488021562562,
+            "removed_material": 0.0,
+            "cells_after": 327
+          },
+          {
+            "event": "open",
+            "time": 17125.0,
+            "id": 5,
+            "x": 19.945987654320962,
+            "detected_peak_Rac": 0.9072956185191499,
+            "inserted_face_Rac": 0.9072956185191497,
+            "initialized_U": -0.11710183385895324,
+            "removed_material": 0.0,
+            "cells_after": 328
+          },
+          {
+            "event": "open",
+            "time": 23608.75,
+            "id": 6,
+            "x": 31.82870370370356,
+            "detected_peak_Rac": 0.9072954920257404,
+            "inserted_face_Rac": 0.9072954920257403,
+            "initialized_U": 0.11676364713107829,
+            "removed_material": 0.0,
+            "cells_after": 329
+          },
+          {
+            "event": "open",
+            "time": 30205.75,
+            "id": 7,
+            "x": 19.926697530864175,
+            "detected_peak_Rac": 0.9072955055812415,
+            "inserted_face_Rac": 0.9072955055812415,
+            "initialized_U": -0.11693251591932444,
+            "removed_material": 0.0,
+            "cells_after": 330
+          }
+        ],
+        "adjacent_birth_intervals": [
+          6592.5,
+          6483.75,
+          6597.0
+        ],
+        "alternating_site_return_intervals": [
+          13076.25,
+          13080.75
+        ]
+      },
+      "max_point_linear_vs_containing_cell_difference": 0.0009251178290551332,
+      "maximum_late_dominant_peak_sample_jump_um": 0.3086419753086389,
+      "template_time": 20000.0,
+      "full_stationarity_qualification": false
+    },
+    "N648_dt0p5": {
+      "label": "N648_dt0p5",
+      "profiles": 6297,
+      "duplicate_samples_removed": 0,
+      "protocol_time_start": 0.0,
+      "protocol_time_end": 31000.0,
+      "source_sha256": {
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/response/native_profiles.npz": "fe72f87dd4e632c362b1286dfd834267379d6a3bee44fec8c1ae1d813d67c25e",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/response/diagnostics.json": "90ad2523b0a1af4dbdb5db5cd49a6c43c4f15afba6bed9c15b9097e59c1d2472",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N648_dt0p5/response/events.json": "9e0e1cf42115b410210447f090612c06d9419c3267b6be64fd42cccd2e69426d"
+      },
+      "analysis_start": 2000.0,
+      "analysis_end": 31000.0,
+      "extrema": {
+        "point20": {
+          "prominence": 0.02,
+          "minimum_separation_seconds": 1000.0,
+          "maxima": [
+            {
+              "time": 16055.0,
+              "value": 0.9073097956854994,
+              "prominence": 0.17696776027749328
+            }
+          ],
+          "minima": [
+            {
+              "time": 9095.0,
+              "value": 0.7297094036232064,
+              "prominence": 0.16175509092588414
+            },
+            {
+              "time": 23785.0,
+              "value": 0.7303420354080061,
+              "prominence": 0.17696418914778733
+            }
+          ],
+          "maximum_to_maximum_periods": [],
+          "minimum_to_minimum_periods": [
+            14690.0
+          ],
+          "complete_peak_cycles": [],
+          "complete_trough_cycles": [
+            {
+              "start": 9095.0,
+              "end": 23785.0,
+              "period": 14690.0,
+              "excursion": 0.17760039206229306
+            }
+          ]
+        },
+        "patch20": {
+          "prominence": 0.02,
+          "minimum_separation_seconds": 1000.0,
+          "maxima": [
+            {
+              "time": 16055.0,
+              "value": 0.9068071564827684,
+              "prominence": 0.17192286575644566
+            }
+          ],
+          "minima": [
+            {
+              "time": 9125.0,
+              "value": 0.7343907170090114,
+              "prominence": 0.15300105408116316
+            },
+            {
+              "time": 23810.0,
+              "value": 0.7348842907263228,
+              "prominence": 0.17192286575644566
+            }
+          ],
+          "maximum_to_maximum_periods": [],
+          "minimum_to_minimum_periods": [
+            14685.0
+          ],
+          "complete_peak_cycles": [],
+          "complete_trough_cycles": [
+            {
+              "start": 9125.0,
+              "end": 23810.0,
+              "period": 14685.0,
+              "excursion": 0.17241643947375707
+            }
+          ]
+        },
+        "phase": {
+          "prominence": 0.5,
+          "minimum_separation_seconds": 1000.0,
+          "maxima": [
+            {
+              "time": 9140.0,
+              "value": 30.93106895023232,
+              "prominence": 9.28879041308645
+            },
+            {
+              "time": 23825.0,
+              "value": 30.913317596651783,
+              "prominence": 9.696612949951366
+            }
+          ],
+          "minima": [
+            {
+              "time": 16505.0,
+              "value": 21.076150606852647,
+              "prominence": 9.837166989799137
+            }
+          ],
+          "maximum_to_maximum_periods": [
+            14685.0
+          ],
+          "minimum_to_minimum_periods": [],
+          "complete_peak_cycles": [
+            {
+              "start": 9140.0,
+              "end": 23825.0,
+              "period": 14685.0,
+              "excursion": 9.854918343379673
+            }
+          ],
+          "complete_trough_cycles": []
+        }
+      },
+      "windows": [
+        {
+          "start": 1000.0,
+          "end": 11000.0,
+          "ranges": {
+            "point20": {
+              "min": 0.7297094036232064,
+              "max": 4.4762581725717565,
+              "range": 3.74654876894855
+            },
+            "patch20": {
+              "min": 0.7343907170090114,
+              "max": 3.695511321405626,
+              "range": 2.9611206043966147
+            },
+            "point32": {
+              "min": 0.6782954341238554,
+              "max": 0.9073054816963544,
+              "range": 0.229010047572499
+            },
+            "patch32": {
+              "min": 0.6846892831722458,
+              "max": 0.9068098737270385,
+              "range": 0.22212059055479272
+            },
+            "Rmax": {
+              "min": 0.8897080318222219,
+              "max": 4.476301946200524,
+              "range": 3.5865939143783017
+            },
+            "Rmin": {
+              "min": 0.5614143451988083,
+              "max": 0.6672709730558324,
+              "range": 0.1058566278570241
+            },
+            "contrast": {
+              "min": 0.2374978495010418,
+              "max": 3.9148876010017153,
+              "range": 3.6773897515006735
+            },
+            "halfcontrast_width": {
+              "min": 5.787037037037037,
+              "max": 22.0679012345679,
+              "range": 16.28086419753086
+            },
+            "phase": {
+              "min": 20.3616950195714,
+              "max": 30.93106895023232,
+              "range": 10.56937393066092
+            },
+            "peak_x": {
+              "min": 18.634259259259224,
+              "max": 33.44907407407416,
+              "range": 14.814814814814937
+            },
+            "vector_strength_excess": {
+              "min": 0.6268728227361289,
+              "max": 0.871113248524231,
+              "range": 0.24424042578810212
+            }
+          },
+          "phase_endpoint_signed_change_um": 8.462516278601441,
+          "active_peak_counts": [
+            1
+          ],
+          "component_counts": [
+            1
+          ],
+          "gap_counts": [
+            1
+          ],
+          "median_raw_template_RMS": 0.04304226467249016,
+          "median_phase_aligned_template_RMS": 0.016383953197737815,
+          "template_MSE_reduction_fraction": 0.8841508732919646
+        },
+        {
+          "start": 11000.0,
+          "end": 21000.0,
+          "ranges": {
+            "point20": {
+              "min": 0.786636072018239,
+              "max": 0.9073097956854994,
+              "range": 0.12067372366726037
+            },
+            "patch20": {
+              "min": 0.7821263942704954,
+              "max": 0.9068071564827684,
+              "range": 0.12468076221227309
+            },
+            "point32": {
+              "min": 0.730407113523197,
+              "max": 0.8891134823336094,
+              "range": 0.15870636881041245
+            },
+            "patch32": {
+              "min": 0.7349263126057667,
+              "max": 0.8828506483731282,
+              "range": 0.14792433576736153
+            },
+            "Rmax": {
+              "min": 0.889724217787146,
+              "max": 0.9073098377797006,
+              "range": 0.01758561999255459
+            },
+            "Rmin": {
+              "min": 0.6271126900670548,
+              "max": 0.6672717168448632,
+              "range": 0.04015902677780836
+            },
+            "contrast": {
+              "min": 0.23752154261167846,
+              "max": 0.269422483200791,
+              "range": 0.031900940589112525
+            },
+            "halfcontrast_width": {
+              "min": 17.978395061728392,
+              "max": 22.0679012345679,
+              "range": 4.089506172839506
+            },
+            "phase": {
+              "min": 21.076150606852647,
+              "max": 28.82421129817284,
+              "range": 7.748060691320195
+            },
+            "peak_x": {
+              "min": 18.4799382716049,
+              "max": 30.82561728395074,
+              "range": 12.34567901234584
+            },
+            "vector_strength_excess": {
+              "min": 0.6712174706458436,
+              "max": 0.7262446765596939,
+              "range": 0.05502720591385035
+            }
+          },
+          "phase_endpoint_signed_change_um": -2.4995217866132613,
+          "active_peak_counts": [
+            1
+          ],
+          "component_counts": [
+            1
+          ],
+          "gap_counts": [
+            1
+          ],
+          "median_raw_template_RMS": 0.030791775050512254,
+          "median_phase_aligned_template_RMS": 0.012276824608568491,
+          "template_MSE_reduction_fraction": 0.8120667820974632
+        },
+        {
+          "start": 21000.0,
+          "end": 31000.0,
+          "ranges": {
+            "point20": {
+              "min": 0.7303420354080061,
+              "max": 0.9073062245557935,
+              "range": 0.17696418914778733
+            },
+            "patch20": {
+              "min": 0.7348842907263228,
+              "max": 0.9068131026209224,
+              "range": 0.17192881189459963
+            },
+            "point32": {
+              "min": 0.734532555066434,
+              "max": 0.9073046083434394,
+              "range": 0.1727720532770054
+            },
+            "patch32": {
+              "min": 0.7402970707048869,
+              "max": 0.9068054415063385,
+              "range": 0.16650837080145153
+            },
+            "Rmax": {
+              "min": 0.8897246366791127,
+              "max": 0.9073062249718342,
+              "range": 0.017581588292721495
+            },
+            "Rmin": {
+              "min": 0.6270555113576164,
+              "max": 0.6672714632343978,
+              "range": 0.0402159518767814
+            },
+            "contrast": {
+              "min": 0.2375220373740743,
+              "max": 0.26962867499928556,
+              "range": 0.032106637625211265
+            },
+            "halfcontrast_width": {
+              "min": 17.97839506172839,
+              "max": 22.0679012345679,
+              "range": 4.08950617283951
+            },
+            "phase": {
+              "min": 21.216704646700418,
+              "max": 30.913317596651783,
+              "range": 9.696612949951366
+            },
+            "peak_x": {
+              "min": 20.013503086419735,
+              "max": 33.44907407407416,
+              "range": 13.435570987654426
+            },
+            "vector_strength_excess": {
+              "min": 0.6712161454540084,
+              "max": 0.7262803536056459,
+              "range": 0.055064208151637484
+            }
+          },
+          "phase_endpoint_signed_change_um": -5.107984864859162,
+          "active_peak_counts": [
+            1
+          ],
+          "component_counts": [
+            1
+          ],
+          "gap_counts": [
+            1
+          ],
+          "median_raw_template_RMS": 0.04820495298951885,
+          "median_phase_aligned_template_RMS": 0.017898610205185374,
+          "template_MSE_reduction_fraction": 0.8580930041623345
+        },
+        {
+          "start": 2000.0,
+          "end": 31000.0,
+          "ranges": {
+            "point20": {
+              "min": 0.7297094036232064,
+              "max": 0.9073097956854994,
+              "range": 0.17760039206229306
+            },
+            "patch20": {
+              "min": 0.7343907170090114,
+              "max": 0.9068131026209224,
+              "range": 0.17242238561191103
+            },
+            "point32": {
+              "min": 0.7269871003801962,
+              "max": 0.9073054816963544,
+              "range": 0.18031838131615818
+            },
+            "patch32": {
+              "min": 0.7324297736136384,
+              "max": 0.9068098737270385,
+              "range": 0.1743801001134001
+            },
+            "Rmax": {
+              "min": 0.8897080318222219,
+              "max": 0.9073098377797006,
+              "range": 0.017601805957478733
+            },
+            "Rmin": {
+              "min": 0.6270555113576164,
+              "max": 0.6672717168448632,
+              "range": 0.0402162054872468
+            },
+            "contrast": {
+              "min": 0.2374978495010418,
+              "max": 0.26962867499928556,
+              "range": 0.032130825498243754
+            },
+            "halfcontrast_width": {
+              "min": 17.669753086419746,
+              "max": 22.0679012345679,
+              "range": 4.398148148148152
+            },
+            "phase": {
+              "min": 21.076150606852647,
+              "max": 30.93106895023232,
+              "range": 9.854918343379673
+            },
+            "peak_x": {
+              "min": 18.4799382716049,
+              "max": 33.44907407407416,
+              "range": 14.96913580246926
+            },
+            "vector_strength_excess": {
+              "min": 0.6712161454540084,
+              "max": 0.7314142300018573,
+              "range": 0.06019808454784892
+            }
+          },
+          "phase_endpoint_signed_change_um": -0.425573890445456,
+          "active_peak_counts": [
+            1
+          ],
+          "component_counts": [
+            1
+          ],
+          "gap_counts": [
+            1
+          ],
+          "median_raw_template_RMS": 0.03989737172544375,
+          "median_phase_aligned_template_RMS": 0.015829142982602774,
+          "template_MSE_reduction_fraction": 0.8583130678746498
+        },
+        {
+          "start": 12000.0,
+          "end": 30000.0,
+          "ranges": {
+            "point20": {
+              "min": 0.7303420354080061,
+              "max": 0.9073097956854994,
+              "range": 0.17696776027749328
+            },
+            "patch20": {
+              "min": 0.7348842907263228,
+              "max": 0.9068071564827684,
+              "range": 0.17192286575644566
+            },
+            "point32": {
+              "min": 0.730407113523197,
+              "max": 0.9073046083434394,
+              "range": 0.17689749482024242
+            },
+            "patch32": {
+              "min": 0.7349263126057667,
+              "max": 0.9068054415063385,
+              "range": 0.17187912890057178
+            },
+            "Rmax": {
+              "min": 0.889724217787146,
+              "max": 0.9073098377797006,
+              "range": 0.01758561999255459
+            },
+            "Rmin": {
+              "min": 0.627065033032243,
+              "max": 0.6672717168448632,
+              "range": 0.04020668381262016
+            },
+            "contrast": {
+              "min": 0.23752154261167846,
+              "max": 0.26956370484223036,
+              "range": 0.032042162230551896
+            },
+            "halfcontrast_width": {
+              "min": 17.97839506172839,
+              "max": 22.0679012345679,
+              "range": 4.08950617283951
+            },
+            "phase": {
+              "min": 21.076150606852647,
+              "max": 30.913317596651783,
+              "range": 9.837166989799137
+            },
+            "peak_x": {
+              "min": 18.4799382716049,
+              "max": 33.44907407407416,
+              "range": 14.96913580246926
+            },
+            "vector_strength_excess": {
+              "min": 0.6712164057295983,
+              "max": 0.7262803536056459,
+              "range": 0.055063947876047625
+            }
+          },
+          "phase_endpoint_signed_change_um": -4.851201523351595,
+          "active_peak_counts": [
+            1
+          ],
+          "component_counts": [
+            1
+          ],
+          "gap_counts": [
+            1
+          ],
+          "median_raw_template_RMS": 0.03552111877933826,
+          "median_phase_aligned_template_RMS": 0.01545816046908421,
+          "template_MSE_reduction_fraction": 0.8449435185823713
+        }
+      ],
+      "retarget": {
+        "openings": [
+          {
+            "event": "open",
+            "time": 8685.5,
+            "id": 4,
+            "x": 31.98302469135816,
+            "detected_peak_Rac": 0.9073060658775943,
+            "inserted_face_Rac": 0.9073060658775944,
+            "initialized_U": 0.11757194949595194,
+            "removed_material": 0.0,
+            "cells_after": 651
+          },
+          {
+            "event": "open",
+            "time": 16053.5,
+            "id": 5,
+            "x": 20.00385802469134,
+            "detected_peak_Rac": 0.907306385086997,
+            "inserted_face_Rac": 0.907306385086997,
+            "initialized_U": -0.11773927934659503,
+            "removed_material": 0.0,
+            "cells_after": 652
+          },
+          {
+            "event": "open",
+            "time": 23372.0,
+            "id": 6,
+            "x": 31.96373456790137,
+            "detected_peak_Rac": 0.9073064813638746,
+            "inserted_face_Rac": 0.9073064813638745,
+            "initialized_U": 0.11757038138887288,
+            "removed_material": 0.0,
+            "cells_after": 653
+          },
+          {
+            "event": "open",
+            "time": 30745.0,
+            "id": 7,
+            "x": 20.013503086419735,
+            "detected_peak_Rac": 0.9073062249718342,
+            "inserted_face_Rac": 0.9073062249718342,
+            "initialized_U": -0.11748672697927044,
+            "removed_material": 0.0,
+            "cells_after": 654
+          }
+        ],
+        "adjacent_birth_intervals": [
+          7368.0,
+          7318.5,
+          7373.0
+        ],
+        "alternating_site_return_intervals": [
+          14686.5,
+          14691.5
+        ]
+      },
+      "max_point_linear_vs_containing_cell_difference": 0.00023698474620548193,
+      "maximum_late_dominant_peak_sample_jump_um": 0.308641975308646,
+      "template_time": 20000.0,
+      "full_stationarity_qualification": false
+    }
+  },
+  "reporting_limits": [
+    "Two numerical levels per factor do not establish a converged period or limit cycle.",
+    "Each corner uses its own full-state requalified basal. Initial N is nominal; native event splitting changes the later mesh.",
+    "Fixed-site point and physical-patch activity, moving native peaks, vector phase and topology timing are separate readouts. Rac is not advected; vector phase is not material rotation or migration.",
+    "Native numerical exchange and uniform replacement are recorded separately from signed cap export; a dt-sensitive residual does not itself establish oscillation causality.",
+    "Challenged rings are not required to become stationary. Response windows are observations only; no endpoint-dependent early stopping or proposed mean-speed/cap law was introduced."
+  ]
+}

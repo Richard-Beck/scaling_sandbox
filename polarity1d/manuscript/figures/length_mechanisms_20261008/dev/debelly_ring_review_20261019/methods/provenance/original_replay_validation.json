@@ -1,0 +1,779 @@
+{
+  "passed": true,
+  "generated_utc": "2026-10-19T19:16:57.207431+00:00",
+  "terminal_validation_complete": true,
+  "scope": "Independent complete bounded replay of all exported windows against every halfstep, same-clock transition state, frozen retained endpoint and native per-step material ledger; no new assay trajectory.",
+  "branches": {
+    "original": {
+      "passed": true,
+      "windows": [
+        {
+          "start": 0.0,
+          "end": 35.0,
+          "steps": 70,
+          "events": 1,
+          "transition_frames": [
+            2.0
+          ]
+        },
+        {
+          "start": 95.0,
+          "end": 160.0,
+          "steps": 130,
+          "events": 3,
+          "transition_frames": [
+            126.0,
+            128.5
+          ]
+        },
+        {
+          "start": 8625.0,
+          "end": 8690.0,
+          "steps": 130,
+          "events": 2,
+          "transition_frames": [
+            8658.5
+          ]
+        },
+        {
+          "start": 16255.0,
+          "end": 16320.0,
+          "steps": 130,
+          "events": 2,
+          "transition_frames": [
+            16287.5
+          ]
+        },
+        {
+          "start": 23770.0,
+          "end": 23830.0,
+          "steps": 120,
+          "events": 2,
+          "transition_frames": [
+            23800.0
+          ]
+        }
+      ],
+      "native_steps": 580,
+      "all_halfstep_frames_bit_exact": true,
+      "frames": 591,
+      "same_clock_post_transition_frames": 6,
+      "all_events_exact": [
+        {
+          "event": "open",
+          "time": 2.0,
+          "id": 2,
+          "x": 19.98456790123454,
+          "detected_peak_Rac": 0.8216000015591617,
+          "inserted_face_Rac": 0.8216000015591618,
+          "initialized_U": -0.11849620186737114,
+          "removed_material": 0.0,
+          "cells_after": 325
+        },
+        {
+          "event": "close",
+          "time": 126.0,
+          "id": 1,
+          "x": 0.0,
+          "Rac_trace": 0.7998730429719307,
+          "old_Uleft": 0.006256738895862397,
+          "old_Uright": -0.006225279612313659
+        },
+        {
+          "event": "open",
+          "time": 126.0,
+          "id": 3,
+          "x": 0.8487654320987654,
+          "detected_peak_Rac": 0.8017492003207797,
+          "inserted_face_Rac": 0.8017492003207797,
+          "initialized_U": 0.05398172492621258,
+          "removed_material": 0.0,
+          "cells_after": 326
+        },
+        {
+          "event": "close",
+          "time": 128.5,
+          "id": 3,
+          "x": 0.8487654320987654,
+          "Rac_trace": 0.7995970792107598,
+          "old_Uleft": 0.04879520389964657,
+          "old_Uright": 0.04879520363136041
+        },
+        {
+          "event": "close",
+          "time": 8658.5,
+          "id": 2,
+          "x": 19.98456790123454,
+          "Rac_trace": 0.7999534281933421,
+          "old_Uleft": 1.5678548249898644e-08,
+          "old_Uright": -1.5829272114875826e-08
+        },
+        {
+          "event": "open",
+          "time": 8658.5,
+          "id": 4,
+          "x": 31.867283950617143,
+          "detected_peak_Rac": 0.9072755348011473,
+          "inserted_face_Rac": 0.9072755348011474,
+          "initialized_U": 0.11689392595698436,
+          "removed_material": 0.0,
+          "cells_after": 327
+        },
+        {
+          "event": "close",
+          "time": 16287.5,
+          "id": 4,
+          "x": 31.867283950617143,
+          "Rac_trace": 0.799988941454643,
+          "old_Uleft": 1.593900136575518e-08,
+          "old_Uright": -1.578750630427676e-08
+        },
+        {
+          "event": "open",
+          "time": 16287.5,
+          "id": 5,
+          "x": 19.945987654320962,
+          "detected_peak_Rac": 0.9072751855191794,
+          "inserted_face_Rac": 0.9072751855191795,
+          "initialized_U": -0.11723232039518712,
+          "removed_material": 0.0,
+          "cells_after": 328
+        },
+        {
+          "event": "close",
+          "time": 23800.0,
+          "id": 5,
+          "x": 19.945987654320962,
+          "Rac_trace": 0.7999938921524814,
+          "old_Uleft": 1.580325795501024e-08,
+          "old_Uright": -1.5954848751647377e-08
+        },
+        {
+          "event": "open",
+          "time": 23800.0,
+          "id": 6,
+          "x": 31.905864197530722,
+          "detected_peak_Rac": 0.9072750105152432,
+          "inserted_face_Rac": 0.9072750105152433,
+          "initialized_U": 0.11756943058770128,
+          "removed_material": 0.0,
+          "cells_after": 329
+        }
+      ],
+      "retained_endpoint_count": 106,
+      "duplicate_saved_states_equal": 30,
+      "maximum_native_pool_ledger_error": 0.0,
+      "cue_location": 20.0,
+      "restart_clock_and_next_id_exact": true,
+      "source_manifest_sha256": "454bcdd65299154a1e75be495576d4e7654213bc0b63919c18fdbf482b3230c9"
+    },
+    "A": {
+      "passed": true,
+      "windows": [
+        {
+          "start": 0.0,
+          "end": 35.0,
+          "steps": 70,
+          "events": 1,
+          "transition_frames": [
+            2.0
+          ]
+        },
+        {
+          "start": 95.0,
+          "end": 160.0,
+          "steps": 130,
+          "events": 3,
+          "transition_frames": [
+            126.5,
+            128.5
+          ]
+        },
+        {
+          "start": 8820.0,
+          "end": 8885.0,
+          "steps": 130,
+          "events": 2,
+          "transition_frames": [
+            8853.0
+          ]
+        },
+        {
+          "start": 16440.0,
+          "end": 16505.0,
+          "steps": 130,
+          "events": 2,
+          "transition_frames": [
+            16472.5
+          ]
+        },
+        {
+          "start": 24055.0,
+          "end": 24120.0,
+          "steps": 130,
+          "events": 2,
+          "transition_frames": [
+            24089.5
+          ]
+        }
+      ],
+      "native_steps": 590,
+      "all_halfstep_frames_bit_exact": true,
+      "frames": 601,
+      "same_clock_post_transition_frames": 6,
+      "all_events_exact": [
+        {
+          "event": "open",
+          "time": 2.0,
+          "id": 2,
+          "x": 20.061728395061703,
+          "detected_peak_Rac": 0.8216000015591617,
+          "selected_peak_position": 19.98456790123454,
+          "inserted_face_Rac": 0.8214007509443803,
+          "initialized_U": -0.11668758335723173,
+          "removed_material": 0.0,
+          "cells_after": 324,
+          "locator": {
+            "selected_peak_position": 19.98456790123454,
+            "distance_tolerance": 7.105427357601015e-13,
+            "Rac_tolerance": 1.4210854715202004e-14,
+            "nearest_distance": 0.07716049382715795,
+            "candidates": [
+              {
+                "face": 129,
+                "x": 19.907407407407383,
+                "distance": 0.07716049382715795,
+                "Rac_trace": 0.8213887041124538,
+                "classification": "active"
+              },
+              {
+                "face": 130,
+                "x": 20.061728395061703,
+                "distance": 0.0771604938271615,
+                "Rac_trace": 0.8214007509443803,
+                "classification": "active"
+              }
+            ],
+            "rule": "nearest existing face; higher native face Rac only for geometric tie",
+            "chosen_face": 130,
+            "chosen_x": 20.061728395061703,
+            "outcome": "active_existing_face"
+          }
+        },
+        {
+          "event": "close",
+          "time": 126.5,
+          "id": 1,
+          "x": 0.0,
+          "Rac_trace": 0.7997651808295605,
+          "old_Uleft": 0.006134781987816931,
+          "old_Uright": -0.006109140183130053
+        },
+        {
+          "event": "open",
+          "time": 126.5,
+          "id": 3,
+          "x": 0.7716049382716049,
+          "detected_peak_Rac": 0.8016449126913384,
+          "selected_peak_position": 0.8487654320987654,
+          "inserted_face_Rac": 0.8016400299756928,
+          "initialized_U": 0.0483762212289583,
+          "removed_material": 0.0,
+          "cells_after": 324,
+          "locator": {
+            "selected_peak_position": 0.8487654320987654,
+            "distance_tolerance": 7.105427357601015e-13,
+            "Rac_tolerance": 5.973440920042514e-14,
+            "nearest_distance": 0.0771604938271615,
+            "candidates": [
+              {
+                "face": 5,
+                "x": 0.7716049382716049,
+                "distance": 0.0771604938271615,
+                "Rac_trace": 0.8016400299756928,
+                "classification": "active"
+              },
+              {
+                "face": 6,
+                "x": 0.9259259259259259,
+                "distance": 0.0771604938271615,
+                "Rac_trace": 0.8015730297095018,
+                "classification": "active"
+              }
+            ],
+            "rule": "nearest existing face; higher native face Rac only for geometric tie",
+            "chosen_face": 5,
+            "chosen_x": 0.7716049382716049,
+            "outcome": "active_existing_face"
+          }
+        },
+        {
+          "event": "close",
+          "time": 128.5,
+          "id": 3,
+          "x": 0.7716049382716049,
+          "Rac_trace": 0.7999430298843155,
+          "old_Uleft": 0.04462068624413366,
+          "old_Uright": 0.04462068601553283
+        },
+        {
+          "event": "close",
+          "time": 8853.0,
+          "id": 2,
+          "x": 20.061728395061703,
+          "Rac_trace": 0.7999573782895633,
+          "old_Uleft": 1.568910808668221e-08,
+          "old_Uright": -1.5839954713474238e-08
+        },
+        {
+          "event": "open",
+          "time": 8853.0,
+          "id": 4,
+          "x": 31.9444444444443,
+          "detected_peak_Rac": 0.907275943898757,
+          "selected_peak_position": 32.021604938271466,
+          "inserted_face_Rac": 0.9072749839043436,
+          "initialized_U": 0.11689404455897572,
+          "removed_material": 0.0,
+          "cells_after": 324,
+          "locator": {
+            "selected_peak_position": 32.021604938271466,
+            "distance_tolerance": 7.105427357601015e-13,
+            "Rac_tolerance": 1.4210854715202004e-14,
+            "nearest_distance": 0.07716049382715795,
+            "candidates": [
+              {
+                "face": 207,
+                "x": 31.9444444444443,
+                "distance": 0.07716049382716506,
+                "Rac_trace": 0.9072749839043436,
+                "classification": "active"
+              },
+              {
+                "face": 208,
+                "x": 32.098765432098624,
+                "distance": 0.07716049382715795,
+                "Rac_trace": 0.9072739567077438,
+                "classification": "active"
+              }
+            ],
+            "rule": "nearest existing face; higher native face Rac only for geometric tie",
+            "chosen_face": 207,
+            "chosen_x": 31.9444444444443,
+            "outcome": "active_existing_face"
+          }
+        },
+        {
+          "event": "close",
+          "time": 16472.5,
+          "id": 4,
+          "x": 31.9444444444443,
+          "Rac_trace": 0.7999934880235797,
+          "old_Uleft": 1.5951621378843967e-08,
+          "old_Uright": -1.5799995603674665e-08
+        },
+        {
+          "event": "open",
+          "time": 16472.5,
+          "id": 5,
+          "x": 20.061728395061703,
+          "detected_peak_Rac": 0.9072757252818305,
+          "selected_peak_position": 19.98456790123454,
+          "inserted_face_Rac": 0.9072747807739363,
+          "initialized_U": -0.11689511158867992,
+          "removed_material": 0.0,
+          "cells_after": 324,
+          "locator": {
+            "selected_peak_position": 19.98456790123454,
+            "distance_tolerance": 7.105427357601015e-13,
+            "Rac_tolerance": 1.4210854715202004e-14,
+            "nearest_distance": 0.07716049382715795,
+            "candidates": [
+              {
+                "face": 129,
+                "x": 19.907407407407383,
+                "distance": 0.07716049382715795,
+                "Rac_trace": 0.9072737218081061,
+                "classification": "active"
+              },
+              {
+                "face": 130,
+                "x": 20.061728395061703,
+                "distance": 0.0771604938271615,
+                "Rac_trace": 0.9072747807739363,
+                "classification": "active"
+              }
+            ],
+            "rule": "nearest existing face; higher native face Rac only for geometric tie",
+            "chosen_face": 130,
+            "chosen_x": 20.061728395061703,
+            "outcome": "active_existing_face"
+          }
+        },
+        {
+          "event": "close",
+          "time": 24089.5,
+          "id": 5,
+          "x": 20.061728395061703,
+          "Rac_trace": 0.7999826683090607,
+          "old_Uleft": 1.576674128700306e-08,
+          "old_Uright": -1.5918136962862272e-08
+        },
+        {
+          "event": "open",
+          "time": 24089.5,
+          "id": 6,
+          "x": 31.9444444444443,
+          "detected_peak_Rac": 0.907275818825885,
+          "selected_peak_position": 32.021604938271466,
+          "inserted_face_Rac": 0.9072748694231442,
+          "initialized_U": 0.11689479754537516,
+          "removed_material": 0.0,
+          "cells_after": 324,
+          "locator": {
+            "selected_peak_position": 32.021604938271466,
+            "distance_tolerance": 7.105427357601015e-13,
+            "Rac_tolerance": 1.4210854715202004e-14,
+            "nearest_distance": 0.07716049382715795,
+            "candidates": [
+              {
+                "face": 207,
+                "x": 31.9444444444443,
+                "distance": 0.07716049382716506,
+                "Rac_trace": 0.9072748694231442,
+                "classification": "active"
+              },
+              {
+                "face": 208,
+                "x": 32.098765432098624,
+                "distance": 0.07716049382715795,
+                "Rac_trace": 0.9072738205187403,
+                "classification": "active"
+              }
+            ],
+            "rule": "nearest existing face; higher native face Rac only for geometric tie",
+            "chosen_face": 207,
+            "chosen_x": 31.9444444444443,
+            "outcome": "active_existing_face"
+          }
+        }
+      ],
+      "retained_endpoint_count": 107,
+      "duplicate_saved_states_equal": 0,
+      "maximum_native_pool_ledger_error": 0.0,
+      "cue_location": 20.0,
+      "restart_clock_and_next_id_exact": true,
+      "source_manifest_sha256": "bfb9e318e6ef4870bce3adb2e0d9eb6ab036961b1931806e0af22d14ad15ea42"
+    },
+    "B": {
+      "passed": true,
+      "windows": [
+        {
+          "start": 0.0,
+          "end": 35.0,
+          "steps": 70,
+          "events": 1,
+          "transition_frames": [
+            2.0
+          ]
+        },
+        {
+          "start": 95.0,
+          "end": 160.0,
+          "steps": 130,
+          "events": 3,
+          "transition_frames": [
+            126.5,
+            129.0
+          ]
+        },
+        {
+          "start": 8650.0,
+          "end": 8710.0,
+          "steps": 120,
+          "events": 2,
+          "transition_frames": [
+            8680.0
+          ]
+        },
+        {
+          "start": 16265.0,
+          "end": 16330.0,
+          "steps": 130,
+          "events": 2,
+          "transition_frames": [
+            16296.5
+          ]
+        },
+        {
+          "start": 23880.0,
+          "end": 23945.0,
+          "steps": 130,
+          "events": 2,
+          "transition_frames": [
+            23914.5
+          ]
+        }
+      ],
+      "native_steps": 580,
+      "all_halfstep_frames_bit_exact": true,
+      "frames": 591,
+      "same_clock_post_transition_frames": 6,
+      "all_events_exact": [
+        {
+          "event": "open",
+          "time": 2.0,
+          "id": 2,
+          "x": 20.061728395061703,
+          "detected_peak_Rac": 0.8215008911891705,
+          "selected_peak_position": 19.98456790123454,
+          "inserted_face_Rac": 0.8214666776353708,
+          "initialized_U": -0.11668798600655642,
+          "removed_material": 0.0,
+          "cells_after": 324,
+          "locator": {
+            "selected_peak_position": 19.98456790123454,
+            "distance_tolerance": 7.105427357601015e-13,
+            "Rac_tolerance": 1.4210854715202004e-14,
+            "nearest_distance": 0.07716049382715795,
+            "candidates": [
+              {
+                "face": 129,
+                "x": 19.907407407407383,
+                "distance": 0.07716049382715795,
+                "Rac_trace": 0.821125003657953,
+                "classification": "active"
+              },
+              {
+                "face": 130,
+                "x": 20.061728395061703,
+                "distance": 0.0771604938271615,
+                "Rac_trace": 0.8214666776353708,
+                "classification": "active"
+              }
+            ],
+            "rule": "nearest existing face; higher native face Rac only for geometric tie",
+            "chosen_face": 130,
+            "chosen_x": 20.061728395061703,
+            "outcome": "active_existing_face"
+          }
+        },
+        {
+          "event": "close",
+          "time": 126.5,
+          "id": 1,
+          "x": 0.0,
+          "Rac_trace": 0.7998870091936907,
+          "old_Uleft": 0.006136795084593931,
+          "old_Uright": -0.006107004931474381
+        },
+        {
+          "event": "open",
+          "time": 126.5,
+          "id": 3,
+          "x": 0.7716049382716049,
+          "detected_peak_Rac": 0.8018277349929044,
+          "selected_peak_position": 0.8487654320987654,
+          "inserted_face_Rac": 0.8018163427175137,
+          "initialized_U": 0.048534770261586264,
+          "removed_material": 0.0,
+          "cells_after": 324,
+          "locator": {
+            "selected_peak_position": 0.8487654320987654,
+            "distance_tolerance": 7.105427357601015e-13,
+            "Rac_tolerance": 5.971149478142849e-14,
+            "nearest_distance": 0.0771604938271615,
+            "candidates": [
+              {
+                "face": 5,
+                "x": 0.7716049382716049,
+                "distance": 0.0771604938271615,
+                "Rac_trace": 0.8018163427175137,
+                "classification": "active"
+              },
+              {
+                "face": 6,
+                "x": 0.9259259259259259,
+                "distance": 0.0771604938271615,
+                "Rac_trace": 0.8017627169781523,
+                "classification": "active"
+              }
+            ],
+            "rule": "nearest existing face; higher native face Rac only for geometric tie",
+            "chosen_face": 5,
+            "chosen_x": 0.7716049382716049,
+            "outcome": "active_existing_face"
+          }
+        },
+        {
+          "event": "close",
+          "time": 129.0,
+          "id": 3,
+          "x": 0.7716049382716049,
+          "Rac_trace": 0.799707406560971,
+          "old_Uleft": 0.04387158830148735,
+          "old_Uright": 0.043871588027024594
+        },
+        {
+          "event": "close",
+          "time": 8680.0,
+          "id": 2,
+          "x": 20.061728395061703,
+          "Rac_trace": 0.7999993570697943,
+          "old_Uleft": 1.5817888901082716e-08,
+          "old_Uright": -1.5969627411047103e-08
+        },
+        {
+          "event": "open",
+          "time": 8680.0,
+          "id": 4,
+          "x": 31.9444444444443,
+          "detected_peak_Rac": 0.9072755828870289,
+          "selected_peak_position": 32.021604938271466,
+          "inserted_face_Rac": 0.9072746418647858,
+          "initialized_U": 0.11689526397021535,
+          "removed_material": 0.0,
+          "cells_after": 324,
+          "locator": {
+            "selected_peak_position": 32.021604938271466,
+            "distance_tolerance": 7.105427357601015e-13,
+            "Rac_tolerance": 1.4210854715202004e-14,
+            "nearest_distance": 0.07716049382715795,
+            "candidates": [
+              {
+                "face": 207,
+                "x": 31.9444444444443,
+                "distance": 0.07716049382716506,
+                "Rac_trace": 0.9072746418647858,
+                "classification": "active"
+              },
+              {
+                "face": 208,
+                "x": 32.098765432098624,
+                "distance": 0.07716049382715795,
+                "Rac_trace": 0.9072735756720189,
+                "classification": "active"
+              }
+            ],
+            "rule": "nearest existing face; higher native face Rac only for geometric tie",
+            "chosen_face": 207,
+            "chosen_x": 31.9444444444443,
+            "outcome": "active_existing_face"
+          }
+        },
+        {
+          "event": "close",
+          "time": 16296.5,
+          "id": 4,
+          "x": 31.9444444444443,
+          "Rac_trace": 0.7999830629951907,
+          "old_Uleft": 1.591935736125706e-08,
+          "old_Uright": -1.5767953285420594e-08
+        },
+        {
+          "event": "open",
+          "time": 16296.5,
+          "id": 5,
+          "x": 20.061728395061703,
+          "detected_peak_Rac": 0.9072758155005471,
+          "selected_peak_position": 19.98456790123454,
+          "inserted_face_Rac": 0.907274866275564,
+          "initialized_U": -0.11689480902132694,
+          "removed_material": 0.0,
+          "cells_after": 324,
+          "locator": {
+            "selected_peak_position": 19.98456790123454,
+            "distance_tolerance": 7.105427357601015e-13,
+            "Rac_tolerance": 1.4210854715202004e-14,
+            "nearest_distance": 0.07716049382715795,
+            "candidates": [
+              {
+                "face": 129,
+                "x": 19.907407407407383,
+                "distance": 0.07716049382715795,
+                "Rac_trace": 0.9072738170058359,
+                "classification": "active"
+              },
+              {
+                "face": 130,
+                "x": 20.061728395061703,
+                "distance": 0.0771604938271615,
+                "Rac_trace": 0.907274866275564,
+                "classification": "active"
+              }
+            ],
+            "rule": "nearest existing face; higher native face Rac only for geometric tie",
+            "chosen_face": 130,
+            "chosen_x": 20.061728395061703,
+            "outcome": "active_existing_face"
+          }
+        },
+        {
+          "event": "close",
+          "time": 23914.5,
+          "id": 5,
+          "x": 20.061728395061703,
+          "Rac_trace": 0.799960354798895,
+          "old_Uleft": 1.569837942023316e-08,
+          "old_Uright": -1.5849301363221682e-08
+        },
+        {
+          "event": "open",
+          "time": 23914.5,
+          "id": 6,
+          "x": 31.9444444444443,
+          "detected_peak_Rac": 0.9072760107595096,
+          "selected_peak_position": 32.021604938271466,
+          "inserted_face_Rac": 0.907275051272975,
+          "initialized_U": 0.11689414913500393,
+          "removed_material": 0.0,
+          "cells_after": 324,
+          "locator": {
+            "selected_peak_position": 32.021604938271466,
+            "distance_tolerance": 7.105427357601015e-13,
+            "Rac_tolerance": 1.4210854715202004e-14,
+            "nearest_distance": 0.07716049382715795,
+            "candidates": [
+              {
+                "face": 207,
+                "x": 31.9444444444443,
+                "distance": 0.07716049382716506,
+                "Rac_trace": 0.907275051272975,
+                "classification": "active"
+              },
+              {
+                "face": 208,
+                "x": 32.098765432098624,
+                "distance": 0.07716049382715795,
+                "Rac_trace": 0.9072740230952047,
+                "classification": "active"
+              }
+            ],
+            "rule": "nearest existing face; higher native face Rac only for geometric tie",
+            "chosen_face": 207,
+            "chosen_x": 31.9444444444443,
+            "outcome": "active_existing_face"
+          }
+        }
+      ],
+      "retained_endpoint_count": 106,
+      "duplicate_saved_states_equal": 0,
+      "maximum_native_pool_ledger_error": 0.0,
+      "cue_location": 20.061728395061703,
+      "restart_clock_and_next_id_exact": true,
+      "source_manifest_sha256": "bfb9e318e6ef4870bce3adb2e0d9eb6ab036961b1931806e0af22d14ad15ea42"
+    }
+  },
+  "time_semantics": "A stage0 frame at t is incoming before transition(t). The separate stage1 at the same t follows only topology. The next stage0 at t+.5 follows the full native mechanical/chemical step.",
+  "limits": [
+    "Window clocks and state are exact; cumulative diagnostic bookkeeping intentionally starts at each window origin and is not substituted for the original full-history ledger.",
+    "These are exact reconstructions of existing assays, not additional experiments or evidence for a new physical cap closure."
+  ],
+  "implementation_manifest_sha256": "103256a5245e81b98b03b7bda0b3f1ce032f249309a25d99ff4f5e4312c9de91",
+  "source_sha256": {
+    "polarity1d/manuscript/code/mechanisms/validation_debelly_gap_event_replay_20261019.py": "bdcbc491df3b8759318aa97188b2ed97e71de90b2dfd58a8184288fed12f2158",
+    "polarity1d/manuscript/data/runs/debelly_gap_event_viewer_C50_20261019/implementation_manifest.json": "103256a5245e81b98b03b7bda0b3f1ce032f249309a25d99ff4f5e4312c9de91",
+    "polarity1d/manuscript/data/runs/debelly_gap_event_viewer_C50_20261019/overview.json": "cd0334c3bcbbdb5956cb3deab1217ac920b66228ed04b9ce9e32a9e2b7ee3da4",
+    "polarity1d/manuscript/code/mechanisms/impl_debelly_gap_event_replay_20261019.py": "0a395f1c5a2b6d0a59730f47cfa602f5fe3ff9d82a98806467d0dfaad57e3806"
+  }
+}

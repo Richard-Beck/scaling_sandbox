@@ -1,0 +1,21 @@
+{
+  "generated_utc": "2026-10-22T20:30:02.322870+00:00",
+  "job_ids": [
+    21282781,
+    21282782,
+    21282783,
+    21282784
+  ],
+  "from_qos": "small",
+  "to_qos": "xxlarge",
+  "mutation": "scontrol update JobId=<id> QOS=xxlarge",
+  "first_array_returncode": 1,
+  "first_array_stderr": "Some completed array elements: Job has already finished; remaining pending elements verified xxlarge.",
+  "other_array_returncodes": [
+    0,
+    0,
+    0
+  ],
+  "justification": "User requested unrestricted parallelism. Single-core 4G 2-hour tasks fit xxlarge 12-hour wall limit; 3000 CPU/user burst reduces throughput delay. Partition showed 2517 idle of 4416 CPUs and ~1TB per node before mutation. Maximum 12TB task memory across 69 nodes fits partition capacity. No array concurrency throttle.",
+  "verified_pending": "21282781_[1205-5759] xxlarge None\n21282782_[5763-11519] xxlarge None\n21282784_[17280-24959] xxlarge None\n21282783_[11520-17279] xxlarge None\n"
+}

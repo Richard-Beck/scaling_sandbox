@@ -91,10 +91,10 @@ def forcing_candidates(campaign,output):
     return candidates
 
 
-def tracked_uncertainty(seeds,pooled,summary):
+def tracked_uncertainty(seeds,pooled,summary,return_draws=False):
     """Whole seeds, fixed observed fit cutoff, paired with the kobs bootstrap."""
     n=len(seeds);weights=np.random.default_rng(summary['bootstrap_seed']).multinomial(n,np.full(n,1/n),size=E.DRAW_COUNT)
-    nums=[];counts=[];times=[];njumps=[];jump_loss=[];unscored=[]
+    nums=[];counts=[];times=[];njumps=[];jump_loss=[];nscored=[]
     maxlag=pooled.get('MSD_max_lag',0)
     for seed in seeds:
         measure,msd=E.drift_jump(seed['time'],seed['C'],seed['ids'],seed['headings'],P=seed['P'],max_lag=maxlag)
@@ -103,21 +103,25 @@ def tracked_uncertainty(seeds,pooled,summary):
         else:
             counts.append(np.array([r['eligible_pairs'] for r in msd],float));nums.append(np.nan_to_num([r['MSD']*r['eligible_pairs'] for r in msd]))
         times.append(measure['valid_time']);njumps.append(measure['n_switches']);angles=measure.get('jump_angles',[])
-        jump_loss.append(float(np.sum(1-np.cos(angles))));unscored.append(measure.get('n_scored_switches',0)!=measure['n_switches'])
+        jump_loss.append(float(np.sum(1-np.cos(angles))));nscored.append(len(angles))
     lag=np.arange(1,len(nums[0])+1)*seeds[0]['cadence']
     with np.errstate(invalid='ignore',divide='ignore'):
         msdb=(weights@np.asarray(nums))/(weights@np.asarray(counts))
         finite=np.isfinite(msdb);Ds=np.nansum(msdb*lag,axis=1)/(2*np.sum(finite*lag**2,axis=1))
         Ds[finite.sum(1)<2]=np.nan
-        exposure=weights@np.asarray(times);lamb=weights@np.asarray(njumps)/exposure
-        eff=weights@np.asarray(jump_loss)/exposure
-    eff[(weights@np.asarray(unscored,int))>0]=np.nan
+        exposure=weights@np.asarray(times);switches=weights@np.asarray(njumps);scored=weights@np.asarray(nscored)
+        lamb=switches/exposure
+        eff=lamb*(weights@np.asarray(jump_loss))/scored
+        eff[(switches==0)&(exposure>0)]=0.
     kp=(2*np.pi/summary['circumference_boot'])**2*Ds+eff;j=E.analysis_lag(summary)
     ratio=kp/summary['kboot'][:,j] if j is not None else np.full(E.DRAW_COUNT,np.nan)
     out=dict(tracked_bootstrap_resamples=E.DRAW_COUNT,tracked_bootstrap_fit_range='fixed_original_pooled_median_tenure_cutoff',
              tracked_bootstrap_valid_fraction=float(np.isfinite(ratio).mean()))
     for name,value in [('Ds',Ds),('lambda_s',lamb),('lambda_eff',eff),('kpred',kp),('kpred_over_kobs',ratio)]:
         lo,hi=E.percentile(value,True);out[name+'_ci_lower']=lo;out[name+'_ci_upper']=hi
+    if return_draws:
+        out['_draws']=dict(Ds=Ds,lambda_eff=eff,kpred=kp,kpred_over_kobs=ratio,
+                           circumference=summary['circumference_boot'])
     return out
 
 

@@ -1,0 +1,35 @@
+import {spawn} from 'node:child_process';
+import {mkdtempSync,writeFileSync,mkdirSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join,resolve} from 'node:path';
+const input=process.argv[2];
+if(!input) throw new Error('Expected report HTML path');
+const browserProfile=mkdtempSync(join(tmpdir(),'debelly-review-browser-'));
+const output=resolve(process.argv[3]||join(input,'../report_browser_checks'));mkdirSync(output,{recursive:true});
+const chrome=spawn(process.env.CHROME_BIN||'chromium',['--headless','--no-sandbox','--disable-dev-shm-usage','--disable-gpu','--remote-debugging-port=0','--remote-allow-origins=*','--user-data-dir='+browserProfile,'about:blank'],{stdio:['ignore','ignore','pipe']});
+let ws;
+try{
+ const endpoint=await new Promise((resolve,reject)=>{let log='';chrome.stderr.on('data',data=>{log+=data.toString();const found=log.match(/DevTools listening on (ws:\/\/[^\s]+)/);if(found)resolve(found[1]);});chrome.once('error',reject);setTimeout(()=>reject(new Error('Browser startup timeout')),20000).unref();});
+ ws=new WebSocket(endpoint);
+ await new Promise((resolve,reject)=>{ws.addEventListener('open',resolve,{once:true});ws.addEventListener('error',reject,{once:true});});
+ let next=0; const pending=new Map(), errors=[];
+ ws.addEventListener('message',event=>{const d=JSON.parse(event.data);if(d.id){const p=pending.get(d.id);if(p){pending.delete(d.id);if(d.error)p.reject(new Error(JSON.stringify(d.error)));else p.resolve(d.result);}}else if(d.method==='Runtime.exceptionThrown') errors.push(d.params);});
+ const send=(method,params={},sessionId)=>new Promise((resolve,reject)=>{const id=++next;pending.set(id,{resolve,reject});ws.send(JSON.stringify({id,method,params,...(sessionId?{sessionId}:{})}));setTimeout(()=>{if(pending.has(id)){pending.delete(id);reject(new Error(method+' timeout'));}},20000).unref();});
+ const {targetId}=await send('Target.createTarget',{url:'about:blank'});
+ const {sessionId}=await send('Target.attachToTarget',{targetId,flatten:true});
+ const call=(method,params)=>send(method,params,sessionId);
+ const evaluate=async expression=>{const r=await call('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw new Error(JSON.stringify(r.exceptionDetails));return r.result.value;};
+ await call('Page.enable');await call('Runtime.enable');
+ await call('Emulation.setDeviceMetricsOverride',{width:1280,height:1000,deviceScaleFactor:1,mobile:false});
+ await call('Page.navigate',{url:'file://'+resolve(input)});
+ await new Promise(r=>setTimeout(r,1200));
+ const initial=await evaluate(`({title:document.title,ready:document.readyState,bodyText:document.body.innerText,scrollWidth:document.documentElement.scrollWidth,width:innerWidth,height:document.documentElement.scrollHeight,images:[...document.images].map(x=>({src:x.getAttribute("src"),complete:x.complete,width:x.naturalWidth})),controls:[...document.querySelectorAll('select,input,button')].map(x=>({tag:x.tagName,id:x.id,type:x.type,value:x.value,options:x.options?[...x.options].map(y=>y.text):null}))})`);
+ writeFileSync(join(output,'desktop.png'),Buffer.from((await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));
+ const changed=await evaluate(`(()=>{const before=document.body.innerText;for(const s of document.querySelectorAll('select')){s.selectedIndex=s.options.length-1;s.dispatchEvent(new Event('change',{bubbles:true}));}for(const r of document.querySelectorAll('input[type=range]')){r.value=Number(r.max);r.dispatchEvent(new Event('input',{bubbles:true}));r.dispatchEvent(new Event('change',{bubbles:true}));}return {before,after:document.body.innerText,svg:document.querySelectorAll('svg').length,canvases:document.querySelectorAll('canvas').length};})()`);
+ const controlChecks=await evaluate(`(()=>{const checks=[];if(typeof D==='undefined')return checks;for(let k=0;k<D.cases.length;k++){E('case').value=k;E('case').dispatchEvent(new Event('change'));for(const field of Object.keys(D.fields)){E('field').value=field;E('field').dispatchEvent(new Event('change'));const path=E('profile').querySelectorAll('path');if(path.length!==2||path[1].getAttribute('d').includes('NaN')||path[1].getAttribute('d').includes('Infinity'))throw new Error('Invalid raw profile');checks.push({case:k,field,sample:+E('time').value,clock:E('clock').textContent});}for(const button of ['withdrawal','final']){E(button).click();if(+E('time').value<0)throw new Error('Invalid time '+button);}const before=E('clock').textContent;E('previous').click();E('next').click();if(before!==E('clock').textContent)throw new Error('Step controls disagree');}return checks;})()`);
+ await call('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
+ await new Promise(r=>setTimeout(r,200));
+ const mobile=await evaluate(`({scrollWidth:document.documentElement.scrollWidth,width:innerWidth,height:document.documentElement.scrollHeight})`);
+ writeFileSync(join(output,'mobile.png'),Buffer.from((await call('Page.captureScreenshot',{format:'png',captureBeyondViewport:false})).data,'base64'));
+ console.log(JSON.stringify({generated_at:new Date().toISOString(),initial,changed,controlChecks,mobile,runtime_errors:errors},null,2));
+}finally{if(ws)ws.close();chrome.kill('SIGTERM');await new Promise(r=>setTimeout(r,300));rmSync(browserProfile,{recursive:true,force:true});}

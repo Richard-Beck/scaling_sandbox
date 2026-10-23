@@ -1,0 +1,67 @@
+Figure 4 integration completed locally on 23 October 2026; publication blocked.
+
+Artifacts:
+- manuscript_outline/outline_v9.pdf: rebuilt 35-page current manuscript outline.
+- manuscript_outline/outline_v9.json: editable outline, completed campaign results.
+- manuscript_outline/revision_round3_figure4_20261022/index.html: current reader.
+- manuscript_outline/revision_round3_figure4_20261022/figure4_with_legend.pdf:
+  exact native 180 x 500 mm vector main and separate readable legend page.
+- manuscript_outline/revision_round3_figure4_20261022/figures_2_4.pdf:
+  current round-3 main plates, including the completed Figure 4.
+- manuscript_outline/README.md and current manuscript figs/README.md now lead
+  with the completed edition rather than the provisional campaign status.
+
+Validation:
+- Outline verifier passed: 6 main figures, 9 figure sheets, 35 pages,
+  96 exact build-input hashes, legible page bounds and experiment placeholder.
+- Figure 4 verifier passed: 260 conditions, 45,696 independent histories,
+  615 null conditions, 27 supplement pages, 28 retained estimator tests,
+  72 render/input/document hashes, and 141 final-audit hash bindings.
+- Reused final numerical audit: 67,923 checks, including previously audited
+  1,152 raw histories; all scientific tables and plotted coordinates still match.
+- Final display review passed; main and separate legend were visually checked
+  again during integration. No simulations or bootstrap campaigns were rerun.
+- Figures 1, 2, 3, 5 and 6 retain exact outline_v8 sections and artwork.
+- The numerical review predates the last supplement tick-label fix. Its source
+  hashes are checked against its recorded commit; the final display review binds
+  the later supplement source and final exports. This chronology is explicit in
+  manuscript_outline/revision_round3_figure4_20261022/verification.json.
+
+Scientific qualifications retained:
+125/260 local neighborhoods resolve. Single-condition rate groups are 128 meeting
+precision, 36 above target at the seed cap, 8 with insufficient valid bootstrap
+rates and 88 without an eligible rate. All 42 estimable closure ratios are within
+15% of observed decay; Goryachev has none. Multiple-front fractions are descriptive,
+and tracked/detector-free switch disagreement and undefined values remain explicit.
+Activity heading, observed migration and conditional OU persistence stay distinct.
+
+Storage:
+Existing campaign receipt measured 28,756,893,696 allocated bytes on
+2026-10-23T03:16:44.915711+00:00 (26.781944 GiB); 45,696 compact histories.
+Already-completed authorized old-native retirement removed 12,596 paths and
+reclaimed 166,687,293,440 allocated bytes. DATA_MANIFEST.md and RETENTION.md now
+state that retirement is completed, with its actual execution receipt linked.
+This continuation generated only small manuscript/report artifacts and removed
+no data. Older whole-workspace totals are not a fresh post-Figure-4 measurement.
+
+Publication status:
+Current/base commit: b34ba07fdd1c4388a2ec67f2eea437550800daad.
+Configured remote: git@github.com:Richard-Beck/scaling_sandbox.git; branch main.
+No new commit was created or pushed; remote identity was not verified.
+Attempting scoped git add failed:
+  fatal: Unable to create '.git/index.lock': Read-only file system
+The active managed sandbox grants read-only access to .git and disallows
+permission escalation. Publication cannot be completed in this session.
+Unrelated workspace modifications and deletions were preserved.
+
+Publication preparation:
+publication_plan.json records exact reviewed file hashes. scoped_documentation.patch
+contains ONLY Figure 4 storage/retention and required portable-file eligibility/index
+additions, leaving other local documentation changes unstaged. The explicit file list
+includes preceding round-3 Figure 2/3 outline/artwork dependencies that are not yet
+tracked; no native campaign arrays, unrelated deletions or bundles are selected.
+publish.py checks HEAD, an empty index, exact hashes and patch applicability before
+staging. --publish validates tracked inputs, commits, pushes the configured upstream,
+and verifies remote identity. Run from a normal session with writable .git:
+
+/home/4473331/.conda/envs/scaling_sandbox/bin/python reports/figure4_integration_20261023/publish.py --publish

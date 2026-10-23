@@ -1,0 +1,975 @@
+{
+  "generated_utc": "2026-10-19T18:02:44.203517+00:00",
+  "producer_state": "finished",
+  "scope": "Read-only native versus paired MCA C50 long-response comparison.",
+  "independent_validation": {
+    "path": "../campaign/validation_result.json",
+    "sha256": "004d33d1f475d3d434777d7ad8c84ec619fd7c0baa25def1a3d80941884279d0",
+    "passed": true
+  },
+  "definition_sources": {
+    "path": "polarity1d/manuscript/code/mechanisms/impl_debelly_gap_oscillation_20261019.py",
+    "sha256": "8ae2b0095acff8fb4b50cbb0a35d2385124927d732905f2598e0110ffed546f0"
+  },
+  "protocol": {
+    "C": 50.0,
+    "N": 324,
+    "target": 20.0,
+    "cosine_full_support": 10.0,
+    "cue_peak": 3.6,
+    "cue_duration": 1000.0,
+    "response_end": 31000.0,
+    "late_start": 2000.0
+  },
+  "plot_caption": "The cue ends at 1 ks; all plotted 2\u201331 ks data are cue-free. Solid point and dashed exact cosine-patch Rac, raw-Rac vector position/magnitude, and four thin gap-event tracks use fixed coordinates with no phase alignment. Triangles are gap births, crosses healing; their small within-track vertical offsets only distinguish simultaneous events. Timings are descriptive, not causal evidence.",
+  "limit_notes": [
+    "Only complete observed inter-extremum intervals are reported. An empty interval list means unavailable, not zero period or a proven absence of dynamics.",
+    "Each method/timestep starts from its own qualified basal. Comparisons include requalification and are not identical-postcue-state ablations.",
+    "Changing binding time pairing changes local concentrations and downstream feedback; any period/fate change does not isolate a single causal term or select a cap model.",
+    "Native mechanics/controller reference, signed own-flank donor law and postsolve uniform return are retained. Mechanical staging residuals are not repaired here.",
+    "No phase alignment, reflection, recentering, extrapolated cycle or migration-velocity inference is used.",
+    "Full-state response windows and localized pattern fates are separate. Challenged trajectories are not required to settle.",
+    "A basal qualification/eligibility failure is a valid unavailable response; execution failure/truncation is recorded separately.",
+    "The original native diagnostic samples omit next_id; zero in that feature is a missing-data sentinel. Actual restart next_id is retained in native checkpoint metadata. New paired and quarter-step histories sample it explicitly.",
+    "Local b terms are conservative advection divergence, diffusion, signed cap export, binding and uniform return. Profile advection and dilution are not separately inferred from that combined divergence."
+  ],
+  "rows": [
+    {
+      "key": "native_N324_dt0p5",
+      "N": 324,
+      "dt": 0.5,
+      "method": "native_sequential",
+      "origin": "retained native control",
+      "response_available": true,
+      "valid_missing_response": false,
+      "reason": null,
+      "basal_qualified": true,
+      "basal_polarity_eligible": true,
+      "basal_clock": 18060.0,
+      "basal_contrast": 0.2465264047945973,
+      "basal_holdout_max": 6.353426357421531e-07,
+      "basal_gate_reason": "qualified",
+      "point_trough_times": [
+        9095.0,
+        24210.0
+      ],
+      "patch_trough_times": [
+        9125.0,
+        24235.0
+      ],
+      "point_observed_trough_intervals": [
+        15115.0
+      ],
+      "patch_observed_trough_intervals": [
+        15110.0
+      ],
+      "point_interval_available": true,
+      "point_complete_cycles": [
+        {
+          "start_trough": {
+            "time": 9095.0,
+            "value": 0.7293657307278849
+          },
+          "end_trough": {
+            "time": 24210.0,
+            "value": 0.7332093611419969
+          },
+          "observed_interval": 15115.0,
+          "maximum": {
+            "time": 16285.0,
+            "value": 0.9072725501726245
+          },
+          "excursion_from_start": 0.17790681944473963,
+          "excursion_from_end": 0.17406318903062767,
+          "trough_envelope_change": 0.0038436304141119537
+        }
+      ],
+      "patch_complete_cycles": [
+        {
+          "start_trough": {
+            "time": 9125.0,
+            "value": 0.7341550822727377
+          },
+          "end_trough": {
+            "time": 24235.0,
+            "value": 0.7371035854348079
+          },
+          "observed_interval": 15110.0,
+          "maximum": {
+            "time": 16285.0,
+            "value": 0.9067866841324665
+          },
+          "excursion_from_start": 0.1726316018597288,
+          "excursion_from_end": 0.16968309869765863,
+          "trough_envelope_change": 0.002948503162070182
+        }
+      ],
+      "late_gap_birth_times": [
+        8658.5,
+        16287.5,
+        23800.0
+      ],
+      "total_gap_events": 10,
+      "native_steps": 62000,
+      "point_R_target20_late_range": 0.17790681944473963,
+      "point_R_target20_final": 0.9070918415897709,
+      "patch_R_target20_late_range": 0.1726316018597288,
+      "patch_R_target20_final": 0.9065031294479742,
+      "vector_position_late_range": 9.931018411044185,
+      "vector_position_final": 21.737607813668603,
+      "vector_magnitude_late_range": 0.01623801761052547,
+      "vector_magnitude_final": 0.09142485704276161,
+      "R_contrast_late_range": 0.03242495455887362,
+      "R_contrast_final": 0.23992646421348307,
+      "point_b_target20_late_range": 0.027796214563359643,
+      "point_b_target20_final": 0.04424968863104041,
+      "patch_b_target20_late_range": 0.02632719575384483,
+      "patch_b_target20_final": 0.04481635186673264,
+      "point_Q_target20_late_range": 0.13221842500769265,
+      "point_Q_target20_final": 0.5663625947272393,
+      "patch_Q_target20_late_range": 0.1296163454202478,
+      "patch_Q_target20_final": 0.5667399666411648,
+      "late_counts": {
+        "active_components": {
+          "1": 5801
+        },
+        "active_local_maxima": {
+          "1": 5801
+        },
+        "all_local_maxima": {
+          "1": 5801
+        },
+        "gap_count": {
+          "1": 5801
+        }
+      },
+      "pools_total": {
+        "duration": 31000.0,
+        "bound_cap_export": 42.765964900794344,
+        "unbound_cap_export": 0.01259621219230522,
+        "executed_bound_net_binding": 21.160739926206936,
+        "executed_unbound_net_binding": -6.036928398777342,
+        "numerical_exchange_creation": 15.123811527429599,
+        "exchange_ledger_column": "sequential_exchange_residual",
+        "global_deficit": 27.654749585554576,
+        "paired_reaction_total": null,
+        "numerical_exchange_to_signed_export_fraction": 0.3535371722177522,
+        "binding_stage_sum_minus_numerical_defect": -3.552713678800501e-15,
+        "uniform_return_minus_export_plus_defect": -2.4797941478027496e-12,
+        "bound_uniform_replacement": 21.60527311371451,
+        "unbound_uniform_replacement": 6.049476471840062,
+        "bound_amount_change": 4.8139131775482014e-05,
+        "unbound_amount_change": -4.813913177659224e-05,
+        "bound_budget_residual": 4.673150755252209e-12,
+        "unbound_budget_residual": -2.191802295214984e-12,
+        "rates": {
+          "bound_cap_export": 0.0013795472548643337,
+          "unbound_cap_export": 4.0632942555823287e-07,
+          "executed_bound_net_binding": 0.0006826045137486109,
+          "executed_unbound_net_binding": -0.00019473962576701105,
+          "numerical_exchange": 0.00048786488798159994,
+          "bound_uniform_replacement": 0.0006969442939907906,
+          "unbound_uniform_replacement": 0.00019514440231742136
+        }
+      }
+    },
+    {
+      "key": "native_N324_dt0p25",
+      "N": 324,
+      "dt": 0.25,
+      "method": "native_sequential",
+      "origin": "retained native quarter-step control",
+      "response_available": true,
+      "valid_missing_response": false,
+      "reason": null,
+      "basal_qualified": true,
+      "basal_polarity_eligible": true,
+      "basal_clock": 14000.0,
+      "basal_contrast": 0.24647151911201126,
+      "basal_holdout_max": 1.3989100575717428e-06,
+      "basal_gate_reason": "qualified",
+      "point_trough_times": [
+        10940.0,
+        24020.0
+      ],
+      "patch_trough_times": [
+        10970.0,
+        24050.0
+      ],
+      "point_observed_trough_intervals": [
+        13080.0
+      ],
+      "patch_observed_trough_intervals": [
+        13080.0
+      ],
+      "point_interval_available": true,
+      "point_complete_cycles": [
+        {
+          "start_trough": {
+            "time": 10940.0,
+            "value": 0.7244583335877497
+          },
+          "end_trough": {
+            "time": 24020.0,
+            "value": 0.72582181689224
+          },
+          "observed_interval": 13080.0,
+          "maximum": {
+            "time": 17125.0,
+            "value": 0.9072951826783908
+          },
+          "excursion_from_start": 0.18283684909064113,
+          "excursion_from_end": 0.1814733657861508,
+          "trough_envelope_change": 0.0013634833044903205
+        }
+      ],
+      "patch_complete_cycles": [
+        {
+          "start_trough": {
+            "time": 10970.0,
+            "value": 0.7306127785055271
+          },
+          "end_trough": {
+            "time": 24050.0,
+            "value": 0.7316938434824153
+          },
+          "observed_interval": 13080.0,
+          "maximum": {
+            "time": 17125.0,
+            "value": 0.9068080602353599
+          },
+          "excursion_from_start": 0.1761952817298328,
+          "excursion_from_end": 0.17511421675294458,
+          "trough_envelope_change": 0.001081064976888202
+        }
+      ],
+      "late_gap_birth_times": [
+        10532.5,
+        17125.0,
+        23608.75,
+        30205.75
+      ],
+      "total_gap_events": 12,
+      "native_steps": 124000,
+      "point_R_target20_late_range": 0.18283684909064113,
+      "point_R_target20_final": 0.8916474936437436,
+      "patch_R_target20_late_range": 0.17619933091096907,
+      "patch_R_target20_final": 0.888470997665111,
+      "vector_position_late_range": 10.470202948753052,
+      "vector_position_final": 21.401942078668934,
+      "vector_magnitude_late_range": 0.016252149713993747,
+      "vector_magnitude_final": 0.09192528513579444,
+      "R_contrast_late_range": 0.03285179243841396,
+      "R_contrast_final": 0.25662384271768,
+      "point_b_target20_late_range": 0.027365007634260516,
+      "point_b_target20_final": 0.049726694784142204,
+      "patch_b_target20_late_range": 0.026977726479143815,
+      "patch_b_target20_final": 0.05069423244023023,
+      "point_Q_target20_late_range": 0.1342609770686094,
+      "point_Q_target20_final": 0.5823856424186847,
+      "patch_Q_target20_late_range": 0.13100396898899802,
+      "patch_Q_target20_final": 0.5844075951153218,
+      "late_counts": {
+        "active_components": {
+          "1": 5801
+        },
+        "active_local_maxima": {
+          "1": 5801
+        },
+        "all_local_maxima": {
+          "1": 5801
+        },
+        "gap_count": {
+          "1": 5801
+        }
+      },
+      "pools_total": {
+        "duration": 31000.0,
+        "bound_cap_export": 47.14488722908645,
+        "unbound_cap_export": 0.02700046282943129,
+        "executed_bound_net_binding": 18.205072324505025,
+        "executed_unbound_net_binding": -8.076142998206993,
+        "numerical_exchange_creation": 10.128929326298026,
+        "exchange_ledger_column": "sequential_exchange_residual",
+        "global_deficit": 37.04295836566911,
+        "paired_reaction_total": null,
+        "numerical_exchange_to_signed_export_fraction": 0.2147238497736413,
+        "binding_stage_sum_minus_numerical_defect": 5.329070518200751e-15,
+        "uniform_return_minus_export_plus_defect": 5.1249671173536626e-11,
+        "bound_uniform_replacement": 28.939811223178992,
+        "unbound_uniform_replacement": 8.103147142490117,
+        "bound_amount_change": -3.681451695491944e-06,
+        "unbound_amount_change": 3.6814516946037656e-06,
+        "bound_budget_residual": -4.9262816048667446e-11,
+        "unbound_budget_residual": -1.9984014443252818e-12,
+        "rates": {
+          "bound_cap_export": 0.0015208028138414985,
+          "unbound_cap_export": 8.709826719171384e-07,
+          "executed_bound_net_binding": 0.0005872603975646783,
+          "executed_unbound_net_binding": -0.00026052074187764496,
+          "numerical_exchange": 0.0003267396556870331,
+          "bound_uniform_replacement": 0.0009335422975219029,
+          "unbound_uniform_replacement": 0.0002613918433061328
+        }
+      }
+    },
+    {
+      "key": "paired_N324_dt0p5",
+      "N": 324,
+      "dt": 0.5,
+      "method": "paired_backward_euler_native_transport_v1",
+      "origin": "fresh own-paired-method preparation and response",
+      "response_available": true,
+      "valid_missing_response": false,
+      "reason": null,
+      "basal_qualified": true,
+      "basal_polarity_eligible": true,
+      "basal_clock": 12000.0,
+      "basal_contrast": 0.24652204566854685,
+      "basal_holdout_max": 6.767107227494884e-07,
+      "basal_gate_reason": "qualified",
+      "point_trough_times": [
+        7090.0,
+        18025.0,
+        29015.0
+      ],
+      "patch_trough_times": [
+        7120.0,
+        18050.0,
+        29040.0
+      ],
+      "point_observed_trough_intervals": [
+        10935.0,
+        10990.0
+      ],
+      "patch_observed_trough_intervals": [
+        10930.0,
+        10990.0
+      ],
+      "point_interval_available": true,
+      "point_complete_cycles": [
+        {
+          "start_trough": {
+            "time": 7090.0,
+            "value": 0.7182234518746655
+          },
+          "end_trough": {
+            "time": 18025.0,
+            "value": 0.7194569818981517
+          },
+          "observed_interval": 10935.0,
+          "maximum": {
+            "time": 12235.0,
+            "value": 0.9073271710253347
+          },
+          "excursion_from_start": 0.18910371915066915,
+          "excursion_from_end": 0.187870189127183,
+          "trough_envelope_change": 0.0012335300234861402
+        },
+        {
+          "start_trough": {
+            "time": 18025.0,
+            "value": 0.7194569818981517
+          },
+          "end_trough": {
+            "time": 29015.0,
+            "value": 0.7201434753543782
+          },
+          "observed_interval": 10990.0,
+          "maximum": {
+            "time": 23170.0,
+            "value": 0.9073256678193621
+          },
+          "excursion_from_start": 0.18786868592121042,
+          "excursion_from_end": 0.1871821924649839,
+          "trough_envelope_change": 0.0006864934562265113
+        }
+      ],
+      "patch_complete_cycles": [
+        {
+          "start_trough": {
+            "time": 7120.0,
+            "value": 0.7260188129147309
+          },
+          "end_trough": {
+            "time": 18050.0,
+            "value": 0.7270221946182532
+          },
+          "observed_interval": 10930.0,
+          "maximum": {
+            "time": 12230.0,
+            "value": 0.9068265881506699
+          },
+          "excursion_from_start": 0.18080777523593894,
+          "excursion_from_end": 0.17980439353241662,
+          "trough_envelope_change": 0.0010033817035223214
+        },
+        {
+          "start_trough": {
+            "time": 18050.0,
+            "value": 0.7270221946182532
+          },
+          "end_trough": {
+            "time": 29040.0,
+            "value": 0.7275792155880265
+          },
+          "observed_interval": 10990.0,
+          "maximum": {
+            "time": 23170.0,
+            "value": 0.9068353578399065
+          },
+          "excursion_from_start": 0.1798131632216533,
+          "excursion_from_end": 0.17925614225188002,
+          "trough_envelope_change": 0.0005570209697732809
+        }
+      ],
+      "late_gap_birth_times": [
+        6718.0,
+        12232.5,
+        17650.5,
+        23170.5,
+        28639.0
+      ],
+      "total_gap_events": 12,
+      "native_steps": 62000,
+      "point_R_target20_late_range": 0.18910371915066915,
+      "point_R_target20_final": 0.8076403330164615,
+      "patch_R_target20_late_range": 0.18081654492517563,
+      "patch_R_target20_final": 0.7999324372266334,
+      "vector_position_late_range": 9.815455893815114,
+      "vector_position_final": 11.72093738856634,
+      "vector_magnitude_late_range": 0.015372538491461765,
+      "vector_magnitude_final": 0.08676686329079945,
+      "R_contrast_late_range": 0.03231164562536948,
+      "R_contrast_final": 0.23839403239381973,
+      "point_b_target20_late_range": 0.0303024205850504,
+      "point_b_target20_final": 0.06354366405200375,
+      "patch_b_target20_late_range": 0.02791404257962718,
+      "patch_b_target20_final": 0.06402957364847443,
+      "point_Q_target20_late_range": 0.13631814617482385,
+      "point_Q_target20_final": 0.6366726448133001,
+      "patch_Q_target20_late_range": 0.13227040708645088,
+      "patch_Q_target20_final": 0.6408989490973298,
+      "late_counts": {
+        "active_components": {
+          "1": 5801
+        },
+        "active_local_maxima": {
+          "1": 5800,
+          "2": 1
+        },
+        "all_local_maxima": {
+          "1": 5800,
+          "2": 1
+        },
+        "gap_count": {
+          "1": 5801
+        }
+      },
+      "pools_total": {
+        "duration": 31000.0,
+        "bound_cap_export": 46.031356989584765,
+        "unbound_cap_export": 0.013779091728054972,
+        "executed_bound_net_binding": 10.058617386621796,
+        "executed_unbound_net_binding": -10.058617386621796,
+        "numerical_exchange_creation": 0.0,
+        "exchange_ledger_column": "numerical_exchange_creation",
+        "global_deficit": 46.045136081326945,
+        "paired_reaction_total": 0.0,
+        "numerical_exchange_to_signed_export_fraction": 0.0,
+        "binding_stage_sum_minus_numerical_defect": 0.0,
+        "uniform_return_minus_export_plus_defect": 1.4125589586910792e-11,
+        "bound_uniform_replacement": 35.972762563536676,
+        "unbound_uniform_replacement": 10.072373517790268,
+        "bound_amount_change": 2.2960570570162986e-05,
+        "unbound_amount_change": -2.2960570570607075e-05,
+        "bound_budget_residual": -3.1388225352202426e-12,
+        "unbound_budget_residual": -1.0987211140900399e-11,
+        "rates": {
+          "bound_cap_export": 0.0014848824835349925,
+          "unbound_cap_export": 4.4448682993725717e-07,
+          "executed_bound_net_binding": 0.0003244715286007031,
+          "executed_unbound_net_binding": -0.0003244715286007031,
+          "numerical_exchange": 0.0,
+          "bound_uniform_replacement": 0.0011604116955979574,
+          "unbound_uniform_replacement": 0.000324915274767428
+        }
+      }
+    },
+    {
+      "key": "paired_N324_dt0p25",
+      "N": 324,
+      "dt": 0.25,
+      "method": "paired_backward_euler_native_transport_v1",
+      "origin": "fresh own-paired-method preparation and response",
+      "response_available": true,
+      "valid_missing_response": false,
+      "reason": null,
+      "basal_qualified": true,
+      "basal_polarity_eligible": true,
+      "basal_clock": 14000.0,
+      "basal_contrast": 0.24647058256504062,
+      "basal_holdout_max": 2.033530658900676e-06,
+      "basal_gate_reason": "qualified",
+      "point_trough_times": [
+        7105.0,
+        18065.0,
+        29085.0
+      ],
+      "patch_trough_times": [
+        7130.0,
+        18090.0,
+        29115.0
+      ],
+      "point_observed_trough_intervals": [
+        10960.0,
+        11020.0
+      ],
+      "patch_observed_trough_intervals": [
+        10960.0,
+        11025.0
+      ],
+      "point_interval_available": true,
+      "point_complete_cycles": [
+        {
+          "start_trough": {
+            "time": 7105.0,
+            "value": 0.717508032129716
+          },
+          "end_trough": {
+            "time": 18065.0,
+            "value": 0.7187794122866202
+          },
+          "observed_interval": 10960.0,
+          "maximum": {
+            "time": 12260.0,
+            "value": 0.9073245335623654
+          },
+          "excursion_from_start": 0.1898165014326494,
+          "excursion_from_end": 0.1885451212757452,
+          "trough_envelope_change": 0.0012713801569042005
+        },
+        {
+          "start_trough": {
+            "time": 18065.0,
+            "value": 0.7187794122866202
+          },
+          "end_trough": {
+            "time": 29085.0,
+            "value": 0.7194059893542165
+          },
+          "observed_interval": 11020.0,
+          "maximum": {
+            "time": 23225.0,
+            "value": 0.9073248537209521
+          },
+          "excursion_from_start": 0.18854544143433183,
+          "excursion_from_end": 0.18791886436673555,
+          "trough_envelope_change": 0.000626577067596279
+        }
+      ],
+      "patch_complete_cycles": [
+        {
+          "start_trough": {
+            "time": 7130.0,
+            "value": 0.7254251614349212
+          },
+          "end_trough": {
+            "time": 18090.0,
+            "value": 0.7264621862393513
+          },
+          "observed_interval": 10960.0,
+          "maximum": {
+            "time": 12260.0,
+            "value": 0.906828141036496
+          },
+          "excursion_from_start": 0.1814029796015748,
+          "excursion_from_end": 0.18036595479714468,
+          "trough_envelope_change": 0.0010370248044301311
+        },
+        {
+          "start_trough": {
+            "time": 18090.0,
+            "value": 0.7264621862393513
+          },
+          "end_trough": {
+            "time": 29115.0,
+            "value": 0.7269716404902552
+          },
+          "observed_interval": 11025.0,
+          "maximum": {
+            "time": 23225.0,
+            "value": 0.9068346252356536
+          },
+          "excursion_from_start": 0.1803724389963023,
+          "excursion_from_end": 0.1798629847453984,
+          "trough_envelope_change": 0.0005094542509038735
+        }
+      ],
+      "late_gap_birth_times": [
+        6730.0,
+        12260.75,
+        17690.25,
+        23225.5,
+        28711.0
+      ],
+      "total_gap_events": 14,
+      "native_steps": 124000,
+      "point_R_target20_late_range": 0.18981682159123603,
+      "point_R_target20_final": 0.8020378288754934,
+      "patch_R_target20_late_range": 0.18140946380073242,
+      "patch_R_target20_final": 0.7951565004120835,
+      "vector_position_late_range": 9.828981174254443,
+      "vector_position_final": 11.59315407142955,
+      "vector_magnitude_late_range": 0.015462877843324688,
+      "vector_magnitude_final": 0.08668681843566299,
+      "R_contrast_late_range": 0.032733592381467114,
+      "R_contrast_final": 0.2385836524708751,
+      "point_b_target20_late_range": 0.028360970456272727,
+      "point_b_target20_final": 0.06409838820586122,
+      "patch_b_target20_late_range": 0.02794438666314312,
+      "patch_b_target20_final": 0.06456062105523022,
+      "point_Q_target20_late_range": 0.13679505796442082,
+      "point_Q_target20_final": 0.6402025972964861,
+      "patch_Q_target20_late_range": 0.13266958285492314,
+      "patch_Q_target20_final": 0.6439895049203753,
+      "late_counts": {
+        "active_components": {
+          "1": 5801
+        },
+        "active_local_maxima": {
+          "1": 5801
+        },
+        "all_local_maxima": {
+          "1": 5801
+        },
+        "gap_count": {
+          "1": 5801
+        }
+      },
+      "pools_total": {
+        "duration": 31000.0,
+        "bound_cap_export": 46.20481021065548,
+        "unbound_cap_export": 0.015436615919849916,
+        "executed_bound_net_binding": 10.095264197492003,
+        "executed_unbound_net_binding": -10.095264197492003,
+        "numerical_exchange_creation": 0.0,
+        "exchange_ledger_column": "numerical_exchange_creation",
+        "global_deficit": 46.220246826622066,
+        "paired_reaction_total": 0.0,
+        "numerical_exchange_to_signed_export_fraction": 0.0,
+        "binding_stage_sum_minus_numerical_defect": 0.0,
+        "uniform_return_minus_export_plus_defect": 4.673950115829939e-11,
+        "bound_uniform_replacement": 36.10956783329849,
+        "unbound_uniform_replacement": 10.110678993323578,
+        "bound_amount_change": 2.1820152091400757e-05,
+        "unbound_amount_change": -2.1820152089846445e-05,
+        "bound_budget_residual": 1.7080559189253108e-11,
+        "unbound_budget_residual": -6.381495332163922e-11,
+        "rates": {
+          "bound_cap_export": 0.001490477748730822,
+          "unbound_cap_export": 4.979553522532231e-07,
+          "executed_bound_net_binding": 0.00032565368379006463,
+          "executed_unbound_net_binding": -0.00032565368379006463,
+          "numerical_exchange": 0.0,
+          "bound_uniform_replacement": 0.0011648247688160803,
+          "unbound_uniform_replacement": 0.0003261509352685025
+        }
+      }
+    }
+  ],
+  "pairwise": [
+    {
+      "comparison": "paired-minus-native at dt.5",
+      "reference": "native_N324_dt0p5",
+      "changed": "paired_N324_dt0p5",
+      "both_responses_available": true,
+      "point_intervals_reference": [
+        15115.0
+      ],
+      "point_intervals_changed": [
+        10935.0,
+        10990.0
+      ],
+      "point_interval_difference": null,
+      "mean_of_observed_point_intervals_reference": 15115.0,
+      "mean_of_observed_point_intervals_changed": 10962.5,
+      "difference_of_observed_interval_means": -4152.5,
+      "observed_interval_counts": {
+        "reference": 1,
+        "changed": 2
+      },
+      "own_basal_contrast_difference": -4.359126050457185e-06,
+      "point_late_range_difference": 0.01119689970592952,
+      "own_basal_differences": {
+        "fixed_coordinate_native_FV_fields": {
+          "R": {
+            "RMS": 4.197130181689724e-06,
+            "max_abs": 7.998335083581054e-06
+          },
+          "Q": {
+            "RMS": 4.989052825701749e-06,
+            "max_abs": 7.104399847523979e-06
+          },
+          "b": {
+            "RMS": 9.689580634589965e-07,
+            "max_abs": 1.2134569798427641e-06
+          },
+          "c": {
+            "RMS": 5.73273549576393e-07,
+            "max_abs": 9.84142326753562e-07
+          },
+          "u": {
+            "RMS": 3.699017350862717e-05,
+            "max_abs": 5.840851236826872e-05
+          },
+          "v": {
+            "RMS": 1.1952340446077494e-06,
+            "max_abs": 2.329357199321036e-06
+          },
+          "T": {
+            "RMS": 0.00023816968543840175,
+            "max_abs": 0.0002977226686531331
+          }
+        },
+        "matched_by_physical_gap_position": [
+          {
+            "position": 0.0,
+            "reference_id": 1,
+            "changed_id": 1,
+            "controller_differences": {
+              "Uleft": -5.762359918726201e-05,
+              "Uright": 5.850567112919425e-05,
+              "raw_left": -5.762359918726201e-05,
+              "raw_right": 5.850567112919425e-05
+            }
+          }
+        ],
+        "reference_gap_count": 1,
+        "changed_gap_count": 1,
+        "unmatched_changed_gaps": [],
+        "unmatched_reference_gaps": [],
+        "no_reflection_or_phase_alignment": true
+      }
+    },
+    {
+      "comparison": "paired-minus-native at dt.25",
+      "reference": "native_N324_dt0p25",
+      "changed": "paired_N324_dt0p25",
+      "both_responses_available": true,
+      "point_intervals_reference": [
+        13080.0
+      ],
+      "point_intervals_changed": [
+        10960.0,
+        11020.0
+      ],
+      "point_interval_difference": null,
+      "mean_of_observed_point_intervals_reference": 13080.0,
+      "mean_of_observed_point_intervals_changed": 10990.0,
+      "difference_of_observed_interval_means": -2090.0,
+      "observed_interval_counts": {
+        "reference": 1,
+        "changed": 2
+      },
+      "own_basal_contrast_difference": -9.365469706423823e-07,
+      "point_late_range_difference": 0.0069799725005949,
+      "own_basal_differences": {
+        "fixed_coordinate_native_FV_fields": {
+          "R": {
+            "RMS": 1.7491638948550802e-06,
+            "max_abs": 4.253315006419456e-06
+          },
+          "Q": {
+            "RMS": 1.5156666795703343e-06,
+            "max_abs": 2.9280688025323798e-06
+          },
+          "b": {
+            "RMS": 4.227169684129806e-07,
+            "max_abs": 5.784059143310039e-07
+          },
+          "c": {
+            "RMS": 3.297568958166378e-07,
+            "max_abs": 4.767699658507485e-07
+          },
+          "u": {
+            "RMS": 7.813867475925275e-06,
+            "max_abs": 1.277252297482434e-05
+          },
+          "v": {
+            "RMS": 2.508554911355528e-07,
+            "max_abs": 5.118878432172624e-07
+          },
+          "T": {
+            "RMS": 4.906119848227553e-05,
+            "max_abs": 6.333366105870653e-05
+          }
+        },
+        "matched_by_physical_gap_position": [
+          {
+            "position": 0.0,
+            "reference_id": 1,
+            "changed_id": 1,
+            "controller_differences": {
+              "Uleft": -1.0840494369057652e-05,
+              "Uright": 1.2785388531000308e-05,
+              "raw_left": -1.0840494369057652e-05,
+              "raw_right": 1.2785388531000308e-05
+            }
+          }
+        ],
+        "reference_gap_count": 1,
+        "changed_gap_count": 1,
+        "unmatched_changed_gaps": [],
+        "unmatched_reference_gaps": [],
+        "no_reflection_or_phase_alignment": true
+      }
+    },
+    {
+      "comparison": "dt change within native",
+      "reference": "native_N324_dt0p5",
+      "changed": "native_N324_dt0p25",
+      "both_responses_available": true,
+      "point_intervals_reference": [
+        15115.0
+      ],
+      "point_intervals_changed": [
+        13080.0
+      ],
+      "point_interval_difference": -2035.0,
+      "mean_of_observed_point_intervals_reference": 15115.0,
+      "mean_of_observed_point_intervals_changed": 13080.0,
+      "difference_of_observed_interval_means": -2035.0,
+      "observed_interval_counts": {
+        "reference": 1,
+        "changed": 1
+      },
+      "own_basal_contrast_difference": -5.488568258604776e-05,
+      "point_late_range_difference": 0.004930029645901501,
+      "own_basal_differences": {
+        "fixed_coordinate_native_FV_fields": {
+          "R": {
+            "RMS": 0.0001153577737362467,
+            "max_abs": 0.00026951424135179813
+          },
+          "Q": {
+            "RMS": 7.465639014604318e-05,
+            "max_abs": 9.778979337093929e-05
+          },
+          "b": {
+            "RMS": 3.428235441324239e-05,
+            "max_abs": 5.135588364738042e-05
+          },
+          "c": {
+            "RMS": 9.590974398185996e-06,
+            "max_abs": 1.4097369609063215e-05
+          },
+          "u": {
+            "RMS": 0.0007896806620791715,
+            "max_abs": 0.0015158325245373527
+          },
+          "v": {
+            "RMS": 2.7240544061205067e-05,
+            "max_abs": 4.4620972046938157e-05
+          },
+          "T": {
+            "RMS": 0.0062556137377636125,
+            "max_abs": 0.008960412664553274
+          }
+        },
+        "matched_by_physical_gap_position": [
+          {
+            "position": 0.0,
+            "reference_id": 1,
+            "changed_id": 1,
+            "controller_differences": {
+              "Uleft": -0.0015222322147834255,
+              "Uright": 0.0015227613128008244,
+              "raw_left": -0.0015222322147834255,
+              "raw_right": 0.0015227613128008244
+            }
+          }
+        ],
+        "reference_gap_count": 1,
+        "changed_gap_count": 1,
+        "unmatched_changed_gaps": [],
+        "unmatched_reference_gaps": [],
+        "no_reflection_or_phase_alignment": true
+      }
+    },
+    {
+      "comparison": "dt change within paired",
+      "reference": "paired_N324_dt0p5",
+      "changed": "paired_N324_dt0p25",
+      "both_responses_available": true,
+      "point_intervals_reference": [
+        10935.0,
+        10990.0
+      ],
+      "point_intervals_changed": [
+        10960.0,
+        11020.0
+      ],
+      "point_interval_difference": null,
+      "mean_of_observed_point_intervals_reference": 10962.5,
+      "mean_of_observed_point_intervals_changed": 10990.0,
+      "difference_of_observed_interval_means": 27.5,
+      "observed_interval_counts": {
+        "reference": 2,
+        "changed": 2
+      },
+      "own_basal_contrast_difference": -5.1463103506232954e-05,
+      "point_late_range_difference": 0.0007131024405668818,
+      "own_basal_differences": {
+        "fixed_coordinate_native_FV_fields": {
+          "R": {
+            "RMS": 0.00011542032673826058,
+            "max_abs": 0.00027159786182595624
+          },
+          "Q": {
+            "RMS": 7.241939663388033e-05,
+            "max_abs": 9.714927774429061e-05
+          },
+          "b": {
+            "RMS": 3.383809402307984e-05,
+            "max_abs": 5.073683406103813e-05
+          },
+          "c": {
+            "RMS": 9.46449758605663e-06,
+            "max_abs": 1.4187134741345392e-05
+          },
+          "u": {
+            "RMS": 0.0007606349583049012,
+            "max_abs": 0.0014701965351439084
+          },
+          "v": {
+            "RMS": 2.8177390761012586e-05,
+            "max_abs": 4.648190113296438e-05
+          },
+          "T": {
+            "RMS": 0.0060853078257751955,
+            "max_abs": 0.008859377953891467
+          }
+        },
+        "matched_by_physical_gap_position": [
+          {
+            "position": 0.0,
+            "reference_id": 1,
+            "changed_id": 1,
+            "controller_differences": {
+              "Uleft": -0.0014754491099652212,
+              "Uright": 0.0014770410302026304,
+              "raw_left": -0.0014754491099652212,
+              "raw_right": 0.0014770410302026304
+            }
+          }
+        ],
+        "reference_gap_count": 1,
+        "changed_gap_count": 1,
+        "unmatched_changed_gaps": [],
+        "unmatched_reference_gaps": [],
+        "no_reflection_or_phase_alignment": true
+      }
+    }
+  ]
+}

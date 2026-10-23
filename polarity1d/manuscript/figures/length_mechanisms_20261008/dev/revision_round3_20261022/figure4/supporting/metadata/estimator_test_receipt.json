@@ -1,0 +1,44 @@
+{
+  "generated_utc": "2026-10-22T22:49:10.538808+00:00",
+  "passed": true,
+  "number_of_tests": 28,
+  "suites": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "polarity1d/manuscript/code/tests/test_figure4_round3_estimators_20261022.py"
+      ],
+      "test_source_sha256": "e9bb2ed78e21c3037fad79b7109cea92a643e138276960b933d6ac6eff914b19",
+      "passed": true,
+      "number_of_tests": 26,
+      "output": "..........................\n----------------------------------------------------------------------\nRan 26 tests in 0.175s\n\nOK\n"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "polarity1d/manuscript/code/tests/test_figure4_round3_parallel_20261022.py"
+      ],
+      "test_source_sha256": "b9e6b2bbb0a03de80e6fef8542114d6176310a78f6f709cf642b3bd54a6029b5",
+      "passed": true,
+      "number_of_tests": 2,
+      "output": "..\n----------------------------------------------------------------------\nRan 2 tests in 0.698s\n\nOK\n"
+    }
+  ],
+  "SLURM_JOB_ID": "21279376",
+  "SLURM_CPUS_PER_TASK": "4",
+  "BLAS_threads": 1,
+  "source_sha256": {
+    "polarity1d/manuscript/code/mechanisms/figure4_round3_analysis_20261022.py": "54c7d833db4f11e755c1915392b471b83f21cc0f95f642cb1bacaa42a3ea119f",
+    "polarity1d/manuscript/code/mechanisms/figure4_round3_estimators_20261022.py": "e321ac2ab7979f8585a7c12e7fdd5e5fc989da08491734658938b59742c1ec35"
+  },
+  "contract_checks": [
+    "Ignored short dominant-ID flicker with absent old centroid preserves persistent switch, all observed exposure, parent dominance-tenure median cutoff and excludes centroid-gap MSD pairs.",
+    "Genuine missing dominant-ID interval breaks switch adjacency and exposure.",
+    "Seed0 ticks follow the identical persistence-filtered dominant-ID rule.",
+    "Serial and allocated multiprocessing retain byte-identical scientific CSVs."
+  ],
+  "limitations": "These tests do not claim the older provisional round2 tracked preview was recomputed. The final compact rebuild will generate tracked tables with this corrected contract.",
+  "code_commit": "298f97ab715fbb6eef7407cfca7e89e8a4bfa4f7"
+}

@@ -32,6 +32,7 @@ Each folder contains its PNG previews and related supporting vectors, data, capt
 - [Replicated noisy-ring polarity persistence across sizes](vision_noise_20261017/README.md)
 - [Vision-aligned checkpoint: linear responses, ring competition and noisy polarity persistence](vision_aligned_checkpoint_20261017/README.md)
 - [Spring ring: declared closure, raw competition fields and validation](spring_ring_validation_20261019/README.md)
+- [deBelly periodic-domain attempt: retained evidence, field viewer and assessment](debelly_ring_review_20261019/README.md)
 - [Figures 2–4: mechanisms, geometry and spontaneous polarity dynamics](revision_program_20261019/README.md)
 - [Figure 2 revision: shape and timing signature assays](signature_assays_20261020/README.md)
 - [Figure 3 revision: distance, competition and measured polarity geometry](revision_program_20261020/figure3_distance/README.md)
@@ -39,5 +40,9 @@ Each folder contains its PNG previews and related supporting vectors, data, capt
 - [Figure 4 round-2 heading decay rates: author-authorized Case A](revision_round2_20261022/figure4/README.md)
 - [Figure 3 round-2 short-range separation and matched-gap size effects](revision_round2_20261022/figure3/README.md)
 - [Figure 2 round-2 replacement-resistance signatures](revision_round2_20261022/figure2/README.md)
+- [Figure 4 stochastic region model: recovery, pilot gates and validation](figure4_region_model_20261022/README.md)
+- [Figure 2 round-3 size responses and pulse-memory signatures](revision_round3_20261022/figure2/README.md)
+- [Figure 4 round-3 nulls for size-dependent heading persistence](revision_round3_20261022/figure4/README.md)
+- [Figure 4 revised event scoring, normalized drift and closure tests](revision_round4_20261023/figure4/README.md)
 
 [Reversible cleanup records](_organization/) preserve the original paths and metadata. After regenerating exports, run `python polarity1d/manuscript/code/mechanisms/organize_length_dev.py` from the repository root. Current renderers write directly into these experiment folders; the organizer also collects outputs from frozen older entry points.

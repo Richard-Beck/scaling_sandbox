@@ -1,0 +1,161 @@
+{
+  "passed": true,
+  "generated_utc": "2026-10-19T19:44:25.377560+00:00",
+  "scope": "Independent raw-FV features, six complete flight/turn/crossing/duration reductions, first-A-only curve integration, ten actual-profile/edge checks and four native half-step Rac source reconstructions. No trajectory or physical closure.",
+  "feature_agreement": {
+    "original": {
+      "time": 0.0,
+      "vector_real": 2.220446049250313e-16,
+      "vector_imag": 1.6653345369377348e-16,
+      "vector_magnitude": 2.220446049250313e-16,
+      "phase_position": 1.0658141036401503e-14,
+      "phase_unwrapped": 1.7763568394002505e-14,
+      "phase_velocity": 5.329070518200751e-15,
+      "gap_position": 0.0,
+      "gap_Rac_trace": 0.0
+    },
+    "A": {
+      "time": 0.0,
+      "vector_real": 1.6653345369377348e-16,
+      "vector_imag": 1.3877787807814457e-16,
+      "vector_magnitude": 2.7755575615628914e-16,
+      "phase_position": 1.0658141036401503e-14,
+      "phase_unwrapped": 1.0658141036401503e-14,
+      "phase_velocity": 5.773159728050814e-15,
+      "gap_position": 0.0,
+      "gap_Rac_trace": 0.0
+    },
+    "B": {
+      "time": 0.0,
+      "vector_real": 2.220446049250313e-16,
+      "vector_imag": 1.3877787807814457e-16,
+      "vector_magnitude": 2.220446049250313e-16,
+      "phase_position": 1.0658141036401503e-14,
+      "phase_unwrapped": 2.1316282072803006e-14,
+      "phase_velocity": 1.2101430968414206e-14,
+      "gap_position": 0.0,
+      "gap_Rac_trace": 0.0
+    }
+  },
+  "flight_agreement": [
+    {
+      "key": "A1",
+      "maximum_metric_error": 2.4920154828578234e-10
+    },
+    {
+      "key": "A2",
+      "maximum_metric_error": 2.4920154828578234e-10
+    },
+    {
+      "key": "original1",
+      "maximum_metric_error": 2.4920154828578234e-10
+    },
+    {
+      "key": "original2",
+      "maximum_metric_error": 2.4920154828578234e-10
+    },
+    {
+      "key": "B1",
+      "maximum_metric_error": 2.4920154828578234e-10
+    },
+    {
+      "key": "B2",
+      "maximum_metric_error": 2.4920154828578234e-10
+    }
+  ],
+  "pointwise_speed_agreement": [
+    {
+      "key": "A1",
+      "relative_RMS": 3.1972732783608376e-13,
+      "maximum_relative_difference": 1.2225590620537234e-12
+    },
+    {
+      "key": "A2",
+      "relative_RMS": 0.00029336451965903494,
+      "maximum_relative_difference": 0.0011699711754688707
+    },
+    {
+      "key": "original1",
+      "relative_RMS": 0.0012554930468984392,
+      "maximum_relative_difference": 0.004282185197600875
+    },
+    {
+      "key": "original2",
+      "relative_RMS": 0.012457514205280565,
+      "maximum_relative_difference": 0.0498188808111785
+    },
+    {
+      "key": "B1",
+      "relative_RMS": 0.00034769755510271857,
+      "maximum_relative_difference": 0.0013878662731399002
+    },
+    {
+      "key": "B2",
+      "relative_RMS": 0.0002069329030337311,
+      "maximum_relative_difference": 0.0008256016828848253
+    }
+  ],
+  "training_curve_minimum": {
+    "distance_um": 2.7676700458132864,
+    "outward_phase_speed": 0.0009069852410705792
+  },
+  "selected_native_budgets": [
+    {
+      "flight": 1,
+      "time": 10165.0,
+      "distance": 1.998232549113375,
+      "Rac_RHS_closure": 6.004311631224724e-16,
+      "maximum_phase_allocation_error": 8.198601303063824e-17,
+      "outward_phase_rate": 0.0010880181072808403
+    },
+    {
+      "flight": 1,
+      "time": 16200.0,
+      "distance": 10.001676234751866,
+      "Rac_RHS_closure": 8.684806685117265e-16,
+      "maximum_phase_allocation_error": 2.949029909160572e-17,
+      "outward_phase_rate": 0.002221526760532751
+    },
+    {
+      "flight": 2,
+      "time": 17785.0,
+      "distance": 2.000597114542934,
+      "Rac_RHS_closure": 7.130391112622481e-16,
+      "maximum_phase_allocation_error": 3.13571597073542e-17,
+      "outward_phase_rate": 0.0010881380429855385
+    },
+    {
+      "flight": 2,
+      "time": 23815.0,
+      "distance": 9.997480451495555,
+      "Rac_RHS_closure": 7.120142013960704e-16,
+      "maximum_phase_allocation_error": 7.551468131361538e-17,
+      "outward_phase_rate": 0.0022204948390572997
+    }
+  ],
+  "empirical_passage_seconds": 6032.614951967818,
+  "fixed_lambda_passage_seconds": 4571.039628378461,
+  "maximum_withheld_absolute_relative_error": 0.006113640532574793,
+  "conclusions": [
+    "The2\u219210\u00b5m passage lasts about6000s; the fixed infinitesimal-onset \u03bb predicts4571s and is not a quantitative mature-flight clock.",
+    "The first-A empirical speed relation matches the five other retained passages within about0.62%, with no refitting or extrapolation. Training reconstruction is not independent predictive evidence.",
+    "Active width and edge chemistry change, so this is not rigid translation. A distance-speed description does not identify a unique biochemical timer or prove an autonomous physical law."
+  ],
+  "limits": [
+    "The full interbirth interval includes separately observed turn/entry/tail segments; the2\u219210fit does not predict those segments.",
+    "Every duration comparison uses the same2\u219210domain, so the first-A curve supplies a single constant duration. Transferring the first-A observed passage time alone gives almost the same result; duration agreement chiefly shows repeatability. Pointwise speed-distance agreement is additional evidence, not a unique closure proof.",
+    "The other five histories are withheld from this fit but were already available, and are neither blind prospective data nor independent stochastic replicates.",
+    "Phase motion is an activity-pattern observable; it is distinct from cortical velocity and cell migration. One-step source allocation is not evolved pathway necessity."
+  ],
+  "source_sha256": {
+    "polarity1d/manuscript/code/mechanisms/validation_debelly_gap_travel_clock_20261019.py": "152f0d1b79e31f0339fc85e7e1ad5594307f72a5aa360b3dba00a10e854e3f3e",
+    "polarity1d/manuscript/code/mechanisms/validation_debelly_gap_travel_features_20261019.py": "ed4392f5678c2234bad581d2393cfd68d32272478c73b5fdc868476571d02e73",
+    "polarity1d/manuscript/code/mechanisms/validation_debelly_gap_linear_mode_20261019.py": "75513c1a9e1748a72dc2eb2379adb9432483c83391dfe5a22fd83d6386651a1a",
+    "polarity1d/manuscript/data/runs/debelly_gap_travel_clock_C50_20261019/implementation_manifest.json": "106375e464a9f4327d9188a211c8cd348a5d5bcc3c142dc1c1c94ccfda3fea22",
+    "polarity1d/manuscript/data/runs/debelly_gap_travel_clock_C50_20261019/mechanics_manifest.json": "08a715f8dd49647f8a1ce6ea9f7426fd444a639b4fea818c31b45111b5882c78",
+    "polarity1d/manuscript/data/runs/debelly_gap_travel_clock_C50_20261019/validation_features.json": "0026329328104992e6d520e1a57a5a04ca77ae234e9a432282be8f881cac6303",
+    "polarity1d/manuscript/data/runs/debelly_gap_travel_clock_C50_20261019/validation_passages.json": "da875bd4b236dadd2facbbfe084cab34ddfddff74cc10df0cf1cb04d840dae3f",
+    "polarity1d/manuscript/data/runs/debelly_gap_travel_clock_C50_20261019/implementation_travel_clock.json": "0b45338d46ea348b60f576f55193b810b23a521134dcfc4ca9bd27e3631e0d6e",
+    "polarity1d/manuscript/data/runs/debelly_gap_travel_clock_C50_20261019/mechanics_travel_profiles.json": "acfafee0f61eec65e74c5a2bd9660b4af1635691bebe0b35481d2e8b17e819b2"
+  }
+}

@@ -177,6 +177,36 @@ class Estimators(unittest.TestCase):
         self.assertEqual(result['n_switches'],2);self.assertEqual(result['n_scored_switches'],2)
         self.assertTrue(np.isfinite(result['lambda_eff']));self.assertGreater(result['lambda_eff'],0.)
 
+    def test_unscorable_event_does_not_discard_scorable_jump_angles(self):
+        ids=np.repeat([0,1,2],20);P=np.exp(1j*ids.astype(float));P[38]=.01
+        heads=[{int(i):float(i)} for i in ids]
+        result,_=E.drift_jump(np.arange(len(ids)),20.,ids,heads,P=P)
+        self.assertEqual(result['n_switches'],2)
+        self.assertEqual(result['n_scored_switches'],1)
+        self.assertEqual(result['jump_scored_fraction'],.5)
+        self.assertAlmostEqual(result['lambda_eff'],2*(1-np.cos(1))/59)
+        self.assertEqual(result['jump_status'],'resolved_conditional_scorable_events')
+
+    def test_bootstrap_resamples_counted_and_scorable_events_separately(self):
+        seeds=[];moments=[];time=np.arange(60.)
+        for index in range(2):
+            ids=np.repeat([0,1,2],20);P=np.exp(1j*ids.astype(float));P[38]=.01
+            heads=[{int(i):float(i)} for i in ids]
+            seeds.append(dict(time=time,C=np.full(60,20.),ids=ids,headings=heads,P=P,cadence=1.))
+            moments.append(E.seed_moments(P,abs(P)>=.1,1.,np.array([10.])))
+        pooled,_=E.drift_jump(time,20.,ids,heads,P=P,max_lag=4.)
+        summary=E.summarize(moments,[20.,20.],('partial_score_fixture',),[10.],[10.])
+        result=A.tracked_uncertainty(seeds,pooled,summary,return_draws=True)
+        np.testing.assert_allclose(result['_draws']['lambda_eff'],2*(1-np.cos(1))/59)
+        self.assertTrue(np.isfinite(result['lambda_eff_ci_lower']))
+
+    def test_no_scorable_event_remains_undefined(self):
+        ids=np.repeat([0,1],20);P=np.exp(1j*ids.astype(float));P[18]=.01
+        result,_=E.drift_jump(np.arange(len(ids)),20.,ids,[{int(i):float(i)} for i in ids],P=P)
+        self.assertEqual(result['n_switches'],1);self.assertEqual(result['n_scored_switches'],0)
+        self.assertTrue(np.isnan(result['lambda_eff']))
+        self.assertEqual(result['jump_status'],'unavailable_no_scorable_events')
+
     def test_uniform_dilation_does_not_move_intrinsic_heading(self):
         C=np.linspace(2.,3.,101);ids=np.zeros(101,int);maps=[{0:np.pi/3} for _ in ids]
         values=S.seed_sums(C,ids,maps,1.,20)

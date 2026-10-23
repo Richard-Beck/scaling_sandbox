@@ -1,0 +1,2098 @@
+{
+  "generated_utc": "2026-10-19T18:00:19.819438+00:00",
+  "terminal_validation_complete": true,
+  "passed": true,
+  "method": "paired_backward_euler_native_transport_v1",
+  "scope": "Independent raw producer/scheduler/gate/state/pool/stream/checkpoint audit and selected bounded replays. Features derived independently without final analysis inputs.",
+  "scheduler": "21190354_0|21190363|COMPLETED|0:0|00:13:01|\n21190354_0.batch|21190363.batch|COMPLETED|0:0|00:13:01|518056K\n21190354_0.extern|21190363.extern|COMPLETED|0:0|00:13:01|\n21190354_1|21190354|COMPLETED|0:0|00:23:39|\n21190354_1.batch|21190354.batch|COMPLETED|0:0|00:23:39|583364K\n21190354_1.extern|21190354.extern|COMPLETED|0:0|00:23:39|",
+  "job_id": "21190354",
+  "cases": {
+    "N324_dt0p5": {
+      "case_outcome": "complete",
+      "producer_status": {
+        "state": "complete",
+        "producer_state": "finished",
+        "method": "paired_backward_euler_native_transport_v1",
+        "generated_utc": "2026-10-19T17:48:31.413465+00:00",
+        "time": 31000.0,
+        "protocol_clock": 31000.0,
+        "phase": "response",
+        "corner": {
+          "name": "N324_dt0p5",
+          "N": 324,
+          "dt": 0.5
+        },
+        "cells": 330,
+        "gaps": 1,
+        "event_count": 12,
+        "basal_clock": 12000.0,
+        "response_clock": 31000.0,
+        "gate": {},
+        "minimum_certificate_margin": 0.013025931260095512,
+        "maximum_cell_budget_error": 1.1354511068657378e-16,
+        "checkpoint_paths": {
+          "latest_state": "response/latest_state.npz",
+          "exact_response_checkpoints": {
+            "18000.0": "response/checkpoint_18000.npz",
+            "23000.0": "response/checkpoint_23000.npz"
+          }
+        },
+        "basal_full_state_qualified": true,
+        "basal_polarity_eligible": true,
+        "response_protocol_complete": true
+      },
+      "basal": {
+        "full_state_qualified": true,
+        "polarity_eligible": true,
+        "gate_reason": "qualified",
+        "protocol_end": 12000.0,
+        "holdout_start": 2000.0,
+        "independent_holdout_max_scaled_excursion": 6.767107227494884e-07,
+        "holdout_topology_change": false,
+        "eligibility": {
+          "gaps": 1,
+          "active_components": 1,
+          "Rac_contrast": 0.24652204566854685
+        },
+        "invariants": {
+          "frames": 2497,
+          "minimum_values": {
+            "R": 0.644543992011592,
+            "Q": 0.5800119885523727,
+            "b": 0.051917127607197716,
+            "c": 0.014549312948128727,
+            "u": -0.5235824579164309,
+            "v": -0.020835032248965706,
+            "T": 1.4229397641189427
+          },
+          "all_fields_finite": true,
+          "all_chemical_fields_nonnegative": true,
+          "maximum_total_MCA_error": 3.552713678800501e-15,
+          "initial_native_tension_reconstruction_error": 4.440892098500626e-16,
+          "maximum_post_initial_native_tension_reconstruction_error": 4.440892098500626e-16,
+          "each_gap_identity_position_and_birth_clock_constant": true,
+          "raw_and_imposed_controllers_equal": true,
+          "initial_cells": 324,
+          "final_cells": 324
+        },
+        "windows": {
+          "windows": 12,
+          "passing_windows": 12,
+          "maximum_independent_range_or_rate_difference": 0.0
+        },
+        "pools": {
+          "native_steps": 24000,
+          "dt": 0.5,
+          "paired_exchange_creation_maximum": 0.0,
+          "minimum_analytic_certificate_margin": 0.15432079502177284,
+          "minimum_numeric_certificate_margin": 0.15432079502177282,
+          "maximum_linear_solver_residual": 4.380176776841438e-17,
+          "maximum_cell_budget_residual": 4.141747590101193e-17,
+          "maximum_deficit_export_target_residual": 2.886579864025407e-15,
+          "total_signed_cap_export": 26.138425835035996,
+          "total_uniform_return": 26.138425835041627,
+          "maximum_saved_pool_stock_error": 0.0,
+          "pools": {
+            "bound": {
+              "amount_change": -2.631086144555539e-05,
+              "actual_paired_exchange": 5.717756029699219,
+              "signed_cap_export": 26.138427524185495,
+              "uniform_return": 20.42064518362627,
+              "cumulative_budget_residual": -1.4388490399142029e-12,
+              "maximum_step_budget_residual": 1.8457457784393227e-15,
+              "maximum_stock_roundoff_at_native_steps": 0.0,
+              "maximum_native_return_partition_error": 0.0
+            },
+            "unbound": {
+              "amount_change": 2.631086144555539e-05,
+              "actual_paired_exchange": -5.717756029699219,
+              "signed_cap_export": -1.6891495000203805e-06,
+              "uniform_return": 5.717780651415356,
+              "cumulative_budget_residual": -4.192202140984591e-12,
+              "maximum_step_budget_residual": 1.177877240188252e-15,
+              "maximum_stock_roundoff_at_native_steps": 0.0,
+              "maximum_native_return_partition_error": 2.710505431213761e-20
+            }
+          },
+          "local_bound_budgets": {
+            "point20": {
+              "maximum_reduced_budget_error": 1.2187787712037021e-19,
+              "integrated_bound_storage": -1.178602961099395e-06,
+              "integrated_advection": -0.2805914165626092,
+              "integrated_diffusion": -0.002848701778982349,
+              "integrated_signed_cap_source": 0.0,
+              "integrated_paired_binding": -0.12497396393384894,
+              "integrated_uniform_return": 0.4084129036725254,
+              "observed_bound_change": -1.178602961088293e-06,
+              "observation_remap_residual": 1.1101849081425301e-17
+            },
+            "patch20": {
+              "maximum_reduced_budget_error": 1.7383500172670678e-20,
+              "integrated_bound_storage": -1.1782468101864133e-06,
+              "integrated_advection": -0.2797829263720332,
+              "integrated_diffusion": -0.0028585008321840018,
+              "integrated_signed_cap_source": 0.0,
+              "integrated_paired_binding": -0.12577265471507687,
+              "integrated_uniform_return": 0.4084129036725254,
+              "observed_bound_change": -1.178246810201733e-06,
+              "observation_remap_residual": -1.531964964227809e-17
+            },
+            "observation_note": "Exact physical patch preserves the piecewise-constant field through native splits. Center-linear point observation can change at remeshing; its residual is reported separately.",
+            "maximum_saved_point_patch_observation_difference": 2.220446049250313e-16
+          }
+        },
+        "actual_response_phase_handoff": {
+          "complete_state_and_next_id_exact": true,
+          "source_basal_clock": 12000.0,
+          "response_clock": 0.0,
+          "response_ledger_origin": 0.0,
+          "basal_metadata_preserved": true,
+          "new_method_protocol_metadata_guarded": true
+        }
+      },
+      "audited_complete_response": true,
+      "scientific_response_available": true,
+      "response": {
+        "protocol_complete": true,
+        "protocol_end": 31000.0,
+        "invariants": {
+          "frames": 6297,
+          "minimum_values": {
+            "R": 0.5615224800361266,
+            "Q": 0.060804583473087655,
+            "b": 0.033713003089764354,
+            "c": 0.009469083274436928,
+            "u": -3.161886532952628,
+            "v": -0.14952621043595352,
+            "T": -3.446176305079064
+          },
+          "all_fields_finite": true,
+          "all_chemical_fields_nonnegative": true,
+          "maximum_total_MCA_error": 4.440892098500626e-15,
+          "initial_native_tension_reconstruction_error": 4.440892098500626e-16,
+          "maximum_post_initial_native_tension_reconstruction_error": 3.552713678800501e-15,
+          "each_gap_identity_position_and_birth_clock_constant": true,
+          "raw_and_imposed_controllers_equal": true,
+          "initial_cells": 324,
+          "final_cells": 330
+        },
+        "windows": {
+          "windows": 30,
+          "passing_windows": 0,
+          "maximum_independent_range_or_rate_difference": 0.0
+        },
+        "pools": {
+          "native_steps": 62000,
+          "dt": 0.5,
+          "paired_exchange_creation_maximum": 0.0,
+          "minimum_analytic_certificate_margin": 0.013025931260095512,
+          "minimum_numeric_certificate_margin": 0.013025931260096185,
+          "maximum_linear_solver_residual": 1.2159327364424932e-16,
+          "maximum_cell_budget_residual": 1.1354511068657378e-16,
+          "maximum_deficit_export_target_residual": 3.9968028886505635e-15,
+          "total_signed_cap_export": 46.04513608131282,
+          "total_uniform_return": 46.045136081326945,
+          "maximum_saved_pool_stock_error": 0.0,
+          "pools": {
+            "bound": {
+              "amount_change": 2.2960570570162986e-05,
+              "actual_paired_exchange": 10.058617386621796,
+              "signed_cap_export": 46.031356989584765,
+              "uniform_return": 35.972762563536676,
+              "cumulative_budget_residual": -3.140598892059643e-12,
+              "maximum_step_budget_residual": 2.587177434093535e-15,
+              "maximum_stock_roundoff_at_native_steps": 4.440892098500626e-16,
+              "maximum_native_return_partition_error": 0.0
+            },
+            "unbound": {
+              "amount_change": -2.2960570570607075e-05,
+              "actual_paired_exchange": -10.058617386621796,
+              "signed_cap_export": 0.013779091728054969,
+              "uniform_return": 10.072373517790268,
+              "cumulative_budget_residual": -1.0986767051690549e-11,
+              "maximum_step_budget_residual": 1.5312729383099022e-15,
+              "maximum_stock_roundoff_at_native_steps": 2.220446049250313e-16,
+              "maximum_native_return_partition_error": 4.336808689942018e-19
+            }
+          },
+          "local_bound_budgets": {
+            "point20": {
+              "maximum_reduced_budget_error": 3.3326965319379744e-17,
+              "integrated_bound_storage": -0.03278458333447303,
+              "integrated_advection": 174.4775841793817,
+              "integrated_diffusion": -0.23816207565447345,
+              "integrated_signed_cap_source": -176.64735807513293,
+              "integrated_paired_binding": 1.6556961368002863,
+              "integrated_uniform_return": 0.7194552512707335,
+              "observed_bound_change": -0.032798901310773454,
+              "observation_remap_residual": -1.4317976300422253e-05
+            },
+            "patch20": {
+              "maximum_reduced_budget_error": 1.338429760776555e-18,
+              "integrated_bound_storage": -0.03192459140340012,
+              "integrated_advection": 3.486241719317038,
+              "integrated_diffusion": 0.012139105432207947,
+              "integrated_signed_cap_source": -5.476045246322599,
+              "integrated_paired_binding": 1.226284578899253,
+              "integrated_uniform_return": 0.7194552512707335,
+              "observed_bound_change": -0.031924591403400135,
+              "observation_remap_residual": -1.3877787807814457e-17
+            },
+            "observation_note": "Exact physical patch preserves the piecewise-constant field through native splits. Center-linear point observation can change at remeshing; its residual is reported separately.",
+            "maximum_saved_point_patch_observation_difference": 2.220446049250313e-16
+          }
+        },
+        "checkpoints": {
+          "checkpoint_18000": {
+            "time": 18000.0,
+            "method_source_protocol_clock_state_next_id_exact": true
+          },
+          "checkpoint_23000": {
+            "time": 23000.0,
+            "method_source_protocol_clock_state_next_id_exact": true
+          },
+          "final_state": {
+            "time": 31000.0,
+            "method_source_protocol_clock_state_next_id_exact": true
+          }
+        },
+        "bounded_replays": [
+          {
+            "start": 0.0,
+            "end": 10.0,
+            "native_steps": 20,
+            "exact_saved_native_states_checked": 10,
+            "all_per_step_pools_local_budget_method_clock_and_events_exact": true
+          },
+          {
+            "start": 18000.0,
+            "end": 18005.0,
+            "native_steps": 10,
+            "exact_saved_native_states_checked": 1,
+            "all_per_step_pools_local_budget_method_clock_and_events_exact": true
+          },
+          {
+            "start": 995.0,
+            "end": 1005.0,
+            "native_steps": 20,
+            "exact_saved_native_states_checked": 2,
+            "all_per_step_pools_local_budget_method_clock_and_events_exact": true
+          }
+        ],
+        "sampled_and_event_ledgers": {
+          "parsed_stream_counts": {
+            "sampled_ledgers.jsonl.gz": 6296,
+            "event_ledgers.jsonl.gz": 7
+          },
+          "all_saved_sample_times_exact": true,
+          "all_event_steps_preserved": true,
+          "cap_donors_and_diffusion_connectivity_independently_verified": true,
+          "actual_paired_binding_and_uniform_return_verified": true,
+          "maximum_independent_errors": {
+            "cap_flux": 0.0,
+            "diffusion_flux": 1.0842021724855044e-19,
+            "binding": 0.0,
+            "storage": 0.0,
+            "return_amount": 3.3881317890172014e-21,
+            "cell_budget": 1.1354511068657378e-16,
+            "analytic_certificate": 0.0,
+            "global_scalars": 0.0,
+            "fixed_point_patch": 2.220446049250313e-16
+          },
+          "source_sha256": {
+            "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/sampled_ledgers.jsonl.gz": "5e35347a656aa5e7764d46e8676b75983554f6dcdffbd5abbc786343dd5b9818",
+            "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/event_ledgers.jsonl.gz": "1f49e9ad411f82f7dad4e837a908d9a72f561990e9b29ee462137add59891a9b"
+          }
+        },
+        "event_count": 12,
+        "final_next_id": 8,
+        "source_sha256": {
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/native_profiles.npz": "1b2891cdbe0c4117f01fa560eb1290c2279d063f126bbf706e296d90a859eb55",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/diagnostics.json": "5111ebe916b1f840a302dd2a533ff244620220d0d69d2bed3b2ca2afde0b9220",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/events.json": "ad9edeeffc8dd4882838e61d5eaea694463f78fc50b0e64d5eabf9cc721ee366",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/windows.json": "48770441a7bddc23bcfe7357c5916c7405508076624934808a3cbb91da5c0969",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/summary.json": "3bc5c127a33edf68080b9fb9b428e0f23b0143c1d2c03e8687f36c5062b90804",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/pool_budgets.npz": "8e5452f2a55877307337af3e4104714d044ea03d52df2bc835d348c19fb1362b",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/initial_state.npz": "b77f392f8ff18edefbdf780fc8d4f03c98596d3ea117239bfff9d45658668fba",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/initial_state.json": "2e5d0e0ac6ffb6080b7847ca4994ed38381bb3dddd6a626d2cd2eb6a33c1e0ae",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/basal_source_state.json": "3d58885090c1c0160ee452e35935ba8556e3a8923960633c7407844ed98b8ee9",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/seed_manifest.json": "a539153c0da268285c993b4fcbc3c710152131affa38f4ce45b9c24ceaa96e3c",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/checkpoint_18000.npz": "b933c4173fa75bae1400c34a5ceb75347e3f2a36073022b362332029535ebada",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/checkpoint_18000.json": "7384c00a53d12466e3fbc362a5c950bf4cbdfccd689b7e793d9bb5faac8d68fb",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/checkpoint_23000.npz": "0f6c62e7df8d7b63e060d6a4040cf47c743b262fdbefce1d409e039a0e4e1aaf",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/checkpoint_23000.json": "1892c80d9c85f89da79692572b1f5ab069c595c87ce5f9e3752561547c94cb2c",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/final_state.npz": "65f341d65284e7e9553a17ee3eb8ec5d92aeded0c22b3ec3958b1e0a7bfbebd8",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/final_state.json": "33083b9063157e4ef6f073d62d52eeba9c9a2f93bc94a49ee04fc99f5839a8c4"
+        }
+      },
+      "independent_features": {
+        "label": "paired_N324_dt0p5",
+        "time_start": 0.0,
+        "time_end": 31000.0,
+        "native_samples": 6297,
+        "analysis_window": [
+          2000.0,
+          31000.0
+        ],
+        "extrema": {
+          "point20": {
+            "available": true,
+            "prominence": 0.02,
+            "minimum_separation_seconds": 1000.0,
+            "maxima": [
+              {
+                "time": 12235.0,
+                "value": 0.9073271710253347
+              },
+              {
+                "time": 23170.0,
+                "value": 0.9073256678193621
+              }
+            ],
+            "minima": [
+              {
+                "time": 7090.0,
+                "value": 0.7182234518746655
+              },
+              {
+                "time": 18025.0,
+                "value": 0.7194569818981517
+              },
+              {
+                "time": 29015.0,
+                "value": 0.7201434753543782
+              }
+            ],
+            "minimum_to_minimum_returns_seconds": [
+              10935.0,
+              10990.0
+            ],
+            "maximum_to_maximum_returns_seconds": [
+              10935.0
+            ],
+            "complete_trough_return_intervals": [
+              {
+                "start": 7090.0,
+                "end": 18025.0,
+                "return_seconds": 10935.0,
+                "intervening_maximum_time": 12235.0,
+                "intervening_maximum": 0.9073271710253347,
+                "excursion": 0.18910371915066915
+              },
+              {
+                "start": 18025.0,
+                "end": 29015.0,
+                "return_seconds": 10990.0,
+                "intervening_maximum_time": 23170.0,
+                "intervening_maximum": 0.9073256678193621,
+                "excursion": 0.18786868592121042
+              }
+            ]
+          },
+          "patch20": {
+            "available": true,
+            "prominence": 0.02,
+            "minimum_separation_seconds": 1000.0,
+            "maxima": [
+              {
+                "time": 12230.0,
+                "value": 0.9068265881506701
+              },
+              {
+                "time": 23170.0,
+                "value": 0.9068353578399067
+              }
+            ],
+            "minima": [
+              {
+                "time": 7120.0,
+                "value": 0.7260188129147309
+              },
+              {
+                "time": 18050.0,
+                "value": 0.7270221946182532
+              },
+              {
+                "time": 29040.0,
+                "value": 0.7275792155880265
+              }
+            ],
+            "minimum_to_minimum_returns_seconds": [
+              10930.0,
+              10990.0
+            ],
+            "maximum_to_maximum_returns_seconds": [
+              10940.0
+            ],
+            "complete_trough_return_intervals": [
+              {
+                "start": 7120.0,
+                "end": 18050.0,
+                "return_seconds": 10930.0,
+                "intervening_maximum_time": 12230.0,
+                "intervening_maximum": 0.9068265881506701,
+                "excursion": 0.18080777523593916
+              },
+              {
+                "start": 18050.0,
+                "end": 29040.0,
+                "return_seconds": 10990.0,
+                "intervening_maximum_time": 23170.0,
+                "intervening_maximum": 0.9068353578399067,
+                "excursion": 0.17981316322165342
+              }
+            ]
+          },
+          "vector_position": {
+            "available": true,
+            "prominence": 0.5,
+            "minimum_separation_seconds": 1000.0,
+            "maxima": [
+              {
+                "time": 12580.0,
+                "value": 18.924042397855793
+              },
+              {
+                "time": 23520.0,
+                "value": 18.967426457455023
+              }
+            ],
+            "minima": [
+              {
+                "time": 7075.0,
+                "value": 9.151970563639916
+              },
+              {
+                "time": 18005.0,
+                "value": 9.188685068690372
+              },
+              {
+                "time": 28995.0,
+                "value": 9.208277870454495
+              }
+            ],
+            "minimum_to_minimum_returns_seconds": [
+              10930.0,
+              10990.0
+            ],
+            "maximum_to_maximum_returns_seconds": [
+              10940.0
+            ],
+            "complete_trough_return_intervals": [
+              {
+                "start": 7075.0,
+                "end": 18005.0,
+                "return_seconds": 10930.0,
+                "intervening_maximum_time": 12580.0,
+                "intervening_maximum": 18.924042397855793,
+                "excursion": 9.772071834215877
+              },
+              {
+                "start": 18005.0,
+                "end": 28995.0,
+                "return_seconds": 10990.0,
+                "intervening_maximum_time": 23520.0,
+                "intervening_maximum": 18.967426457455023,
+                "excursion": 9.77874138876465
+              }
+            ]
+          }
+        },
+        "late_ranges": {
+          "point20": {
+            "minimum": 0.7182234518746655,
+            "maximum": 0.9073271710253347
+          },
+          "patch20": {
+            "minimum": 0.7260188129147309,
+            "maximum": 0.9068353578399067
+          },
+          "point_b20": {
+            "minimum": 0.04177760053678301,
+            "maximum": 0.07208002112183341
+          },
+          "patch_b20": {
+            "minimum": 0.044313246332762596,
+            "maximum": 0.07222728891238978
+          },
+          "point_Q20": {
+            "minimum": 0.5662272990360817,
+            "maximum": 0.7025454452109056
+          },
+          "patch_Q20": {
+            "minimum": 0.5665434205024508,
+            "maximum": 0.6988138275889015
+          },
+          "vector_magnitude": {
+            "minimum": 0.08665534610168403,
+            "maximum": 0.10202788459314584
+          },
+          "R_max": {
+            "minimum": 0.8896937794118703,
+            "maximum": 0.9073383805822773
+          },
+          "R_min": {
+            "minimum": 0.6268787636673872,
+            "maximum": 0.6672539353225838
+          },
+          "R_contrast": {
+            "minimum": 0.23758702146361677,
+            "maximum": 0.26989866708898624
+          }
+        },
+        "late_native_all_maximum_counts": [
+          1,
+          2
+        ],
+        "late_native_active_peak_counts": [
+          1,
+          2
+        ],
+        "late_active_component_counts": [
+          1
+        ],
+        "late_gap_counts": [
+          1
+        ],
+        "gap_births": [
+          {
+            "event": "open",
+            "time": 6718.0,
+            "id": 3,
+            "x": 8.101851851851855,
+            "detected_peak_Rac": 0.9073271402911594,
+            "inserted_face_Rac": 0.9073271402911594,
+            "initialized_U": -0.11656022613354597,
+            "removed_material": 0.0,
+            "cells_after": 326
+          },
+          {
+            "event": "open",
+            "time": 12232.5,
+            "id": 4,
+            "x": 20.023148148148124,
+            "detected_peak_Rac": 0.9073268115308096,
+            "inserted_face_Rac": 0.9073268115308095,
+            "initialized_U": 0.11689540002867442,
+            "removed_material": 0.0,
+            "cells_after": 327
+          },
+          {
+            "event": "open",
+            "time": 17650.5,
+            "id": 5,
+            "x": 8.140432098765435,
+            "detected_peak_Rac": 0.9073268463640778,
+            "inserted_face_Rac": 0.9073268463640778,
+            "initialized_U": -0.11655837392273734,
+            "removed_material": 0.0,
+            "cells_after": 328
+          },
+          {
+            "event": "open",
+            "time": 23170.5,
+            "id": 6,
+            "x": 20.042438271604915,
+            "detected_peak_Rac": 0.907326322028013,
+            "inserted_face_Rac": 0.9073263220280129,
+            "initialized_U": 0.11672817404111457,
+            "removed_material": 0.0,
+            "cells_after": 329
+          },
+          {
+            "event": "open",
+            "time": 28639.0,
+            "id": 7,
+            "x": 8.159722222222225,
+            "detected_peak_Rac": 0.9073265007818253,
+            "inserted_face_Rac": 0.9073265007818254,
+            "initialized_U": -0.11655893169305248,
+            "removed_material": 0.0,
+            "cells_after": 330
+          }
+        ],
+        "gap_healings": [
+          {
+            "event": "close",
+            "time": 111.5,
+            "id": 1,
+            "x": 0.0,
+            "Rac_trace": 0.7996140075009143,
+            "old_Uleft": 0.011063560859714818,
+            "old_Uright": -0.010960049084846489
+          },
+          {
+            "event": "close",
+            "time": 6718.0,
+            "id": 2,
+            "x": 19.98456790123454,
+            "Rac_trace": 0.7999643725198646,
+            "old_Uleft": 2.599713047806464e-08,
+            "old_Uright": -2.583466480760742e-08
+          },
+          {
+            "event": "close",
+            "time": 12232.5,
+            "id": 3,
+            "x": 8.101851851851855,
+            "Rac_trace": 0.7999332608783843,
+            "old_Uleft": 2.568467611889254e-08,
+            "old_Uright": -2.5846576842888998e-08
+          },
+          {
+            "event": "close",
+            "time": 17650.5,
+            "id": 4,
+            "x": 20.023148148148124,
+            "Rac_trace": 0.7999358625325729,
+            "old_Uleft": 2.586068922770438e-08,
+            "old_Uright": -2.5698761614778347e-08
+          },
+          {
+            "event": "close",
+            "time": 23170.5,
+            "id": 5,
+            "x": 8.140432098765435,
+            "Rac_trace": 0.7999950249701412,
+            "old_Uleft": 2.5984309836491763e-08,
+            "old_Uright": -2.614733663714057e-08
+          },
+          {
+            "event": "close",
+            "time": 28639.0,
+            "id": 6,
+            "x": 20.042438271604915,
+            "Rac_trace": 0.7999639739917167,
+            "old_Uleft": 2.599719205549628e-08,
+            "old_Uright": -2.5834743283646482e-08
+          }
+        ],
+        "adjacent_birth_intervals": [
+          5514.5,
+          5418.0,
+          5520.0,
+          5468.5
+        ],
+        "every_other_birth_returns_with_actual_site_displacement": [
+          {
+            "start": 6718.0,
+            "end": 17650.5,
+            "return_seconds": 10932.5,
+            "start_position": 8.101851851851855,
+            "end_position": 8.140432098765435,
+            "site_displacement_um": 0.03858024691358253
+          },
+          {
+            "start": 12232.5,
+            "end": 23170.5,
+            "return_seconds": 10938.0,
+            "start_position": 20.023148148148124,
+            "end_position": 20.042438271604915,
+            "site_displacement_um": 0.019290123456791264
+          },
+          {
+            "start": 17650.5,
+            "end": 28639.0,
+            "return_seconds": 10988.5,
+            "start_position": 8.140432098765435,
+            "end_position": 8.159722222222225,
+            "site_displacement_um": 0.019290123456791264
+          }
+        ],
+        "vector_note": "Exact first circular moment of native piecewise-constant Rac, divided by total Rac. Its phase is activity-pattern position in the fixed physical circle, not material rotation.",
+        "sampling_note": "Point uses periodic linear native-center reconstruction; physical support10 cosine patch integrates native cell means exactly. No recentering or profile modification.",
+        "quantitative_limit": "Observed complete finite-window returns only. Absence of another return by31000 does not prove absence of later recurrence; two timesteps do not prove convergence.",
+        "source_sha256": {
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/native_profiles.npz": "1b2891cdbe0c4117f01fa560eb1290c2279d063f126bbf706e296d90a859eb55",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/diagnostics.json": "5111ebe916b1f840a302dd2a533ff244620220d0d69d2bed3b2ca2afde0b9220",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/events.json": "ad9edeeffc8dd4882838e61d5eaea694463f78fc50b0e64d5eabf9cc721ee366"
+        },
+        "feature_path": "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/independent_features/paired_N324_dt0p5/features.npz",
+        "feature_sha256": "0c57531d6ca5e6c3803e6a2597970be73fa44a6f9e8ea8ed5e700f9f61c86e2b"
+      },
+      "validator_source_sha256": "7bcd83742d1fe677792a411ee7b6ae4b9ba761501ba3057fcb21fd1dff945ce3",
+      "source_sha256": {
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/manifest.json": "40b20bc70caac5a801d96096ab64286f08b7c2dfd69ae4047ef7e4c6af941a36",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/status.json": "e67fe85c9dbe07a1f71fd945ccb5ce3aac88217fe312c28cdaa463f325022e5b",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/basal/sampled_ledgers.jsonl.gz": "8bdb0e4552f8ecd51728abde7422a8637ad95fae10da4b6d8b09bef182325e0f",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/basal/first_opening_steps.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/basal/preholdout_state.json": "cfea8f916ef29dbc637c3b34b9ba9debb33a93f870898708dfe453aa548127b4",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/basal/latest_state.npz": "b77f392f8ff18edefbdf780fc8d4f03c98596d3ea117239bfff9d45658668fba",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/basal/pool_budgets.npz": "9224ff65346356df7420bfe3106bac45f2f908b7c9d703e0affd973a631da112",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/basal/status.json": "0957815f2558c2cc0444e3344602b113cafdd29e9f02500c68852cbd7a5dedbf",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/basal/qualified_state.json": "3d58885090c1c0160ee452e35935ba8556e3a8923960633c7407844ed98b8ee9",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/basal/diagnostics.json": "7460aaecf8cb9213a43636dccec3d934180cffafdb54ca9c6f93fb99c44b9d24",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/basal/events.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/basal/latest_state.json": "3d58885090c1c0160ee452e35935ba8556e3a8923960633c7407844ed98b8ee9",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/basal/windows.json": "03137d7ed2dc68c8e7732d60e17f637968d89e8666324c5e4041125402f95ac0",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/basal/qualified_state.npz": "b77f392f8ff18edefbdf780fc8d4f03c98596d3ea117239bfff9d45658668fba",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/basal/native_profiles.npz": "5b933f110cf2e62d69629915468c8670376ed7e9988d3c71ea11a8ceefca7959",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/basal/suppressed_maxima.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/basal/summary.json": "6049e43e6fd7d3bad9b8042bb1817790f0b776754ecdf3424c7cdba2471bb538",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/basal/preholdout_state.npz": "649e91370d7c059448b1f48b34387de026c838648f7a75ec580ca40662acd0ad",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/sampled_ledgers.jsonl.gz": "5e35347a656aa5e7764d46e8676b75983554f6dcdffbd5abbc786343dd5b9818",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/first_opening_steps.json": "e42c4f12382d933681007c077f20f1f97193778e3b6f1f4b24fa6616ea168b49",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/seed_manifest.json": "a539153c0da268285c993b4fcbc3c710152131affa38f4ce45b9c24ceaa96e3c",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/checkpoint_18000.json": "7384c00a53d12466e3fbc362a5c950bf4cbdfccd689b7e793d9bb5faac8d68fb",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/checkpoint_18000.npz": "b933c4173fa75bae1400c34a5ceb75347e3f2a36073022b362332029535ebada",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/event_ledgers.jsonl.gz": "1f49e9ad411f82f7dad4e837a908d9a72f561990e9b29ee462137add59891a9b",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/initial_state.json": "2e5d0e0ac6ffb6080b7847ca4994ed38381bb3dddd6a626d2cd2eb6a33c1e0ae",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/latest_state.npz": "65f341d65284e7e9553a17ee3eb8ec5d92aeded0c22b3ec3958b1e0a7bfbebd8",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/pool_budgets.npz": "8e5452f2a55877307337af3e4104714d044ea03d52df2bc835d348c19fb1362b",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/status.json": "1ebe6efd385384a47cff733f44eac0f7e21ddaeac5661c91e049d6abf6a42723",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/checkpoint_23000.npz": "0f6c62e7df8d7b63e060d6a4040cf47c743b262fdbefce1d409e039a0e4e1aaf",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/diagnostics.json": "5111ebe916b1f840a302dd2a533ff244620220d0d69d2bed3b2ca2afde0b9220",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/basal_source_state.json": "3d58885090c1c0160ee452e35935ba8556e3a8923960633c7407844ed98b8ee9",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/events.json": "ad9edeeffc8dd4882838e61d5eaea694463f78fc50b0e64d5eabf9cc721ee366",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/latest_state.json": "33083b9063157e4ef6f073d62d52eeba9c9a2f93bc94a49ee04fc99f5839a8c4",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/initial_state.npz": "b77f392f8ff18edefbdf780fc8d4f03c98596d3ea117239bfff9d45658668fba",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/final_state.json": "33083b9063157e4ef6f073d62d52eeba9c9a2f93bc94a49ee04fc99f5839a8c4",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/checkpoint_23000.json": "1892c80d9c85f89da79692572b1f5ab069c595c87ce5f9e3752561547c94cb2c",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/windows.json": "48770441a7bddc23bcfe7357c5916c7405508076624934808a3cbb91da5c0969",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/native_profiles.npz": "1b2891cdbe0c4117f01fa560eb1290c2279d063f126bbf706e296d90a859eb55",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/final_state.npz": "65f341d65284e7e9553a17ee3eb8ec5d92aeded0c22b3ec3958b1e0a7bfbebd8",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/suppressed_maxima.json": "19d5393e84ac23b5a8709bb701080195dd6fcda4b6255ab975006eaaaa922a11",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p5/response/summary.json": "3bc5c127a33edf68080b9fb9b428e0f23b0143c1d2c03e8687f36c5062b90804"
+      }
+    },
+    "N324_dt0p25": {
+      "case_outcome": "complete",
+      "producer_status": {
+        "state": "complete",
+        "producer_state": "finished",
+        "method": "paired_backward_euler_native_transport_v1",
+        "generated_utc": "2026-10-19T17:59:09.571804+00:00",
+        "time": 31000.0,
+        "protocol_clock": 31000.0,
+        "phase": "response",
+        "corner": {
+          "name": "N324_dt0p25",
+          "N": 324,
+          "dt": 0.25
+        },
+        "cells": 331,
+        "gaps": 1,
+        "event_count": 14,
+        "basal_clock": 14000.0,
+        "response_clock": 31000.0,
+        "gate": {},
+        "minimum_certificate_margin": 0.016108152751868464,
+        "maximum_cell_budget_error": 5.216489132484806e-17,
+        "checkpoint_paths": {
+          "latest_state": "response/latest_state.npz",
+          "exact_response_checkpoints": {
+            "18000.0": "response/checkpoint_18000.npz",
+            "23000.0": "response/checkpoint_23000.npz"
+          }
+        },
+        "basal_full_state_qualified": true,
+        "basal_polarity_eligible": true,
+        "response_protocol_complete": true
+      },
+      "basal": {
+        "full_state_qualified": true,
+        "polarity_eligible": true,
+        "gate_reason": "qualified",
+        "protocol_end": 14000.0,
+        "holdout_start": 4000.0,
+        "independent_holdout_max_scaled_excursion": 2.033530658900676e-06,
+        "holdout_topology_change": false,
+        "eligibility": {
+          "gaps": 1,
+          "active_components": 1,
+          "Rac_contrast": 0.24647058256504062
+        },
+        "invariants": {
+          "frames": 2897,
+          "minimum_values": {
+            "R": 0.6444994887139124,
+            "Q": 0.5799536851815356,
+            "b": 0.05191677764960335,
+            "c": 0.014549312948128727,
+            "u": -0.524156363398592,
+            "v": -0.020970115273796937,
+            "T": 1.4140803861650513
+          },
+          "all_fields_finite": true,
+          "all_chemical_fields_nonnegative": true,
+          "maximum_total_MCA_error": 3.552713678800501e-15,
+          "initial_native_tension_reconstruction_error": 4.440892098500626e-16,
+          "maximum_post_initial_native_tension_reconstruction_error": 4.440892098500626e-16,
+          "each_gap_identity_position_and_birth_clock_constant": true,
+          "raw_and_imposed_controllers_equal": true,
+          "initial_cells": 324,
+          "final_cells": 324
+        },
+        "windows": {
+          "windows": 14,
+          "passing_windows": 12,
+          "maximum_independent_range_or_rate_difference": 0.0
+        },
+        "pools": {
+          "native_steps": 56000,
+          "dt": 0.25,
+          "paired_exchange_creation_maximum": 0.0,
+          "minimum_analytic_certificate_margin": 0.15429448929141196,
+          "minimum_numeric_certificate_margin": 0.15429448929141207,
+          "maximum_linear_solver_residual": 2.3418766925686896e-17,
+          "maximum_cell_budget_residual": 2.4735744339989723e-17,
+          "maximum_deficit_export_target_residual": 3.552713678800501e-15,
+          "total_signed_cap_export": 30.59150710731673,
+          "total_uniform_return": 30.59150710733717,
+          "maximum_saved_pool_stock_error": 0.0,
+          "pools": {
+            "bound": {
+              "amount_change": -2.653871216784509e-05,
+              "actual_paired_exchange": 6.691910303061721,
+              "signed_cap_export": 30.591551769388847,
+              "uniform_return": 23.899614927607164,
+              "cumulative_budget_residual": 7.794653811288299e-12,
+              "maximum_step_budget_residual": 2.091805461484908e-15,
+              "maximum_stock_roundoff_at_native_steps": 0.0,
+              "maximum_native_return_partition_error": 0.0
+            },
+            "unbound": {
+              "amount_change": 2.6538712166956913e-05,
+              "actual_paired_exchange": -6.691910303061721,
+              "signed_cap_export": -4.466207211497474e-05,
+              "uniform_return": 6.691892179730006,
+              "cumulative_budget_residual": -2.823341560542758e-11,
+              "maximum_step_budget_residual": 1.5088299533394522e-15,
+              "maximum_stock_roundoff_at_native_steps": 0.0,
+              "maximum_native_return_partition_error": 1.3552527156068805e-20
+            }
+          },
+          "local_bound_budgets": {
+            "point20": {
+              "maximum_reduced_budget_error": 1.2368033164226689e-19,
+              "integrated_bound_storage": -4.2077421171642196e-05,
+              "integrated_advection": -0.3302091507099268,
+              "integrated_diffusion": -0.003313294731566725,
+              "integrated_signed_cap_source": 0.0,
+              "integrated_paired_binding": -0.14451193053199488,
+              "integrated_uniform_return": 0.47799229855214326,
+              "observed_bound_change": -4.2077421171640705e-05,
+              "observation_remap_residual": 1.4907779871675686e-18
+            },
+            "patch20": {
+              "maximum_reduced_budget_error": 1.9550335648681807e-20,
+              "integrated_bound_storage": -4.0861502432060875e-05,
+              "integrated_advection": -0.32924855654116175,
+              "integrated_diffusion": -0.003324910947279125,
+              "integrated_signed_cap_source": 0.0,
+              "integrated_paired_binding": -0.14545969256631455,
+              "integrated_uniform_return": 0.47799229855214326,
+              "observed_bound_change": -4.086150243207132e-05,
+              "observation_remap_residual": -1.0442222173751015e-17
+            },
+            "observation_note": "Exact physical patch preserves the piecewise-constant field through native splits. Center-linear point observation can change at remeshing; its residual is reported separately.",
+            "maximum_saved_point_patch_observation_difference": 2.220446049250313e-16
+          }
+        },
+        "actual_response_phase_handoff": {
+          "complete_state_and_next_id_exact": true,
+          "source_basal_clock": 14000.0,
+          "response_clock": 0.0,
+          "response_ledger_origin": 0.0,
+          "basal_metadata_preserved": true,
+          "new_method_protocol_metadata_guarded": true
+        }
+      },
+      "audited_complete_response": true,
+      "scientific_response_available": true,
+      "response": {
+        "protocol_complete": true,
+        "protocol_end": 31000.0,
+        "invariants": {
+          "frames": 6297,
+          "minimum_values": {
+            "R": 0.561801353226089,
+            "Q": 0.06079464749455734,
+            "b": 0.033675242601163245,
+            "c": 0.00945848392322366,
+            "u": -3.1583587538018714,
+            "v": -0.1457300345105278,
+            "T": -3.4219782978861217
+          },
+          "all_fields_finite": true,
+          "all_chemical_fields_nonnegative": true,
+          "maximum_total_MCA_error": 6.217248937900877e-15,
+          "initial_native_tension_reconstruction_error": 4.440892098500626e-16,
+          "maximum_post_initial_native_tension_reconstruction_error": 3.552713678800501e-15,
+          "each_gap_identity_position_and_birth_clock_constant": true,
+          "raw_and_imposed_controllers_equal": true,
+          "initial_cells": 324,
+          "final_cells": 331
+        },
+        "windows": {
+          "windows": 30,
+          "passing_windows": 0,
+          "maximum_independent_range_or_rate_difference": 0.0
+        },
+        "pools": {
+          "native_steps": 124000,
+          "dt": 0.25,
+          "paired_exchange_creation_maximum": 0.0,
+          "minimum_analytic_certificate_margin": 0.016108152751868464,
+          "minimum_numeric_certificate_margin": 0.016108152751869706,
+          "maximum_linear_solver_residual": 5.410168840702667e-17,
+          "maximum_cell_budget_residual": 5.216489132484806e-17,
+          "maximum_deficit_export_target_residual": 4.884981308350689e-15,
+          "total_signed_cap_export": 46.220246826575334,
+          "total_uniform_return": 46.220246826622066,
+          "maximum_saved_pool_stock_error": 0.0,
+          "pools": {
+            "bound": {
+              "amount_change": 2.1820152091400757e-05,
+              "actual_paired_exchange": 10.095264197492002,
+              "signed_cap_export": 46.20481021065549,
+              "uniform_return": 36.10956783329849,
+              "cumulative_budget_residual": 1.708855279503041e-11,
+              "maximum_step_budget_residual": 2.7817375139460587e-15,
+              "maximum_stock_roundoff_at_native_steps": 4.440892098500626e-16,
+              "maximum_native_return_partition_error": 0.0
+            },
+            "unbound": {
+              "amount_change": -2.1820152089846445e-05,
+              "actual_paired_exchange": -10.095264197492002,
+              "signed_cap_export": 0.01543661591984992,
+              "uniform_return": 10.110678993323578,
+              "cumulative_budget_residual": -6.38173958122934e-11,
+              "maximum_step_budget_residual": 1.910770803734141e-15,
+              "maximum_stock_roundoff_at_native_steps": 2.220446049250313e-16,
+              "maximum_native_return_partition_error": 2.168404344971009e-19
+            }
+          },
+          "local_bound_budgets": {
+            "point20": {
+              "maximum_reduced_budget_error": 4.586413714087365e-17,
+              "integrated_bound_storage": -0.03218903495329512,
+              "integrated_advection": 175.38529806910287,
+              "integrated_diffusion": -0.2416194751205326,
+              "integrated_signed_cap_source": -177.56324637411063,
+              "integrated_paired_binding": 1.6651873885089217,
+              "integrated_uniform_return": 0.7221913566659698,
+              "observed_bound_change": -0.03220327833870543,
+              "observation_remap_residual": -1.4243385410304954e-05
+            },
+            "patch20": {
+              "maximum_reduced_budget_error": 1.4204221630209601e-18,
+              "integrated_bound_storage": -0.03135386074102247,
+              "integrated_advection": 3.5142074527653424,
+              "integrated_diffusion": 0.01213454736360281,
+              "integrated_signed_cap_source": -5.506243570805346,
+              "integrated_paired_binding": 1.22635635326915,
+              "integrated_uniform_return": 0.7221913566659698,
+              "observed_bound_change": -0.03135386074102248,
+              "observation_remap_residual": -6.938893903907228e-18
+            },
+            "observation_note": "Exact physical patch preserves the piecewise-constant field through native splits. Center-linear point observation can change at remeshing; its residual is reported separately.",
+            "maximum_saved_point_patch_observation_difference": 2.220446049250313e-16
+          }
+        },
+        "checkpoints": {
+          "checkpoint_18000": {
+            "time": 18000.0,
+            "method_source_protocol_clock_state_next_id_exact": true
+          },
+          "checkpoint_23000": {
+            "time": 23000.0,
+            "method_source_protocol_clock_state_next_id_exact": true
+          },
+          "final_state": {
+            "time": 31000.0,
+            "method_source_protocol_clock_state_next_id_exact": true
+          }
+        },
+        "bounded_replays": [
+          {
+            "start": 0.0,
+            "end": 10.0,
+            "native_steps": 40,
+            "exact_saved_native_states_checked": 10,
+            "all_per_step_pools_local_budget_method_clock_and_events_exact": true
+          },
+          {
+            "start": 18000.0,
+            "end": 18005.0,
+            "native_steps": 20,
+            "exact_saved_native_states_checked": 1,
+            "all_per_step_pools_local_budget_method_clock_and_events_exact": true
+          },
+          {
+            "start": 995.0,
+            "end": 1005.0,
+            "native_steps": 40,
+            "exact_saved_native_states_checked": 2,
+            "all_per_step_pools_local_budget_method_clock_and_events_exact": true
+          }
+        ],
+        "sampled_and_event_ledgers": {
+          "parsed_stream_counts": {
+            "sampled_ledgers.jsonl.gz": 6296,
+            "event_ledgers.jsonl.gz": 8
+          },
+          "all_saved_sample_times_exact": true,
+          "all_event_steps_preserved": true,
+          "cap_donors_and_diffusion_connectivity_independently_verified": true,
+          "actual_paired_binding_and_uniform_return_verified": true,
+          "maximum_independent_errors": {
+            "cap_flux": 0.0,
+            "diffusion_flux": 1.0842021724855044e-19,
+            "binding": 0.0,
+            "storage": 0.0,
+            "return_amount": 1.6940658945086007e-21,
+            "cell_budget": 4.860740206992239e-17,
+            "analytic_certificate": 0.0,
+            "global_scalars": 0.0,
+            "fixed_point_patch": 2.220446049250313e-16
+          },
+          "source_sha256": {
+            "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/sampled_ledgers.jsonl.gz": "b70989ec997b45b38b7ccaf14a08508aabd7cbf2a9631f7e68d1d427c75823e5",
+            "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/event_ledgers.jsonl.gz": "b76e705dde0fb853de052aac8ec10a5777156e33c9876fd0e7114d45e7b2fd61"
+          }
+        },
+        "event_count": 14,
+        "final_next_id": 9,
+        "source_sha256": {
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/native_profiles.npz": "8f812b3e7826898d3f04b7b1c2985626edb8c707c6f8df8445605731132ead57",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/diagnostics.json": "ca3f768a060610dccb744f16b355360a1b6f43b13723cd4640ccb8231dffe25a",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/events.json": "7f27eaa36fe9bd42b1f3806f5f4afe563e02a51c054c02f1e113c189b23a7007",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/windows.json": "3cee5e70e7a67961d7d14241f55b877c0550f2ea18ed09fdb1599686f3f46abe",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/summary.json": "c5f973cac93045c7398c90c7e2895da2dec4f6e3905d5fb67a6de6663586ca35",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/pool_budgets.npz": "bc4b655fa83a6bc8924545d01eda546c830bb42fc3efb9b6724264ca67a29b3c",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/initial_state.npz": "26de61564a27030cacfdf41c93b66d5efe02531540fef8cba4aeacc244513f6e",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/initial_state.json": "d2f93838d0ee063c587242e4b5b51f1294693428a795163d80fdec8966c11458",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/basal_source_state.json": "0ea098781405a952285db19d3172d96c4c23c30e06da0c5158f379fd817f6228",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/seed_manifest.json": "9bed40020186c1ec353c7f44ce83133dc427c731bce7440f31f31957364db5ed",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/checkpoint_18000.npz": "b77aa596a0ba276628412b89c8650a91dd4720b4ab6901e276f5c02f072fd90d",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/checkpoint_18000.json": "c223e8b91b745684a79d876259287f2beeb3a84c743ca2ccf6ccd8699a1ea057",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/checkpoint_23000.npz": "7cb11d4f22bee899e4c7a936c0e13fd45b642292d1ee0cbf03d1df5ee1dbd4f3",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/checkpoint_23000.json": "6fdeb0581c71813c712205d6284ee9535ce1d58fe6db5ff3f9060a2bf8ac73a4",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/final_state.npz": "67dc0c5b4325351a5d0d08c44e59f6ff4f76dbc07b29f3663fec785cca73f8d5",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/final_state.json": "f55e9dccbc156204afe567839a9f4a7813e24604fa1338705a03f8858b83260e"
+        }
+      },
+      "independent_features": {
+        "label": "paired_N324_dt0p25",
+        "time_start": 0.0,
+        "time_end": 31000.0,
+        "native_samples": 6297,
+        "analysis_window": [
+          2000.0,
+          31000.0
+        ],
+        "extrema": {
+          "point20": {
+            "available": true,
+            "prominence": 0.02,
+            "minimum_separation_seconds": 1000.0,
+            "maxima": [
+              {
+                "time": 12260.0,
+                "value": 0.9073245335623654
+              },
+              {
+                "time": 23225.0,
+                "value": 0.9073248537209521
+              }
+            ],
+            "minima": [
+              {
+                "time": 7105.0,
+                "value": 0.717508032129716
+              },
+              {
+                "time": 18065.0,
+                "value": 0.7187794122866202
+              },
+              {
+                "time": 29085.0,
+                "value": 0.7194059893542165
+              }
+            ],
+            "minimum_to_minimum_returns_seconds": [
+              10960.0,
+              11020.0
+            ],
+            "maximum_to_maximum_returns_seconds": [
+              10965.0
+            ],
+            "complete_trough_return_intervals": [
+              {
+                "start": 7105.0,
+                "end": 18065.0,
+                "return_seconds": 10960.0,
+                "intervening_maximum_time": 12260.0,
+                "intervening_maximum": 0.9073245335623654,
+                "excursion": 0.1898165014326494
+              },
+              {
+                "start": 18065.0,
+                "end": 29085.0,
+                "return_seconds": 11020.0,
+                "intervening_maximum_time": 23225.0,
+                "intervening_maximum": 0.9073248537209521,
+                "excursion": 0.18854544143433183
+              }
+            ]
+          },
+          "patch20": {
+            "available": true,
+            "prominence": 0.02,
+            "minimum_separation_seconds": 1000.0,
+            "maxima": [
+              {
+                "time": 12260.0,
+                "value": 0.9068281410364961
+              },
+              {
+                "time": 23225.0,
+                "value": 0.9068346252356536
+              }
+            ],
+            "minima": [
+              {
+                "time": 7130.0,
+                "value": 0.7254251614349212
+              },
+              {
+                "time": 18090.0,
+                "value": 0.7264621862393512
+              },
+              {
+                "time": 29115.0,
+                "value": 0.7269716404902553
+              }
+            ],
+            "minimum_to_minimum_returns_seconds": [
+              10960.0,
+              11025.0
+            ],
+            "maximum_to_maximum_returns_seconds": [
+              10965.0
+            ],
+            "complete_trough_return_intervals": [
+              {
+                "start": 7130.0,
+                "end": 18090.0,
+                "return_seconds": 10960.0,
+                "intervening_maximum_time": 12260.0,
+                "intervening_maximum": 0.9068281410364961,
+                "excursion": 0.18140297960157492
+              },
+              {
+                "start": 18090.0,
+                "end": 29115.0,
+                "return_seconds": 11025.0,
+                "intervening_maximum_time": 23225.0,
+                "intervening_maximum": 0.9068346252356536,
+                "excursion": 0.1803724389963024
+              }
+            ]
+          },
+          "vector_position": {
+            "available": true,
+            "prominence": 0.5,
+            "minimum_separation_seconds": 1000.0,
+            "maxima": [
+              {
+                "time": 12610.0,
+                "value": 18.928694457913934
+              },
+              {
+                "time": 23580.0,
+                "value": 18.974495564805245
+              }
+            ],
+            "minima": [
+              {
+                "time": 7090.0,
+                "value": 9.145514390550803
+              },
+              {
+                "time": 18050.0,
+                "value": 9.18288470738778
+              },
+              {
+                "time": 29075.0,
+                "value": 9.201325528298668
+              }
+            ],
+            "minimum_to_minimum_returns_seconds": [
+              10960.0,
+              11025.0
+            ],
+            "maximum_to_maximum_returns_seconds": [
+              10970.0
+            ],
+            "complete_trough_return_intervals": [
+              {
+                "start": 7090.0,
+                "end": 18050.0,
+                "return_seconds": 10960.0,
+                "intervening_maximum_time": 12610.0,
+                "intervening_maximum": 18.928694457913934,
+                "excursion": 9.783180067363132
+              },
+              {
+                "start": 18050.0,
+                "end": 29075.0,
+                "return_seconds": 11025.0,
+                "intervening_maximum_time": 23580.0,
+                "intervening_maximum": 18.974495564805245,
+                "excursion": 9.791610857417465
+              }
+            ]
+          }
+        },
+        "late_ranges": {
+          "point20": {
+            "minimum": 0.717508032129716,
+            "maximum": 0.9073248537209521
+          },
+          "patch20": {
+            "minimum": 0.7254251614349212,
+            "maximum": 0.9068346252356536
+          },
+          "point_b20": {
+            "minimum": 0.04380502638268151,
+            "maximum": 0.07216599683895424
+          },
+          "patch_b20": {
+            "minimum": 0.04436250118622182,
+            "maximum": 0.07230688784936494
+          },
+          "point_Q20": {
+            "minimum": 0.5662272105548262,
+            "maximum": 0.703022268519247
+          },
+          "patch_Q20": {
+            "minimum": 0.5665438245204658,
+            "maximum": 0.699213407375389
+          },
+          "vector_magnitude": {
+            "minimum": 0.08661443687503823,
+            "maximum": 0.10207731471836282
+          },
+          "R_max": {
+            "minimum": 0.8897170602142515,
+            "maximum": 0.9073267163246609
+          },
+          "R_min": {
+            "minimum": 0.6266855154527251,
+            "maximum": 0.66725359883761
+          },
+          "R_contrast": {
+            "minimum": 0.23759127761674415,
+            "maximum": 0.27032486999821126
+          }
+        },
+        "late_native_all_maximum_counts": [
+          1
+        ],
+        "late_native_active_peak_counts": [
+          1
+        ],
+        "late_active_component_counts": [
+          1
+        ],
+        "late_gap_counts": [
+          1
+        ],
+        "gap_births": [
+          {
+            "event": "open",
+            "time": 6730.0,
+            "id": 4,
+            "x": 8.101851851851855,
+            "detected_peak_Rac": 0.9073267163246609,
+            "inserted_face_Rac": 0.907326716324661,
+            "initialized_U": -0.11656324390633116,
+            "removed_material": 0.0,
+            "cells_after": 327
+          },
+          {
+            "event": "open",
+            "time": 12260.75,
+            "id": 5,
+            "x": 20.023148148148124,
+            "detected_peak_Rac": 0.9073254399818638,
+            "inserted_face_Rac": 0.9073254399818637,
+            "initialized_U": 0.11689957233058457,
+            "removed_material": 0.0,
+            "cells_after": 328
+          },
+          {
+            "event": "open",
+            "time": 17690.25,
+            "id": 6,
+            "x": 8.140432098765435,
+            "detected_peak_Rac": 0.9073262569831197,
+            "inserted_face_Rac": 0.9073262569831197,
+            "initialized_U": -0.11656193938164056,
+            "removed_material": 0.0,
+            "cells_after": 329
+          },
+          {
+            "event": "open",
+            "time": 23225.5,
+            "id": 7,
+            "x": 20.042438271604915,
+            "detected_peak_Rac": 0.9073255107937102,
+            "inserted_face_Rac": 0.9073255107937102,
+            "initialized_U": 0.11673048477908761,
+            "removed_material": 0.0,
+            "cells_after": 330
+          },
+          {
+            "event": "open",
+            "time": 28711.0,
+            "id": 8,
+            "x": 8.159722222222225,
+            "detected_peak_Rac": 0.9073262138135475,
+            "inserted_face_Rac": 0.9073262138135475,
+            "initialized_U": -0.11656145634801976,
+            "removed_material": 0.0,
+            "cells_after": 331
+          }
+        ],
+        "gap_healings": [
+          {
+            "event": "close",
+            "time": 109.75,
+            "id": 1,
+            "x": 0.0,
+            "Rac_trace": 0.7997165275778249,
+            "old_Uleft": 0.01146331447068562,
+            "old_Uright": -0.011459908643658681
+          },
+          {
+            "event": "close",
+            "time": 110.0,
+            "id": 3,
+            "x": 0.3858024691358024,
+            "Rac_trace": 0.7997724042606408,
+            "old_Uleft": 0.015887955914424063,
+            "old_Uright": 0.015887955883404584
+          },
+          {
+            "event": "close",
+            "time": 6730.0,
+            "id": 2,
+            "x": 19.98456790123454,
+            "Rac_trace": 0.7999890189544833,
+            "old_Uleft": 2.5933337609442352e-08,
+            "old_Uright": -2.5770734970452908e-08
+          },
+          {
+            "event": "close",
+            "time": 12260.75,
+            "id": 4,
+            "x": 8.101851851851855,
+            "Rac_trace": 0.7999974724326588,
+            "old_Uleft": 2.581063741617844e-08,
+            "old_Uright": -2.5973361121331156e-08
+          },
+          {
+            "event": "close",
+            "time": 17690.25,
+            "id": 5,
+            "x": 20.023148148148124,
+            "Rac_trace": 0.7999809289467467,
+            "old_Uleft": 2.589579102187036e-08,
+            "old_Uright": -2.573334874287428e-08
+          },
+          {
+            "event": "close",
+            "time": 23225.5,
+            "id": 6,
+            "x": 8.140432098765435,
+            "Rac_trace": 0.7999902406544893,
+            "old_Uleft": 2.5776734613785075e-08,
+            "old_Uright": -2.593930677649206e-08
+          },
+          {
+            "event": "close",
+            "time": 28711.0,
+            "id": 7,
+            "x": 20.042438271604915,
+            "Rac_trace": 0.7999704104720903,
+            "old_Uleft": 2.5845418054888627e-08,
+            "old_Uright": -2.5683169432254532e-08
+          }
+        ],
+        "adjacent_birth_intervals": [
+          5530.75,
+          5429.5,
+          5535.25,
+          5485.5
+        ],
+        "every_other_birth_returns_with_actual_site_displacement": [
+          {
+            "start": 6730.0,
+            "end": 17690.25,
+            "return_seconds": 10960.25,
+            "start_position": 8.101851851851855,
+            "end_position": 8.140432098765435,
+            "site_displacement_um": 0.03858024691358253
+          },
+          {
+            "start": 12260.75,
+            "end": 23225.5,
+            "return_seconds": 10964.75,
+            "start_position": 20.023148148148124,
+            "end_position": 20.042438271604915,
+            "site_displacement_um": 0.019290123456791264
+          },
+          {
+            "start": 17690.25,
+            "end": 28711.0,
+            "return_seconds": 11020.75,
+            "start_position": 8.140432098765435,
+            "end_position": 8.159722222222225,
+            "site_displacement_um": 0.019290123456791264
+          }
+        ],
+        "vector_note": "Exact first circular moment of native piecewise-constant Rac, divided by total Rac. Its phase is activity-pattern position in the fixed physical circle, not material rotation.",
+        "sampling_note": "Point uses periodic linear native-center reconstruction; physical support10 cosine patch integrates native cell means exactly. No recentering or profile modification.",
+        "quantitative_limit": "Observed complete finite-window returns only. Absence of another return by31000 does not prove absence of later recurrence; two timesteps do not prove convergence.",
+        "source_sha256": {
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/native_profiles.npz": "8f812b3e7826898d3f04b7b1c2985626edb8c707c6f8df8445605731132ead57",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/diagnostics.json": "ca3f768a060610dccb744f16b355360a1b6f43b13723cd4640ccb8231dffe25a",
+          "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/events.json": "7f27eaa36fe9bd42b1f3806f5f4afe563e02a51c054c02f1e113c189b23a7007"
+        },
+        "feature_path": "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/independent_features/paired_N324_dt0p25/features.npz",
+        "feature_sha256": "c6d365868aad4d061139015cea7a20202846cec183157127fba40d530b69a52d"
+      },
+      "validator_source_sha256": "7bcd83742d1fe677792a411ee7b6ae4b9ba761501ba3057fcb21fd1dff945ce3",
+      "source_sha256": {
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/manifest.json": "f33aaf022adf892e59935963925b7ac4f98ed89764dbde87220c63dc81cfdf02",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/status.json": "12045c3517598c01d8e0d719fc3aab9488e5a80460ff637df38e659e29b43ad4",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/basal/sampled_ledgers.jsonl.gz": "5ea14d670a82679af9a9328f7b0b14437ec1126fb6a6e094feea84e57a53889d",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/basal/first_opening_steps.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/basal/preholdout_state.json": "4ce28b8b8aa4ce63554b0bbc1b7da018ab79ae74e91cb107baa013626e243773",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/basal/latest_state.npz": "26de61564a27030cacfdf41c93b66d5efe02531540fef8cba4aeacc244513f6e",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/basal/pool_budgets.npz": "9465420a75601165ccc6c423c2b51fff6ed8287fa2f1e8297e77ff96a4a6bdc3",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/basal/status.json": "2fea7bfc9867fbcce1e3354d18056dc19282c3956144500ed4823272326d4b19",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/basal/qualified_state.json": "0ea098781405a952285db19d3172d96c4c23c30e06da0c5158f379fd817f6228",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/basal/diagnostics.json": "3ddba75681693deaf80234cdec1ef9c73c86717a671cf05db54a8e1da1870706",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/basal/events.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/basal/latest_state.json": "0ea098781405a952285db19d3172d96c4c23c30e06da0c5158f379fd817f6228",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/basal/windows.json": "75e39f4f9004d6436e6774efb2f2252c41eb241887567671881a7f2c1b3e1467",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/basal/qualified_state.npz": "26de61564a27030cacfdf41c93b66d5efe02531540fef8cba4aeacc244513f6e",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/basal/native_profiles.npz": "147e8a8a0a8a877e38d6a9c9e03e4ca37c90bb3c9832f4acb3dff9263d418b59",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/basal/suppressed_maxima.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/basal/summary.json": "63e40a3ef78d3468275f85b57130d207b92715476f34536774c3274a36bb576b",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/basal/preholdout_state.npz": "78b6b03af5e051962daeb0a1be4967256c68ff24185f1ba1646e1a9079d17595",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/sampled_ledgers.jsonl.gz": "b70989ec997b45b38b7ccaf14a08508aabd7cbf2a9631f7e68d1d427c75823e5",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/first_opening_steps.json": "e1c619240f3001abceb6da8d456db73a0a5dc394f2c3316d819a08d03ac5017e",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/seed_manifest.json": "9bed40020186c1ec353c7f44ce83133dc427c731bce7440f31f31957364db5ed",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/checkpoint_18000.json": "c223e8b91b745684a79d876259287f2beeb3a84c743ca2ccf6ccd8699a1ea057",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/checkpoint_18000.npz": "b77aa596a0ba276628412b89c8650a91dd4720b4ab6901e276f5c02f072fd90d",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/event_ledgers.jsonl.gz": "b76e705dde0fb853de052aac8ec10a5777156e33c9876fd0e7114d45e7b2fd61",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/initial_state.json": "d2f93838d0ee063c587242e4b5b51f1294693428a795163d80fdec8966c11458",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/latest_state.npz": "67dc0c5b4325351a5d0d08c44e59f6ff4f76dbc07b29f3663fec785cca73f8d5",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/pool_budgets.npz": "bc4b655fa83a6bc8924545d01eda546c830bb42fc3efb9b6724264ca67a29b3c",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/status.json": "97e1dde58ee8cb46b702db43b7784223e81cadab77f4f1e36a9726237ab50503",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/checkpoint_23000.npz": "7cb11d4f22bee899e4c7a936c0e13fd45b642292d1ee0cbf03d1df5ee1dbd4f3",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/diagnostics.json": "ca3f768a060610dccb744f16b355360a1b6f43b13723cd4640ccb8231dffe25a",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/basal_source_state.json": "0ea098781405a952285db19d3172d96c4c23c30e06da0c5158f379fd817f6228",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/events.json": "7f27eaa36fe9bd42b1f3806f5f4afe563e02a51c054c02f1e113c189b23a7007",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/latest_state.json": "f55e9dccbc156204afe567839a9f4a7813e24604fa1338705a03f8858b83260e",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/initial_state.npz": "26de61564a27030cacfdf41c93b66d5efe02531540fef8cba4aeacc244513f6e",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/final_state.json": "f55e9dccbc156204afe567839a9f4a7813e24604fa1338705a03f8858b83260e",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/checkpoint_23000.json": "6fdeb0581c71813c712205d6284ee9535ce1d58fe6db5ff3f9060a2bf8ac73a4",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/windows.json": "3cee5e70e7a67961d7d14241f55b877c0550f2ea18ed09fdb1599686f3f46abe",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/native_profiles.npz": "8f812b3e7826898d3f04b7b1c2985626edb8c707c6f8df8445605731132ead57",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/final_state.npz": "67dc0c5b4325351a5d0d08c44e59f6ff4f76dbc07b29f3663fec785cca73f8d5",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/suppressed_maxima.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+        "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/corners/N324_dt0p25/response/summary.json": "c5f973cac93045c7398c90c7e2895da2dec4f6e3905d5fb67a6de6663586ca35"
+      }
+    }
+  },
+  "independent_native_control_features": {
+    "native_N324_dt0p5": {
+      "label": "native_N324_dt0p5",
+      "time_start": 0.0,
+      "time_end": 31000.0,
+      "native_samples": 6297,
+      "analysis_window": [
+        2000.0,
+        31000.0
+      ],
+      "extrema": {
+        "point20": {
+          "available": true,
+          "prominence": 0.02,
+          "minimum_separation_seconds": 1000.0,
+          "maxima": [
+            {
+              "time": 16285.0,
+              "value": 0.9072725501726245
+            }
+          ],
+          "minima": [
+            {
+              "time": 9095.0,
+              "value": 0.7293657307278849
+            },
+            {
+              "time": 24210.0,
+              "value": 0.7332093611419969
+            }
+          ],
+          "minimum_to_minimum_returns_seconds": [
+            15115.0
+          ],
+          "maximum_to_maximum_returns_seconds": [],
+          "complete_trough_return_intervals": [
+            {
+              "start": 9095.0,
+              "end": 24210.0,
+              "return_seconds": 15115.0,
+              "intervening_maximum_time": 16285.0,
+              "intervening_maximum": 0.9072725501726245,
+              "excursion": 0.17790681944473963
+            }
+          ]
+        },
+        "patch20": {
+          "available": true,
+          "prominence": 0.02,
+          "minimum_separation_seconds": 1000.0,
+          "maxima": [
+            {
+              "time": 16285.0,
+              "value": 0.9067866841324665
+            }
+          ],
+          "minima": [
+            {
+              "time": 9125.0,
+              "value": 0.7341550822727378
+            },
+            {
+              "time": 24235.0,
+              "value": 0.737103585434808
+            }
+          ],
+          "minimum_to_minimum_returns_seconds": [
+            15110.0
+          ],
+          "maximum_to_maximum_returns_seconds": [],
+          "complete_trough_return_intervals": [
+            {
+              "start": 9125.0,
+              "end": 24235.0,
+              "return_seconds": 15110.0,
+              "intervening_maximum_time": 16285.0,
+              "intervening_maximum": 0.9067866841324665,
+              "excursion": 0.1726316018597287
+            }
+          ]
+        },
+        "vector_position": {
+          "available": true,
+          "prominence": 0.5,
+          "minimum_separation_seconds": 1000.0,
+          "maxima": [
+            {
+              "time": 9135.0,
+              "value": 30.894112905036923
+            },
+            {
+              "time": 24250.0,
+              "value": 30.845137389335818
+            }
+          ],
+          "minima": [
+            {
+              "time": 16750.0,
+              "value": 20.96309449399275
+            }
+          ],
+          "minimum_to_minimum_returns_seconds": [],
+          "maximum_to_maximum_returns_seconds": [
+            15115.0
+          ],
+          "complete_trough_return_intervals": []
+        }
+      },
+      "late_ranges": {
+        "point20": {
+          "minimum": 0.7293657307278849,
+          "maximum": 0.9072725501726245
+        },
+        "patch20": {
+          "minimum": 0.7341550822727378,
+          "maximum": 0.9067866841324665
+        },
+        "point_b20": {
+          "minimum": 0.04269384049562943,
+          "maximum": 0.07049005505898907
+        },
+        "patch_b20": {
+          "minimum": 0.044429912517868576,
+          "maximum": 0.0707571082717134
+        },
+        "point_Q20": {
+          "minimum": 0.566273243593586,
+          "maximum": 0.6984916686012786
+        },
+        "patch_Q20": {
+          "minimum": 0.5665788937609668,
+          "maximum": 0.6961952391812146
+        },
+        "vector_magnitude": {
+          "minimum": 0.08650271587566358,
+          "maximum": 0.10274073348618899
+        },
+        "R_max": {
+          "minimum": 0.8897010862260692,
+          "maximum": 0.9072895621020937
+        },
+        "R_min": {
+          "minimum": 0.627000949213587,
+          "maximum": 0.6672756782800038
+        },
+        "R_contrast": {
+          "minimum": 0.23746890616597927,
+          "maximum": 0.2698938607248529
+        }
+      },
+      "late_native_all_maximum_counts": [
+        1
+      ],
+      "late_native_active_peak_counts": [
+        1
+      ],
+      "late_active_component_counts": [
+        1
+      ],
+      "late_gap_counts": [
+        1
+      ],
+      "gap_births": [
+        {
+          "event": "open",
+          "time": 8658.5,
+          "id": 4,
+          "x": 31.867283950617143,
+          "detected_peak_Rac": 0.9072755348011473,
+          "inserted_face_Rac": 0.9072755348011474,
+          "initialized_U": 0.11689392595698436,
+          "removed_material": 0.0,
+          "cells_after": 327
+        },
+        {
+          "event": "open",
+          "time": 16287.5,
+          "id": 5,
+          "x": 19.945987654320962,
+          "detected_peak_Rac": 0.9072751855191794,
+          "inserted_face_Rac": 0.9072751855191795,
+          "initialized_U": -0.11723232039518712,
+          "removed_material": 0.0,
+          "cells_after": 328
+        },
+        {
+          "event": "open",
+          "time": 23800.0,
+          "id": 6,
+          "x": 31.905864197530722,
+          "detected_peak_Rac": 0.9072750105152432,
+          "inserted_face_Rac": 0.9072750105152433,
+          "initialized_U": 0.11756943058770128,
+          "removed_material": 0.0,
+          "cells_after": 329
+        }
+      ],
+      "gap_healings": [
+        {
+          "event": "close",
+          "time": 126.0,
+          "id": 1,
+          "x": 0.0,
+          "Rac_trace": 0.7998730429719307,
+          "old_Uleft": 0.006256738895862397,
+          "old_Uright": -0.006225279612313659
+        },
+        {
+          "event": "close",
+          "time": 128.5,
+          "id": 3,
+          "x": 0.8487654320987654,
+          "Rac_trace": 0.7995970792107598,
+          "old_Uleft": 0.04879520389964657,
+          "old_Uright": 0.04879520363136041
+        },
+        {
+          "event": "close",
+          "time": 8658.5,
+          "id": 2,
+          "x": 19.98456790123454,
+          "Rac_trace": 0.7999534281933421,
+          "old_Uleft": 1.5678548249898644e-08,
+          "old_Uright": -1.5829272114875826e-08
+        },
+        {
+          "event": "close",
+          "time": 16287.5,
+          "id": 4,
+          "x": 31.867283950617143,
+          "Rac_trace": 0.799988941454643,
+          "old_Uleft": 1.593900136575518e-08,
+          "old_Uright": -1.578750630427676e-08
+        },
+        {
+          "event": "close",
+          "time": 23800.0,
+          "id": 5,
+          "x": 19.945987654320962,
+          "Rac_trace": 0.7999938921524814,
+          "old_Uleft": 1.580325795501024e-08,
+          "old_Uright": -1.5954848751647377e-08
+        }
+      ],
+      "adjacent_birth_intervals": [
+        7629.0,
+        7512.5
+      ],
+      "every_other_birth_returns_with_actual_site_displacement": [
+        {
+          "start": 8658.5,
+          "end": 23800.0,
+          "return_seconds": 15141.5,
+          "start_position": 31.867283950617143,
+          "end_position": 31.905864197530722,
+          "site_displacement_um": 0.038580246913578975
+        }
+      ],
+      "vector_note": "Exact first circular moment of native piecewise-constant Rac, divided by total Rac. Its phase is activity-pattern position in the fixed physical circle, not material rotation.",
+      "sampling_note": "Point uses periodic linear native-center reconstruction; physical support10 cosine patch integrates native cell means exactly. No recentering or profile modification.",
+      "quantitative_limit": "Observed complete finite-window returns only. Absence of another return by31000 does not prove absence of later recurrence; two timesteps do not prove convergence.",
+      "source_sha256": {
+        "polarity1d/manuscript/data/runs/debelly_rac_gap_challenge_C50_20261019/challenges/02/native_profiles.npz": "dd0ff2563653525b8d7633ea4ed436f63ff0b2d2a9ac7f4fa1ad70f787c14e2f",
+        "polarity1d/manuscript/data/runs/debelly_rac_gap_challenge_C50_20261019/challenges/02/diagnostics.json": "e2b5c1ef6ba258eb6ab1c7b82827b6e60e9a169eef9c50020c27f7c326821313",
+        "polarity1d/manuscript/data/runs/debelly_rac_gap_challenge_C50_20261019/challenges/02/events.json": "dc6b16c373acd8b57bd35dd9f949a13f9e011fafb4a1c109244d4357a0190d9a"
+      },
+      "feature_path": "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/independent_features/native_N324_dt0p5/features.npz",
+      "feature_sha256": "c89951b4c386416bb1b370447e3aa081e0d6ba14f18384684d3592c2c36fe6ce"
+    },
+    "native_N324_dt0p25": {
+      "label": "native_N324_dt0p25",
+      "time_start": 0.0,
+      "time_end": 31000.0,
+      "native_samples": 6297,
+      "analysis_window": [
+        2000.0,
+        31000.0
+      ],
+      "extrema": {
+        "point20": {
+          "available": true,
+          "prominence": 0.02,
+          "minimum_separation_seconds": 1000.0,
+          "maxima": [
+            {
+              "time": 17125.0,
+              "value": 0.9072951826783908
+            }
+          ],
+          "minima": [
+            {
+              "time": 10940.0,
+              "value": 0.7244583335877497
+            },
+            {
+              "time": 24020.0,
+              "value": 0.72582181689224
+            }
+          ],
+          "minimum_to_minimum_returns_seconds": [
+            13080.0
+          ],
+          "maximum_to_maximum_returns_seconds": [],
+          "complete_trough_return_intervals": [
+            {
+              "start": 10940.0,
+              "end": 24020.0,
+              "return_seconds": 13080.0,
+              "intervening_maximum_time": 17125.0,
+              "intervening_maximum": 0.9072951826783908,
+              "excursion": 0.18283684909064113
+            }
+          ]
+        },
+        "patch20": {
+          "available": true,
+          "prominence": 0.02,
+          "minimum_separation_seconds": 1000.0,
+          "maxima": [
+            {
+              "time": 17125.0,
+              "value": 0.9068080602353598
+            }
+          ],
+          "minima": [
+            {
+              "time": 10970.0,
+              "value": 0.7306127785055271
+            },
+            {
+              "time": 24050.0,
+              "value": 0.7316938434824154
+            }
+          ],
+          "minimum_to_minimum_returns_seconds": [
+            13080.0
+          ],
+          "maximum_to_maximum_returns_seconds": [],
+          "complete_trough_return_intervals": [
+            {
+              "start": 10970.0,
+              "end": 24050.0,
+              "return_seconds": 13080.0,
+              "intervening_maximum_time": 17125.0,
+              "intervening_maximum": 0.9068080602353598,
+              "excursion": 0.17619528172983268
+            }
+          ]
+        },
+        "vector_position": {
+          "available": true,
+          "prominence": 0.5,
+          "minimum_separation_seconds": 1000.0,
+          "maxima": [
+            {
+              "time": 10985.0,
+              "value": 30.85319004377931
+            },
+            {
+              "time": 24060.0,
+              "value": 30.815512204437965
+            }
+          ],
+          "minima": [
+            {
+              "time": 17565.0,
+              "value": 21.006289552247665
+            }
+          ],
+          "minimum_to_minimum_returns_seconds": [],
+          "maximum_to_maximum_returns_seconds": [
+            13075.0
+          ],
+          "complete_trough_return_intervals": []
+        }
+      },
+      "late_ranges": {
+        "point20": {
+          "minimum": 0.7244583335877497,
+          "maximum": 0.9072951826783908
+        },
+        "patch20": {
+          "minimum": 0.7306127785055271,
+          "maximum": 0.9068121094164961
+        },
+        "point_b20": {
+          "minimum": 0.04382964007608979,
+          "maximum": 0.0711946477103503
+        },
+        "patch_b20": {
+          "minimum": 0.04442944298848078,
+          "maximum": 0.0714071694676246
+        },
+        "point_Q20": {
+          "minimum": 0.5662555271404562,
+          "maximum": 0.7005165042090656
+        },
+        "patch_Q20": {
+          "minimum": 0.5665634287445636,
+          "maximum": 0.6975673977335615
+        },
+        "vector_magnitude": {
+          "minimum": 0.08627316128085387,
+          "maximum": 0.10252531099484763
+        },
+        "R_max": {
+          "minimum": 0.8897282379250819,
+          "maximum": 0.907302864387117
+        },
+        "R_min": {
+          "minimum": 0.626719098828688,
+          "maximum": 0.6672662118341152
+        },
+        "R_contrast": {
+          "minimum": 0.2375170139229632,
+          "maximum": 0.27036880636137717
+        }
+      },
+      "late_native_all_maximum_counts": [
+        1
+      ],
+      "late_native_active_peak_counts": [
+        1
+      ],
+      "late_active_component_counts": [
+        1
+      ],
+      "late_gap_counts": [
+        1
+      ],
+      "gap_births": [
+        {
+          "event": "open",
+          "time": 10532.5,
+          "id": 4,
+          "x": 31.867283950617143,
+          "detected_peak_Rac": 0.9072958925646543,
+          "inserted_face_Rac": 0.9072958925646543,
+          "initialized_U": 0.11676488021562562,
+          "removed_material": 0.0,
+          "cells_after": 327
+        },
+        {
+          "event": "open",
+          "time": 17125.0,
+          "id": 5,
+          "x": 19.945987654320962,
+          "detected_peak_Rac": 0.9072956185191499,
+          "inserted_face_Rac": 0.9072956185191497,
+          "initialized_U": -0.11710183385895324,
+          "removed_material": 0.0,
+          "cells_after": 328
+        },
+        {
+          "event": "open",
+          "time": 23608.75,
+          "id": 6,
+          "x": 31.82870370370356,
+          "detected_peak_Rac": 0.9072954920257404,
+          "inserted_face_Rac": 0.9072954920257403,
+          "initialized_U": 0.11676364713107829,
+          "removed_material": 0.0,
+          "cells_after": 329
+        },
+        {
+          "event": "open",
+          "time": 30205.75,
+          "id": 7,
+          "x": 19.926697530864175,
+          "detected_peak_Rac": 0.9072955055812415,
+          "inserted_face_Rac": 0.9072955055812415,
+          "initialized_U": -0.11693251591932444,
+          "removed_material": 0.0,
+          "cells_after": 330
+        }
+      ],
+      "gap_healings": [
+        {
+          "event": "close",
+          "time": 117.75,
+          "id": 1,
+          "x": 0.0,
+          "Rac_trace": 0.7998152124807211,
+          "old_Uleft": 0.008369237830659458,
+          "old_Uright": -0.008389111841998038
+        },
+        {
+          "event": "close",
+          "time": 118.75,
+          "id": 3,
+          "x": 0.5401234567901234,
+          "Rac_trace": 0.799885740091285,
+          "old_Uleft": 0.028841919334429915,
+          "old_Uright": 0.028841919230536795
+        },
+        {
+          "event": "close",
+          "time": 10532.5,
+          "id": 2,
+          "x": 19.98456790123454,
+          "Rac_trace": 0.7999953128340362,
+          "old_Uleft": 1.879145539213148e-08,
+          "old_Uright": -1.8950989248053078e-08
+        },
+        {
+          "event": "close",
+          "time": 17125.0,
+          "id": 4,
+          "x": 31.867283950617143,
+          "Rac_trace": 0.7999983228658973,
+          "old_Uleft": 1.8962094699060783e-08,
+          "old_Uright": -1.8802482031877357e-08
+        },
+        {
+          "event": "close",
+          "time": 23608.75,
+          "id": 5,
+          "x": 19.945987654320962,
+          "Rac_trace": 0.799989792208693,
+          "old_Uleft": 1.8772520440671053e-08,
+          "old_Uright": -1.8931942189970232e-08
+        },
+        {
+          "event": "close",
+          "time": 30205.75,
+          "id": 6,
+          "x": 31.82870370370356,
+          "Rac_trace": 0.7999976753851401,
+          "old_Uleft": 1.8960275286849813e-08,
+          "old_Uright": -1.8800686942328167e-08
+        }
+      ],
+      "adjacent_birth_intervals": [
+        6592.5,
+        6483.75,
+        6597.0
+      ],
+      "every_other_birth_returns_with_actual_site_displacement": [
+        {
+          "start": 10532.5,
+          "end": 23608.75,
+          "return_seconds": 13076.25,
+          "start_position": 31.867283950617143,
+          "end_position": 31.82870370370356,
+          "site_displacement_um": -0.03858024691358253
+        },
+        {
+          "start": 17125.0,
+          "end": 30205.75,
+          "return_seconds": 13080.75,
+          "start_position": 19.945987654320962,
+          "end_position": 19.926697530864175,
+          "site_displacement_um": -0.01929012345678771
+        }
+      ],
+      "vector_note": "Exact first circular moment of native piecewise-constant Rac, divided by total Rac. Its phase is activity-pattern position in the fixed physical circle, not material rotation.",
+      "sampling_note": "Point uses periodic linear native-center reconstruction; physical support10 cosine patch integrates native cell means exactly. No recentering or profile modification.",
+      "quantitative_limit": "Observed complete finite-window returns only. Absence of another return by31000 does not prove absence of later recurrence; two timesteps do not prove convergence.",
+      "source_sha256": {
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/native_profiles.npz": "c2a5e942079bf17c237f19ddbbfdc776d674c541675b4d7359037bc3c32da36f",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/diagnostics.json": "b75c97142d2843ed3faaeaa5d974c64de243344f4230f8bef2bc65aa914f1b01",
+        "polarity1d/manuscript/data/runs/debelly_gap_factorial_C50_20261019/corners/N324_dt0p25/response/events.json": "4db969a60e84b3c92111738a51960624c457afee50a5dadb93d9bcd942a870b8"
+      },
+      "feature_path": "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/independent_features/native_N324_dt0p25/features.npz",
+      "feature_sha256": "6c93d6fb09eaf9ae08546dbd294994ac744e2aac8cfc260c595ed2717fcc457b"
+    }
+  },
+  "source_sha256": {
+    "polarity1d/manuscript/code/mechanisms/debelly_paired_campaign_result_validation_20261019.py": "7bcd83742d1fe677792a411ee7b6ae4b9ba761501ba3057fcb21fd1dff945ce3",
+    "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/manifest.json": "404e262ab0c5ee19d9dcd228d95f4e2e7ced21ad4b13fedf2215089b803b3ad8",
+    "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/campaign/validation_preflight.json": "785b4cefe134e5fc7169956a71a51d98a83f85f2d89958399db5a8bfdcbb6cff",
+    "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/independent_component_validation.json": "dc2b06a530c4bdacdd8995aa7000a1038204b9865713b32218653f58e960fd3d",
+    "polarity1d/manuscript/data/runs/debelly_paired_mca_20261019/independent_adapter_validation.json": "e0bfdf1cae4e5c24f472caa2039b3c9cde025e59b9bf551cc72f39d7886b2ada",
+    "polarity1d/manuscript/code/mechanisms/validation_debelly_gap_factorial_result_20261019.py": "1fb7b0bfa5bdca1aa023cdde689710e2548a2168bb203bda8d3b57f553062c1f",
+    "polarity1d/manuscript/code/mechanisms/validation_debelly_gap_oscillation_20261019.py": "9e9c2e823d96fe2580e66ea746c8831431721133997feb99e00d9887f65a45e7",
+    "polarity1d/manuscript/code/mechanisms/debelly_paired_campaign_validation_20261019.py": "3661604197ba9d0d841708a9a735b615e30e3575a2797d882b295655197c78f6"
+  },
+  "reporting_limits": [
+    "Full-field/controller basal qualification and separate polarity eligibility are audited independently. Challenged rings are not required to become stationary.",
+    "Paired reaction creation is roundoff-zero; signed cap export and global return remain distinct native model terms. Their identity does not prove what sets activity timing.",
+    "All features use actual physical ring labels and native variable cells. Activity-vector direction is not a material velocity or migration law.",
+    "Finite-window returns, differences between methods and two timesteps do not establish a converged period, unique numerical-source causality or continuous-cap closure.",
+    "An unqualified preparation, ineligible preparation or execution failure remains explicit; missing response evidence is never replaced by another branch."
+  ]
+}

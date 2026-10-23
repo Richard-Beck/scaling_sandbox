@@ -1,7 +1,53 @@
-# Current integrated manuscript — 23 October 2026
+<!-- Figure 4 corrected scoring current edition -->
+# Figure 4: corrected event scoring and normalized drift
 
-Final round-3 Figures 2, 3 (single-C), and 4 are integrated in [outline_v9.pdf](outline_v9.pdf). The editable source and build manifest are beside it. Compact supplementary data and restoration instructions: [supporting package](supplement_round3_20261023/README.md). Previous entries below describe historical editions.
+[**Revised outline_v10**](outline_v10.pdf) · [**Figure 4 and legend**](revision_figure4_scoring_20261023/figure4_with_legend.pdf) · [**Reader and supplement**](revision_figure4_scoring_20261023/index.html)
 
+Figure 4 now normalizes physical drift by the smallest size at the same input and estimates jump angles from scorable events. The existing 915,757 counted replacements include 321,423 scored angles. Event-based closure is estimable in 154 conditions; 57 are within 15% of observed decay. Among conditions with multiple fronts for most frames, 0/33 event-based and 3/33 detector-free comparisons are within 15%. The decomposition therefore retains its failures in the regime it seeks to explain. No new simulations were run.
+
+Figures 1, 2, 3, 5 and 6 preserve their preceding sections and artwork.
+
+<!-- Earlier editions preserved below -->
+<!-- Figure 4 round 3 current edition -->
+# Figure 4 round 3 — nulls for size-dependent heading persistence
+
+[**Revised outline_v9**](outline_v9.pdf) · [**Figure 4 and legend**](revision_round3_figure4_20261022/figure4_with_legend.pdf) · [**Reader and supplement**](revision_round3_figure4_20261022/index.html).
+
+The compact campaign is complete: 260 conditions and 45,696 independent histories (96–384 per condition). Local size exponents resolve in 125/260 neighborhoods. Of the 260 single-condition rates, 128 meet the precision target, 36 exceed it at the seed cap, 8 have insufficient valid bootstrap draws and 88 have no eligible rate. The drift/relocation closure is estimable in 42 conditions; all are within 15% of observed decay. Goryachev has no estimable closure ratio. Missing estimates and cross-method disagreement remain explicit.
+
+Figures 1, 2, 3, 5 and 6 retain their exact preceding sections and artwork. Length represents WGD-associated enlargement. Observed migration summaries, conditional OU persistence estimates and simulated polarity-heading decay remain distinct readouts.
+
+<!-- Earlier editions preserved below -->
+<!-- Figure 3 single-C layout current edition -->
+# Figure 3 single-C layout — current manuscript outline
+
+[**Revised outline_v8**](outline_v8.pdf) · [**Figure 3 and legend**](revision_round3_figure3_single_C_20261022/figure3_with_legend.pdf) · [**Reader and complete supplement**](revision_round3_figure3_single_C_20261022/index.html).
+
+Figure 3 now places the eight C = 30 activity profiles on the left and B above C on the right. Only i–ii are highlighted in the main; all three sizes remain in the response curves. The previous four-placement main and legend retain C = 47.6 in the supplement. No new simulations were run. Every round-2 main and supplement page is retained in the supplement. Figure 2 keeps its completed round-3 edition; all other main sections and artwork are identical to outline_v7.
+
+[Methods, data and rebuild instructions](revision_round3_figure3_single_C_20261022/README.md).
+
+<!-- Earlier editions preserved below -->
+<!-- Figure 3 round 3 current edition -->
+# Figure 3 round 3 — current manuscript outline
+
+[**Revised outline_v7**](outline_v7.pdf) · [**Figure 3 and legend**](revision_round3_figure3_20261022/figure3_with_legend.pdf) · [**Reader and complete supplement**](revision_round3_figure3_20261022/index.html).
+
+Figure 3 now shows cue-placement regimes with time to 50% heading, mean angular speed and sixteen Wave-pinning profiles. The four specified relaxation protocols are complete: iii switched off at the 20,000 horizon, and all four relaxed to the stationarity threshold. Every round-2 main and supplement page is retained in the supplement. Figure 2 keeps its completed round-3 edition; all other main sections and artwork are identical to outline_v6.
+
+[Methods, data and rebuild instructions](revision_round3_figure3_20261022/README.md).
+
+<!-- Earlier editions preserved below -->
+<!-- Figure 2 round 3 current edition -->
+# Figure 2 round 3 — current manuscript outline
+
+[**Revised outline_v6**](outline_v6.pdf) · [**Figure 2 and legend**](revision_round3_20261022/figure2_with_legend.pdf) · [**Reader and complete supplement**](revision_round3_20261022/index.html) · [**Editable outline**](outline_v6.json).
+
+Figure 2 now separates size responses (A–C) from temporal class signatures (D–E), with per-class biosensor predictions (F). It includes every width/area condition, all six deBelly initiation bounds and the independently checked deBelly L19/gap16 first gap. Broad Holmes cues resolve all lengths, so no additional runs or kinetic retuning were needed. The main is 7.2 × 10 inches. Superseded panels and every preceding supplement page are preserved. Figures 1, 3, 4, 5 and 6 retain their exact preceding sections and artwork.
+
+[Integration and rebuild instructions](revision_round3_20261022/README.md).
+
+<!-- Earlier editions preserved below -->
 # Completed Figures 2–4 round 2 (22 October 2026)
 
 [**Integrated outline_v5**](outline_v5.pdf) · [**Figures with legends**](revision_round2_20261022/revised_figures_2_4.pdf) · [**Three main plates**](revision_round2_20261022/figures_2_4.pdf) · [**Reader and complete supplements**](revision_round2_20261022/completion.html).

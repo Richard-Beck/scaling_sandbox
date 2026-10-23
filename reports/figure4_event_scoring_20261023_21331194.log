@@ -1,0 +1,113 @@
+Rescored 10/260 conditions
+Rescored 20/260 conditions
+Rescored 30/260 conditions
+Rescored 40/260 conditions
+Rescored 50/260 conditions
+Rescored 60/260 conditions
+Rescored 70/260 conditions
+Rescored 80/260 conditions
+Rescored 90/260 conditions
+Rescored 100/260 conditions
+Rescored 110/260 conditions
+Rescored 120/260 conditions
+Rescored 130/260 conditions
+Rescored 140/260 conditions
+Rescored 150/260 conditions
+Rescored 160/260 conditions
+Rescored 170/260 conditions
+Rescored 180/260 conditions
+Rescored 190/260 conditions
+Rescored 200/260 conditions
+Rescored 210/260 conditions
+Rescored 220/260 conditions
+Rescored 230/260 conditions
+Rescored 240/260 conditions
+Rescored 250/260 conditions
+Rescored 260/260 conditions
+{
+  "generated_utc": "2026-10-23T12:54:37.053358+00:00",
+  "no_new_simulations": true,
+  "conditions": 260,
+  "counted_replacements": 915757,
+  "scored_replacements": 321423,
+  "jump_finite": 245,
+  "zero_tracked_switch_conditions": 108,
+  "zero_tracked_switch_positive_detector_free": 107,
+  "closure_by_regime": [
+    {
+      "method": "scorable_events",
+      "regime": "all",
+      "conditions": 260,
+      "estimable": 154,
+      "within_15_percent": 57,
+      "positive_jump": 113
+    },
+    {
+      "method": "scorable_events",
+      "regime": "multiple_front_majority",
+      "conditions": 49,
+      "estimable": 33,
+      "within_15_percent": 0,
+      "positive_jump": 33
+    },
+    {
+      "method": "scorable_events",
+      "regime": "alpha_below_2",
+      "conditions": 81,
+      "estimable": 73,
+      "within_15_percent": 18,
+      "positive_jump": 63
+    },
+    {
+      "method": "scorable_events",
+      "regime": "multiple_front_majority_and_alpha_below_2",
+      "conditions": 25,
+      "estimable": 25,
+      "within_15_percent": 0,
+      "positive_jump": 25
+    },
+    {
+      "method": "detector_free",
+      "regime": "all",
+      "conditions": 260,
+      "estimable": 172,
+      "within_15_percent": 5,
+      "positive_jump": 172
+    },
+    {
+      "method": "detector_free",
+      "regime": "multiple_front_majority",
+      "conditions": 49,
+      "estimable": 33,
+      "within_15_percent": 3,
+      "positive_jump": 33
+    },
+    {
+      "method": "detector_free",
+      "regime": "alpha_below_2",
+      "conditions": 81,
+      "estimable": 81,
+      "within_15_percent": 5,
+      "positive_jump": 81
+    },
+    {
+      "method": "detector_free",
+      "regime": "multiple_front_majority_and_alpha_below_2",
+      "conditions": 25,
+      "estimable": 25,
+      "within_15_percent": 3,
+      "positive_jump": 25
+    }
+  ],
+  "angle_rule": "Original per-event five-frame P windows; condition mean uses all scorable events, with no all-events-scored gate.",
+  "assumption": "The scorable-event angle distribution estimates the angle distribution of all counted events. Coverage and missing-angle bounds are reported; this assumption is not a validation of missingness at random.",
+  "detector_free": "Existing resolved wrapped-normal plus uniform fits reused without refitting; shortest and twice cadence retained. It is a model-dependent diagnostic, not an independent jump detector.",
+  "normalized_drift": "Ds / Ds at smallest designed size, separately by model and input; reference 20 or Spring 1. Independent size ensembles retain deterministic whole-seed bootstrap draws.",
+  "workers": 8,
+  "compact_index_sha256": "a8e9364300e8c67254398ad4eb80eece5f67f5af93e50a099bdd0d044066a7b9",
+  "source_sha256": {
+    "polarity1d/manuscript/code/mechanisms/figure4_round4_reanalysis_20261023.py": "75a7bb892c56012bb608285fe1e09b367c4e4ae8ed44c3962e50e1c0708f2e60",
+    "polarity1d/manuscript/code/mechanisms/figure4_round3_estimators_20261022.py": "64991534b66301858c96b97f324064ba567739a3ea3768499ef95f72b2c5a7eb",
+    "polarity1d/manuscript/code/mechanisms/figure4_round3_analysis_20261022.py": "0a1c0f57ff93bc6a5f745a0c6da0cb88043ec7948df86122c776de9a111603fc"
+  }
+}

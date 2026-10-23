@@ -1,0 +1,639 @@
+{
+  "status": "Resolved check-development history; not the final scientific audit.",
+  "resolution": "17 missing-correlation rows had zero eligible endpoint pairs;8 invalid-bootstrap controller assessments intentionally suppress qualified SE while the analysis table retains conditional finite-subset SE. The corrected final receipt validates those states explicitly without changing any scientific data.",
+  "first_pass": {
+    "generated_utc": "2026-10-23T02:47:01.326090+00:00",
+    "passed": false,
+    "scope": "Independent light audit of final260-condition native pipeline: design/index/cohort census; all published point-estimate arithmetic, selection, interval structures and cross-file consistency. Independent raw-track switch/exposure/tenure/jump-angle aggregation for all seeds in8 selected D endpoint conditions. No model, noise, null, or whole-bootstrap reruns.",
+    "source_commit_at_audit": "ada155e3d65f8711c45931e679281e5e037f86a1",
+    "source_sha256": {
+      "polarity1d/manuscript/code/mechanisms/figure4_round3_analysis_20261022.py": "54c7d833db4f11e755c1915392b471b83f21cc0f95f642cb1bacaa42a3ea119f",
+      "polarity1d/manuscript/code/mechanisms/figure4_round3_estimators_20261022.py": "e321ac2ab7979f8585a7c12e7fdd5e5fc989da08491734658938b59742c1ec35",
+      "polarity1d/manuscript/code/mechanisms/figure4_round3_render_20261022.py": "6e02d786e8bfdedaa08961fa2af418549c85c9de62511ef61a22aa549a55da6e",
+      "polarity1d/manuscript/code/mechanisms/figure4_round3_spring_coordinate_sensitivity_20261022.py": "8c64dc86c4838880f8f4ec5df5ba7f8ff19a4da5981c974ecd1f325a04a14d95"
+    },
+    "audit_script_sha256": "71067600f3caa765984453cb7d3e29c0b6eb5f9ece6742cecab7cf838a61997f",
+    "immutable_inputs": {
+      "manifest": "polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/manifest.json",
+      "manifest_sha256": "b74013ff44a49b06fca15ca7e74c9aea76a9d449fc81044a365d1364e9db0557",
+      "compact_index_sha256": "a8e9364300e8c67254398ad4eb80eece5f67f5af93e50a099bdd0d044066a7b9",
+      "final_precision_sha256": "8d4b1d642be4cd6979e35463b37710a7bd4992a51551ea626943e90033f77168",
+      "analysis_receipt_sha256": "190673879a55233b3db87524a627f9c30e807a869c85c82a76087d8af5fc8ed5"
+    },
+    "data_sha256": {
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure4/supporting/data/condition_lag_metrics.csv": "1b712dd8600e1e4e9e66af864bc2f811459496ce50885ca3a8a33accf7ed561f",
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure4/supporting/data/analysis_lag_metrics.csv": "ff4f008262f06dea361213d30524fbac3b429b20995fd2039e8b17f8fc92473a",
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure4/supporting/data/local_alpha.csv": "7811cb7661f834379fbc8dc08038aaba031d7e3f3ea7e7c707f4d3a18403dcd9",
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure4/supporting/data/end_to_end_alpha.csv": "93c636d7c08c44240fa02cba69dcdc2fc552ff2c31ebaed5914da8f8a1b259a0",
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure4/supporting/data/noise_tolerance.csv": "f43c103de6e24268771eedd0f376dfea16f0b84320514f40f11fb11fe513998b",
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure4/supporting/data/noise_tolerance_folds.csv": "6a13c8600a2e72edb1c0b42a65412e57de5f599870e147f8561581df3157c10b",
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure4/supporting/data/drift_decomposition.csv": "621f9be05dcac0df524b76fd2be2adcd8aad201d34d58172119b56ab63382513",
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure4/supporting/data/within_tenure_msd.csv": "22b1422864074460f40cf880643f13a1c2f76ebb9e211632d4bcbc0f7014991b",
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure4/supporting/data/valid_fraction.csv": "4508d6afba3685d453cd99e714d5970545219758b7e22972ef604d614c2c2520",
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure4/supporting/data/forcing_conditions.csv": "6ef23c9a477f26b686b3501077368652bea59c67e21898f271c0b6f0994429cb",
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure4/supporting/data/plotted_E.csv": "77b10d3827d8da8540795be2ecf4b9d81be7fdf55abdb76d3f284c2b52b47d5e",
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure4/supporting/data/plotted_C_alpha.csv": "0d1df7432d29265ad3b893c7ac3472ea204ce900b68d4247e32b3bff4c8d172c",
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure4/supporting/data/omitted_estimates.csv": "1a476cc55cc986846333dc107ffbc443cc3bc7f0a189d7a97a48f1f6d2d92f54",
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure4/supporting/data/model_D_selection.csv": "a5c279020f8912b21389251a507d9e63f2822c2d646bdd67c14cba17dc0131c9",
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure4/supporting/data/model_D_kymographs.csv": "e2f6b355620eec6b693dd5c5e6ec552e637ce50bb65920ce3fa9dd04b9dbf4fc",
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure4/supporting/data/seed0_switch_events.csv": "06306f9394ef345993c184fd2955ad374a48d4e6eda44344eb15740e02c03f44",
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure4/supporting/data/seed0_switch_contract_audit.csv": "0617fa2e696dd7ea0448592c6e8d81008c3ca0f2b37de62612d85e4fae50b473",
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure4/supporting/data/round2_comparison.csv": "3849e295ab81f913719f7df62f84c58f51f1fc298a7e6584dcd0d5806b704c75",
+      "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure4/supporting/data/extended_conditions.csv": "79994a363d2fd445c2eab42db8d5adcce7bb434ae1529830e70ad0cfafc5464e"
+    },
+    "design_conditions": 260,
+    "native_seeds": 45696,
+    "seed_count_distribution": {
+      "96": 176,
+      "384": 64,
+      "192": 16,
+      "288": 4
+    },
+    "precision_disjoint_groups": {
+      "no_eligible_lag": 88,
+      "finite_SE_above_0.07_at_384": 36,
+      "precision_met": 128,
+      "bootstrap_invalid_at_384": 8
+    },
+    "conditional_finite_SE_above_0_07": 43,
+    "local_alpha_resolved_by_model": {
+      "spring_ring": 34,
+      "goryachev": 11,
+      "holmes_model3": 43,
+      "wave_pinning": 37
+    },
+    "CI_structure": {
+      "condition_lag_metrics.csv": {
+        "defined_intervals": 10102,
+        "undefined_intervals": 38,
+        "unbounded_intervals": 1079,
+        "point_outside_percentile_interval": 0
+      },
+      "analysis_lag_metrics.csv": {
+        "defined_intervals": 432,
+        "undefined_intervals": 88,
+        "unbounded_intervals": 8,
+        "point_outside_percentile_interval": 0
+      },
+      "local_alpha.csv": {
+        "defined_intervals": 510,
+        "undefined_intervals": 270,
+        "unbounded_intervals": 0,
+        "point_outside_percentile_interval": 0
+      },
+      "end_to_end_alpha.csv": {
+        "defined_intervals": 21,
+        "undefined_intervals": 31,
+        "unbounded_intervals": 0,
+        "point_outside_percentile_interval": 0
+      },
+      "noise_tolerance.csv": {
+        "defined_intervals": 60,
+        "undefined_intervals": 0,
+        "unbounded_intervals": 0,
+        "point_outside_percentile_interval": 0
+      },
+      "noise_tolerance_folds.csv": {
+        "defined_intervals": 60,
+        "undefined_intervals": 0,
+        "unbounded_intervals": 0,
+        "point_outside_percentile_interval": 0
+      },
+      "drift_decomposition.csv": {
+        "defined_intervals": 2111,
+        "undefined_intervals": 5689,
+        "unbounded_intervals": 39,
+        "point_outside_percentile_interval": 0
+      },
+      "plotted_E.csv": {
+        "defined_intervals": 558,
+        "undefined_intervals": 0,
+        "unbounded_intervals": 0,
+        "point_outside_percentile_interval": 0
+      },
+      "plotted_C_alpha.csv": {
+        "defined_intervals": 510,
+        "undefined_intervals": 270,
+        "unbounded_intervals": 0,
+        "point_outside_percentile_interval": 0
+      }
+    },
+    "E_primary": {
+      "Ds": {
+        "finite": 255,
+        "positive": 255,
+        "zero": 0,
+        "undefined": 5
+      },
+      "lambda_eff": {
+        "finite": 109,
+        "positive": 1,
+        "zero": 108,
+        "undefined": 151
+      },
+      "kpred_over_kobs": {
+        "finite": 42,
+        "positive": 42,
+        "zero": 0,
+        "undefined": 218
+      }
+    },
+    "E_finite_closure_range": [
+      0.9054895838549535,
+      1.1481528835891854
+    ],
+    "E_finite_closure_by_model": {
+      "wave_pinning": 16,
+      "holmes_model3": 13,
+      "spring_ring": 13
+    },
+    "E_affected_centroid_boundary_conditions": 115,
+    "D_all_seed_contract_checks": [
+      {
+        "model": "wave_pinning",
+        "C_label": 20.0,
+        "f": 0.03,
+        "n_seeds": 96,
+        "dominance_tenures": 223,
+        "centroid_segments": 223,
+        "switches": 127,
+        "scored_switches": 93,
+        "missing_centroid_boundary_switches": 0,
+        "displayed_seed0_ticks": 0
+      },
+      {
+        "model": "wave_pinning",
+        "C_label": 60.0,
+        "f": 0.03,
+        "n_seeds": 384,
+        "dominance_tenures": 994,
+        "centroid_segments": 994,
+        "switches": 610,
+        "scored_switches": 458,
+        "missing_centroid_boundary_switches": 0,
+        "displayed_seed0_ticks": 0
+      },
+      {
+        "model": "holmes_model3",
+        "C_label": 20.0,
+        "f": 0.02,
+        "n_seeds": 96,
+        "dominance_tenures": 250,
+        "centroid_segments": 250,
+        "switches": 154,
+        "scored_switches": 66,
+        "missing_centroid_boundary_switches": 1,
+        "displayed_seed0_ticks": 0
+      },
+      {
+        "model": "holmes_model3",
+        "C_label": 60.0,
+        "f": 0.02,
+        "n_seeds": 192,
+        "dominance_tenures": 886,
+        "centroid_segments": 886,
+        "switches": 694,
+        "scored_switches": 387,
+        "missing_centroid_boundary_switches": 8,
+        "displayed_seed0_ticks": 0
+      },
+      {
+        "model": "spring_ring",
+        "C_label": 1.0,
+        "f": 0.005,
+        "n_seeds": 96,
+        "dominance_tenures": 101,
+        "centroid_segments": 101,
+        "switches": 5,
+        "scored_switches": 0,
+        "missing_centroid_boundary_switches": 0,
+        "displayed_seed0_ticks": 0
+      },
+      {
+        "model": "spring_ring",
+        "C_label": 3.0,
+        "f": 0.005,
+        "n_seeds": 96,
+        "dominance_tenures": 122,
+        "centroid_segments": 122,
+        "switches": 26,
+        "scored_switches": 0,
+        "missing_centroid_boundary_switches": 0,
+        "displayed_seed0_ticks": 0
+      },
+      {
+        "model": "goryachev",
+        "C_label": 20.0,
+        "f": 0.01,
+        "n_seeds": 96,
+        "dominance_tenures": 6710,
+        "centroid_segments": 6710,
+        "switches": 4239,
+        "scored_switches": 2613,
+        "missing_centroid_boundary_switches": 16,
+        "displayed_seed0_ticks": 2
+      },
+      {
+        "model": "goryachev",
+        "C_label": 60.0,
+        "f": 0.01,
+        "n_seeds": 96,
+        "dominance_tenures": 96,
+        "centroid_segments": 96,
+        "switches": 0,
+        "scored_switches": 0,
+        "missing_centroid_boundary_switches": 0,
+        "displayed_seed0_ticks": 0
+      }
+    ],
+    "check_counts": {
+      "full_260_fixed_design": 1,
+      "45696_index_rows": 1,
+      "independent_unique_seed_labels": 1,
+      "precision_file_hash": 1,
+      "allocated_index_precision_count": 260,
+      "complete_replicate_sequence": 260,
+      "complete_frozen_manifest_records": 260,
+      "unique_condition_identity": 260,
+      "seed_count_distribution": 1,
+      "unique_condition_lag": 3380,
+      "C_to_k_identity": 3380,
+      "coverage_pair_ratio": 3380,
+      "cosine_coverage_bounds": 3380,
+      "eligible_pair_count": 3380,
+      "condition_lag_complete_grid": 1,
+      "analysis_design_unique": 1,
+      "thirteen_native_rounded_lags": 260,
+      "analysis_seed_count": 260,
+      "lag_seed_count": 3380,
+      "possible_pairs_native_3201": 3380,
+      "no_eligible_lag_explicit": 88,
+      "single_lag_resolved_status": 172,
+      "single_nearest_half_C": 172,
+      "single_lag_exports_match": 688,
+      "controller_final_lag_identity": 172,
+      "controller_final_SE_identity": 172,
+      "precision_unmet_only_at_cap": 44,
+      "disjoint_final_precision_groups": 1,
+      "all_forcing_decisions_present": 1,
+      "no_unknown_forcing": 1,
+      "fixed_full_five_neighbors": 260,
+      "alpha_union_forced_neighbors": 260,
+      "alpha_eligible_resolved": 125,
+      "alpha_shared_lag_choice": 125,
+      "alpha_minimax_score": 125,
+      "alpha_OLS_actual_mean_C": 125,
+      "alpha_own_condition_export": 875,
+      "alpha_no_lag_reason": 135,
+      "125_resolved_local_alphas": 1,
+      "endpoint_no_lag_reason": 31,
+      "endpoint_lag_choice": 21,
+      "end_to_end_actual_mean_C": 21,
+      "fhalf_first_cross_status": 60,
+      "fhalf_first_downcross_logf": 60,
+      "fhalf_point_lower_bound": 60,
+      "fhalf_point_upper_bound": 60,
+      "fhalf_all_designed_forced_included": 60,
+      "fhalf_ratio_to_smallest": 60,
+      "fold_spring_equivalent": 60,
+      "ordered_CI_endpoints": 14364,
+      "tracked_all260_five_sensitivities": 1,
+      "lambda_switches_over_exposure": 1300,
+      "lambda_eff_score_availability": 1300,
+      "prediction_algebra": 1300,
+      "tracked_kobs_same_analysis_rate": 1300,
+      "prediction_observation_ratio": 1300,
+      "tracked_native_cadence": 1300,
+      "tracked_hold_physical_time": 1300,
+      "jump_five_frame_window": 1300,
+      "counted_scored_and_centroid_switch_bounds": 1300,
+      "dominance_median_MSD_cutoff": 1300,
+      "tracked_explicit_status": 1300,
+      "tracked_seed_counts": 1300,
+      "tracked_whole_seed_fixed_cutoff": 260,
+      "Ds_from_published_MSD_fit": 260,
+      "free_power_from_published_MSD": 241,
+      "MSD_pair_counts_and_cutoff": 260,
+      "each_estimable_E_point_plotted": 558,
+      "plotted_E_value_matches_source": 558,
+      "plotted_E_CI_matches_source": 1116,
+      "plotted_E_forced_source": 558,
+      "every_unplotted_E_has_reason": 482,
+      "seed0_event_count_all260_contract": 260,
+      "D_designed_input_selection": 4,
+      "D_six_decay_time_window": 4,
+      "D_reference_bracket_qualifies": 4,
+      "D_seed0_compact_hash": 8,
+      "D_seed0_policy": 8,
+      "D_seed0_events_exact_compact_times": 8,
+      "D_ticks_exact_counted_window_switches": 8,
+      "D_fullcohort_dominance_tenures": 8,
+      "D_fullcohort_dominance_median": 8,
+      "D_fullcohort_centroid_segments": 8,
+      "D_fullcohort_ID_exposure": 8,
+      "D_fullcohort_switch_counts": 8,
+      "D_fullcohort_centroid_boundary_diagnostic": 8,
+      "D_fullcohort_five_frame_scores": 8,
+      "D_fullcohort_whole_P_jump_cosines": 8,
+      "old_new_primary_uses_full_final_cohort": 185,
+      "comparison_final_n": 185,
+      "comparison_full_fhalf": 20,
+      "all84_topup_conditions_listed": 1,
+      "no_undeclared_horizon_extension": 1,
+      "final_analysis_receipt_native_2000": 1,
+      "analysis_immutable_input_hashes": 1,
+      "render_receipt_source_hash": 4
+    },
+    "total_checks": 64286,
+    "errors": [
+      {
+        "check": "cosine_coverage_bounds",
+        "context": [
+          [
+            "goryachev",
+            40.0,
+            1.0
+          ],
+          16000.0
+        ]
+      },
+      {
+        "check": "cosine_coverage_bounds",
+        "context": [
+          [
+            "goryachev",
+            50.0,
+            1.0
+          ],
+          4000.0
+        ]
+      },
+      {
+        "check": "cosine_coverage_bounds",
+        "context": [
+          [
+            "goryachev",
+            50.0,
+            1.0
+          ],
+          11315.0
+        ]
+      },
+      {
+        "check": "cosine_coverage_bounds",
+        "context": [
+          [
+            "goryachev",
+            50.0,
+            1.0
+          ],
+          16000.0
+        ]
+      },
+      {
+        "check": "cosine_coverage_bounds",
+        "context": [
+          [
+            "goryachev",
+            60.0,
+            1.0
+          ],
+          250.0
+        ]
+      },
+      {
+        "check": "cosine_coverage_bounds",
+        "context": [
+          [
+            "goryachev",
+            60.0,
+            1.0
+          ],
+          355.0
+        ]
+      },
+      {
+        "check": "cosine_coverage_bounds",
+        "context": [
+          [
+            "goryachev",
+            60.0,
+            1.0
+          ],
+          500.0
+        ]
+      },
+      {
+        "check": "cosine_coverage_bounds",
+        "context": [
+          [
+            "goryachev",
+            60.0,
+            1.0
+          ],
+          705.0
+        ]
+      },
+      {
+        "check": "cosine_coverage_bounds",
+        "context": [
+          [
+            "goryachev",
+            60.0,
+            1.0
+          ],
+          1000.0
+        ]
+      },
+      {
+        "check": "cosine_coverage_bounds",
+        "context": [
+          [
+            "goryachev",
+            60.0,
+            1.0
+          ],
+          1415.0
+        ]
+      },
+      {
+        "check": "cosine_coverage_bounds",
+        "context": [
+          [
+            "goryachev",
+            60.0,
+            1.0
+          ],
+          2000.0
+        ]
+      },
+      {
+        "check": "cosine_coverage_bounds",
+        "context": [
+          [
+            "goryachev",
+            60.0,
+            1.0
+          ],
+          2830.0
+        ]
+      },
+      {
+        "check": "cosine_coverage_bounds",
+        "context": [
+          [
+            "goryachev",
+            60.0,
+            1.0
+          ],
+          4000.0
+        ]
+      },
+      {
+        "check": "cosine_coverage_bounds",
+        "context": [
+          [
+            "goryachev",
+            60.0,
+            1.0
+          ],
+          5655.0
+        ]
+      },
+      {
+        "check": "cosine_coverage_bounds",
+        "context": [
+          [
+            "goryachev",
+            60.0,
+            1.0
+          ],
+          8000.0
+        ]
+      },
+      {
+        "check": "cosine_coverage_bounds",
+        "context": [
+          [
+            "goryachev",
+            60.0,
+            1.0
+          ],
+          11315.0
+        ]
+      },
+      {
+        "check": "cosine_coverage_bounds",
+        "context": [
+          [
+            "goryachev",
+            60.0,
+            1.0
+          ],
+          16000.0
+        ]
+      },
+      {
+        "check": "controller_final_SE_identity",
+        "context": {
+          "context": [
+            "wave_pinning",
+            60.0,
+            1.0
+          ],
+          "actual": 0.28452751540833743,
+          "expected": NaN
+        }
+      },
+      {
+        "check": "controller_final_SE_identity",
+        "context": {
+          "context": [
+            "spring_ring",
+            1.0,
+            0.05
+          ],
+          "actual": 0.22411492278671832,
+          "expected": NaN
+        }
+      },
+      {
+        "check": "controller_final_SE_identity",
+        "context": {
+          "context": [
+            "spring_ring",
+            1.0,
+            0.3
+          ],
+          "actual": 0.249955111435277,
+          "expected": NaN
+        }
+      },
+      {
+        "check": "controller_final_SE_identity",
+        "context": {
+          "context": [
+            "spring_ring",
+            1.5,
+            0.1
+          ],
+          "actual": 0.26338818701485833,
+          "expected": NaN
+        }
+      },
+      {
+        "check": "controller_final_SE_identity",
+        "context": {
+          "context": [
+            "spring_ring",
+            2.0,
+            0.1
+          ],
+          "actual": 0.26287323093180787,
+          "expected": NaN
+        }
+      },
+      {
+        "check": "controller_final_SE_identity",
+        "context": {
+          "context": [
+            "spring_ring",
+            2.5,
+            0.3
+          ],
+          "actual": 0.273905811103978,
+          "expected": NaN
+        }
+      },
+      {
+        "check": "controller_final_SE_identity",
+        "context": {
+          "context": [
+            "spring_ring",
+            3.0,
+            0.3
+          ],
+          "actual": 0.2723230197323185,
+          "expected": NaN
+        }
+      },
+      {
+        "check": "controller_final_SE_identity",
+        "context": {
+          "context": [
+            "goryachev",
+            50.0,
+            1.0
+          ],
+          "actual": 1.7770357451538355e-15,
+          "expected": NaN
+        }
+      }
+    ],
+    "limitations": [
+      "Bootstrap quantiles were not regenerated. This audit checks interval ordering/availability, conservative unbounded intervals and exact export consistency;2000-resample method is bound to source and persisted invariant tests.",
+      "45,696 compact hashes and native-generation fidelity are covered by the independent parent/campaign cohort verifier and prior sampled schema audit; this audit checks the complete index census and independently reads only all seeds of8 D endpoint conditions.",
+      "Immutable campaign manifest/index/analysis/data are bound; mutable status and publication receipt timestamps are deliberately excluded."
+    ]
+  }
+}

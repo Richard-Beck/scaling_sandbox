@@ -1,0 +1,58 @@
+{
+  "title": "Figure 3 — single-C layout",
+  "date": "22 October 2026",
+  "stage": "Figure 3 single-C landscape layout; Figure 2 round 3 and all other sections preserved",
+  "subtitle": "Cue-placement regimes and half-turn readouts",
+  "overview": [],
+  "sections": [
+    {
+      "id": "figure3",
+      "title": "Figure 3. Cue placement relative to the incumbent’s edge switches reorientation between sliding the incumbent and takeover by a new region; enlargement slows both.",
+      "status": "round3_complete",
+      "legend": [
+        "A. Native Wave-pinning active species u versus arc position centred on the incumbent’s initial centre, at C = 30 for (i) gap −1 (straddling) and (ii) gap 4 (separated). Rows show 0%, 50% and 90% of the target heading under continuous cue, then the final cue-free profile. Grey shading marks the fixed cue support in every row; open diamonds mark an inter-region saddle where resolved, and black ticks on the arc axis mark heading. Each column shares its y-scale.",
+        "B. Time to 50% of the angle from initial activity-vector heading to the cue direction versus initial cue edge gap (near edge of cue support minus the incumbent’s 10%-contrast boundary). C. Mean angular speed over that turn, equal to half the target angle divided by t₅₀. Time and length use each model’s native units; speed is radians per native time. Spring retains its native mechanical units. Lighter solid, intermediate dashed and darker dotted curves denote increasing C, labelled at each line end. Enlarged filled i–ii markers identify A in both Wave-pinning plots. Both readouts are evaluated with the cue continuously on; points interpolate the saved 50% crossing brackets.",
+        "Vertical lines mark the first tested gap with two resolved regions and a saddle at the 50% crossing for each C, using that size’s line style; the existing periodic watershed detector is applied to the native saved-field interpolant. Light grey bands mark sampled near-antipode placements with undefined heading at one or more sizes (activity-vector coherence R < 0.05 or a cancellation interval); that size’s curve breaks there. Open up-triangles mark censored time lower bounds, and matching open down-triangles mark speed upper bounds; horizon caps are not measured values.",
+        "For the relaxation row only, cue-off occurs at 95% heading or at 20,000 if 95% is not reached, restarting from the full native event state after an identical cue-on replay. No-cue relaxation stops when max |∂u/∂t| reaches the existing tolerance 2.2683 × 10⁻⁷ (native activity per native time; the original 10⁻⁴ scaled-RHS tolerance over 1,000 time units), or after four times the cue-on duration. i: cue off at 95% heading, t = 790.5; relaxed for 258.6, stopped at stationarity; ii: cue off at 95% heading, t = 227.6; relaxed for 291.3, stopped at stationarity.",
+        "deBelly is excluded from rings.",
+        "Cellular measurement motivated by this assay: photoactivation at varying offsets from the leading-edge boundary in WGD+ versus WGD− cells, with time to half-turn as the readout."
+      ],
+      "role": "Continuous-cue ring reorientation across cue placements and native sizes.",
+      "narrative": [
+        "At C = 30, the straddling Wave-pinning example slides the incumbent, whereas the separated example develops a second activity region and saddle. B and C retain all three sizes and show slower half-heading reorientation in enlarged rings."
+      ],
+      "measurements": [
+        "Photoactivate at varying offsets from the leading-edge boundary in WGD+ versus WGD− cells; measure time to half-turn."
+      ],
+      "limitations": [
+        "Native model clocks are not calibrated across models. Topology at the 50% crossing uses saved-field interpolation; the C = 47.6, gap 0.5 Wave-pinning bracket changes topology between its endpoints. Undefined heading cannot supply a timing bound. Four fixed-parameter relaxation protocols are the only new simulations."
+      ],
+      "assets": [
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure3_single_C/figure3_round3.png",
+          "native_pdf_page": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure3_single_C/figure3_round3.pdf",
+          "page_size": [
+            16.2,
+            8.6
+          ],
+          "minimum_printed_width_inches": 16.2,
+          "page_title": ""
+        }
+      ],
+      "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure3_single_C/figure3_round3.pdf",
+      "supplement_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure3_single_C/figure3_round3_supplement.pdf",
+      "reader": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure3_single_C/index.html",
+      "sources": [
+        {
+          "label": "50% readouts and topology",
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure3_single_C/supporting/data/half_heading_readouts.csv"
+        },
+        {
+          "label": "Four native relaxation protocols",
+          "path": "polarity1d/manuscript/data/runs/figure3_round3_relaxation_v2_20261022/manifest.json"
+        }
+      ]
+    }
+  ],
+  "supplementary": []
+}

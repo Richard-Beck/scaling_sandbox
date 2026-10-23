@@ -1,0 +1,319 @@
+{
+  "generated_utc": "2026-10-19T14:51:12.852996+00:00",
+  "producer_state": "finished_static_literature_review",
+  "scope": "Primary-paper and author-code inspection for complementary closed-geometry mechanochemical models; no replacement selected or implemented.",
+  "ranking": "Reviewer judgment for the next implementation inspection, balancing mechanochemical polarity, real closed mechanics and practical source availability; not an exhaustive systematic review.",
+  "main_conclusion": "No inspected candidate preserves the complete deBelly Rac/Rho–MCA–tension feedback while also supplying demonstrated uncut deforming mechanics. The strongest ready-code complementary candidate is Ivšić2026; the active-surface family supplies geometric mechanics; Werner2022 supplies explicit MCA/bleb closure.",
+  "important_distinctions": [
+    "Minimal Model of Cellular Symmetry Breaking is PRL123188101(2019), not the separate PNAS11629–34(2019) paper.",
+    "A periodic computational box is distinct from a closed cell interface; Ivšić2026 has both. Bois2011 has only intrinsic periodic mechanics.",
+    "Axisymmetric meridional curves represent closed 3D surfaces and have pole regularity conditions; they are not periodic planar perimeter curves.",
+    "Substrate adhesion linkers in Chen2023/Shao2012 are not membrane-to-cortex attachments.",
+    "Published normal protrusion laws could motivate a new deBelly extension, but do not validate teleporting cut controllers or adding a tangential force without a transport closure."
+  ],
+  "candidates": [
+    {
+      "rank": 1,
+      "id": "ivsic_2026",
+      "label": "Ivšić et al. (2026): GTPase-like chemistry, closed shape and hydrodynamics",
+      "title": "Diversity in emergent cell locomotion from the coupling cytosolic and cortical Marangoni flows with reaction–diffusion dynamics",
+      "authors": "Blaž Ivšić; Dorijan Vulić; Igor Weber; Piotr Nowakowski; Ana-Sunčana Smith",
+      "citation": "PLOS Computational Biology 22(4), e1014216 (27 April 2026)",
+      "doi": "10.1371/journal.pcbi.1014216",
+      "geometry": "Actual deforming closed planar contour represented by a diffuse level set; the surrounding computational box is periodic.",
+      "mechanics": "Incompressible low-Reynolds flow, activator-dependent normal protrusive force, curvature force, tangential Marangoni stress and drag.",
+      "biology": "Four species represent a GTPase-like activation/inhibition cycle. Neither separate Rac/Rho antagonism nor MCA linkers is retained.",
+      "conservation": "Mass-conserving reactions and confining potentials. Source-code stoichiometry conserves substrate+activator+complex and inhibitor+complex; their sum is not a count of four independent species.",
+      "cap_handling": "No cap is removed: protrusion deforms the interface normally and species remain in the bulk/interface system.",
+      "feasibility": "Public C implementation with example inputs; already a two-dimensional closed-cell model. Numerical conservation and mesh/time convergence still need independent checks.",
+      "use": "Strongest implementation candidate for a complementary mechanochemical polarity model; adding deBelly MCA/Rac–Rho feedback would be new research.",
+      "code": {
+        "status": "Public source inspected; not executed",
+        "url": "https://github.com/blejzara/CellRDA-LS",
+        "language": "C11 according to README; paper describes ISO C99",
+        "license": "MIT",
+        "requirements": "NetCDF/HDF5; C compiler; OpenMP optional"
+      },
+      "sources": [
+        {
+          "title": "Published article",
+          "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1014216",
+          "doi": "10.1371/journal.pcbi.1014216",
+          "locator": "Model: Fluid dynamics Eqs.4–6; RDA Eqs.7–9; Methods; Data Availability"
+        },
+        {
+          "title": "Author source code",
+          "url": "https://github.com/blejzara/CellRDA-LS",
+          "doi": null,
+          "locator": "src/simulation.c: fluid force assembly and reaction updates; README.MD"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "id": "mietke_active_surface_family",
+      "label": "Mietke and colleagues (2019–2026): closed active-surface mechanics",
+      "title": "Minimal Model of Cellular Symmetry Breaking",
+      "authors": "Alexander Mietke; V. Jemseena; K. Vijay Kumar; Ivo F. Sbalzarini; Frank Jülicher",
+      "citation": "Physical Review Letters 123, 188101 (2019)",
+      "doi": "10.1103/PhysRevLett.123.188101",
+      "geometry": "Closed curved surface enclosing a viscous fluid. PRL nonlinear pattern simulations emphasize a rigid sphere; companion work evolves closed axisymmetric surfaces.",
+      "mechanics": "Tangential and normal force balances, surface viscosity, active tension and bending; PRL couples to enclosed Stokes flow.",
+      "biology": "Generic diffusing stress regulator; no Rac/Rho pair or explicit membrane–cortex attachment layer.",
+      "conservation": "PRL includes surface advection, diffusion, geometric dilution and exchange with a dynamically updated well-mixed bulk pool.",
+      "cap_handling": "No protruding cap is deleted. Normal motion and regularity at closed-surface poles replace nonzero tangential pole commands.",
+      "feasibility": "2026 public MATLAB code evolves closed axisymmetric surfaces. A meridian has pole conditions, not periodic planar-loop conditions; a planar reduction needs derivation.",
+      "use": "Best source for a mechanically consistent normal-geometry extension. It supplies a framework, not an unchanged deBelly replacement.",
+      "code": {
+        "status": "2026 companion repository and closed-surface folders verified; not executed",
+        "url": "https://github.com/amietke/ActiveShapeSpaces",
+        "language": "MATLAB",
+        "license": "CC0-1.0",
+        "requirements": "MATLAB boundary-value solvers"
+      },
+      "companions": [
+        {
+          "title": "Self-organized shape dynamics of active surfaces",
+          "citation": "Mietke, Jülicher and Sbalzarini, PNAS 116, 29–34 (2019; online December 2018)",
+          "doi": "10.1073/pnas.1810896115"
+        },
+        {
+          "title": "Self-organized dynamics and emergent shape spaces of active isotropic fluid surfaces",
+          "citation": "Gao, Sun, Ma and Mietke, Physical Review Research 8, 023046 (15 April 2026)",
+          "doi": "10.1103/jlps-h2qg"
+        }
+      ],
+      "sources": [
+        {
+          "title": "2019 PRL, author-hosted published PDF",
+          "url": "https://www.pks.mpg.de/fileadmin/user_upload/MPIPKS/group_pages/BiologicalPhysics/juelicher/publications/2019/MMoCSB2019.pdf",
+          "doi": "10.1103/PhysRevLett.123.188101",
+          "locator": "Eqs.1–12; rigid-sphere nonlinear results"
+        },
+        {
+          "title": "PRL author preprint with supplement",
+          "url": "https://arxiv.org/html/1909.12804v1",
+          "doi": null,
+          "locator": "Main Eqs.6–12; Supplement §3"
+        },
+        {
+          "title": "PNAS companion",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6320547/",
+          "doi": "10.1073/pnas.1810896115",
+          "locator": null
+        },
+        {
+          "title": "2026 variational/ALE companion",
+          "url": "https://journals.aps.org/prresearch/abstract/10.1103/jlps-h2qg",
+          "doi": "10.1103/jlps-h2qg",
+          "locator": null
+        },
+        {
+          "title": "2026 author preprint",
+          "url": "https://arxiv.org/html/2501.17849v1",
+          "doi": null,
+          "locator": "Closed-surface boundary conditions Table3; §V.2; ALE conservation appendix"
+        },
+        {
+          "title": "2026 source code",
+          "url": "https://github.com/amietke/ActiveShapeSpaces",
+          "doi": null,
+          "locator": "DynamicsClosedSurface_Figure6; ShapeSpaceAnalysisClosedSurface_Figure7"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "id": "werner_2022",
+      "label": "Werner et al. (2022): explicit membrane–cortex linkers and blebs",
+      "title": "A Diffuse Interface Model for Cell Blebbing Including Membrane-Cortex Coupling with Linker Dynamics",
+      "authors": "Philipp Werner; Martin Burger; Florian Frank; Harald Garcke",
+      "citation": "SIAM Journal on Applied Mathematics 82(3), 1091–1112 (2022)",
+      "doi": "10.1137/21M1433642",
+      "geometry": "Two closed diffuse interfaces represent membrane and cortex in a three-dimensional fluid domain.",
+      "mechanics": "Fluid–structure interaction from membrane/cortex bending and surface energies plus nonlocal spring-linker coupling.",
+      "biology": "Closest explicit MCA analogue: active/inactive linkers rip and repair according to membrane–cortex separation. No Rac/Rho signaling.",
+      "conservation": "Opposite linker reaction terms conserve active+inactive linker number; general surface equations include advection and geometric dilution.",
+      "cap_handling": "Bleb formation is normal separation of membrane from cortex; material stays represented rather than disappearing through a cap.",
+      "feasibility": "Important limitation: all reported simulations freeze cortex and drop linker transport. A planar two-loop reduction and dynamic cortex need implementation.",
+      "use": "Strongest source for MCA/normal-deformation closure; not a demonstrated self-polarizing model or immediate replacement.",
+      "code": {
+        "status": "Public simulation repository not located in inspected primary paper/preprint or targeted search",
+        "url": null,
+        "language": "Finite elements; MPI and multithreading described",
+        "license": null
+      },
+      "sources": [
+        {
+          "title": "Published article",
+          "url": "https://epubs.siam.org/doi/10.1137/21M1433642",
+          "doi": "10.1137/21M1433642",
+          "locator": null
+        },
+        {
+          "title": "Author full-text preprint",
+          "url": "https://arxiv.org/html/2107.06334v1",
+          "doi": null,
+          "locator": "§2 linker transport and conservation; §4 static-cortex simulation restriction"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "id": "chen_2023",
+      "label": "Chen et al. (2023): normal protrusion on a deforming closed curve",
+      "title": "Interplay Between Mechanosensitive Adhesions and Membrane Tension Regulates Cell Motility",
+      "authors": "Yuzhu Chen; David Saintillan; Padmini Rangamani",
+      "citation": "PRX Life 1, 023007 (6 December 2023)",
+      "doi": "10.1103/PRXLife.1.023007",
+      "geometry": "Actual closed one-dimensional cell boundary evolving in a two-dimensional plane, initially near circular.",
+      "mechanics": "Normal edge speed equals polymerization minus retrograde flow. Local adhesion/contractility/tension force balance and area-dependent, spatially uniform membrane tension close motion.",
+      "biology": "Force-sensitive substrate adhesion fraction; no Rac/Rho chemistry. These extracellular adhesions are not MCA linkers.",
+      "conservation": "Binding/unbinding evolves a local bound fraction with diffusion, rather than conserving an advected finite MCA pool.",
+      "cap_handling": "The whole boundary moves continuously along its local normal. No cut, cap loss or endpoint controller.",
+      "feasibility": "Closest economical closed-curve mechanical template. Equal-arclength remeshing is explicit; public implementation not located in inspected sources.",
+      "use": "Useful alternative mechanical feedback model; adopting its uniform tension and substrate clutch substantially changes deBelly biology.",
+      "code": {
+        "status": "Public simulation repository not located in inspected primary sources or targeted search",
+        "url": null,
+        "language": "Finite differences on a periodic curve parameter",
+        "license": null
+      },
+      "sources": [
+        {
+          "title": "Published article",
+          "url": "https://journals.aps.org/prxlife/abstract/10.1103/PRXLife.1.023007",
+          "doi": "10.1103/PRXLife.1.023007",
+          "locator": null
+        },
+        {
+          "title": "Author-hosted full article",
+          "url": "https://web.eng.ucsd.edu/mae/groups/stokeslet/publications_files/CSR2023.pdf",
+          "doi": null,
+          "locator": "§II: Eqs.7–10 and numerical curve parametrization"
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "id": "shao_2012",
+      "label": "Shao et al. (2012): polymerization, viscous actin, adhesion and closed shape",
+      "title": "Coupling actin flow, adhesion, and morphology in a computational cell motility model",
+      "authors": "Danying Shao; Herbert Levine; Wouter-Jan Rappel",
+      "citation": "PNAS 109(18), 6851–6856 (2012)",
+      "doi": "10.1073/pnas.1203252109",
+      "geometry": "Closed moving planar cell boundary represented by a phase field; reported computations exploit mirror symmetry.",
+      "mechanics": "Quasistatic viscous actin force balance includes expansive polymerization stress, myosin contraction, membrane tension/bending and gripping/slipping substrate adhesions.",
+      "biology": "Actin and myosin fields; no explicit Rac/Rho pair or MCA. A polarized actin initial condition selects the front.",
+      "conservation": "Actin monomer+filament conversion and myosin transport conserve their respective pools with zero-flux cell boundaries. Adhesion sites are replaced to keep their number fixed.",
+      "cap_handling": "Protrusion emerges through distributed active stress and interface motion; no deleted cap.",
+      "feasibility": "Already a two-dimensional closed-cell calculation, but full bulk mechanics is costlier than a perimeter-only assay.",
+      "use": "Direct precedent for distributed polymerization stress; chemistry, adhesions and initialization prevent unchanged substitution for deBelly.",
+      "code": {
+        "status": "Public simulation repository not located in inspected primary paper or targeted search",
+        "url": null,
+        "language": "Grid-based phase-field calculation",
+        "license": null
+      },
+      "sources": [
+        {
+          "title": "Published full article",
+          "url": "https://www.pnas.org/doi/10.1073/pnas.1203252109",
+          "doi": "10.1073/pnas.1203252109",
+          "locator": "Model: four modules, Eqs.1–4; initial conditions and numerical symmetry"
+        },
+        {
+          "title": "Archived full article",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3344950/",
+          "doi": null,
+          "locator": null
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "id": "bois_2011",
+      "label": "Bois et al. (2011): minimal consistent mechanics on a periodic domain",
+      "title": "Pattern Formation in Active Fluids",
+      "authors": "Justin S. Bois; Frank Jülicher; Stephan W. Grill",
+      "citation": "Physical Review Letters 106, 028103 (13 January 2011)",
+      "doi": "10.1103/PhysRevLett.106.028103",
+      "geometry": "Fixed one-dimensional periodic thin-film domain: mechanical velocity and chemical concentration are both periodic.",
+      "mechanics": "Viscous plus concentration-dependent active stress balances friction. The resulting flow advects the stress regulator.",
+      "biology": "Generic conserved stress regulator, with extensions to reacting species; no Rac/Rho pair, separate membrane or MCA.",
+      "conservation": "The single-species example uses conservative diffusion–advection and conserves its spatial integral.",
+      "cap_handling": "No protrusion or normal shape dynamics. A periodic coordinate closes intrinsic tangential mechanics, not a deforming cell boundary.",
+      "feasibility": "Lowest-cost 1D mechanochemical ring baseline; a physical curved-loop normal force balance would be an additional model.",
+      "use": "Useful complementary fixed-ring model and analytical check. It cannot supply the missing Rac-dependent protrusive arm by itself.",
+      "code": {
+        "status": "Public simulation repository not located in inspected primary paper or targeted search",
+        "url": null,
+        "language": "Low-dimensional continuum model",
+        "license": null
+      },
+      "sources": [
+        {
+          "title": "Published article",
+          "url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.106.028103",
+          "doi": "10.1103/PhysRevLett.106.028103",
+          "locator": null
+        },
+        {
+          "title": "Institution-hosted author paper",
+          "url": "https://publications.mpi-cbg.de/Bois_2011_4271.pdf",
+          "doi": null,
+          "locator": "Eqs.1–4; periodic and no-flux cases"
+        }
+      ]
+    }
+  ],
+  "additional_primary_sources": [
+    {
+      "label": "Dirks et al. (2019): Ezrin transport on a closed fixed cell",
+      "title": "A mathematical model for cell polarization in zebrafish primordial germ cells",
+      "doi": "10.48550/arXiv.1912.08627",
+      "url": "https://arxiv.org/html/1912.08627v1",
+      "status": "Author preprint; journal publication not verified",
+      "assessment": "Direct MCA relevance: membrane-bound Ezrin exchanges with cytoplasmic Ezrin, with closed-boundary transport and Darcy flow. However, the cell is deliberately static before bleb formation and the actin-brush body force is prescribed near a selected front. Its reduced simulation fixes the cytoplasmic concentration. This is a linker-transport insight rather than autonomous mechanical polarity closure.",
+      "locator": "§2.1; §2.2 fast-diffusion reduction; §4.2 imposed front force and MATLAB simulations"
+    },
+    {
+      "label": "Wittwer and Aland (2023): numerical implementation of the active-surface family",
+      "title": "A computational model of self-organized shape dynamics of active surfaces in fluids",
+      "doi": "10.1016/j.jcpx.2023.100126",
+      "url": "https://arxiv.org/html/2203.00099v1",
+      "status": "Journal of Computational Physics: X (2023); inspected author preprint v1",
+      "assessment": "Coupled active surface and inner/outer fluids with ALE finite elements; axisymmetric implementation in AMDiS. Important numerical caution: the preprint reports about 1% accumulated regulator mass loss in its strongest no-exchange test. Published-version implementation/conservation should be rechecked before reuse; a public paper-specific code repository was not located.",
+      "locator": "§3; Appendix AMDiS implementation and Figure8 mass test"
+    }
+  ],
+  "verification_limits": "No external model compiled or run. Code availability means repository/source inspection, not numerical validation. Not-located code is a bounded search result, not proof of absence. No source text quoted verbatim beyond bibliographic titles.",
+  "last_updated_utc": "2026-10-19T15:15:52.049469+00:00",
+  "bounded_addenda_20261019": [
+    {
+      "id": "staddon_2022",
+      "label": "Staddon, Munro and Banerjee (2022)",
+      "title": "Pulsatile contractions and pattern formation in excitable actomyosin cortex",
+      "doi": "10.1371/journal.pcbi.1009981",
+      "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009981",
+      "facts": "Periodic one-dimensional porous Maxwell cortex coupled to cytosol; both RhoA and actomyosin are advected. The model explicitly imposes zero mixture flux. It has no separate membrane/MCA layer or normal shape dynamics.",
+      "inference": "Continuity alone on a periodic domain permits a spatially constant circulating mixture flux; setting that flux to zero is an additional convention or physical restriction, not a consequence of periodicity.",
+      "code_url": "https://github.com/BanerjeeLab/CortexPattern",
+      "code_status": "Public Python/FiPy source verified; not run; license not verified",
+      "locators": "Results: Spatial propagation, Eqs.6–11; Methods: finite-volume solution; Data Availability"
+    },
+    {
+      "id": "manakova_2016",
+      "label": "Manakova, Yan, Lowengrub and Allard (2016)",
+      "title": "Cell Surface Mechanochemistry and the Determinants of Bleb Formation, Healing, and Travel Velocity",
+      "doi": "10.1016/j.bpj.2016.03.008",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4833840/",
+      "facts": "Local membrane/cortex-height mechanics combines force-sensitive MCA, cortex turnover, normal pressure and contractility. It produces bleb growth, healing and travel.",
+      "inference": "Useful normal-MCA mechanism, but a global closed contour and free circulation were not verified. Nonuniform tension is discussed as a possible extension, so it is not credited here as an implemented closure.",
+      "code_url": null,
+      "code_status": "Public paper-specific source repository not located in this bounded reading",
+      "locators": "Model Eqs.3,10–13; Discussion of normal stress and prospective nonuniform tension"
+    }
+  ],
+  "physical_closure_note": "physical_closure.html"
+}

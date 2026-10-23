@@ -1,0 +1,706 @@
+{
+  "generated_utc": "2026-10-19T17:07:59.996987+00:00",
+  "producer_state": "finished_read_only_reduction",
+  "scope": "Four numerical corners of the native fixed-at-birth Rac-gap assay; no new dynamics.",
+  "scientific_validation_status": "Independent terminal audit passed.",
+  "independent_validation": {
+    "path": "../validation_result.json",
+    "sha256": "20367f58e3f4e4a678fc842178227242930e8d411007cba1b7ad3c2277a099b2",
+    "passed": true
+  },
+  "protocol": {
+    "C": 50.0,
+    "target": 20.0,
+    "cosine_full_support": 10.0,
+    "cue_peak": 3.6,
+    "cue_duration": 1000.0,
+    "end": 31000.0,
+    "late_start": 2000.0
+  },
+  "definitions_source": {
+    "path": "polarity1d/manuscript/code/mechanisms/impl_debelly_gap_oscillation_20261019.py",
+    "sha256": "8ae2b0095acff8fb4b50cbb0a35d2385124927d732905f2598e0110ffed546f0"
+  },
+  "interpretation_limits": [
+    "Only complete observed inter-extremum intervals are reported. No extrapolated period or limit-cycle claim.",
+    "Two grid/timestep levels measure sensitivity, not asymptotic convergence or numerical order.",
+    "Own-corner basal requalification compares the complete pipeline, not identical post-cue initial conditions.",
+    "Vector phase is a pattern coordinate in the fixed circular assay; no migration velocity is inferred.",
+    "Signed cap exports, executed staggered exchange, sequential numerical defect and uniform replacement remain distinct."
+  ],
+  "rows": [
+    {
+      "key": "N324_dt0p5",
+      "N": 324,
+      "dt": 0.5,
+      "origin": "retained native control",
+      "basal_qualified": true,
+      "basal_clock": 18060.0,
+      "basal_contrast": 0.2465264047945973,
+      "basal_holdout_max": 6.353426357421531e-07,
+      "point_trough_times": [
+        9095.0,
+        24210.0
+      ],
+      "patch_trough_times": [
+        9125.0,
+        24235.0
+      ],
+      "point_observed_trough_intervals": [
+        15115.0
+      ],
+      "patch_observed_trough_intervals": [
+        15110.0
+      ],
+      "point_interval_available": true,
+      "point_complete_cycles": [
+        {
+          "start_trough": {
+            "time": 9095.0,
+            "value": 0.7293657307278849
+          },
+          "end_trough": {
+            "time": 24210.0,
+            "value": 0.7332093611419969
+          },
+          "observed_interval": 15115.0,
+          "maximum": {
+            "time": 16285.0,
+            "value": 0.9072725501726245
+          },
+          "excursion_from_start": 0.17790681944473963,
+          "excursion_from_end": 0.17406318903062767,
+          "trough_envelope_change": 0.0038436304141119537
+        }
+      ],
+      "patch_complete_cycles": [
+        {
+          "start_trough": {
+            "time": 9125.0,
+            "value": 0.7341550822727377
+          },
+          "end_trough": {
+            "time": 24235.0,
+            "value": 0.7371035854348079
+          },
+          "observed_interval": 15110.0,
+          "maximum": {
+            "time": 16285.0,
+            "value": 0.9067866841324665
+          },
+          "excursion_from_start": 0.1726316018597288,
+          "excursion_from_end": 0.16968309869765863,
+          "trough_envelope_change": 0.002948503162070182
+        }
+      ],
+      "late_gap_birth_times": [
+        8658.5,
+        16287.5,
+        23800.0
+      ],
+      "total_gap_events": 10,
+      "native_steps": 62000,
+      "point_R_target20_late_range": 0.17790681944473963,
+      "point_R_target20_final": 0.9070918415897709,
+      "patch_R_target20_late_range": 0.1726316018597288,
+      "patch_R_target20_final": 0.9065031294479742,
+      "vector_position_late_range": 9.931018411044185,
+      "vector_position_final": 21.737607813668603,
+      "vector_magnitude_late_range": 0.01623801761052547,
+      "vector_magnitude_final": 0.09142485704276161,
+      "R_contrast_late_range": 0.03242495455887362,
+      "R_contrast_final": 0.23992646421348307,
+      "late_counts": {
+        "active_components": {
+          "1": 5801
+        },
+        "active_local_maxima": {
+          "1": 5801
+        },
+        "all_local_maxima": {
+          "1": 5801
+        },
+        "gap_count": {
+          "1": 5801
+        }
+      },
+      "pools_total": {
+        "duration": 31000.0,
+        "bound_cap_export": 42.765964900794344,
+        "unbound_cap_export": 0.01259621219230522,
+        "executed_bound_net_binding": 21.160739926206936,
+        "executed_unbound_net_binding": -6.036928398777342,
+        "sequential_numerical_exchange": 15.123811527429599,
+        "native_global_deficit": 27.654749585554576,
+        "sequential_exchange_to_signed_export_fraction": 0.3535371722177522,
+        "binding_stage_sum_minus_numerical_defect": -3.552713678800501e-15,
+        "uniform_return_minus_export_plus_defect": -2.4797941478027496e-12,
+        "bound_uniform_replacement": 21.60527311371451,
+        "unbound_uniform_replacement": 6.049476471840062,
+        "bound_amount_change": 4.8139131775482014e-05,
+        "unbound_amount_change": -4.813913177659224e-05,
+        "bound_budget_residual": 4.673150755252209e-12,
+        "unbound_budget_residual": -2.191802295214984e-12,
+        "rates": {
+          "bound_cap_export": 0.0013795472548643337,
+          "unbound_cap_export": 4.0632942555823287e-07,
+          "executed_bound_net_binding": 0.0006826045137486109,
+          "executed_unbound_net_binding": -0.00019473962576701105,
+          "numerical_exchange": 0.00048786488798159994,
+          "bound_uniform_replacement": 0.0006969442939907906,
+          "unbound_uniform_replacement": 0.00019514440231742136
+        }
+      }
+    },
+    {
+      "key": "N324_dt0p25",
+      "N": 324,
+      "dt": 0.25,
+      "origin": "new missing corner",
+      "basal_qualified": true,
+      "basal_clock": 14000.0,
+      "basal_contrast": 0.24647151911201126,
+      "basal_holdout_max": 1.3989100575717428e-06,
+      "point_trough_times": [
+        10940.0,
+        24020.0
+      ],
+      "patch_trough_times": [
+        10970.0,
+        24050.0
+      ],
+      "point_observed_trough_intervals": [
+        13080.0
+      ],
+      "patch_observed_trough_intervals": [
+        13080.0
+      ],
+      "point_interval_available": true,
+      "point_complete_cycles": [
+        {
+          "start_trough": {
+            "time": 10940.0,
+            "value": 0.7244583335877497
+          },
+          "end_trough": {
+            "time": 24020.0,
+            "value": 0.72582181689224
+          },
+          "observed_interval": 13080.0,
+          "maximum": {
+            "time": 17125.0,
+            "value": 0.9072951826783908
+          },
+          "excursion_from_start": 0.18283684909064113,
+          "excursion_from_end": 0.1814733657861508,
+          "trough_envelope_change": 0.0013634833044903205
+        }
+      ],
+      "patch_complete_cycles": [
+        {
+          "start_trough": {
+            "time": 10970.0,
+            "value": 0.7306127785055271
+          },
+          "end_trough": {
+            "time": 24050.0,
+            "value": 0.7316938434824153
+          },
+          "observed_interval": 13080.0,
+          "maximum": {
+            "time": 17125.0,
+            "value": 0.9068080602353599
+          },
+          "excursion_from_start": 0.1761952817298328,
+          "excursion_from_end": 0.17511421675294458,
+          "trough_envelope_change": 0.001081064976888202
+        }
+      ],
+      "late_gap_birth_times": [
+        10532.5,
+        17125.0,
+        23608.75,
+        30205.75
+      ],
+      "total_gap_events": 12,
+      "native_steps": 124000,
+      "point_R_target20_late_range": 0.18283684909064113,
+      "point_R_target20_final": 0.8916474936437436,
+      "patch_R_target20_late_range": 0.17619933091096907,
+      "patch_R_target20_final": 0.888470997665111,
+      "vector_position_late_range": 10.470202948753052,
+      "vector_position_final": 21.401942078668934,
+      "vector_magnitude_late_range": 0.016252149713993747,
+      "vector_magnitude_final": 0.09192528513579444,
+      "R_contrast_late_range": 0.03285179243841396,
+      "R_contrast_final": 0.25662384271768,
+      "late_counts": {
+        "active_components": {
+          "1": 5801
+        },
+        "active_local_maxima": {
+          "1": 5801
+        },
+        "all_local_maxima": {
+          "1": 5801
+        },
+        "gap_count": {
+          "1": 5801
+        }
+      },
+      "pools_total": {
+        "duration": 31000.0,
+        "bound_cap_export": 47.14488722908645,
+        "unbound_cap_export": 0.02700046282943129,
+        "executed_bound_net_binding": 18.205072324505025,
+        "executed_unbound_net_binding": -8.076142998206993,
+        "sequential_numerical_exchange": 10.128929326298026,
+        "native_global_deficit": 37.04295836566911,
+        "sequential_exchange_to_signed_export_fraction": 0.2147238497736413,
+        "binding_stage_sum_minus_numerical_defect": 5.329070518200751e-15,
+        "uniform_return_minus_export_plus_defect": 5.1249671173536626e-11,
+        "bound_uniform_replacement": 28.939811223178992,
+        "unbound_uniform_replacement": 8.103147142490117,
+        "bound_amount_change": -3.681451695491944e-06,
+        "unbound_amount_change": 3.6814516946037656e-06,
+        "bound_budget_residual": -4.9262816048667446e-11,
+        "unbound_budget_residual": -1.9984014443252818e-12,
+        "rates": {
+          "bound_cap_export": 0.0015208028138414985,
+          "unbound_cap_export": 8.709826719171384e-07,
+          "executed_bound_net_binding": 0.0005872603975646783,
+          "executed_unbound_net_binding": -0.00026052074187764496,
+          "numerical_exchange": 0.0003267396556870331,
+          "bound_uniform_replacement": 0.0009335422975219029,
+          "unbound_uniform_replacement": 0.0002613918433061328
+        }
+      }
+    },
+    {
+      "key": "N648_dt0p5",
+      "N": 648,
+      "dt": 0.5,
+      "origin": "new missing corner",
+      "basal_qualified": true,
+      "basal_clock": 14000.0,
+      "basal_contrast": 0.24658761102623972,
+      "basal_holdout_max": 5.20906580285062e-06,
+      "point_trough_times": [
+        9095.0,
+        23785.0
+      ],
+      "patch_trough_times": [
+        9125.0,
+        23810.0
+      ],
+      "point_observed_trough_intervals": [
+        14690.0
+      ],
+      "patch_observed_trough_intervals": [
+        14685.0
+      ],
+      "point_interval_available": true,
+      "point_complete_cycles": [
+        {
+          "start_trough": {
+            "time": 9095.0,
+            "value": 0.7297094036232064
+          },
+          "end_trough": {
+            "time": 23785.0,
+            "value": 0.7303420354080061
+          },
+          "observed_interval": 14690.0,
+          "maximum": {
+            "time": 16055.0,
+            "value": 0.9073097956854994
+          },
+          "excursion_from_start": 0.17760039206229306,
+          "excursion_from_end": 0.17696776027749328,
+          "trough_envelope_change": 0.0006326317847997753
+        }
+      ],
+      "patch_complete_cycles": [
+        {
+          "start_trough": {
+            "time": 9125.0,
+            "value": 0.7343907170090114
+          },
+          "end_trough": {
+            "time": 23810.0,
+            "value": 0.7348842907263228
+          },
+          "observed_interval": 14685.0,
+          "maximum": {
+            "time": 16055.0,
+            "value": 0.9068071564827684
+          },
+          "excursion_from_start": 0.17241643947375707,
+          "excursion_from_end": 0.17192286575644566,
+          "trough_envelope_change": 0.0004935737173114019
+        }
+      ],
+      "late_gap_birth_times": [
+        8685.5,
+        16053.5,
+        23372.0,
+        30745.0
+      ],
+      "total_gap_events": 12,
+      "native_steps": 62000,
+      "point_R_target20_late_range": 0.17760039206229306,
+      "point_R_target20_final": 0.8940896420244143,
+      "patch_R_target20_late_range": 0.17242238561191092,
+      "patch_R_target20_final": 0.8922897742264209,
+      "vector_position_late_range": 9.854918343378937,
+      "vector_position_final": 21.2167046467007,
+      "vector_magnitude_late_range": 0.016297732511735927,
+      "vector_magnitude_final": 0.10029113908142352,
+      "R_contrast_late_range": 0.032130825498243754,
+      "R_contrast_final": 0.2621755066547673,
+      "late_counts": {
+        "active_components": {
+          "1": 5801
+        },
+        "active_local_maxima": {
+          "1": 5801
+        },
+        "all_local_maxima": {
+          "1": 5801
+        },
+        "gap_count": {
+          "1": 5801
+        }
+      },
+      "pools_total": {
+        "duration": 31000.0,
+        "bound_cap_export": 42.800104317652156,
+        "unbound_cap_export": 0.03068789894625383,
+        "executed_bound_net_binding": 21.168366770390136,
+        "executed_unbound_net_binding": -6.026184863721204,
+        "sequential_numerical_exchange": 15.142181906668933,
+        "native_global_deficit": 27.688610309909834,
+        "sequential_exchange_to_signed_export_fraction": 0.35353494817685893,
+        "binding_stage_sum_minus_numerical_defect": 0.0,
+        "uniform_return_minus_export_plus_defect": -1.964473028692737e-11,
+        "bound_uniform_replacement": 21.63172680461706,
+        "unbound_uniform_replacement": 6.056883505292776,
+        "bound_amount_change": -1.0742625186299648e-05,
+        "unbound_amount_change": 1.074262518496738e-05,
+        "bound_budget_residual": 1.9773960246993738e-11,
+        "unbound_budget_residual": -1.3322676295501878e-13,
+        "rates": {
+          "bound_cap_export": 0.001380648526375876,
+          "unbound_cap_export": 9.899322240727043e-07,
+          "executed_bound_net_binding": 0.000682850540980327,
+          "executed_unbound_net_binding": -0.00019439306012003884,
+          "numerical_exchange": 0.0004884574808602882,
+          "bound_uniform_replacement": 0.0006977976388586148,
+          "unbound_uniform_replacement": 0.0001953833388804121
+        }
+      }
+    },
+    {
+      "key": "N648_dt0p25",
+      "N": 648,
+      "dt": 0.25,
+      "origin": "retained exact prefix plus continuation",
+      "basal_qualified": true,
+      "basal_clock": 15000.0,
+      "basal_contrast": 0.24653290104667736,
+      "basal_holdout_max": 8.33238015016334e-07,
+      "point_trough_times": [
+        11655.0,
+        24420.0
+      ],
+      "patch_trough_times": [
+        11690.0,
+        24450.0
+      ],
+      "point_observed_trough_intervals": [
+        12765.0
+      ],
+      "patch_observed_trough_intervals": [
+        12760.0
+      ],
+      "point_interval_available": true,
+      "point_complete_cycles": [
+        {
+          "start_trough": {
+            "time": 11655.0,
+            "value": 0.7249546005768959
+          },
+          "end_trough": {
+            "time": 24420.0,
+            "value": 0.7241621513415
+          },
+          "observed_interval": 12765.0,
+          "maximum": {
+            "time": 17630.0,
+            "value": 0.9073302362226052
+          },
+          "excursion_from_start": 0.18237563564570936,
+          "excursion_from_end": 0.18316808488110525,
+          "trough_envelope_change": -0.0007924492353958978
+        }
+      ],
+      "patch_complete_cycles": [
+        {
+          "start_trough": {
+            "time": 11690.0,
+            "value": 0.7310011788444134
+          },
+          "end_trough": {
+            "time": 24450.0,
+            "value": 0.7303744719456865
+          },
+          "observed_interval": 12760.0,
+          "maximum": {
+            "time": 17630.0,
+            "value": 0.90682799281378
+          },
+          "excursion_from_start": 0.1758268139693666,
+          "excursion_from_end": 0.17645352086809352,
+          "trough_envelope_change": -0.0006267068987269031
+        }
+      ],
+      "late_gap_birth_times": [
+        11275.5,
+        17629.75,
+        24039.0,
+        30396.75
+      ],
+      "total_gap_events": 12,
+      "native_steps": 124000,
+      "point_R_target20_late_range": 0.18316808488110525,
+      "point_R_target20_final": 0.8928322846985542,
+      "patch_R_target20_late_range": 0.17645352086809352,
+      "patch_R_target20_final": 0.8896926904769472,
+      "vector_position_late_range": 10.590057927039663,
+      "vector_position_final": 21.30426156855627,
+      "vector_magnitude_late_range": 0.01632986593962013,
+      "vector_magnitude_final": 0.09391795402788827,
+      "R_contrast_late_range": 0.03255278523863825,
+      "R_contrast_final": 0.26144673190826173,
+      "late_counts": {
+        "active_components": {
+          "1": 5801
+        },
+        "active_local_maxima": {
+          "1": 5801
+        },
+        "all_local_maxima": {
+          "1": 5801
+        },
+        "gap_count": {
+          "1": 5801
+        }
+      },
+      "pools_total": {
+        "duration": 31000.0,
+        "bound_cap_export": 47.33585234554302,
+        "unbound_cap_export": 0.02812223962633647,
+        "executed_bound_net_binding": 18.278189043812525,
+        "executed_unbound_net_binding": -8.108016108569153,
+        "sequential_numerical_exchange": 10.170172935243372,
+        "native_global_deficit": 37.19380164995934,
+        "sequential_exchange_to_signed_export_fraction": 0.21472380695069168,
+        "binding_stage_sum_minus_numerical_defect": 0.0,
+        "uniform_return_minus_export_plus_defect": 3.3359981443936704e-11,
+        "bound_uniform_replacement": 29.057657539030735,
+        "unbound_uniform_replacement": 8.136144110928607,
+        "bound_amount_change": -5.762733908287743e-06,
+        "unbound_amount_change": 5.762733907621609e-06,
+        "bound_budget_residual": -3.4150904326679665e-11,
+        "unbound_budget_residual": 7.902567489281864e-13,
+        "rates": {
+          "bound_cap_export": 0.0015269629788884844,
+          "unbound_cap_export": 9.071690202044022e-07,
+          "executed_bound_net_binding": 0.0005896190014133073,
+          "executed_unbound_net_binding": -0.0002615489067280372,
+          "numerical_exchange": 0.00032807009468527006,
+          "bound_uniform_replacement": 0.0009373437915816366,
+          "unbound_uniform_replacement": 0.00026245626164285825
+        }
+      }
+    }
+  ],
+  "pairwise": [
+    {
+      "comparison": "dt at N324",
+      "reference": "N324_dt0p5",
+      "changed": "N324_dt0p25",
+      "point_intervals_reference": [
+        15115.0
+      ],
+      "point_intervals_changed": [
+        13080.0
+      ],
+      "point_interval_difference": -2035.0,
+      "own_basal_contrast_difference": -5.488568258604776e-05,
+      "point_late_range_difference": 0.004930029645901501,
+      "own_basal_native_piecewise_constant_differences": {
+        "R": {
+          "RMS": 0.00011535777361209494,
+          "max_abs": 0.00026951424135179813
+        },
+        "Q": {
+          "RMS": 7.458516898675294e-05,
+          "max_abs": 9.778979337093929e-05
+        },
+        "b": {
+          "RMS": 3.422462235127535e-05,
+          "max_abs": 5.135588364738042e-05
+        },
+        "c": {
+          "RMS": 9.573874155713293e-06,
+          "max_abs": 1.4097369609063215e-05
+        },
+        "u": {
+          "RMS": 0.0007851806886062429,
+          "max_abs": 0.0015158325245373527
+        },
+        "v": {
+          "RMS": 2.7127515236216474e-05,
+          "max_abs": 4.459951325119782e-05
+        },
+        "T": {
+          "RMS": 0.006235775629030119,
+          "max_abs": 0.008956076166856342
+        }
+      }
+    },
+    {
+      "comparison": "dt at N648",
+      "reference": "N648_dt0p5",
+      "changed": "N648_dt0p25",
+      "point_intervals_reference": [
+        14690.0
+      ],
+      "point_intervals_changed": [
+        12765.0
+      ],
+      "point_interval_difference": -1925.0,
+      "own_basal_contrast_difference": -5.470997956236179e-05,
+      "point_late_range_difference": 0.005567692818812198,
+      "own_basal_native_piecewise_constant_differences": {
+        "R": {
+          "RMS": 0.00011600769370298107,
+          "max_abs": 0.00027142617227815524
+        },
+        "Q": {
+          "RMS": 7.470132226495531e-05,
+          "max_abs": 9.762214985742368e-05
+        },
+        "b": {
+          "RMS": 3.4407424869635084e-05,
+          "max_abs": 5.154203894121301e-05
+        },
+        "c": {
+          "RMS": 9.625948410647136e-06,
+          "max_abs": 1.4149046865155612e-05
+        },
+        "u": {
+          "RMS": 0.0007877367536378932,
+          "max_abs": 0.0015168642944385358
+        },
+        "v": {
+          "RMS": 2.7405108466037366e-05,
+          "max_abs": 4.499748306427409e-05
+        },
+        "T": {
+          "RMS": 0.006247923663948228,
+          "max_abs": 0.008980193877125231
+        }
+      }
+    },
+    {
+      "comparison": "N at dt.5",
+      "reference": "N324_dt0p5",
+      "changed": "N648_dt0p5",
+      "point_intervals_reference": [
+        15115.0
+      ],
+      "point_intervals_changed": [
+        14690.0
+      ],
+      "point_interval_difference": -425.0,
+      "own_basal_contrast_difference": 6.12062316424078e-05,
+      "point_late_range_difference": -0.0003064273824465724,
+      "own_basal_native_piecewise_constant_differences": {
+        "R": {
+          "RMS": 0.0006004147636749532,
+          "max_abs": 0.0043107008917636636
+        },
+        "Q": {
+          "RMS": 0.0003896566215277471,
+          "max_abs": 0.0026537029861917194
+        },
+        "b": {
+          "RMS": 8.582757359820419e-05,
+          "max_abs": 0.0004107629375802446
+        },
+        "c": {
+          "RMS": 2.4002109959746334e-05,
+          "max_abs": 0.00011478380859859805
+        },
+        "u": {
+          "RMS": 0.0010146896864851997,
+          "max_abs": 0.0031136717496350608
+        },
+        "v": {
+          "RMS": 4.5916588339643956e-05,
+          "max_abs": 0.00026471583236514773
+        },
+        "T": {
+          "RMS": 0.004275123204461228,
+          "max_abs": 0.013269708562760885
+        }
+      }
+    },
+    {
+      "comparison": "N at dt.25",
+      "reference": "N324_dt0p25",
+      "changed": "N648_dt0p25",
+      "point_intervals_reference": [
+        13080.0
+      ],
+      "point_intervals_changed": [
+        12765.0
+      ],
+      "point_interval_difference": -315.0,
+      "own_basal_contrast_difference": 6.138193466609376e-05,
+      "point_late_range_difference": 0.0003312357904641239,
+      "own_basal_native_piecewise_constant_differences": {
+        "R": {
+          "RMS": 0.0006002167358064795,
+          "max_abs": 0.004306243753406824
+        },
+        "Q": {
+          "RMS": 0.0003895901673657201,
+          "max_abs": 0.002651697563699651
+        },
+        "b": {
+          "RMS": 8.57093070402893e-05,
+          "max_abs": 0.0004101807623766718
+        },
+        "c": {
+          "RMS": 2.3968986870479225e-05,
+          "max_abs": 0.00011462175651424239
+        },
+        "u": {
+          "RMS": 0.001014064789032114,
+          "max_abs": 0.0031090793210538648
+        },
+        "v": {
+          "RMS": 4.603349879203983e-05,
+          "max_abs": 0.00026526604354610087
+        },
+        "T": {
+          "RMS": 0.00428904664283949,
+          "max_abs": 0.013298029236830766
+        }
+      }
+    }
+  ]
+}

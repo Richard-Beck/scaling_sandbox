@@ -73,6 +73,9 @@ def supplement(data, output):
                 if limits:ax.set_ylim(limits)
             finish(fig,title)
 
+        if (data/'jump_scoring_coverage.csv').exists():
+            from figure4_round4_render_20261023 import supplement_pages
+            supplement_pages(data,pdf,finish,grid,trend)
         smooth=smooth_fit(data)
         if smooth:
             fig,axes=grid()

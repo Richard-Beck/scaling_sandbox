@@ -13,13 +13,17 @@ REPORT=ROOT/'figures/length_mechanisms_20261008'
 DEV=REPORT/'dev'
 RECORDS=DEV/'_organization'
 GROUPS={
+ 'revision_round4_20261023/figure4':('figure4_round4_',),
  'revision_round3_20261022/figure4':('revision_round3_figure4_', 'figure4_round3_',),
+ 'revision_round3_20261022/figure2':('revision_round3_figure2_', 'figure2_round3_'),
+ 'figure4_region_model_20261022':('figure4_region_model_',),
  'revision_round2_20261022/figure2':('revision_round2_figure2_', 'figure2_round2_'),
  'revision_round2_20261022/figure3':('revision_round2_figure3_', 'figure3_round2_'),
  'revision_round2_20261022/figure4':('revision_round2_figure4_', 'figure4_round2_', 'S0_common_', 'S0_longest_'),
  'signature_figure4_20261020':('signature_figure4_', 'figure4_E0_'),
  'signature_assays_20261020':('signature_figure2_', 'figure2_signature_assays'),
  'revision_program_20261020/figure3_distance':('signature_figure3_', 'figure3_distance_20261020'),
+ 'debelly_ring_review_20261019':('debelly_ring_',),
  'revision_program_20261019':('revision_program_', 'revision_figure2_', 'revision_figure3_', 'revision_figure4_'),
  'spring_ring_validation_20261019':('spring_ring_reader_', 'spring_ring_validation_'),
  'vision_aligned_checkpoint_20261017':('vision_aligned_',),
@@ -73,14 +77,18 @@ TITLES['vision_ring_20261017']='Supported-ring gain, recovery and finite competi
 TITLES['vision_noise_20261017']='Replicated noisy-ring polarity persistence across sizes'
 TITLES['vision_noise_pilot_20261017']='Bounded noisy-ring numerical and response-regime pilot'
 TITLES['spring_ring_validation_20261019']='Spring ring: declared closure, raw competition fields and validation'
+TITLES['debelly_ring_review_20261019']='deBelly periodic-domain attempt: retained evidence, field viewer and assessment'
 TITLES['revision_program_20261019']='Figures 2–4: mechanisms, geometry and spontaneous polarity dynamics'
 TITLES['signature_assays_20261020']='Figure 2 revision: shape and timing signature assays'
 TITLES['signature_figure4_20261020']='Figure 4 revision: native noisy-ring persistence and regime measurements'
 TITLES['revision_program_20261020/figure3_distance']='Figure 3 revision: distance, competition and measured polarity geometry'
 TITLES['revision_round2_20261022/figure2']='Figure 2 round-2 replacement-resistance signatures'
+TITLES['revision_round3_20261022/figure2']='Figure 2 round-3 size responses and pulse-memory signatures'
+TITLES['revision_round3_20261022/figure4']='Figure 4 round-3 nulls for size-dependent heading persistence'
+TITLES['revision_round4_20261023/figure4']='Figure 4 revised event scoring, normalized drift and closure tests'
 TITLES['revision_round2_20261022/figure3']='Figure 3 round-2 short-range separation and matched-gap size effects'
 TITLES['revision_round2_20261022/figure4']='Figure 4 round-2 heading decay rates: author-authorized Case A'
-TITLES['revision_round3_20261022/figure4']='Figure 4 round-3 nulls for size-dependent heading persistence'
+TITLES['figure4_region_model_20261022']='Figure 4 observable-region model: native Wave-pinning pilot'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def write(p,value):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(value,indent=2,ensure_ascii=False)+'\n')
 def group(name):
@@ -127,6 +135,14 @@ def organize_group(name,dry_run=False):
  text=f'# {TITLES.get(name,name)}\n\n[All development experiments]({os.path.relpath(DEV/"README.md",folder)})\n\n'
  if exists(folder/'CURRENT_REVIEW.html'):text+='[Current review checkpoint — start here](CURRENT_REVIEW.html)\n\n'
  if exists(folder/'index.html'):text+='[Interactive scientific reader](index.html)\n\n'
+ if name=='figure4_region_model_20261022':
+  text=text.replace('[Interactive scientific reader]','[Native pilot report]')
+  pilot_status=folder/'supporting/metadata/pilot_report_summary.json'
+  if pilot_status.exists():
+   pilot=json.loads(pilot_status.read_text());raw=pilot['statistics']['raw_h0.5']
+   text+='**Requested native pilot review stop.** Raw V0 passes '+str(raw['V0_pass'])+'/25; V1 passes in '+str(raw['V1_pass'])+' of '+str(raw['primary_predictions_available'])+' estimable conditions, with '+str(raw['primary_unavailable'])+' unavailable. Recovery is archived as diagnostic evidence and is not a gate. No other model was started.\n\n'
+   text+='**The regional population closure remains unvalidated:** magnitude distributions pass in '+str(raw['V2_pass'])+'/'+str(raw['primary_predictions_available'])+' available conditions, and common-contrast attribute incompatibilities persist. See the scientific report for frequencies and qualifications.\n\n'
+  text+='[Scientific report and qualifications](supporting/metadata/scientific_readme.md) · [Corrected native design and tolerances](supporting/metadata/observable_design.json) · [Native condition census](supporting/data/native_condition_inventory.csv) · [Archived recovery diagnostic](archive/README.md)\n\n'
  if name=='revision_round2_20261022/figure4':
   text+='Rate-based size gains coexist with erosion below single-front geometry at stronger input; the frozen overall H1 remains inconclusive (Case B).\n\n'
   text+='Since 20 October, the interim replaces the primary persistence-time readout with decay-rate ratios, actual-circumference normalization and fixed-lag noise tolerance, with old/new S0 calls retained side by side. No revised main is composed before author review.\n\n'
@@ -167,6 +183,8 @@ def organize_group(name,dry_run=False):
     return payload.get('passed') is True and payload.get('complete') is True
    return True
   text+=''.join(f'- [{label}]({relative})\n' for label,relative in entries if ready_figure4_entry(relative))+'\n'
+ if name=='debelly_ring_review_20261019':
+  text+='[Seven-field event viewer](viewer/index.html) · [Retained methods and provenance](methods/README.txt)\n\n'
  docs=[f'[{label}]({filename})' for label,filename in [('Design','DESIGN.md'),('Results','RESULTS.md')] if (folder/filename).exists()]
  if docs:text+=' · '.join(docs)+'\n\n'
  if name=='revision_program_20261019':
@@ -236,7 +254,7 @@ def organize_group(name,dry_run=False):
  readme=folder/'README.md'
  # Round-2 generators own the scientific message, qualifications and links.
  # Organization must preserve that narrative rather than restore an interim.
- if name.startswith(('revision_round2_20261022/','revision_round3_20261022/')) and readme.exists():
+ if name.startswith(('revision_round2_20261022/','revision_round3_20261022/','revision_round4_20261023/')) and readme.exists():
   text=readme.read_text()
  index=DEV/'README.md'
  index_before=index.read_text()
@@ -255,8 +273,13 @@ def organize_group(name,dry_run=False):
  manifest_suffixes=('.manifest.json','_manifest.json')
  manifest_paths={p.resolve() for pattern in ['*.manifest.json','*_manifest.json'] for p in folder.rglob(pattern)}
  manifest_paths.update(dest for dest in moves.values() if dest.name.endswith(manifest_suffixes))
+ # The closed-out deBelly review retains original receipts as historical
+ # identifiers after retiring their full inputs. Independent package checks
+ # verify their preserved bytes; they are not current runtime dependencies.
+ historical_manifests={p for p in manifest_paths if name=='debelly_ring_review_20261019' and (folder/'methods/provenance').resolve() in p.parents}
  declared_hashes=0;source_hashes=0
  for path in sorted(manifest_paths):
+  if path in historical_manifests:continue
   manifest=json.loads(source_path(path).read_text())
   base=(path.parent/manifest.get('artifact_root','../..')).resolve()
   for key in ['sha256','figure_sha256','data_sha256']:
@@ -269,6 +292,7 @@ def organize_group(name,dry_run=False):
   native_campaign_roots={
    'revision_round2_20261022/figure2':'signature_holmes_retention_round2_20261022',
    'revision_round3_20261022/figure4':'signature_figure4_round3_compact_20261022',
+   'revision_round4_20261023/figure4':'signature_figure4_round3_compact_20261022',
   }
   if name in native_campaign_roots and path.name=='campaign_manifest.json':
    # This retained native manifest declares run-relative frozen sources.
@@ -303,6 +327,7 @@ def organize_group(name,dry_run=False):
  audit=dict(generated_at=datetime.now(timezone.utc).isoformat(),passed=True,
   mode='single_group',group=name,dry_run=bool(dry_run),
   declared_artifact_hashes_checked=declared_hashes,source_hashes_checked=source_hashes,local_links_checked=links,
+  historical_manifest_receipts_preserved=len(historical_manifests),
   preserved_existing_file_hashes_checked=len(protected),
   preview_and_supporting_moves=[dict(old=rel(source),new=rel(dest),sha256=moved_digests[source]) for source,dest in moves.items()],
   selected_topic_readme_changed=readme_changed,
@@ -435,6 +460,8 @@ def main():
   text=f'# {title}\n\n[All development experiments](../README.md)\n\n'
   if (folder/'CURRENT_REVIEW.html').exists():text+='[Current review checkpoint — start here](CURRENT_REVIEW.html)\n\n'
   if (folder/'index.html').exists():text+='[Interactive scientific reader](index.html)\n\n'
+  if g=='debelly_ring_review_20261019':
+   text+='[Seven-field event viewer](viewer/index.html) · [Retained methods and provenance](methods/README.txt)\n\n'
   if g=='deBelly_redraft':text+='[Narrative talking points through Figures X, Y and Z](NARRATIVE.md)\n\nThis collection contains the latest drafts selected by their manifest generation times, including the Figure Y mass-balance revision. Original exports remain in their source folders; the collection manifest records their paths, timestamps and verified hashes.\n\n'
   for p in previews:
    stem=p.stem;text+=f'- [{stem.replace("_"," ")}]({p.name})'

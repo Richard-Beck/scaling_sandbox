@@ -1,0 +1,207 @@
+{
+  "generated_utc": "2026-10-19T16:42:15.840259+00:00",
+  "passed": true,
+  "scheduler": "21187695|COMPLETED|0:0|00:01:43\n21187695.batch|COMPLETED|0:0|00:01:43\n21187695.extern|COMPLETED|0:0|00:01:43",
+  "scope": "Independent completed single-control invariant/pool audit plus bounded final5s native-core replay; no additional production trial.",
+  "source_sha256": {
+    "polarity1d/manuscript/code/mechanisms/validation_debelly_gap_fixed_topology_result_20261019.py": "9f304e73945dd8f9ba05d964044e0f7ca37f103b8704406ab93a3f5baa0df984",
+    "polarity1d/manuscript/data/runs/debelly_gap_oscillation_C50_20261019/interventions/fixed_topology/manifest.json": "873ce7679197cd20f16d04d89532f1afdfbda88c1ec3743a1d6ec6ea3e676baa",
+    "polarity1d/manuscript/data/runs/debelly_gap_oscillation_C50_20261019/interventions/fixed_topology/preregistration.json": "06f736c9e45cc7b38abb5c264724075b916f6371d72377991889cb25544a016f",
+    "polarity1d/manuscript/data/runs/debelly_gap_oscillation_C50_20261019/interventions/fixed_topology/native_profiles.npz": "93a36defefcde83bdc99434eca1b33113a26a7b23dc6109a72dea4f178017e95",
+    "polarity1d/manuscript/data/runs/debelly_gap_oscillation_C50_20261019/interventions/fixed_topology/diagnostics.json": "f7937d7610f92660eb43116ca77fb8355c5baffdb9adbcc328077dd1629abcc6",
+    "polarity1d/manuscript/data/runs/debelly_gap_oscillation_C50_20261019/interventions/fixed_topology/pool_budgets.npz": "2605faaa003a9b13bcab2053ae28dcebe079d5a93e62669fe8495175b3d5ef1b",
+    "polarity1d/manuscript/data/runs/debelly_gap_oscillation_C50_20261019/interventions/fixed_topology/final_state.npz": "9846af4297f27d03b2a35ebd2ee87c7cd06b7562d6e2793de514e66d1db8734b",
+    "polarity1d/manuscript/data/runs/debelly_gap_oscillation_C50_20261019/validation_features_coarse.npz": "fc532eca9ed0c8ade1d159bc5e669f3b66d89f8ea4a058c8fdd2189aba63603f"
+  },
+  "invariants": {
+    "all_seven_fields_finite": true,
+    "all_chemical_fields_nonnegative": true,
+    "all_native_widths_and_cut_face_id_x_fixed": true,
+    "all_raw_and_imposed_controllers_agree": true,
+    "events_empty": true,
+    "final_next_id": 4,
+    "stored_checkpoints_exact": {
+      "checkpoint_18000": true,
+      "final_state": true
+    },
+    "bounded_final5s_direct_core_replay_bit_exact": true,
+    "native_steps": 44690,
+    "saved_frames": 4470,
+    "maximum_tension_reconstruction_error": 2.220446049250313e-16,
+    "maximum_total_MCA_error": 4.440892098500626e-15
+  },
+  "cumulative_native_pool_budgets": {
+    "bound": {
+      "amount_change": 2.673861132507227e-12,
+      "native_executed_exchange": 1.5131135861451537e-09,
+      "signed_cap_export": 2.4026086067401995e-09,
+      "uniform_replacement": 8.884268321018851e-10,
+      "residual": 3.742049625667956e-12,
+      "maximum_step_residual": 2.4709615491149296e-15
+    },
+    "unbound": {
+      "amount_change": -2.674305221717077e-12,
+      "native_executed_exchange": -8.84543616711945e-10,
+      "signed_cap_export": -6.347987859406072e-10,
+      "uniform_replacement": 2.4875951298852783e-10,
+      "residual": -1.6889874389071378e-12,
+      "maximum_step_residual": 1.318601599979187e-15
+    }
+  },
+  "sequential_numerical_exchange": 6.285675044267237e-10,
+  "independent_feature_crosscheck": {
+    "source_sha256": "daa83cf296067ae36c09e0be41273c1cb598e824886874b7fa8152a2c6c3f470",
+    "maximum_differences": {
+      "point20": 1.1102230246251565e-16,
+      "patch20": 2.220446049250313e-16,
+      "phase": 2.842170943040401e-14,
+      "vector_magnitude": 3.885780586188048e-16,
+      "contrast": 0.0,
+      "Rmax": 0.0,
+      "Rmin": 0.0,
+      "active_peak_count": 0.0,
+      "all_peak_count": 0.0,
+      "component_count": 0.0
+    }
+  },
+  "native_recurrence_comparison": {
+    "fixed_point": {
+      "maxima": [],
+      "minima": [],
+      "return_window_minimum": 0.6672139050660552,
+      "return_window_maximum": 0.6672691307387998,
+      "final": 0.667315769796771,
+      "range": 0.1339083167377062
+    },
+    "fixed_patch": {
+      "maxima": [],
+      "minima": [],
+      "return_window_minimum": 0.6671897477395993,
+      "return_window_maximum": 0.667225007873743,
+      "final": 0.6672577987048534,
+      "range": 0.12946892035192614
+    },
+    "fixed_vector": {
+      "maxima": [],
+      "minima": [],
+      "return_window_minimum": 42.845247989591506,
+      "return_window_maximum": 43.615368750295424,
+      "final": 44.96093823238847,
+      "range": 14.356816135029682
+    },
+    "native_point": {
+      "maxima": [
+        {
+          "time": 16285.0,
+          "value": 0.9072725501726245
+        }
+      ],
+      "minima": [
+        {
+          "time": 9095.0,
+          "value": 0.7293657307278849
+        },
+        {
+          "time": 24210.0,
+          "value": 0.7332093611419969
+        }
+      ],
+      "return_window_minimum": 0.8911012012704439,
+      "return_window_maximum": 0.9072725501726245,
+      "final": 0.9070918415897709,
+      "range": 0.17790681944473963
+    },
+    "native_patch": {
+      "maxima": [
+        {
+          "time": 16285.0,
+          "value": 0.9067866841324665
+        }
+      ],
+      "minima": [
+        {
+          "time": 9125.0,
+          "value": 0.7341550822727378
+        },
+        {
+          "time": 24235.0,
+          "value": 0.737103585434808
+        }
+      ],
+      "return_window_minimum": 0.8870658451613627,
+      "return_window_maximum": 0.9067866841324665,
+      "final": 0.9065031294479741,
+      "range": 0.1726316018597287
+    },
+    "native_vector": {
+      "maxima": [
+        {
+          "time": 24250.0,
+          "value": 30.84513738933573
+        }
+      ],
+      "minima": [
+        {
+          "time": 16750.0,
+          "value": 20.963094493992813
+        }
+      ],
+      "return_window_minimum": 20.963094493992813,
+      "return_window_maximum": 21.910552841691615,
+      "final": 21.737607813668664,
+      "range": 9.931018411044029
+    }
+  },
+  "at_native_recovery_maximum": {
+    "time": 16285.0,
+    "fixed_point": 0.6672277901790531,
+    "native_point": 0.9072725501726245,
+    "fixed_patch": 0.6671980751163293,
+    "native_patch": 0.9067866841324665,
+    "fixed_Rac_contrast": 0.2467107209919588
+  },
+  "retained_pattern": {
+    "contrast_minimum": 0.23999863564949442,
+    "contrast_final": 0.24615090617858948,
+    "vector_magnitude_minimum": 0.09142681713582079,
+    "vector_magnitude_final": 0.09595217725792776,
+    "active_peak_counts": [
+      1
+    ],
+    "all_peak_counts": [
+      1,
+      2
+    ],
+    "active_component_counts": [
+      1
+    ],
+    "final_native_peak_records": [
+      {
+        "sample_indices": [
+          129
+        ],
+        "position": 19.830246913580226,
+        "minimum": 0.6673167598896568,
+        "maximum": 0.6673167598896568,
+        "above_threshold": false
+      },
+      {
+        "sample_indices": [
+          293
+        ],
+        "position": 44.9845679012346,
+        "minimum": 0.913140081688537,
+        "maximum": 0.913140081688537,
+        "above_threshold": true
+      }
+    ]
+  },
+  "interpretation": [
+    "The fixed-topology branch does not recover the native challenger-site/phase return in the preregistered window, and lacks comparable subsequent thresholded extrema through 31000 s, while retaining a polarized active domain.",
+    "This supports a role for the complete close/open retarget operation in the selected native cycle. It does not separate seam healing from new seam actuation, prove a purely biochemical subsystem cannot oscillate, or establish that retargeting initiates every rise/fall.",
+    "The old seam stays at its original position and its controllers keep the native Rac/tension law and absolute relaxation; no zero-mean speed or new mechanics solve was applied.",
+    "One active peak/region persists but weak additional subthreshold maxima can occur. Do not describe this control as having exactly one local maximum throughout.",
+    "A fixed old seam can leave the moving active region without local protrusive actuation. This is an intervention for diagnosis, not adoption as the final Rac-protrusive ring or a continuous-cap model.",
+    "No stationary-state qualification was requested or inferred for this control; absence of matched return is a finite-window result, not proof of no future recurrence."
+  ]
+}

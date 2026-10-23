@@ -1,0 +1,1288 @@
+{
+  "generated_utc": "2026-10-19T19:40:55.258409+00:00",
+  "producer_state": "finished_read_only_travel_shape_and_production",
+  "scope": "Ten actual saved nativeA states in the first two complete late fixed-gap flights. One frozen native half-step perstate reconstructs exact reaction/phase and next-cortex balances; no trajectory or spatially recentered field is produced.",
+  "selections": [
+    {
+      "flight": 1,
+      "start": 8853.0,
+      "end": 16472.5,
+      "gap": 31.9444444444443,
+      "direction": -1,
+      "times": [
+        10165.0,
+        12235.0,
+        13870.0,
+        15175.0,
+        16200.0
+      ]
+    },
+    {
+      "flight": 2,
+      "start": 16472.5,
+      "end": 24089.5,
+      "gap": 20.061728395061703,
+      "direction": 1,
+      "times": [
+        17785.0,
+        19855.0,
+        21490.0,
+        22795.0,
+        23815.0
+      ]
+    }
+  ],
+  "definitions": {
+    "distance": "direction * shortest signed (rawFV Racphase\u2212fixedgap position). FirstAflightdirection\u22121,second+1. Times are nearest actual5s snapshots to targets, coordinated with implementation.",
+    "width": "TwoR=.8 crossing positions obtained by linear interpolation between native cell centers. Edge positions are reported relative to the rawFVphase for geometry only; native field arrays stay at original coordinates.",
+    "leading": "Edge in the measured outgoing direction; trailing is the oppositeedge. Scalar comparisons between flights use these labels rather than reflecting or shifting fields.",
+    "phase_rate": "Im(Zdot/Z)/k with exactnativeFV harmonic Z and actualone-stepRacRHS. Components are Rho-inhibitedbasalproduction,MCAdependent/Rho-inhibitedproduction,implicitdecay andsharedFVdiffusion. Rac has noadvection.",
+    "cortex_sources": "Exact next-cortex solve at updatedb friction, with oldQ activeforce and newly computed membraneW and Racgapcommands. Current bound transport instead uses old interiorv, so this is not a decomposition of current bound advection."
+  },
+  "rows": [
+    {
+      "branch": "A",
+      "flight": 1,
+      "time": 10165.0,
+      "target_distance_um": 2.0,
+      "actual_outgoing_distance_um": 1.9982325491133714,
+      "direction": -1,
+      "phase_um": 29.94621189533093,
+      "outward_phase_velocity_um_per_s": 0.0010880181072808403,
+      "signed_phase_velocity_um_per_s": -0.0010880181072808403,
+      "active_width_um": 16.25826880956017,
+      "active_edge_midpoint_relative_to_phase_um": -0.27953564465327574,
+      "Rac_vector_strength": 0.08953479700372115,
+      "Rac_min": 0.642383341860612,
+      "Rac_max": 0.8917893550030458,
+      "Rac_amount": 36.6925244942973,
+      "gap": {
+        "id": 4,
+        "position": 31.9444444444443,
+        "Rac_trace": 0.8910927269364742,
+        "smooth_protrusion_switch": 0.1688521409369359,
+        "native_switch_midpoint": 0.899061648345644,
+        "connectivity_threshold": 0.8,
+        "commands": {
+          "left": 0.01603217812546982,
+          "right": -0.02501669620357128,
+          "maximum_absolute": 0.02501669620357128
+        },
+        "common_U": -0.11449692239211917,
+        "half_difference_U": 0.5168470614464159,
+        "raw_left": 0.40235013905429673,
+        "raw_right": -0.6313439838385351
+      },
+      "edges": {
+        "leading": {
+          "position_um": 21.537541845897568,
+          "relative_to_phase_um": -8.408670049433361,
+          "fields": {
+            "R": 0.8,
+            "Q": 0.6478797737483741,
+            "b": 0.06359409641124947,
+            "c": 0.017812748138974873,
+            "u": 0.12444237554222577,
+            "v": -0.00017449253141831996,
+            "T": 2.7989781158278477
+          },
+          "Rac_rate_components": {
+            "Rho_inhibited_basal": 0.028174011792196727,
+            "MCA_dependent_Rho_inhibited": 0.003984192801461408,
+            "implicit_uniform_decay": -0.032000447015054584,
+            "shared_FV_diffusion": -0.00013540682587412817
+          },
+          "Rac_total_rate": 2.235075272914726e-05,
+          "next_cortex_sources": {
+            "Rac_gap_commands": 0.007641640531792652,
+            "Rho_active_stress": -0.0078293119878409,
+            "membrane_drag": 1.2838825256352343e-05
+          },
+          "next_cortex_velocity": -0.0001748326307918855
+        },
+        "trailing": {
+          "position_um": 37.79581065545774,
+          "relative_to_phase_um": 7.84959876012681,
+          "fields": {
+            "R": 0.8,
+            "Q": 0.6307508384444289,
+            "b": 0.06603976995016933,
+            "c": 0.018495145086339926,
+            "u": -0.5912543203533478,
+            "v": -0.014056971575765282,
+            "T": 0.9929834740291581
+          },
+          "Rac_rate_components": {
+            "Rho_inhibited_basal": 0.0286154502360997,
+            "MCA_dependent_Rho_inhibited": 0.0034145534217558124,
+            "implicit_uniform_decay": -0.03199908692448213,
+            "shared_FV_diffusion": -7.657050926687596e-05
+          },
+          "Rac_total_rate": -4.5653775893492675e-05,
+          "next_cortex_sources": {
+            "Rac_gap_commands": -0.019306346771562666,
+            "Rho_active_stress": 0.005237723970007973,
+            "membrane_drag": 1.4861753301568685e-05
+          },
+          "next_cortex_velocity": -0.014053761048253134
+        }
+      },
+      "phase_rate_allocation_signed": {
+        "Rho_inhibited_basal": 0.011914288257780566,
+        "MCA_dependent_Rho_inhibited": -0.013024238534756613,
+        "implicit_uniform_decay": 2.176036214569529e-05,
+        "shared_FV_diffusion": 1.718075484338281e-07
+      },
+      "phase_rate_allocation_outward": {
+        "Rho_inhibited_basal": -0.011914288257780566,
+        "MCA_dependent_Rho_inhibited": 0.013024238534756613,
+        "implicit_uniform_decay": -2.176036214569529e-05,
+        "shared_FV_diffusion": -1.718075484338281e-07
+      },
+      "native_step_budgets": {
+        "bound_cap_outflux": 0.002102762620515182,
+        "unbound_cap_outflux": -4.29377470744704e-06,
+        "global_deficit": 0.0006782841200561052,
+        "sequential_exchange_residual": 0.00037095030284820365
+      },
+      "checks": {
+        "Rac_cell_RHS_max_error": 6.004311631224724e-16,
+        "phase_rate_sum_error": -1.0770464381471001e-15,
+        "next_cortex_source_sum_error": 1.8214596497756474e-17
+      }
+    },
+    {
+      "branch": "A",
+      "flight": 1,
+      "time": 12235.0,
+      "target_distance_um": 4.0,
+      "actual_outgoing_distance_um": 3.9975036543763984,
+      "direction": -1,
+      "phase_um": 27.946940790067902,
+      "outward_phase_velocity_um_per_s": 0.0010665373647720043,
+      "signed_phase_velocity_um_per_s": -0.0010665373647720043,
+      "active_width_um": 16.984055525046582,
+      "active_edge_midpoint_relative_to_phase_um": -0.1910203712239973,
+      "Rac_vector_strength": 0.08698116634079413,
+      "Rac_min": 0.6538967580643259,
+      "Rac_max": 0.8917424044421197,
+      "Rac_amount": 37.16369274667315,
+      "gap": {
+        "id": 4,
+        "position": 31.9444444444443,
+        "Rac_trace": 0.8878804719820509,
+        "smooth_protrusion_switch": 0.09654341330737609,
+        "native_switch_midpoint": 0.899061648345644,
+        "connectivity_threshold": 0.8,
+        "commands": {
+          "left": 0.01097597728876744,
+          "right": -0.014479587680150662,
+          "maximum_absolute": 0.014479587680150662
+        },
+        "common_U": -0.04427266647913369,
+        "half_difference_U": 0.32024869557684676,
+        "raw_left": 0.27597602909771307,
+        "raw_right": -0.36452136205598046
+      },
+      "edges": {
+        "leading": {
+          "position_um": 19.263892656320614,
+          "relative_to_phase_um": -8.683048133747288,
+          "fields": {
+            "R": 0.8,
+            "Q": 0.6399083220493609,
+            "b": 0.06452774814804621,
+            "c": 0.018073899936725514,
+            "u": 0.02751560696967119,
+            "v": -0.004410480483119006,
+            "T": 1.9573750926360516
+          },
+          "Rac_rate_components": {
+            "Rho_inhibited_basal": 0.02837921326875084,
+            "MCA_dependent_Rho_inhibited": 0.0037857061078354444,
+            "implicit_uniform_decay": -0.032000975770941464,
+            "shared_FV_diffusion": -0.00011515505857202995
+          },
+          "Rac_total_rate": 4.878854707291736e-05,
+          "next_cortex_sources": {
+            "Rac_gap_commands": 0.004555395523302703,
+            "Rho_active_stress": -0.008966799811179257,
+            "membrane_drag": 3.2720260572380304e-07
+          },
+          "next_cortex_velocity": -0.004411077085270828
+        },
+        "trailing": {
+          "position_um": 36.2479481813672,
+          "relative_to_phase_um": 8.301007391299294,
+          "fields": {
+            "R": 0.8,
+            "Q": 0.626805598480973,
+            "b": 0.0663962817962013,
+            "c": 0.018594787953227367,
+            "u": -0.35663017583661727,
+            "v": -0.008563083714294407,
+            "T": 0.3210036161971309
+          },
+          "Rac_rate_components": {
+            "Rho_inhibited_basal": 0.02871737573742783,
+            "MCA_dependent_Rho_inhibited": 0.0033278492564561323,
+            "implicit_uniform_decay": -0.03199955597359548,
+            "shared_FV_diffusion": -6.787034051490437e-05
+          },
+          "Rac_total_rate": -2.2201320226097327e-05,
+          "next_cortex_sources": {
+            "Rac_gap_commands": -0.011892924298985062,
+            "Rho_active_stress": 0.0033283833745587858,
+            "membrane_drag": 2.940969872552485e-06
+          },
+          "next_cortex_velocity": -0.00856159995455372
+        }
+      },
+      "phase_rate_allocation_signed": {
+        "Rho_inhibited_basal": 0.008771161406285609,
+        "MCA_dependent_Rho_inhibited": -0.00985919793390412,
+        "implicit_uniform_decay": 2.1330747295613598e-05,
+        "shared_FV_diffusion": 1.6841555182627855e-07
+      },
+      "phase_rate_allocation_outward": {
+        "Rho_inhibited_basal": -0.008771161406285609,
+        "MCA_dependent_Rho_inhibited": 0.00985919793390412,
+        "implicit_uniform_decay": -2.1330747295613598e-05,
+        "shared_FV_diffusion": -1.6841555182627855e-07
+      },
+      "native_step_budgets": {
+        "bound_cap_outflux": 0.0013684782787751135,
+        "unbound_cap_outflux": -2.4758623320449635e-06,
+        "global_deficit": 0.0004415301839850727,
+        "sequential_exchange_residual": 0.0002414710242364834
+      },
+      "checks": {
+        "Rac_cell_RHS_max_error": 8.111810072123412e-16,
+        "phase_rate_sum_error": 9.321970279030367e-16,
+        "next_cortex_source_sum_error": 1.474514954580286e-17
+      }
+    },
+    {
+      "branch": "A",
+      "flight": 1,
+      "time": 13870.0,
+      "target_distance_um": 6.0,
+      "actual_outgoing_distance_um": 5.998953397162758,
+      "direction": -1,
+      "phase_um": 25.945491047281543,
+      "outward_phase_velocity_um_per_s": 0.001382990734905882,
+      "signed_phase_velocity_um_per_s": -0.001382990734905882,
+      "active_width_um": 18.87990284425143,
+      "active_edge_midpoint_relative_to_phase_um": -0.1263501791849091,
+      "Rac_vector_strength": 0.08895509720223285,
+      "Rac_min": 0.6609931582403771,
+      "Rac_max": 0.8987587041469368,
+      "Rac_amount": 37.806157791495345,
+      "gap": {
+        "id": 4,
+        "position": 31.9444444444443,
+        "Rac_trace": 0.8837718328375,
+        "smooth_protrusion_switch": 0.044874926001444604,
+        "native_switch_midpoint": 0.899061648345644,
+        "connectivity_threshold": 0.8,
+        "commands": {
+          "left": 0.005642419478174232,
+          "right": -0.006645241487521514,
+          "maximum_absolute": 0.006645241487521514
+        },
+        "common_U": -0.01295633704130994,
+        "half_difference_U": 0.15658827355822663,
+        "raw_left": 0.1436319365169167,
+        "raw_right": -0.16954461059953657
+      },
+      "edges": {
+        "leading": {
+          "position_um": 16.37918944597092,
+          "relative_to_phase_um": -9.566301601310624,
+          "fields": {
+            "R": 0.8,
+            "Q": 0.6344562280115487,
+            "b": 0.06504048360411784,
+            "c": 0.0182180738472384,
+            "u": -0.0766140187249234,
+            "v": -0.008380419091062383,
+            "T": 1.2290754982343293
+          },
+          "Rac_rate_components": {
+            "Rho_inhibited_basal": 0.028519800800949874,
+            "MCA_dependent_Rho_inhibited": 0.0036727045638310094,
+            "implicit_uniform_decay": -0.032001522338763966,
+            "shared_FV_diffusion": -0.00011486608781899137
+          },
+          "Rac_total_rate": 7.611693819803502e-05,
+          "next_cortex_sources": {
+            "Rac_gap_commands": 0.0018408147063087392,
+            "Rho_active_stress": -0.01022257127724332,
+            "membrane_drag": 5.113175310621102e-07
+          },
+          "next_cortex_velocity": -0.008381245253403525
+        },
+        "trailing": {
+          "position_um": 35.25909229022235,
+          "relative_to_phase_um": 9.313601242940805,
+          "fields": {
+            "R": 0.8,
+            "Q": 0.623862936411376,
+            "b": 0.06668477814696881,
+            "c": 0.018676420808755548,
+            "u": -0.17976700251432204,
+            "v": -0.0034794560237072364,
+            "T": -0.2617321387992138
+          },
+          "Rac_rate_components": {
+            "Rho_inhibited_basal": 0.028793447957300957,
+            "MCA_dependent_Rho_inhibited": 0.0032554798453953196,
+            "implicit_uniform_decay": -0.031999510665636,
+            "shared_FV_diffusion": -7.388385526017918e-05
+          },
+          "Rac_total_rate": -2.446671819992719e-05,
+          "next_cortex_sources": {
+            "Rac_gap_commands": -0.005685211849937204,
+            "Rho_active_stress": 0.002204694058421576,
+            "membrane_drag": 3.1984726955490003e-06
+          },
+          "next_cortex_velocity": -0.0034773193188200767
+        }
+      },
+      "phase_rate_allocation_signed": {
+        "Rho_inhibited_basal": 0.006135376751858562,
+        "MCA_dependent_Rho_inhibited": -0.007546245687761248,
+        "implicit_uniform_decay": 2.765981469827188e-05,
+        "shared_FV_diffusion": 2.1838629892126978e-07
+      },
+      "phase_rate_allocation_outward": {
+        "Rho_inhibited_basal": -0.006135376751858562,
+        "MCA_dependent_Rho_inhibited": 0.007546245687761248,
+        "implicit_uniform_decay": -2.765981469827188e-05,
+        "shared_FV_diffusion": -2.1838629892126978e-07
+      },
+      "native_step_budgets": {
+        "bound_cap_outflux": 0.0006794843897410482,
+        "unbound_cap_outflux": -3.7096395538710927e-06,
+        "global_deficit": 0.00021842311229391953,
+        "sequential_exchange_residual": 0.00011946426279943551
+      },
+      "checks": {
+        "Rac_cell_RHS_max_error": 7.814387158189273e-16,
+        "phase_rate_sum_error": 3.89011739487799e-16,
+        "next_cortex_source_sum_error": 1.3877787807814457e-17
+      }
+    },
+    {
+      "branch": "A",
+      "flight": 1,
+      "time": 15175.0,
+      "target_distance_um": 8.0,
+      "actual_outgoing_distance_um": 7.998212674371164,
+      "direction": -1,
+      "phase_um": 23.946231770073137,
+      "outward_phase_velocity_um_per_s": 0.0017199122223751585,
+      "signed_phase_velocity_um_per_s": -0.0017199122223751585,
+      "active_width_um": 20.78760341154154,
+      "active_edge_midpoint_relative_to_phase_um": -0.0620940659940592,
+      "Rac_vector_strength": 0.09092650324537055,
+      "Rac_min": 0.6662475262823728,
+      "Rac_max": 0.9054454729903826,
+      "Rac_amount": 38.420231520876996,
+      "gap": {
+        "id": 4,
+        "position": 31.9444444444443,
+        "Rac_trace": 0.8712045360129574,
+        "smooth_protrusion_switch": 0.0037906403756932106,
+        "native_switch_midpoint": 0.899061648345644,
+        "connectivity_threshold": 0.8,
+        "commands": {
+          "left": 0.000511950057816263,
+          "right": -0.0005373908754832908,
+          "maximum_absolute": 0.0005373908754832908
+        },
+        "common_U": -0.00036619009455264844,
+        "half_difference_U": 0.014566311956695218,
+        "raw_left": 0.014200121862142569,
+        "raw_right": -0.014932502051247866
+      },
+      "edges": {
+        "leading": {
+          "position_um": 13.490335998308309,
+          "relative_to_phase_um": -10.455895771764828,
+          "fields": {
+            "R": 0.8,
+            "Q": 0.6298906160547697,
+            "b": 0.065461926131483,
+            "c": 0.01833724110867245,
+            "u": -0.15129462668399635,
+            "v": -0.011182980586919335,
+            "T": 0.5191144213717648
+          },
+          "Rac_rate_components": {
+            "Rho_inhibited_basal": 0.028637662326926678,
+            "MCA_dependent_Rho_inhibited": 0.0035765461457290173,
+            "implicit_uniform_decay": -0.03200191642213539,
+            "shared_FV_diffusion": -0.00011647094375086428
+          },
+          "Rac_total_rate": 9.582110676920152e-05,
+          "next_cortex_sources": {
+            "Rac_gap_commands": 0.0001272753752748346,
+            "Rho_active_stress": -0.011308417668696908,
+            "membrane_drag": -2.3552731666929708e-06
+          },
+          "next_cortex_velocity": -0.011183497566588771
+        },
+        "trailing": {
+          "position_um": 34.27793940984984,
+          "relative_to_phase_um": 10.33170763977671,
+          "fields": {
+            "R": 0.8,
+            "Q": 0.6216585176964362,
+            "b": 0.06692882427457753,
+            "c": 0.018746800466906917,
+            "u": -0.03270749569029773,
+            "v": 0.0007821490466159515,
+            "T": -0.7644990666825562
+          },
+          "Rac_rate_components": {
+            "Rho_inhibited_basal": 0.02885047479943258,
+            "MCA_dependent_Rho_inhibited": 0.00319201383255834,
+            "implicit_uniform_decay": -0.031999095871380515,
+            "shared_FV_diffusion": -8.859919158503857e-05
+          },
+          "Rac_total_rate": -4.5206430974454394e-05,
+          "next_cortex_sources": {
+            "Rac_gap_commands": -0.00047978513344430534,
+            "Rho_active_stress": 0.0012622184467426802,
+            "membrane_drag": 4.7276188383691965e-07
+          },
+          "next_cortex_velocity": 0.0007829060751822117
+        }
+      },
+      "phase_rate_allocation_signed": {
+        "Rho_inhibited_basal": 0.003759066116328809,
+        "MCA_dependent_Rho_inhibited": -0.00551364817229109,
+        "implicit_uniform_decay": 3.439824444757243e-05,
+        "shared_FV_diffusion": 2.7158914027845934e-07
+      },
+      "phase_rate_allocation_outward": {
+        "Rho_inhibited_basal": -0.003759066116328809,
+        "MCA_dependent_Rho_inhibited": 0.00551364817229109,
+        "implicit_uniform_decay": -3.439824444757243e-05,
+        "shared_FV_diffusion": -2.7158914027845934e-07
+      },
+      "native_step_budgets": {
+        "bound_cap_outflux": 6.098807259449002e-05,
+        "unbound_cap_outflux": -1.8881613926208067e-06,
+        "global_deficit": 1.9098053747335086e-05,
+        "sequential_exchange_residual": 1.0451901852923333e-05
+      },
+      "checks": {
+        "Rac_cell_RHS_max_error": 7.524092026506279e-16,
+        "phase_rate_sum_error": 7.288007003447561e-16,
+        "next_cortex_source_sum_error": 8.673617379884035e-18
+      }
+    },
+    {
+      "branch": "A",
+      "flight": 1,
+      "time": 16200.0,
+      "target_distance_um": 10.0,
+      "actual_outgoing_distance_um": 10.001676234751866,
+      "direction": -1,
+      "phase_um": 21.942768209692435,
+      "outward_phase_velocity_um_per_s": 0.002221526760532751,
+      "signed_phase_velocity_um_per_s": -0.002221526760532751,
+      "active_width_um": 21.429994918501823,
+      "active_edge_midpoint_relative_to_phase_um": -0.060570701309076824,
+      "Rac_vector_strength": 0.09142272154942477,
+      "Rac_min": 0.6671621926319211,
+      "Rac_max": 0.907061066226124,
+      "Rac_amount": 38.61219112577469,
+      "gap": {
+        "id": 4,
+        "position": 31.9444444444443,
+        "Rac_trace": 0.824214855375293,
+        "smooth_protrusion_switch": 3.1542058143152474e-07,
+        "native_switch_midpoint": 0.899061648345644,
+        "connectivity_threshold": 0.8,
+        "commands": {
+          "left": 4.269534953900183e-08,
+          "right": -4.277290530247273e-08,
+          "maximum_absolute": 4.277290530247273e-08
+        },
+        "common_U": -3.161796744319019e-09,
+        "half_difference_U": 1.7245908901955064e-06,
+        "raw_left": 1.7214290934511873e-06,
+        "raw_right": -1.7277526869398253e-06
+      },
+      "edges": {
+        "leading": {
+          "position_um": 11.167200049132447,
+          "relative_to_phase_um": -10.775568160559988,
+          "fields": {
+            "R": 0.8,
+            "Q": 0.6293132496628284,
+            "b": 0.0654736044320653,
+            "c": 0.018341392751278288,
+            "u": -0.17723494503419054,
+            "v": -0.012003055279337203,
+            "T": 0.41055731019061015
+          },
+          "Rac_rate_components": {
+            "Rho_inhibited_basal": 0.028652578052681333,
+            "MCA_dependent_Rho_inhibited": 0.0035752681155229783,
+            "implicit_uniform_decay": -0.03200203445143518,
+            "shared_FV_diffusion": -0.00012408914501014698
+          },
+          "Rac_total_rate": 0.00010172257175902446,
+          "next_cortex_sources": {
+            "Rac_gap_commands": 7.60882505559922e-09,
+            "Rho_active_stress": -0.012000541470642402,
+            "membrane_drag": -2.645488519446062e-06
+          },
+          "next_cortex_velocity": -0.012003179350336787
+        },
+        "trailing": {
+          "position_um": 32.597194967634266,
+          "relative_to_phase_um": 10.654426757941835,
+          "fields": {
+            "R": 0.8,
+            "Q": 0.6220594180714968,
+            "b": 0.06693952733077506,
+            "c": 0.018750597412715318,
+            "u": -0.006727987616208504,
+            "v": 0.0002450813186882582,
+            "T": -1.0308270029085036
+          },
+          "Rac_rate_components": {
+            "Rho_inhibited_basal": 0.02884010028508353,
+            "MCA_dependent_Rho_inhibited": 0.003187192233125693,
+            "implicit_uniform_decay": -0.03199822914794424,
+            "shared_FV_diffusion": -0.00011760597305283585
+          },
+          "Rac_total_rate": -8.854260278783639e-05,
+          "next_cortex_sources": {
+            "Rac_gap_commands": -4.143909240493235e-08,
+            "Rho_active_stress": 0.00024516631702334237,
+            "membrane_drag": -1.8638787368271496e-07
+          },
+          "next_cortex_velocity": 0.0002449384900572551
+        }
+      },
+      "phase_rate_allocation_signed": {
+        "Rho_inhibited_basal": 0.0030976225451042243,
+        "MCA_dependent_Rho_inhibited": -0.005363930639297619,
+        "implicit_uniform_decay": 4.4430535210633075e-05,
+        "shared_FV_diffusion": 3.507984507328417e-07
+      },
+      "phase_rate_allocation_outward": {
+        "Rho_inhibited_basal": -0.0030976225451042243,
+        "MCA_dependent_Rho_inhibited": 0.005363930639297619,
+        "implicit_uniform_decay": -4.4430535210633075e-05,
+        "shared_FV_diffusion": -3.507984507328417e-07
+      },
+      "native_step_budgets": {
+        "bound_cap_outflux": 5.48909405103932e-09,
+        "unbound_cap_outflux": -9.444495841463443e-10,
+        "global_deficit": 1.4659677916029068e-09,
+        "sequential_exchange_residual": 8.063546863011873e-10
+      },
+      "checks": {
+        "Rac_cell_RHS_max_error": 8.684806685117265e-16,
+        "phase_rate_sum_error": 7.225123277443402e-16,
+        "next_cortex_source_sum_error": 1.3877787807814457e-17
+      }
+    },
+    {
+      "branch": "A",
+      "flight": 2,
+      "time": 17785.0,
+      "target_distance_um": 2.0,
+      "actual_outgoing_distance_um": 2.000597114542934,
+      "direction": 1,
+      "phase_um": 22.062325509604637,
+      "outward_phase_velocity_um_per_s": 0.0010881380429855383,
+      "signed_phase_velocity_um_per_s": 0.0010881380429855383,
+      "active_width_um": 16.258667130063255,
+      "active_edge_midpoint_relative_to_phase_um": 0.2795255971000774,
+      "Rac_vector_strength": 0.08953023156749042,
+      "Rac_min": 0.6423949672153707,
+      "Rac_max": 0.8917832371615356,
+      "Rac_amount": 36.69290713355943,
+      "gap": {
+        "id": 5,
+        "position": 20.061728395061703,
+        "Rac_trace": 0.8910900103583704,
+        "smooth_protrusion_switch": 0.16877590514560142,
+        "native_switch_midpoint": 0.899061648345644,
+        "connectivity_threshold": 0.8,
+        "commands": {
+          "left": 0.0250061078029529,
+          "right": -0.01602764128116924,
+          "maximum_absolute": 0.0250061078029529
+        },
+        "common_U": 0.11441999010116827,
+        "half_difference_U": 0.5166582218046678,
+        "raw_left": 0.631078211905836,
+        "raw_right": -0.4022382317034995
+      },
+      "edges": {
+        "leading": {
+          "position_um": 30.471184671736342,
+          "relative_to_phase_um": 8.408859162131705,
+          "fields": {
+            "R": 0.8,
+            "Q": 0.6478727208773051,
+            "b": 0.0635950196759128,
+            "c": 0.017813005707510952,
+            "u": -0.12432524458690157,
+            "v": 0.00017944297713597278,
+            "T": 2.798266256215062
+          },
+          "Rac_rate_components": {
+            "Rho_inhibited_basal": 0.02817419269591924,
+            "MCA_dependent_Rho_inhibited": 0.003984034638896491,
+            "implicit_uniform_decay": -0.03200044760357145,
+            "shared_FV_diffusion": -0.00013539955267180597
+          },
+          "Rac_total_rate": 2.238017857262883e-05,
+          "next_cortex_sources": {
+            "Rac_gap_commands": -0.007638079146005215,
+            "Rho_active_stress": 0.007830693932148374,
+            "membrane_drag": -1.2831003954209283e-05
+          },
+          "next_cortex_velocity": 0.0001797837821889486
+        },
+        "trailing": {
+          "position_um": 14.212517541673087,
+          "relative_to_phase_um": -7.84980796793155,
+          "fields": {
+            "R": 0.8,
+            "Q": 0.6307452332825587,
+            "b": 0.06604034346168146,
+            "c": 0.0184953050318133,
+            "u": 0.5910407779203122,
+            "v": 0.014053157909933332,
+            "T": 0.9921396142943701
+          },
+          "Rac_rate_components": {
+            "Rho_inhibited_basal": 0.02861559491470806,
+            "MCA_dependent_Rho_inhibited": 0.0034144163691160983,
+            "implicit_uniform_decay": -0.031999087429449,
+            "shared_FV_diffusion": -7.655238192528511e-05
+          },
+          "Rac_total_rate": -4.562852755027647e-05,
+          "next_cortex_sources": {
+            "Rac_gap_commands": 0.01929993674114586,
+            "Rho_active_stress": -0.005235137854581393,
+            "membrane_drag": -1.4851231422491702e-05
+          },
+          "next_cortex_velocity": 0.014049947655142003
+        }
+      },
+      "phase_rate_allocation_signed": {
+        "Rho_inhibited_basal": -0.011913294328266667,
+        "MCA_dependent_Rho_inhibited": 0.013023366958599179,
+        "implicit_uniform_decay": -2.1762760859658947e-05,
+        "shared_FV_diffusion": -1.7182648726961878e-07
+      },
+      "phase_rate_allocation_outward": {
+        "Rho_inhibited_basal": -0.011913294328266667,
+        "MCA_dependent_Rho_inhibited": 0.013023366958599179,
+        "implicit_uniform_decay": -2.1762760859658947e-05,
+        "shared_FV_diffusion": -1.7182648726961878e-07
+      },
+      "native_step_budgets": {
+        "bound_cap_outflux": 0.002102115126313357,
+        "unbound_cap_outflux": -4.294293049003141e-06,
+        "global_deficit": 0.0006780746574124308,
+        "sequential_exchange_residual": 0.0003708357592185568
+      },
+      "checks": {
+        "Rac_cell_RHS_max_error": 7.130391112622481e-16,
+        "phase_rate_sum_error": 4.5102810375396984e-17,
+        "next_cortex_source_sum_error": 3.122502256758253e-17
+      }
+    },
+    {
+      "branch": "A",
+      "flight": 2,
+      "time": 19855.0,
+      "target_distance_um": 4.0,
+      "actual_outgoing_distance_um": 4.000805889949401,
+      "direction": 1,
+      "phase_um": 24.062534285011104,
+      "outward_phase_velocity_um_per_s": 0.001067151736168864,
+      "signed_phase_velocity_um_per_s": 0.001067151736168864,
+      "active_width_um": 16.986786584920136,
+      "active_edge_midpoint_relative_to_phase_um": 0.19095137184685207,
+      "Rac_vector_strength": 0.08698341526812282,
+      "Rac_min": 0.6539083788555894,
+      "Rac_max": 0.8917513724163624,
+      "Rac_amount": 37.16463622124712,
+      "gap": {
+        "id": 5,
+        "position": 20.061728395061703,
+        "Rac_trace": 0.8878757984400081,
+        "smooth_protrusion_switch": 0.09646191617867417,
+        "native_switch_midpoint": 0.899061648345644,
+        "connectivity_threshold": 0.8,
+        "commands": {
+          "left": 0.014467432750921126,
+          "right": -0.010968336787073171,
+          "maximum_absolute": 0.014467432750921126
+        },
+        "common_U": 0.044216485754324686,
+        "half_difference_U": 0.32000292187239293,
+        "raw_left": 0.3642194076267176,
+        "raw_right": -0.27578643611806825
+      },
+      "edges": {
+        "leading": {
+          "position_um": 32.746878949318024,
+          "relative_to_phase_um": 8.68434466430692,
+          "fields": {
+            "R": 0.8,
+            "Q": 0.6399005137205013,
+            "b": 0.06452851181874895,
+            "c": 0.018074114489776846,
+            "u": -0.027327655367658618,
+            "v": 0.004417566099295071,
+            "T": 1.9563948518040533
+          },
+          "Rac_rate_components": {
+            "Rho_inhibited_basal": 0.028379414145013035,
+            "MCA_dependent_Rho_inhibited": 0.00378556083805293,
+            "implicit_uniform_decay": -0.032000976666821696,
+            "shared_FV_diffusion": -0.00011516497515984739
+          },
+          "Rac_total_rate": 4.883334108456329e-05,
+          "next_cortex_sources": {
+            "Rac_gap_commands": -0.004550464434077665,
+            "Rho_active_stress": 0.008968956738411651,
+            "membrane_drag": -3.292595222983807e-07
+          },
+          "next_cortex_velocity": 0.004418163044811676
+        },
+        "trailing": {
+          "position_um": 15.760092364397888,
+          "relative_to_phase_um": -8.302441920613216,
+          "fields": {
+            "R": 0.8,
+            "Q": 0.6267999648595542,
+            "b": 0.06639687959075977,
+            "c": 0.018594955609148645,
+            "u": 0.35636748179666555,
+            "v": 0.00855616828460212,
+            "T": 0.32000340340015515
+          },
+          "Rac_rate_components": {
+            "Rho_inhibited_basal": 0.028717521268350088,
+            "MCA_dependent_Rho_inhibited": 0.003327701946396392,
+            "implicit_uniform_decay": -0.031999555885388935,
+            "shared_FV_diffusion": -6.787305991111752e-05
+          },
+          "Rac_total_rate": -2.220573055344303e-05,
+          "next_cortex_sources": {
+            "Rac_gap_commands": 0.011883886470913547,
+            "Rho_active_stress": -0.003326260543221705,
+            "membrane_drag": -2.942770291733653e-06
+          },
+          "next_cortex_velocity": 0.008554683157400109
+        }
+      },
+      "phase_rate_allocation_signed": {
+        "Rho_inhibited_basal": -0.008768197191656784,
+        "MCA_dependent_Rho_inhibited": 0.009856860475117222,
+        "implicit_uniform_decay": -2.1343034723370384e-05,
+        "shared_FV_diffusion": -1.6851256638610097e-07
+      },
+      "phase_rate_allocation_outward": {
+        "Rho_inhibited_basal": -0.008768197191656784,
+        "MCA_dependent_Rho_inhibited": 0.009856860475117222,
+        "implicit_uniform_decay": -2.1343034723370384e-05,
+        "shared_FV_diffusion": -1.6851256638610097e-07
+      },
+      "native_step_budgets": {
+        "bound_cap_outflux": 0.0013674685485970854,
+        "unbound_cap_outflux": -2.4779730232533623e-06,
+        "global_deficit": 0.0004412031189584553,
+        "sequential_exchange_residual": 0.0002412921688279852
+      },
+      "checks": {
+        "Rac_cell_RHS_max_error": 6.119270942826077e-16,
+        "phase_rate_sum_error": 1.8169060006512083e-15,
+        "next_cortex_source_sum_error": 1.5612511283791264e-17
+      }
+    },
+    {
+      "branch": "A",
+      "flight": 2,
+      "time": 21490.0,
+      "target_distance_um": 6.0,
+      "actual_outgoing_distance_um": 6.003255827351094,
+      "direction": 1,
+      "phase_um": 26.064984222412797,
+      "outward_phase_velocity_um_per_s": 0.0013836053594403722,
+      "signed_phase_velocity_um_per_s": 0.0013836053594403722,
+      "active_width_um": 18.884350284849358,
+      "active_edge_midpoint_relative_to_phase_um": 0.12619102453244757,
+      "Rac_vector_strength": 0.08896013900794345,
+      "Rac_min": 0.661007648747023,
+      "Rac_max": 0.898775364276023,
+      "Rac_amount": 37.80764092162478,
+      "gap": {
+        "id": 5,
+        "position": 20.061728395061703,
+        "Rac_trace": 0.8837587442516706,
+        "smooth_protrusion_switch": 0.04476286116556605,
+        "native_switch_midpoint": 0.899061648345644,
+        "connectivity_threshold": 0.8,
+        "commands": {
+          "left": 0.006628228489909663,
+          "right": -0.005629545540444645,
+          "maximum_absolute": 0.006628228489909663
+        },
+        "common_U": 0.012904031524464038,
+        "half_difference_U": 0.15621621350417514,
+        "raw_left": 0.16912024502863918,
+        "raw_right": -0.1433121819797111
+      },
+      "edges": {
+        "leading": {
+          "position_um": 35.63335038936992,
+          "relative_to_phase_um": 9.568366166957126,
+          "fields": {
+            "R": 0.8,
+            "Q": 0.6344438876236383,
+            "b": 0.06504159833452554,
+            "c": 0.018218387818273386,
+            "u": 0.07681682761362144,
+            "v": 0.00838817271297176,
+            "T": 1.2272973187387652
+          },
+          "Rac_rate_components": {
+            "Rho_inhibited_basal": 0.02852011950273675,
+            "MCA_dependent_Rho_inhibited": 0.0036724326377845853,
+            "implicit_uniform_decay": -0.0320015234780873,
+            "shared_FV_diffusion": -0.00011485475806904895
+          },
+          "Rac_total_rate": 7.617390436499792e-05,
+          "next_cortex_sources": {
+            "Rac_gap_commands": -0.0018356274396870292,
+            "Rho_active_stress": 0.010225135840956256,
+            "membrane_drag": -5.091008433842489e-07
+          },
+          "next_cortex_velocity": 0.008388999300425852
+        },
+        "trailing": {
+          "position_um": 16.749000104520565,
+          "relative_to_phase_um": -9.315984117892231,
+          "fields": {
+            "R": 0.8,
+            "Q": 0.6238574153055797,
+            "b": 0.06668527620905686,
+            "c": 0.018676563759831812,
+            "u": 0.17937165311697087,
+            "v": 0.003467490700812601,
+            "T": -0.2629532050499296
+          },
+          "Rac_rate_components": {
+            "Rho_inhibited_basal": 0.028793591075006134,
+            "MCA_dependent_Rho_inhibited": 0.0032553423912216185,
+            "implicit_uniform_decay": -0.03199951048197327,
+            "shared_FV_diffusion": -7.389888559092128e-05
+          },
+          "Rac_total_rate": -2.4475901336747018e-05,
+          "next_cortex_sources": {
+            "Rac_gap_commands": 0.005671099878932548,
+            "Rho_active_stress": -0.0022025494714255625,
+            "membrane_drag": -3.197142725817288e-06
+          },
+          "next_cortex_velocity": 0.003465353264781171
+        }
+      },
+      "phase_rate_allocation_signed": {
+        "Rho_inhibited_basal": -0.006128927068674818,
+        "MCA_dependent_Rho_inhibited": 0.00754042301865912,
+        "implicit_uniform_decay": -2.7672107188780186e-05,
+        "shared_FV_diffusion": -2.1848335347934142e-07
+      },
+      "phase_rate_allocation_outward": {
+        "Rho_inhibited_basal": -0.006128927068674818,
+        "MCA_dependent_Rho_inhibited": 0.00754042301865912,
+        "implicit_uniform_decay": -2.7672107188780186e-05,
+        "shared_FV_diffusion": -2.1848335347934142e-07
+      },
+      "native_step_budgets": {
+        "bound_cap_outflux": 0.0006778816194496625,
+        "unbound_cap_outflux": -3.711803358578004e-06,
+        "global_deficit": 0.00021790433988666535,
+        "sequential_exchange_residual": 0.00011918056815848531
+      },
+      "checks": {
+        "Rac_cell_RHS_max_error": 9.091390970128801e-16,
+        "phase_rate_sum_error": 1.6709723882346594e-15,
+        "next_cortex_source_sum_error": 1.3877787807814457e-17
+      }
+    },
+    {
+      "branch": "A",
+      "flight": 2,
+      "time": 22795.0,
+      "target_distance_um": 8.0,
+      "actual_outgoing_distance_um": 8.003564323373269,
+      "direction": 1,
+      "phase_um": 28.065292718434968,
+      "outward_phase_velocity_um_per_s": 0.0017210780041962558,
+      "signed_phase_velocity_um_per_s": 0.0017210780041962558,
+      "active_width_um": 20.791288826676066,
+      "active_edge_midpoint_relative_to_phase_um": 0.06195982033250402,
+      "Rac_vector_strength": 0.09092984909269682,
+      "Rac_min": 0.6662548475202792,
+      "Rac_max": 0.905456432188299,
+      "Rac_amount": 38.42136184828517,
+      "gap": {
+        "id": 5,
+        "position": 20.061728395061703,
+        "Rac_trace": 0.8711397524758527,
+        "smooth_protrusion_switch": 0.0037420255680912784,
+        "native_switch_midpoint": 0.899061648345644,
+        "connectivity_threshold": 0.8,
+        "commands": {
+          "left": 0.0005304298839098771,
+          "right": -0.0005054172913882569,
+          "maximum_absolute": 0.0005304298839098771
+        },
+        "common_U": 0.0003602274120738415,
+        "half_difference_U": 0.014386538736220202,
+        "raw_left": 0.014746766148294043,
+        "raw_right": -0.01402631132414636
+      },
+      "edges": {
+        "leading": {
+          "position_um": 38.522896952105505,
+          "relative_to_phase_um": 10.457604233670537,
+          "fields": {
+            "R": 0.8,
+            "Q": 0.6298844171473634,
+            "b": 0.06546238616687292,
+            "c": 0.018337373010109834,
+            "u": 0.15141409455435945,
+            "v": 0.011187081012801489,
+            "T": 0.5181413630226668
+          },
+          "Rac_rate_components": {
+            "Rho_inhibited_basal": 0.028637823755656936,
+            "MCA_dependent_Rho_inhibited": 0.003576357898405915,
+            "implicit_uniform_decay": -0.03200191656052981,
+            "shared_FV_diffusion": -0.00011643706704322362
+          },
+          "Rac_total_rate": 9.582802649009011e-05,
+          "next_cortex_sources": {
+            "Rac_gap_commands": -0.00012554874752683022,
+            "Rho_active_stress": 0.011310779530478075,
+            "membrane_drag": 2.364908743657696e-06
+          },
+          "next_cortex_velocity": 0.011187595691694916
+        },
+        "trailing": {
+          "position_um": 17.73160812542944,
+          "relative_to_phase_um": -10.333684593005529,
+          "fields": {
+            "R": 0.8,
+            "Q": 0.6216543839917538,
+            "b": 0.06692947196284504,
+            "c": 0.018746986586363718,
+            "u": 0.032518022082739496,
+            "v": -0.0007856403369973335,
+            "T": -0.7654744261019764
+          },
+          "Rac_rate_components": {
+            "Rho_inhibited_basal": 0.028850581897542783,
+            "MCA_dependent_Rho_inhibited": 0.0031918380937570818,
+            "implicit_uniform_decay": -0.03199909351077111,
+            "shared_FV_diffusion": -8.86509419731233e-05
+          },
+          "Rac_total_rate": -4.5324461444489595e-05,
+          "next_cortex_sources": {
+            "Rac_gap_commands": 0.00047364594352033025,
+            "Rho_active_stress": -0.0012595727778740265,
+            "membrane_drag": -4.622256310948747e-07
+          },
+          "next_cortex_velocity": -0.0007863890599847908
+        }
+      },
+      "phase_rate_allocation_signed": {
+        "Rho_inhibited_basal": -0.0037558131738990867,
+        "MCA_dependent_Rho_inhibited": 0.0055115845114053945,
+        "implicit_uniform_decay": -3.442156008384601e-05,
+        "shared_FV_diffusion": -2.7177322737399624e-07
+      },
+      "phase_rate_allocation_outward": {
+        "Rho_inhibited_basal": -0.0037558131738990867,
+        "MCA_dependent_Rho_inhibited": 0.0055115845114053945,
+        "implicit_uniform_decay": -3.442156008384601e-05,
+        "shared_FV_diffusion": -2.7177322737399624e-07
+      },
+      "native_step_budgets": {
+        "bound_cap_outflux": 6.0215478368280086e-05,
+        "unbound_cap_outflux": -1.8740634504042538e-06,
+        "global_deficit": 1.8852918384659745e-05,
+        "sequential_exchange_residual": 1.0317789071891043e-05
+      },
+      "checks": {
+        "Rac_cell_RHS_max_error": 6.684682375777268e-16,
+        "phase_rate_sum_error": -1.1679025802013854e-15,
+        "next_cortex_source_sum_error": 2.0816681711721685e-17
+      }
+    },
+    {
+      "branch": "A",
+      "flight": 2,
+      "time": 23815.0,
+      "target_distance_um": 10.0,
+      "actual_outgoing_distance_um": 9.997480451495555,
+      "direction": 1,
+      "phase_um": 30.059208846557258,
+      "outward_phase_velocity_um_per_s": 0.0022204948390572997,
+      "signed_phase_velocity_um_per_s": 0.0022204948390572997,
+      "active_width_um": 21.4299360870388,
+      "active_edge_midpoint_relative_to_phase_um": 0.06048891800900513,
+      "Rac_vector_strength": 0.09142263258929348,
+      "Rac_min": 0.6671613567511144,
+      "Rac_max": 0.9070595590610552,
+      "Rac_amount": 38.61208410827321,
+      "gap": {
+        "id": 5,
+        "position": 20.061728395061703,
+        "Rac_trace": 0.8243643603936972,
+        "smooth_protrusion_switch": 3.2499439028832455e-07,
+        "native_switch_midpoint": 0.899061648345644,
+        "connectivity_threshold": 0.8,
+        "commands": {
+          "left": 4.407498770582349e-08,
+          "right": -4.399107921288365e-08,
+          "maximum_absolute": 4.407498770582349e-08
+        },
+        "common_U": 3.3317851002652295e-09,
+        "half_difference_U": 1.7750408245800806e-06,
+        "raw_left": 1.7783726096803458e-06,
+        "raw_right": -1.7717090394798153e-06
+      },
+      "edges": {
+        "leading": {
+          "position_um": 40.83466580808567,
+          "relative_to_phase_um": 10.775456961528405,
+          "fields": {
+            "R": 0.8,
+            "Q": 0.6293136239901098,
+            "b": 0.06547373212023475,
+            "c": 0.018341427774642486,
+            "u": 0.17720222220162224,
+            "v": 0.012002203405109482,
+            "T": 0.41065050351932386
+          },
+          "Rac_rate_components": {
+            "Rho_inhibited_basal": 0.02865256755048251,
+            "MCA_dependent_Rho_inhibited": 0.0035752905617811416,
+            "implicit_uniform_decay": -0.03200203417988766,
+            "shared_FV_diffusion": -0.00012411493799298497
+          },
+          "Rac_total_rate": 0.00010170899438277258,
+          "next_cortex_sources": {
+            "Rac_gap_commands": -7.845328355155403e-09,
+            "Rho_active_stress": 0.011999685311926609,
+            "membrane_drag": 2.650583954125967e-06
+          },
+          "next_cortex_velocity": 0.012002328050552388
+        },
+        "trailing": {
+          "position_um": 19.404729721046863,
+          "relative_to_phase_um": -10.654479125510395,
+          "fields": {
+            "R": 0.7999999999999999,
+            "Q": 0.6220493386347438,
+            "b": 0.06694027045020401,
+            "c": 0.018750805843437593,
+            "u": 0.006768773281812058,
+            "v": -0.0002470096268132474,
+            "T": -1.0303696744262671
+          },
+          "Rac_rate_components": {
+            "Rho_inhibited_basal": 0.028840360762059095,
+            "MCA_dependent_Rho_inhibited": 0.0031870205083718134,
+            "implicit_uniform_decay": -0.03199823047101332,
+            "shared_FV_diffusion": -0.00011762724875182441
+          },
+          "Rac_total_rate": -8.847644933414003e-05,
+          "next_cortex_sources": {
+            "Rac_gap_commands": 4.2691739755545596e-08,
+            "Rho_active_stress": -0.0002470965787425625,
+            "membrane_drag": 1.8783624564849158e-07
+          },
+          "next_cortex_velocity": -0.00024686605075715845
+        }
+      },
+      "phase_rate_allocation_signed": {
+        "Rho_inhibited_basal": -0.003099122955636397,
+        "MCA_dependent_Rho_inhibited": 0.005364378326974999,
+        "implicit_uniform_decay": -4.4409896780960825e-05,
+        "shared_FV_diffusion": -3.5063550128760703e-07
+      },
+      "phase_rate_allocation_outward": {
+        "Rho_inhibited_basal": -0.003099122955636397,
+        "MCA_dependent_Rho_inhibited": 0.005364378326974999,
+        "implicit_uniform_decay": -4.4409896780960825e-05,
+        "shared_FV_diffusion": -3.5063550128760703e-07
+      },
+      "native_step_budgets": {
+        "bound_cap_outflux": 5.65449073084814e-09,
+        "unbound_cap_outflux": -9.700748252065365e-10,
+        "global_deficit": 1.51106682722002e-09,
+        "sequential_exchange_residual": 8.311420516704142e-10
+      },
+      "checks": {
+        "Rac_cell_RHS_max_error": 7.120142013960704e-16,
+        "phase_rate_sum_error": -9.462916561453483e-16,
+        "next_cortex_source_sum_error": 1.3877787807814457e-17
+      }
+    }
+  ],
+  "first_second_comparison": [
+    {
+      "target_distance_um": 2.0,
+      "actual_distance_difference_um": 0.0023645654295627594,
+      "width_difference_um": 0.000398320503084193,
+      "outward_velocity_difference_um_per_s": 1.1993570469799944e-07,
+      "leading_field_differences": {
+        "R": 0.0,
+        "Q": -7.052871069057609e-06,
+        "b": 9.232646633328123e-07,
+        "c": 2.5756853607936114e-07,
+        "T": -0.0007118596127857479
+      },
+      "trailing_field_differences": {
+        "R": 0.0,
+        "Q": -5.6051618702035455e-06,
+        "b": 5.735115121280332e-07,
+        "c": 1.599454733727801e-07,
+        "T": -0.0008438597347879551
+      }
+    },
+    {
+      "target_distance_um": 4.0,
+      "actual_distance_difference_um": 0.0033022355730025765,
+      "width_difference_um": 0.0027310598735539315,
+      "outward_velocity_difference_um_per_s": 6.143713968597905e-07,
+      "leading_field_differences": {
+        "R": 0.0,
+        "Q": -7.808328859604252e-06,
+        "b": 7.636707027441902e-07,
+        "c": 2.1455305133227798e-07,
+        "T": -0.0009802408319983247
+      },
+      "trailing_field_differences": {
+        "R": 0.0,
+        "Q": -5.633621418699164e-06,
+        "b": 5.977945584656474e-07,
+        "c": 1.676559212779316e-07,
+        "T": -0.0010002127969757635
+      }
+    },
+    {
+      "target_distance_um": 6.0,
+      "actual_distance_difference_um": 0.004302430188335649,
+      "width_difference_um": 0.004447440597928676,
+      "outward_velocity_difference_um_per_s": 6.146245344902223e-07,
+      "leading_field_differences": {
+        "R": 0.0,
+        "Q": -1.2340387910314554e-05,
+        "b": 1.1147304077030462e-06,
+        "c": 3.13971034986843e-07,
+        "T": -0.001778179495564025
+      },
+      "trailing_field_differences": {
+        "R": 0.0,
+        "Q": -5.521105796324477e-06,
+        "b": 4.98062088044593e-07,
+        "c": 1.4295107626446923e-07,
+        "T": -0.0012210662507157743
+      }
+    },
+    {
+      "target_distance_um": 8.0,
+      "actual_distance_difference_um": 0.005351649002104608,
+      "width_difference_um": 0.0036854151345266928,
+      "outward_velocity_difference_um_per_s": 1.1657818210972486e-06,
+      "leading_field_differences": {
+        "R": 0.0,
+        "Q": -6.198907406274046e-06,
+        "b": 4.6003538992089865e-07,
+        "c": 1.3190143738350812e-07,
+        "T": -0.0009730583490979994
+      },
+      "trailing_field_differences": {
+        "R": 0.0,
+        "Q": -4.133704682440786e-06,
+        "b": 6.4768826751882e-07,
+        "c": 1.8611945680133135e-07,
+        "T": -0.0009753594194201742
+      }
+    },
+    {
+      "target_distance_um": 10.0,
+      "actual_distance_difference_um": -0.004195783256310648,
+      "width_difference_um": -5.883146302210207e-05,
+      "outward_velocity_difference_um_per_s": -1.0319214754513605e-06,
+      "leading_field_differences": {
+        "R": 0.0,
+        "Q": 3.743272813938603e-07,
+        "b": 1.2768816944064287e-07,
+        "c": 3.5023364198388807e-08,
+        "T": 9.319332871371433e-05
+      },
+      "trailing_field_differences": {
+        "R": -1.1102230246251565e-16,
+        "Q": -1.0079436753018811e-05,
+        "b": 7.43119428950334e-07,
+        "c": 2.0843072227536008e-07,
+        "T": 0.00045732848223645206
+      }
+    }
+  ],
+  "interpretation": [
+    "From outgoing distance about2 to10um, firstA activeRac width grows16.258 to21.430um, about31.8%. Vector strength varies nonmonotonically and edgeMCA,Rho andtension change. These measurements contradict rigid translation of a fixed field profile.",
+    "The old gap is progressively separated from highRac activity: its trace falls0.89109 to0.82421, smoothprotrusion switch0.16885 to3.15e\u22127 and maximumcommand0.02502 to4.28e\u22128um/s. The native mechanicalcut still remains until the separate0.8 connectivity threshold is crossed.",
+    "At distance10um, leading-edge next-cortex velocity is supplied almost entirely by Rho active stress (about0.012um/s in the travel direction), while the old-gap command contributes only about7.6e\u22129um/s in the opposite direction. This is an instantaneous sourceallocation, not an evolved pathwaynecessity result.",
+    "OutwardMCA-dependent production contribution falls0.01302 to0.00536um/s, while opposing Rho-inhibitedbasal contribution weakens from\u22120.01191 to\u22120.00310um/s. Their changing cancellation allows the netphase speed to rise fromabout0.00109 to0.00222um/s. Fastertravel is not explained by an increasingMCA contribution alone.",
+    "The second opposite-directionA flight repeats the selected scalar edge states and geometry closely. A common empirical speed-distance relation can summarize this repeatable prepared trajectory, but distance co-varies with the evolving chemistry,shape andboundaryactuation rather than uniquely controlling the clock."
+  ],
+  "cautions": [
+    "Changing activewidth,edgechemistry/tension,rawRacvectorstrength andpoolprofiles contradict rigid translation of a fixed shape. A speed-distance curve can still be a useful descriptive relation along this prepared branch.",
+    "The distance and speed co-vary with evolving state; instantaneoussourceallocation doesnot establish a unique causal clockfraction.",
+    "Weak gapcommands do not close or remove the mechanicalgap: its displacement/velocity boundary and bounddiffusion interruption remain until the separateRac=.8 lifecycle threshold iscrossed.",
+    "The infinitesimal basal growthrate and this finite-amplitude travel are different regimes; no extrapolation or convergence claim is made here."
+  ],
+  "checks": {
+    "max_Rac_cell_RHS_error": 9.091390970128801e-16,
+    "max_phase_sum_error": 1.8169060006512083e-15,
+    "max_next_cortex_source_sum_error": 3.122502256758253e-17
+  },
+  "source_sha256": {
+    "polarity1d/manuscript/code/mechanisms/debelly_gap_travel_profiles_20261019.py": "c919a4ecdcd46ac3adb946239b511d8a0735d13c9db9c19fe825d3b5ea04d620",
+    "polarity1d/manuscript/data/runs/debelly_gap_on_face_challenge_C50_20261019/cases/cue20_face_birth/inputs.json": "742df6f39336837bd61b2078796834302bd1e3415a0cb811202665575ec59fc7",
+    "polarity1d/manuscript/data/runs/debelly_gap_on_face_challenge_C50_20261019/cases/cue20_face_birth/native_profiles.npz": "a76ed933381dff7c15e52d26e1adb786f8ad53d208aeb380312da40e1fb5a836",
+    "polarity1d/manuscript/data/runs/debelly_gap_on_face_challenge_C50_20261019/cases/cue20_face_birth/diagnostics.json": "4e5980982ce2c910060e4d6215a540c138af10aa4a9b87348bf22dc13af30fd6",
+    "polarity1d/manuscript/data/runs/debelly_gap_on_face_challenge_C50_20261019/cases/cue20_face_birth/events.json": "c8636a19f80108238b96be9eca9269b59ab1af5e983979bd8590a561c6bd69fc",
+    "polarity1d/manuscript/data/runs/debelly_gap_travel_clock_C50_20261019/implementation_prefit_plan.json": "5f1a96a59a963153e85659ff4d3dbd2d37d7913e315e5eb8a26e73fd7f079953",
+    "polarity1d/manuscript/data/runs/debelly_rac_gap_challenge_C50_20261019/frozen_sources/debelly.py": "2c55b50e03a74abaaa55eeccbb4b18bb1b8594d14dc716a901c51fe678793f96",
+    "polarity1d/manuscript/data/runs/debelly_rac_gap_challenge_C50_20261019/frozen_sources/debelly_rac_gap_challenge_20261019.py": "051d43edaa1b0d8be60c178a5a5a6fbceeac51cf1147e4ce607543e4742e5c15",
+    "polarity1d/manuscript/data/runs/debelly_rac_gap_challenge_C50_20261019/frozen_sources/gap_events.py": "5c13b61cf1530d10d886c3ee3a6669fc25cf65b96ada46d0f114b1ae312ef3e9",
+    "polarity1d/manuscript/data/runs/debelly_rac_gap_challenge_C50_20261019/frozen_sources/peak_detector.py": "12abb41905280f1312e5c1f59e09fd9245d5d92906b15822f751f50017fc4f9e",
+    "polarity1d/manuscript/data/runs/debelly_rac_gap_challenge_C50_20261019/frozen_sources/pilot.py": "0bbbc3381fc28f78b1a814070451c12fe0c3d3e3affdae33dfeb3d9023d3fc3a",
+    "polarity1d/manuscript/data/runs/debelly_rac_gap_challenge_C50_20261019/frozen_sources/ring_core.py": "0c54f4e80f27bccfa91ed7202e6400ad81e0c38bcd3f557d383b3c82248e0bcb"
+  }
+}

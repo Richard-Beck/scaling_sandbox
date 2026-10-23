@@ -2,6 +2,24 @@
 
 ## Working policy
 
+**Figure 2 exception, authorized and executed 2026-10-22:** the user requested
+physical cleanup of Figure 2 data outside the evidence needed by
+`manuscript_outline/revision_round3_20261022/`. The exact
+[assessment](reports/figure2_cleanup_round3_20261022/assessment.json),
+[deletion ledger](reports/figure2_cleanup_round3_20261022/delete_plan.jsonl) and
+[execution record](reports/figure2_cleanup_round3_20261022/execution.json)
+bound this exception. It supersedes earlier blanket preservation of the
+inventoried unused native histories only; it grants no standing permission for
+further deletion. Removed 33,821 unused NPZ files and 4,754 empty terminal logs.
+Current width/train histories, all calibration and numerical checks, exact
+inputs/basals, source code, scalar results and delivered figures remain.
+Unselected historical parameter sweeps no longer have complete native-field
+coverage; their summaries/provenance remain, and their complete raw histories
+require rerunning. The current main and 101-page supplement were rebuilt and
+verified after cleanup; see the
+[post-cleanup verification](reports/figure2_cleanup_round3_20261022/after_verification.json).
+Figures 3/4 and unrelated workstreams were outside the deletion scope.
+
 Keep the active polarity1d and LFCT workstreams. Preserve deprecated code and
 historical material while their unique scientific value is reviewed.
 This policy generally changes Git eligibility only: it does not authorize
@@ -112,3 +130,70 @@ assuming its intent: no original files are recreated, and no deletion of those
 in V1 remain in effect. A clean status is not required to preserve source safely;
 independent source-checkout validation must distinguish these known local
 absences from the committed tree. Website retirement remains outside this change.
+
+<!-- figure4-round3-compact-storage-20261022 begin -->
+
+## Figure 4 round-3 retention exception, authorized 22 October 2026
+
+The user authorized replacement of OLD Figure 4 noise native HPC outputs
+**only after the new compact campaign is COMPLETE**. Its current state at
+2026-10-23T03:16:44.915711+00:00 is **COMPLETE**, with
+45,696 verified compact seeds.
+The scoped old Figure4 noise native profiles were deleted after the COMPLETE audit; the separate retirement execution ledger records actual reclaimed storage. Preserve all preceding native arrays while any
+allocated seed or final precision assessment is missing. This exception does
+not cover Figures 2/3, exact qualified basals, source/protocol/audit records,
+or repository round-2 compact CSVs and figures.
+
+Keep the new `polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/` compact NPZ files, immutable
+manifest/frozen sources, exact 20 basal inputs, per-seed integrity and numerical
+receipts, CSV index, 2000-resample whole-seed precision reports, allocation
+decisions and actual SLURM receipts. Seeds 0/1 retain float16 examples bounded
+at 400 spatial bins and 2000 frames. No full native profile history is retained
+for new seeds. Unresolvable rates remain explicitly undefined; finite
+SE(log k)>0.07 triggers batches of 96 to at most384. Optional largest/weak
+extensions require a recorded condition-specific allocation and remain
+separate from the original compact evidence.
+
+[Current allocated storage record](reports/figure4_round3_storage_20261022.json).
+The immutable initial manifest says small QoS; effective xxlarge throughput
+resources are recorded in `results/qos_burst_upgrade.json`. The measured shared
+filesystem free space is distinct from unknown personal quota headroom.
+
+<!-- figure4-round3-compact-storage-20261022 end -->
+
+<!-- figure4-round3-old-native-retirement-20261022 begin -->
+
+## Figure 4 old native-profile retirement completed, 23 October 2026
+
+Measured **2026-10-23T03:16:44.863818+00:00**. Status **EXECUTED_AFTER_COMPACT_COMPLETE**.
+The exact [reviewable plan](reports/figure4_round3_retirement_20261022/summary.json)
+and [path/stat ledger](reports/figure4_round3_retirement_20261022/delete_plan.jsonl)
+cover 72 old Figure 4 noise campaign roots:
+**241,709,301,760 allocated bytes**
+(225.109 GiB), including directory
+and symbolic-link allocation and counting hard-linked files once.
+The 12,596 selected native profile/coupled-state paths
+occupy **166,686,736,384 unique allocated bytes**;
+estimated reclaim is **166,686,736,384 bytes**
+(155.239 GiB), allowing for preserved hard links.
+
+Selection is limited to `primary.npz`, `dense_primary.npz`, `full_states.npz`,
+`final_state.npz`, and full native-field CSV shards beneath
+`results/native_field_CSV_archives/` in those named roots. Exact qualified basal
+inputs, frozen sources/protocols and all repository round-2 CSVs/figures remain.
+The **75,022,565,376 allocated bytes** of remaining
+scalar and descriptor evidence are measured scientific records: legacy
+`trace.npz`/scalar histories support historical M1/M1initial and q1=P diagnostics,
+matched-mean forced flags and 12-seed comparisons; compressed contour/track JSON
+preserves previously measured region identities and sensitivity audits. These
+are not retained full native profile histories and are not assumed negligible.
+
+Execution completed after the new compact campaign's COMPLETE audit, final
+precision receipt and successful final rebuild. The
+[execution receipt](reports/figure4_round3_retirement_20261022/execution.json)
+records **241,713,340,416 allocated bytes before** and **75,026,046,976 after**,
+with **166,687,293,440 bytes (155.240 GiB) reclaimed** across 12,596 paths.
+The execution ledger is authoritative for actual removals; the planning
+measurements above are historical. No further deletion is authorized by this inventory.
+
+<!-- figure4-round3-old-native-retirement-20261022 end -->

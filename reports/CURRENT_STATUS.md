@@ -1,3 +1,17 @@
+## deBelly periodic-domain attempt closed (19 October 2026)
+
+[Best effort figure set of the day](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/BEST_EFFORT_FIGURES_20261019.md) — selected panels, brief revisions/placeholders and current status/outstanding tasks for each figure agent.
+
+The [consolidated report and executive assessment](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/debelly_ring_review_20261019/index.html)
+retains the [seven-field breakpoint viewer](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/debelly_ring_review_20261019/viewer/index.html)
+and a compact evidence set. The extension did not overcome physical cap-closure,
+material/reference and numerical-robustness hurdles. Recommendation: omit deBelly
+from the current ring assays, retain corrected linear deBelly, and consider a
+bounded mechanical redesign only if MCA biology warrants it. Superseded dated
+development outputs are retired under the user's cleanup instruction; the report
+records retained coverage and reproduction limits. Independent Spring and current
+figure work remain separate.
+
 ## Current Figures 2–4 revision (19 October 2026)
 
 [**Consolidated Figures 2–4: main PDF and legends**](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/consolidated_figure_set_20261019/figures_2_4_main.pdf) · [**64-page comprehensive supplement**](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/consolidated_figure_set_20261019/figures_2_4_supplement.pdf) · [**HTML reader and native-profile appendices**](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/consolidated_figure_set_20261019/index.html).
@@ -12,7 +26,8 @@ Figure 4 reports the complete 936-case, nine-strength core campaign plus 26 sepa
 
 Figures 1, 5 and reserved Figure 6 retain their preceding content. Earlier outline and review PDFs below are preserved development history; they do not contain this final consolidation. These are working manuscript resources, not a completed manuscript.
 
-The [revised manuscript outline](../manuscript_outline/outline_v2.pdf) integrates
+
+The [preceding revised manuscript outline](../manuscript_outline/outline_v2.pdf) integrates
 the checkpoint below with the approved five-model comparison and literature
 migration evidence. Its [critical assessment and repairs](../manuscript_outline/REVISION_NOTES.md)
 add physical-motion/coverage diagnostics and all-five mechanism-to-measurement

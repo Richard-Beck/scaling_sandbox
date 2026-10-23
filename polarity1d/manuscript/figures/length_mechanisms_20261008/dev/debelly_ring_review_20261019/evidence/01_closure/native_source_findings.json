@@ -1,0 +1,72 @@
+{
+  "generated_utc": "2026-10-19T15:46:42.094948+00:00",
+  "producer_state": "finished_static_design",
+  "paper_url": "https://www.nature.com/articles/s41556-026-01965-1",
+  "supplement_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41556-026-01965-1/MediaObjects/41556_2026_1965_MOESM1_ESM.pdf",
+  "source_sha256": {
+    "polarity1d/manuscript/figures/length_mechanisms_20261008/revision_20261014_draft_alignment/debelly_published_supplement.txt": "96af40dce96fcf2b8c7efca22ad1b47198bc5b3f5f94ebeac3ba3428b4cfc7a2",
+    "literature_models/debelly_2026_mechanochemical/src/debelly/one_d/Mechanochemical_general_code.jl": "62b9982baf26d7475aeff62615508e9ee8c5399a1a2031128374c1e0e25bce03",
+    "literature_models/debelly_2026_mechanochemical/src/debelly/axisymmetric/src/DeBellyAxisymmetric.jl": "a3579d762511a33da83cc6829a975063030da150f2412969b7708c1d4bc849a5",
+    "polarity1d/manuscript/code/core/src/polarity1d/debelly.py": "b2a063232905c6124d6fb1a93c448d53627e725e502b3437d64b22af9d08c19b",
+    "polarity1d/manuscript/code/mechanisms/debelly_ring_core_20261019.py": "0c54f4e80f27bccfa91ed7202e6400ad81e0c38bcd3f557d383b3c82248e0bcb",
+    "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/debelly_ring_development_20261019/supporting/metadata/refined_birth_probe.json": "32dd035dd1a2c3e3a7641052da19440698d4b43ca0dc7f3a8f9b43240962fc3b",
+    "polarity1d/manuscript/code/mechanisms/debelly_cap_spec_20261019.py": "bc78304e39e38bbcfea144206541cf98308d58a8d6db300285c09d51247ce760",
+    "polarity1d/manuscript/data/runs/debelly_protrusive_closure_design_20261019/interface_budget.json": "2d3a6b3aa7ded13400f6ac8ef7e049531492df11b559629055e7a4c465244775"
+  },
+  "source_findings": [
+    {
+      "id": "native_mechanics",
+      "source": "polarity1d/manuscript/figures/length_mechanisms_20261008/revision_20261014_draft_alignment/debelly_published_supplement.txt",
+      "locator": "Section 4.2, Eqs.26–32; local text lines 581–647",
+      "finding": "The native front prescribes both cortical velocity and membrane displacement. Membrane tension is proportional to the displacement gradient. The rear fixes both fields by symmetry."
+    },
+    {
+      "id": "native_relaxation",
+      "source": "literature_models/debelly_2026_mechanochemical/src/debelly/one_d/Mechanochemical_general_code.jl",
+      "locator": "lines 267–273; supplement Section 4.2 after Eq.32",
+      "finding": "The executed front controller updates membrane displacement by 0.98 times its previous value plus dt times the tension-limited Rac command. Cortical velocity uses the command without this displacement relaxation."
+    },
+    {
+      "id": "native_switch",
+      "source": "polarity1d/manuscript/figures/length_mechanisms_20261008/revision_20261014_draft_alignment/debelly_published_supplement.txt",
+      "locator": "Section 5.1, Eq.36; Julia lines 241 and 267–272",
+      "finding": "Rac activates a smooth protrusion speed; squared local membrane tension limits it. The 1D implementation uses a switch midpoint 1.3 times the initial Rac value, switch scale 0.01, speed magnitude 0.15, and denominator 1+T squared/10."
+    },
+    {
+      "id": "native_material",
+      "source": "literature_models/debelly_2026_mechanochemical/src/debelly/one_d/Mechanochemical_general_code.jl",
+      "locator": "lines 137–145 and 260–263; active conservative port lines 712–736",
+      "finding": "The executed bound and unbound strong-divergence transport with Neumann diffusion allows advective export through the prescribed front. Uniform replenishment is split using kon/(kon+koff). The corrected conservative port makes that accounting explicit."
+    },
+    {
+      "id": "paper_flux_distinction",
+      "source": "polarity1d/manuscript/figures/length_mechanisms_20261008/revision_20261014_draft_alignment/debelly_published_supplement.txt",
+      "locator": "Eq.33 versus Section 7.2.3 Eq.78",
+      "finding": "The 1D text calls Neumann density conditions zero flux even with nonzero boundary advection; this does not eliminate executed advective export. The 2D text separately states zero total advective-plus-diffusive flux. Those statements must not be used as an interchangeable physical finite-cap closure."
+    },
+    {
+      "id": "omitted_cap",
+      "source": "polarity1d/manuscript/figures/length_mechanisms_20261008/revision_20261014_draft_alignment/debelly_published_supplement.txt",
+      "locator": "Sections 6.1.4, 6.2.1–2 and 7.1, Eq.67; local text lines 1123–1137",
+      "finding": "The axisymmetric model suppresses radial deformation and removes the protrusive cap. It chooses a truncated sphere rather than explicitly resolving protrusion geometry; nonzero tangential pole Dirichlet data are incompatible with regularity on a full sphere."
+    },
+    {
+      "id": "executed_2d_boundary",
+      "source": "literature_models/debelly_2026_mechanochemical/src/debelly/axisymmetric/src/DeBellyAxisymmetric.jl",
+      "locator": "solve_velocity/solve_displacement, lines 174–181 and 217–223; run lines 309–312",
+      "finding": "The validated local 2D reproduction prescribes both tangent-vector cortex velocity and tangent-vector membrane displacement at the truncated edge. It does not supply a normal cap velocity or an uncut closed-surface protrusion law."
+    },
+    {
+      "id": "current_gap",
+      "source": "polarity1d/manuscript/code/mechanisms/debelly_ring_core_20261019.py",
+      "locator": "step, lines 270–313",
+      "finding": "The existing ring applies independent signed flank commands and displacement controllers, exports each MCA pool at its own velocities, and uniformly restores the total deficit. Removing membrane flank controllers changes this direct pathway."
+    },
+    {
+      "id": "executed_signs",
+      "source": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/debelly_ring_development_20261019/supporting/metadata/refined_birth_probe.json",
+      "locator": "native_first_opening_ledger and native_controller_formula_errors",
+      "finding": "Retained protrusion_speed is -0.15. The global-left flank command is therefore positive and the global-right command negative. The actual first opening gives +3.023828199667589e-10 and -3.023828199667589e-10 micrometres per second. The retained arc runs from global-right to global-left, so its native displacement-gradient integral is Uleft-Uright. This sign convention is used below."
+    }
+  ]
+}

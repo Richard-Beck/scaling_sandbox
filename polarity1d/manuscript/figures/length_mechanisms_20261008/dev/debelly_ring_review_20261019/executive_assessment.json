@@ -1,0 +1,445 @@
+{
+  "generated_utc": "2026-10-19T19:59:15.576905+00:00",
+  "producer_state": "finished_stopped_development_assessment",
+  "objective_state": "Stopped by user; no further model development or campaigns authorized by this report.",
+  "title": "Periodic deBelly: significant unresolved hurdles",
+  "verdict": "This attempt did not establish a faithful, numerically robust periodic deBelly model preserving its full Rac-driven protrusion mechanism.",
+  "executive_summary": "The point-gap construction retains both native Rac-driven flank arms and produces nontrivial polarized mechanics, but it introduces an omitted-cap/interface interpretation whose material, geometry and actuator-reference assumptions are not a demonstrated closed-cell model. Its polarized domain travels and retargets the gap; tested alignment changes do not remove that behavior, and finite return times change substantially with numerical treatment. Useful onset and travel diagnostics were obtained, but a complete physical explanation and converged assay counterpart were not achieved.",
+  "is_promising": "Mechanistically interesting as a future research project; not ready as a periodic counterpart in the current cross-model assay comparison. The shortest publication path is to omit it from the current ring assays while retaining corrected linear deBelly.",
+  "scope": {
+    "geometry": "Fixed circular assay coordinate with mechanically cut flanks; chemistry remains periodic.",
+    "main_protocol": {
+      "C": 50.0,
+      "N": 324,
+      "target": 20.0,
+      "cosine_full_support": 10.0,
+      "cue_peak": 3.6,
+      "cue_duration": 1000.0,
+      "response_end": 31000.0,
+      "late_start": 2000.0
+    },
+    "MCA": "Membrane–cortex attachment, represented by bound and unbound pools.",
+    "do_not_infer": [
+      "A requirement that every challenged state become stationary.",
+      "Loss of polarization merely because a domain moves.",
+      "Cell migration speed from the Rac first-moment phase.",
+      "A continuous material membrane, resolved normal protrusion or force-free cell torque law from the point-gap construction."
+    ]
+  },
+  "five_findings": [
+    {
+      "id": "native_closure",
+      "headline": "A faithful closed protrusive closure is missing.",
+      "finding": "The native one-dimensional model prescribes cortex velocity and separately relaxed membrane displacement at a front. The published axisymmetric formulation also truncates the protrusive cap rather than providing a regular uncut cap law. A fully periodic bulk control removes the direct Rac-to-membrane flank arm; a cortex-only seam does too. Neither meets the requested preservation of direct Rac-driven protrusion.",
+      "status": "Source-grounded structural limitation.",
+      "evidence": "closure",
+      "remaining": "A declared driven interface can be studied as an analogue, but its port reactions/work, absolute actuator reference and material reservoir must remain explicit. A continuous cap instead requires new geometric, constitutive and material-return choices; those were not adopted."
+    },
+    {
+      "id": "gap_travel",
+      "headline": "The protrusive gap construction retains polarity but develops traveling and retargeting dynamics.",
+      "finding": "In the retained C50 long-cue response, the Rac domain remains polarized while moving relative to the fixed-at-birth gap. Healing and new opening reset the gap location; Rac motion continues in its previous direction initially, with the later turn outside the dense 30-second event window. Suppressing the complete retarget operation removes the selected return without removing polarization.",
+      "evidence": "mechanism",
+      "measured_return_window_s": [
+        16000.0,
+        17500.0
+      ],
+      "return_window": {
+        "native": {
+          "point_R_max": 0.9072725501726245,
+          "patch_R_max": 0.9067866841324665,
+          "nearest_vector_distance_to_target": 0.9630944939927488,
+          "point_R_max_time": 16285.0
+        },
+        "fixed_topology": {
+          "point_R_max": 0.6672691307387999,
+          "patch_R_max": 0.667225007873743,
+          "nearest_vector_distance_to_target": 22.845247989591513,
+          "point_R_max_time": 17500.0
+        }
+      },
+      "limit": "This fork implicates the combined lifecycle/mechanical/material operation, not a uniquely isolated controller, transport term or biological oscillator."
+    },
+    {
+      "id": "alignment",
+      "headline": "The tested grid-alignment repair does not cure the motion.",
+      "finding": "Fixed existing-face gap births, with either the original cue center or a grid-face-aligned cue, retain the same qualitative traveling/retargeting response. Fresh cardinal preparations show tiny growing offsets despite passing finite basal gates, so the original zero-angle preparation is not evidence of asymptotic stability.",
+      "rows": [
+        {
+          "key": "original",
+          "point_trough_return_intervals_s": [
+            15115.0
+          ],
+          "cue_location_um": 20.0
+        },
+        {
+          "key": "cue20_face_birth",
+          "point_trough_return_intervals_s": [
+            15235.0
+          ],
+          "cue_location_um": 20.0
+        },
+        {
+          "key": "cue_face130_face_birth",
+          "point_trough_return_intervals_s": [
+            15235.0
+          ],
+          "cue_location_um": 20.061728395061703
+        }
+      ],
+      "evidence": "alignment",
+      "limit": "A negative result for the tested placement/alignment fixes; not proof that all discrete effects are absent."
+    },
+    {
+      "id": "numerical_dependence",
+      "headline": "Finite return times depend on the numerical pipeline.",
+      "native_factorial": [
+        {
+          "N": 324,
+          "dt_s": 0.5,
+          "point_trough_return_intervals_s": [
+            15115.0
+          ]
+        },
+        {
+          "N": 324,
+          "dt_s": 0.25,
+          "point_trough_return_intervals_s": [
+            13080.0
+          ]
+        },
+        {
+          "N": 648,
+          "dt_s": 0.5,
+          "point_trough_return_intervals_s": [
+            14690.0
+          ]
+        },
+        {
+          "N": 648,
+          "dt_s": 0.25,
+          "point_trough_return_intervals_s": [
+            12765.0
+          ]
+        }
+      ],
+      "native_paired": [
+        {
+          "key": "native_N324_dt0p5",
+          "dt_s": 0.5,
+          "point_trough_return_intervals_s": [
+            15115.0
+          ],
+          "own_basal_qualified": true
+        },
+        {
+          "key": "native_N324_dt0p25",
+          "dt_s": 0.25,
+          "point_trough_return_intervals_s": [
+            13080.0
+          ],
+          "own_basal_qualified": true
+        },
+        {
+          "key": "paired_N324_dt0p5",
+          "dt_s": 0.5,
+          "point_trough_return_intervals_s": [
+            10935.0,
+            10990.0
+          ],
+          "own_basal_qualified": true
+        },
+        {
+          "key": "paired_N324_dt0p25",
+          "dt_s": 0.25,
+          "point_trough_return_intervals_s": [
+            10960.0,
+            11020.0
+          ],
+          "own_basal_qualified": true
+        }
+      ],
+      "finding": "Halving the native timestep shortens the observed return by about 13%; doubling the mesh changes it by about 2–3% at these levels. Conservative pairing of bound/unbound exchange removes the known numerical creation term and retains oscillatory responses, but changes their return intervals to about 11,000 seconds.",
+      "evidence": "numerics",
+      "limit": "Only one complete native interval per corner and two paired intervals per timestep are observed. Requalification is part of each pipeline. Pairing alone is not an accuracy or convergence proof, and period changes do not isolate the numerical exchange residual as the cause."
+    },
+    {
+      "id": "mechanism_progress",
+      "headline": "Onset and travel were characterized, but the mechanism is not fully resolved.",
+      "finding": "The saved near-symmetric preparation develops a common physical reflection-antisymmetric mode across all seven fields and four controllers, with an e-folding time near 2,840 seconds. At finite amplitude, the active width, MCA, Rho and tension evolve as the domain travels; the old gap's direct command progressively switches off before its connectivity threshold is crossed. Rac has no direct advection: movement reflects spatially unequal reaction and diffusion, coupled indirectly to mechanics through MCA and Rho.",
+      "observed_mode_growth": {
+        "window_s": [
+          12000.0,
+          30060.0
+        ],
+        "samples": 3613,
+        "growth_per_s": 0.0003520945242634009,
+        "e_folding_s": 2840.146412648846,
+        "r_squared": 0.9999999978679139,
+        "max_log_residual": 0.00021420908032965258
+      },
+      "travel_interpretation": [
+        "From outgoing distance about2 to10um, firstA activeRac width grows16.258 to21.430um, about31.8%. Vector strength varies nonmonotonically and edgeMCA,Rho andtension change. These measurements contradict rigid translation of a fixed field profile.",
+        "The old gap is progressively separated from highRac activity: its trace falls0.89109 to0.82421, smoothprotrusion switch0.16885 to3.15e−7 and maximumcommand0.02502 to4.28e−8um/s. The native mechanicalcut still remains until the separate0.8 connectivity threshold is crossed.",
+        "At distance10um, leading-edge next-cortex velocity is supplied almost entirely by Rho active stress (about0.012um/s in the travel direction), while the old-gap command contributes only about7.6e−9um/s in the opposite direction. This is an instantaneous sourceallocation, not an evolved pathwaynecessity result.",
+        "OutwardMCA-dependent production contribution falls0.01302 to0.00536um/s, while opposing Rho-inhibitedbasal contribution weakens from−0.01191 to−0.00310um/s. Their changing cancellation allows the netphase speed to rise fromabout0.00109 to0.00222um/s. Fastertravel is not explained by an increasingMCA contribution alone.",
+        "The second opposite-directionA flight repeats the selected scalar edge states and geometry closely. A common empirical speed-distance relation can summarize this repeatable prepared trajectory, but distance co-varies with the evolving chemistry,shape andboundaryactuation rather than uniquely controlling the clock."
+      ],
+      "evidence": "mechanism",
+      "remaining": "Instantaneous field/source accounts and a complete-retarget fork do not establish the unique feedback setting growth, reversal or cycle timing. No continuum instability, limit cycle or physical cap model was established."
+    }
+  ],
+  "recommendations": [
+    {
+      "rank": 1,
+      "action": "OMIT from current ring assays; keep corrected linear deBelly.",
+      "rationale": "Protect the supported linear results and the interpretable ring comparison. Label this retained report as an unsuccessful extension attempt with useful diagnostics, rather than include an unresolved counterpart as if it were the same model.",
+      "scope": "No change to corrected linear figures, other supported ring models or independent Spring work."
+    },
+    {
+      "rank": 2,
+      "action": "MODIFY only as a bounded future redesign if membrane–cortex attachment biology is essential.",
+      "rationale": "Choose explicitly between an externally referenced driven omitted-cap/interface analogue and a finite active-cap model. The former is closer to the prescribed-boundary native assay; the latter can support stronger continuous-material claims but requires new geometry, material measures, recycling and mechanical closure. Preserve both direct Rac arms and separate physical fluxes from numerical correction.",
+      "minimum_future_gate": "Declare the biological interpretation first, then verify work/material/reference accounting and numerical robustness before comparative assays. No new construction is selected here."
+    },
+    {
+      "rank": 3,
+      "action": "REPLACE or complement it if genuinely closed mechanics is the scientific requirement.",
+      "rationale": "Inspect a published closed-cell/active-surface model with appropriate code and biology. Treat it as a different model, not a validated deBelly port. Existing literature offers closure ideas and complementary mechanisms, not a drop-in replacement.",
+      "candidates": [
+        {
+          "id": "ivsic_2026",
+          "title": "Diversity in emergent cell locomotion from the coupling cytosolic and cortical Marangoni flows with reaction–diffusion dynamics",
+          "citation": "PLOS Computational Biology 22(4), e1014216 (27 April 2026)",
+          "doi": "10.1371/journal.pcbi.1014216",
+          "geometry": "Actual deforming closed planar contour represented by a diffuse level set; the surrounding computational box is periodic.",
+          "biology": "Four species represent a GTPase-like activation/inhibition cycle. Neither separate Rac/Rho antagonism nor MCA linkers is retained.",
+          "feasibility": "Public C implementation with example inputs; already a two-dimensional closed-cell model. Numerical conservation and mesh/time convergence still need independent checks.",
+          "use": "Strongest implementation candidate for a complementary mechanochemical polarity model; adding deBelly MCA/Rac–Rho feedback would be new research.",
+          "code": {
+            "status": "Public source inspected; not executed",
+            "url": "https://github.com/blejzara/CellRDA-LS",
+            "language": "C11 according to README; paper describes ISO C99",
+            "license": "MIT",
+            "requirements": "NetCDF/HDF5; C compiler; OpenMP optional"
+          },
+          "sources": [
+            {
+              "title": "Published article",
+              "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1014216",
+              "doi": "10.1371/journal.pcbi.1014216",
+              "locator": "Model: Fluid dynamics Eqs.4–6; RDA Eqs.7–9; Methods; Data Availability"
+            },
+            {
+              "title": "Author source code",
+              "url": "https://github.com/blejzara/CellRDA-LS",
+              "doi": null,
+              "locator": "src/simulation.c: fluid force assembly and reaction updates; README.MD"
+            }
+          ],
+          "companions": null
+        },
+        {
+          "id": "mietke_active_surface_family",
+          "title": "Minimal Model of Cellular Symmetry Breaking",
+          "citation": "Physical Review Letters 123, 188101 (2019)",
+          "doi": "10.1103/PhysRevLett.123.188101",
+          "geometry": "Closed curved surface enclosing a viscous fluid. PRL nonlinear pattern simulations emphasize a rigid sphere; companion work evolves closed axisymmetric surfaces.",
+          "biology": "Generic diffusing stress regulator; no Rac/Rho pair or explicit membrane–cortex attachment layer.",
+          "feasibility": "2026 public MATLAB code evolves closed axisymmetric surfaces. A meridian has pole conditions, not periodic planar-loop conditions; a planar reduction needs derivation.",
+          "use": "Best source for a mechanically consistent normal-geometry extension. It supplies a framework, not an unchanged deBelly replacement.",
+          "code": {
+            "status": "2026 companion repository and closed-surface folders verified; not executed",
+            "url": "https://github.com/amietke/ActiveShapeSpaces",
+            "language": "MATLAB",
+            "license": "CC0-1.0",
+            "requirements": "MATLAB boundary-value solvers"
+          },
+          "sources": [
+            {
+              "title": "2019 PRL, author-hosted published PDF",
+              "url": "https://www.pks.mpg.de/fileadmin/user_upload/MPIPKS/group_pages/BiologicalPhysics/juelicher/publications/2019/MMoCSB2019.pdf",
+              "doi": "10.1103/PhysRevLett.123.188101",
+              "locator": "Eqs.1–12; rigid-sphere nonlinear results"
+            },
+            {
+              "title": "PRL author preprint with supplement",
+              "url": "https://arxiv.org/html/1909.12804v1",
+              "doi": null,
+              "locator": "Main Eqs.6–12; Supplement §3"
+            },
+            {
+              "title": "PNAS companion",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6320547/",
+              "doi": "10.1073/pnas.1810896115",
+              "locator": null
+            },
+            {
+              "title": "2026 variational/ALE companion",
+              "url": "https://journals.aps.org/prresearch/abstract/10.1103/jlps-h2qg",
+              "doi": "10.1103/jlps-h2qg",
+              "locator": null
+            },
+            {
+              "title": "2026 author preprint",
+              "url": "https://arxiv.org/html/2501.17849v1",
+              "doi": null,
+              "locator": "Closed-surface boundary conditions Table3; §V.2; ALE conservation appendix"
+            },
+            {
+              "title": "2026 source code",
+              "url": "https://github.com/amietke/ActiveShapeSpaces",
+              "doi": null,
+              "locator": "DynamicsClosedSurface_Figure6; ShapeSpaceAnalysisClosedSurface_Figure7"
+            }
+          ],
+          "companions": [
+            {
+              "title": "Self-organized shape dynamics of active surfaces",
+              "citation": "Mietke, Jülicher and Sbalzarini, PNAS 116, 29–34 (2019; online December 2018)",
+              "doi": "10.1073/pnas.1810896115"
+            },
+            {
+              "title": "Self-organized dynamics and emergent shape spaces of active isotropic fluid surfaces",
+              "citation": "Gao, Sun, Ma and Mietke, Physical Review Research 8, 023046 (15 April 2026)",
+              "doi": "10.1103/jlps-h2qg"
+            }
+          ]
+        },
+        {
+          "id": "werner_2022",
+          "title": "A Diffuse Interface Model for Cell Blebbing Including Membrane-Cortex Coupling with Linker Dynamics",
+          "citation": "SIAM Journal on Applied Mathematics 82(3), 1091–1112 (2022)",
+          "doi": "10.1137/21M1433642",
+          "geometry": "Two closed diffuse interfaces represent membrane and cortex in a three-dimensional fluid domain.",
+          "biology": "Closest explicit MCA analogue: active/inactive linkers rip and repair according to membrane–cortex separation. No Rac/Rho signaling.",
+          "feasibility": "Important limitation: all reported simulations freeze cortex and drop linker transport. A planar two-loop reduction and dynamic cortex need implementation.",
+          "use": "Strongest source for MCA/normal-deformation closure; not a demonstrated self-polarizing model or immediate replacement.",
+          "code": {
+            "status": "Public simulation repository not located in inspected primary paper/preprint or targeted search",
+            "url": null,
+            "language": "Finite elements; MPI and multithreading described",
+            "license": null
+          },
+          "sources": [
+            {
+              "title": "Published article",
+              "url": "https://epubs.siam.org/doi/10.1137/21M1433642",
+              "doi": "10.1137/21M1433642",
+              "locator": null
+            },
+            {
+              "title": "Author full-text preprint",
+              "url": "https://arxiv.org/html/2107.06334v1",
+              "doi": null,
+              "locator": "§2 linker transport and conservation; §4 static-cortex simulation restriction"
+            }
+          ],
+          "companions": null
+        },
+        {
+          "id": "chen_2023",
+          "title": "Interplay Between Mechanosensitive Adhesions and Membrane Tension Regulates Cell Motility",
+          "citation": "PRX Life 1, 023007 (6 December 2023)",
+          "doi": "10.1103/PRXLife.1.023007",
+          "geometry": "Actual closed one-dimensional cell boundary evolving in a two-dimensional plane, initially near circular.",
+          "biology": "Force-sensitive substrate adhesion fraction; no Rac/Rho chemistry. These extracellular adhesions are not MCA linkers.",
+          "feasibility": "Closest economical closed-curve mechanical template. Equal-arclength remeshing is explicit; public implementation not located in inspected sources.",
+          "use": "Useful alternative mechanical feedback model; adopting its uniform tension and substrate clutch substantially changes deBelly biology.",
+          "code": {
+            "status": "Public simulation repository not located in inspected primary sources or targeted search",
+            "url": null,
+            "language": "Finite differences on a periodic curve parameter",
+            "license": null
+          },
+          "sources": [
+            {
+              "title": "Published article",
+              "url": "https://journals.aps.org/prxlife/abstract/10.1103/PRXLife.1.023007",
+              "doi": "10.1103/PRXLife.1.023007",
+              "locator": null
+            },
+            {
+              "title": "Author-hosted full article",
+              "url": "https://web.eng.ucsd.edu/mae/groups/stokeslet/publications_files/CSR2023.pdf",
+              "doi": null,
+              "locator": "§II: Eqs.7–10 and numerical curve parametrization"
+            }
+          ],
+          "companions": null
+        }
+      ]
+    }
+  ],
+  "literature_judgment": {
+    "assessment": "No inspected primary candidate preserves the complete deBelly Rac/Rho–MCA–tension feedback while supplying demonstrated uncut deforming mechanics.",
+    "implementation_caution": "Public code was inspected, not run or independently validated here. A published geometry or source repository does not guarantee that it implements the intended assays or has suitable stability, conservation and convergence properties.",
+    "recommended_inspection_order": [
+      "Ivšić 2026 for a complementary closed-cell polarity implementation",
+      "Mietke active-surface family for normal/tangential mechanics and surface transport",
+      "Werner 2022 if explicit membrane–cortex linkers are indispensable",
+      "Chen 2023 for an economical closed-curve mechanical template, with different adhesion biology"
+    ],
+    "evidence": "evidence/01_closure/literature_review.json"
+  },
+  "evidence_groups": [
+    {
+      "id": "closure",
+      "title": "The native model does not provide the missing closed protrusive cap",
+      "path": "evidence/01_closure/native_source_findings.json",
+      "figure": null,
+      "why_retain": "Explains why changing a boundary condition alone cannot preserve the complete native protrusive mechanism.",
+      "limit": "Existing source inspection and design requirements, not an implemented finite-cap solution."
+    },
+    {
+      "id": "alignment",
+      "title": "Alignment changes do not remove traveling/retargeting dynamics",
+      "path": "evidence/02_alignment/comparison.json",
+      "figure": "evidence/02_alignment/comparison.svg",
+      "why_retain": "Rules out the tested grid-face/cue-alignment explanation as a sufficient remedy.",
+      "limit": "Three prepared C50 branches and one complete observed return each; not every possible discretization artifact is excluded."
+    },
+    {
+      "id": "numerics",
+      "title": "Timing changes with timestep and MCA update",
+      "path": "evidence/03_numerics/comparison.json",
+      "figure": "evidence/03_numerics/comparison.svg",
+      "csv": "evidence/03_numerics/comparison.csv",
+      "why_retain": "The most direct evidence against using the current finite return time as a robust assay measurement.",
+      "limit": "Own-method basal preparations and only two timestep/grid levels; no convergence or unique numerical-source causality claim."
+    },
+    {
+      "id": "mechanism",
+      "title": "Mechanistic progress is useful but incomplete",
+      "path": "evidence/04_mechanism/retarget_control.json",
+      "figure": "evidence/04_mechanism/retarget_control.svg",
+      "additional_figures": [
+        "evidence/04_mechanism/onset_growth.svg",
+        "evidence/04_mechanism/travel_shape.svg"
+      ],
+      "why_retain": "Preserves the bounded retargeting control, reproducible onset mode and evolving travel-state evidence.",
+      "limit": "The complete retarget operation is tested jointly; instantaneous source allocation does not identify a unique oscillation clock or establish biological necessity."
+    }
+  ],
+  "recommended_display": [
+    "evidence/02_alignment/comparison.svg",
+    "evidence/03_numerics/comparison.svg",
+    "evidence/04_mechanism/retarget_control.svg"
+  ],
+  "optional_diagnostic_figures": [
+    "evidence/04_mechanism/onset_growth.svg",
+    "evidence/04_mechanism/travel_shape.svg"
+  ],
+  "bounded_viewer": {
+    "path": "viewer/index.html",
+    "role": "Inspect all seven actual fields before/after each retained gap event; dense windows have native 0.5-second resolution, with separate same-clock topology snapshots. It is evidence for the attempted construction, not a functioning-model claim."
+  },
+  "retention": {
+    "large_histories_copied": false,
+    "new_analysis_or_trajectory": false,
+    "source_artifacts_modified": false,
+    "provenance": "evidence_manifest.json",
+    "asset_count": 23,
+    "data_note": "Copied summaries retain original source paths and hashes as historical provenance. Those paths are not runtime dependencies of this compact assessment."
+  }
+}

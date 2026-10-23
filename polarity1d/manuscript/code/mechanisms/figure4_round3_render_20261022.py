@@ -388,6 +388,9 @@ def model_examples(fig, grids, data, exported):
 
 
 def decomposition(fig, grid, data, exported, omissions):
+    if (data/'detector_free_decomposition.csv').exists():
+        from figure4_round4_render_20261023 import decomposition as revised
+        return revised(fig,grid,data,exported,omissions)
     rows = [r for r in primary(read_csv(data / "drift_decomposition.csv")) if n(r,"flicker_frames",default=5)==5 and math.isclose(n(r,"MSD_range_fraction",default=.25),.25)]
     # Descriptive multiple-front fractions may be available even when native
     # tracked-region archives are inaccessible. These remain separately named.
@@ -514,14 +517,16 @@ def render(out=OUT):
     omissions.extend(alpha_failures)
     write_csv(data/"omitted_estimates.csv",omissions)
     outliers=[dict(panel='C',**r) for r in c_alpha if finite(n(r,'alpha')) and not -1.5<=n(r,'alpha')<=4.]
-    outliers.extend(r for r in exported.get('E',[]) if r.get('quantity')=='kpred_over_kobs' and finite(n(r,'value')) and not .1<=n(r,'value')<=10.)
+    ratio_limits=(.003,1e4) if (data/'detector_free_decomposition.csv').exists() else (.1,10.)
+    outliers.extend(r for r in exported.get('E',[]) if r.get('quantity')=='kpred_over_kobs' and finite(n(r,'value')) and not ratio_limits[0]<=n(r,'value')<=ratio_limits[1])
     write_csv(data/'display_outliers.csv',outliers)
     from figure4_round3_supplement_20261022 import supplement
     supplement(data,out/"figure4_supplement.pdf")
-    inputs={str(p.relative_to(out)):sha(p) for p in data.iterdir() if p.is_file() and not p.name.startswith("plotted_") and p.name!="omitted_estimates.csv"}
+    inputs={str(p.relative_to(out)):sha(p) for p in data.rglob('*') if p.is_file() and not p.name.startswith("plotted_") and p.name!="omitted_estimates.csv"}
     try: commit=subprocess.check_output(["git","rev-parse","HEAD"],cwd=REPO,text=True).strip()
     except Exception: commit="unavailable"
     source_files=sorted(Path(__file__).parent.glob('figure4_round3_*_20261022.py'))+[Path(__file__).parent/'rebuild_figure4_round3_20261022.py']
+    if (data/'detector_free_decomposition.csv').exists():source_files+=sorted(Path(__file__).parent.glob('figure4_round4_*_20261023.py'))
     write_json(meta/"render_receipt.json",dict(generated_utc=datetime.now(timezone.utc).isoformat(),code_commit=commit,code_commit_status='repository HEAD at build; exact source hashes below include working-tree code',code_sha256={str(p.relative_to(REPO)):sha(p) for p in source_files if p.exists()},renderer=str(Path(__file__).relative_to(REPO)),renderer_sha256=sha(Path(__file__)),width_mm=180,height_mm=500,bootstrap_resamples=2000,inputs=inputs,outputs={p.name:sha(p) for p in out.glob("figure4_*.*") if p.is_file()},omission_count=len(omissions),no_imputation=True,all_main_titles_removed=True,time_increases_upward=True))
     return exported,omissions
 

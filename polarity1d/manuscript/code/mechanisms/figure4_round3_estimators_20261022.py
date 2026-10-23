@@ -251,11 +251,17 @@ def drift_jump(time, circumference, dominant_ids, track_headings, *, hold=5, ran
     valid_time = base['valid_time']
     lam = counted_switches/valid_time if valid_time > 0 else math.nan
     mean_cos = float(np.cos(jumps).mean()) if jumps else math.nan
+    # Estimate the angle distribution from the events that can be scored.
+    # Unscorable angles do not erase observed events or their exposure. This is
+    # a conditional angle estimate, whose coverage must accompany the result.
     base.update(Ds=Ds, MSD_exponent=exponent, lambda_s=lam, mean_cos_jump=mean_cos,
-                lambda_eff=lam*(1-mean_cos) if jumps and len(jumps)==counted_switches else 0. if counted_switches==0 and valid_time>0 else math.nan,
+                lambda_eff=lam*(1-mean_cos) if jumps else 0. if counted_switches==0 and valid_time>0 else math.nan,
                 n_switches=counted_switches,n_switches_with_missing_adjacent_centroid=missing_adjacent_centroid,n_scored_switches=len(jumps),jump_heading_source='whole_P' if P is not None else 'tracked_region',
+                jump_scored_fraction=len(jumps)/counted_switches if counted_switches else math.nan,
+                jump_angle_estimator='scorable_events_mean_cosine',
+                jump_status='measured_zero_no_tracked_switches' if counted_switches==0 else 'resolved_all_events_scored' if len(jumps)==counted_switches else 'resolved_conditional_scorable_events' if jumps else 'unavailable_no_scorable_events',
                 median_tenure=float(np.median(durations)), MSD_max_lag=maxstep*dt,
-                status='resolved' if np.isfinite(Ds) and len(jumps)==counted_switches else 'unavailable_MSD_range' if not np.isfinite(Ds) else 'unavailable_jump_heading_windows',
+                status='resolved' if np.isfinite(Ds) and (jumps or counted_switches==0) else 'unavailable_MSD_range' if not np.isfinite(Ds) else 'unavailable_no_scorable_events',
                 jump_angles=jumps)
     return base, [dict(lag=float(t), MSD=float(m), eligible_pairs=int(n)) for t, m, n in zip(lag, MSD, count)]
 

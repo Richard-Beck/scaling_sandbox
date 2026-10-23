@@ -1,5 +1,51 @@
 # Selected polarity manuscript evidence and retirement inventory
 
+## Authorized current-Figure-2 retirement (2026-10-22)
+
+The user requested assessment and physical removal of Figure 2 outputs outside
+the evidence needed for `manuscript_outline/revision_round3_20261022/`.
+This supersedes older instructions to preserve all native fields only for the
+exact entries in the [deletion ledger](../../reports/figure2_cleanup_round3_20261022/delete_plan.jsonl).
+No further deletion is authorized by this inventory.
+
+The cleanup removed **33,821 unused NPZ files and 4,754 empty terminal scheduler
+logs**, with **409.435 GiB of file allocation** accounted for by the inode audit.
+It targets superseded 19 October Figure 2 compensation/width sweeps and unused
+20 October signature train/noise/pilot arrays. All nonempty scalar/JSON results,
+frozen sources, configurations, inputs and basals remain. The immutable original
+completion/audit records keep their historical dates; the new
+`OUTPUT_RETIREMENT_20261022.json` notice at each affected campaign root records
+the changed local coverage. A historical artifact hash is not a claim that
+every retired native path still exists.
+
+Retain the following evidence:
+
+- Native phase and combined-trace archives for all **450 plotted width
+  conditions and 180 plotted temporal conditions**, including selected numerical
+  comparison counterparts. Native phase/trace representations were not rewritten
+  or assumed interchangeable.
+- All **32** round-2 Holmes train/noise/control workers, including the 14
+  noise/control histories behind the retained supplement.
+- All calibration, focal-support and numerical companion campaigns, exact
+  source/input identities and the **97** canonical basal checkpoints behind
+  panel A.
+- Current round-3 and retained round-2/main/supplement artwork, plotted-value
+  CSVs, exact endpoint/eligibility evidence, numerical qualifications and the
+  complete integrated manuscript delivery.
+
+The [assessment](../../reports/figure2_cleanup_round3_20261022/assessment.json)
+records the 39 bounded campaign roots; the
+[execution record](../../reports/figure2_cleanup_round3_20261022/execution.json)
+confirms all planned removals and retained file identities. The
+[verification](../../reports/figure2_cleanup_round3_20261022/after_verification.json)
+reproduces the current PNG and all five plotted CSVs byte for byte, and the
+main PDF plus all 101 supplement pages with identical decoded page contents.
+The existing independent manuscript verifier rechecks all 450 width and 180
+temporal coordinates and the unchanged other main figures. Unselected old
+native sweeps cannot be fully reanalysed without rerunning; retaining their
+scalar evidence and historical supplements does not preserve their full fields.
+Figures 3/4 and unrelated native workstreams remain outside this cleanup.
+
 ## Authorized four-assay output retirement (2026-10-17)
 
 The user explicitly authorized physical removal of large outputs from the

@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "scope": "Independent dense recomputation of the one saved old-T-input counterfactual, mode comparisons and selected observed-mode local balances. No trajectory or finite-difference campaign.",
+  "operation_verified": "Only reduced input columns972:1134 zero; all remaining columns unchanged, output/new-T rows retained.",
+  "old_T_uses": [
+    {
+      "target": "command_l",
+      "line": 276,
+      "loads": 1
+    },
+    {
+      "target": "command_r",
+      "line": 277,
+      "loads": 1
+    },
+    {
+      "target": "cut_ledger[face]",
+      "line": 285,
+      "loads": 2
+    }
+  ],
+  "independent_dense_leading_multiplier": 1.0000725933727732,
+  "independent_dense_eigenpair_residual": 3.0936562433331923e-15,
+  "growth_per_s": 0.0001451814760036722,
+  "e_folding_s": 6887.931074448548,
+  "growth_ratio_to_native": 0.410982239510381,
+  "residual_instability": true,
+  "native_mode_comparison": {
+    "maximum_exported_metric_error": 2.220446049250313e-16,
+    "combined_cosines": [
+      0.9999999942145188,
+      0.9999999985645298,
+      0.9999999983669546,
+      0.9999999983814516
+    ],
+    "phase_um_per_mode": 0.5827241958060304
+  },
+  "counterfactual_mode_comparison": {
+    "maximum_exported_metric_error": 3.6415315207705135e-13,
+    "combined_cosines": [
+      0.8626658311419333,
+      0.8626764680879541,
+      0.8626725784991356,
+      0.8626721998657595
+    ],
+    "phase_um_per_mode": 1.4383964505935973
+  },
+  "selected_mechanics_checks": {
+    "raw_selected_odd_fields_max_error": 0.0,
+    "analytic_and_finite_command_derivatives": [
+      0.003239150078854225,
+      0.003239150078854225
+    ],
+    "common_relaxation_per_phase": -0.003210884225980561,
+    "common_command_per_phase": 0.003239150078854225,
+    "net_common_controller_rate_per_phase": 2.8265852873664028e-05,
+    "leading_Rac_allocation_per_phase": {
+      "MCA_activation": 0.0010906438820574823,
+      "Rho_inhibition": 0.0005026813152006477,
+      "implicit_decay": -0.0014815454648118924,
+      "FV_diffusion": -9.87403086382168e-05,
+      "total": 1.3039423638901986e-05
+    },
+    "Rac_RHS_closure": 4.808315759983507e-12
+  },
+  "interpretation": "Removing the local old-T cap-command input slows the projected instability to about6.9ks but does not remove it. The changed mode is distinct from the observed native mode.",
+  "limits": [
+    "This saved-matrix input removal is an algebraic diagnostic, not an evolved physical replacement or a pathway attribution of the nonlinear oscillation period.",
+    "New tension effects in native Rho activation, native controller relaxation and all remaining matrix inputs are retained.",
+    "The primary finite-difference, near-zero-flow donor and odd-projection qualifications still apply."
+  ],
+  "source_sha256": {
+    "polarity1d/manuscript/code/mechanisms/validation_debelly_gap_linear_followup_20261019.py": "f81cd6929a158148ff1a5c00d3e4ee817de03f96ee5d15c9238df9fd9b7b4630",
+    "polarity1d/manuscript/code/mechanisms/validation_debelly_gap_linear_mode_20261019.py": "75513c1a9e1748a72dc2eb2379adb9432483c83391dfe5a22fd83d6386651a1a",
+    "polarity1d/manuscript/data/runs/debelly_gap_linear_mode_C50_20261019/implementation_followup_manifest.json": "80cf8ac361552fb9225b701dd3274a841bf341cf8941f1035603311e0bc2a269",
+    "polarity1d/manuscript/data/runs/debelly_gap_linear_mode_C50_20261019/implementation_Tinput_counterfactual.json": "72a59c146dc1f77b26b7bd247a843f97e2e402e4d10fdb726d3be7f7d1a79f2e",
+    "polarity1d/manuscript/data/runs/debelly_gap_linear_mode_C50_20261019/implementation_mode_comparison.json": "12313aad77dd7ee84e8ca79cd7e64a7faae5b25f0772201997932a28242a6d52",
+    "polarity1d/manuscript/data/runs/debelly_gap_linear_mode_C50_20261019/mechanics_observed_mode.json": "2211fff27652b0d320cec0a91d74c0ff8ba09c996f6a0af916b93af2af814071",
+    "polarity1d/manuscript/data/runs/debelly_gap_linear_mode_C50_20261019/mechanics_mode_profiles.npz": "0743022f0081ba04efa2960f6f9c53affc38cbf0201b02fefb420f1b951c0412",
+    "polarity1d/manuscript/data/runs/debelly_gap_linear_mode_C50_20261019/implementation_operator_1em05.npz": "dcdfc6717b4ee5b64b131094925f288f90045af47e61c2306a6f12d914b43c3f",
+    "polarity1d/manuscript/data/runs/debelly_gap_initial_angles_C50_20261019/angles/angle000/native_profiles.npz": "45ffad6602a2158cc32f38cd8a883a0c96eae452e704b23eb92b52b1906952cd",
+    "polarity1d/manuscript/code/mechanisms/impl_debelly_gap_linear_diagnostics_20261019.py": "cae3eb9320e6fbcbfe41afc528d9db81433ff82531f0f0684e6ada5f78cff1e2"
+  }
+}

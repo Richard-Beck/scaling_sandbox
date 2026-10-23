@@ -1,0 +1,170 @@
+--- a/DATA_MANIFEST.md
++++ b/DATA_MANIFEST.md
+@@ -249,3 +249,67 @@
+ | `polarity1d/manuscript/data/runs/signature_figure3_holmes_extensions_round2_20261022/` | 0.3641 GiB (390,971,392 allocated bytes) | Nine approved exact-endpoint Holmes cue-free continuations through 80,000; six resolutions and three lower bounds, with native fields, conservation and resolution audits. Required evidence for the revised decomposition. |
+ | `polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round2_20261022/` | 0.3969 GiB (426,123,264 allocated bytes) | Completed derived Figure 2–4 artwork, complete retained supplements, plotted-value CSVs and scientific/display acceptance. Includes the HPC-only 164 MiB whole-seed bootstrap archive; do not mistake derived presentation for the underlying native trajectories. |
+ | `manuscript_outline/revision_round2_20261022/` | 0.4145 GiB (445,022,208 allocated bytes) | Final manuscript reader, main plates and legends, exact-source acceptance, archived review interim and historical recovery bundles. Final integration is complete; previous in-progress artifacts are retained history. |
++
++<!-- figure4-round3-compact-storage-20261022 begin -->
++
++## Figure 4 round-3 compact campaign, 22 October 2026
++
++Measured **2026-10-23T03:16:44.915711+00:00**: **28,756,893,696 allocated bytes
++(26.781944 GiB)** under
++`polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/`. Status **COMPLETE**;
++45,696 compact seeds complete, 24,960 initial
++and at most 99,840 after precision-driven 96-seed additions. This targeted campaign
++measurement does not replace the older whole-workspace totals above.
++[Targeted storage and quota record](reports/figure4_round3_storage_20261022.json).
++
++The scientifically authoritative new records retain post-burn-in float32
++activity moments and P = M1/M0, contrast and exact round-1 tracked-region
++descriptors, plus bounded float16 illustrations for seeds 0/1 only. Native
++profiles exist in memory during extraction and are never written to durable
++storage. Initial planning estimated 26.586 decimal GB, maximum 103.823 GB,
++with a 207.647 GB reservation (2× margin); the shared filesystem exposed
++34,251,346,018,304 free bytes at its dated probe.
++Personal quota headroom could not be read and is explicitly unknown.
++The initial small-QoS arrays were upgraded to xxlarge for independent-seed
++throughput; `results/qos_burst_upgrade.json` records the effective scheduler
++setting and capacity evidence, while the immutable manifest preserves the
++original submission resources. The scoped old Figure4 noise native profiles were deleted after the COMPLETE audit; the separate retirement execution ledger records actual reclaimed storage.
++
++<!-- figure4-round3-compact-storage-20261022 end -->
++
++<!-- figure4-round3-old-native-retirement-20261022 begin -->
++
++## Figure 4 old native-profile retirement completed, 23 October 2026
++
++Measured **2026-10-23T03:16:44.863818+00:00**. Status **EXECUTED_AFTER_COMPACT_COMPLETE**.
++The exact [reviewable plan](reports/figure4_round3_retirement_20261022/summary.json)
++and [path/stat ledger](reports/figure4_round3_retirement_20261022/delete_plan.jsonl)
++cover 72 old Figure 4 noise campaign roots:
++**241,709,301,760 allocated bytes**
++(225.109 GiB), including directory
++and symbolic-link allocation and counting hard-linked files once.
++The 12,596 selected native profile/coupled-state paths
++occupy **166,686,736,384 unique allocated bytes**;
++estimated reclaim is **166,686,736,384 bytes**
++(155.239 GiB), allowing for preserved hard links.
++
++Selection is limited to `primary.npz`, `dense_primary.npz`, `full_states.npz`,
++`final_state.npz`, and full native-field CSV shards beneath
++`results/native_field_CSV_archives/` in those named roots. Exact qualified basal
++inputs, frozen sources/protocols and all repository round-2 CSVs/figures remain.
++The **75,022,565,376 allocated bytes** of remaining
++scalar and descriptor evidence are measured scientific records: legacy
++`trace.npz`/scalar histories support historical M1/M1initial and q1=P diagnostics,
++matched-mean forced flags and 12-seed comparisons; compressed contour/track JSON
++preserves previously measured region identities and sensitivity audits. These
++are not retained full native profile histories and are not assumed negligible.
++
++Execution completed after the new compact campaign's COMPLETE audit, final
++precision receipt and successful final rebuild. The
++[execution receipt](reports/figure4_round3_retirement_20261022/execution.json)
++records **241,713,340,416 allocated bytes before** and **75,026,046,976 after**,
++with **166,687,293,440 bytes (155.240 GiB) reclaimed** across 12,596 paths.
++The execution ledger is authoritative for actual removals; the planning
++measurements above are historical. No further deletion is authorized by this inventory.
++
++<!-- figure4-round3-old-native-retirement-20261022 end -->
+--- a/RETENTION.md
++++ b/RETENTION.md
+@@ -112,3 +112,70 @@
+ in V1 remain in effect. A clean status is not required to preserve source safely;
+ independent source-checkout validation must distinguish these known local
+ absences from the committed tree. Website retirement remains outside this change.
++
++<!-- figure4-round3-compact-storage-20261022 begin -->
++
++## Figure 4 round-3 retention exception, authorized 22 October 2026
++
++The user authorized replacement of OLD Figure 4 noise native HPC outputs
++**only after the new compact campaign is COMPLETE**. Its current state at
++2026-10-23T03:16:44.915711+00:00 is **COMPLETE**, with
++45,696 verified compact seeds.
++The scoped old Figure4 noise native profiles were deleted after the COMPLETE audit; the separate retirement execution ledger records actual reclaimed storage. Preserve all preceding native arrays while any
++allocated seed or final precision assessment is missing. This exception does
++not cover Figures 2/3, exact qualified basals, source/protocol/audit records,
++or repository round-2 compact CSVs and figures.
++
++Keep the new `polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/` compact NPZ files, immutable
++manifest/frozen sources, exact 20 basal inputs, per-seed integrity and numerical
++receipts, CSV index, 2000-resample whole-seed precision reports, allocation
++decisions and actual SLURM receipts. Seeds 0/1 retain float16 examples bounded
++at 400 spatial bins and 2000 frames. No full native profile history is retained
++for new seeds. Unresolvable rates remain explicitly undefined; finite
++SE(log k)>0.07 triggers batches of 96 to at most384. Optional largest/weak
++extensions require a recorded condition-specific allocation and remain
++separate from the original compact evidence.
++
++[Current allocated storage record](reports/figure4_round3_storage_20261022.json).
++The immutable initial manifest says small QoS; effective xxlarge throughput
++resources are recorded in `results/qos_burst_upgrade.json`. The measured shared
++filesystem free space is distinct from unknown personal quota headroom.
++
++<!-- figure4-round3-compact-storage-20261022 end -->
++
++<!-- figure4-round3-old-native-retirement-20261022 begin -->
++
++## Figure 4 old native-profile retirement completed, 23 October 2026
++
++Measured **2026-10-23T03:16:44.863818+00:00**. Status **EXECUTED_AFTER_COMPACT_COMPLETE**.
++The exact [reviewable plan](reports/figure4_round3_retirement_20261022/summary.json)
++and [path/stat ledger](reports/figure4_round3_retirement_20261022/delete_plan.jsonl)
++cover 72 old Figure 4 noise campaign roots:
++**241,709,301,760 allocated bytes**
++(225.109 GiB), including directory
++and symbolic-link allocation and counting hard-linked files once.
++The 12,596 selected native profile/coupled-state paths
++occupy **166,686,736,384 unique allocated bytes**;
++estimated reclaim is **166,686,736,384 bytes**
++(155.239 GiB), allowing for preserved hard links.
++
++Selection is limited to `primary.npz`, `dense_primary.npz`, `full_states.npz`,
++`final_state.npz`, and full native-field CSV shards beneath
++`results/native_field_CSV_archives/` in those named roots. Exact qualified basal
++inputs, frozen sources/protocols and all repository round-2 CSVs/figures remain.
++The **75,022,565,376 allocated bytes** of remaining
++scalar and descriptor evidence are measured scientific records: legacy
++`trace.npz`/scalar histories support historical M1/M1initial and q1=P diagnostics,
++matched-mean forced flags and 12-seed comparisons; compressed contour/track JSON
++preserves previously measured region identities and sensitivity audits. These
++are not retained full native profile histories and are not assumed negligible.
++
++Execution completed after the new compact campaign's COMPLETE audit, final
++precision receipt and successful final rebuild. The
++[execution receipt](reports/figure4_round3_retirement_20261022/execution.json)
++records **241,713,340,416 allocated bytes before** and **75,026,046,976 after**,
++with **166,687,293,440 bytes (155.240 GiB) reclaimed** across 12,596 paths.
++The execution ledger is authoritative for actual removals; the planning
++measurements above are historical. No further deletion is authorized by this inventory.
++
++<!-- figure4-round3-old-native-retirement-20261022 end -->
+--- a/polarity1d/manuscript/.gitignore
++++ b/polarity1d/manuscript/.gitignore
+@@ -2821,3 +2821,13 @@
+ !/code/mechanisms/figure4_round3_*.slurm
+ !/code/mechanisms/rebuild_figure4_round3_20261022.py
+ !/code/tests/test_figure4_round3_estimators_20261022.py
++
++# Completed round-3 outline dependencies and portable exports; native runs stay local.
++!/code/mechanisms/revision_round3_figure2_20261022.py
++!/code/mechanisms/revision_round3_figure3_20261022.py
++!/code/mechanisms/revision_round3_figure3_single_C_20261022.py
++!/figures/length_mechanisms_20261008/dev/revision_round3_20261022/
++!/figures/length_mechanisms_20261008/dev/revision_round3_20261022/**
++/figures/length_mechanisms_20261008/dev/revision_round3_20261022/**/*.npz
++/figures/length_mechanisms_20261008/dev/revision_round3_20261022/**/__pycache__/
++/figures/length_mechanisms_20261008/dev/revision_round3_20261022/**/*.pyc
+--- a/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/README.md
++++ b/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/README.md
+@@ -40,4 +40,8 @@
+ - [Figure 3 round-2 short-range separation and matched-gap size effects](revision_round2_20261022/figure3/README.md)
+ - [Figure 2 round-2 replacement-resistance signatures](revision_round2_20261022/figure2/README.md)
+ 
++- [Figure 2 round-3 size responses and pulse-memory signatures](revision_round3_20261022/figure2/README.md)
++- [Figure 3 round-3 single-C layout and retained evidence](revision_round3_20261022/figure3_single_C/README.md)
++- [Figure 4 round-3 nulls for size-dependent heading persistence](revision_round3_20261022/figure4/README.md)
++
+ [Reversible cleanup records](_organization/) preserve the original paths and metadata. After regenerating exports, run `python polarity1d/manuscript/code/mechanisms/organize_length_dev.py` from the repository root. Current renderers write directly into these experiment folders; the organizer also collects outputs from frozen older entry points.
