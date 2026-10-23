@@ -445,13 +445,18 @@ def decomposition(fig, grid, data, exported, omissions):
                 ax.plot(x, y, "-", color=color, lw=.65,zorder=1)
             if not ax.lines or not any(np.isfinite(line.get_ydata()).any() for line in ax.lines if len(line.get_ydata()) > 2):
                 if i != 3 and not any(finite(n(row, key)) for row in rows if row.get("model") == model):
-                    ax.text(.5, .48, "Not measured in\nretained records", transform=ax.transAxes, ha="center", va="center", fontsize=5.8, color="black")
+                    ax.text(.5, .62, "Not estimable", transform=ax.transAxes, ha="center", va="center", fontsize=5.8, color="black")
             log_f(ax)
             if i != 3:
                 ax.tick_params(labelbottom=False)
                 ax.set_xlabel("")
             if j == 0:
                 ax.set_ylabel(label, labelpad=2)
+            else:
+                # Every model column uses the same limits within this row.
+                # Repeated long log labels otherwise reach the previous facet.
+                ax.tick_params(axis='y',which='both',labelleft=False)
+                ax.yaxis.get_offset_text().set_visible(False)
             if i == 0:
                 facet(ax, NAMES[model])
                 if j == 0:

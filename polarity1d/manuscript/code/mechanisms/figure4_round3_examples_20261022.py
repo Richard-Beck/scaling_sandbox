@@ -95,10 +95,8 @@ def prepare(out=OUT,campaign=None):
                     track_source=Path(raw['path'])
                     with gzip.open(track_source,'rt') as stream:frames=json.load(stream)['result']['frames']
                     ids=E.smooth_flicker([f['dominant_track_id'] if f['dominant_track_id'] is not None else -1 for f in frames],5)
-                    # Missing accepted-region centroids split tenures, exactly as the estimator.
-                    for i,f in enumerate(frames):
-                        headings={int(r['track_id']):r['heading'] for r in f['regions'] if r['heading'] is not None}
-                        if int(ids[i]) not in headings:ids[i]=-1
+                    # Count filtered dominance changes independently of the
+                    # centroid-valid segments used for displacement estimates.
                     sections=E.tenure_sections(ids)
                     for (aa,bb),(cc,dd) in zip(sections[:-1],sections[1:]):
                         when=frames[cc]['time']
