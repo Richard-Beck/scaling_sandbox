@@ -4,7 +4,7 @@ The requested map tests support the native linear response away from the edge: t
 
 The covariance contribution maps localize 99.59–100.00% of predicted drift within two input correlation lengths of the two edges at the endpoint sizes. Small signed plateau/basal contributions and all negative bins are retained.
 
-The expanded drift-regime alpha bridge contains 53 qualified matched-input pairs, including 15 Wave-pinning pairs at f=0.003, 0.005 and 0.01. Wave-pinning predicts α=2.48–2.88, above 2, and can now be compared with the nontrivial observed size advantage. Goryachev still has no qualified pair. Every excluded row remains with its explicit reason.
+The expanded drift-regime alpha bridge contains 53 qualified matched-input pairs, including 15 Wave-pinning pairs at f=0.003, 0.005 and 0.01. Wave-pinning predicts α=2.48–2.88, above 2, and can now be compared with the nontrivial observed size advantage. The narrow predicted range primarily tests the excess α above 2 rather than the within-model trend. Goryachev still has no qualified pair. Every excluded row remains with its explicit reason.
 
 The matched-size comparison is now explicit. The operational separated-cue plateau is the median of the furthest three finite observed two-region half-turns, with every selected gap and range exported. It is not a fitted asymptote.
 

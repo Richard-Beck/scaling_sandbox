@@ -209,6 +209,8 @@ def figure1():
         'B, Native active profiles from the same preparation, scaled using the common minimum and span of the displayed snapshots. Colours identify recorded times.',
         'C, Orientation from the same preparation. Grey marks basal verification after establishment arrival at about 116; the cue has already ended. The matched time scale in A and C separates input duration from autonomous development.',
         old[1].replace('B,', 'D,', 1), old[2].replace('C,', 'E,', 1), *old[3:]]
+    legend[-1] = ('deBelly uses corrected endpoint commands. Spring retains native length and time units. '
+                  'Cross-model amplitudes and clocks are not calibrated biochemical doses or cellular times.')
     supplement = PdfWriter()
     for p in (ROOT / 'polarity1d/manuscript/figures/main_polarity.pdf', ROOT / 'polarity1d/manuscript/figures/supplement_width_response.pdf'):
         supplement.append(p)
@@ -349,6 +351,9 @@ def figure2():
     fig.legend([Line2D([],[],color='.42',lw=1),Line2D([],[],color='.08',lw=1,ls=(0,(3,1.6)))],['WGD−','WGD+'],loc='upper right',bbox_to_anchor=(.98,.112),ncol=2,frameon=False,fontsize=7)
     csvout(folder,'H_I_prospective_schematics.csv',schematic_rows)
     section=next(s.copy() for s in BASELINE['sections'] if s['id']=='figure2')
+    section['narrative'] = [
+        'At reference cue area 1, replacement is approximately 5–12-fold slower from L19 to L39 in every model wherever both lengths resolve. Enlarged cells resist replacement through distinct initiation, cue-width and pulse-memory signatures.',
+        *section['narrative'][1:]]
     old=section['legend']
     legend=[old[0],
         'A, Incumbent excess amount normalized to the model reference, across the same 97 retained states.',

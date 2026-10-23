@@ -41,6 +41,15 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def protected_section(baseline, ident):
+    section = deepcopy(next(s for s in baseline['sections'] if s['id'] == ident))
+    if ident == 'figure5':
+        for source in section['sources']:
+            if source.get('path') == 'manuscript_outline/assets/migration_v2/provenance.json':
+                source['label'] = 'Migration display and preserved-input provenance'
+    return section
+
+
 def updated_pilot(baseline):
     """Retain prospective directions while updating references and conditioning."""
     pilots = read(ROOT / 'manuscript_outline/revision_figures3_4_20261023/pilot_observables.json')
@@ -198,29 +207,43 @@ def main():
         subtitle='Polarity replacement, spatial response maps and noise-driven heading memory')
     if args.figure4_snapshot:
         document['stage'] = 'Review candidate; targeted mode campaign active'
-    document['overview'] = [baseline['overview'][0].replace('supply empirical motivation', 'support this hypothesis'), baseline['overview'][1],
-        'Enlargement slows both cue-driven turning routes and selectively suppresses edge susceptibility, most strongly in Wave-pinning and Goryachev. '
-        'A native spatial response map, tested away from the edges, localizes nearly all predicted drift to the two lateral boundaries. '
-        'Without fitting noisy drift, the calculation predicts Wave-pinning’s C60/C20 drift ratio of 0.490 versus 0.473 measured and a persistence size exponent above 2; '
-        'Goryachev’s absolute drift prediction fails quantitatively.',
-        'Enlargement extends model heading memory and raises noise tolerance, while the size advantage weakens as input strengthens. '
-        'Shared translation explains eligible weak-input Wave-pinning, Holmes and Spring conditions; all-input closure bounds, remainder curves and fixed-follow-up takeover incidence show where the domain description becomes incomplete. '
-        'Fourier-mode agreement is partial and sensitive to local-slope estimation; an explanation covering all four strong-input models is not established.',
-        baseline['overview'][4],
-        'This is a working manuscript outline. Figures 1–2 retain their numerical evidence with separate panels for distinct quantities. '
-        'The published migration evidence in Figure 5 and reserved Figure 6 retain their scientific content. The prospective pilot directions retain their operational definitions with updated panel references and model-conditioning notes. '
-        'Activity polarity, modelled replacement, observed migration and conditional OU velocity memory remain distinct readouts.']
+    document['sections'][4] = protected_section(baseline, 'figure5')
+    document['overview'] = [
+        'Working hypothesis: WGD-associated enlargement alters established polarity and its replacement, providing a possible physical basis for greater migration persistence. '
+        'Models change cell size under unchanged local kinetics; length represents WGD-associated enlargement. Existing migration observations support this hypothesis.',
+        'Figure 1 shows that, under fixed-width and proportional-width cues, the duration required for lasting polarity replacement rises with length across all five models.',
+        'Figure 2 shows approximately 5–12-fold slower replacement from L19 to L39 at reference cue area 1 wherever both lengths resolve. '
+        'Initiation and pulse histories distinguish resetting, visible activity retention, and progress after activity loss; narrow-cue censoring limits Holmes width comparisons.',
+        'Figure 3 shows that enlargement slows both turning routes and selectively suppresses edge susceptibility. '
+        'The native response map localizes nearly all predicted drift to lateral boundaries. '
+        'Without fitting noisy data, it predicts Wave-pinning’s C60/C20 drift ratio (0.490 versus 0.473 measured) and a persistence exponent above 2; Goryachev’s quantitative drift bridge fails.',
+        'Figure 4 shows longer model heading memory and greater noise tolerance in larger rings. '
+        'Shared translation explains eligible weak-input Wave-pinning, Holmes and Spring regimes. '
+        'Closure bounds, remainder and finite-follow-up takeover incidence delimit where the domain description works.',
+        'Figure 5 shows published enlarged-cell comparisons with lower sampled speed, yet greater late-lag displacement or more direct migration. '
+        'Conditional OU fits infer longer velocity memory, with curve-shape and identifiability limitations; they do not uniquely identify a polarity mechanism.',
+        'Prospective pilot measurements link model directions to SUM-159 assays; unavailable model quantities remain unavailable.',
+        'Activity heading, polarity replacement, observed migration and conditional OU velocity memory remain distinct readouts. '
+        'Figure 6 reserves the substantial contribution of paired WGD motility experiments.']
     added = []
     for n in range(1, 5):
         section = sections[f'figure{n}']
         added.append({'title': f'Figure {n}: round6 complete supporting evidence',
-            'text': ['Current source data, numerical qualification and preceding supplementary evidence; earlier main artwork is preserved.'],
+            'text': ['Source data, numerical qualification and complete supplementary evidence.'],
             'path': section['supplement_pdf'],
             'sources': [{'label': 'Scientific results and rebuild instructions', 'path': section['reader']}]})
     document['supplementary'] = added + document['supplementary']
     pilot = updated_pilot(baseline)
     document['supplementary'] = [pilot if s.get('id') == 'pilot_observables' else s
                                  for s in document['supplementary']]
+    preservation = DEST / 'review_preservation.json'
+    reviews = [ROOT / item['path'] for item in read(preservation)['reviews']] if preservation.exists() else []
+    document['references'] += [
+        {'label': f'Claude independent review {index}, preserved verbatim', 'path': relative(review)}
+        for index, review in enumerate(reviews, 1)]
+    if (DEST / 'claude_response.md').exists():
+        document['references'].append({'label': 'Point-by-point responses to independent reviews',
+                                       'path': relative(DEST / 'claude_response.md')})
     path = ROOT / 'manuscript_outline/outline_v12.json'
     write(path, document)
     writer = PdfWriter()
@@ -231,8 +254,10 @@ def main():
     for ident in ('figure5', 'figure6'):
         old = next(s for s in baseline['sections'] if s['id'] == ident)
         new = next(s for s in document['sections'] if s['id'] == ident)
-        assert old == new
-        protected[ident] = {'section_sha256': hashlib.sha256(json.dumps(old, sort_keys=True).encode()).hexdigest(),
+        assert protected_section(baseline, ident) == new
+        protected[ident] = {'section_sha256': hashlib.sha256(json.dumps(new, sort_keys=True).encode()).hexdigest(),
+            'baseline_section_sha256': hashlib.sha256(json.dumps(old, sort_keys=True).encode()).hexdigest(),
+            'source_label_presentation_update_only': old != new,
             'asset_sha256': {a['path']: sha(ROOT / a['path']) for a in old['assets']}}
     write(DEST / 'integration.json', {'generated_utc': generated,
         'baseline_pdf': 'manuscript_outline/outline_v11.pdf',
@@ -259,8 +284,6 @@ def main():
         body += ''.join('<p>' + html.escape(p) + '</p>' for p in section['legend'])
         body += html_equations(ident, section.get('equations', []))
     body += '<p><a href="integration.json">Integration receipt</a></p></html>'
-    preservation = DEST / 'review_preservation.json'
-    reviews = [ROOT / item['path'] for item in read(preservation)['reviews']] if preservation.exists() else []
     if reviews:
         links = '<p>' + ' · '.join(
             f'<a href="{os.path.relpath(review, DEST)}">Claude review {index}, preserved verbatim</a>'
@@ -276,8 +299,8 @@ def main():
 The starting point is the current outline_v11 PDF. Its exact hash, the editable
 outline, the verbatim brief, the supplied narrative and the task prompt are
 archived in [request/](request/). Round5 remains intact. Figures 1–2 change layout
-and lettering only; Figures 3–4 report the requested new analyses. Figure 5 and
-reserved Figure 6 are preserved. The prospective pilot directions are retained;
+and lettering only; Figures 3–4 report the requested new analyses. Figure 5's
+scientific content and reserved Figure 6 are preserved. The prospective pilot directions are retained;
 panel references and model-conditioning notes match the revised figures.
 
 Each figure folder exposes one rebuild entry point and a `scientific_readme.md`

@@ -1,0 +1,95 @@
+{
+  "id": "figure4",
+  "title": "Figure 4. Enlargement extends polarity heading memory under fluctuating input",
+  "role": "Size-dependent heading persistence, region-based diagnostic limits and a detector-free mode test.",
+  "assets": [
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure4/figure4_main.png",
+      "native_pdf_page": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure4/figure4_main.pdf",
+      "caption": "A\u2013J: polarity-heading memory, all-input closure bounds and remainder shares.",
+      "page_size": [
+        12,
+        18
+      ],
+      "page_title": "",
+      "minimum_printed_width_inches": 12
+    }
+  ],
+  "legend": [
+    "Model panels use positive lognormal input with mean f times the native reference: Wave-pinning 0.1, Holmes 1, Spring 4 and Goryachev 6.4. The Gaussian driving field has unit variance, lognormal amplitude \u03c3 = 1, spatial parameter 1.5 and OU correlation time 50 (Spring basal-physical 0.15 and 5). Spring input is stationary in material coordinate, so its physical correlation length scales with circumference. Native clocks are not calibrated between models. Unless stated otherwise, error bars are 95% whole-history bootstrap intervals.",
+    "A, Detector-free null kymographs at C = 20 and 60: identical physical diffusion, size-independent jumping, or perimeter-proportional jumping. Each facet shows the same activity measure.",
+    "B, Null heading autocorrelation; persistence size exponents are 2, 0 and \u22121. C = 20 is light and C = 60 dark.",
+    "C, Native-model kymographs at f = 0.03 (Wave-pinning), 0.02 (Holmes), 0.005 (Spring) and 0.01 (Goryachev). Arc position is centred at the initial heading; time is elapsed after burn-in. Goryachev activity ranges are labelled separately for each size.",
+    "D, Model heading autocorrelation at the inputs in C, for the smallest and largest rings (Spring C = 1 and 3). Solid curves show the smallest ring and dotted curves the largest. Endpoint eligibility requires polarity coherence |P| \u2265 0.1. These direct curves show longer heading memory in larger rings.",
+    "E, Local persistence exponent \u03b1 versus input fraction f, using three neighbouring sizes (two at endpoints), with whole-history 95% intervals. In E and G\u2013I, sizes are C = 20, 30, 40, 50 and 60 (Spring 1, 1.5, 2, 2.5 and 3), light to dark. Open circles in D, E, G and I mark the declared combined forcing-control flags; unavailable rates are omitted.",
+    "F, Noise-tolerance fold at heading-correlation lag 2000 (Spring 200), relative to the smallest ring. Spring circumference is multiplied by 20 for display. The dashed grey guide is proportional to circumference.",
+    "G, Physical within-tenure drift coefficient normalized by the smallest size at the same input, using five-frame persistent dominant tenures. Goryachev uses a different ordinate range, 10\u207b\u2077\u20132; the other models use 0.2\u20138.",
+    "H, Drift plus counted five-frame-dominant takeovers, divided by observed heading decorrelation rate, at every designed input. Solid lower and dashed upper limits bound every unscored takeover loss between 0 and 2. Shading denotes identification intervals, not confidence intervals. Grey line: unity. Open upward triangles with arrows mark an unbounded upper limit where drift is unavailable. Only the unknown drift contribution has lower bound zero; counted-takeover lower contributions are retained. Crosses at the top mark unavailable observed rates.",
+    "I, Signed remainder share versus input, using point regions with native-amplitude scaling. It includes amplitude, within-region shape, unresolved activity and background contributions. The decomposition is descriptive; exact own-mask and normalization checks are supplementary.",
+    "J, Probability that a certified persistent secondary birth becomes globally dominant within 20 input correlation times. Filled circles: 0 < d \u2264 C/6; open squares: d > C/6. Wave-pinning f = 0.05, minimum total births = 590; Holmes f = 0.05, minimum total births = 231; Spring f = 0.05, minimum total births = 580; Goryachev f = 0.025, minimum total births = 1064. For each model, select the designed input nearest in log distance to the smallest ring\u2019s half-memory input among inputs with at least 200 total certified births at every size, then drop d \u2264 0. d denotes estimated edge-to-edge birth\u2013incumbent separation, using the amount/global-contrast plateau-width approximation. Intervals resample whole histories 2000 times; [0,1] replaces intervals with fewer than 97.5% defined resamples. Positive-distance denominators and certification are reported separately. Lower 20-time-scale incidence can reflect slower or rarer takeover; lifetime takeover probability is unidentified.",
+    "The strong-input regime remains unexplained as a common four-model description. Rate-collapse screens pass in Wave-pinning, Holmes, Spring, Goryachev; local-slope screens pass in Wave-pinning, Holmes, Spring. This partial agreement depends on the local-slope stencil: Wave-pinning and Spring fail the three-point slope screen, so it does not establish a robust strong-regime explanation. Fourier-mode tests (K\u2013L), spectra and exact-mask diagnostics appear in the supplement."
+  ],
+  "narrative": [
+    "Larger rings retain heading longer near the transition; the local size exponent decreases as input strengthens. The largest-to-smallest noise-tolerance folds are 2.37 (Wave-pinning), 2.16 (Holmes), 3.09 (Spring) and 4.12 (Goryachev).",
+    "Physical weak-input drift decreases with size in Wave-pinning but is nearly size independent in Holmes and Spring. The deterministic drift bridge is quantitatively unreliable for Goryachev. Region-based closure and remainder delimit the inputs where this description is adequate.",
+    "At each model\u2019s selected input, far-born certified fronts have lower finite-horizon takeover estimates in larger rings; near-bin estimates need not decline monotonically. Certification and finite follow-up limit the population and lifetime interpretation.",
+    "Fourier rate-collapse screens pass in Wave-pinning, Holmes, Spring, Goryachev; local-slope screens pass in Wave-pinning, Holmes, Spring. This partial agreement depends on the local-slope stencil: Wave-pinning and Spring fail the three-point screen. It does not establish a robust strong-regime explanation. All three/five/eight-point metrics are reported; this is a descriptive test, not causal attribution."
+  ],
+  "measurements": [
+    "In matched WGD\u2212 and WGD+ cells under the same fluctuating input, image full-perimeter polarity activity and estimate heading autocorrelation jointly with coherence. Longer heading memory in enlarged cells is the prediction; this readout is distinct from velocity persistence.",
+    "Track the physical lateral displacement of both front boundaries. Size-suppressed physical drift would favour a Wave-pinning-like susceptibility change; nearly size-independent physical drift with slower angular wandering would favour Holmes/Spring-like geometry. The Goryachev quantitative bridge is unreliable.",
+    "Count persistent secondary protrusion births per perimeter\u2013time and follow new-front dominance conditional on birth distance, using both 20 input correlation times and longer follow-up. The prospective signature is lower far-born takeover incidence with enlargement; near-born signatures are model dependent. Distinguish births from splits and retain censored histories to separate slow resolution from rare takeover.",
+    "Compare photoactivation that straddles the existing front boundary with separated activation, and measure time to half-turn across cell sizes. This tests the two imposed-turning routes and whether the size effect changes with cue position.",
+    "Measure perimeter Fourier spectra and mode correlations against physical wavenumber in both ploidy groups. A common rate curve would support a detector-free description; disagreement would reject that description without requiring a domain detector."
+  ],
+  "limitations": [
+    "Missing takeover angles are bounds, not imputed means.",
+    "Exact birth/split population classification remains partly unidentifiable.",
+    "Two exemplar seeds cannot validate universal mode collapse.",
+    "A universal strong-input mechanism is not identified."
+  ],
+  "sources": [
+    "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure4/methods_provenance.md",
+    "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure4/scientific_readme.md"
+  ],
+  "equations": [
+    {
+      "math": "Q_t=\\frac{\\sum_{i\\in I_t}A_{i,t}e^{\\mathrm{i}\\theta_{i,t}}}{\\sum_{i\\in I_t}A_{i,t}},\\qquad r_t=|P_t|,\\quad\\widetilde Q_t=r_tQ_t",
+      "number": "4.1",
+      "description": "Q is the normalized point-region moment; P=M\u2081/M\u2080 is measured from the native field. Its amplitude r prevents the unit-modulus single-region normalization artefact."
+    },
+    {
+      "math": "\\Delta P_j=\\bar r\\,\\Delta Q_j\\ (j=\\mathrm{M,A,B}),\\qquad\\Delta P_{\\mathrm{R}}=\\Delta P-\\bar r\\,\\Delta Q",
+      "number": "4.2",
+      "description": "The three \u0394Q components use the symmetric Shapley convention for motion, coexisting amount and membership; r\u0304 is mean endpoint native amplitude. R closes the native moment change and includes amplitude variation, shape and background. This is an accounting convention, not causal attribution."
+    },
+    {
+      "math": "L_j=\\frac{\\mathrm{Re}\\!\\left[\\Delta P_j\\,\\overline{(H_1-H_0)}\\right]}{|P_0|+|P_1|},\\quad H_t=\\frac{P_t}{|P_t|},\\quad\\sum_j L_j=1-\\cos(\\theta_1-\\theta_0)",
+      "number": "4.3",
+      "description": "Pooled signed fractions are sums of L_j divided by total measured heading loss. They retain cancellation, can exceed one, and depend on the stated accounting convention; they are not causal shares."
+    },
+    {
+      "math": "k(\\ell)=-\\frac{\\ln C(\\ell)}{\\ell},\\qquad k\\propto\\bar C^{-\\alpha}",
+      "number": "4.4",
+      "description": "C(\u2113) is activity-heading autocorrelation; mean C is actual circumference. Endpoint eligibility uses |P|\u22650.1. Main H evaluates every designed input; unavailable observed rates remain explicit."
+    },
+    {
+      "math": "a_n(t)=\\frac{1}{N}\\sum_{j=1}^{N}u_j(t)e^{\\mathrm{i}n\\theta_j},\\qquad P(t)=\\frac{a_1(t)}{a_0(t)},\\qquad q_n=\\frac{2\\pi n}{\\overline{C}}",
+      "number": "4.5",
+      "description": "Fourier modes use cell-centre material phases and the positive convention matching the native first moment. Heading is the phase of P; Spring physical wavenumber uses mean circumference."
+    },
+    {
+      "math": "\\gamma_n=-\\frac{\\ln C_n(\\ell_*)}{\\ell_*},\\qquad k(C)=\\gamma(2\\pi/C),\\qquad \\alpha=\\frac{\\mathrm{d}\\ln\\gamma}{\\mathrm{d}\\ln q}",
+      "number": "4.6",
+      "description": "The last two equalities are the detector-free hypothesis under a common size-independent mode curve, not an identity assumed in analysis. Complex correlations use the nearest-half lag rule. Half-crossing status is exported; primary collapse and slope comparisons use observed crossings. The declared descriptive screens and stencil sensitivities are reported model by model."
+    },
+    {
+      "math": "k_{\\mathrm{pred}}^{\\mathrm{lo}}=q_1^2D_s+\\frac{\\sum_{\\mathrm{scored}}(1-\\cos\\Delta\\theta)}{T},\\qquad k_{\\mathrm{pred}}^{\\mathrm{hi}}=k_{\\mathrm{pred}}^{\\mathrm{lo}}+\\frac{2N_{\\mathrm{unscored}}}{T}",
+      "number": "4.7",
+      "description": "All counted takeovers enter the interval: each unscored angular loss lies between 0 and 2. T is eligible exposure. Missing drift has a nonnegative lower bound and unbounded upper limit; an unavailable observed heading rate prevents a numerical ratio."
+    }
+  ],
+  "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure4/figure4_main.pdf",
+  "supplement_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure4/figure4_supplement.pdf",
+  "reader": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure4/index.html"
+}

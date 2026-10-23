@@ -540,7 +540,7 @@ Measured **2026-10-23T19:13:40.275178+00:00** using allocated storage (`du -sx -
 
 ## Round6 susceptibility and mode-only revision, 23 October 2026
 
-Measured **2026-10-23T23:03:01.943059+00:00** using allocated storage
+Measured **2026-10-23T23:22:27.964223+00:00** using allocated storage
 (`du -sx -B1`). These targeted measurements update the named output groups;
 the earlier whole-workspace totals remain historical. This is a non-atomic
 snapshot. Inventory confers no deletion permission; no original data were removed.
@@ -548,10 +548,10 @@ snapshot. Inventory confers no deletion permission; no original data were remove
 | Path / related output group | Measured allocated storage | Purpose and scientific status |
 | --- | ---: | --- |
 | `polarity1d/manuscript/data/runs/figure4_round6_modes_20261023` | 11.517105 GiB (12,366,397,440 bytes) | Targeted modes-only native noise rerun; a₀–a₃₂, |P|, time/circumference and forcing audits. No durable activity profiles. Authoritative evidence for the detector-free persistence test: partial, slope-stencil-sensitive agreement and the failed Goryachev slope screen do not establish a general strong-input explanation. Completion and cap-limited precision are in the figure receipt. |
-| `polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023` | 0.246941 GiB (265,150,464 bytes) | Figures 1–4, preserved earlier supplements, compact plotted CSVs, deterministic susceptibility tests and Fourier/exact-mask analyses. Figures 1–2 are layout-only; new model tests are in Figures 3–4. |
-| `manuscript_outline/revision_round6_20261023` | 0.011192 GiB (12,017,664 bytes) | Verbatim incoming brief, prompt and narrative; starting-outline hashes, standalone legends, integrated reader, response and validation records. |
-| `manuscript_outline/outline_v12.pdf` | 0.006546 GiB (7,028,736 bytes) | Integrated manuscript outline starting from outline_v11. Published migration evidence, reserved WGD experiment and prospective pilot appendix are preserved. |
-| `.git` | 3.231819 GiB (3,470,139,392 bytes) | Versioned scientific source, selected portable evidence and history; bulk mode-only histories remain local outside Git. |
+| `polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023` | 0.249420 GiB (267,812,864 bytes) | Figures 1–4, preserved earlier supplements, compact plotted CSVs, deterministic susceptibility tests and Fourier/exact-mask analyses. Figures 1–2 are layout-only; new model tests are in Figures 3–4. |
+| `manuscript_outline/revision_round6_20261023` | 0.011185 GiB (12,009,472 bytes) | Verbatim incoming brief, prompt and narrative; starting-outline hashes, standalone legends, integrated reader, response and validation records. |
+| `manuscript_outline/outline_v12.pdf` | 0.006538 GiB (7,020,544 bytes) | Integrated manuscript outline starting from outline_v11. Published migration evidence, reserved WGD experiment and prospective pilot appendix are preserved. |
+| `.git` | 3.270309 GiB (3,511,468,032 bytes) | Versioned scientific source, selected portable evidence and history; bulk mode-only histories remain local outside Git. |
 
 The modes-only campaign status is **NATIVE_COHORT_COMPLETE**, with
 **9,984 completed / 9,984 allocated histories** and

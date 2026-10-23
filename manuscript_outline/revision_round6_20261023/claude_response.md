@@ -16,7 +16,7 @@ The principal changes restore the matched-input Wave-pinning exponent test,
 direct model heading correlations, concrete cellular assays, and a scientific
 opening argument. Figure 4 adds a separate model-correlation panel D; its
 remaining main panels become E (alpha), F (tolerance), G (drift), H (closure),
-I (remainder), and J (takeover). Conditional Fourier panels are K–L. This small
+I (remainder), and J (takeover). The Fourier tests are supplementary S4.7–S4.8. This small
 extension of the brief's layout addresses Concern 20 while keeping one quantity
 per letter and preserving the specified order of the other plots.
 
@@ -85,6 +85,35 @@ in the four figure folders. [Integration verification](verification.json)
 checks source preservation, native PDF embedding, local links and the review
 hash; [storage measurement](../../reports/round6_storage_20261023.json) records
 allocated storage without deleting data.
+
+## Follow-up review of the completed revision
+
+Claude reviewed the completed, pushed commit
+`028d9f5f7e3ae0c56d1d07a99bc5231f1913a472` against `209a0c3`.
+The [follow-up review](../../reviews/claude/20261023_manuscript_round6_2.md)
+is preserved verbatim, SHA256
+`69e8c13963c31d912c1645c3fb85efa18c35d09db7aae96a43a9c05db7b4f5e2`.
+It finds all prior major concerns resolved, with minor presentation and
+interpretation edits remaining. Those edits use the existing numerical results.
+
+| Concern | Response and disposition |
+| --- | --- |
+| 17. Remaining editorial wording and legend density | Accepted. Figure 1 removes the endpoint revision history and states native units directly. Figure 4J retains the scientific conditioning and finite-horizon interpretation, with bootstrap implementation details in methods. The introduction and supplement index remove revision-log wording. Figure 5 changes only an editorial source-link label; its scientific content and assets remain unchanged. |
+| 19. Level versus within-model trend | The Figure 3H caption now states that the narrow Wave-pinning prediction range primarily tests the excess of alpha above 2, rather than the within-model trend. |
+| 28. Convention dependence of the remainder | Accepted. Figure 4I now states that the magnitude and sign of the remainder depend on the decomposition convention and explains the displayed point-region/native-amplitude convention. The exact-mask identities and controlled 7/325 versus 321/325 comparison remain supplementary. |
+| 29. Supplement letters and repeated Fourier conclusion | Accepted. Supplementary rate and slope plots are S4.7–S4.8, with subsequent Fourier diagnostics numbered consistently. Main text no longer calls them K–L. The inconclusive screen is removed from the main legend and conclusion bullets; the limitations retain the required statement that the strong-input regime remains unexplained. The spectrum assay tests a detector-free description and does not by itself distinguish size mechanisms. |
+| 30. Drift assay cannot distinguish Wave-pinning from Goryachev | Accepted. The assay now names both model classes and points to the first-rise assay in Figure 2, where initiation slows with size only in Goryachev. |
+| 31. Missing opening results and isolated source-link page | Accepted. The introduction adds explicit Figure 1 and Figure 5 results and leads Figure 2 with its size contrast. The approximately 5–12-fold statement is qualified to reference cue area 1 and cases with resolved times at both lengths: the unchanged table has 18 such comparisons across all five models, spanning 4.84–11.68. It is not asserted for all cue areas. The Figure 2 narrative uses the same qualification. The final PDF is checked for isolated source-link pages after the legend edits. |
+| 32. Figure 3 legend referents | Accepted. All-model terminal gain folds accompany the maps in C; F describes its Wave-pinning time courses. The amplitude-limit result and size folds are in a concise main-text bullet, as required by the brief, with full brackets in methods. The unassigned trailing caption paragraph is removed. |
+
+The inherited scope qualifications remain: finite-follow-up takeover does not
+identify lifetime fate (14), the different size grids are declared (18), the
+requested model facets are retained (25), and Figure 1's unrequested duration
+analysis is not added (26). The outstanding per-WGD magnitude comparison,
+detector sensitivity, mechanical-state mechanism and submission-level supplement
+curation are not represented as completed results. The incoming narrative is
+preserved verbatim; current panel references and qualified claims are given in
+the revised outline.
 
 [stencil]: ../../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure4/supporting/data/mode_slope_stencil_sensitivity_summary.csv
 [phase]: ../../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure4/supporting/data/mode1_complex_phase_rate_comparison.csv

@@ -4,12 +4,14 @@
   "date": "23 October 2026",
   "stage": "Size, polarity susceptibility and heading persistence",
   "overview": [
-    "Working hypothesis: WGD-associated enlargement changes how established polarity is organized and replaced; these changes may provide a physical basis for greater migration persistence. The theoretical contribution tests size under unchanged local kinetic parameters. Length differs between model cells to represent WGD-associated enlargement, rather than elongation during a turn. Existing migration observations support this hypothesis; new paired WGD motility results retain a substantial, explicitly reserved contribution.",
-    "Figure 2 separates size-dependent initiation and cue-width responses from temporal class signatures: initiation-limited resetting, saturating activation with visible gap retention, and pulse-2 progress after loss of visible activity. The full Holmes width series shows finite replacement at all tested lengths for sufficiently broad cues; narrow-cue censoring cannot establish a growing penalty.",
-    "Enlargement slows both cue-driven turning routes and selectively suppresses edge susceptibility, most strongly in Wave-pinning and Goryachev. A native spatial response map, tested away from the edges, localizes nearly all predicted drift to the two lateral boundaries. Without fitting noisy drift, the calculation predicts Wave-pinning’s C60/C20 drift ratio of 0.490 versus 0.473 measured and a persistence size exponent above 2; Goryachev’s absolute drift prediction fails quantitatively.",
-    "Enlargement extends model heading memory and raises noise tolerance, while the size advantage weakens as input strengthens. Shared translation explains eligible weak-input Wave-pinning, Holmes and Spring conditions; all-input closure bounds, remainder curves and fixed-follow-up takeover incidence show where the domain description becomes incomplete. Fourier-mode agreement is partial and sensitive to local-slope estimation; an explanation covering all four strong-input models is not established.",
-    "The prospective pilot table fixes model-linked cellular observables before the SUM-159 data arrive. Directions are conditional hypotheses; unavailable model measurements remain unavailable. Activity heading, observed migration summaries and conditional OU velocity-memory estimates remain separate evidence.",
-    "This is a working manuscript outline. Figures 1–2 retain their numerical evidence with separate panels for distinct quantities. The published migration evidence in Figure 5 and reserved Figure 6 retain their scientific content. The prospective pilot directions retain their operational definitions with updated panel references and model-conditioning notes. Activity polarity, modelled replacement, observed migration and conditional OU velocity memory remain distinct readouts."
+    "Working hypothesis: WGD-associated enlargement alters established polarity and its replacement, providing a possible physical basis for greater migration persistence. Models change cell size under unchanged local kinetics; length represents WGD-associated enlargement. Existing migration observations support this hypothesis.",
+    "Figure 1 shows that, under fixed-width and proportional-width cues, the duration required for lasting polarity replacement rises with length across all five models.",
+    "Figure 2 shows approximately 5–12-fold slower replacement from L19 to L39 at reference cue area 1 wherever both lengths resolve. Initiation and pulse histories distinguish resetting, visible activity retention, and progress after activity loss; narrow-cue censoring limits Holmes width comparisons.",
+    "Figure 3 shows that enlargement slows both turning routes and selectively suppresses edge susceptibility. The native response map localizes nearly all predicted drift to lateral boundaries. Without fitting noisy data, it predicts Wave-pinning’s C60/C20 drift ratio (0.490 versus 0.473 measured) and a persistence exponent above 2; Goryachev’s quantitative drift bridge fails.",
+    "Figure 4 shows longer model heading memory and greater noise tolerance in larger rings. Shared translation explains eligible weak-input Wave-pinning, Holmes and Spring regimes. Closure bounds, remainder and finite-follow-up takeover incidence delimit where the domain description works.",
+    "Figure 5 shows published enlarged-cell comparisons with lower sampled speed, yet greater late-lag displacement or more direct migration. Conditional OU fits infer longer velocity memory, with curve-shape and identifiability limitations; they do not uniquely identify a polarity mechanism.",
+    "Prospective pilot measurements link model directions to SUM-159 assays; unavailable model quantities remain unavailable.",
+    "Activity heading, polarity replacement, observed migration and conditional OU velocity memory remain distinct readouts. Figure 6 reserves the substantial contribution of paired WGD motility experiments."
   ],
   "sections": [
     {
@@ -35,7 +37,7 @@
         "D, Three rightward finite challenges restart the identical qualifying nominal-amplitude, relative-20% basal checkpoint at each model and length: fixed physical support 3 (Spring 0.2 native length units), relative support 20%, and a linear ramp with constant physical slope. Patch peaks remain fixed within each model; a fixed-slope ramp has a larger peak in a longer domain. Goryachev patches use the independently selected, length-independent multiplier K=64 (peak 6.4), which makes this a response-permissive comparison rather than a calibrated equal biochemical dose across models.",
         "E, Spearman rank correlation between length and the shortest tested passing pulse duration, separately for orientation replacement and strength replacement, across Wave-pinning, Goryachev, corrected deBelly, Holmes 3 and Spring. Each cell reports the correlation and included successful-length count. All audited scalar successes enter, including those failing the separate native-field tail criterion. At least four distinct successful lengths and nonconstant durations are required; censored and preparation-ineligible cases receive no invented time. The companion duration curves retain all lengths and field-status markers.",
         "After each positive pulse, input returns to the native basal value for 10,000 native time units. Orientation requires all 201 final-500 samples to have scalar orientation above 0.05 and contrast at least 0.05, with orientation range below 0.005. Strength additionally requires every tail orientation to be within 1% of the absolute initial leftward scalar orientation; it does not compare individual pole heights or amounts. The separate native-field tail flag requires pointwise range and projected 500-unit drift within 0.1% of frozen field scales. The reported duration excludes preparation and recovery. It is the shortest passing tested duration, with sampled fail/pass boundaries refined to 1%; narrower unobserved intervals are not excluded.",
-        "deBelly uses independently commanded corrected endpoints, rather than the deprecated in-loop centered extension. Spring length and time retain native units and are not silently converted to micrometres or seconds. Model-specific axes and stimulus definitions prevent interpreting cross-model amplitudes or clocks as biologically calibrated equivalents."
+        "deBelly uses corrected endpoint commands. Spring retains native length and time units. Cross-model amplitudes and clocks are not calibrated biochemical doses or cellular times."
       ],
       "narrative": [
         "Fixed-width and relative-width patches show perfectly increasing rank order among observed successes in Wave-pinning, Goryachev, Holmes 3 and Spring; enlargement often increases the finite stimulation required for a retained response.",
@@ -132,7 +134,7 @@
         }
       ],
       "narrative": [
-        "Enlarged cells resist replacement through distinct initiation, cue-width and pulse-memory signatures.",
+        "At reference cue area 1, replacement is approximately 5–12-fold slower from L19 to L39 in every model wherever both lengths resolve. Enlarged cells resist replacement through distinct initiation, cue-width and pulse-memory signatures.",
         "The full width series shows that Holmes can replace at every tested length when the cue is broad enough; narrow-cue censoring cannot establish a growing width-penalty ratio.",
         "Pulse-2 headroom gain separates low visible retention with residual progress from the initiation-limited reset response. Saturating activation retains visible activity through gaps."
       ],
@@ -202,19 +204,19 @@
       "legend": [
         "A. Wave-pinning activity profiles for a cue straddling the incumbent edge (i) or separated from it (ii), C=30. Rows show the initial state, half-turn, 90% turn and cue-free relaxation. Grey marks cue support, diamonds mark saddles and the black tick marks activity heading.",
         "B. Enlargement slows half-turning through both incumbent sliding and replacement by a new region. Half-turn time is plotted against cue-edge gap for C=30, 37.8, 47.6 (Spring 2.5, 3.15, 3.97), light to dark. Vertical lines mark the first saddle at half-turn; grey marks undefined heading at one or more sizes. Open upward triangles with arrows denote time lower bounds.",
-        "C. Signed terminal displacement per dose for a Gaussian pulse centred at each arc position, at f=0.001: SD 1.5, duration 50 (Spring 0.15, 5). Light and dark are C20/C60 (Spring 1/3). Lines are the native linearized response to this pulse shape; circles are direct pulse tests and open squares mark the edge test. The edge pulse confirms the map locally; additional tests cover the domain centre, halfway to the edge, edge ±1 and ±3 pulse SD, quarter-basal arc and antipode. Maximum absolute gain error is 1.69% of map amplitude. The spatial response supplies the drift prediction in G.",
+        "C. Signed terminal displacement per dose for a Gaussian pulse centred at each arc position, at f=0.001: SD 1.5, duration 50 (Spring 0.15, 5). Light and dark are C20/C60 (Spring 1/3). Lines are the native linearized response to this pulse shape; circles are direct pulse tests and open squares mark the edge test. The edge pulse confirms the map locally; additional tests cover the domain centre, halfway to the edge, edge ±1 and ±3 pulse SD, quarter-basal arc and antipode. Maximum absolute gain error is 1.69% of map amplitude. Largest/smallest terminal edge-gain folds are Wave-pinning 0.701, Holmes 0.914, Spring 0.989, Goryachev 0.088. Enlargement suppresses susceptibility strongly in Wave-pinning and Goryachev, while Holmes and Spring change little. The spatial response supplies the drift prediction in G.",
         "D. Mean-state activity on the same centred physical arc coordinate as C and E. Dotted lines locate half-contrast edges. Spring uses material positions multiplied by mean circumference.",
         "E. Nearly all predicted drift (99.6–100%) is generated within two input correlation lengths of the two edges, suggesting lateral-edge fluctuations as the cellular readout. Curves show signed per-position contributions divided by total predicted diffusion; negative values remain. Rounded shares per edge/plateau interior/basal arc (%) are: Wave-pinning C20: 50.0/<0.1/<0.1; Wave-pinning C60: 49.9/0.1/<0.1; Holmes C20: 50.0/<0.1/<0.1; Holmes C60: 50.0/<0.1/<0.1; Spring C1: 50.0/0/0; Spring C3: 49.8/0.2/0.2; Goryachev C20: 50.0/0/<0.1; Goryachev C60: 50.0/0/<0.1. Interior and basal zones exclude edge zones; exact signed fractions are supplied with the source data.",
-        "F. Wave-pinning C20 and C60: the pulsed edge (solid) and opposite edge (dashed) move together and retain a permanent shift after withdrawal. Grey marks pulse-on; displacement is divided by pulse dose. Largest/smallest terminal edge-gain folds are Wave-pinning 0.701, Holmes 0.914, Spring 0.989, Goryachev 0.088. Enlargement suppresses susceptibility strongly in Wave-pinning and Goryachev, while Holmes and Spring change little. Other time courses and integrated responses are supplementary.",
+        "F. Wave-pinning C20 and C60: the pulsed edge (solid) and opposite edge (dashed) move together and retain a permanent shift after withdrawal. Grey marks pulse-on; displacement is divided by pulse dose. Other time courses and integrated responses are supplementary.",
         "G. A weak input anywhere shifts the domain by g(x) times dose; noise is many such inputs; drift follows from g and the input covariance; nothing is fitted. Shared-translation predicted versus measured diffusion is divided by each quantity's own smallest-size value at the same input (domain drift is also shown in Figure 4G). Grey is equality. Colours encode size; shapes encode f=0.0001, 0.0003, 0.001, 0.003, 0.005, 0.01 (circle, square, upward triangle, downward triangle, diamond, filled plus). Horizontal intervals are measured 95% bootstrap intervals. Wave-pinning's terminal gain fold gives 0.70²≈0.49; the full spatial covariance predicts 0.490, versus 0.473 measured at f=0.001. The square relation is approximate because spatial shape and covariance also change. Goryachev fails quantitatively and retains its own scale. Absolute diffusion and the independent-edge candidate are supplementary.",
-        "H. The drift prediction implies a local size exponent, compared with measured heading-persistence α from Figure 4E. Predictions use the exact mean input of every observation; no f=0.001 extrapolation is used. The drift subset requires f≤0.01 and multiple-domain fraction≤0.05 throughout the fixed size neighbourhood. Native stationary-state and pulse-linearity gates must also pass. Grey is equality; vertical intervals are observed 95% bootstrap intervals; colours and shapes match G. 53 qualified pairs include all 15 Wave-pinning observations at f=0.003, 0.005 and 0.01. Its predicted α spans 2.48–2.88, above the size-independent-drift expectation of 2. Goryachev has no qualified pair. Every excluded condition and reason remains in the source data.",
-        "At the right edge, last tested linear peak amplitudes from the smallest to largest size are Wave-pinning 0.01024→0.00512 (0.5-fold), Holmes 0.0256→0.0256 (1-fold), Spring 0.0512→0.0512 (1-fold), and Goryachev 0.16384→0.65536 (4-fold). The next doubling exceeds 10% gain departure. Full brackets, all-size response curves and fixed-dose duration tests are in the methods and supplement."
+        "H. The drift prediction implies a local size exponent, compared with measured heading-persistence α from Figure 4E. Predictions use the exact mean input of every observation; no f=0.001 extrapolation is used. The drift subset requires f≤0.01 and multiple-domain fraction≤0.05 throughout the fixed size neighbourhood. Native stationary-state and pulse-linearity gates must also pass. Grey is equality; vertical intervals are observed 95% bootstrap intervals; colours and shapes match G. 53 qualified pairs include all 15 Wave-pinning observations at f=0.003, 0.005 and 0.01. Its predicted α spans 2.48–2.88, above the size-independent-drift expectation of 2. Within Wave-pinning, this comparison tests the excess α above 2 more than the within-model trend. Goryachev has no qualified pair. Every excluded condition and reason remains in the source data."
       ],
       "role": "Size slows both turning routes; selective edge susceptibility links imposed perturbations to domain drift and excess heading persistence.",
       "narrative": [
         "Enlargement slows both turning routes: sliding of the incumbent under a boundary-straddling cue, and replacement by a challenger under a separated cue. At separated placements, half-turn time becomes insensitive to further distance while remaining strongly size-dependent.",
         "Enlargement selectively suppresses the terminal response of the lateral edges: largest/smallest gain is Wave-pinning 0.701, Holmes 0.914, Spring 0.989, Goryachev 0.088, over a threefold circumference contrast. Those two edge zones generate 99.6–100% of predicted domain drift. Strong-cue turning and weak susceptibility therefore probe different response properties.",
-        "The same native susceptibility and input covariance predict physical domain drift without fitting. Wave-pinning has size-normalized diffusion 0.490 predicted and 0.473 measured at f=0.001. Across the qualified drift regime, its size-suppressed diffusion predicts α=2.48–2.88, above the drift-geometry value 2, which is now compared directly with Figure 4E. Goryachev's absolute drift disagreement remains visible."
+        "The same native susceptibility and input covariance predict physical domain drift without fitting. Wave-pinning has size-normalized diffusion 0.490 predicted and 0.473 measured at f=0.001. Across the qualified drift regime, its size-suppressed diffusion predicts α=2.48–2.88, above the drift-geometry value 2, which is now compared directly with Figure 4E. Goryachev's absolute drift disagreement remains visible.",
+        "At the right edge, last tested linear peak amplitudes from the smallest to largest size are Wave-pinning 0.01024→0.00512 (0.5-fold), Holmes 0.0256→0.0256 (1-fold), Spring 0.0512→0.0512 (1-fold), and Goryachev 0.16384→0.65536 (4-fold). The next doubling exceeds 10% gain departure. Full brackets, all-size response curves and fixed-dose duration tests are in the methods and supplement."
       ],
       "measurements": [
         "In paired WGD−/WGD+ cells, vary photoactivation offset from a boundary-straddling cue to a separated cue. Measure activity-heading time to half-turn and image whether the incumbent slides or a new region takes over. WGD+ cells are predicted to turn more slowly through both routes.",
@@ -281,7 +283,7 @@
     {
       "id": "figure4",
       "title": "Figure 4. Enlargement extends polarity heading memory under fluctuating input",
-      "role": "Size-dependent heading persistence, region-based diagnostic limits and a detector-free mode test.",
+      "role": "Size-dependent heading persistence and limits of region-based diagnostic accounting.",
       "assets": [
         {
           "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure4/figure4_main.png",
@@ -305,28 +307,26 @@
         "F, Noise-tolerance fold at heading-correlation lag 2000 (Spring 200), relative to the smallest ring. Spring circumference is multiplied by 20 for display. The dashed grey guide is proportional to circumference.",
         "G, Physical within-tenure drift coefficient normalized by the smallest size at the same input, using five-frame persistent dominant tenures. Goryachev uses a different ordinate range, 10⁻⁷–2; the other models use 0.2–8.",
         "H, Drift plus counted five-frame-dominant takeovers, divided by observed heading decorrelation rate, at every designed input. Solid lower and dashed upper limits bound every unscored takeover loss between 0 and 2. Shading denotes identification intervals, not confidence intervals. Grey line: unity. Open upward triangles with arrows mark an unbounded upper limit where drift is unavailable. Only the unknown drift contribution has lower bound zero; counted-takeover lower contributions are retained. Crosses at the top mark unavailable observed rates.",
-        "I, Signed remainder share versus input, using point regions with native-amplitude scaling. It includes amplitude, within-region shape, unresolved activity and background contributions. The decomposition is descriptive; exact own-mask and normalization checks are supplementary.",
-        "J, Probability that a certified persistent secondary birth becomes globally dominant within 20 input correlation times. Filled circles: 0 < d ≤ C/6; open squares: d > C/6. Wave-pinning f = 0.05, minimum total births = 590; Holmes f = 0.05, minimum total births = 231; Spring f = 0.05, minimum total births = 580; Goryachev f = 0.025, minimum total births = 1064. For each model, select the designed input nearest in log distance to the smallest ring’s half-memory input among inputs with at least 200 total certified births at every size, then drop d ≤ 0. d denotes estimated edge-to-edge birth–incumbent separation, using the amount/global-contrast plateau-width approximation. Intervals resample whole histories 2000 times; [0,1] replaces intervals with fewer than 97.5% defined resamples. Positive-distance denominators and certification are reported separately. Lower 20-time-scale incidence can reflect slower or rarer takeover; lifetime takeover probability is unidentified.",
-        "The strong-input regime remains unexplained as a common four-model description. Rate-collapse screens pass in Wave-pinning, Holmes, Spring, Goryachev; local-slope screens pass in Wave-pinning, Holmes, Spring. This partial agreement depends on the local-slope stencil: Wave-pinning and Spring fail the three-point slope screen, so it does not establish a robust strong-regime explanation. Fourier-mode tests (K–L), spectra and exact-mask diagnostics appear in the supplement."
+        "I, Signed remainder share versus input, using point regions with native-amplitude scaling. R includes amplitude, within-region shape, unresolved activity and background contributions; its sign and magnitude depend on the accounting convention. This convention retains measured native coherence, avoids the unit-modulus single-region normalization artefact and gives a common comparison across inputs and sizes. The decomposition is descriptive. Exact own-mask and normalization sensitivities appear in S4.5; complete-mask reconstruction is an algebraic identity, not causal validation.",
+        "J, Probability that a certified persistent secondary birth becomes globally dominant within 20 input correlation times, at each model’s labelled input. Filled circles: 0 < d ≤ C/6; open squares: d > C/6, where d is estimated edge-to-edge birth–incumbent separation. Probabilities concern the certified positive-distance subset; a [0,1] interval is uninformative. Lower finite-horizon incidence can reflect slower or rarer takeover; lifetime takeover probability is unidentified. Input selection, certification denominators and interval procedures are in Methods.",
+        "Scope/limitations: The strong-input regime remains unexplained."
       ],
       "narrative": [
         "Larger rings retain heading longer near the transition; the local size exponent decreases as input strengthens. The largest-to-smallest noise-tolerance folds are 2.37 (Wave-pinning), 2.16 (Holmes), 3.09 (Spring) and 4.12 (Goryachev).",
         "Physical weak-input drift decreases with size in Wave-pinning but is nearly size independent in Holmes and Spring. The deterministic drift bridge is quantitatively unreliable for Goryachev. Region-based closure and remainder delimit the inputs where this description is adequate.",
-        "At each model’s selected input, far-born certified fronts have lower finite-horizon takeover estimates in larger rings; near-bin estimates need not decline monotonically. Certification and finite follow-up limit the population and lifetime interpretation.",
-        "Fourier rate-collapse screens pass in Wave-pinning, Holmes, Spring, Goryachev; local-slope screens pass in Wave-pinning, Holmes, Spring. This partial agreement depends on the local-slope stencil: Wave-pinning and Spring fail the three-point screen. It does not establish a robust strong-regime explanation. All three/five/eight-point metrics are reported; this is a descriptive test, not causal attribution."
+        "At each model’s selected input, far-born certified fronts have lower finite-horizon takeover estimates in larger rings; near-bin estimates need not decline monotonically. Certification and finite follow-up limit the population and lifetime interpretation."
       ],
       "measurements": [
         "In matched WGD− and WGD+ cells under the same fluctuating input, image full-perimeter polarity activity and estimate heading autocorrelation jointly with coherence. Longer heading memory in enlarged cells is the prediction; this readout is distinct from velocity persistence.",
-        "Track the physical lateral displacement of both front boundaries. Size-suppressed physical drift would favour a Wave-pinning-like susceptibility change; nearly size-independent physical drift with slower angular wandering would favour Holmes/Spring-like geometry. The Goryachev quantitative bridge is unreliable.",
+        "Track the physical lateral displacement of both front boundaries. Size-suppressed physical drift would favour Wave-pinning-like or Goryachev-like susceptibility; this assay does not separate them. The Fig. 2 first-rise assay separates these alternatives, because initiation slows with size only in Goryachev. Nearly size-independent physical drift with slower angular wandering would favour Holmes/Spring-like geometry but does not separate those models. The Goryachev quantitative drift bridge remains unreliable.",
         "Count persistent secondary protrusion births per perimeter–time and follow new-front dominance conditional on birth distance, using both 20 input correlation times and longer follow-up. The prospective signature is lower far-born takeover incidence with enlargement; near-born signatures are model dependent. Distinguish births from splits and retain censored histories to separate slow resolution from rare takeover.",
         "Compare photoactivation that straddles the existing front boundary with separated activation, and measure time to half-turn across cell sizes. This tests the two imposed-turning routes and whether the size effect changes with cue position.",
-        "Measure perimeter Fourier spectra and mode correlations against physical wavenumber in both ploidy groups. A common rate curve would support a detector-free description; disagreement would reject that description without requiring a domain detector."
+        "Measure perimeter Fourier spectra and mode correlations against physical wavenumber in both ploidy groups. A common rate curve would support a detector-free description; disagreement would reject that description without requiring a domain detector. This assay tests that description rather than distinguishing mechanisms of the size effect (S4.6–S4.8)."
       ],
       "limitations": [
         "Missing takeover angles are bounds, not imputed means.",
         "Exact birth/split population classification remains partly unidentifiable.",
-        "Two exemplar seeds cannot validate universal mode collapse.",
-        "A universal strong-input mechanism is not identified."
+        "Two exemplar seeds cannot validate universal mode collapse."
       ],
       "sources": [
         {
@@ -450,7 +450,7 @@
           "path": "wgd_langevin/refined_ou_20261003/figures/supp_04_Hosny_sensitivity.png"
         },
         {
-          "label": "Revised display, exact preserved inputs and direct-user feedback",
+          "label": "Migration display and preserved-input provenance",
           "path": "manuscript_outline/assets/migration_v2/provenance.json"
         },
         {
@@ -505,7 +505,7 @@
     {
       "title": "Figure 1: round6 complete supporting evidence",
       "text": [
-        "Current source data, numerical qualification and preceding supplementary evidence; earlier main artwork is preserved."
+        "Source data, numerical qualification and complete supplementary evidence."
       ],
       "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure1/figure1_round6_supplement.pdf",
       "sources": [
@@ -518,7 +518,7 @@
     {
       "title": "Figure 2: round6 complete supporting evidence",
       "text": [
-        "Current source data, numerical qualification and preceding supplementary evidence; earlier main artwork is preserved."
+        "Source data, numerical qualification and complete supplementary evidence."
       ],
       "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure2/figure2_round6_supplement.pdf",
       "sources": [
@@ -531,7 +531,7 @@
     {
       "title": "Figure 3: round6 complete supporting evidence",
       "text": [
-        "Current source data, numerical qualification and preceding supplementary evidence; earlier main artwork is preserved."
+        "Source data, numerical qualification and complete supplementary evidence."
       ],
       "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure3/figure3_round6_supplement.pdf",
       "sources": [
@@ -544,7 +544,7 @@
     {
       "title": "Figure 4: round6 complete supporting evidence",
       "text": [
-        "Current source data, numerical qualification and preceding supplementary evidence; earlier main artwork is preserved."
+        "Source data, numerical qualification and complete supplementary evidence."
       ],
       "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure4/figure4_supplement.pdf",
       "sources": [
@@ -1065,6 +1065,18 @@
     {
       "label": "Figure 4 October 20 revision brief",
       "path": "docs/tasks/briefs/figure_4.txt"
+    },
+    {
+      "label": "Claude independent review 1, preserved verbatim",
+      "path": "reviews/claude/20261023_manuscript_round6.md"
+    },
+    {
+      "label": "Claude independent review 2, preserved verbatim",
+      "path": "reviews/claude/20261023_manuscript_round6_2.md"
+    },
+    {
+      "label": "Point-by-point responses to independent reviews",
+      "path": "manuscript_outline/revision_round6_20261023/claude_response.md"
     }
   ]
 }

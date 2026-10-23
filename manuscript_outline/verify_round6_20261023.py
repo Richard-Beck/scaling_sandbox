@@ -1,5 +1,6 @@
 """Check preservation, source coordinates, native PDF integration and local links."""
 from pathlib import Path
+from copy import deepcopy
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from urllib.parse import unquote, urlsplit
@@ -51,7 +52,12 @@ def main():
     baseline = read(ROOT / 'manuscript_outline/outline_v11.json')
     current = read(ROOT / 'manuscript_outline/outline_v12.json')
     for index in (4, 5):
-        assert current['sections'][index] == baseline['sections'][index]
+        expected = deepcopy(baseline['sections'][index])
+        if index == 4:
+            for source in expected['sources']:
+                if source.get('path') == 'manuscript_outline/assets/migration_v2/provenance.json':
+                    source['label'] = 'Migration display and preserved-input provenance'
+        assert current['sections'][index] == expected
     old_pilot = read(ROOT / 'manuscript_outline/revision_figures3_4_20261023/pilot_observables.json')
     new_pilot = read(DEST / 'pilot_observables.json')
     assert len(old_pilot['observables']) == len(new_pilot['observables'])
@@ -82,12 +88,35 @@ def main():
             committed = subprocess.check_output(['git', 'show', '209a0c3:' + relative_path], cwd=ROOT)
             assert path.read_bytes() == committed, relative_path
             layout_csvs += 1
+    with (FIGURES / 'figure2/supporting/data/C_replacement_times_all450.csv').open() as stream:
+        replacement_rows = list(csv.DictReader(stream))
+    replacement = {(r['model'], float(r['area']), float(r['width']), float(r['length'])): r
+                   for r in replacement_rows}
+    reference_folds = []
+    reference_models = set()
+    for (model, area, width, length), small in replacement.items():
+        if area == 1 and length == 19:
+            large = replacement[(model, area, width, 39.0)]
+            if small['time_estimate'] and large['time_estimate']:
+                reference_folds.append(float(large['time_estimate']) / float(small['time_estimate']))
+                reference_models.add(model)
+    assert len(reference_folds) == 18 and len(reference_models) == 5
+    assert min(reference_folds) >= 4.8 and max(reference_folds) <= 12
+    assert 'reference cue area 1' in current['sections'][1]['narrative'][0]
     unchanged = subprocess.run(['git', 'diff', '--exit-code', starting['baseline_commit'], '--',
         'author', 'polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023',
         'manuscript_outline/outline_v11.pdf', 'manuscript_outline/outline_v11.json'], cwd=ROOT, capture_output=True, text=True)
     assert unchanged.returncode == 0, unchanged.stdout
     manifest = read(ROOT / 'manuscript_outline/outline_v12.build_manifest.json')
     pdf = PdfReader(ROOT / 'manuscript_outline/outline_v12.pdf')
+    cover_text = pdf.pages[0].extract_text()
+    assert all(f'Figure {number}' in cover_text for number in range(1, 6))
+    note_headings = ('Detailed legend', 'Narrative points', 'Proposed measurements',
+                     'Scope, limitations', 'Model definitions', 'Sources and reproducibility')
+    orphan_pages = [p['number'] for p in manifest['page_inventory']
+                    if p['kind'] == 'figure_notes' and p['text_blocks'] <= 8
+                    and not any(h in pdf.pages[p['number']-1].extract_text() for h in note_headings)]
+    assert not orphan_pages, orphan_pages
     native_count = 0
     for page in manifest['page_inventory']:
         if page.get('native_vector_pdf'):
@@ -137,6 +166,8 @@ def main():
         assert all(math.isfinite(float(row[key])) for key in ('predicted_alpha', 'observed_alpha'))
     f4_audit = read(FIGURES / 'figure4/supporting/metadata/scientific_validation.json')
     assert f4_audit['passed']
+    postreview_data_count = 0
+    postreview_archive_count = 0
     if args.require_complete_mode_campaign:
         storage = read(ROOT / 'reports/round6_storage_20261023.json')
         assert storage['campaign_status'] == 'NATIVE_COHORT_COMPLETE'
@@ -153,7 +184,39 @@ def main():
         assert terminal['controllers_completed'] and terminal['live_producer_stopped']
         assert terminal['native_histories'] == storage['complete_mode_histories']
         assert terminal['native_failures'] == 0
-        for name, expected in terminal['artifact_sha256'].items():
+        artifact_hashes = terminal['artifact_sha256']
+        presentation_path = FIGURES / 'figure4/supporting/metadata/postreview_presentation_audit.json'
+        if presentation_path.exists():
+            presentation = read(presentation_path)
+            assert presentation['numeric_data_exports_unchanged']
+            assert presentation['numeric_data_export_count'] == 62
+            for name, expected in artifact_hashes.items():
+                assert presentation['prior_artifact_sha256'][name] == expected, name
+            artifact_hashes = presentation['artifact_sha256']
+            assert terminal['artifact_sha256'].keys() <= artifact_hashes.keys()
+            terminal_path = FIGURES / 'figure4/supporting/metadata/stable_artifact_handshake.json'
+            recorded_terminal = subprocess.check_output(['git', 'show', '028d9f5:' + str(terminal_path.relative_to(ROOT))], cwd=ROOT)
+            assert terminal_path.read_bytes() == recorded_terminal
+            export_path = FIGURES / 'figure4/supporting/metadata/data_export_hashes.json'
+            original_exports = json.loads(subprocess.check_output(['git', 'show', '028d9f5:' + str(export_path.relative_to(ROOT))], cwd=ROOT))
+            assert read(export_path) == original_exports
+            archive = ROOT / presentation['reviewed_archive']
+            for name, expected in presentation['reviewed_archive_file_sha256'].items():
+                original = subprocess.check_output(['git', 'show', '028d9f5:' + str((FIGURES / 'figure4' / name).relative_to(ROOT))], cwd=ROOT)
+                assert (archive / name).read_bytes() == original, name
+                assert sha(archive / name) == expected, name
+                postreview_archive_count += 1
+            for name, expected in presentation['presentation_source_sha256'].items():
+                assert sha(FIGURES / 'figure4' / name) == expected, name
+            freeze = read(FIGURES / 'figure4/supporting/metadata/final_analysis_source_freeze.json')
+            for item in freeze['files']:
+                assert sha(FIGURES / 'figure4/supporting/metadata/final_analysis_source_snapshot' / item['snapshot']) == item['sha256']
+                if item['source'] != str((FIGURES / 'figure4/rebuild_figure4.py').relative_to(ROOT)):
+                    assert sha(ROOT / item['source']) == item['sha256']
+            for name, expected in original_exports.items():
+                assert sha(FIGURES / 'figure4/supporting/data' / name) == expected, name
+                postreview_data_count += 1
+        for name, expected in artifact_hashes.items():
             assert sha(FIGURES / 'figure4' / name) == expected, name
         evidence = read(FIGURES / 'figure4/supporting/metadata/terminal_evidence_audit.json')
         assert evidence['passed'] and evidence['source_hashes_all_match']
@@ -171,16 +234,23 @@ def main():
     report = {'generated_utc': datetime.now(timezone.utc).isoformat(), 'passed': True,
         'baseline_commit': starting['baseline_commit'], 'baseline_pdf_preserved': True,
         'round5_files_and_author_documents_preserved': True, 'protected_sections': ['figure5', 'figure6'],
+        'figure5_source_label_presentation_update_only': True,
         'pilot_prospective_directions_preserved': True,
         'pilot_references_and_model_conditioning_updated': True,
         'byte_identical_figure1_2_data_tables': len(source_pairs),
         'figure1_2_plotted_csvs_unchanged_by_review_fixes': layout_csvs,
+        'figure2_reference_area1_resolved_size_pairs': len(reference_folds),
+        'figure2_reference_area1_replacement_fold_range': [min(reference_folds), max(reference_folds)],
         'main_source_hashes_checked': sources, 'native_pdf_pages_preserved': native_count,
+        'opening_page_contains_figures1_5_results': True,
+        'isolated_source_link_pages': orphan_pages,
         'local_html_links_checked': links_checked,
         'immutable_snapshot_hashes_checked': snapshot_count,
         'figure3_numerical_and_artifact_audit_checked': True,
         'figure3_qualified_exact_input_alpha_pairs': len(alpha_eligible),
         'figure4_numerical_audit_checked': True,
+        'figure4_postreview_numerical_exports_verified': postreview_data_count,
+        'figure4_postreview_archived_commit_files_verified': postreview_archive_count,
         'terminal_mode_campaign_required_and_checked': args.require_complete_mode_campaign,
         'review_preservation_checked': preservation.exists(),
         'scope': 'Source and packaging audit; model-specific numerical and scientific checks are recorded with Figures 3–4.'}

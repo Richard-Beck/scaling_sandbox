@@ -321,7 +321,8 @@ def organize_group(name,dry_run=False):
  # Their links describe the old commit layout, rather than the active reader.
  # Keep their hashes protected; check links in current documents below.
  historical_document_roots=[folder/'supporting/historical/reviewed_49754ab',
-  folder/'supporting/historical_unscaled_20261023']
+  folder/'supporting/historical_unscaled_20261023',
+  folder/'supporting/reviewed_terminal_028d9f5']
  historical_documents={p.resolve() for p in existing
   if any(root in p.parents for root in historical_document_roots)
   and p.suffix in ['.md','.html']}

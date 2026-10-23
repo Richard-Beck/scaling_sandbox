@@ -17,6 +17,9 @@ are retained with current panel references.
 
 
 
+
+
+
 <!-- Figures 3-4 edge-birth revision 20261023 -->
 # Figures 3–4: edge responses and secondary-domain dynamics
 
