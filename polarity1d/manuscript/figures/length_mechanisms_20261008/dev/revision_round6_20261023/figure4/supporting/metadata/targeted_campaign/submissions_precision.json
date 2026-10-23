@@ -1,0 +1,19 @@
+{
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--partition=red",
+    "--qos=small",
+    "--cpus-per-task=1",
+    "--mem=4G",
+    "--time=02:00:00",
+    "--dependency=afterany:21334322:21334323:21334324:21334325",
+    "--job-name=F4r6-precision",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/figure4_round6_modes_20261023/logs/precision_%j.out",
+    "--wrap",
+    "/home/4473331/.conda/envs/scaling_sandbox/bin/python -B /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure4/scripts/modes_campaign.py precision --submit-topup"
+  ],
+  "returncode": 0,
+  "stdout": "21334326\n",
+  "stderr": ""
+}

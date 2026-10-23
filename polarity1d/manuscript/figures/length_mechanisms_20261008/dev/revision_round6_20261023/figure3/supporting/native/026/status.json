@@ -1,0 +1,61 @@
+{
+  "condition": {
+    "slot": 26,
+    "model": "goryachev",
+    "size": 50.0,
+    "cells": 1000,
+    "platform": "chemical",
+    "mean": 0.0064,
+    "source_slot": 110,
+    "source_size": 50.0,
+    "input": "inputs/goryachev_C50.npz",
+    "exact": true,
+    "edge_and_center_only": false,
+    "source_input_sha256": "37b5ba9229a540c930a651aaecfe04f72cf3a58da0b0575eaf7296af5d1d8bfd"
+  },
+  "generated_utc": "2026-10-23T21:04:38.411097+00:00",
+  "complete": true,
+  "slurm_job_id": "21334316",
+  "mean_circumference": 50.0,
+  "basal_circumference": 50.0,
+  "mean_stationary_rhs": 1.8532397838555426e-13,
+  "mean_tail_scaled_change": 1.7952788427186395e-16,
+  "mean_contrast": 79.11376192007839,
+  "amplitude_limit": {
+    "last_linear_amplitude": 0.65536,
+    "first_stopping_amplitude": 1.31072,
+    "stop_reason": "gain_departure_gt_10pct"
+  },
+  "defined": true,
+  "n_experiments": 20,
+  "Ds": 1.0758014023611322e-09,
+  "native_gain_scale": 0.992880187846144,
+  "linear_response": {
+    "translation_eigenvalue": -2.1094480513394277e-14,
+    "translation_eigenvalue_imag": 0.0,
+    "adjoint_residual": 1.943517325509004e-12,
+    "right_translation_overlap": 0.9999937858149026,
+    "phase_normalization": 0.9999999999999993,
+    "D_left": 1.0912855798824543e-09,
+    "D_right": 1.0912855798824543e-09,
+    "Ds_independent": 5.456427899412272e-10,
+    "Ds_full_crosscovariance": 1.0912855798824543e-09,
+    "spatial_kernel": "Adjoint of unchanged native linearization; both edges share the translation mode at zero frequency",
+    "covariance_time_integral_unit_mean": 2.6642714352598982e-05,
+    "edge_gain_validation": [
+      {
+        "edge": 0,
+        "predicted_phase_gain": -0.00025655687396472195,
+        "measured_edge_gain": -0.0002547302371258553,
+        "relative_error": 0.007119812502540186
+      },
+      {
+        "edge": 1,
+        "predicted_phase_gain": 0.00025655687400816116,
+        "measured_edge_gain": 0.0002547302373478999,
+        "relative_error": 0.007119811805171721
+      }
+    ]
+  },
+  "wall_seconds": 9.288182088173926
+}

@@ -1,0 +1,61 @@
+{
+  "condition": {
+    "slot": 12,
+    "model": "holmes_model3",
+    "size": 50.0,
+    "cells": 1000,
+    "platform": "chemical",
+    "mean": 0.001,
+    "source_slot": 50,
+    "source_size": 50.0,
+    "input": "inputs/holmes_model3_C50.npz",
+    "exact": true,
+    "edge_and_center_only": false,
+    "source_input_sha256": "2f09dbbcec7f7507f830dd8d16aa766234dc0433caae7ab1834028cf95b5361f"
+  },
+  "generated_utc": "2026-10-23T21:04:42.382311+00:00",
+  "complete": true,
+  "slurm_job_id": "21334302",
+  "mean_circumference": 50.0,
+  "basal_circumference": 50.0,
+  "mean_stationary_rhs": 5.396971758386826e-11,
+  "mean_tail_scaled_change": 1.065220926969746e-15,
+  "mean_contrast": 1.1193109494836375,
+  "amplitude_limit": {
+    "last_linear_amplitude": 0.0256,
+    "first_stopping_amplitude": 0.0512,
+    "stop_reason": "gain_departure_gt_10pct"
+  },
+  "defined": true,
+  "n_experiments": 18,
+  "Ds": 2.4958926171078003e-05,
+  "native_gain_scale": 0.9988875360447541,
+  "linear_response": {
+    "translation_eigenvalue": -1.7954143142399757e-11,
+    "translation_eigenvalue_imag": 0.0,
+    "adjoint_residual": 7.32021240983404e-12,
+    "right_translation_overlap": 0.9999997537422491,
+    "phase_normalization": 1.0000000000000009,
+    "D_left": 2.501455078588093e-05,
+    "D_right": 2.501455078588093e-05,
+    "Ds_independent": 1.2507275392940464e-05,
+    "Ds_full_crosscovariance": 2.501455078588093e-05,
+    "spatial_kernel": "Adjoint of unchanged native linearization; both edges share the translation mode at zero frequency",
+    "covariance_time_integral_unit_mean": 25.014550785880928,
+    "edge_gain_validation": [
+      {
+        "edge": 0,
+        "predicted_phase_gain": -0.42985948235267163,
+        "measured_edge_gain": -0.4293812791189566,
+        "relative_error": 0.0011124640803495587
+      },
+      {
+        "edge": 1,
+        "predicted_phase_gain": 0.4298594822435752,
+        "measured_edge_gain": 0.42938127911753554,
+        "relative_error": 0.0011124638301422067
+      }
+    ]
+  },
+  "wall_seconds": 14.752662462182343
+}

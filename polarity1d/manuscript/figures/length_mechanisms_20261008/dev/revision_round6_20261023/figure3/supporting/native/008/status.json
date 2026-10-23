@@ -1,0 +1,61 @@
+{
+  "condition": {
+    "slot": 8,
+    "model": "holmes_model3",
+    "size": 30.0,
+    "cells": 600,
+    "platform": "chemical",
+    "mean": 0.001,
+    "source_slot": 38,
+    "source_size": 30.0,
+    "input": "inputs/holmes_model3_C30.npz",
+    "exact": true,
+    "edge_and_center_only": false,
+    "source_input_sha256": "90883e22f4953c0c2857a03ae06de80bfb24db35942b3cedaf87a3f48d9bb736"
+  },
+  "generated_utc": "2026-10-23T21:04:38.287501+00:00",
+  "complete": true,
+  "slurm_job_id": "21334298",
+  "mean_circumference": 30.0,
+  "basal_circumference": 30.0,
+  "mean_stationary_rhs": 5.594325003244194e-11,
+  "mean_tail_scaled_change": 5.325205286349207e-16,
+  "mean_contrast": 1.1197405275681995,
+  "amplitude_limit": {
+    "last_linear_amplitude": 0.0256,
+    "first_stopping_amplitude": 0.0512,
+    "stop_reason": "gain_departure_gt_10pct"
+  },
+  "defined": true,
+  "n_experiments": 18,
+  "Ds": 2.738127176085533e-05,
+  "native_gain_scale": 1.0000033601432041,
+  "linear_response": {
+    "translation_eigenvalue": -1.9156403566404363e-11,
+    "translation_eigenvalue_imag": 0.0,
+    "adjoint_residual": 3.5306389010090947e-12,
+    "right_translation_overlap": 0.9999997601977048,
+    "phase_normalization": 0.9999999999999989,
+    "D_left": 2.738108775179432e-05,
+    "D_right": 2.738108775179432e-05,
+    "Ds_independent": 1.369054387589716e-05,
+    "Ds_full_crosscovariance": 2.738108775179432e-05,
+    "spatial_kernel": "Adjoint of unchanged native linearization; both edges share the translation mode at zero frequency",
+    "covariance_time_integral_unit_mean": 27.381087751794322,
+    "edge_gain_validation": [
+      {
+        "edge": 0,
+        "predicted_phase_gain": -0.4497354330935602,
+        "measured_edge_gain": -0.44973694428165345,
+        "relative_error": 3.3601712964395153e-06
+      },
+      {
+        "edge": 1,
+        "predicted_phase_gain": 0.44973543312806524,
+        "measured_edge_gain": 0.4497369442908905,
+        "relative_error": 3.360115112016434e-06
+      }
+    ]
+  },
+  "wall_seconds": 10.660303925164044
+}

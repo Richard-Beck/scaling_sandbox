@@ -1,0 +1,18 @@
+{
+  "generated_utc": "2026-10-23T21:04:25.943966+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--partition=red",
+    "--qos=small",
+    "--cpus-per-task=1",
+    "--mem=4G",
+    "--time=00:30:00",
+    "--job-name=f3round6",
+    "--array=0-27",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure3/logs/%A_%a.out",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure3/scripts/worker.sh"
+  ],
+  "stdout": "21334289\n",
+  "stderr": ""
+}

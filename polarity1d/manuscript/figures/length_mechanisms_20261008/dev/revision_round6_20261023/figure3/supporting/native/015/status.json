@@ -1,0 +1,61 @@
+{
+  "condition": {
+    "slot": 15,
+    "model": "spring_ring",
+    "size": 1.5,
+    "cells": 150,
+    "platform": "spring",
+    "mean": 0.004,
+    "source_slot": 68,
+    "source_size": 1.5,
+    "input": "inputs/spring_ring_C1.5.npz",
+    "exact": true,
+    "edge_and_center_only": false,
+    "source_input_sha256": "5eb0de672b93fc50416c1ad3cf1442bf71276bdb228f157d1c036ea7c35ac575"
+  },
+  "generated_utc": "2026-10-23T21:04:37.020955+00:00",
+  "complete": true,
+  "slurm_job_id": "21334305",
+  "mean_circumference": 1.543264339378787,
+  "basal_circumference": 1.5432346492188183,
+  "mean_stationary_rhs": 5.924091741439962e-11,
+  "mean_tail_scaled_change": 1.3596643575566496e-14,
+  "mean_contrast": 0.4906508693982202,
+  "amplitude_limit": {
+    "last_linear_amplitude": 0.0512,
+    "first_stopping_amplitude": 0.1024,
+    "stop_reason": "gain_departure_gt_10pct"
+  },
+  "defined": true,
+  "n_experiments": 17,
+  "Ds": 2.0246666875639778e-05,
+  "native_gain_scale": 0.9980161036832145,
+  "linear_response": {
+    "translation_eigenvalue": 4.4642968867357054e-14,
+    "translation_eigenvalue_imag": 0.0,
+    "adjoint_residual": 7.930770239073956e-12,
+    "right_translation_overlap": 0.9999871482971728,
+    "phase_normalization": 0.9999999999999998,
+    "D_left": 2.0327241148467267e-05,
+    "D_right": 2.0327241148467267e-05,
+    "Ds_independent": 1.0163620574233634e-05,
+    "Ds_full_crosscovariance": 2.0327241148467267e-05,
+    "spatial_kernel": "Adjoint of unchanged native linearization; both edges share the translation mode at zero frequency",
+    "covariance_time_integral_unit_mean": 1.2704525717792043,
+    "edge_gain_validation": [
+      {
+        "edge": 0,
+        "predicted_phase_gain": -0.3077737444635555,
+        "measured_edge_gain": -0.3071631532964858,
+        "relative_error": 0.001983896216143893
+      },
+      {
+        "edge": 1,
+        "predicted_phase_gain": 0.30777374446155237,
+        "measured_edge_gain": 0.30716315323253696,
+        "relative_error": 0.001983896417427145
+      }
+    ]
+  },
+  "wall_seconds": 8.61255727428943
+}

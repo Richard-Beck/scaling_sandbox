@@ -1,0 +1,61 @@
+{
+  "condition": {
+    "slot": 3,
+    "model": "wave_pinning",
+    "size": 40.0,
+    "cells": 800,
+    "platform": "chemical",
+    "mean": 0.0001,
+    "source_slot": 14,
+    "source_size": 40.0,
+    "input": "inputs/wave_pinning_C40.npz",
+    "exact": true,
+    "edge_and_center_only": false,
+    "source_input_sha256": "83cfbfcbe09748ea48e0ccb5c4c05bb22fad319f692a21d3a23443084e737159"
+  },
+  "generated_utc": "2026-10-23T21:04:33.809762+00:00",
+  "complete": true,
+  "slurm_job_id": "21334293",
+  "mean_circumference": 40.0,
+  "basal_circumference": 40.0,
+  "mean_stationary_rhs": 2.6731394875412207e-12,
+  "mean_tail_scaled_change": 1.1672768752930944e-15,
+  "mean_contrast": 0.9490843506275244,
+  "amplitude_limit": {
+    "last_linear_amplitude": 0.00512,
+    "first_stopping_amplitude": 0.01024,
+    "stop_reason": "gain_departure_gt_10pct"
+  },
+  "defined": true,
+  "n_experiments": 19,
+  "Ds": 4.82163266624001e-06,
+  "native_gain_scale": 0.9981441124759145,
+  "linear_response": {
+    "translation_eigenvalue": -1.8148549923145757e-11,
+    "translation_eigenvalue_imag": 0.0,
+    "adjoint_residual": 7.039501918047247e-13,
+    "right_translation_overlap": 0.9999999023913332,
+    "phase_normalization": 1.0000000000000009,
+    "D_left": 4.839579427349121e-06,
+    "D_right": 4.839579427349121e-06,
+    "Ds_independent": 2.4197897136745605e-06,
+    "Ds_full_crosscovariance": 4.839579427349121e-06,
+    "spatial_kernel": "Adjoint of unchanged native linearization; both edges share the translation mode at zero frequency",
+    "covariance_time_integral_unit_mean": 483.9579427349121,
+    "edge_gain_validation": [
+      {
+        "edge": 0,
+        "predicted_phase_gain": -1.880371655422108,
+        "measured_edge_gain": -1.8768818971750534,
+        "relative_error": 0.0018558874980867375
+      },
+      {
+        "edge": 1,
+        "predicted_phase_gain": 1.880371655512946,
+        "measured_edge_gain": 1.876881897167948,
+        "relative_error": 0.001855887550084355
+      }
+    ]
+  },
+  "wall_seconds": 6.478520667180419
+}

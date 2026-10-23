@@ -1,0 +1,61 @@
+{
+  "condition": {
+    "slot": 13,
+    "model": "holmes_model3",
+    "size": 60.0,
+    "cells": 1200,
+    "platform": "chemical",
+    "mean": 0.001,
+    "source_slot": 56,
+    "source_size": 60.0,
+    "input": "inputs/holmes_model3_C60.npz",
+    "exact": true,
+    "edge_and_center_only": false,
+    "source_input_sha256": "618084daf6b9fbbe4989caf1c23163a6575c968d49fe6e4888f0e693a53c302b"
+  },
+  "generated_utc": "2026-10-23T21:04:48.791482+00:00",
+  "complete": true,
+  "slurm_job_id": "21334303",
+  "mean_circumference": 60.0,
+  "basal_circumference": 60.0,
+  "mean_stationary_rhs": 5.051514762044462e-11,
+  "mean_tail_scaled_change": 1.664477881495458e-16,
+  "mean_contrast": 1.1192025830914838,
+  "amplitude_limit": {
+    "last_linear_amplitude": 0.0256,
+    "first_stopping_amplitude": 0.0512,
+    "stop_reason": "gain_departure_gt_10pct"
+  },
+  "defined": true,
+  "n_experiments": 25,
+  "Ds": 2.3909330831880792e-05,
+  "native_gain_scale": 0.9993571183843881,
+  "linear_response": {
+    "translation_eigenvalue": -1.82665480296346e-11,
+    "translation_eigenvalue_imag": 0.0,
+    "adjoint_residual": 5.656229105353434e-12,
+    "right_translation_overlap": 0.9999997618744824,
+    "phase_normalization": 1.0,
+    "D_left": 2.3940102240726686e-05,
+    "D_right": 2.3940102240726686e-05,
+    "Ds_independent": 1.1970051120363343e-05,
+    "Ds_full_crosscovariance": 2.3940102240726686e-05,
+    "spatial_kernel": "Adjoint of unchanged native linearization; both edges share the translation mode at zero frequency",
+    "covariance_time_integral_unit_mean": 23.940102240726688,
+    "edge_gain_validation": [
+      {
+        "edge": 0,
+        "predicted_phase_gain": -0.4205260014615949,
+        "measured_edge_gain": -0.42025565300747303,
+        "relative_error": 0.0006428816605447701
+      },
+      {
+        "edge": 1,
+        "predicted_phase_gain": 0.4205260014237797,
+        "measured_edge_gain": 0.42025565300747303,
+        "relative_error": 0.0006428815706790197
+      }
+    ]
+  },
+  "wall_seconds": 21.160171306692064
+}

@@ -2,7 +2,7 @@
 
 # Scaling sandbox
 
-[**Current manuscript outline — 23 October 2026**](manuscript_outline/outline_v11.pdf) · [**Revised Figures 3–4, legends and pilot observables**](manuscript_outline/revision_figures3_4_20261023/figures3_4_with_legends_and_pilots.pdf) · [**Review response**](manuscript_outline/revision_figures3_4_20261023/claude_response.md).
+[**Current manuscript outline — 23 October 2026**](manuscript_outline/outline_v12.pdf) · [**Revised Figures 1–4 and legends**](manuscript_outline/revision_round6_20261023/figures1_4_with_legends.pdf) · [**Revision reader**](manuscript_outline/revision_round6_20261023/index.html).
 
 This research workspace studies how cell size affects polarity, mechanochemical
 communication, and migration. The active work combines one-dimensional polarity

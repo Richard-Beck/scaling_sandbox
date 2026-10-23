@@ -1,0 +1,61 @@
+{
+  "condition": {
+    "slot": 21,
+    "model": "goryachev",
+    "size": 20.0,
+    "cells": 400,
+    "platform": "chemical",
+    "mean": 0.0064,
+    "source_slot": 92,
+    "source_size": 20.0,
+    "input": "inputs/goryachev_C20.npz",
+    "exact": true,
+    "edge_and_center_only": false,
+    "source_input_sha256": "7dc0222786b389fbd6b732b65de4c45f1e201dda6ae6717e0a5e7b60c3ba4c20"
+  },
+  "generated_utc": "2026-10-23T21:04:36.173463+00:00",
+  "complete": true,
+  "slurm_job_id": "21334311",
+  "mean_circumference": 20.0,
+  "basal_circumference": 20.0,
+  "mean_stationary_rhs": 4.956063771183183e-13,
+  "mean_tail_scaled_change": 2.3791265556971433e-16,
+  "mean_contrast": 29.764938763014566,
+  "amplitude_limit": {
+    "last_linear_amplitude": 0.16384,
+    "first_stopping_amplitude": 0.32768,
+    "stop_reason": "gain_departure_gt_10pct"
+  },
+  "defined": true,
+  "n_experiments": 25,
+  "Ds": 7.257741198013969e-08,
+  "native_gain_scale": 1.0083945888384778,
+  "linear_response": {
+    "translation_eigenvalue": 4.603441221707079e-14,
+    "translation_eigenvalue_imag": 0.0,
+    "adjoint_residual": 5.496649338898834e-13,
+    "right_translation_overlap": 0.9999984333599257,
+    "phase_normalization": 0.9999999999999996,
+    "D_left": 7.137407036322848e-08,
+    "D_right": 7.137407036322848e-08,
+    "Ds_independent": 3.568703518161424e-08,
+    "Ds_full_crosscovariance": 7.137407036322848e-08,
+    "spatial_kernel": "Adjoint of unchanged native linearization; both edges share the translation mode at zero frequency",
+    "covariance_time_integral_unit_mean": 0.001742531014727258,
+    "edge_gain_validation": [
+      {
+        "edge": 0,
+        "predicted_phase_gain": -0.0020301023369795976,
+        "measured_edge_gain": -0.002047144211370089,
+        "relative_error": 0.008394588824446273
+      },
+      {
+        "edge": 1,
+        "predicted_phase_gain": 0.0020301023369781505,
+        "measured_edge_gain": 0.0020471442114256,
+        "relative_error": 0.008394588852509141
+      }
+    ]
+  },
+  "wall_seconds": 7.760855392552912
+}

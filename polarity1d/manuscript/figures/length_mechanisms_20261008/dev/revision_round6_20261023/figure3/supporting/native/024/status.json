@@ -1,0 +1,61 @@
+{
+  "condition": {
+    "slot": 24,
+    "model": "goryachev",
+    "size": 40.0,
+    "cells": 800,
+    "platform": "chemical",
+    "mean": 0.0064,
+    "source_slot": 104,
+    "source_size": 40.0,
+    "input": "inputs/goryachev_C40.npz",
+    "exact": true,
+    "edge_and_center_only": false,
+    "source_input_sha256": "f44a19a8643ee60b94fda3eb3ac96d93312937c89c6fdfc64d86f441ecc9ca69"
+  },
+  "generated_utc": "2026-10-23T21:04:36.920069+00:00",
+  "complete": true,
+  "slurm_job_id": "21334314",
+  "mean_circumference": 40.0,
+  "basal_circumference": 40.0,
+  "mean_stationary_rhs": 3.7391270635289686e-13,
+  "mean_tail_scaled_change": 1.1158737683583546e-16,
+  "mean_contrast": 63.624918491209506,
+  "amplitude_limit": {
+    "last_linear_amplitude": 0.65536,
+    "first_stopping_amplitude": 1.31072,
+    "stop_reason": "gain_departure_gt_10pct"
+  },
+  "defined": true,
+  "n_experiments": 20,
+  "Ds": 2.953886844253778e-09,
+  "native_gain_scale": 1.004735305648667,
+  "linear_response": {
+    "translation_eigenvalue": 2.7636588662363366e-16,
+    "translation_eigenvalue_imag": 0.0,
+    "adjoint_residual": 1.9517513869204885e-12,
+    "right_translation_overlap": 0.9999936696249394,
+    "phase_normalization": 1.000000000000003,
+    "D_left": 2.926109189014794e-09,
+    "D_right": 2.926109189014794e-09,
+    "Ds_independent": 1.463054594507397e-09,
+    "Ds_full_crosscovariance": 2.926109189014794e-09,
+    "spatial_kernel": "Adjoint of unchanged native linearization; both edges share the translation mode at zero frequency",
+    "covariance_time_integral_unit_mean": 7.143821262243149e-05,
+    "edge_gain_validation": [
+      {
+        "edge": 0,
+        "predicted_phase_gain": -0.0004130172430802866,
+        "measured_edge_gain": -0.00041497300595771947,
+        "relative_error": 0.004735305632391459
+      },
+      {
+        "edge": 1,
+        "predicted_phase_gain": 0.0004130172430669059,
+        "measured_edge_gain": 0.00041497300595771947,
+        "relative_error": 0.004735305664942261
+      }
+    ]
+  },
+  "wall_seconds": 8.513012227602303
+}

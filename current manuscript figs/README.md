@@ -1,3 +1,18 @@
+<!-- round6-current-edition -->
+# Spatial susceptibility and heading persistence
+
+[**Current integrated outline_v12**](../manuscript_outline/outline_v12.pdf) · [**Figures 1–4 and legends**](../manuscript_outline/revision_round6_20261023/figures1_4_with_legends.pdf) · [**Reader and supporting evidence**](../manuscript_outline/revision_round6_20261023/index.html)
+
+Figures 1–2 retain their numerical evidence with separate letters for distinct
+quantities. Figure 3 tests the native spatial susceptibility map away from the
+edge and exposes its signed contributions to domain drift. Figure 4 shows
+all-input closure bounds, size-specific remainder curves and per-model takeover
+comparisons; Fourier tests and exact-region-moment checks are recorded alongside.
+Figure 5, reserved Figure 6 and the prospective pilot appendix are preserved. Review candidate; the targeted mode campaign is active.
+
+<!-- round6-current-edition end -->
+
+
 <!-- Figures 3-4 edge-birth revision 20261023 -->
 # Figures 3–4: edge responses and secondary-domain dynamics
 

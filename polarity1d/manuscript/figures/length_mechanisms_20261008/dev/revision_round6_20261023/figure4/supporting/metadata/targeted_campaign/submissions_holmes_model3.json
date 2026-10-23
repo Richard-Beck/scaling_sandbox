@@ -1,0 +1,7 @@
+{
+  "command": "sbatch --parsable --partition=red --qos=xxlarge --cpus-per-task=1 --mem=2G --time=02:00:00 --array=1080-1103,1104-1127,1128-1151,1152-1175,1176-1199,1200-1223,1224-1247,1248-1271,1272-1295,1296-1319,1320-1343,1344-1367,1368-1391,1392-1415,1416-1439,1440-1463,1464-1487,1488-1511,1512-1535,1536-1559,1560-1583,1584-1607,1608-1631,1632-1655,1656-1679,1680-1703,1704-1727,1728-1751,1752-1775,1776-1799,1800-1823,1824-1847,1848-1871,1872-1895,1896-1919,1920-1943,1944-1967,1968-1991,1992-2015,2016-2039,2040-2063,2064-2087,2088-2111,2112-2135,2136-2159 --job-name=F4r6-mode-hol --output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/figure4_round6_modes_20261023/logs/%A_%a.out --error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/figure4_round6_modes_20261023/logs/%A_%a.err --wrap '/home/4473331/.conda/envs/scaling_sandbox/bin/python -B /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure4/scripts/modes_campaign.py worker --slot \"$SLURM_ARRAY_TASK_ID\"'",
+  "returncode": 0,
+  "stdout": "21334323\n",
+  "stderr": "",
+  "qos_reason": "4800 independent one-core native integrations; xxlarge permits burst throughput, same as round3; no concurrency throttle"
+}

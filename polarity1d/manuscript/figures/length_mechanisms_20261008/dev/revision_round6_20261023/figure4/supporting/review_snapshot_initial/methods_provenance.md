@@ -1,0 +1,39 @@
+# Methods and provenance
+
+The scientific baseline is manuscript_outline/outline_v11.pdf and JSON, with the completed round 5 Figure4 and unchanged compact round 3 native campaign. Rebuild uses the existing scaling_sandbox Conda environment. Source paths and hashes are in supporting/metadata/provenance.json. Existing evidence comprises 260 conditions and 45,696 native histories; no source data are overwritten.
+
+## Fourier representation
+
+For saved cell-centre phases θj, use the positive complex convention that matches the pre-existing first activity moment:
+
+$$a_n(t)=N^{-1}\sum_j u_j(t)e^{\mathrm{i}n\theta_j},\quad P(t)=a_1(t)/a_0(t),\quad q_n=2\pi n/\overline C. \tag{S4.1}$$
+
+Spring uses material phases and mean physical circumference. Modes0–32 are stored, bounded by Nyquist. Equal-time spectrum is the mean squared mode amplitude divided by mean squared zero-mode amplitude. n* maximizes the nonzero spectrum and λ*=C/n*. There is no spatial or temporal mean subtraction.
+
+$$C_n(\ell)=\frac{\sum_{t,s}\operatorname{Re}[a_{n,s}(t+\ell)\overline{a_{n,s}(t)}]}{\frac12\sum_{t,s}(|a_{n,s}(t+\ell)|^2+|a_{n,s}(t)|^2)},\qquad \gamma_n=-\frac{\ln C_n(\ell_*)}{\ell_*}. \tag{S4.2}$$
+
+Use the inherited sqrt2-spaced lag rule, preserving all original heading lags 250–16000 (Spring 25–1600) and extending the same geometric grid down to the saved cadence for faster higher modes. All lags are snapped to exact saved endpoints; no interpolation or refitting of native trajectories occurs. The admissible correlation lies strictly between0.03 and0.995; choose the lag nearest0.5, with the original finite-lag estimator. `half_crossing_observed` flags whether both sides of0.5 are observed. A rate cannot be resolved if no lag is admissible. Exemplar frame spacing is nonuniform: exact matching of saved times replaces an incorrect median-cadence assumption. Phase-only a1 uses |P|≥0.1 at both endpoints and is compared with compact native heading at identical endpoints. Complex mode correlations do not require domain detection or a |P| threshold.
+
+Whole histories are resampled 2000 times. At the selected lag, SE lnγ is the sample standard deviation of valid log-rate draws. Fewer than 97.5% valid draws gives an unresolved precision status. Initial 24 histories top up to 96 when SE >0.1 or precision is unresolved; no more than 96 are authorized. Time, circumference,33 complex64 modes and float32 |P| cost approximately 4.32 GB initial or 17.29 GB maximum before compression and metadata, with a 34.57 GB reserve. These are payload estimates, not strict allocated-storage upper bounds; measured allocated blocks are authoritative. Every seed is a fresh unchanged native realization. No full profiles are durable.
+
+## Missing-angle closure
+
+$$k_{\mathrm{pred}}^{\mathrm{lo}}=q_1^2D_s+\frac{\sum_{\mathrm{scored}}(1-\cos\Delta\theta)}{T},\quad k_{\mathrm{pred}}^{\mathrm{hi}}=k_{\mathrm{pred}}^{\mathrm{lo}}+2\frac{N_{\mathrm{unscored}}}{T}. \tag{S4.3}$$
+
+T is inherited eligible dominant-tenure exposure; use five-frame persistent global dominant changes and pre/post whole-P angle windows. Bounds contain every unscored event, including low-coherence intervals. They are identification intervals; drift/rate sampling confidence intervals are separate. Only unavailable observed rates prevent division. No weak-input or rare-multiple-domain filter is applied in main G.
+
+## Exact region-mask sensitivity
+
+Existing float16 exemplars retain at most400 spatial bins and2000 frames. Re-run the frozen half-contrast detector and maximum-overlap tracker at that saved resolution, with unchanged basal contrast. For every region integrate its own complete-basin mask, and separately its contour mask; never replace the region by a point at its centroid:
+
+$$z_i(t)=\frac{\Delta x_t\sum_{j\in\mathcal M_i(t)}[u_j(t)-\min u(t)]e^{\mathrm i\theta_j}}{M_0(t)}. \tag{S4.4}$$
+
+Native cell quadrature is exact for the saved piecewise-constant sampled profile and own mask, not a claim to recover the discarded native grid. Region shared-identity phase changes form motion; complex magnitudes include amount and within-region shape; membership inserts/removes endpoint identities. Symmetric three-factor Shapley changes add to the reconstructed moment change. Remainder closes the native P change. Project each change onto the unit-heading chord using the same signed loss identity as round 5. For a fair point-reduction comparison, the point variant uses the same masks and native-total denominator. Main H keeps the original round 5 native-amplitude convention; these changes of convention are a sensitivity, not silent redefinition. The two extra point/exact comparisons preserve region-total normalization and native-amplitude scaling. Finite-width exact moments then attenuate a representation built for unit-modulus point regions; scaling again can reintroduce an amplitude artefact. Their nonshrinking remainder does not establish failure of a domain mechanism. In this additional comparison, within-region complex shape changes are assigned with motion, and amount retains the complete-mask activity weight. Every eligible exact endpoint pair at the inherited campaign lag is used, with native |P|≥0.1; unobserved endpoint pairs are unavailable.
+
+## Takeover selection and scope
+
+The inherited no-overlap enclosure certifies a subset of persistent secondary births; exact parents and split classification are absent from full-campaign compact records. Use common20τ remaining record and five-frame global dominance for success. Select separately for each model the designed input nearest the smallest size’s f½ in log distance, requiring ≥200 total certified births at every size, then removing d≤0 from plotted probabilities. Report the two positive distance bins separately; distance retains the inherited complete-amount/global-contrast plateau approximation. Intervals resample whole independent histories including zero-event histories. These probabilities concern the certified subset over finite follow-up.
+
+## Mode-collapse test
+
+The tested claim is a size-independent γ(q) at fixed model and input, and α matching its local log slope at q1. Predictions use the nearest 8 mode points from other sizes; the target size is excluded. One-sided extrapolation remains flagged. No rates or native parameters are fitted to promote agreement. Completeness and a declared descriptive screen (per-model leave-one-size-out log-rate RMSE≤ln1.5, α-slope RMSE≤0.5,≥10 comparisons/model) are recorded. This screen is not a formal significance test. Until independent histories support the claim, J–K remain in the supplement and the strong regime is explicitly unexplained.

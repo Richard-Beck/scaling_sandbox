@@ -13,6 +13,10 @@ REPORT=ROOT/'figures/length_mechanisms_20261008'
 DEV=REPORT/'dev'
 RECORDS=DEV/'_organization'
 GROUPS={
+ 'revision_round6_20261023/figure1':('figure1_round6_',),
+ 'revision_round6_20261023/figure2':('figure2_round6_',),
+ 'revision_round6_20261023/figure3':('figure3_round6_',),
+ 'revision_round6_20261023/figure4':('figure4_round6_',),
  'revision_round5_20261023/figure3':('figure3_round5_',),
  'revision_round5_20261023/figure4':('figure4_round5_',),
  'revision_round4_20261023/figure4':('figure4_round4_',),
@@ -90,6 +94,10 @@ TITLES['revision_round3_20261022/figure4']='Figure 4 round-3 nulls for size-depe
 TITLES['revision_round4_20261023/figure4']='Figure 4 revised event scoring, normalized drift and closure tests'
 TITLES['revision_round5_20261023/figure3']='Figure 3 edge-pulse response and untuned drift predictions'
 TITLES['revision_round5_20261023/figure4']='Figure 4 drift, certified domain births and sources of heading loss'
+TITLES['revision_round6_20261023/figure1']='Figure 1 separate cue, profile and orientation panels'
+TITLES['revision_round6_20261023/figure2']='Figure 2 separate organization and biosensor panels'
+TITLES['revision_round6_20261023/figure3']='Figure 3 susceptibility maps and spatial sources of drift'
+TITLES['revision_round6_20261023/figure4']='Figure 4 domain diagnostics and Fourier-mode tests'
 TITLES['revision_round2_20261022/figure3']='Figure 3 round-2 short-range separation and matched-gap size effects'
 TITLES['revision_round2_20261022/figure4']='Figure 4 round-2 heading decay rates: author-authorized Case A'
 TITLES['figure4_region_model_20261022']='Figure 4 observable-region model: native Wave-pinning pilot'

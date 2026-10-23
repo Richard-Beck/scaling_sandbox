@@ -1,0 +1,61 @@
+{
+  "condition": {
+    "slot": 16,
+    "model": "spring_ring",
+    "size": 2.0,
+    "cells": 200,
+    "platform": "spring",
+    "mean": 0.004,
+    "source_slot": 74,
+    "source_size": 2.0,
+    "input": "inputs/spring_ring_C2.npz",
+    "exact": true,
+    "edge_and_center_only": false,
+    "source_input_sha256": "fc037999a1b73edbf5ed19509e3abba0063d957a471ca7ca81deec15adbd94b6"
+  },
+  "generated_utc": "2026-10-23T21:04:42.128021+00:00",
+  "complete": true,
+  "slurm_job_id": "21334306",
+  "mean_circumference": 2.0442124188986734,
+  "basal_circumference": 2.044180729509164,
+  "mean_stationary_rhs": 6.53846715946835e-11,
+  "mean_tail_scaled_change": 7.7120982163736e-15,
+  "mean_contrast": 0.49721576846681714,
+  "amplitude_limit": {
+    "last_linear_amplitude": 0.0512,
+    "first_stopping_amplitude": 0.1024,
+    "stop_reason": "gain_departure_gt_10pct"
+  },
+  "defined": true,
+  "n_experiments": 17,
+  "Ds": 2.007694996451798e-05,
+  "native_gain_scale": 0.9979163353373401,
+  "linear_response": {
+    "translation_eigenvalue": -2.4835773809158103e-14,
+    "translation_eigenvalue_imag": 0.0,
+    "adjoint_residual": 2.7982199955426436e-11,
+    "right_translation_overlap": 0.9999972042278802,
+    "phase_normalization": 1.0000000000000013,
+    "D_left": 2.0160879457051407e-05,
+    "D_right": 2.0160879457051407e-05,
+    "Ds_independent": 1.0080439728525704e-05,
+    "Ds_full_crosscovariance": 2.0160879457051407e-05,
+    "spatial_kernel": "Adjoint of unchanged native linearization; both edges share the translation mode at zero frequency",
+    "covariance_time_integral_unit_mean": 1.260054966065713,
+    "edge_gain_validation": [
+      {
+        "edge": 0,
+        "predicted_phase_gain": -0.30582393272278124,
+        "measured_edge_gain": -0.305186698196791,
+        "relative_error": 0.002083664676982193
+      },
+      {
+        "edge": 1,
+        "predicted_phase_gain": 0.30582393272612945,
+        "measured_edge_gain": 0.30518669820889244,
+        "relative_error": 0.002083664648337617
+      }
+    ]
+  },
+  "wall_seconds": 13.71956311352551
+}

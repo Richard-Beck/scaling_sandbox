@@ -535,3 +535,35 @@ Measured **2026-10-23T19:13:40.275178+00:00** using allocated storage (`du -sx -
 [Machine-readable storage receipt](reports/figures3_4_round5_storage_20261023.json). Scientific limitations are explicit: births and splits are only partially identifiable from compact records; takeover probabilities condition on certification and finite follow-up; signed moment accounting is descriptive. Claude's reviews are preserved verbatim separately from the responses. Inventory confers no deletion permission.
 
 <!-- figures3-4-edge-birth-storage-20261023 end -->
+
+<!-- round6-storage-20261023 begin -->
+
+## Round6 susceptibility and mode-only revision, 23 October 2026
+
+Measured **2026-10-23T21:45:15.464381+00:00** using allocated storage
+(`du -sx -B1`). These targeted measurements update the named output groups;
+the earlier whole-workspace totals remain historical. This is a non-atomic
+snapshot. Inventory confers no deletion permission; no original data were removed.
+
+| Path / related output group | Measured allocated storage | Purpose and scientific status |
+| --- | ---: | --- |
+| `polarity1d/manuscript/data/runs/figure4_round6_modes_20261023` | 7.522835 GiB (8,077,582,336 bytes) | Targeted modes-only native noise rerun; a₀–a₃₂, |P|, time/circumference and forcing audits. No durable activity profiles. Scientifically authoritative native evidence; completion and precision are in the figure receipt. |
+| `polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023` | 0.256241 GiB (275,136,512 bytes) | Figures 1–4, preserved earlier supplements, compact plotted CSVs, deterministic susceptibility tests and Fourier/exact-mask analyses. Figures 1–2 are layout-only; new model tests are in Figures 3–4. |
+| `manuscript_outline/revision_round6_20261023` | 0.003990 GiB (4,284,416 bytes) | Verbatim incoming brief, prompt and narrative; starting-outline hashes, standalone legends, integrated reader, response and validation records. |
+| `manuscript_outline/outline_v12.pdf` | 0.006409 GiB (6,881,280 bytes) | Integrated manuscript outline starting from outline_v11. Published migration evidence, reserved WGD experiment and prospective pilot appendix are preserved. |
+| `.git` | 3.085175 GiB (3,312,680,960 bytes) | Versioned scientific source, selected portable evidence and history; bulk mode-only histories remain local outside Git. |
+
+The modes-only campaign status is **ACTIVE**, with
+**6,302 completed / 9,840 allocated histories** and
+**0 failed status records** at this measurement. The prelaunch estimate
+was 4,321,804,800 bytes for 24 seeds per condition and 17,287,219,200 bytes at
+the 96-seed cap, before compression. Whole-seed precision determines additions.
+Final scientific eligibility and unresolved rates remain in the Figure 4 tables.
+Deterministic Figure 3 maps, pulse histories and source states are grouped under
+the new figure parent above. Round5 and the original compact noise campaign
+remain preserved; their dated inventory entries still apply.
+
+[Machine-readable measurement](reports/round6_storage_20261023.json).
+
+<!-- round6-storage-20261023 end -->
+
