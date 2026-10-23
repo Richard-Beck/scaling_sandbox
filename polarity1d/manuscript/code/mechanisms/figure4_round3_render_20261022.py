@@ -392,7 +392,7 @@ def decomposition(fig, grid, data, exported, omissions):
     # Descriptive multiple-front fractions may be available even when native
     # tracked-region archives are inaccessible. These remain separately named.
     source=primary(read_csv(data/'analysis_lag_metrics.csv'))
-    front_rows=[dict(model=r['model'],C_label=r['C_label'],f=r['f'],multiple_front_fraction=r.get('multiple_front_fraction'),multiple_front_fraction_ci_lower=first(r,'multiple_front_fraction_ci_lower','multiple_fronts_ci_lower'),multiple_front_fraction_ci_upper=first(r,'multiple_front_fraction_ci_upper','multiple_fronts_ci_upper'),n_seeds=r.get('n_seeds'),source=r.get('source')) for r in source]
+    front_rows=[dict(model=r['model'],C_label=r['C_label'],f=r['f'],forced_combined=yes(first(r,'forced_combined','forced',default=False)),multiple_front_fraction=r.get('multiple_front_fraction'),multiple_front_fraction_ci_lower=first(r,'multiple_front_fraction_ci_lower','multiple_fronts_ci_lower'),multiple_front_fraction_ci_upper=first(r,'multiple_front_fraction_ci_upper','multiple_fronts_ci_upper'),n_seeds=r.get('n_seeds'),source=r.get('source')) for r in source]
     if not front_rows:front_rows=primary(read_csv(data/'multiple_front_fraction.csv'))
     write_csv(data/'multiple_front_fraction.csv',front_rows)
     keys = ("Ds", "lambda_eff", "kpred_over_kobs", "multiple_front_fraction")
@@ -437,12 +437,12 @@ def decomposition(fig, grid, data, exported, omissions):
                     else:
                         lower=n(row,key+'_ci_lower','multiple_fronts_ci_lower' if i==3 else key+'_ci_lower')
                         upper=n(row,key+'_ci_upper','multiple_fronts_ci_upper' if i==3 else key+'_ci_upper')
-                        plotted.append(dict(panel="E", model=model, C_label=row.get("C_label"), f=row.get("f"), quantity=key, value=value,ci_lower=lower,ci_upper=upper,analysis_lag=row.get('analysis_lag'),n_seeds=row.get('n_seeds'),source="multiple_front_fraction.csv" if relevant and row in front_rows else "drift_decomposition.csv"))
-                        if not math.isnan(lower) and not math.isnan(upper):bounded_point(ax,n(row,'f'),value,lower,upper,color,ms=1.6,lw=.35)
-                ax.plot(x, y, "o-", color=color, lw=.65, ms=1.6)
-                if i==2:
-                    for xx,yy in zip(x,y):
-                        if finite(yy) and not limits[0]<=yy<=limits[1]:bounded_point(ax,xx,yy,math.nan,math.nan,color,ms=1.8)
+                        forced=yes(first(row,'forced_combined','forced',default=False))
+                        plotted.append(dict(panel="E", model=model, C_label=row.get("C_label"), f=row.get("f"), forced_combined=forced,quantity=key, value=value,ci_lower=lower,ci_upper=upper,analysis_lag=row.get('analysis_lag'),n_seeds=row.get('n_seeds'),source="multiple_front_fraction.csv" if relevant and row in front_rows else "drift_decomposition.csv"))
+                        bounded_point(ax,n(row,'f'),value,lower,upper,color,open_marker=forced,ms=1.6,lw=.35)
+                # Draw only the connecting curve here; the point/CI routine
+                # above preserves forced-marker fill even without an interval.
+                ax.plot(x, y, "-", color=color, lw=.65,zorder=1)
             if not ax.lines or not any(np.isfinite(line.get_ydata()).any() for line in ax.lines if len(line.get_ydata()) > 2):
                 if i != 3 and not any(finite(n(row, key)) for row in rows if row.get("model") == model):
                     ax.text(.5, .48, "Not measured in\nretained records", transform=ax.transAxes, ha="center", va="center", fontsize=5.8, color="black")
@@ -454,6 +454,9 @@ def decomposition(fig, grid, data, exported, omissions):
                 ax.set_ylabel(label, labelpad=2)
             if i == 0:
                 facet(ax, NAMES[model])
+                if j == 0:
+                    handles=[Line2D([],[],marker='o',ls='none',color='black',mfc=fill,ms=2.6,mew=.55,label=label) for fill,label in [('black','Unforced'),('white','Forced')]]
+                    ax.legend(handles=handles,frameon=False,loc='upper left',ncol=2,fontsize=5.1,handlelength=.7,handletextpad=.3,columnspacing=.7,borderpad=.15)
             style_axis(ax)
     exported["E"] = plotted
 
