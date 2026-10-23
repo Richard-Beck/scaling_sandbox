@@ -1,3 +1,7 @@
+# Current integrated manuscript — 23 October 2026
+
+Final round-3 Figures 2, 3 (single-C), and 4 are integrated in [outline_v9.pdf](outline_v9.pdf). The editable source and build manifest are beside it. Compact supplementary data and restoration instructions: [supporting package](supplement_round3_20261023/README.md). Previous entries below describe historical editions.
+
 # Completed Figures 2–4 round 2 (22 October 2026)
 
 [**Integrated outline_v5**](outline_v5.pdf) · [**Figures with legends**](revision_round2_20261022/revised_figures_2_4.pdf) · [**Three main plates**](revision_round2_20261022/figures_2_4.pdf) · [**Reader and complete supplements**](revision_round2_20261022/completion.html).

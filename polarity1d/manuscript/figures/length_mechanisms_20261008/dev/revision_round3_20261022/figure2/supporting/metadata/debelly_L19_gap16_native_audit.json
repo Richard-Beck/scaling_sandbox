@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "source_task": 682,
+  "endpoint_checks": [
+    {
+      "kind": "on",
+      "time": 70.0,
+      "raw_share": 0.921381825836227,
+      "visible_share": 0.9213818258362352,
+      "contrast": 0.8232472528727002,
+      "contrast_threshold": 0.05,
+      "challenger_amount": 12.841032634726599,
+      "total_excess_amount": 13.936711442156291,
+      "readout_eligible": true,
+      "native_phase": "polarity1d/manuscript/data/runs/signature_train_core_20261020/workers/0682/trial/phase_000.npz",
+      "native_phase_sha256": "37ddc296cfeb80d8f6505f76b3eb9699f9d05b4241da53d8bcab2a31d174534d"
+    },
+    {
+      "kind": "gap",
+      "time": 1190.0,
+      "raw_share": 0.10296506930644979,
+      "visible_share": null,
+      "contrast": 0.03274992413369528,
+      "contrast_threshold": 0.05,
+      "challenger_amount": 0.034245066084526994,
+      "total_excess_amount": 0.332589161695265,
+      "readout_eligible": false,
+      "native_phase": "polarity1d/manuscript/data/runs/signature_train_core_20261020/workers/0682/trial/phase_001.npz",
+      "native_phase_sha256": "014669519e264c60c714d19c04eb5fd6a08a95466b44147ad956243b3ba2bd5f"
+    },
+    {
+      "kind": "on",
+      "time": 1260.0,
+      "raw_share": 0.9889500025507219,
+      "visible_share": 0.988950002550731,
+      "contrast": 0.821457395092121,
+      "contrast_threshold": 0.05,
+      "challenger_amount": 12.907227304720575,
+      "total_excess_amount": 13.051445746933583,
+      "readout_eligible": true,
+      "native_phase": "polarity1d/manuscript/data/runs/signature_train_core_20261020/workers/0682/trial/phase_002.npz",
+      "native_phase_sha256": "b1ac12206030b90790a91980b218a634ab2988cc2f1dd5dba99225597a07b6f7"
+    }
+  ],
+  "finding": "First gap is below the existing activity-visibility gate; no fully retained visible activity.",
+  "raw_gap_retention": 0.11175070575437153,
+  "visible_gap_retention": 0.0,
+  "pulse2_headroom_gain": 0.8594472898052885,
+  "missing_value_policy": "Only an observed endpoint explicitly below the existing activity gate is placed at x=0. Missing samples are never zero or forward-filled."
+}

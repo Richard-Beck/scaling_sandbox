@@ -1,0 +1,99 @@
+{
+  "id": "figure2",
+  "title": "Replacement resistance in enlarged cells has distinct size and pulse-memory signatures",
+  "status": "round3_complete_qualified",
+  "role": "Separate size-dependent initiation and cue-width responses from observable pulse-memory classes.",
+  "assets": [
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure2/figure2_round3.png",
+      "caption": "Figure 2. Revised size and pulse-memory signatures.",
+      "page_size": [
+        7.2,
+        10
+      ],
+      "minimum_printed_width_inches": 7.2,
+      "native_pdf_page": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure2/figure2_round3.pdf",
+      "page_title": "Figure 2. Size and pulse-memory signatures"
+    }
+  ],
+  "legend": [
+    "Enlarged cells resist replacement through distinct initiation, cue-width and pulse-memory signatures.",
+    "A, Incumbent excess amount, extent and peak, normalized to each model\u2019s reference, across 97 retained states.",
+    "B, Initiation is the time from cue onset until maximum in-cue activity minus the profile minimum exceeds 10% of the model\u2019s L19 incumbent excess peak. Area 1, width 3.8; times are normalized to L19. All six deBelly upper bounds are 0.5 native units (downward arrows); first-update sampling leaves its size dependence unresolved.",
+    "C, Replacement time (first eligible challenger share \u2265 0.75) versus length, with a line per width and rows for areas 0.5, 1 and 2. Upward triangles/arrows are lower bounds: the cue never replaced within the horizon (6,000 Wave-pinning; 10,000 Goryachev/Holmes; 2,000 deBelly; 100 Spring, native units). Broad cues rescue Holmes across all lengths; narrow-cue censoring does not establish a growing penalty. Spring native widths equal the displayed widths divided by 38.",
+    "D, Gap-1 activity kept versus pulse-2 gain as a fraction of headroom (Eq. 1). Four equal pulses, total ON 1.5 times the model-length commitment calibration; gaps 0\u201316 pulse durations. Holmes L31\u201339 uses the L27 calibration. Other models are grey; lightness indicates L. Open circles at x = 0 code activity below the existing visibility gate. At the left wall, deBelly/Spring gain on pulse 2 despite no visible activity; Goryachev never does. The deBelly L19/gap16 first-gap endpoint was checked against native fields.",
+    "E, L39 gap4 challenger-share histories, labelled kept / lost / lost then commits; shading marks cue ON. deBelly includes full recovery; others show one post-train pulse duration. Continuous raw shares include below-gate values. deBelly\u2019s later timing and fields remain numerically sensitive (supplement).",
+    "F, Schematic biosensor predictions for the same pulse train and equal-dose width series in WGD\u2212 and enlarged WGD+ cells: delayed rises and resets; saturation with gap retention and strong width rescue; or gap collapse followed by commitment, with weaker width rescue. Predictions are prospective. Model kinetics are unchanged."
+  ],
+  "equations": [
+    {
+      "math": "x=\\frac{s_{\\mathrm{gap}\\,1}}{s_1},\\qquad y=\\frac{s_2-s_1}{1-s_1}",
+      "number": "1",
+      "description": "s\u2081 and s\u2082 are challenger shares at pulse ends 1 and 2; s_gap1 is the first-gap-end share. An observed endpoint below the existing visibility gate is coded as zero visible share in D; its raw value remains in the CSV."
+    }
+  ],
+  "narrative": [
+    "Enlarged cells resist replacement through distinct initiation, cue-width and pulse-memory signatures.",
+    "The full width series shows that Holmes can replace at every tested length when the cue is broad enough; narrow-cue censoring cannot establish a growing width-penalty ratio.",
+    "Pulse-2 headroom gain separates low visible retention with residual progress from the initiation-limited reset response. Saturating activation retains visible activity through gaps."
+  ],
+  "measurements": [
+    "Measure first in-cue biosensor rise, then vary width at fixed integrated dose.",
+    "Measure pulse-1, gap-1 and pulse-2 challenger shares under the same pulse train, followed by eventual commitment."
+  ],
+  "limitations": [
+    "Commanded input areas and native clocks are not calibrated across models.",
+    "deBelly initiation is unresolved within the first native update; later-gap timing and endpoint fields remain numerically sensitive.",
+    "D codes known below-gate activity at x=0; the exact raw ratio remains in the plotted-value CSV.",
+    "Holmes large-length trains have no target-length commitment calibration; visible retention differs from eventual replacement.",
+    "The three classes describe selected deterministic regimes; WGD biosensor predictions are prospective."
+  ],
+  "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure2/figure2_round3.pdf",
+  "supplement_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure2/figure2_round3_supplement.pdf",
+  "reader": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure2/README.md",
+  "sources": [
+    {
+      "label": "All 450 per-width replacement times",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure2/supporting/data/C_replacement_times_all450.csv"
+    },
+    {
+      "label": "All 180 gap1/pulse2 coordinates and raw shares",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure2/supporting/data/D_gap1_vs_pulse2_all180.csv"
+    },
+    {
+      "label": "deBelly L19/gap16 native-phase audit",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure2/supporting/metadata/debelly_L19_gap16_native_audit.json"
+    },
+    {
+      "label": "Preserved prior main panels and complete supplement",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure2/supporting/metadata/supplement_preservation.json"
+    }
+  ],
+  "main_source_data": [
+    {
+      "panel": "A",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure2/supporting/data/A_incumbent_organization.csv",
+      "sha256": "1737d2e9be4110b06b295bf8550841a9f49fc5e4e24015e6d3734548db5767a5"
+    },
+    {
+      "panel": "B",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure2/supporting/data/B_initiation.csv",
+      "sha256": "67e55cdfe6da70707794b9fff271f9a8fb7601a26a3c6062b6c2d71b43a21428"
+    },
+    {
+      "panel": "C",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure2/supporting/data/C_replacement_times_all450.csv",
+      "sha256": "ab5f95932abd1db80749ca0ed52245b5f8836deac92b7eade4cbe4958d8538bd"
+    },
+    {
+      "panel": "D",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure2/supporting/data/D_gap1_vs_pulse2_all180.csv",
+      "sha256": "a1e1841e086caf969f5117b758a6321c2baf2b21a1702135d154d47ffe3fad11"
+    },
+    {
+      "panel": "E",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure2/supporting/data/E_L39_challenger_share_traces.csv",
+      "sha256": "6eedc3db271cc57d28e3a462f1599f2b16d18f8bd3953bf2003de9c4db37dfbe"
+    }
+  ]
+}

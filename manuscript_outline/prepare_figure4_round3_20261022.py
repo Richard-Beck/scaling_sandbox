@@ -102,13 +102,16 @@ def main():
     pending = 'pending' in status or 'provisional' in status or 'fallback' in status
     state = ('Figure 4 round 3: provisional round-2 model reanalysis; high-replication campaign pending'
              if pending else 'Figure 4 round 3: size-dependent heading persistence and drift/jump nulls')
-    document.update(date='22 October 2026', stage=state,
+    document.update(date=datetime.now(timezone.utc).strftime('%d %B %Y'), stage=state,
         subtitle='Cell enlargement, polarity responses and heading persistence with drift/jump nulls')
     old = 'Enlarged cells hold heading longer under fluctuating input — at or above the geometric expectation at weak input — and the advantage declines as input strengthens. (Figure 4). Geometry and multiple-front fractions are descriptive: erosion below the single-front geometric expectation can also occur while a single front persists.'
     replacement = ('Figure 4 compares local size exponents and noise tolerance with drifting-peak and random-relocation nulls. '
         'It asks how much directly measured centroid drift and dominant-region switching explain heading decay. '
         + ('The displayed model estimates currently reuse round-2 seeds; the new 96–384-seed campaign is pending and its unavailable measurements are explicit. '
-           if pending else 'Model estimates use the new compact high-replication campaign. ')
+           if pending else 'The completed campaign contains 260 conditions and 45,696 independent histories; '
+           '125 local size neighborhoods resolve. Largest/smallest noise-tolerance folds range from 2.155 to 4.122. '
+           'The drift/relocation prediction is within 15% of observed decay in all 42 estimable conditions; '
+           'Goryachev has no estimable closure ratio. Multiple-front fractions remain descriptive. ')
         + 'The revision uses no hypothesis gates; the preceding S0 record remains historical.')
     document['overview'] = [p.replace(old, replacement) for p in document['overview']]
     for supporting in document['supplementary']:
@@ -127,7 +130,7 @@ def main():
         protected[ident] = dict(section_sha256=hashlib.sha256(json.dumps(previous, sort_keys=True).encode()).hexdigest(),
             asset_sha256={a['path']: sha(ROOT/a['path']) for a in previous['assets']})
     document['supplementary'].insert(0, dict(title='Figure 4: round-3 analysis and null comparisons',
-        text=['Pointwise and smooth size exponents, drift/jump cross-checks, sensitivity, valid fractions, replication and analytic null checks. Missing or pending results are identified in the scientific readme.'],
+        text=['Pointwise and smooth size exponents, drift/jump cross-checks, sensitivity, valid fractions, replication and analytic null checks. Missing estimates and finite-rate precision shortfalls are identified in the scientific readme.'],
         path=source['supplement_pdf'], sources=[dict(label='Unexpected results, data status and methods',
             path=relative(FIG/'supporting/metadata/scientific_readme.md'))]))
     write(ROOT/'manuscript_outline/outline_v9.json', document)
@@ -145,7 +148,12 @@ def main():
     write(DEST/'integration.json', receipt)
     relfig = os.path.relpath(FIG, DEST)
     status_text = ('The new model campaign is pending. This is a provisional round-2 model reanalysis and a tested rebuild pipeline; no new high-replication model results are claimed.'
-        if pending else 'The compact high-replication campaign is complete.')
+        if pending else 'The compact campaign is complete: 260 conditions and 45,696 independent histories '
+        '(96–384 per condition). Local size exponents resolve in 125/260 neighborhoods. '
+        'Of the 260 single-condition rates, 128 meet the precision target, 36 exceed it at the seed cap, '
+        '8 have insufficient valid bootstrap draws and 88 have no eligible rate. '
+        'The drift/relocation closure is estimable in 42 conditions; all are within 15% of observed decay. '
+        'Goryachev has no estimable closure ratio. Missing estimates and cross-method disagreement remain explicit.')
     body = f'''<!doctype html><html lang="en"><meta charset="utf-8"><title>Figure 4 round 3</title>
 <style>body{{max-width:1100px;margin:2rem auto;padding:0 1rem;font:17px/1.5 system-ui;color:#182330}}img{{width:100%}}a{{color:#166aa2}}</style>
 <h1>Figure 4 round 3 — manuscript integration</h1><p>Generated {generated}. {html.escape(status_text)}</p>
@@ -174,6 +182,7 @@ python -B polarity1d/manuscript/code/mechanisms/rebuild_figure4_round3_20261022.
 python -B manuscript_outline/prepare_figure4_round3_20261022.py
 python -B manuscript_outline/build_figure2_round3_outline_20261022.py --input manuscript_outline/outline_v9.json --output manuscript_outline/outline_v9.pdf
 python -B scripts/verify_manuscript_outline.py manuscript_outline/outline_v9.json --report manuscript_outline/outline_v9.validation.json
+python -B manuscript_outline/verify_figure4_round3_20261022.py
 ```
 '''
     (DEST/'README.md').write_text(content)

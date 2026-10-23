@@ -72,6 +72,48 @@ def scientific_cohort():
     return result
 
 
+def final_audits():
+    """Bind the completed numerical and display reviews to the delivered exports."""
+    metadata = FIG/'supporting/metadata'
+    numerical = read(metadata/'final_numerical_audit.json')
+    display = read(metadata/'display_audit_final.json')
+    assert numerical['passed'] and not numerical['errors']
+    assert numerical['design_conditions'] == 260
+    assert numerical['native_seeds'] == 45696
+    assert display['passed'] and not display['outstanding_display_corrections']
+    assert all(display['checks'].values())
+    checked = 0
+    later_display_sources = []
+    for path, expected in numerical['source_sha256'].items():
+        committed = subprocess.check_output(
+            ['git', 'show', numerical['source_commit_at_audit']+':'+path], cwd=ROOT)
+        assert hashlib.sha256(committed).hexdigest() == expected, ('audited source', path)
+        if sha(ROOT/path) != expected:
+            # The final tick-label repair postdates the numerical review.
+            # Final display hashes below bind that source and its outputs;
+            # all numerical inputs and plotted coordinates must still match.
+            assert path.endswith('/figure4_round3_supplement_20261022.py'), path
+            later_display_sources.append(path)
+        checked += 1
+    for key in ('data_sha256', 'render_derived_csv_sha256'):
+        for path, expected in numerical[key].items():
+            assert sha(ROOT/path) == expected, ('numerical audit', path)
+            checked += 1
+    for key, parent in (
+        ('outputs', FIG), ('documentation_sha256', FIG), ('source_sha256', ROOT),
+        ('compact_input_sha256', FIG), ('plot_coordinates_sha256', FIG),
+        ('stable_scientific_receipts_sha256', metadata),
+    ):
+        for path, expected in display[key].items():
+            assert sha(parent/path) == expected, ('display audit', path)
+            checked += 1
+    return dict(numerical_checks=numerical['total_checks'],
+                audit_bound_hashes=checked, display_review_passed=True,
+                display_sources_updated_after_numerical_review=later_display_sources,
+                numerical_audit_sha256=sha(metadata/'final_numerical_audit.json'),
+                display_audit_sha256=sha(metadata/'display_audit_final.json'))
+
+
 def main():
     prior = read(ROOT/'manuscript_outline/outline_v8.json')
     current = read(ROOT/'manuscript_outline/outline_v9.json')
@@ -133,13 +175,14 @@ def main():
     analysis = read(FIG/'supporting/metadata/analysis_receipt.json')
     assert bool(analysis.get('completed_campaign')) == integration['campaign_complete']
     cohort = scientific_cohort()
+    audits = final_audits() if integration['campaign_complete'] else None
     result = dict(generated_utc=datetime.now(timezone.utc).isoformat(), passed=True,
         figure4_status=integration['figure4_status'], campaign_complete=integration['campaign_complete'],
         exact_vector_main_embedded=True, width_mm=180, height_mm=render['height_mm'],
         protected_sections=list(integration['protected_sections']),
         source_hashes_verified=len(render['inputs'])+len(render['outputs'])+len(render.get('documentation', {})),
         scientific_checks=scientific['number_of_tests'], supplement_pages=len(PdfReader(FIG/'figure4_supplement.pdf').pages),
-        scientific_cohort=cohort)
+        scientific_cohort=cohort, final_audits=audits)
     (DEST/'verification.json').write_text(json.dumps(result, indent=2)+'\n')
     print(json.dumps(result, indent=2))
 

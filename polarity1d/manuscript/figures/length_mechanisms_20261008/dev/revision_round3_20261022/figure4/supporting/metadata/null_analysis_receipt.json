@@ -1,0 +1,138 @@
+{
+  "B": {
+    "conditions": 615,
+    "max_replicates": 33830,
+    "eligible_conditions": 310,
+    "largest_absolute_relative_deviation": {
+      "model": "same_rate",
+      "C_label": 50.0,
+      "f": 0.01584893192461114,
+      "n_seeds": 19543,
+      "analytic_k": 4.34241102847674e-05,
+      "selected_lag": 16000.0,
+      "observed_k": 4.459835490033629e-05,
+      "relative_deviation": 0.027041305115255154,
+      "SE_log_k": 0.009360076930297235,
+      "status": "precision_met"
+    },
+    "precision_unmet": [],
+    "omitted_no_eligible_lag": 305,
+    "transition": "Exact continuous Brownian + Poisson uniform resets sampled atdt20; reset probability1-exp(-lambda*dt).",
+    "max_SE_log_k": 0.009998383489074062,
+    "requested_SE_log_k": 0.01,
+    "eligible_rate_conditions": 310,
+    "no_eligible_lag_conditions": 305,
+    "total_replicates": 4008464,
+    "maximum_absolute_relative_analytic_deviation": 0.027041305115255154,
+    "maximum_deviation_condition": {
+      "model": "same_rate",
+      "C_label": "50.0",
+      "f": "0.01584893192461114",
+      "n_seeds": "19543",
+      "analytic_k": "4.34241102847674e-05",
+      "selected_lag": "16000.0",
+      "observed_k": "4.459835490033629e-05",
+      "relative_deviation": "0.027041305115255154",
+      "SE_log_k": "0.009360076930297235",
+      "status": "precision_met"
+    },
+    "precision_check_passed": true
+  },
+  "generated_utc": "2026-10-22T21:16:09.973752+00:00",
+  "transition": {
+    "A": "Bernoulli lambda*dt",
+    "B": "Exact Poisson 1-exp(-lambda*dt)"
+  },
+  "reason": "For B, lambda*dt exceeds1 at strong inputs; exact uniform-reset transition is defined at all strengths. A retains the requested Bernoulli discretization.",
+  "bootstrap_resamples": 2000,
+  "analytic_rates_plotted": false,
+  "A": {
+    "replicates_per_null_size": 1000,
+    "point_width": 1.5,
+    "T": 24000.0,
+    "dt": 20.0,
+    "seed_policy": "fixed seed per null shared at C20/C60; first trajectory displayed",
+    "transition": "Literal Bernoulli uniform relocation probability lambda*dt; otherwise Gaussian drift.",
+    "finite_dt_uniform_jump_rate": "-log(1-lambda*dt)/dt",
+    "acf_grid": "0,1000,...,24000; actual1000replicate mean endpoint cosines",
+    "negative_ACF_points": [
+      {
+        "model": "drift",
+        "C_label": "20.0",
+        "lag": "17000.0",
+        "C": "-0.002697845087477546"
+      },
+      {
+        "model": "drift",
+        "C_label": "20.0",
+        "lag": "18000.0",
+        "C": "-0.00887260429456828"
+      },
+      {
+        "model": "drift",
+        "C_label": "20.0",
+        "lag": "19000.0",
+        "C": "-0.015967204366054803"
+      },
+      {
+        "model": "drift",
+        "C_label": "20.0",
+        "lag": "20000.0",
+        "C": "-0.02609409396582909"
+      },
+      {
+        "model": "drift",
+        "C_label": "20.0",
+        "lag": "21000.0",
+        "C": "-0.03495000217462586"
+      },
+      {
+        "model": "drift",
+        "C_label": "20.0",
+        "lag": "22000.0",
+        "C": "-0.038088008392406676"
+      },
+      {
+        "model": "drift",
+        "C_label": "20.0",
+        "lag": "23000.0",
+        "C": "-0.03715748297583309"
+      },
+      {
+        "model": "drift",
+        "C_label": "20.0",
+        "lag": "24000.0",
+        "C": "-0.02844487039223868"
+      }
+    ],
+    "same_rate_two_sizes_exactly_coincide": true,
+    "all_six_C0_equal_one": true,
+    "maximum_finite_dt_relative_rate_correction": 0.002148999338850821
+  },
+  "slurm_allocation": "21279376",
+  "all_simulation_checks_passed": true,
+  "source": "actual_sampled_simulations_no_analytic_curve_fill",
+  "code_sha256": {
+    "polarity1d/manuscript/code/mechanisms/figure4_round3_estimators_20261022.py": "193157f891bf208d0cddedb8a27307209e1eb6750becce39b580a291dacb7963",
+    "polarity1d/manuscript/code/mechanisms/figure4_round3_analysis_20261022.py": "cfa074e31d62cde1ea81485c0be189eba7f4e9a2b6bc628f20439852ee921598"
+  },
+  "outputs": {
+    "null_B_end_to_end_alpha.csv": "e3c967a80ac91f49bf79f4b17735c79afe2bcc7631f5440a858321422280ad92",
+    "null_A_perimeter_C20.npz": "93a7377d8c5e2369425fda8796c17ccd4b6ba5adfdb9a1d566da454da13aefaa",
+    "null_B_noise_tolerance_folds.csv": "a339dec4e02a1d8a377409469151652bd58fbf5ef52459581dd2fc839206d20e",
+    "null_A_perimeter_C60.npz": "6de98d0deca422a4638b5f580dad9132c8cb7588b68e2d0859b30e57faf46140",
+    "null_B_analysis_lag_metrics.csv": "e3c1b2bcb950f961d39b48c600d8fb26451055692df34c308c4eb74b23c00044",
+    "null_B_analytic_agreement.csv": "8050394850b10324ae3e0a6210c58ba58da129e5976e789be34d42a6f571c904",
+    "null_A_drift_C20.npz": "74fe52caf0385fed380419241f8128c3b511803043ccee78fc1ba2353f652d5a",
+    "null_B_noise_tolerance.csv": "bc4149559025c129787d326269ee0e775a8f0a3a114a6287f2fd641043133644",
+    "null_A_kymographs.csv": "0821e3ce2d17add7edf6fdf33e762a567312c8506f255c778d55879e0746f33c",
+    "null_A_drift_C60.npz": "b87ee1be3b8deb5d5b5847dbc94b2f443b6d638cd1ad3198ac45a012efb2c2b9",
+    "null_B_condition_lag_metrics.csv": "929c9fccf3c49630dbdbca326f71128d94d97123b7a4a847dde95d9db8e3d0c7",
+    "null_A_same_rate_C60.npz": "dfa3bbf790a76070f8c08884bab800653b4304fb5ad4ba8b1c533105bd53cfac",
+    "null_A_same_rate_C20.npz": "952842a4c5f74d02d774ba7d986a018b049874a98b16a96cba0e5a02ea9da508",
+    "null_A_acf.csv": "2932e9dff92a605d782c4a972de2ec426fb43e258de1d60cb9a35254fd28df10",
+    "null_A_rates.csv": "da511ff2a8d9e8779944c406c44d87ec6800f5a58f00b5c73618a4983faf0ba9",
+    "null_B_valid_fraction.csv": "945622f1f01386b32c2c407e34ac3178c9dffcd0c2b7695a62e2aa9977776b27",
+    "null_B_local_alpha.csv": "61bab3bc9a562ef946c8fda7b90a80bd1424e01ce7b59f8f1fcfeec918fb6aec"
+  }
+}
