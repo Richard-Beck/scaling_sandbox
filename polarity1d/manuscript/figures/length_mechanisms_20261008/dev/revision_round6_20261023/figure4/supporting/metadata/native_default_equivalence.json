@@ -1,0 +1,12 @@
+{
+  "generated_utc": "2026-10-23T22:13:11.463927+00:00",
+  "comparison": "Round6 prelaunch native kernel versus original compact SOURCE frozen native solver",
+  "integration_AST_identical_after_default_substitution": true,
+  "default_substitutions": {
+    "kind": "noise",
+    "sigma": 1.0
+  },
+  "worker_uses_defaults": true,
+  "differences": "Prelaunch kernel also accepts explicit constant-input/sigma arguments for separate controls; this mode campaign calls unchanged noise and sigma=1 defaults. Remaining differences are audit wording and null handling for control generators. No solver, forcing law, numerical tolerances, observation times, burn-in or integrated state difference under mode-campaign defaults.",
+  "full_diff": "native_kernel_vs_original.diff"
+}

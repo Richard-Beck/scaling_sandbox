@@ -13,7 +13,7 @@ def main():
     stamp = datetime.now(timezone.utc).isoformat()
     groups = [
         ('polarity1d/manuscript/data/runs/figure4_round6_modes_20261023',
-         'Targeted modes-only native noise rerun; a₀–a₃₂, |P|, time/circumference and forcing audits. No durable activity profiles. Scientifically authoritative native evidence; completion and precision are in the figure receipt.'),
+         'Targeted modes-only native noise rerun; a₀–a₃₂, |P|, time/circumference and forcing audits. No durable activity profiles. Authoritative evidence for the detector-free persistence test: partial, slope-stencil-sensitive agreement and the failed Goryachev slope screen do not establish a general strong-input explanation. Completion and cap-limited precision are in the figure receipt.'),
         ('polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023',
          'Figures 1–4, preserved earlier supplements, compact plotted CSVs, deterministic susceptibility tests and Fourier/exact-mask analyses. Figures 1–2 are layout-only; new model tests are in Figures 3–4.'),
         ('manuscript_outline/revision_round6_20261023',
@@ -92,7 +92,7 @@ remain preserved; their dated inventory entries still apply.
         updated = before + text + after
     else:
         updated = previous.rstrip() + '\n\n' + text
-    manifest.write_text(updated)
+    manifest.write_text(updated.rstrip() + '\n')
     print(json.dumps(result, indent=2))
 
 

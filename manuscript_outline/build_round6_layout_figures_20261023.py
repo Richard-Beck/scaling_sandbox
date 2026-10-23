@@ -136,8 +136,8 @@ def figure1():
     correlation_path = ROOT / 'polarity1d/manuscript/data/derived/length_correlations.csv'
     correlations = readcsv(correlation_path)
     shutil.copy2(correlation_path, folder / 'supporting/data/E_length_correlations.csv')
-    fig = plt.figure(figsize=(11.8, 9.7))
-    grid = fig.add_gridspec(1, 3, left=.075, right=.97, top=.92, bottom=.67, wspace=.4)
+    fig = plt.figure(figsize=(11.8, 8.7))
+    grid = fig.add_gridspec(1, 3, left=.075, right=.97, top=.92, bottom=.73, wspace=.4)
     foundation.measured_row(fig, grid, 0, 'A', '', prep, duration, arrival)
     # The historical helper adds one shared A. Replace it with independent A–C.
     for artist in list(fig.texts):
@@ -163,11 +163,11 @@ def figure1():
          for k in indices for v, raw in zip(q, active[k])))
     csvout(folder, 'C_orientation.csv',
         ({'time': float(t), 'orientation': float(v)} for t, v in zip(prep['orientation_time'], prep['orientation'])))
-    panel(fig, 'D', .03, .565)
+    panel(fig, 'D', .03, .625)
     curve_rows = []
     position = np.linspace(0, 1, 401)
     for j, title in enumerate(three.LABELS):
-        ax = fig.add_axes([.075+.31*j, .37, .26, .175])
+        ax = fig.add_axes([.075+.31*j, .42, .26, .175])
         for length, color, style in [(15, '#333333', '-'), (30, '#73A6B8', '--')]:
             signal = foundation.cosine(position, 3/length if j == 0 else .2, 'right') if j < 2 else length/15*position
             ax.plot(position, signal, color=color, ls=style, lw=1.4, label=f'L = {length}')
@@ -179,10 +179,10 @@ def figure1():
             ax.set_ylabel('Cue / reference peak')
             ax.legend(frameon=False, fontsize=7)
     csvout(folder, 'D_challenge_geometries.csv', curve_rows)
-    panel(fig, 'E', .03, .27)
+    panel(fig, 'E', .03, .325)
     lookup = {(r['model'], r['condition'], r['definition']): r for r in correlations}
     matrix = np.array([[float(lookup[m, g, gate]['spearman_rho']) for g in three.TESTS for gate, *_ in foundation.GATES] for m in foundation.MODELS])
-    ax = fig.add_axes([.20, .085, .77, .18])
+    ax = fig.add_axes([.20, .085, .77, .235])
     image = ax.imshow(matrix, cmap='RdBu_r', vmin=-1, vmax=1, aspect='auto')
     for i, model in enumerate(foundation.MODELS):
         for j, condition in enumerate(three.TESTS):
@@ -206,7 +206,7 @@ def figure1():
     old = section['legend']
     legend = [
         'A, Recorded Wave-pinning preparation cue at length 15: a finite left patch, withdrawn at 0.773 native time units. White to black is zero to peak input; coloured vertical lines mark the profile samples in B.',
-        'B, Native active profiles from the same preparation, scaled using the common minimum and span of the displayed snapshots. Colours identify recorded times, with no new simulation.',
+        'B, Native active profiles from the same preparation, scaled using the common minimum and span of the displayed snapshots. Colours identify recorded times.',
         'C, Orientation from the same preparation. Grey marks basal verification after establishment arrival at about 116; the cue has already ended. The matched time scale in A and C separates input duration from autonomous development.',
         old[1].replace('B,', 'D,', 1), old[2].replace('C,', 'E,', 1), *old[3:]]
     supplement = PdfWriter()
@@ -286,7 +286,7 @@ def figure2():
     axes[0].set_ylabel('Initiation / L19')
     panel(fig, 'E', .03, .752)
     fig.legend([Line2D([],[],color='.15',lw=1,ls=s) for s in previous.STYLES],
-        [f'w = {w:g}' for w in previous.WIDTHS],loc='upper center',bbox_to_anchor=(.55,.766),ncol=5,frameon=False,fontsize=8)
+        [f'w = {w:g}' for w in previous.WIDTHS],loc='upper center',bbox_to_anchor=(.55,.738),ncol=5,frameon=False,fontsize=8)
     for i, area in enumerate(previous.AREAS):
         axes = facets(.654-i*.075, .052)
         if i == 0: models(axes)
@@ -313,7 +313,10 @@ def figure2():
     fig.text(.075,.337,'Open circles: below activity gate at x = 0. Size increases from light (L19) to dark (L39).',fontsize=7)
     panel(fig, 'G', .03, .323)
     axes=facets(.239,.071)
-    models(axes)
+    classes = dict(goryachev='lost', wave_pinning='kept', holmes_model3='kept',
+                   debelly='lost then commits', spring='lost then commits')
+    for ax, model in zip(axes, previous.ORDER):
+        ax.set_title(previous.NAMES[model] + '\n' + classes[model], color='black', fontsize=7.5, pad=3)
     for j,(ax,model) in enumerate(zip(axes,previous.ORDER)):
         rows=[r for r in traces if r['model']==model]
         ax.plot([r['pulse_time'] for r in rows],[r['challenger_share'] for r in rows],color=previous.COLORS[model],lw=1.1)
@@ -326,13 +329,14 @@ def figure2():
     axes[0].set_ylabel('Challenger share')
     panel(fig,'H',.03,.203)
     panel(fig,'I',.03,.098)
-    upper=facets(.146,.042,count=3,gap=.065)
+    upper=facets(.133,.042,count=3,gap=.065)
     lower=facets(.043,.042,count=3,gap=.065)
     schematic_rows=[]
     for j,(ax,bx,name) in enumerate(zip(upper,lower,('Initiation-limited','Saturating activation','Slow non-activity state'))):
         previous.schematic(ax,j)
         previous.schematic(bx,j,width=True)
-        ax.set_title(name,color='black',fontsize=8)
+        counterpart = ('Goryachev', 'Wave-pinning / Holmes', 'deBelly / Spring')[j]
+        ax.set_title(name + '\n' + counterpart,color='black',fontsize=7.5)
         ax.set_xlabel('Time (schematic units)',fontsize=7)
         ax.set_xticks([0,4,8])
         for panel_name,axis in [('H',ax),('I',bx)]:
@@ -342,6 +346,7 @@ def figure2():
     upper[0].set_ylabel('Biosensor\n(schematic)')
     lower[0].set_ylabel('Replacement time\n(schematic)')
     fig.legend([Line2D([],[],color='.42',lw=1),Line2D([],[],color='.08',lw=1,ls=(0,(3,1.6)))],['WGD−','WGD+'],loc='upper right',bbox_to_anchor=(.98,.216),ncol=2,frameon=False,fontsize=7)
+    fig.legend([Line2D([],[],color='.42',lw=1),Line2D([],[],color='.08',lw=1,ls=(0,(3,1.6)))],['WGD−','WGD+'],loc='upper right',bbox_to_anchor=(.98,.112),ncol=2,frameon=False,fontsize=7)
     csvout(folder,'H_I_prospective_schematics.csv',schematic_rows)
     section=next(s.copy() for s in BASELINE['sections'] if s['id']=='figure2')
     old=section['legend']
@@ -351,8 +356,8 @@ def figure2():
         'C, Incumbent peak normalized to the model reference, for those same states.',
         old[2].replace('B,','D,',1),old[3].replace('C,','E,',1),
         old[4].replace('D,','F,',1),old[5].replace('E,','G,',1),
-        'H, Prospective biosensor histories for the same pulse train in WGD− and enlarged WGD+ cells. The three facets show delayed rises and resets; saturation with gap retention; and gap collapse followed by commitment. All curves are dimensionless schematics, exactly as in the preceding edition.',
-        'I, Prospective equal-dose width responses for the same three classes: weak width rescue, strong width rescue, and weaker width rescue. Solid grey: WGD−; dashed black: WGD+. These are unchanged schematics, not measurements. Model kinetics are unchanged.']
+        'H, Prospective biosensor histories for the same pulse train in WGD− and enlarged WGD+ cells. Initiation-limited resetting (Goryachev), saturating activation with gap retention (Wave-pinning/Holmes), and progress retained after activity loss (deBelly/Spring) give distinct dimensionless schematic histories.',
+        'I, Prospective equal-dose width responses for those classes: weak width rescue, strong width rescue, and weaker width rescue. Solid grey: WGD−; dashed black: WGD+. These are qualitative assay predictions.']
     # Repair remaining panel references in retained section prose.
     replacements={' in D':' in F','D codes':'F codes'}
     for key in ('limitations','equations'):

@@ -3,6 +3,9 @@ from pathlib import Path
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from urllib.parse import unquote, urlsplit
+import argparse
+import csv
+import math
 import hashlib
 import json
 import subprocess
@@ -35,6 +38,9 @@ class Links(HTMLParser):
 
 
 def main():
+    parser = argparse.ArgumentParser(__doc__)
+    parser.add_argument('--require-complete-mode-campaign', action='store_true')
+    args = parser.parse_args()
     starting = read(DEST / 'request/starting_checkpoint.json')
     for name, expected in starting['input_sha256'].items():
         actual = DEST / 'request/revision_brief_round6_20261023.md' if name == 'RevisionBrief.md' else ROOT / name
@@ -46,7 +52,21 @@ def main():
     current = read(ROOT / 'manuscript_outline/outline_v12.json')
     for index in (4, 5):
         assert current['sections'][index] == baseline['sections'][index]
-    assert next(s for s in current['supplementary'] if s.get('id') == 'pilot_observables') == next(s for s in baseline['supplementary'] if s.get('id') == 'pilot_observables')
+    old_pilot = read(ROOT / 'manuscript_outline/revision_figures3_4_20261023/pilot_observables.json')
+    new_pilot = read(DEST / 'pilot_observables.json')
+    assert len(old_pilot['observables']) == len(new_pilot['observables'])
+    for index, (old, new) in enumerate(zip(old_pilot['observables'], new_pilot['observables'])):
+        for key in ('observable', 'drift_direction', 'secondary_direction', 'status'):
+            assert old[key] == new[key], (index, key)
+        if index != 2:
+            assert old['operational_definition'] == new['operational_definition'], index
+    for key in ('fixed_before_data', 'limitations'):
+        assert old_pilot[key] == new_pilot[key], key
+    assert new_pilot['interpretation_notes'][:len(old_pilot['interpretation_notes'])] == old_pilot['interpretation_notes']
+    assert new_pilot['regime_definition'].startswith(old_pilot['regime_definition'])
+    new_section = next(s for s in current['supplementary'] if s.get('id') == 'pilot_observables')
+    assert new_section['measurements'] == [r['operational_definition'] for r in new_pilot['observables']]
+    assert 'Fig. 4J' in new_pilot['observables'][2]['counterpart']
     source_pairs = [(ROOT / 'polarity1d/manuscript/data/derived/length_correlations.csv',
                      FIGURES / 'figure1/supporting/data/E_length_correlations.csv')]
     for name in ('A_incumbent_organization.csv', 'B_initiation.csv', 'C_replacement_times_all450.csv',
@@ -55,6 +75,13 @@ def main():
                              FIGURES / 'figure2/supporting/data' / name))
     for old, new in source_pairs:
         assert old.read_bytes() == new.read_bytes(), str(new)
+    layout_csvs = 0
+    for number in (1, 2):
+        for path in (FIGURES / f'figure{number}/supporting/data').glob('*.csv'):
+            relative_path = str(path.relative_to(ROOT))
+            committed = subprocess.check_output(['git', 'show', '209a0c3:' + relative_path], cwd=ROOT)
+            assert path.read_bytes() == committed, relative_path
+            layout_csvs += 1
     unchanged = subprocess.run(['git', 'diff', '--exit-code', starting['baseline_commit'], '--',
         'author', 'polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round5_20261023',
         'manuscript_outline/outline_v11.pdf', 'manuscript_outline/outline_v11.json'], cwd=ROOT, capture_output=True, text=True)
@@ -88,15 +115,73 @@ def main():
                 assert target.exists(), (path, link)
                 links_checked += 1
     preservation = DEST / 'review_preservation.json'
+    f3_audit = read(FIGURES / 'figure3/supporting/metadata/verification.json')
+    assert f3_audit['complete'] and f3_audit['AB_data_identical']
+    assert f3_audit['worker_source_matches_manifest']
+    assert f3_audit['native_stochastic_runs'] == f3_audit['retuned_parameters'] == 0
+    for key, name in (('main_pdf_sha256', 'figure3_round6.pdf'),
+                      ('main_png_sha256', 'figure3_round6.png'), ('legend_sha256', 'legend.json')):
+        assert sha(FIGURES / 'figure3' / name) == f3_audit[key], name
+    with (FIGURES / 'figure3/supporting/data/alpha_bridge.csv').open() as stream:
+        alpha_rows = list(csv.DictReader(stream))
+    alpha_eligible = [r for r in alpha_rows if r['bridge_eligible'].lower() == 'true']
+    assert len(alpha_rows) == f3_audit['drift_alpha_requested']
+    assert len(alpha_eligible) == f3_audit['drift_alpha_pairs']
+    assert sum(r['model'] == 'wave_pinning' for r in alpha_eligible) == f3_audit['wave_pinning_alpha_pairs']
+    for row in alpha_eligible:
+        assert float(row['fraction']) <= 0.01
+        assert abs(float(row['prediction_fraction']) - float(row['fraction'])) < 1e-12
+        assert row['matched_input_prediction'].lower() == 'true' and row['extrapolated'].lower() == 'false'
+        assert float(row['neighborhood_max_multiple_domain_fraction']) <= 0.05
+        assert row['linear_response_eligible'].lower() == 'true'
+        assert all(math.isfinite(float(row[key])) for key in ('predicted_alpha', 'observed_alpha'))
+    f4_audit = read(FIGURES / 'figure4/supporting/metadata/scientific_validation.json')
+    assert f4_audit['passed']
+    if args.require_complete_mode_campaign:
+        storage = read(ROOT / 'reports/round6_storage_20261023.json')
+        assert storage['campaign_status'] == 'NATIVE_COHORT_COMPLETE'
+        assert storage['complete_mode_histories'] == storage['allocated_mode_histories']
+        assert storage['failed_mode_histories'] == 0
+        precision = read(ROOT / 'polarity1d/manuscript/data/runs/figure4_round6_modes_20261023/precision/status.json')
+        assert precision.get('early') is False
+        assert len(precision['conditions']) == 200
+        assert len({r['condition_id'] for r in precision['conditions']}) == 200
+        assert all(r['n_seeds'] in (24, 96) for r in precision['conditions'])
+        assert sum(r['n_seeds'] for r in precision['conditions']) == storage['allocated_mode_histories']
+        terminal = read(FIGURES / 'figure4/supporting/metadata/stable_artifact_handshake.json')
+        assert terminal['stable'] and terminal['no_more_writers']
+        assert terminal['controllers_completed'] and terminal['live_producer_stopped']
+        assert terminal['native_histories'] == storage['complete_mode_histories']
+        assert terminal['native_failures'] == 0
+        for name, expected in terminal['artifact_sha256'].items():
+            assert sha(FIGURES / 'figure4' / name) == expected, name
+        evidence = read(FIGURES / 'figure4/supporting/metadata/terminal_evidence_audit.json')
+        assert evidence['passed'] and evidence['source_hashes_all_match']
+        assert evidence['complete_valid_receipts'] == evidence['unique_seeds'] == terminal['native_histories']
+        assert evidence['native_profiles_saved'] is False
+    snapshot_count = 0
+    for folder, receipt_name, key in ((DEST / 'review_snapshot_initial', 'capture.json', 'sha256'),
+            (FIGURES / 'figure4/supporting/review_snapshot_initial', 'SNAPSHOT_HASHES.json', 'files')):
+        for relative_name, expected in read(folder / receipt_name)[key].items():
+            assert sha(folder / relative_name) == expected, str(folder / relative_name)
+            snapshot_count += 1
     if preservation.exists():
         for item in read(preservation)['reviews']:
             assert sha(ROOT / item['path']) == item['sha256'], item['path']
     report = {'generated_utc': datetime.now(timezone.utc).isoformat(), 'passed': True,
         'baseline_commit': starting['baseline_commit'], 'baseline_pdf_preserved': True,
-        'round5_files_and_author_documents_preserved': True, 'protected_sections': ['figure5', 'figure6', 'pilot_observables'],
+        'round5_files_and_author_documents_preserved': True, 'protected_sections': ['figure5', 'figure6'],
+        'pilot_prospective_directions_preserved': True,
+        'pilot_references_and_model_conditioning_updated': True,
         'byte_identical_figure1_2_data_tables': len(source_pairs),
+        'figure1_2_plotted_csvs_unchanged_by_review_fixes': layout_csvs,
         'main_source_hashes_checked': sources, 'native_pdf_pages_preserved': native_count,
         'local_html_links_checked': links_checked,
+        'immutable_snapshot_hashes_checked': snapshot_count,
+        'figure3_numerical_and_artifact_audit_checked': True,
+        'figure3_qualified_exact_input_alpha_pairs': len(alpha_eligible),
+        'figure4_numerical_audit_checked': True,
+        'terminal_mode_campaign_required_and_checked': args.require_complete_mode_campaign,
         'review_preservation_checked': preservation.exists(),
         'scope': 'Source and packaging audit; model-specific numerical and scientific checks are recorded with Figures 3–4.'}
     (DEST / 'verification.json').write_text(json.dumps(report, indent=2) + '\n')

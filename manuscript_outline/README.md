@@ -8,9 +8,13 @@ quantities. Figure 3 tests the native spatial susceptibility map away from the
 edge and exposes its signed contributions to domain drift. Figure 4 shows
 all-input closure bounds, size-specific remainder curves and per-model takeover
 comparisons; Fourier tests and exact-region-moment checks are recorded alongside.
-Figure 5, reserved Figure 6 and the prospective pilot appendix are preserved. Review candidate; the targeted mode campaign is active.
+Figure 5 and reserved Figure 6 are preserved; the prospective pilot directions
+are retained with current panel references.
 
 <!-- round6-current-edition end -->
+
+
+
 
 
 <!-- Figures 3-4 edge-birth revision 20261023 -->

@@ -60,12 +60,19 @@ def collect():
   normal.loc[i,'historical_calibrated_predicted_ratio']=r['shared_translation_predicted_ratio'];normal.loc[i,'raw_native_predicted_Ds']=own.raw_native_Ds
   normal.loc[i,'shared_translation_predicted_ratio']=own.raw_native_Ds/ref.raw_native_Ds if r['defined'] else np.nan
  normal.to_csv(DATA/'raw_native_size_normalized_prediction.csv',index=False)
- obs=pd.read_csv(F4/'local_alpha.csv');obs=obs[(obs.arm=='common')&(obs.view=='main')&(obs.f<=.001)]
+ obs=pd.read_csv(F4/'local_alpha.csv');obs=obs[(obs.arm=='common')&(obs.view=='main')&(obs.f<=.01)]
  bridge=[]
  for r in obs.itertuples():
   sizes=estimators.fixed_neighborhood(r.C_label,r.model);q=pred[(pred.model==r.model)&(pred.fraction==r.f)&pred['size'].isin(sizes)].sort_values('size')
-  good=len(q)==len(sizes) and q.defined.all() and (q.Ds_predicted_full_covariance>0).all();alpha=2-np.polyfit(np.log(q.mean_circumference),np.log(q.raw_native_Ds),1)[0] if good else np.nan
-  bridge.append(dict(model=r.model,size=r.C_label,fraction=r.f,neighborhood=str(sizes),n_neighbors=len(sizes),predicted_alpha=alpha,observed_alpha=r.alpha,observed_alpha_ci_lower=r.alpha_ci_lower,observed_alpha_ci_upper=r.alpha_ci_upper,observed_status=r.status,prediction_defined=good))
+  neighbors=obs[(obs.model==r.model)&(obs.f==r.f)&obs.C_label.isin(sizes)]
+  good=len(q)==len(sizes) and q.defined.all() and (q.raw_native_Ds>0).all()
+  alpha=2-np.polyfit(np.log(q.mean_circumference),np.log(q.raw_native_Ds),1)[0] if good else np.nan
+  mdmax=float(neighbors.multiple_front_fraction.max())
+  drift_ok=len(neighbors)==len(sizes) and np.isfinite(mdmax) and mdmax<=.05
+  linear_ok=good and q.maximum_linearity_error.notna().all() and (q.maximum_linearity_error<=.1).all() and (q.mean_stationary_rhs<=1e-6).all() and (q.mean_tail_scaled_change<=1e-4).all()
+  eligible=bool(good and drift_ok and linear_ok and np.isfinite(r.alpha))
+  reason='' if eligible else 'matched_mean_native_prediction_unavailable' if not good else 'multiple_domain_fraction_above_0.05_in_fixed_neighborhood' if not drift_ok else 'linear_response_or_mean_state_gate_failed' if not linear_ok else r.status
+  bridge.append(dict(model=r.model,size=r.C_label,fraction=r.f,prediction_fraction=r.f,matched_input_prediction=True,extrapolated=False,neighborhood=str(sizes),n_neighbors=len(sizes),predicted_alpha=alpha,observed_alpha=r.alpha,observed_alpha_ci_lower=r.alpha_ci_lower,observed_alpha_ci_upper=r.alpha_ci_upper,observed_status=r.status,prediction_defined=good,neighborhood_max_multiple_domain_fraction=mdmax,drift_regime_eligible=drift_ok,linear_response_eligible=linear_ok,bridge_eligible=eligible,exclusion_reason=reason,neighborhood_max_linearity_error=float(q.maximum_linearity_error.max()) if good else np.nan))
  br=pd.DataFrame(bridge);br.to_csv(DATA/'alpha_bridge.csv',index=False)
  # Prespecified operational separated-cue plateau: furthest three observed
  # certified two-region half-turns, without smoothing or extrapolation.
@@ -105,7 +112,9 @@ def map_row(fig,grid,mp,ex,quantity='standard_pulse_gain',all_sizes=False,points
     ax.lines[-1].set_color(str(.72-.32*sizes.index(size)/max(1,len(sizes)-1)))
    for e in (q.left_edge.iloc[0],q.right_edge.iloc[0]):ax.axvline(e,color=col,ls=':',lw=.6,alpha=.6,zorder=-1)
   ax.axhline(0,color='.7',lw=.5);ax.set_xlabel('Arc position from domain centre');ax.ticklabel_format(axis='y',style='sci',scilimits=(-2,3));ax.yaxis.offsetText.set_fontsize(7)
-  if quantity!='activity':ax.legend(frameon=False,fontsize=8,loc='best',ncol=2 if len(sizes)<4 else 3)
+  if quantity=='normalized_contribution':
+   ax.set_title('');ax.text(.02,.95,NAMES[model],ha='left',va='top',transform=ax.transAxes,color='black',fontsize=9);ax.legend(frameon=False,fontsize=7.5,loc='lower center',bbox_to_anchor=(.5,1.01),ncol=2 if len(sizes)<4 else 3)
+  elif quantity!='activity':ax.legend(frameon=False,fontsize=8,loc='best',ncol=2 if len(sizes)<4 else 3)
   if j==0:ax.set_ylabel({'standard_pulse_gain':'Terminal shift / dose','activity':'Mean-state activity','normalized_contribution':r'Signed contribution, $c_j/D_s$','raw_g':r'Raw native $g_j$'}[quantity])
  return axes
 
@@ -134,34 +143,34 @@ def drift_panel(fig,grid,normal):
 
 def alpha_panel(fig,grid,br):
  for j,model in enumerate(MODELS):
-  ax=fig.add_subplot(grid[0,j]);ax.set_title(NAMES[model]);q=br[(br.model==model)&br.observed_alpha.notna()];p=br[(br.model==model)&br.prediction_defined]
+  ax=fig.add_subplot(grid[0,j]);ax.set_title(NAMES[model]);q=br[(br.model==model)&br.bridge_eligible];p=br[(br.model==model)&br.prediction_defined]
   lim=[min(1.2,p.predicted_alpha.min()-.3),max(3.2,p.predicted_alpha.max()+.3)];ax.plot(lim,lim,color='.5',lw=.8)
-  for r in q.itertuples():ax.errorbar(r.predicted_alpha,r.observed_alpha,yerr=[[r.observed_alpha-r.observed_alpha_ci_lower],[r.observed_alpha_ci_upper-r.observed_alpha]],fmt={.0001:'o',.0003:'s',.001:'^'}[r.fraction],color=shade(model,r.size),mec=COLORS[model],mew=.4,ms=5,elinewidth=.7)
-  if not len(q):ax.text(.5,.48,'No qualified weak-input\nFigure 4 local α',ha='center',va='center',transform=ax.transAxes,fontsize=9)
-  ax.set_xlim(lim);ax.set_ylim(min(0.5,lim[0]),max(3.6,lim[1]));ax.set_xlabel('α implied by predicted drift');
-  if j==0:ax.set_ylabel('Figure 4 weak-input α')
+  for r in q.itertuples():ax.errorbar(r.predicted_alpha,r.observed_alpha,yerr=[[r.observed_alpha-r.observed_alpha_ci_lower],[r.observed_alpha_ci_upper-r.observed_alpha]],fmt={.0001:'o',.0003:'s',.001:'^',.003:'v',.005:'D',.01:'P'}[r.fraction],color=shade(model,r.size),mec=COLORS[model],mew=.4,ms=5,elinewidth=.7)
+  if not len(q):ax.text(.5,.48,'No qualified drift-regime\nFigure 4 local α',ha='center',va='center',transform=ax.transAxes,fontsize=9)
+  ax.set_xlim(lim);ax.set_ylim(min(0.5,float(q.observed_alpha_ci_lower.min())-.15 if len(q) else .5),max(3.6,float(q.observed_alpha_ci_upper.max())+.15 if len(q) else 3.6));ax.set_xlabel('α implied by predicted drift');
+  if j==0:ax.set_ylabel('Figure 4 drift-regime α')
 
 def main_figure(mp,ex,cv,fr,li,br,ma):
  setup();fig=plt.figure(figsize=(16.2,19.5))
  # A/B reuse exact source coordinate files and the native existing renderers.
- ga=fig.add_gridspec(4,2,left=.065,right=.335,bottom=.735,top=.965,wspace=.28,hspace=.25);base.panel_A(fig,ga)
+ ga=fig.add_gridspec(4,2,left=.065,right=.335,bottom=.735,top=.947,wspace=.28,hspace=.25);aaxes=base.panel_A(fig,ga)
+ for ax in aaxes:
+  for text in ax.texts:
+   if text.get_text() in ('0%','50%','90%','cue off'):text.set_position((.03,.90));text.set_ha('left')
  gb=facets(fig,left=.425,right=.96,bottom=.795,top=.965);baxes=base.panel_B(fig,gb)
  half=pd.read_csv(DATA/'half_heading_readouts.csv')
  for ax,model in zip(baxes,MODELS):
+  for text in ax.texts:
+   if text.get_text().startswith('C='):text.set_color('.15')
   key='spring' if model=='spring_ring' else model
   for r in half[(half.model==key)&half.status.str.contains('right_censored')&(~half.no_turn)].itertuples():ax.annotate('',xy=(r.gap,r.lower*1.2),xytext=(r.gap,r.lower),arrowprops=dict(arrowstyle='->',color=shade(model,r.size_parameter,sorted(half[half.model==key].size_parameter.unique())),lw=.7))
  label(fig,'A',.018,.989);label(fig,'B',.38,.989)
- fig.text(.067,.995,'Grey: cue support; diamonds: saddle; | heading',fontsize=8,color='black')
+ fig.text(.067,.985,'Grey: cue support; diamonds: saddle; | heading',fontsize=8,color='black')
  fig.text(.425,.775,'B: light → dark = C 30, 37.8, 47.6; Spring 2.5, 3.15, 3.97.\nOpen triangles: time lower bounds. Dotted lines: first saddle. Grey: heading undefined.',fontsize=8,va='top')
  for letter,quantity,bottom,top in [('C','standard_pulse_gain',.585,.695),('D','activity',.502,.548),('E','normalized_contribution',.355,.455)]:
   grid=facets(fig,bottom=bottom,top=top);map_row(fig,grid,mp,ex,quantity,points=True);label(fig,letter,.02,top+.025)
  fig.text(.075,.708,'Lines: native map; circles: new pulse tests; open squares: existing edge pulse. Dotted verticals: half-contrast edges.',fontsize=8)
- label(fig,'F',.02,.312);gs=fig.add_gridspec(1,1,left=.075,right=.49,bottom=.211,top=.29);time_panel(fig,gs[0,0],cv,ex)
- fig.text(.555,.285,'Permanent shift, both edges together',fontsize=11,color='black')
- folds=pd.read_csv(DATA/'edge_response_size_folds.csv');gain=dict(zip(folds.model,folds.terminal_gain_large_over_small))
- t=f"Terminal gain Cmax/Cmin:\nWave-pinning {gain['wave_pinning']:.3f}; Holmes {gain['holmes_model3']:.3f}\nSpring {gain['spring_ring']:.3f}; Goryachev {gain['goryachev']:.3f}"
- fig.text(.555,.261,t,fontsize=9,va='top')
- fig.text(.555,.224,'Weak input anywhere shifts the domain by g(x) × dose.\nNoise is many such inputs; its covariance and g predict drift.\nNo drift data or model parameters are fitted.',fontsize=9,va='top')
+ label(fig,'F',.02,.312);gs=fig.add_gridspec(1,1,left=.075,right=.965,bottom=.211,top=.29);time_panel(fig,gs[0,0],cv,ex)
  label(fig,'G',.02,.183);normal=pd.read_csv(DATA/'raw_native_size_normalized_prediction.csv');drift_panel(fig,facets(fig,bottom=.077,top=.16),normal)
  # A compact second page would separate quantities; keep one complete main plate
  # and give alpha enough vertical space by increasing the canvas below zero.
@@ -220,7 +229,7 @@ def supplement(mp,ex,cv,fr,li,br,ma):
     ax=fig.add_subplot(grid[0,j]);ax.set_title(NAMES[model]);q=ex[(ex.model==model)&(ex.kind=='map_validation')&(ex.label=='right_edge')].sort_values('size');ax.plot(q['size'],q.integrated_shared_gain,'o-',color=COLORS[model]);ax.set_xlabel('Circumference parameter')
     if j==0:ax.set_ylabel(r'Integrated displacement / dose, through $20\tau$')
   page('S10. Finite integrated response retained separately from terminal susceptibility',integration)
-  page('S11. Weak-input alpha bridge: qualified observations and explicit missingness',lambda fig:alpha_panel(fig,facets(fig,bottom=.17,top=.83),br))
+  page('S11. Matched-input drift-regime alpha bridge: all qualified observations',lambda fig:alpha_panel(fig,facets(fig,bottom=.17,top=.83),br))
  # The entire preceding supplement is kept after new analysis pages.
  writer=PdfWriter();writer.append(str(new_pdf));historical=OLD/'figure3_round5_review_supplement.pdf';writer.append(str(historical));writer.write(str(OUT/f'{STEM}_supplement.pdf'))
  write(META/'supplement_preservation.json',dict(generated_utc=new.old.now(),new_pages=len(PdfReader(new_pdf).pages),historical_path=rel(historical),historical_sha256=new.old.sha(historical),historical_pages=len(PdfReader(historical).pages),total_pages=len(PdfReader(OUT/f'{STEM}_supplement.pdf').pages)))
@@ -235,24 +244,35 @@ def documents(mp,ex,cv,fr,li,br,ma):
   for size in endpoints(model):
    r=fr[(fr.model==model)&(fr['size']==size)].iloc[0];fraction_text.append(f'{NAMES[model]} C{size:g}: left edge {r.left_edge_fraction:.3f}, right edge {r.right_edge_fraction:.3f}, plateau interior {r.plateau_interior_fraction:.3f}, basal arc {r.basal_arc_fraction:.3f}')
  terminal=', '.join(f'{NAMES[r.model]} {r.terminal_gain_large_over_small:.3f}' for r in folds.itertuples())
- title='Size-dependent susceptibility links deterministic perturbations to weak-input domain drift'
+ title='Enlargement slows both turning routes and selectively suppresses edge susceptibility'
+ eligible=br[br.bridge_eligible];wpalpha=eligible[eligible.model=='wave_pinning'];n_eligible=len(eligible)
+ def percent(v):
+  if abs(v)<1e-10:return '0'
+  if 0<abs(v)<.001:return '<0.1'
+  return f'{100*v:.1f}'
+ fraction_text=[]
+ for model in MODELS:
+  for size in endpoints(model):
+   r=fr[(fr.model==model)&(fr['size']==size)].iloc[0]
+   assert abs(r.left_edge_fraction-r.right_edge_fraction)<1e-6
+   fraction_text.append(f'{NAMES[model]} C{size:g}: {percent((r.left_edge_fraction+r.right_edge_fraction)/2)}/{percent(r.plateau_interior_fraction)}/{percent(r.basal_arc_fraction)}')
  legend=[
- 'A. Exact preceding Wave-pinning activity profiles, C=30, for a cue straddling the incumbent edge (i) or separated from it (ii). Rows are initial, half-turn, 90% turn and cue-free relaxation; the grey band is cue support, diamonds are saddles and the black tick is heading. All A data and timings are unchanged.',
- 'B. Exact preceding half-turn time against cue-edge gap for the three matched sizes, light to dark: C=30,37.8,47.6; Spring 2.5, 3.15, 3.97. Lines mark first saddle appearance; grey marks undefined heading at one or more sizes. Open upward triangles and arrows denote lower bounds. Continuous-cue data and native parameters are unchanged.',
- 'C. A weak input anywhere shifts the domain by g(x) times dose; noise is many such inputs; drift follows from g and the input covariance; nothing is fitted. Lines are the terminal displacement per dose predicted by the linearized native model for the standard Gaussian pulse centred at each arc position: SD 1.5, duration 50 (Spring 0.15, 5), at f=0.001. Light and dark are C20/C60 (Spring 1/3). New nominal-amplitude tests from settled states are filled circles; the existing edge pulse is an open square. Both subtract a matched unpulsed control. The pulse confirms g at the edge; the map elsewhere comes from the linearized native model and is tested at domain centre, halfway to the edge, edge±1/3 pulse SD, quarter-basal arc and antipode. Maximum absolute gain error normalized to map amplitude is '+f'{100*maxerr:.2f}%. Terminal edge gain large/small: {terminal}.',
- 'D. Mean-state activity in light grey on its own axis, sharing the centred physical arc coordinate with C and E. Dotted verticals locate half-contrast edges. Spring positions are material fractions times the mean-state circumference.',
- 'E. Signed per-position contribution c_j/D_s at the same sizes and input, using raw native g and the unchanged noise covariance, with no measured-gain rescaling. Contributions sum to one; negative values are retained. Edge zones are within two input correlation lengths of the nearest edge; plateau interior and basal arc exclude these zones. Fractions of D_s, left/right edge, plateau interior, basal arc respectively: '+'; '.join(fraction_text)+'. Raw-native and measurement-normalized totals are both exported.',
- 'F. Wave-pinning C20 and C60: pulsed falling edge (solid) and opposite rising edge (dashed) move together and retain a permanent offset after the grey pulse-on interval. Displacement is divided by pulse dose. Width and centroid histories, other models, every amplitude and duration are supplementary.',
- 'G. Predicted against measured physical domain diffusion after each is divided by its own fixed-smallest-size value at the same input. Only the shared-translation prediction appears here; the grey line is equality. The main prediction uses raw native g without measured-gain rescaling; the historical pulse-normalized variant is retained in the supplement. Shape encodes f=0.0001,0.0003,0.001,0.003,0.005,0.01 (circle,square,up/down triangle,diamond,plus); size retains the model colour ramp. Horizontal intervals are measured bootstrap 95% intervals. The ratio is approximately the squared edge-gain fold: Wave-pinning 0.70²≈0.49; the full spatial covariance gives '+f'{wp.shared_translation_predicted_ratio:.3f}, versus {wp.observed_ratio:.3f} measured at f=0.001. Shape changes make the square relation approximate, not an exact identity. Absolute predictions and independent-edge candidate are supplementary. Goryachev stays on its own scale and fails quantitatively.',
- 'H. Local α=2−dlnD_s/dlnC implied by the predicted drift against Figure 4 weak-input local α (f≤0.001), with identical fixed-neighbour size fits, two neighbours at endpoints and three inside. Grey is equality. Vertical intervals are Figure 4 bootstrap 95% intervals. '+f'{br.observed_alpha.notna().sum()} of {len(br)} requested pairs qualify; Wave-pinning and Goryachev have no qualified weak-input observed α under the fixed shared-lag rule. No missing estimate is replaced. Marker shapes distinguish the three weak inputs as in G. '
+ 'A. Wave-pinning activity profiles for a cue straddling the incumbent edge (i) or separated from it (ii), C=30. Rows show the initial state, half-turn, 90% turn and cue-free relaxation. Grey marks cue support, diamonds mark saddles and the black tick marks activity heading.',
+ 'B. Enlargement slows half-turning through both incumbent sliding and replacement by a new region. Half-turn time is plotted against cue-edge gap for C=30, 37.8, 47.6 (Spring 2.5, 3.15, 3.97), light to dark. Vertical lines mark the first saddle at half-turn; grey marks undefined heading at one or more sizes. Open upward triangles with arrows denote time lower bounds.',
+ 'C. Signed terminal displacement per dose for a Gaussian pulse centred at each arc position, at f=0.001: SD 1.5, duration 50 (Spring 0.15, 5). Light and dark are C20/C60 (Spring 1/3). Lines are the native linearized response to this pulse shape; circles are direct pulse tests and open squares mark the edge test. The edge pulse confirms the map locally; additional tests cover the domain centre, halfway to the edge, edge ±1 and ±3 pulse SD, quarter-basal arc and antipode. Maximum absolute gain error is '+f'{100*maxerr:.2f}% of map amplitude. The spatial response supplies the drift prediction in G.',
+ 'D. Mean-state activity on the same centred physical arc coordinate as C and E. Dotted lines locate half-contrast edges. Spring uses material positions multiplied by mean circumference.',
+ 'E. Nearly all predicted drift (99.6–100%) is generated within two input correlation lengths of the two edges, suggesting lateral-edge fluctuations as the cellular readout. Curves show signed per-position contributions divided by total predicted diffusion; negative values remain. Rounded shares per edge/plateau interior/basal arc (%) are: '+'; '.join(fraction_text)+'. Interior and basal zones exclude edge zones; exact signed fractions are supplied with the source data.',
+ 'F. Wave-pinning C20 and C60: the pulsed edge (solid) and opposite edge (dashed) move together and retain a permanent shift after withdrawal. Grey marks pulse-on; displacement is divided by pulse dose. Largest/smallest terminal edge-gain folds are '+terminal+'. Enlargement suppresses susceptibility strongly in Wave-pinning and Goryachev, while Holmes and Spring change little. Other time courses and integrated responses are supplementary.',
+ 'G. A weak input anywhere shifts the domain by g(x) times dose; noise is many such inputs; drift follows from g and the input covariance; nothing is fitted. Shared-translation predicted versus measured diffusion is divided by each quantity\'s own smallest-size value at the same input (domain drift is also shown in Figure 4G). Grey is equality. Colours encode size; shapes encode f=0.0001, 0.0003, 0.001, 0.003, 0.005, 0.01 (circle, square, upward triangle, downward triangle, diamond, filled plus). Horizontal intervals are measured 95% bootstrap intervals. Wave-pinning\'s terminal gain fold gives 0.70²≈0.49; the full spatial covariance predicts '+f'{wp.shared_translation_predicted_ratio:.3f}, versus {wp.observed_ratio:.3f} measured at f=0.001. The square relation is approximate because spatial shape and covariance also change. Goryachev fails quantitatively and retains its own scale. Absolute diffusion and the independent-edge candidate are supplementary.',
+ 'H. The drift prediction implies a local size exponent, compared with measured heading-persistence α from Figure 4E. Predictions use the exact mean input of every observation; no f=0.001 extrapolation is used. The drift subset requires f≤0.01 and multiple-domain fraction≤0.05 throughout the fixed size neighbourhood. Native stationary-state and pulse-linearity gates must also pass. Grey is equality; vertical intervals are observed 95% bootstrap intervals; colours and shapes match G. '+f'{n_eligible} qualified pairs include all {len(wpalpha)} Wave-pinning observations at f=0.003, 0.005 and 0.01. Its predicted α spans {wpalpha.predicted_alpha.min():.2f}–{wpalpha.predicted_alpha.max():.2f}, above the size-independent-drift expectation of 2. Goryachev has no qualified pair. Every excluded condition and reason remains in the source data.'
  ]
  readme='''# Unexpected
 
-'''+f'''The requested map tests support the native linear response away from the edge: the maximum error is {100*maxerr:.2f}% of the condition's map amplitude. Symmetric centre/antipode pulses give essentially zero shared translation, while off-centre pulses shift the complete domain. This does not repair Goryachev's absolute drift disagreement.
+'''+f'''The requested map tests support the native linear response away from the edge: the maximum error is {100*maxerr:.2f}% of the condition's map amplitude. Symmetric centre/antipode pulses give essentially zero shared translation, while off-centre pulses shift the complete domain. This does not repair Goryachev\'s absolute drift disagreement.
 
 The covariance contribution maps localize 99.59–100.00% of predicted drift within two input correlation lengths of the two edges at the endpoint sizes. Small signed plateau/basal contributions and all negative bins are retained.
 
-The requested weak-input alpha bridge is only partially observable: {br.observed_alpha.notna().sum()}/{len(br)} rows have a qualified Figure 4 exponent. Wave-pinning and Goryachev have none under the existing shared-lag rule. Their deterministic alpha predictions remain in the CSV; they are not plotted against invented observations.
+The expanded drift-regime alpha bridge contains {n_eligible} qualified matched-input pairs, including {len(wpalpha)} Wave-pinning pairs at f=0.003, 0.005 and 0.01. Wave-pinning predicts α={wpalpha.predicted_alpha.min():.2f}–{wpalpha.predicted_alpha.max():.2f}, above 2, and can now be compared with the nontrivial observed size advantage. Goryachev still has no qualified pair. Every excluded row remains with its explicit reason.
 
 The matched-size comparison is now explicit. The operational separated-cue plateau is the median of the furthest three finite observed two-region half-turns, with every selected gap and range exported. It is not a fitted asymptote.
 
@@ -300,7 +320,7 @@ $$
 \alpha_{\mathrm{pred}}=2-\frac{\mathrm{d}\ln D_s}{\mathrm{d}\ln \bar C}. \tag{4}
 $$
 
-The local derivative uses the exact fixed adjacent-size neighborhoods of Figure 4 (two members at grid endpoints, three at interior sizes) and mean-state physical circumference. The observed exponent retains its existing coverage and shared-lag eligibility rules; unavailable estimates remain rows with their reason.
+The local derivative uses the fixed adjacent-size neighborhoods of Figure 4E (two members at grid endpoints, three at interior sizes) and mean-state physical circumference. Each prediction is evaluated at the observation's own exact input using the completed deterministic native mean-state, adjoint and covariance calculations at that input. The main map remains at f=0.001. No assumption of input-independent susceptibility or extrapolation from that map is made. The drift subset requires f≤0.01 and multiple-domain fraction≤0.05 at every size in the fixed neighbourhood; linearity error must be≤0.1 and all original stationarity gates must pass. The observed exponent retains its existing coverage and shared-lag eligibility rules. Ineligible or unavailable estimates remain rows with their reason.
 
 Length denotes WGD-associated enlargement. Observed migration summaries, conditional OU persistence estimates and simulated 1D polarity-heading readouts remain distinct. Domain drift is not identified with total heading decay or empirical migration persistence.
 
@@ -312,13 +332,24 @@ Run `./rebuild.sh` to verify/collect/render from completed workers. Run `./rebui
 '''
  # Backslashes in Python text are kept literal; no raw Markdown equations in chat.
  (OUT/'scientific_readme.md').write_text(readme);(OUT/'METHODS_RESULTS.md').write_text(readme)
- (OUT/'legend.md').write_text('# '+title+'\n\n'+'\n\n'.join(legend)+'\n\nLinear range: '+'; '.join(limits)+'. Full response curves, duration tests, matched-size comparison, raw g and absolute drift are supplementary.\n')
- narrative=[f'Weak standard-pulse susceptibility changes with size in a model-dependent manner; its spatial map is validated at edge, active-interior and basal-arc positions (maximum error {100*maxerr:.2f}% of map amplitude). The covariance-weighted map predicts domain drift without fitting stochastic data.',f'Wave-pinning f=0.001 C60/C20 drift remains {wp.shared_translation_predicted_ratio:.3f} predicted and {wp.observed_ratio:.3f} measured; Goryachev remains quantitatively inconsistent. The weak-input alpha bridge retains unavailable observed exponents explicitly.','Linear range at the right edge (first tested >10% gain departure, with last linear amplitude one doubling below): '+'; '.join(limits)+'.']
- section=dict(id='figure3',title=title,status='round6_complete',legend=legend,role='Spatial susceptibility and signed covariance contributions expose the deterministic input-to-drift bridge.',narrative=narrative,measurements=['Map terminal domain shift per dose with local weak pulses at edge, interior and basal positions.','Measure both boundaries, centroid and width; compare deterministic susceptibility and covariance-based drift at matched sizes.'],limitations=['Goryachev absolute drift prediction fails despite small deterministic-map validation error.','Existing weak-input alpha estimates are unavailable for Wave-pinning and Goryachev under the fixed shared-lag rule.','Linear-limit amplitudes are geometric-grid brackets; separated-cue plateau is an operational finite-data median.','Deterministic drift, total heading decay and empirical migration persistence remain distinct.'],equations=[dict(math=r'G(x_0)=\sum_j g_j h(x_j-x_0)',number='3.1',description='The main map is the standard Gaussian-pulse response per dose, not raw cell-input g.'),dict(math=r'c_j=g_j\sum_k g_k\int_0^\infty\overline{K_u(j,k;t,t+v)}^{\,t}\,\mathrm{d}v,\qquad D_s=\sum_j c_j',number='3.2',description='Signed per-position contributions retain the exact native input covariance.'),dict(math=r'\alpha_{\mathrm{pred}}=2-\frac{\mathrm{d}\ln D_s}{\mathrm{d}\ln \bar C}',number='3.3',description='Same fixed adjacent-size neighborhoods as Figure 4; missing observed alpha remains unavailable.')],assets=[dict(path=rel(OUT/f'{STEM}.png'),native_pdf_page=rel(OUT/f'{STEM}.pdf'),page_size=[16.2,23],minimum_printed_width_inches=16.2,page_title='')],main_pdf=rel(OUT/f'{STEM}.pdf'),supplement_pdf=rel(OUT/f'{STEM}_supplement.pdf'),reader=rel(OUT/'index.html'),sources=[dict(label='Scientific methods and unexpected results',path=rel(OUT/'scientific_readme.md')),dict(label='Susceptibility maps and signed contributions',path=rel(DATA/'susceptibility_and_contributions.csv')),dict(label='Every deterministic assay',path=rel(DATA/'deterministic_experiments.csv')),dict(label='Alpha bridge and unavailable rows',path=rel(DATA/'alpha_bridge.csv'))])
+ linear_caption='At the right edge, last tested linear peak amplitudes from the smallest to largest size are Wave-pinning 0.01024→0.00512 (0.5-fold), Holmes 0.0256→0.0256 (1-fold), Spring 0.0512→0.0512 (1-fold), and Goryachev 0.16384→0.65536 (4-fold). The next doubling exceeds 10% gain departure. Full brackets, all-size response curves and fixed-dose duration tests are in the methods and supplement.'
+ legend.append(linear_caption)
+ (OUT/'legend.md').write_text('# '+title+'\n\n'+'\n\n'.join(legend)+'\n')
+ narrative=[
+ 'Enlargement slows both turning routes: sliding of the incumbent under a boundary-straddling cue, and replacement by a challenger under a separated cue. At separated placements, half-turn time becomes insensitive to further distance while remaining strongly size-dependent.',
+ f'Enlargement selectively suppresses the terminal response of the lateral edges: largest/smallest gain is {terminal}, over a threefold circumference contrast. Those two edge zones generate 99.6–100% of predicted domain drift. Strong-cue turning and weak susceptibility therefore probe different response properties.',
+ f'The same native susceptibility and input covariance predict physical domain drift without fitting. Wave-pinning has size-normalized diffusion {wp.shared_translation_predicted_ratio:.3f} predicted and {wp.observed_ratio:.3f} measured at f=0.001. Across the qualified drift regime, its size-suppressed diffusion predicts α={wpalpha.predicted_alpha.min():.2f}–{wpalpha.predicted_alpha.max():.2f}, above the drift-geometry value 2, which is now compared directly with Figure 4E. Goryachev\'s absolute drift disagreement remains visible.'
+ ]
+ measurements=[
+ 'In paired WGD−/WGD+ cells, vary photoactivation offset from a boundary-straddling cue to a separated cue. Measure activity-heading time to half-turn and image whether the incumbent slides or a new region takes over. WGD+ cells are predicted to turn more slowly through both routes.',
+ 'At matched weak photoactivation dose, measure the permanent common displacement of both lateral edges of the leading activity region. WGD+ cells should show reduced displacement for Wave-pinning-like or Goryachev-like dynamics, with little size dependence for Holmes-like or Spring-like dynamics. The quoted model folds refer to a threefold circumference contrast, rather than one genome doubling.',
+ 'Measure fluctuations at the lateral edges and within the active plateau separately. The edge-localized mechanism predicts that lateral-edge fluctuations, rather than plateau-interior fluctuations, account for heading drift; track both edges to separate common translation from width changes.'
+ ]
+ section=dict(id='figure3',title=title,status='round6_complete',legend=legend,role='Size slows both turning routes; selective edge susceptibility links imposed perturbations to domain drift and excess heading persistence.',narrative=narrative,measurements=measurements,limitations=['Goryachev absolute drift prediction fails despite small deterministic-map validation error.','Goryachev has no qualified drift-regime alpha pair; all failed fixed-neighbourhood estimates and reasons remain explicit.','Linear-limit amplitudes are geometric-grid brackets; separated-cue plateau is an operational finite-data median.','Deterministic drift, total heading decay and empirical migration persistence remain distinct.'],equations=[dict(math=r'G(x_0)=\sum_j g_j h(x_j-x_0)',number='3.1',description='The main map is the standard Gaussian-pulse response per dose, not raw cell-input g.'),dict(math=r'c_j=g_j\sum_k g_k\int_0^\infty\overline{K_u(j,k;t,t+v)}^{\,t}\,\mathrm{d}v,\qquad D_s=\sum_j c_j',number='3.2',description='Signed per-position contributions retain the exact native input covariance.'),dict(math=r'\alpha_{\mathrm{pred}}=2-\frac{\mathrm{d}\ln D_s}{\mathrm{d}\ln \bar C}',number='3.3',description='Same fixed adjacent-size neighborhoods as Figure 4E; exact matched-input predictions and explicit drift-regime eligibility.')],assets=[dict(path=rel(OUT/f'{STEM}.png'),native_pdf_page=rel(OUT/f'{STEM}.pdf'),page_size=[16.2,23],minimum_printed_width_inches=16.2,page_title='')],main_pdf=rel(OUT/f'{STEM}.pdf'),supplement_pdf=rel(OUT/f'{STEM}_supplement.pdf'),reader=rel(OUT/'index.html'),sources=[dict(label='Scientific methods and unexpected results',path=rel(OUT/'scientific_readme.md')),dict(label='Susceptibility maps and signed contributions',path=rel(DATA/'susceptibility_and_contributions.csv')),dict(label='Every deterministic assay',path=rel(DATA/'deterministic_experiments.csv')),dict(label='Alpha bridge and unavailable rows',path=rel(DATA/'alpha_bridge.csv'))])
  write(OUT/'legend.json',section)
- timestamp=new.old.now();(OUT/'README.md').write_text('# Figure 3 round6\n\n[Main PDF](figure3_round6.pdf) · [complete supplement](figure3_round6_supplement.pdf) · [legend](legend.md) · [scientific readme](scientific_readme.md).\n\nAll 28 deterministic workers complete. One rebuild entry point: `./rebuild.sh`.\n')
+ timestamp=new.old.now();(OUT/'README.md').write_text('# Figure 3: turning, edge susceptibility and domain drift\n\n[Main PDF](figure3_round6.pdf) · [complete supplement](figure3_round6_supplement.pdf) · [legend](legend.md) · [scientific readme](scientific_readme.md).\n\nAll 28 deterministic workers complete. One rebuild entry point: `./rebuild.sh`.\n')
  (OUT/'index.html').write_text('<!doctype html><meta charset="utf-8"><title>Figure 3 round6</title><style>body{max-width:1300px;margin:2rem auto;font:17px/1.5 system-ui;color:#17212b}img{max-width:100%}</style><h1>'+html.escape(title)+'</h1><p>Data generated '+timestamp+'; all native producers complete.</p><p><a href="figure3_round6.pdf">Main PDF</a> · <a href="figure3_round6_supplement.pdf">Complete supplement</a> · <a href="scientific_readme.md">Scientific methods and results</a></p><img src="figure3_round6.png" alt="Figure 3 susceptibility, signed contributions and drift bridge">'+''.join('<p>'+html.escape(p)+'</p>' for p in legend))
- checks=dict(generated_utc=timestamp,complete=True,workers=28,mean_states_eligible=28,maximum_map_amplitude_normalized_error=maxerr,contribution_partition_max_abs_error=float(abs(fr.partition_sum-1).max()),weak_alpha_pairs=int(br.observed_alpha.notna().sum()),weak_alpha_requested=len(br),AB_data_identical=all(new.old.sha(DATA/name)==new.old.sha(OLD_DATA/name) for name in ('activity_profiles.csv.gz','half_heading_readouts.csv','regime_lines.csv','undefined_heading_bands.csv')),main_pages=len(PdfReader(OUT/f'{STEM}.pdf').pages),legend_sha256=new.old.sha(OUT/'legend.json'),assembler_sha256=new.old.sha(Path(__file__)),worker_source_matches_manifest=new.old.sha(HERE/'native_analysis.py')==new.read(META/'native_manifest.json')['source_code_sha256'][rel(HERE/'native_analysis.py')],main_pdf_sha256=new.old.sha(OUT/f'{STEM}.pdf'),main_png_sha256=new.old.sha(OUT/f'{STEM}.png'),allocated_bytes=new.old.source.allocated(OUT),native_stochastic_runs=0,retuned_parameters=0)
+ checks=dict(generated_utc=timestamp,complete=True,workers=28,mean_states_eligible=28,maximum_map_amplitude_normalized_error=maxerr,contribution_partition_max_abs_error=float(abs(fr.partition_sum-1).max()),drift_alpha_pairs=int(br.bridge_eligible.sum()),drift_alpha_requested=len(br),wave_pinning_alpha_pairs=int(((br.model=='wave_pinning')&br.bridge_eligible).sum()),AB_data_identical=all(new.old.sha(DATA/name)==new.old.sha(OLD_DATA/name) for name in ('activity_profiles.csv.gz','half_heading_readouts.csv','regime_lines.csv','undefined_heading_bands.csv')),main_pages=len(PdfReader(OUT/f'{STEM}.pdf').pages),legend_sha256=new.old.sha(OUT/'legend.json'),assembler_sha256=new.old.sha(Path(__file__)),worker_source_matches_manifest=new.old.sha(HERE/'native_analysis.py')==new.read(META/'native_manifest.json')['source_code_sha256'][rel(HERE/'native_analysis.py')],main_pdf_sha256=new.old.sha(OUT/f'{STEM}.pdf'),main_png_sha256=new.old.sha(OUT/f'{STEM}.png'),allocated_bytes=new.old.source.allocated(OUT),native_stochastic_runs=0,retuned_parameters=0)
  assert checks['AB_data_identical'] and checks['contribution_partition_max_abs_error']<1e-12;write(META/'verification.json',checks)
 
 def main():

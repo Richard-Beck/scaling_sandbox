@@ -22,6 +22,7 @@ DEST = ROOT / 'manuscript_outline/revision_round6_20261023'
 FIGURES = ROOT / 'polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023'
 sys.path.insert(0, str(ROOT / 'scripts'))
 import build_manuscript_outline as prose
+import prepare_figures3_4_20261023 as pilot_renderer
 
 
 def read(path):
@@ -38,6 +39,44 @@ def relative(path):
 
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def updated_pilot(baseline):
+    """Retain prospective directions while updating references and conditioning."""
+    pilots = read(ROOT / 'manuscript_outline/revision_figures3_4_20261023/pilot_observables.json')
+    pilots['regime_definition'] += (' This gate defines the drift interpretation; '
+        'Figure 4H displays closure at all inputs, including outside this subset.')
+    references = [
+        'Correlated boundary translation and domain drift (Figs 3F–G, 4G)',
+        'Persistent no-overlap birth rate (Fig. 4 supplement: certified births)',
+        'Certified takeover incidence (Fig. 4J; pooled 80τ sensitivity in supplement)',
+        'Heading decay, size exponent and tolerance (Fig. 4D–F)',
+        'Weak deterministic spatial and edge response (Fig. 3C, F)']
+    for row, counterpart in zip(pilots['observables'], references):
+        row['counterpart'] = counterpart
+    row = pilots['observables'][2]
+    row['operational_definition'] = row['operational_definition'].replace(
+        'The revised model comparison uses a common 20-noise-correlation-time follow-up and pools f > 0.01; these conditioning choices must be separated from the cellular analysis.',
+        'The main model comparison uses a common 20-noise-correlation-time follow-up at one declared input per model, with at least 200 certified births at every size. Pooled inputs and the 80τ common-cohort sensitivity are supplementary; these conditioning choices must be separated from the cellular analysis.')
+    pilots['sheet_regime_summary'] = ('Drift classification: f ≤ 0.01 and multiple-domain fraction ≤ 0.05; Figure 4H shows all inputs. '
+        'In cells classify coexisting protrusions; native f and time are uncalibrated.')
+    pilots['interpretation_notes'].append('The takeover direction summarizes the pooled-input common cohort. '
+        'Figure 4J instead separates distance at one input per model; its probabilities need not decrease monotonically in every size bin. '
+        'The two comparisons have different conditioning and must not be combined.')
+    write(DEST / 'pilot_observables.json', pilots)
+    pilot_renderer.DEST = DEST
+    sheet = deepcopy(pilots)
+    sheet['regime_definition'] = pilots['sheet_regime_summary']
+    pilot_renderer.pilot_sheet(sheet)
+    section = deepcopy(next(s for s in baseline['supplementary'] if s.get('id') == 'pilot_observables'))
+    for asset in section['assets']:
+        asset['path'] = relative(DEST / 'pilot_observables.png')
+        asset['native_pdf_page'] = relative(DEST / 'pilot_observables.pdf')
+    section.update(narrative=[pilots['regime_definition']],
+        measurements=[row['operational_definition'] for row in pilots['observables']],
+        sources=[{'label': 'Prospective directions and operational definitions',
+                  'path': relative(DEST / 'pilot_observables.json')}])
+    return section
 
 
 def legend_copy(section):
@@ -89,7 +128,8 @@ quantities. Figure 3 tests the native spatial susceptibility map away from the
 edge and exposes its signed contributions to domain drift. Figure 4 shows
 all-input closure bounds, size-specific remainder curves and per-model takeover
 comparisons; Fourier tests and exact-region-moment checks are recorded alongside.
-Figure 5, reserved Figure 6 and the prospective pilot appendix are preserved.{status}
+Figure 5 and reserved Figure 6 are preserved; the prospective pilot directions
+are retained with current panel references.{status}
 
 {end}
 '''
@@ -158,11 +198,17 @@ def main():
         subtitle='Polarity replacement, spatial response maps and noise-driven heading memory')
     if args.figure4_snapshot:
         document['stage'] = 'Review candidate; targeted mode campaign active'
-    document['overview'] = [baseline['overview'][0], baseline['overview'][1],
-        ' '.join(sections['figure3']['narrative']), ' '.join(sections['figure4']['narrative']),
+    document['overview'] = [baseline['overview'][0].replace('supply empirical motivation', 'support this hypothesis'), baseline['overview'][1],
+        'Enlargement slows both cue-driven turning routes and selectively suppresses edge susceptibility, most strongly in Wave-pinning and Goryachev. '
+        'A native spatial response map, tested away from the edges, localizes nearly all predicted drift to the two lateral boundaries. '
+        'Without fitting noisy drift, the calculation predicts Wave-pinning’s C60/C20 drift ratio of 0.490 versus 0.473 measured and a persistence size exponent above 2; '
+        'Goryachev’s absolute drift prediction fails quantitatively.',
+        'Enlargement extends model heading memory and raises noise tolerance, while the size advantage weakens as input strengthens. '
+        'Shared translation explains eligible weak-input Wave-pinning, Holmes and Spring conditions; all-input closure bounds, remainder curves and fixed-follow-up takeover incidence show where the domain description becomes incomplete. '
+        'Fourier-mode agreement is partial and sensitive to local-slope estimation; an explanation covering all four strong-input models is not established.',
         baseline['overview'][4],
         'This is a working manuscript outline. Figures 1–2 retain their numerical evidence with separate panels for distinct quantities. '
-        'The published migration evidence in Figure 5, reserved Figure 6 and prospective pilot appendix retain their preceding content. '
+        'The published migration evidence in Figure 5 and reserved Figure 6 retain their scientific content. The prospective pilot directions retain their operational definitions with updated panel references and model-conditioning notes. '
         'Activity polarity, modelled replacement, observed migration and conditional OU velocity memory remain distinct readouts.']
     added = []
     for n in range(1, 5):
@@ -172,6 +218,9 @@ def main():
             'path': section['supplement_pdf'],
             'sources': [{'label': 'Scientific results and rebuild instructions', 'path': section['reader']}]})
     document['supplementary'] = added + document['supplementary']
+    pilot = updated_pilot(baseline)
+    document['supplementary'] = [pilot if s.get('id') == 'pilot_observables' else s
+                                 for s in document['supplementary']]
     path = ROOT / 'manuscript_outline/outline_v12.json'
     write(path, document)
     writer = PdfWriter()
@@ -185,13 +234,12 @@ def main():
         assert old == new
         protected[ident] = {'section_sha256': hashlib.sha256(json.dumps(old, sort_keys=True).encode()).hexdigest(),
             'asset_sha256': {a['path']: sha(ROOT / a['path']) for a in old['assets']}}
-    oldpilot = next(s for s in baseline['supplementary'] if s.get('id') == 'pilot_observables')
-    assert oldpilot == next(s for s in document['supplementary'] if s.get('id') == 'pilot_observables')
     write(DEST / 'integration.json', {'generated_utc': generated,
         'baseline_pdf': 'manuscript_outline/outline_v11.pdf',
         'baseline_pdf_sha256': sha(ROOT / 'manuscript_outline/outline_v11.pdf'),
         'baseline_json_sha256': sha(baseline_path), 'outline_json_sha256': sha(path),
-        'protected_sections': protected, 'pilot_appendix_unchanged': True,
+        'protected_sections': protected, 'pilot_directions_unchanged': True,
+        'pilot_panel_references_and_model_conditioning_updated': True,
         'figures1_2_data_unchanged': True, 'round5_files_unchanged': True,
         'review_candidate': bool(args.figure4_snapshot),
         'immutable_figure4_snapshot': relative(args.figure4_snapshot.resolve()) if args.figure4_snapshot else None,
@@ -211,6 +259,15 @@ def main():
         body += ''.join('<p>' + html.escape(p) + '</p>' for p in section['legend'])
         body += html_equations(ident, section.get('equations', []))
     body += '<p><a href="integration.json">Integration receipt</a></p></html>'
+    preservation = DEST / 'review_preservation.json'
+    reviews = [ROOT / item['path'] for item in read(preservation)['reviews']] if preservation.exists() else []
+    if reviews:
+        links = '<p>' + ' · '.join(
+            f'<a href="{os.path.relpath(review, DEST)}">Claude review {index}, preserved verbatim</a>'
+            for index, review in enumerate(reviews, 1))
+        if (DEST / 'claude_response.md').exists():
+            links += ' · <a href="claude_response.md">Point-by-point response</a>'
+        body = body.replace('</html>', links + '</p></html>')
     (DEST / 'index.html').write_text(body)
     (DEST / 'README.md').write_text('''# Round6 manuscript revision
 
@@ -219,8 +276,9 @@ def main():
 The starting point is the current outline_v11 PDF. Its exact hash, the editable
 outline, the verbatim brief, the supplied narrative and the task prompt are
 archived in [request/](request/). Round5 remains intact. Figures 1–2 change layout
-and lettering only; Figures 3–4 report the requested new analyses. Figure 5,
-reserved Figure 6 and the prospective pilot appendix are preserved.
+and lettering only; Figures 3–4 report the requested new analyses. Figure 5 and
+reserved Figure 6 are preserved. The prospective pilot directions are retained;
+panel references and model-conditioning notes match the revised figures.
 
 Each figure folder exposes one rebuild entry point and a `scientific_readme.md`
 beginning with Unexpected. Main figures, compact plotted values and complete
@@ -234,7 +292,24 @@ After those figure rebuilds, integrate using the existing environment:
 /home/4473331/.conda/envs/scaling_sandbox/bin/python -B manuscript_outline/build_figure2_round3_outline_20261022.py --input manuscript_outline/outline_v12.json --output manuscript_outline/outline_v12.pdf
 /home/4473331/.conda/envs/scaling_sandbox/bin/python -B scripts/verify_manuscript_outline.py manuscript_outline/outline_v12.json --report manuscript_outline/outline_v12.validation.json
 ```
+
+At the end of the native campaign, refresh allocated storage and require the
+terminal allocation audit:
+
+```sh
+/home/4473331/.conda/envs/scaling_sandbox/bin/python -B manuscript_outline/measure_round6_storage_20261023.py
+/home/4473331/.conda/envs/scaling_sandbox/bin/python -B manuscript_outline/verify_round6_20261023.py --require-complete-mode-campaign
+```
 ''')
+    if reviews:
+        with (DEST / 'README.md').open('a') as stream:
+            stream.write('\n' + ' · '.join(
+                f'[Claude review {index}, preserved verbatim]({os.path.relpath(review, DEST)})'
+                for index, review in enumerate(reviews, 1)))
+            stream.write(' · [Integrity record](review_preservation.json)')
+            if (DEST / 'claude_response.md').exists():
+                stream.write(' · [Point-by-point response](claude_response.md)')
+            stream.write('\n')
     update_navigation(sections, bool(args.figure4_snapshot))
     print(path)
 

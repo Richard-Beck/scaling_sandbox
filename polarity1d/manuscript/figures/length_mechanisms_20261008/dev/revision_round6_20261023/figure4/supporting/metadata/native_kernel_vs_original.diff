@@ -1,0 +1,56 @@
+--- polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/frozen_sources/figure4_round3_campaign_20261022.py
+
++++ polarity1d/manuscript/code/mechanisms/figure4_round3_campaign_20261022.py
+
+@@ -1,4 +1,4 @@
+
+-def solve(out, condition, seed, horizon_factor=1):
++def solve(out, condition, seed, horizon_factor=1, kind="noise", sigma=1.):
+     """Native BDF and exact forcing constructors; profile samples stay in RAM."""
+     import numpy as np
+     from scipy.integrate import BDF
+@@ -12,12 +12,12 @@
+
+     n = condition["cells"]
+     t = np.arange(int(round(spec["horizon"] / spec["scalar_interval"])) + 1) * spec["scalar_interval"]
+     deadline = time.monotonic() + (28000 if horizon_factor > 1 else 6900)
+-    noise = dict(spec["noise"], sigma=1.)
++    noise = dict(spec["noise"], sigma=float(sigma))
+     checks = dict(minimum_concentration=float(initial[:-1].min()) if condition["platform"] == "spring" else float(initial.min()), maximum_pool_relative_error=0.)
+     if condition["platform"] == "chemical":
+         grid = native.ring.RingGrid(condition["size"], n)
+         model = native.ring.native_model(condition["model"])
+-        forcing = native.NoiseInput(grid, spec["horizon"], seed, condition["mean"], kind="noise", **noise)
++        forcing = native.NoiseInput(grid, spec["horizon"], seed, condition["mean"], kind=kind, **noise)
+         pool = native.ring.pool_amounts(model, grid, initial)
+         def inspect(y):
+             if not np.isfinite(y).all():
+@@ -54,8 +54,8 @@
+
+         checks.update(nfev=int(solver.nfev), njev=int(solver.njev), nlu=int(solver.nlu))
+     else:
+         closure = native.Closure(condition["size"], n)
+-        forcing = native.MaterialNoise(n, initial[-1], spec["horizon"], seed, condition["mean"], kind="noise",
+-            knot=noise["knot"], coupling=noise["coupling"], tau=noise["tau"], ell=noise["ell"], sigma=1., bridge_base=noise.get("bridge_base"))
++        forcing = native.MaterialNoise(n, initial[-1], spec["horizon"], seed, condition["mean"], kind=kind,
++            knot=noise["knot"], coupling=noise["coupling"], tau=noise["tau"], ell=noise["ell"], sigma=float(sigma), bridge_base=noise.get("bridge_base"))
+         def rhs(tt, y):
+             if STOP or time.monotonic() > deadline:
+                 raise TimeoutError("SLURM signal/worker deadline")
+@@ -76,11 +76,11 @@
+
+     # Avoid the old audit's large extra midpoint/field arrays: preserve exact
+     # latent and kernel hashes plus streaming knot moments.
+     knots = forcing.knots
+-    h = hashlib.sha256(np.asarray(knots, dtype="<f8", order="C").tobytes()).hexdigest()
+-    audit = dict(seed=seed, gaussian_knots_sha256=h, shape=list(knots.shape), sigma=1.,
++    h = hashlib.sha256(np.asarray(knots, dtype="<f8", order="C").tobytes()).hexdigest() if knots is not None else None
++    audit = dict(seed=seed, gaussian_knots_sha256=h, shape=list(knots.shape) if knots is not None else None, sigma=float(sigma),
+         mean=condition["mean"], native_reference=REFERENCES[condition["model"]],
+-        kind="lognormal", formula="mean*exp(Z-0.5)", finite_realization_normalization=False,
+-        gaussian_mean=float(knots.mean()), gaussian_variance=float(knots.var()),
++        kind="lognormal" if kind == "noise" else kind, formula="mean*exp(sigma*Z-sigma**2/2)" if kind == "noise" else "constant mean", finite_realization_normalization=False,
++        gaussian_mean=float(knots.mean()) if knots is not None else None, gaussian_variance=float(knots.var()) if knots is not None else None,
+         original_native_protocol=spec, native_kinetics_retuned=False)
+     keep = t >= .5 * spec["horizon"]
+     return t[keep], profiles[keep], C[keep], basal, checks, audit

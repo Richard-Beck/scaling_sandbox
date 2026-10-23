@@ -1,6 +1,6 @@
 """Round-six paths and small I/O helpers. Source campaigns are read-only."""
 from pathlib import Path
-import os,sys,csv,json,hashlib
+import os,sys,csv,json,hashlib,math
 for key in ('OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS'):os.environ[key]='1'
 sys.dont_write_bytecode=True
 OUT=Path(__file__).resolve().parents[1]
@@ -15,9 +15,15 @@ DATA=OUT/'supporting/data';META=OUT/'supporting/metadata'
 MODELS=('wave_pinning','holmes_model3','spring_ring','goryachev')
 NAMES=dict(wave_pinning='Wave-pinning',holmes_model3='Holmes',spring_ring='Spring',goryachev='Goryachev')
 def read(path):return json.loads(Path(path).read_text())
+def json_value(value):
+    if isinstance(value,dict):return {key:json_value(v) for key,v in value.items()}
+    if isinstance(value,(list,tuple)):return [json_value(v) for v in value]
+    if hasattr(value,'item'):return json_value(value.item())
+    if isinstance(value,float) and not math.isfinite(value):return None
+    return value
 def write(path,value):
     path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
-    temp=path.with_suffix(path.suffix+'.tmp');temp.write_text(json.dumps(value,indent=2,default=str)+'\n');temp.replace(path)
+    temp=path.with_suffix(path.suffix+'.tmp');temp.write_text(json.dumps(json_value(value),indent=2,default=str,allow_nan=False)+'\n');temp.replace(path)
 def csvread(path):
     if not Path(path).exists():return []
     with Path(path).open(newline='') as f:return list(csv.DictReader(f))

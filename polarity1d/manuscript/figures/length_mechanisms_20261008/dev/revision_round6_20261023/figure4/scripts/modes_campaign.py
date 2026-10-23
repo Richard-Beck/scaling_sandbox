@@ -112,9 +112,9 @@ def precision_locked(submit_topup=False,early=False):
         array=','.join(f'{i*72}-{i*72+71}' for i in topup)
         cmd=['sbatch','--parsable','--partition=red','--qos=xxlarge','--cpus-per-task=1','--mem=2G','--time=02:00:00',
              '--array='+array,'--job-name=F4r6-topup',f'--output={RUN}/logs/%A_%a.out',f'--error={RUN}/logs/%A_%a.err',
-             '--wrap',shlex.join([PYTHON,'-B',str(Path(__file__).resolve()),'worker','--topup','--slot'])+' "$SLURM_ARRAY_TASK_ID"']
+             '--wrap',shlex.join([PYTHON,'-B',str(OUT/'scripts/frozen_native_v2/native_mode_worker.py'),'--topup','--slot'])+' "$SLURM_ARRAY_TASK_ID"']
         p=subprocess.run(cmd,text=True,capture_output=True)
-        receipt=dict(command=cmd,returncode=p.returncode,stdout=p.stdout,stderr=p.stderr,early=early,conditions=topup,additional_seeds=72*len(topup),allocation_rule='24 ->96 only; seed slots24–95; no duplicate allocated condition')
+        receipt=dict(runtime_manifest=str(OUT/'scripts/frozen_native_v2/runtime_manifest.json'),runtime_manifest_sha256=digest(OUT/'scripts/frozen_native_v2/runtime_manifest.json'),command=cmd,returncode=p.returncode,stdout=p.stdout,stderr=p.stderr,early=early,conditions=topup,additional_seeds=72*len(topup),allocation_rule='24 ->96 only; seed slots24–95; no duplicate allocated condition')
         write(RUN/'submissions'/f'topup_batch{len(ledger["topup_job_ids"]):02d}.json',receipt)
         if p.returncode==0:
             dep=p.stdout.strip().split(';')[0]

@@ -1,6 +1,7 @@
 """Producer-side current status, with no timed browser refresh."""
 from common import *
 import time,subprocess,re
+from collections import Counter
 from datetime import datetime,timezone
 
 def update():
@@ -20,8 +21,8 @@ def update():
     status=dict(generated_utc=now,modes=counts,initial_expected=4800,currently_allocated_expected=expected,
       running_native_jobs=sum(line.endswith(' RUNNING') and ('F4r6-mode-' in line or 'F4r6-topup ' in line) for line in jobs),
       exemplar_complete_conditions=len(list((OUT/'exemplar_analysis').glob('c*/complete.json'))),
-      exemplar_expected_conditions=260,scheduler_records=jobs,producer_active=bool(jobs),
-      native_profiles_saved=False,explanation='Strong regime remains unexplained; J/K supplementary until independent mode evidence supports them.')
+      exemplar_expected_conditions=260,scheduler_records=dict(Counter(jobs)),producer_active=bool(jobs),
+      native_profiles_saved=False,explanation=read(META/'mode_explanation_decision.json')['decision'] if (META/'mode_explanation_decision.json').exists() else 'Mode evidence pending.')
     write(META/'live_status.json',status)
     page=OUT/'index.html'
     if page.exists():

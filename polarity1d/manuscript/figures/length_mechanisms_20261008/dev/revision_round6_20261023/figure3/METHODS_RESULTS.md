@@ -4,7 +4,7 @@ The requested map tests support the native linear response away from the edge: t
 
 The covariance contribution maps localize 99.59–100.00% of predicted drift within two input correlation lengths of the two edges at the endpoint sizes. Small signed plateau/basal contributions and all negative bins are retained.
 
-The requested weak-input alpha bridge is only partially observable: 14/60 rows have a qualified Figure 4 exponent. Wave-pinning and Goryachev have none under the existing shared-lag rule. Their deterministic alpha predictions remain in the CSV; they are not plotted against invented observations.
+The expanded drift-regime alpha bridge contains 53 qualified matched-input pairs, including 15 Wave-pinning pairs at f=0.003, 0.005 and 0.01. Wave-pinning predicts α=2.48–2.88, above 2, and can now be compared with the nontrivial observed size advantage. Goryachev still has no qualified pair. Every excluded row remains with its explicit reason.
 
 The matched-size comparison is now explicit. The operational separated-cue plateau is the median of the furthest three finite observed two-region half-turns, with every selected gap and range exported. It is not a fitted asymptote.
 
@@ -55,7 +55,7 @@ $$
 \alpha_{\mathrm{pred}}=2-\frac{\mathrm{d}\ln D_s}{\mathrm{d}\ln \bar C}. \tag{4}
 $$
 
-The local derivative uses the exact fixed adjacent-size neighborhoods of Figure 4 (two members at grid endpoints, three at interior sizes) and mean-state physical circumference. The observed exponent retains its existing coverage and shared-lag eligibility rules; unavailable estimates remain rows with their reason.
+The local derivative uses the fixed adjacent-size neighborhoods of Figure 4E (two members at grid endpoints, three at interior sizes) and mean-state physical circumference. Each prediction is evaluated at the observation's own exact input using the completed deterministic native mean-state, adjoint and covariance calculations at that input. The main map remains at f=0.001. No assumption of input-independent susceptibility or extrapolation from that map is made. The drift subset requires f≤0.01 and multiple-domain fraction≤0.05 at every size in the fixed neighbourhood; linearity error must be≤0.1 and all original stationarity gates must pass. The observed exponent retains its existing coverage and shared-lag eligibility rules. Ineligible or unavailable estimates remain rows with their reason.
 
 Length denotes WGD-associated enlargement. Observed migration summaries, conditional OU persistence estimates and simulated 1D polarity-heading readouts remain distinct. Domain drift is not identified with total heading decay or empirical migration persistence.
 

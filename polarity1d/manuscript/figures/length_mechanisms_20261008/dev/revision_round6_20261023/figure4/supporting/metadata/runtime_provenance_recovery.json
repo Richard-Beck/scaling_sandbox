@@ -1,0 +1,22 @@
+{
+  "generated_utc": "2026-10-23T22:08:17.322867+00:00",
+  "purpose": "Immutable native runtime for future late precision additions. No repeat integration for prior cohorts.",
+  "native_kernel_prelaunch_sha256": "4375ea211b056b17f662aa3ae6ee418a45cb45140e89e50981fe0b6ee97e7a32",
+  "source_manifest_prelaunch_sha256": "b74013ff44a49b06fca15ca7e74c9aea76a9d449fc81044a365d1364e9db0557",
+  "recovery_commit": "209a0c3",
+  "recovery_caveat": "Initial full wrapper launch-time hash was not recorded. First committed versions are recovered history, not contemporaneous proof of initial complete file contents.",
+  "worker_AST_equal_to_first_commit": true,
+  "known_edits": [
+    "modes_campaign.py: early precision/allocation lock, ledger, dependency and no-duplicate submission logic; native worker function unchanged through recovery comparison.",
+    "common.py: strict JSON output maps nonfinite values to null; path detection and helper changes belong I/O. No equations, noise, solver, burn-in, cadence or Fourier numeric body changed.",
+    "Late runtime common.py pins original output path because runtime is in nested frozen directory.",
+    "Late worker status records immutable runtime-manifest hash; no old receipt altered."
+  ],
+  "files": {
+    "native_mode_worker.py": "cf4eaf9b2344e5101c9a46390b0a7b74e0e030f2f11b78ce9681dbfe42c6950a",
+    "recovered_209a0c3_modes_campaign.py": "5e4a4e228ba26b1b0cc64ea89bcb26bba9d44baab3f7bef193530ab4b22f7068",
+    "recovered_209a0c3_common.py": "c428f922a9f68ca5d59ac9d47ee54602d3a7f31cf2d8567005c030088a925acf",
+    "common.py": "0646f19211587e748311bbef9418b39ebc128be795f826cb8d0c145bac063f99",
+    "native_campaign.py": "4375ea211b056b17f662aa3ae6ee418a45cb45140e89e50981fe0b6ee97e7a32"
+  }
+}

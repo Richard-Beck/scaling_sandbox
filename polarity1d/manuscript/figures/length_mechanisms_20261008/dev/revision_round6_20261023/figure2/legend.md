@@ -16,6 +16,6 @@ F, Gap-1 activity kept versus pulse-2 gain as a fraction of headroom (Eq. 1). Fo
 
 G, L39 gap4 challenger-share histories, labelled kept / lost / lost then commits; shading marks cue ON. deBelly includes full recovery; others show one post-train pulse duration. Continuous raw shares include below-gate values. deBelly’s later timing and fields remain numerically sensitive (supplement).
 
-H, Prospective biosensor histories for the same pulse train in WGD− and enlarged WGD+ cells. The three facets show delayed rises and resets; saturation with gap retention; and gap collapse followed by commitment. All curves are dimensionless schematics, exactly as in the preceding edition.
+H, Prospective biosensor histories for the same pulse train in WGD− and enlarged WGD+ cells. Initiation-limited resetting (Goryachev), saturating activation with gap retention (Wave-pinning/Holmes), and progress retained after activity loss (deBelly/Spring) give distinct dimensionless schematic histories.
 
-I, Prospective equal-dose width responses for the same three classes: weak width rescue, strong width rescue, and weaker width rescue. Solid grey: WGD−; dashed black: WGD+. These are unchanged schematics, not measurements. Model kinetics are unchanged.
+I, Prospective equal-dose width responses for those classes: weak width rescue, strong width rescue, and weaker width rescue. Solid grey: WGD−; dashed black: WGD+. These are qualitative assay predictions.

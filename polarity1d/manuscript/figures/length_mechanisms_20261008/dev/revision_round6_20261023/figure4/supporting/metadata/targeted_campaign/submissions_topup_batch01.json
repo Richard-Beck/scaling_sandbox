@@ -1,0 +1,29 @@
+{
+  "runtime_manifest": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure4/scripts/frozen_native_v2/runtime_manifest.json",
+  "runtime_manifest_sha256": "ca28c90d7ebcc0dcd6181a243a6b7db8afd6313bc420fcf48ba7b9d3f4040ff6",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--partition=red",
+    "--qos=xxlarge",
+    "--cpus-per-task=1",
+    "--mem=2G",
+    "--time=02:00:00",
+    "--array=9072-9143,9144-9215",
+    "--job-name=F4r6-topup",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/figure4_round6_modes_20261023/logs/%A_%a.out",
+    "--error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/figure4_round6_modes_20261023/logs/%A_%a.err",
+    "--wrap",
+    "/home/4473331/.conda/envs/scaling_sandbox/bin/python -B /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure4/scripts/frozen_native_v2/native_mode_worker.py --topup --slot \"$SLURM_ARRAY_TASK_ID\""
+  ],
+  "returncode": 0,
+  "stdout": "21344754\n",
+  "stderr": "",
+  "early": false,
+  "conditions": [
+    126,
+    127
+  ],
+  "additional_seeds": 144,
+  "allocation_rule": "24 ->96 only; seed slots24\u201395; no duplicate allocated condition"
+}

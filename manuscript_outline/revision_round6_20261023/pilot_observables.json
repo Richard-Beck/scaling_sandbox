@@ -1,0 +1,59 @@
+{
+  "fixed_before_data": "Specified on 23 October 2026, before SUM-159 WGD+/− motility data; no experimental observations were used.",
+  "regime_definition": "Model drift subset: f ≤ 0.01 and multiple-domain fraction ≤ 0.05. In cells, classify by the observed frequency of coexisting protrusions; model f and native times have no calibrated cellular equivalents. This gate defines the drift interpretation; Figure 4H displays closure at all inputs, including outside this subset.",
+  "observables": [
+    {
+      "observable": "Common-mode motion of the leading region's two lateral edges",
+      "counterpart": "Correlated boundary translation and domain drift (Figs 3F–G, 4G)",
+      "drift_direction": "Similar (Holmes/Spring); smaller in Wave-pinning/Goryachev",
+      "secondary_direction": "No common direction identified outside persistent single-domain bouts",
+      "status": "Translation; does not identify a Figure 2 route",
+      "operational_definition": "Track both lateral half-contrast boundaries of a persistent leading activity/protrusive region. Report their mean-squared physical displacements and cross-correlation over declared lags, including failed single-domain eligibility and changes in region identity. Compare physical displacement before normalizing to perimeter. The two edges are strongly correlated in model exemplars, so report their covariance rather than assuming independence. Report common-mode displacement (left plus right)/2 separately from width fluctuations (right minus left); a single-edge MSD alone cannot distinguish these modes."
+    },
+    {
+      "observable": "Secondary-protrusion birth rate per unit perimeter",
+      "counterpart": "Persistent no-overlap birth rate (Fig. 4 supplement: certified births)",
+      "drift_direction": "Rare in both groups",
+      "secondary_direction": "Model dependent: Spring higher and Goryachev lower at f = 0.1; other trends unresolved",
+      "status": "Initiation; model-dependent size response",
+      "operational_definition": "With full images retained, call a new connected protrusive/activity region a birth only if it overlaps no region in the preceding frame and persists for at least five consecutive saved frames. Divide by observed perimeter-time exposure; count splits separately. Freeze segmentation, cadence and overlap rules before group comparison."
+    },
+    {
+      "observable": "Takeover incidence within a fixed follow-up window",
+      "counterpart": "Certified takeover incidence (Fig. 4J; pooled 80τ sensitivity in supplement)",
+      "drift_direction": "Not applicable when births are too rare",
+      "secondary_direction": "Lower by 20τ; persists through 80τ in the same cohort; lifetime fate unidentified",
+      "status": "Incumbent resistance; lifetime success unresolved",
+      "operational_definition": "For each qualifying birth, measure shortest centroid arc distance from the incumbent minus the incumbent half-width, estimated as excess amount divided by twice the declared plateau height. A takeover requires five consecutive frames of dominance. Report right censoring and a common follow-up horizon; distinguish all births from any subset whose identity is certifiable. The main model comparison uses a common 20-noise-correlation-time follow-up at one declared input per model, with at least 200 certified births at every size. Pooled inputs and the 80τ common-cohort sensitivity are supplementary; these conditioning choices must be separated from the cellular analysis. This is fixed-horizon incidence, not a lifetime takeover probability. Record time since birth, cumulative incidence and right censoring. In the same model cohort with at least 80τ follow-up, the decline persists from 20τ to 80τ; finite observation and certification selection still prevent a population lifetime claim."
+    },
+    {
+      "observable": "Activity/protrusion-heading autocorrelation time",
+      "counterpart": "Heading decay, size exponent and tolerance (Fig. 4D–F)",
+      "drift_direction": "Longer; approximately size squared only when physical drift is size independent",
+      "secondary_direction": "Size advantage shrinks in the tested models; compare coherence and domain counts",
+      "status": "Regime readout; no unique route assignment",
+      "operational_definition": "Define the activity/protrusion vector from the full spatial signal; estimate heading autocorrelation at declared lags with a fixed coherence rule and report excluded pairs. Compare groups at matched analysis lags and observation duration. Keep cell displacement/velocity persistence as a separate observed readout."
+    },
+    {
+      "observable": "Edge displacement after boundary-straddling photoactivation",
+      "counterpart": "Weak deterministic spatial and edge response (Fig. 3C, F)",
+      "drift_direction": "Smaller (Wave-pinning/Goryachev); similar (Holmes/Spring)",
+      "secondary_direction": "Not specified: the pulse assay uses a stable polarized incumbent",
+      "status": "Susceptibility within a route, not a unique mechanism",
+      "operational_definition": "Apply a weak, brief photoactivation spot centred on a lateral leading-edge boundary, matched in physical width and duration across ploidy groups. Track both edges through relaxation, subtract a no-pulse control, and check half/double amplitudes. A response supports a mechanism only to the extent that its size trend differs among model predictions. At model f = 0.001, largest/smallest pulse-response gains are 0.701 (Wave-pinning), 0.914 (Holmes), 0.989 (Spring), and 0.0878 (Goryachev); these are native-model size contrasts, not numerical cellular fold predictions. Separately repeat the Figure 3A–B assay with cue placements straddling and separated from the incumbent boundary, measuring half-turn time to distinguish sliding from takeover; the weak local pulse and the finite turning cue are distinct assays."
+    }
+  ],
+  "interpretation_notes": [
+    "Prospective directions, not SUM-159 observations or a full statistical preregistration. Freeze sampling, segmentation, physical pulse dose and group inference before comparison; model f and native times have no calibrated cellular equivalents.",
+    "Birth rates are model dependent: at f = 0.1, bounds identify a Spring increase and a Goryachev decrease with size. Takeover within 20τ is fixed-horizon incidence; its decline persists through 80τ in the same cohort, while lifetime fate and certification selection remain unresolved.",
+    "Common translation tests the drift mechanism. Edge pulses refine susceptibility within routes: Wave-pinning and Holmes share an expansion-constrained class in Figure 2 but predict different edge responses. Combine these readouts with Figure 2 first-rise, width and pulse-gap assays to test initiation-limited reset, saturation/expansion and retained progress after visible activity loss. Activity heading, observed migration and OU-fitted memory remain separate readouts.",
+    "The takeover direction summarizes the pooled-input common cohort. Figure 4J instead separates distance at one input per model; its probabilities need not decrease monotonically in every size bin. The two comparisons have different conditioning and must not be combined."
+  ],
+  "limitations": [
+    "No SUM-159 motility data are available in this revision. Directions are prospective and must not be described as confirmed experiments.",
+    "Native model times and f are not calibrated to cells. Event holds measured in frames depend on acquisition cadence; select and report that cadence before comparing experimental groups.",
+    "The compact model records do not identify every birth, split or local plateau height. Model bounds and certified-subset probabilities do not establish the unconditional cellular birth/takeover directions.",
+    "The new observables do not uniquely distinguish the Figure 2 response classes. Weak boundary susceptibility and finite-cue sliding/takeover are different properties; the within-20τ size contrast cannot distinguish slower completion from a change in eventual success."
+  ],
+  "sheet_regime_summary": "Drift classification: f ≤ 0.01 and multiple-domain fraction ≤ 0.05; Figure 4H shows all inputs. In cells classify coexisting protrusions; native f and time are uncalibrated."
+}

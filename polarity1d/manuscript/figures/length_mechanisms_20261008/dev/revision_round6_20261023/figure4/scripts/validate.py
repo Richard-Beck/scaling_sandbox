@@ -45,12 +45,12 @@ def main():
     assert all(read(p).get('algorithm_sha256')==digest(Path(__file__).with_name('exemplars.py')) for p in complete)
     assert all(read(p).get('mode_algorithm_sha256')==digest(Path(__file__).with_name('mode_analysis.py')) for p in complete)
     checks['all260_exemplar_algorithms_match']=True
-    closure=csvread(DATA/'G_closure_intervals.csv');assert len(closure)==260
+    closure=csvread(DATA/'H_closure_intervals.csv');assert len(closure)==260
     assert all(numrow(r,'kpred_lower')<=numrow(r,'kpred_upper')+1e-15 for r in closure)
     assert len({numrow(r,'f') for r in closure})==16
     checks['closure_all260_conditions_all16_inputs']=True
-    for r in csvread(DATA/'I_takeover_selection.csv'):assert numrow(r,'minimum_births')>=200
-    assert all(numrow(r,'distance_bin')>0 for r in csvread(DATA/'I_takeover_points.csv'))
+    for r in csvread(DATA/'J_takeover_selection.csv'):assert numrow(r,'minimum_births')>=200
+    assert all(numrow(r,'distance_bin')>0 for r in csvread(DATA/'J_takeover_points.csv'))
     checks['takeover_total_birth_gate_and_positive_distance_plot']=True
     checks['main_pdf_pages']=len(PdfReader(OUT/'figure4_main.pdf').pages)
     checks['supplement_pdf_pages']=len(PdfReader(OUT/'figure4_supplement.pdf').pages)

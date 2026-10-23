@@ -1,0 +1,97 @@
+{
+  "stable_utc": "2026-10-23T23:02:28.238461+00:00",
+  "stable": true,
+  "no_more_writers": true,
+  "controllers_completed": true,
+  "live_producer_stopped": true,
+  "native_histories": 9984,
+  "native_failures": 0,
+  "initial_histories": 4800,
+  "precision_additions": 5184,
+  "conditions": 200,
+  "exemplar_conditions": 260,
+  "precision": {
+    "conditions": 200,
+    "total_histories": 9984,
+    "cohorts24": 128,
+    "cohorts96": 72,
+    "cap96_SE_above_target": 37,
+    "cap96_unresolved_precision": 18,
+    "unresolved_conditions": 18,
+    "precision_complete": true,
+    "completion_definition": "All allocated cohorts analyzed; SE target met at 24 or the authorized 96-history cap reached. Does not mean every rate is resolved or meets the SE target."
+  },
+  "mode1_status_counts": {
+    "resolved": 182,
+    "unresolved_no_admissible_lag": 18
+  },
+  "mode1_observed_half_crossings": 148,
+  "main_panels": "A\u2013J",
+  "conditional_panels": "K\u2013L supplementary",
+  "main_pdf_pages": 1,
+  "supplement_pdf_pages": 35,
+  "mode_explanation_promoted": false,
+  "mode_result": "Primary8-point rate screens pass all4; slope screens pass Wave-pinning/Holmes/Spring and fail Goryachev. WP/Spring fail3-point slope sensitivity. No robust common strong-regime explanation.",
+  "collapse_metrics": [
+    {
+      "model": "wave_pinning",
+      "rate_N": 24,
+      "alpha_N": 16,
+      "log_gamma_RMSE": 0.08727849471883002,
+      "alpha_slope_RMSE": 0.4740802281113537,
+      "passes_rate_screen": true,
+      "passes_slope_screen": true
+    },
+    {
+      "model": "holmes_model3",
+      "rate_N": 30,
+      "alpha_N": 25,
+      "log_gamma_RMSE": 0.12122503443175074,
+      "alpha_slope_RMSE": 0.4710426653290551,
+      "passes_rate_screen": true,
+      "passes_slope_screen": true
+    },
+    {
+      "model": "spring_ring",
+      "rate_N": 40,
+      "alpha_N": 18,
+      "log_gamma_RMSE": 0.21331962259659404,
+      "alpha_slope_RMSE": 0.2781541441365591,
+      "passes_rate_screen": true,
+      "passes_slope_screen": true
+    },
+    {
+      "model": "goryachev",
+      "rate_N": 39,
+      "alpha_N": 11,
+      "log_gamma_RMSE": 0.38897787216026797,
+      "alpha_slope_RMSE": 0.7712189775794475,
+      "passes_rate_screen": true,
+      "passes_slope_screen": false
+    }
+  ],
+  "mode_diagnostic": "Complex/phase point-rate ratio summary and all3/5/8-stencil metrics are exported. Spring330x ratio uses4/24 eligible terminal-lag pairs with no phase bootstrap precision; not a physical amplitude effect.",
+  "final_analysis_sources_verified": 10,
+  "final_source_freeze_utc": "2026-10-23T22:48:44.248801+00:00",
+  "data_exports_hash_verified": 62,
+  "data_export_hash_manifest_sha256": "e87190687590acc34db64b6329421e83eed2abb7ccbd205fe6db0d08779cc12d",
+  "source_frozen_hashes_verified": 55,
+  "late_runtime_files_verified": 5,
+  "immutable_review_snapshot_files_verified": 82,
+  "initial_wrapper_provenance_limitation": "Full launch-time wrapper/common hash not recorded for first9840 histories; first committed sources recovered and labelled as recovery. Native kernel/SOURCE hashes were recorded before launch. Last144 use frozen hash-recorded runtime.",
+  "artifact_sha256": {
+    "figure4_main.pdf": "f79c44b426d69549b930074ae6cf24e011a7921a8a15133cbc8acea698bef33c",
+    "figure4_main.png": "6bfa0abdb49cc5bf2679b651a4d57a518628a11bf80fdd6b978f73b9ead56a8e",
+    "figure4_supplement.pdf": "ad18627bb8015a9b9feb479050bbf256e3eef90fc6d1fb5348e7a58614900651",
+    "legend.json": "c998a430badcc599dceca167ca4d610ff44c2d2272e3fe63e79fff318ed61fbf",
+    "legend.md": "47a47de6e18f29b189fd25fe6f4693c9f5a5e2c3d0b131f19bd2cb3e9e8cccd9",
+    "scientific_readme.md": "95b45504b7624e966459c9f0086dec30f0807a5eef26ef5779956fea9fcc3ee2",
+    "methods_provenance.md": "178d103337313ba7260a2830fefa980a5162a282a23de35b383fb1f4f8d8dc4a",
+    "index.html": "641369ffbf180ae74cc19426ec5d0d9540c2e6b2f3393a239645aa43bc4910eb"
+  },
+  "storage_allocated_bytes": {
+    "polarity1d/manuscript/data/runs/figure4_round6_modes_20261023": 12366397440,
+    "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure4": 221118464
+  },
+  "storage_measured_utc": "2026-10-23T23:02:38.402031+00:00"
+}
