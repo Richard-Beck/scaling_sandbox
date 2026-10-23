@@ -134,6 +134,17 @@ def create(out=OUT):
     if ratios:
         zero_ratio_count=sum(n(r,'lambda_eff')==0 and finite(n(r,'kpred')) and n(r,'kobs')>0 for r in decomp)
         text.extend([f'Among the {len(ratios)} estimable prediction/observation comparisons, ratios span {min(ratios):.7g}–{max(ratios):.7g}; {close_ratios} lie within 15% of unity, and {zero_ratio_count} have measured zero switch contributions. '+('Goryachev contributes no estimable comparison. ' if not any(r.get('model')=='goryachev' and finite(n(r,'kpred')) and n(r,'kobs')>0 for r in decomp) else '')+'This agreement is conditional on estimability and does not validate jump closure generally or establish closure in conditions with undefined ingredients.',''])
+    switch_scatter=read_csv(data/'supplement_scatter_lambda_eff.csv')
+    if switch_scatter:
+        paired_zero=[r for r in switch_scatter if n(r,'tracked')==0]
+        zero_positive=sum(n(r,'detector_free')>0 for r in paired_zero)
+        paired_positive=sum(n(r,'tracked')>0 for r in switch_scatter)
+        condition_key=lambda r:(r.get('model'),n(r,'C_label'),n(r,'f'))
+        paired_keys={condition_key(r) for r in switch_scatter}
+        unpaired=[r for r in decomp if finite(n(r,'lambda_eff')) and n(r,'lambda_eff')>=0 and condition_key(r) not in paired_keys]
+        detector_index={condition_key(r):r for r in read_csv(data/'detector_free_mle.csv') if n(r,'detector_free_step')==1}
+        unpaired_text='; '.join(f'{NAMES[r["model"]]} C={r.get("C_label")}, f={r.get("f")}: tracked λ_eff={fmt(n(r,"lambda_eff"))}, detector status {detector_index.get(condition_key(r),{}).get("status","unavailable")}, eligible increments {detector_index.get(condition_key(r),{}).get("n_increments","unavailable")}' for r in unpaired)
+        text.extend([f'**Tracked and detector-free replacement estimates disagree at measured zeros.** The linear-axis cross-check contains {len(switch_scatter)} defined nonnegative pairs: {len(paired_zero)} tracked zeros and {paired_positive} positive tracked estimate. In {zero_positive} of those zero pairs, the detector-free fit is positive. [Every matched condition, actual values and forcing flag](../data/supplement_scatter_lambda_eff.csv). '+(f'{len(unpaired)} additional defined tracked condition has no defined matched detector-free estimate: {unpaired_text}. ' if unpaired else '')+'[All detector-free conditions and increment counts](../data/detector_free_mle.csv). Undefined estimates remain omitted; the linear axes retain the measured zeros without altering either estimator.',''])
     gory_pair=[r for r in load_kymographs(data,'model_D') if r.get('model')=='goryachev']
     if len(gory_pair)==2:
         small=min(gory_pair,key=equivalent_size);large=max(gory_pair,key=equivalent_size)
@@ -201,7 +212,7 @@ def create(out=OUT):
                  '$$\n\\Delta s_i=\\frac{C_i+C_{i+1}}{4\\pi}\\,\\operatorname{wrap}(\\theta_{i+1}-\\theta_i),\\qquad s_j=\\sum_{i<j}\\Delta s_i.\n\\tag{3}\n$$','',
                  'The primary diffusivity fits MSD = 2Dₛτ through the origin through one quarter of the median dominance tenure, pooling only displacement pairs within the continuous centroid-valid segments. The jump rate is counted persistent replacements divided by valid dominance exposure. Mean jump cosine uses the whole-activity P heading averaged over the five saved frames immediately before and after each counted replacement; the windows can include another identity but cannot cross an invalid-P interval or a seed boundary. Both windows require every polarity magnitude to be at least 0.1. Switch counting does not depend on these heading windows: if any counted switch lacks a valid jump-angle score, the effective jump rate remains undefined rather than discarding that switch or imputing an angle.','',
                  '$$\n\\lambda_{\\mathrm{eff}}=\\lambda\\left(1-\\langle\\cos\\Delta\\theta\\rangle\\right),\\qquad k_{\\mathrm{pred}}=\\left(\\frac{2\\pi}{\\bar C}\\right)^2D_s+\\lambda_{\\mathrm{eff}}.\n\\tag{4}\n$$','',
-                 'The detector-free mixture uses wrapped-Gaussian angular increments with variance 2Dθδ plus uniform relocations of weight 1 − exp(−λδ), at the shortest cadence and twice that cadence. Physical diffusivity is DθC²/(4π²). Declared tracked sensitivities use persistence thresholds of 2 and 10 frames, and MSD fit limits of one eighth and one half of median tenure. The supplementary PDF shows the available comparisons and explicitly identifies diagnostics that await compact records.','',
+                 'The detector-free mixture uses wrapped-Gaussian angular increments with variance 2Dθδ plus uniform relocations of weight 1 − exp(−λδ), at the shortest cadence and twice that cadence. Physical diffusivity is DθC²/(4π²). Declared tracked sensitivities use persistence thresholds of 2 and 10 frames, and MSD fit limits of one eighth and one half of median tenure. The supplementary PDF shows the cross-method comparisons, measured zeros, sensitivity checks and diagnostics of undefined ingredients.','',
                  '## Rebuild, portable records and provenance','',
                  'From the repository root, run:','',
                  '```bash\nconda run --no-capture-output -n scaling_sandbox python polarity1d/manuscript/code/mechanisms/rebuild_figure4_round3_20261022.py\n```','',
