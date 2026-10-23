@@ -7,7 +7,7 @@ from matplotlib.backends.backend_pdf import PdfPages
 
 from figure4_round3_render_20261022 import (MODELS,NAMES,SIZES,primary,read_csv,
     write_csv,write_json,n,finite,equivalent_size,size_color,style_axis,log_f,
-    facet,alpha_panel,NULLS,NULL_NAMES,first)
+    facet,alpha_panel,NULLS,NULL_NAMES,first,yes)
 
 METRIC_LABELS={'Ds':r'$D_s$','lambda_eff':r'$\lambda_{\mathrm{eff}}$',
                'MSD_exponent':'MSD power exponent','valid_fraction':'Valid heading fraction',
@@ -83,24 +83,29 @@ def supplement(data, output):
         key=lambda r:(r.get('model'),n(r,'C_label'),n(r,'f'))
         tracked={key(r):r for r in main}
         for metric in ['Ds','lambda_eff']:
+            log_scale=metric=='Ds'
             matched=[]
             for d in detector:
                 if n(d,'detector_free_step',default=1)!=1:continue
                 t=tracked.get(key(d))
-                if t and n(t,metric)>0 and n(d,metric)>0:matched.append((t,d))
+                if t and all(finite(n(r,metric)) and (n(r,metric)>0 if log_scale else n(r,metric)>=0) for r in (t,d)):matched.append((t,d))
             if not matched:
-                notice('Detector-free versus tracked '+METRIC_LABELS[metric],'No positive matched estimates are available. Zero switch contributions are empirical zeros and cannot appear on logarithmic axes. Undefined conditions remain in the source records.');continue
+                notice('Detector-free versus tracked '+METRIC_LABELS[metric],('No positive matched diffusivity estimates are available.' if log_scale else 'No finite nonnegative matched replacement-rate estimates are available. Empirical zeros are retained on linear axes whenever both estimates are defined.')+' Undefined conditions remain in the source records.');continue
             fig,axes=grid()
             for ax,model in zip(axes.flat,MODELS):
                 points=[(t,d) for t,d in matched if t['model']==model]
-                for t,d in points:ax.plot(n(t,metric),n(d,metric),'o',color=size_color(model,equivalent_size(t)),ms=3)
+                for t,d in points:
+                    color=size_color(model,equivalent_size(t));forced=yes(first(t,'forced_combined','forced',default=False))
+                    ax.plot(n(t,metric),n(d,metric),'o',color=color,mfc='white' if forced else color,mec=color,mew=.55,ms=3,clip_on=False,zorder=3)
                 vals=[n(r,metric) for pair in points for r in pair]
-                limits=(min(vals)/2,max(vals)*2) if vals else (1e-8,1.)
-                ax.plot(limits,limits,color='.65',lw=.6);ax.set(xscale='log',yscale='log',xlim=limits,ylim=limits,xlabel='Tracked '+METRIC_LABELS[metric],ylabel='Detector-free '+METRIC_LABELS[metric])
+                limits=((min(vals)/2,max(vals)*2) if vals else (1e-8,1.)) if log_scale else (0.,max(vals)*1.05 if vals and max(vals)>0 else 1.)
+                scale='log' if log_scale else 'linear'
+                ax.plot(limits,limits,color='.65',lw=.6,zorder=1);ax.set(xscale=scale,yscale=scale,xlim=limits,ylim=limits,xlabel='Tracked '+METRIC_LABELS[metric],ylabel='Detector-free '+METRIC_LABELS[metric])
                 facet(ax,NAMES[model]);style_axis(ax)
-                if not points:ax.text(.5,.65,'No positive paired\nestimates',transform=ax.transAxes,ha='center',fontsize=7)
+                if not points:ax.text(.5,.65,'No '+('positive' if log_scale else 'defined')+' paired\nestimates',transform=ax.transAxes,ha='center',fontsize=7)
+            if not log_scale:fig.text(.1,.025,'Linear axes retain empirical zeros; only undefined pairs are omitted. Open markers identify forced conditions; no undefined value is imputed.',fontsize=6,wrap=True)
             finish(fig,'Detector-free versus tracked '+METRIC_LABELS[metric]+'; five circumference shades')
-            write_csv(data/('supplement_scatter_'+metric+'.csv'),[dict(model=t['model'],C_label=t['C_label'],f=t['f'],tracked=n(t,metric),detector_free=n(d,metric)) for t,d in matched])
+            write_csv(data/('supplement_scatter_'+metric+'.csv'),[dict(model=t['model'],C_label=t['C_label'],f=t['f'],forced_combined=yes(first(t,'forced_combined','forced',default=False)),tracked=n(t,metric),tracked_ci_lower=n(t,metric+'_ci_lower'),tracked_ci_upper=n(t,metric+'_ci_upper'),detector_free=n(d,metric),n_seeds=t.get('n_seeds'),analysis_lag=t.get('analysis_lag'),axis_scale='log' if log_scale else 'linear') for t,d in matched])
         for metric in ['Ds','lambda_eff']:
             for step in [1,2]:
                 rr=[r for r in detector if n(r,'detector_free_step',default=1)==step]
