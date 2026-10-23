@@ -1,0 +1,59 @@
+{
+  "generated_utc": "2026-10-23T01:04:01.163944+00:00",
+  "records": [
+    {
+      "generated_utc": "2026-10-23T01:04:01.039957+00:00",
+      "batch": 3,
+      "model": "wave_pinning",
+      "seeds": 2112,
+      "command": "sbatch --parsable --partition=red --qos=xxlarge --ntasks=1 --cpus-per-task=1 --mem=4G --time=02:00:00 --signal=B:USR1@120 --array=192-287,288-383,384-479,480-575,960-1055,1440-1535,1536-1631,1632-1727,2592-2687,2688-2783,2784-2879,2880-2975,3744-3839,3840-3935,3936-4031,4032-4127,4896-4991,4992-5087,5088-5183,5184-5279,5280-5375,5664-5759 --job-name=F4r3-wav-b3 --output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/logs/%A_%a.out --error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/logs/%A_%a.err /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/worker.sh 3",
+      "dry_run": false,
+      "qos_reason": "Burst throughput: independent1CPU4G2h jobs, xxlarge3000CPU/user allowance; red69nodes/4416CPUs and about1TB RAM/node. User permits parallel compute. Initial small-QoS submissions were upgraded separately in qos_burst_upgrade.json.",
+      "returncode": 0,
+      "stdout": "21323863\n",
+      "stderr": "",
+      "submitted": true
+    },
+    {
+      "generated_utc": "2026-10-23T01:04:01.083922+00:00",
+      "batch": 3,
+      "model": "holmes_model3",
+      "seeds": 1728,
+      "command": "sbatch --parsable --partition=red --qos=xxlarge --ntasks=1 --cpus-per-task=1 --mem=4G --time=02:00:00 --signal=B:USR1@120 --array=5952-6047,6048-6143,6144-6239,7104-7199,7200-7295,7296-7391,7968-8063,8256-8351,8352-8447,8448-8543,8544-8639,9408-9503,9504-9599,9600-9695,9696-9791,10656-10751,10752-10847,10848-10943 --job-name=F4r3-hol-b3 --output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/logs/%A_%a.out --error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/logs/%A_%a.err /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/worker.sh 3",
+      "dry_run": false,
+      "qos_reason": "Burst throughput: independent1CPU4G2h jobs, xxlarge3000CPU/user allowance; red69nodes/4416CPUs and about1TB RAM/node. User permits parallel compute. Initial small-QoS submissions were upgraded separately in qos_burst_upgrade.json.",
+      "returncode": 0,
+      "stdout": "21323864\n",
+      "stderr": "",
+      "submitted": true
+    },
+    {
+      "generated_utc": "2026-10-23T01:04:01.109624+00:00",
+      "batch": 3,
+      "model": "spring_ring",
+      "seeds": 1824,
+      "command": "sbatch --parsable --partition=red --qos=xxlarge --ntasks=1 --cpus-per-task=1 --mem=4G --time=02:00:00 --signal=B:USR1@120 --array=11520-11615,11616-11711,11712-11807,12288-12383,12480-12575,12672-12767,12768-12863,12864-12959,13536-13631,13920-14015,14016-14111,14688-14783,15072-15167,15168-15263,15936-16031,16224-16319,16320-16415,16416-16511,17088-17183 --job-name=F4r3-spr-b3 --output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/logs/%A_%a.out --error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/logs/%A_%a.err /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/worker.sh 3",
+      "dry_run": false,
+      "qos_reason": "Burst throughput: independent1CPU4G2h jobs, xxlarge3000CPU/user allowance; red69nodes/4416CPUs and about1TB RAM/node. User permits parallel compute. Initial small-QoS submissions were upgraded separately in qos_burst_upgrade.json.",
+      "returncode": 0,
+      "stdout": "21323865\n",
+      "stderr": "",
+      "submitted": true
+    },
+    {
+      "generated_utc": "2026-10-23T01:04:01.135009+00:00",
+      "batch": 3,
+      "model": "goryachev",
+      "seeds": 480,
+      "command": "sbatch --parsable --partition=red --qos=xxlarge --ntasks=1 --cpus-per-task=1 --mem=4G --time=02:00:00 --signal=B:USR1@120 --array=17664-17759,21792-21887,23232-23327,23328-23423,24768-24863 --job-name=F4r3-gor-b3 --output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/logs/%A_%a.out --error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/logs/%A_%a.err /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/worker.sh 3",
+      "dry_run": false,
+      "qos_reason": "Burst throughput: independent1CPU4G2h jobs, xxlarge3000CPU/user allowance; red69nodes/4416CPUs and about1TB RAM/node. User permits parallel compute. Initial small-QoS submissions were upgraded separately in qos_burst_upgrade.json.",
+      "returncode": 0,
+      "stdout": "21323866\n",
+      "stderr": "",
+      "submitted": true
+    }
+  ],
+  "submitted_seeds": 6144,
+  "richard_command": "/home/4473331/.conda/envs/scaling_sandbox/bin/python -B /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/code/mechanisms/figure4_round3_campaign_20261022.py submit --out /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022 --batch 3 --precision /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/results/precision_batch2.json"
+}

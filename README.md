@@ -2,13 +2,15 @@
 
 # Scaling sandbox
 
+[**Current manuscript outline — 23 October 2026**](manuscript_outline/outline_v11.pdf) · [**Revised Figures 3–4, legends and pilot observables**](manuscript_outline/revision_figures3_4_20261023/figures3_4_with_legends_and_pilots.pdf) · [**Review response**](manuscript_outline/revision_figures3_4_20261023/claude_response.md).
+
 This research workspace studies how cell size affects polarity, mechanochemical
 communication, and migration. The active work combines one-dimensional polarity
 models, literature-based migration analysis, and microscopy analysis. Scientific
 results should distinguish published model assumptions from new adaptations
 and size-dependent experiments.
 
-The [current manuscript vision](MANUSCRIPT_VISION.md) records the intended
+The [current manuscript vision](author/vision.md) records the intended
 components, bundles mechanistic explanations with their corresponding measurement
 proposals, and reserves a prominent results section for the planned SUM-159 WGD
 motility assays. The order of the middle components remains open.

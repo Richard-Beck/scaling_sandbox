@@ -44,5 +44,7 @@ Each folder contains its PNG previews and related supporting vectors, data, capt
 - [Figure 2 round-3 size responses and pulse-memory signatures](revision_round3_20261022/figure2/README.md)
 - [Figure 4 round-3 nulls for size-dependent heading persistence](revision_round3_20261022/figure4/README.md)
 - [Figure 4 revised event scoring, normalized drift and closure tests](revision_round4_20261023/figure4/README.md)
+- [Figure 3 edge-pulse response and untuned drift predictions](revision_round5_20261023/figure3/README.md)
+- [Figure 4 drift, certified domain births and sources of heading loss](revision_round5_20261023/figure4/README.md)
 
 [Reversible cleanup records](_organization/) preserve the original paths and metadata. After regenerating exports, run `python polarity1d/manuscript/code/mechanisms/organize_length_dev.py` from the repository root. Current renderers write directly into these experiment folders; the organizer also collects outputs from frozen older entry points.

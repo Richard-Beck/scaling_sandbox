@@ -1,3 +1,9 @@
+## Figures 3–4: edge response and secondary-domain dynamics (23 October 2026)
+
+[Integrated outline_v11](../manuscript_outline/outline_v11.pdf) · [Figures, legends and prospective pilot observables](../manuscript_outline/revision_figures3_4_20261023/figures3_4_with_legends_and_pilots.pdf) · [Methods, missing measures and review response](../manuscript_outline/revision_figures3_4_20261023/README.md).
+
+The deterministic edge test exposes the failure of an independent-boundary approximation, while the existing noise campaign supports certified birth bounds, conditional finite-horizon takeovers and exact signed heading accounting. Missing parent masks limit birth/split identification, and moment-residual cancellations limit physical attribution. No new noise histories were generated. The preceding dated records below are historical.
+
 ## deBelly periodic-domain attempt closed (19 October 2026)
 
 [Best effort figure set of the day](../polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_program_20261019/BEST_EFFORT_FIGURES_20261019.md) — selected panels, brief revisions/placeholders and current status/outstanding tasks for each figure agent.

@@ -1,3 +1,13 @@
+<!-- Figures 3-4 edge-birth revision 20261023 -->
+# Figures 3–4: edge responses and secondary-domain dynamics
+
+[**Integrated outline_v11**](../manuscript_outline/outline_v11.pdf) · [**Figures, legends and pilots**](../manuscript_outline/revision_figures3_4_20261023/figures3_4_with_legends_and_pilots.pdf) · [**Reader**](../manuscript_outline/revision_figures3_4_20261023/index.html)
+
+Cue placement relative to the incumbent boundary separates sliding from takeover, and enlargement slows half-turn reorientation. In the weak-input deterministic response the two boundaries share a long-lived translation: the prescribed independent-edge approximation gives median prediction/observation ratios 0.511, 0.540 and 0.534 in Wave-pinning, Holmes and Spring. Existing noise exemplars confirm correlated boundary motion. Goryachev does not give a general drift-based explanation of heading persistence. Enlargement extends heading memory and raises noise tolerance, while the size advantage weakens as input strengthens. The weak-input drift in Wave-pinning, Holmes and Spring is close to quadratic in input, connecting Figure 4 to the deterministic edge-response test in Figure 3. Direct event accounting distinguishes persistent secondary onsets from certifiable no-parent births. Certified takeover probability declines with size in each model at a common finite follow-up, but different certification fractions and pooled inputs limit population inference. Per-perimeter birth direction varies by model; it is not a universal consequence of enlargement. Signed heading-loss accounting closes numerically while showing substantial cancellation between point-region changes and the moment residual. This exposes the limitations of a point-domain reconstruction; it does not establish that one mechanism causes a specified fraction of native heading loss.
+
+Figures 1, 2, 5 and the reserved Figure 6 retain their preceding sections and artwork. Prospective pilot directions remain conditional on the available model measurements.
+
+<!-- Earlier editions preserved below -->
 <!-- Figure 4 corrected scoring current edition -->
 # Figure 4: corrected event scoring and normalized drift
 

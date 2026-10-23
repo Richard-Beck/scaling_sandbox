@@ -1,0 +1,87 @@
+{
+  "id": "figure4",
+  "title": "Null models for size-dependent heading persistence",
+  "role": "main",
+  "status": "complete_compact_campaign",
+  "assets": [
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round4_20261023/figure4/figure4_main.png",
+      "caption": "",
+      "page_size": [
+        7.086614173228347,
+        19.68503937007874
+      ],
+      "minimum_printed_width_inches": 7.086614173228347,
+      "native_pdf_page": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round4_20261023/figure4/figure4_main.pdf",
+      "page_title": ""
+    }
+  ],
+  "legend": [
+    "A. Simulated drifting and relocating peaks on small and large rings. Grayscale kymograph widths follow circumference and time increases upward; each pair shares its declared seed. Ensemble heading autocorrelations below use small-ring solid and large-ring dotted curves. Fixed physical drift, same-rate relocation and perimeter-rate relocation give size exponents 2, 0 and −1, respectively.",
+    "B. Simulated mixtures illustrate how relocation erodes a geometric size advantage. Input fraction is f; the illustrative dependences are Dₛ = 8.8f² and λ = 135f⁴, with perimeter-rate relocation multiplying λ by C/40. The decay rate is k(ℓ) = −ln C(ℓ)/ℓ; α is minus the local slope of ln k against ln circumference. Noise tolerance f½ is the first downward crossing of correlation 0.5 at the fixed reference lag. Gray shades encode increasing circumference. Line styles distinguish mixtures in the tolerance-fold panel; its dashed guide is proportional to circumference.",
+    "C. Local exponents use model hues and light-to-dark circumference ramps. Markers show designed inputs, open markers identify forced conditions, vertical intervals show pointwise 95% uncertainty, and outward triangles mark off-scale values or tails. The right panel shows tolerance folds with model-specific markers; Spring circumference is multiplied by 20. 125/260 neighborhoods resolve; Goryachev contributes 11. Largest-size tolerance folds are Wave-pinning 2.373, Holmes 2.155, Spring 3.088, Goryachev 4.122.",
+    "D. Matched first-replicate model histories use the selected designed inputs, with physical widths and shared grayscale activity scales within each model. Black outside ticks identify persistent dominant-region replacements. The ensemble curves below include end-to-end exponents and 95% intervals where estimable. At every selected input, small-ring reference-lag correlation is below 0.4 and large-ring correlation exceeds 0.6; the enlarged rings retain heading longer.",
+    "E. Drift is normalized by its value at the smallest size at the same input (C = 20, or Spring 1); unity is the equal-physical-drift expectation giving α = 2. Rows below show effective jump rate, predicted/observed heading decay and multiple-front fraction. Solid curves and pointwise whole-seed intervals use counted replacement rate times mean angular loss among scorable events; dashed curves use the existing detector-free wrapped-Gaussian/uniform mixture at the shortest cadence. Unscorable events remain in the rate and exposure; their angles are represented by the scorable-event mean, with coverage and missing-angle bounds in the supplement. The jump-rate ordinate includes zero on a symmetric-log scale; open points identify forced conditions, and triangles retain off-scale ratios. Detector-free curves are point estimates. Predicted rates lie within 15% of observed rates in 57 of the 154 estimable conditions. In the multiple-front-majority regime, 0/33 event-based predictions and 3/33 detector-free predictions are within 15%. Agreement at weak input therefore does not establish closure as fronts multiply. Native model clocks remain separate, and multiple-front fractions are descriptive."
+  ],
+  "narrative": [
+    "Normalized physical drift exposes the size dependence hidden by the input-driven dynamic range. Equal physical drift produces α = 2; decreasing drift with size raises this geometric expectation.",
+    "Predicted rates lie within 15% of observed rates in 57 of the 154 estimable conditions. In the multiple-front-majority regime, 0/33 event-based predictions and 3/33 detector-free predictions are within 15%. Agreement at weak input therefore does not establish closure as fronts multiply.",
+    "Counted replacements and conditional angle scores now test the closure where fronts multiply and local α falls. Detector-free comparisons retain disagreement with the tracker, including positive fitted relocation terms when the tracker counts zero switches. No new simulations were run."
+  ],
+  "measurements": [
+    "Measure activity-heading autocorrelation, centroid motion within persistent active regions, and persistent region replacements in WGD+ versus WGD− cells. Compare enlargement-associated changes in drift and relocation without equating activity heading to migration persistence."
+  ],
+  "limitations": [
+    "Native model clocks are not calibrated across models. Whole-seed intervals are pointwise. Missing eligible lags and tracked ingredients remain undefined; multiple-front fractions are descriptive. The required M₁/M₀ gate differs from historical round-2 normalization.",
+    "The scorable-event angle distribution estimates the angle distribution of all counted events. Coverage and missing-angle bounds are reported; this assumption is not a validation of missingness at random."
+  ],
+  "sources": [
+    {
+      "label": "analysis receipt",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round4_20261023/figure4/supporting/metadata/analysis_receipt.json",
+      "sha256": "190673879a55233b3db87524a627f9c30e807a869c85c82a76087d8af5fc8ed5"
+    },
+    {
+      "label": "null analysis receipt",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round4_20261023/figure4/supporting/metadata/null_analysis_receipt.json",
+      "sha256": "db81859634f40a2f0b2c241c7638e4757fefe98e76b9e07d477225a43c1010a9"
+    },
+    {
+      "label": "campaign manifest",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round4_20261023/figure4/supporting/metadata/campaign_manifest.json",
+      "sha256": "b74013ff44a49b06fca15ca7e74c9aea76a9d449fc81044a365d1364e9db0557"
+    },
+    {
+      "label": "Event-scoring correction and regime-specific closure tests",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round4_20261023/figure4/supporting/metadata/scoring_revision_receipt.json",
+      "sha256": "7f5079b61d2a14df50acc2ed536955e658f8bbee00fece2673d56781ce8b8086"
+    }
+  ],
+  "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round4_20261023/figure4/figure4_main.pdf",
+  "supplement_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round4_20261023/figure4/figure4_supplement.pdf",
+  "reader": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round4_20261023/figure4/index.html",
+  "code_commit": "87cb5f59acafa3d9e1d65fdad08a97c84bf539f8",
+  "campaign_completed": true,
+  "legend_panels": [
+    {
+      "panel": "A",
+      "text": "Simulated drifting and relocating peaks on small and large rings. Grayscale kymograph widths follow circumference and time increases upward; each pair shares its declared seed. Ensemble heading autocorrelations below use small-ring solid and large-ring dotted curves. Fixed physical drift, same-rate relocation and perimeter-rate relocation give size exponents 2, 0 and −1, respectively."
+    },
+    {
+      "panel": "B",
+      "text": "Simulated mixtures illustrate how relocation erodes a geometric size advantage. Input fraction is f; the illustrative dependences are Dₛ = 8.8f² and λ = 135f⁴, with perimeter-rate relocation multiplying λ by C/40. The decay rate is k(ℓ) = −ln C(ℓ)/ℓ; α is minus the local slope of ln k against ln circumference. Noise tolerance f½ is the first downward crossing of correlation 0.5 at the fixed reference lag. Gray shades encode increasing circumference. Line styles distinguish mixtures in the tolerance-fold panel; its dashed guide is proportional to circumference."
+    },
+    {
+      "panel": "C",
+      "text": "Local exponents use model hues and light-to-dark circumference ramps. Markers show designed inputs, open markers identify forced conditions, vertical intervals show pointwise 95% uncertainty, and outward triangles mark off-scale values or tails. The right panel shows tolerance folds with model-specific markers; Spring circumference is multiplied by 20. 125/260 neighborhoods resolve; Goryachev contributes 11. Largest-size tolerance folds are Wave-pinning 2.373, Holmes 2.155, Spring 3.088, Goryachev 4.122."
+    },
+    {
+      "panel": "D",
+      "text": "Matched first-replicate model histories use the selected designed inputs, with physical widths and shared grayscale activity scales within each model. Black outside ticks identify persistent dominant-region replacements. The ensemble curves below include end-to-end exponents and 95% intervals where estimable. At every selected input, small-ring reference-lag correlation is below 0.4 and large-ring correlation exceeds 0.6; the enlarged rings retain heading longer."
+    },
+    {
+      "panel": "E",
+      "text": "Drift is normalized by its value at the smallest size at the same input (C = 20, or Spring 1); unity is the equal-physical-drift expectation giving α = 2. Rows below show effective jump rate, predicted/observed heading decay and multiple-front fraction. Solid curves and pointwise whole-seed intervals use counted replacement rate times mean angular loss among scorable events; dashed curves use the existing detector-free wrapped-Gaussian/uniform mixture at the shortest cadence. Unscorable events remain in the rate and exposure; their angles are represented by the scorable-event mean, with coverage and missing-angle bounds in the supplement. The jump-rate ordinate includes zero on a symmetric-log scale; open points identify forced conditions, and triangles retain off-scale ratios. Detector-free curves are point estimates. Predicted rates lie within 15% of observed rates in 57 of the 154 estimable conditions. In the multiple-front-majority regime, 0/33 event-based predictions and 3/33 detector-free predictions are within 15%. Agreement at weak input therefore does not establish closure as fronts multiply. Native model clocks remain separate, and multiple-front fractions are descriptive."
+    }
+  ]
+}

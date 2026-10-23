@@ -1,0 +1,18 @@
+{
+  "generated_utc": "2026-10-23T18:27:36.484869+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--partition=red",
+    "--qos=small",
+    "--cpus-per-task=1",
+    "--mem=4G",
+    "--time=00:45:00",
+    "--job-name=f3edge5",
+    "--array=0-119",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/figure3_round5_edge_pulses_v2_20261023/logs/%A_%a.out",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/figure3_round5_edge_pulses_v2_20261023/worker.sh"
+  ],
+  "stdout": "21332598\n",
+  "stderr": ""
+}

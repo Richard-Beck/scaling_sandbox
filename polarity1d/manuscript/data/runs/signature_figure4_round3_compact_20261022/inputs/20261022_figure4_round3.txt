@@ -1,0 +1,122 @@
+# Figure 4, round 3 — nulls for size-dependent heading persistence
+
+Author brief received 22 October 2026. Supersedes only Figure 4 in
+20261022_figures_round2.txt; Figures 2 and 3 are outside this revision.
+The companion sketch scripts reproduce the supplied visual target for A–C.
+
+## Scientific purpose
+
+Larger cells hold heading longer. Build simple peak drift/jump nulls, measure
+the same quantities in four unchanged models, and measure drift/jump ingredients
+directly. k = −ln C(lag)/lag; k ∝ circumference^(−alpha). Fixed physical drift
+gives alpha=2; uniform same-rate jumps alpha=0; jump rate ∝ perimeter alpha=−1.
+Mixtures add (2pi/circumference)^2 Ds + lambda(1−mean cos jump angle).
+
+## Campaign
+
+Rerun everything from scratch, no retuning: wave_pinning, holmes_model3,
+spring_ring, goryachev. Five chemical sizes20,30,40,50,60; Spring1,1.5,2,2.5,3.
+All sizes get f=.0001,.0003,.001,.003,.005,.01,.02,.03,.05,.1,.3,1.
+Goryachev also gets .004,.007,.015,.025 at all five sizes. Lognormal input,
+fixed relative spread sigma=1, same generator/cadence/burn-in as round2.
+Start96seeds/condition; add96 until whole-seed bootstrap SE(ln k)≤.07 or384.
+Native round2 horizons. Largest weak-input conditions with unresolvable k may
+extend to4x horizon, storage permitting; record extensions.
+
+Storage is the constraint: measure quota/free space before launch and estimate
+footprint with comfortable margin. Cut stored cadence before seed count.
+Each run retains one compact float32 NPZ: analysis time, complex P=M1/M0 and
+abs(P), contrast, number regions/frame, ragged tracked regions/frame (physical
+centroid, amount, trackid), dominant largest-amount trackid/frame. Use round1
+signature_figure4_regions_*_20261020 detector/tracking: contiguous above
+min+.5contrast, contrast≥.1basal, touching regions merged. Native profile is
+deleted after extraction. Seeds0,1/condition additionally retain float16
+exemplar ≤400spatial bins x2000frames. After COMPLETE new compact campaign,
+delete OLD Figure4 noise native HPC outputs, retaining repo round2 compact
+CSVs/figures. Update DATA_MANIFEST.md and RETENTION.md.
+If submission fails, capture failure and provide ready scripts/one-line Richard
+command; continue nulls, analysis and rendering tested on round2 so one command
+rebuilds when compact campaign lands.
+
+## Nulls
+
+Single point at x on wrapped ring: eachdt drift sqrt(2Ds dt)N(0,1); with
+probabilitylambda dt instead uniform relocation. Heading2pi x/C.
+A: Ds=.002; lambda=1/7000; T24000;dt20. Three pure nulls: drift, same-rate jumps,
+per-perimeter jumps lambda=(1/7000)C/40. Kymos Gaussian physicalwidth1.5,
+Greys,time upwards. Fixed seed per null shared at C20 andC60; no seed search.
+A acf from1000replicates/null/size.
+B: Ds=8.8f²; lambda=135f⁴ (perimeter variant multipliesC/40); illustrative.
+Drift only; drift+same-rate; drift+perimeter.41logf from1e-4 to1,five sizes.
+Pass simulation outputs through EXACT model estimators. Replicate until
+SElnk≤.01. Check analytic k/report maximum deviation, don't plot analytic k.
+
+## Shared estimators
+
+Heading C(lag)=mean cos heading change over pairs both |P|≥.1. Lag grid sqrt2
+steps250..16000chem,25..1600Spring,clip horizon. Local alpha neighborhood
+{i−1,i,i+1},ends two points; FULL fixedfive size grid, actual mean circumference.
+Choose shared lag with every member .03<C<.995,coverage≥.5, minimizing worst
+abs[ln(−ln C)−ln(ln2)]. Alpha=−OLS ln k vs ln circumference. No eligible lag:
+omit and record reason. Single-condition analysislag nearest C=.5 within
+(.03,.995). fhalf:first downward crossing C(ref)=.5,linear in logf;ref2000chem,
+200Spring; forced included. Whole-seed bootstrap2000resamples,lag fixed,95%CI.
+Forced flag same asround2; open markers never drop. Supplement valid fraction.
+
+Tracked Ds/jumps: tenure maximal constant dominantid interval. New dominant
+must hold5frames; shorter flicker ignored. Unwrap physicalcentroid within
+tenures;fitMSD=2Ds tau throughorigin to median tenure/4;also free power exponent.
+lambda=counted switches/validtime; mean cos jumpangle from5frame meanheadings
+either side. lambdaeff=lambda(1−mean cos).kpred=(2pi/C)^2Ds+lambdaeff;
+kobs analysislag rate. Detector-free: headingincrements at shortest cadence and
+twice;MLEwrappedGaussian variance2Dtheta delta +uniformweight1−exp(−lambda delta),
+Ds=Dtheta C²/(4pi²). Sensitivity flicker2,10 andMSDrange1/8,1/2 median tenure.
+Undefined measures omitted with explicit reasons; no imputation/tuning.
+
+## Main layout
+
+180mm doublecolumn width,heightasneeded. A–C match sketch except below.
+Color= circumference light→dark5steps. Null greyC20midgrey→C60black. Models
+ownhues WPblue,Holmesgreen,Springgold,Goryred. One compact key/ramp family
+directly beside served panels. Spring1..3 mapsC20..60 and key explains.
+Plainblackfacets, A–Eboldconsistent; no overarchingtitles/subtitles/captions,
+only axes/facets/keys/annotations. Thin~1ptlines smallmarkers recessiveguides,
+left/bottomaxes only, no tables, minimaldefinedsymbols. Nativeunits oncelegend.
+
+A: top3nullpairsC20,C60,width1:3,timeup×1e3,labelsbelow,nullnamesabove plain
+black. Secondrow acf,greyC20solid/C60dotted,legendinfirst;alpha2/0/−1 top right,
+same-rate'(curves coincide)'.
+B:3localalpha vslogf facets,fivesizesgrey,guides2,0,−1 labelsdirectrightfirst,
+ylim−1.5..2.5. Fourthfhalf/fhalf(C20)vsC loglog,ylim1..4,nullblacksolid/dash/dot,
+legendinset,grey dashedfhalf∝C guide. Fix ylabcollision withthird.
+C:4localalpha vslogf model facets,ownramps,designedpointmarkers,openforced,
+95%thinverticalCI,dodge±4%logf,sharedylim−1.5..4;out-of-range outwardedge
+triangles. Gorynearlyempty isresult. Fifthfhalf foldvsC loglog,modelsdarkhues,
+distinctmarkers,Goryopen,95%CIs,guide,legend;SpringC-equivalentpositions.
+Pointwiseestimatesmain,smoothlnk(lnC,lnf)fit supplement.
+D:4modelpairsseed0C20/C60(Spring1/3)kymosexactlyA greywidthproportional,timeup,
+sharedactivityscale/model. Choose designedf withC20ref<.4,C60ref>.6;otherwise
+nearestlogmidpointfhalf. Timewindow6/kobs(C20),sameboth. Countedswitchesblack
+ticksoutsideleftedge,legendinset. Belowpairacf modelramp likeA,annotate
+end-to-endalpha=ln(k20/k60)/ln(C60/C20),95%CI.
+E:4modelscolumns,4rows,logf,5sizeramps:Dsphysicallogy;lambdaefflogy;
+kpred/kobslogy.1..10,line1;multiple-frontfractionlinear0..1. Omitundefined
+withreasonreadme.
+
+## Deliverables/metadata/supplement
+
+Output polarity1d/manuscript/figures/length_mechanisms_20261008/dev/
+revision_round3_20261022/figure4:figure4_main.png/pdf/svg,figure4_supplement.pdf;
+supporting/metadata/main_legend.md,scientific_readme.md;supporting/data compact
+CSVs everyplottedpoint/curve,bootstrapCIs,lag;codecommit/campaignmanifest.
+Code polarity1d/manuscript/code/mechanisms/*_20261022;single rebuild entry.
+Commitcode,compactdata,figure,metadata;largerecordsHPCmanifested. Integrate
+manuscriptoutline andcommit/push. Use3GPT6.1Sol xhighsubagents.
+Legend:title+oneparagraph/panel,what/encodingthenmainobservation;definek,alpha,
+f,fhalf once;Bfdependencesillustrative;methodselsewhere.
+Scientificreadme:UnexpectedFIRST,everyfailed/oddconditionandchecks;thenpanel
+keynumbers;methods. Completefigureevenifwildalphas/trackingfail/decompositionoff.
+No hypothesisgates;round2S0historyunchanged.
+Supplement:smoothalpha;detectorfreevstrackedDs/lambdaeffscatter1:1size/model;
+trackedsensitivity;validfractioneverycondition;MSDexponents;round2vsround3
+12seedk/fhalfsharedconditions;extended/>96seedlist;nullanalyticagreement.

@@ -1,0 +1,78 @@
+{
+  "generated_utc": "2026-10-23T18:27:44.217753+00:00",
+  "condition": {
+    "slot": 53,
+    "model": "holmes_model3",
+    "size": 50.0,
+    "cells": 1000,
+    "platform": "chemical",
+    "fraction": 0.01,
+    "mean": 0.01,
+    "input": "inputs/holmes_model3_C50.npz",
+    "input_sha256": "2f09dbbcec7f7507f830dd8d16aa766234dc0433caae7ab1834028cf95b5361f",
+    "basal_circumference": 50.0
+  },
+  "complete": true,
+  "slurm_job_id": "21332652",
+  "mean_stationary_rhs": 5.5931703712985836e-11,
+  "mean_tail_scaled_change": 1.2348105060594173e-15,
+  "mean_circumference": 50.0,
+  "mean_contrast": 1.1209537234118065,
+  "mean_negative_min": 0.3679819998438275,
+  "defined": true,
+  "linear_response": {
+    "translation_eigenvalue": -1.791943875409794e-11,
+    "translation_eigenvalue_imag": 0.0,
+    "adjoint_residual": 5.576602799066457e-12,
+    "right_translation_overlap": 0.9999997593649566,
+    "phase_normalization": 1.0,
+    "D_left": 0.0024764719388068435,
+    "D_right": 0.0024764719388068435,
+    "Ds_independent": 0.0012382359694034218,
+    "Ds_full_crosscovariance": 0.0024764719388068435,
+    "spatial_kernel": "Adjoint of unchanged native linearization; both edges share the translation mode at zero frequency",
+    "covariance_time_integral_unit_mean": 24.764719388068436,
+    "edge_gain_validation": [
+      {
+        "edge": 0,
+        "predicted_phase_gain": -0.4276780687303429,
+        "measured_edge_gain": -0.4272684647702363,
+        "relative_error": 0.0009577389865293807
+      },
+      {
+        "edge": 1,
+        "predicted_phase_gain": 0.42767806866773705,
+        "measured_edge_gain": 0.42726846477165736,
+        "relative_error": 0.0009577388369612943
+      }
+    ]
+  },
+  "amplitude": 0.0001,
+  "linearity": [
+    {
+      "pulse_edge": 0,
+      "multiplier": 0.5,
+      "relative_max_curve_error": 2.9573173695103317e-05
+    },
+    {
+      "pulse_edge": 0,
+      "multiplier": 2.0,
+      "relative_max_curve_error": 5.741363509780971e-05
+    },
+    {
+      "pulse_edge": 1,
+      "multiplier": 0.5,
+      "relative_max_curve_error": 2.956826877900643e-05
+    },
+    {
+      "pulse_edge": 1,
+      "multiplier": 2.0,
+      "relative_max_curve_error": 5.7413637074573204e-05
+    }
+  ],
+  "maximum_linearity_error": 5.7413637074573204e-05,
+  "pulse_relaxation_tail_change": 1.2491341294662561e-11,
+  "pulse_duration": 50.0,
+  "observation_horizon": 1000.0,
+  "wall_seconds": 5.498985217884183
+}

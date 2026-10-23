@@ -1,0 +1,38 @@
+{
+  "generated_utc": "2026-10-23T01:04:01.031142+00:00",
+  "probes": [
+    {
+      "command": "df -B1 /home/4473331/projects/scaling_sandbox/polarity1d/manuscript",
+      "returncode": 0,
+      "stdout": "Filesystem                                 1B-blocks           Used      Available Use% Mounted on\nislfs02hpc2smb.moffitt.org:/hpc_home 109951162777600 75699816759296 34251346018304  69% /home\n",
+      "stderr": ""
+    },
+    {
+      "command": "quota -sv",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "quota -vs -u 4473331",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "quota: #4473331 (uid 4473331): Permission denied\n"
+    }
+  ],
+  "filesystem_available_bytes": 34251346018304,
+  "personal_quota_available_bytes": null,
+  "personal_quota_status": "Quota lookup did not expose an enforceable personal limit; filesystem availability is shared, not personal quota headroom.",
+  "planning_regions_per_frame": 8,
+  "planning_bytes_per_seed": 1031480,
+  "initial_seeds": 96,
+  "maximum_seeds": 384,
+  "conditions": 260,
+  "initial_estimated_bytes": 26586060800,
+  "maximum_estimated_bytes": 103823283200,
+  "reserved_bytes": 207646566400,
+  "margin_factor": 2.0,
+  "available_over_reservation": 164.95021618765375,
+  "passed_filesystem_margin": true,
+  "limitation": "Planning estimate, not an upper bound; measured allocation and live free space are checked before each submission. No profile histories are written to durable storage."
+}

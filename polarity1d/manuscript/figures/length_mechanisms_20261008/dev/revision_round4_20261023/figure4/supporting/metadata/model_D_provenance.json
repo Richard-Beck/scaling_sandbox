@@ -1,0 +1,158 @@
+{
+  "source": "completed_compact_campaign",
+  "stage_manifest": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/manifest.json",
+  "stage_manifest_sha256": "b74013ff44a49b06fca15ca7e74c9aea76a9d449fc81044a365d1364e9db0557",
+  "selection": [
+    {
+      "model": "wave_pinning",
+      "f": 0.03,
+      "reference_lag": 2000.0,
+      "selection_reason": "C_small(reference)<0.4 and C_large(reference)>0.6; nearest log tolerance midpoint among qualifying designed inputs",
+      "window_requested": 10469.461975971391,
+      "window_actual": 10469.461975971391,
+      "window_start": 16000.0,
+      "window_stop": 26469.46197597139,
+      "window_clipped": false,
+      "source": "completed_compact_campaign",
+      "seed_policy": "declared replicate0; no seed search",
+      "small_fhalf": 0.023119737181325956,
+      "large_fhalf": 0.054861294085316814,
+      "kobs_small": 0.0005730953523467284,
+      "analysis_lag": 1415.0
+    },
+    {
+      "model": "holmes_model3",
+      "f": 0.02,
+      "reference_lag": 2000.0,
+      "selection_reason": "C_small(reference)<0.4 and C_large(reference)>0.6; nearest log tolerance midpoint among qualifying designed inputs",
+      "window_requested": 8219.595058279263,
+      "window_actual": 8219.595058279263,
+      "window_start": 16000.0,
+      "window_stop": 24219.595058279265,
+      "window_clipped": false,
+      "source": "completed_compact_campaign",
+      "seed_policy": "declared replicate0; no seed search",
+      "small_fhalf": 0.013041426359655352,
+      "large_fhalf": 0.028106867899252236,
+      "kobs_small": 0.0007299629674525687,
+      "analysis_lag": 1000.0
+    },
+    {
+      "model": "spring_ring",
+      "f": 0.005,
+      "reference_lag": 200.0,
+      "selection_reason": "C_small(reference)<0.4 and C_large(reference)>0.6; nearest log tolerance midpoint among qualifying designed inputs",
+      "window_requested": 535.3699300272787,
+      "window_actual": 535.3699300272787,
+      "window_start": 1600.0,
+      "window_stop": 2135.3699300272788,
+      "window_clipped": false,
+      "source": "completed_compact_campaign",
+      "seed_policy": "declared replicate0; no seed search",
+      "small_fhalf": 0.0022387368969559456,
+      "large_fhalf": 0.00691430825225826,
+      "kobs_small": 0.011207203960249098,
+      "analysis_lag": 70.5
+    },
+    {
+      "model": "goryachev",
+      "f": 0.01,
+      "reference_lag": 2000.0,
+      "selection_reason": "C_small(reference)<0.4 and C_large(reference)>0.6; nearest log tolerance midpoint among qualifying designed inputs",
+      "window_requested": 1347.214579681161,
+      "window_actual": 1347.214579681161,
+      "window_start": 16000.0,
+      "window_stop": 17347.21457968116,
+      "window_clipped": false,
+      "source": "completed_compact_campaign",
+      "seed_policy": "declared replicate0; no seed search",
+      "small_fhalf": 0.005430054860239114,
+      "large_fhalf": 0.02238120018798292,
+      "kobs_small": 0.004453633512057145,
+      "analysis_lag": 250.0
+    }
+  ],
+  "sources": [
+    {
+      "model": "wave_pinning",
+      "C_label": 20.0,
+      "f": 0.03,
+      "seed": "202610220007000",
+      "profile_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/workers/c007/seed000/exemplar.npz",
+      "profile_sha256": "65d7283ace6562b18da6988bc0e3cf7b092a18efa110427e78c82c4842bbdb4c",
+      "output": "model_D_wave_pinning_C20.npz",
+      "output_sha256": "8e73fd2eb79d2b0d33d23d82b8bf3ea24032a5a0ff02351d412ab26fe765e818"
+    },
+    {
+      "model": "wave_pinning",
+      "C_label": 60.0,
+      "f": 0.03,
+      "seed": "202610220055000",
+      "profile_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/workers/c055/seed000/exemplar.npz",
+      "profile_sha256": "f1e2cfa2ead88f48d5c4dc9ba62f11fb05a402c27a0df078e51f03be6e8fe9c6",
+      "output": "model_D_wave_pinning_C60.npz",
+      "output_sha256": "574964513815cbe376cdc3a583f1831c324469e15f1eeb4b2201d60606edbdbf"
+    },
+    {
+      "model": "holmes_model3",
+      "C_label": 20.0,
+      "f": 0.02,
+      "seed": "202610220066000",
+      "profile_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/workers/c066/seed000/exemplar.npz",
+      "profile_sha256": "c98a441f71785475acfacdadc79facd9cb70cc6b89fd8abb914d5a41dc01dfb4",
+      "output": "model_D_holmes_model3_C20.npz",
+      "output_sha256": "f4f1ee25b2f7f1f95bc8675001dac79e33b6509880e4136697a876bf9a69ef87"
+    },
+    {
+      "model": "holmes_model3",
+      "C_label": 60.0,
+      "f": 0.02,
+      "seed": "202610220114000",
+      "profile_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/workers/c114/seed000/exemplar.npz",
+      "profile_sha256": "041197a591df7c92cf9da35638b436b26f374297240e157ea35914ccf2b1178e",
+      "output": "model_D_holmes_model3_C60.npz",
+      "output_sha256": "4ba80318d5574cb23048b50b0cb7d773005dc3682ee8cf72079d6ae69fcfdabe"
+    },
+    {
+      "model": "spring_ring",
+      "C_label": 1.0,
+      "f": 0.005,
+      "seed": "202610220124000",
+      "profile_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/workers/c124/seed000/exemplar.npz",
+      "profile_sha256": "88682f71c8accfb6a965ee7f503931424aa12347cafc434e44e5cd2c2d21700e",
+      "output": "model_D_spring_ring_C1.npz",
+      "output_sha256": "c41c8003cb704c8ddde3d731e197824d16031fe45a641b59603642b60eee8bdc"
+    },
+    {
+      "model": "spring_ring",
+      "C_label": 3.0,
+      "f": 0.005,
+      "seed": "202610220172000",
+      "profile_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/workers/c172/seed000/exemplar.npz",
+      "profile_sha256": "5dc5837eee4331d460e6777a41755e8841cff6b5f7b7792c081ffe9fd67850b1",
+      "output": "model_D_spring_ring_C3.npz",
+      "output_sha256": "de76f4db63e6eb868008b819cf59c8fe5daa6622e88d6354964fe46a0e89eb77"
+    },
+    {
+      "model": "goryachev",
+      "C_label": 20.0,
+      "f": 0.01,
+      "seed": "202610220187000",
+      "profile_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/workers/c187/seed000/exemplar.npz",
+      "profile_sha256": "db94d961a4e95e38ef10aa31886ed7a11165e26159857a4e611867c86c98f419",
+      "output": "model_D_goryachev_C20.npz",
+      "output_sha256": "1fd2d86f8a96e239fb93a54a6da8c355807ef26a9a945a603fb101a7747091c3"
+    },
+    {
+      "model": "goryachev",
+      "C_label": 60.0,
+      "f": 0.01,
+      "seed": "202610220251000",
+      "profile_path": "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/workers/c251/seed000/exemplar.npz",
+      "profile_sha256": "8e8d06a7a62fb5a0b50095a152fef31d530407d23aba923ed0df4158a8de8846",
+      "output": "model_D_goryachev_C60.npz",
+      "output_sha256": "c3209bc5ac10e4298718a81e91ee4b1cc3d0a98c25bd5d22b6e6fb793bb11b66"
+    }
+  ],
+  "seed_search": false
+}

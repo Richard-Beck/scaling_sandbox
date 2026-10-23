@@ -1,0 +1,56 @@
+{
+  "fixed_before_data": "Specified on 23 October 2026, before SUM-159 WGD+/− motility data; no experimental observations were used.",
+  "regime_definition": "Model drift subset: f ≤ 0.01 and multiple-domain fraction ≤ 0.05. In cells, classify by the observed frequency of coexisting protrusions; model f and native times have no calibrated cellular equivalents.",
+  "observables": [
+    {
+      "observable": "Lateral-edge fluctuation of the leading protrusive region",
+      "counterpart": "Edge displacement and drift diffusivity (Figs 3D, 4D)",
+      "drift_direction": "Similar (Holmes/Spring); smaller in Wave-pinning/Goryachev",
+      "secondary_direction": "No common direction identified outside persistent single-domain bouts",
+      "status": "Conditional hypothesis",
+      "operational_definition": "Track both lateral half-contrast boundaries of a persistent leading activity/protrusive region. Report their mean-squared physical displacements and cross-correlation over declared lags, including failed single-domain eligibility and changes in region identity. Compare physical displacement before normalizing to perimeter. The two edges are strongly correlated in model exemplars, so report their covariance rather than assuming independence."
+    },
+    {
+      "observable": "Secondary-protrusion birth rate per unit perimeter",
+      "counterpart": "Persistent no-overlap birth rate (Fig. 4E(i))",
+      "drift_direction": "Rare in both groups",
+      "secondary_direction": "Model dependent; all-birth size trend unresolved",
+      "status": "Population unresolved",
+      "operational_definition": "With full images retained, call a new connected protrusive/activity region a birth only if it overlaps no region in the preceding frame and persists for at least five consecutive saved frames. Divide by observed perimeter-time exposure; count splits separately. Freeze segmentation, cadence and overlap rules before group comparison."
+    },
+    {
+      "observable": "Fraction of secondary protrusions that take over",
+      "counterpart": "Birth-to-dominance probability by distance (Fig. 4E(ii))",
+      "drift_direction": "Not applicable when births are too rare",
+      "secondary_direction": "Lower in all four certified subsets within 20τ; all-birth population unresolved",
+      "status": "Conditional model result",
+      "operational_definition": "For each qualifying birth, measure shortest centroid arc distance from the incumbent minus the incumbent half-width, estimated as excess amount divided by twice the declared plateau height. A takeover requires five consecutive frames of dominance. Report right censoring and a common follow-up horizon; distinguish all births from any subset whose identity is certifiable. The revised model comparison uses a common 20-noise-correlation-time follow-up and pools f > 0.01; these conditioning choices must be separated from the cellular analysis."
+    },
+    {
+      "observable": "Activity/protrusion-heading autocorrelation time",
+      "counterpart": "Heading decay and size exponent (Fig. 4B–D)",
+      "drift_direction": "Longer; approximately size squared only when physical drift is size independent",
+      "secondary_direction": "Size advantage shrinks in the tested models; compare coherence and domain counts",
+      "status": "Conditional hypothesis",
+      "operational_definition": "Define the activity/protrusion vector from the full spatial signal; estimate heading autocorrelation at declared lags with a fixed coherence rule and report excluded pairs. Compare groups at matched analysis lags and observation duration. Keep cell displacement/velocity persistence as a separate observed readout."
+    },
+    {
+      "observable": "Edge displacement after boundary-straddling photoactivation",
+      "counterpart": "Weak deterministic edge response (Fig. 3C)",
+      "drift_direction": "Smaller (Wave-pinning/Goryachev); similar (Holmes/Spring)",
+      "secondary_direction": "Not specified: the pulse assay uses a stable polarized incumbent",
+      "status": "Mechanism probe",
+      "operational_definition": "Apply a weak, brief photoactivation spot centred on a lateral leading-edge boundary, matched in physical width and duration across ploidy groups. Track both edges through relaxation, subtract a no-pulse control, and check half/double amplitudes. A response supports a mechanism only to the extent that its size trend differs among model predictions. At model f = 0.001, largest/smallest pulse-response gains are 0.701 (Wave-pinning), 0.914 (Holmes), 0.989 (Spring), and 0.0878 (Goryachev); these are native-model size contrasts, not numerical cellular fold predictions."
+    }
+  ],
+  "interpretation_notes": [
+    "These are prospective pilot observables and conditional directions, not observed SUM-159 results or a complete statistical preregistration. Sampling, segmentation, physical pulse calibration and group-level inference must be fixed before comparing the experimental groups.",
+    "Birth rates are model dependent: at f = 0.1, identification bounds show an increase with size in Spring and a decrease in Goryachev. Overlapping bounds leave other all-birth trends unresolved. Lower takeover probabilities occur in all four certified subsets at common 20τ follow-up, pooling f > 0.01.",
+    "Activity heading, observed cell migration and OU-fitted velocity memory are distinct readouts. Similar physical edge drift implies a size-squared heading advantage only under the single-domain, coherent-heading and negligible-jump assumptions."
+  ],
+  "limitations": [
+    "No SUM-159 motility data are available in this revision. Directions are prospective and must not be described as confirmed experiments.",
+    "Native model times and f are not calibrated to cells. Event holds measured in frames depend on acquisition cadence; select and report that cadence before comparing experimental groups.",
+    "The compact model records do not identify every birth, split or local plateau height. Model bounds and certified-subset probabilities do not establish the unconditional cellular birth/takeover directions."
+  ]
+}

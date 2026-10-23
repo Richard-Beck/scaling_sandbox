@@ -1,0 +1,16 @@
+{
+  "generated_utc": "2026-10-22T20:40:37.665258+00:00",
+  "records": [
+    {
+      "generated_utc": "2026-10-22T20:40:37.659721+00:00",
+      "batch": 1,
+      "model": "wave_pinning",
+      "seeds": 192,
+      "command": "sbatch --parsable --partition=red --qos=xxlarge --ntasks=1 --cpus-per-task=1 --mem=4G --time=02:00:00 --signal=B:USR1@120 --array=0-95,96-191 --job-name=F4r3-wav-b1 --output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/logs/%A_%a.out --error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/logs/%A_%a.err /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/worker.sh 1",
+      "dry_run": true,
+      "qos_reason": "Burst throughput: independent1CPU4G2h jobs, xxlarge3000CPU/user allowance; red69nodes/4416CPUs and about1TB RAM/node. User permits parallel compute. Initial small-QoS submissions were upgraded separately in qos_burst_upgrade.json."
+    }
+  ],
+  "submitted_seeds": 0,
+  "richard_command": "/home/4473331/.conda/envs/scaling_sandbox/bin/python -B /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/code/mechanisms/figure4_round3_campaign_20261022.py submit --out /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022 --batch 1 --precision /tmp/f4r3_precision_fixture_zq2hw8ub.json"
+}
