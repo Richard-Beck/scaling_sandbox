@@ -1,6 +1,6 @@
 """Integrity, scientific numeric and display checks for the round7 Figure3."""
 from pathlib import Path
-import os,sys,json,hashlib
+import os,sys,json,hashlib,subprocess
 for k in ('OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS'):os.environ[k]='1'
 sys.dont_write_bytecode=True
 import numpy as np,pandas as pd
@@ -50,6 +50,15 @@ def main():
     svg=(OUT/'figure3_round7.svg').read_text();assert all('>'+x+'<' in svg for x in 'ABCDEF')
     assert (OUT/'scientific_readme.md').read_text().startswith('# Unexpected')
     checks['main_formats_one_page_no_supplement_and_letters']=True
+    from matplotlib.mathtext import MathTextParser
+    for eq in section['equations']:MathTextParser('path').parse('$'+eq['math']+'$',dpi=100)
+    assert len(section['measurements'])==3 and len(section['equations'])==2
+    assert 'predicted (isolated front)' in svg and 'fitted (native gains)' in svg and 'fit × measured rise' in svg
+    assert 'than the conduction law predicts' not in ' '.join(section['legend'])
+    checks['review_prediction_fit_labels_assays_and_conditional_conversion']=True
+    changes=subprocess.run(['git','diff','--name-only','f815a87','--',str(DATA.relative_to(ROOT))],cwd=ROOT,text=True,capture_output=True,check=True).stdout.strip()
+    assert not changes,changes
+    checks['scientific_data_unchanged_from_reviewed_commit_f815a87']=True
     out=dict(generated_utc=campaign.source.now(),passed=True,checks=checks)
     campaign.write(META/'validation.json',out)
     provenance['output_hashes']={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in OUT.rglob('*') if p.is_file() and p.suffix!='.log' and p.name!='provenance.json'}

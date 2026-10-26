@@ -16,3 +16,5 @@ environment to run `integrate_round7_20261026.py integrate`,
 `build_figure2_round3_outline_20261022.py --input manuscript_outline/outline_v13.json --output manuscript_outline/outline_v13.pdf`,
 and `integrate_round7_20261026.py validate` (paths are repository relative;
 the integration script is in `polarity1d/manuscript/code/mechanisms/`).
+
+[Claude review, preserved verbatim](../../reviews/claude/20261026_manuscript_round7.md) · [Point-by-point response](claude_response.md) · [Review integrity record](review_preservation.json).

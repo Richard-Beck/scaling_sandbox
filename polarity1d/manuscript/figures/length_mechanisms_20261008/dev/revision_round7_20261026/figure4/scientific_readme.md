@@ -1,6 +1,6 @@
 # Unexpected
 
-The common weak input f = 0.005 lies near the C20 relocation transition in Goryachev but well below it in Wave-pinning and Holmes. Weak input therefore has very different correlation scales across facets. Strong-input activity is not always a single relocating domain; the Wave-pinning examples show a patch field. This figure describes heading persistence and leaves the drift/jump interpretation to Figure5.
+The common weak input f = 0.005 lies near the C20 relocation transition in Goryachev but well below it in Wave-pinning and Holmes. Weak input therefore has very different correlation scales across facets. Strong-input activity is not always a single relocating domain; the Wave-pinning examples show a patch field. At strong input Spring correlation curves nearly coincide. At weak input Goryachev C40 and C60 remain near 1 through the measured window, so their relative rates are unresolved. The strong-input readout is orientation of whole-ring activity imbalance, not persistence of an established polarity domain. This distinction limits the polarity-to-migration interpretation.
 
 ## Evidence and definitions
 
@@ -13,3 +13,9 @@ The three synthetic baselines have α = 2, 0 and −1 by construction. Physical 
 ## Reproduction and provenance
 
 Run `round7_persistence_render_20261026.py --figure4` in the existing scaling_sandbox Python environment. `supporting/metadata/provenance.json` hashes the unchanged source tables and exemplar archives. Data-generation timestamps are stored there. No dropped round6 panels or supplement are generated.
+
+## Prospective cellular assays and predicted signatures
+
+In matched WGD− and WGD+ cells, image full-perimeter polarity activity under matched fluctuating input and measure heading autocorrelation together with first-mode coherence. Classify a coherent single leading region separately from coexisting regions or a low-coherence patch field. The models predict longer coherent heading memory in larger WGD+ cells at weak input; activity-imbalance orientation in a patch field is a separate outcome.
+
+Estimate heading-decorrelation rate against measured perimeter at weak and strong input. Near-quadratic persistence with perimeter is the unchanged-physical-drift baseline (Holmes/Spring-like); a larger weak-input increase paired with smaller physical boundary drift would favour Wave-pinning-like transport resistance. The size advantage should narrow as input strengthens and can become small, as in Spring. These are prospective model-class signatures, not a calibrated prediction of cell-velocity persistence.

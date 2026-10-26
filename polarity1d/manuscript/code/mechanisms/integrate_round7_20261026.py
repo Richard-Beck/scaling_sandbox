@@ -179,8 +179,8 @@ def equations_html(section):
 def integrate():
     baseline = read(BASELINE)
     document = deepcopy(baseline)
-    document.update(date='26 October 2026', stage='Round 7: cytosolic conduction and heading relocations',
-        subtitle='Replacement resistance, conduction-limited response and stochastic polarity persistence')
+    document.update(date='26 October 2026', stage='Size, cytosolic conduction and directional memory',
+        subtitle='Enlargement slows boundary response and extends polarity-heading memory')
     sections = deepcopy(baseline['sections'][:2])
     for n in range(3, 7):
         section = read(FIGURES / f'figure{n}/legend.json')
@@ -197,14 +197,18 @@ def integrate():
     document['sections'] = sections
     document['supplementary'] = []
     document['overview'] = [
-        'Working hypothesis: WGD-associated enlargement changes established polarity with local kinetics held fixed. Length represents enlargement. Published migration motivates this hypothesis; model heading and migration persistence remain distinct readouts.',
-        'Figures 1–2 retain the preceding evidence unchanged. Larger cells require longer fixed-width and proportional-width cues for replacement. Initiation, domain expansion and pulse-train retention distinguish the response mechanisms; censored results and nonmonotone deBelly responses remain qualified.',
-        'Figure 3 separates strong-cue turning from weak boundary response. The conduction test compares exact ring gains with an isolated-front prediction for Wave-pinning, inactive-diffusivity sweeps in Holmes and Spring, and the exceptional steep gain decline in Goryachev. Strong-cue turning times are not inferred from weak-input gain.',
-        'Figure 4 opens with drift and jump baselines, then shows heading correlation and the local size exponent across input strengths. Greater persistence of larger rings is tested against geometry rather than identified with cell movement.',
-        'Figure 5 compares measured drift with deterministic response predictions, tests drift-plus-takeover closure, and displays unfiltered heading-change distributions. Strong-input patch fields and native/fast-cytosol mode rates test whether long-range transfer contributes to persistence; seed uncertainty and discrepancies with the pilots remain explicit.',
-        'Figure 6 is the preceding migration Figure 5, renumbered with its scientific content unchanged. Published migration summaries support greater persistence in enlarged groups, with conditional OU estimates and visible model inadequacy.',
-        'Figure 7 reserves the SUM-159 paired WGD motility assays. No new experimental observations are available. Boundary photoactivation, full-perimeter activity and cytosolic mobility are prospective discriminating measurements, not completed assays.'
+        'WGD-associated enlargement can increase resistance to polarity replacement and directional memory without changing local kinetics. Length represents enlargement. Published migration comparisons support this hypothesis; activity heading, observed migration and conditional OU velocity memory remain distinct readouts.',
+        'Figure 1: larger cells require longer fixed-width and proportional-width cues for lasting replacement in four models; corrected deBelly retains nonmonotone length responses. Figure 2: replacement is approximately 5–12-fold slower from L19 to L39 wherever both lengths resolve. Delayed initiation, domain expansion and pulse-train retention distinguish response signatures.',
+        'Figure 3: fast cytosol removes Wave-pinning’s size-dependent boundary-gain decline. An isolated-front conduction law predicts absolute ring gains within 6.9–8.0% without fitting them. Holmes has a smaller native conduction penalty; Spring combines a small penalty with an intrinsic free-cytosol gain rise. Strong-cue turning slows with size but is not explained by weak-input gain alone.',
+        'Figure 4: weak-input heading persistence increases with size, near the geometric drift expectation in Holmes and Spring and beyond it in Wave-pinning. The advantage narrows with stronger input; Spring’s strong-input curves nearly coincide. Strong-input heading describes the orientation of a whole-ring activity imbalance in a patch field, not necessarily a retained polarity domain.',
+        'Figure 5: three routes organize the weak-input findings: cytosolic-conduction suppression of physical drift in Wave-pinning; nearly unchanged physical drift around a larger perimeter in Holmes and Spring; and candidate jump suppression in Goryachev. At the selected weak input, Goryachev C20 has a narrow core with a lag-growing displacement tail, whereas C60 has no observed large-displacement tail or counted switch. This contrast is consistent with suppressed relocations; its causal link to pool depletion is not established.',
+        'At strong input, fast cytosol lowers Wave-pinning’s heading exponent from 0.72 to 0.21 at f = 0.1 and from 0.41 to −0.03 at f = 0.3, removing the positive size advantage in the latter condition. Holmes’s mode-1 exponent changes much less, 0.82 to 0.74 and 0.24 to 0.16; its residual size effect remains unexplained. Patch density, width and speed retain size dependence, so identical local patch statistics cannot alone explain persistence.',
+        'Figure 6: published enlarged-cell migration combines lower sampled speed or path length with greater late-lag displacement or directness. Conditional OU fits give a pooled velocity-memory fold of about 15.8 despite visible curve-shape limitations; these heterogeneous comparisons do not identify a unique polarity mechanism or isolate enlargement as the cause.',
+        'Figure 7 reserves the SUM-159 paired WGD motility assays, with no observations available. Boundary response, full-perimeter activity and inactive-pool mobility provide discriminating prospective measurements. If isotropic volume doubling raises perimeter 1.26-fold, the geometric drift baseline predicts only about 1.6-fold greater persistence; this does not account for the full conditional migration fold.'
     ]
+    # Remove inherited implementation-status prose without changing migration
+    # artwork, numerical evidence or scientific qualifications.
+    sections[5]['limitations'] = [p.replace('The requested observed-point/model-line and curve-shape display is implemented. ', '') for p in sections[5]['limitations']]
     document['references'] = [r for r in baseline['references'] if 'Claude' not in r.get('label', '') and 'response' not in r.get('label', '').lower()]
     document['references'] += [
         {'label': 'Round-7 brief', 'path': rel(DEST / 'request/brief_round7.md')},
@@ -213,6 +217,8 @@ def integrate():
     ]
     response = DEST / 'claude_response.md'
     if response.exists():
+        document['references'].append({'label': 'Independent review of commit f815a87, preserved verbatim',
+            'path': 'reviews/claude/20261026_manuscript_round7.md'})
         document['references'].append({'label': 'Response to round-7 Claude review', 'path': rel(response)})
     path = ROOT / 'manuscript_outline/outline_v13.json'
     write(path, document)
@@ -273,6 +279,9 @@ environment to run `integrate_round7_20261026.py integrate`,
 and `integrate_round7_20261026.py validate` (paths are repository relative;
 the integration script is in `polarity1d/manuscript/code/mechanisms/`).
 ''')
+    if response.exists():
+        with (DEST / 'README.md').open('a') as stream:
+            stream.write('\n[Claude review, preserved verbatim](../../reviews/claude/20261026_manuscript_round7.md) · [Point-by-point response](claude_response.md) · [Review integrity record](review_preservation.json).\n')
     write(DEST / 'integration.json', dict(generated_utc=now(), baseline_commit='122d306b',
         baseline_json_sha256=sha(BASELINE), baseline_pdf_sha256=sha(BASELINE.with_suffix('.pdf')),
         outline_json_sha256=sha(path), protected_sections=preserved,
@@ -357,13 +366,18 @@ def validate():
     for name in protected:
         original = subprocess.check_output(['git', 'show', f'122d306b:{name}'])
         assert hashlib.sha256(original).hexdigest() == sha(ROOT / name), name
+    review_integrity = DEST / 'review_preservation.json'
+    if review_integrity.exists():
+        review = read(review_integrity)
+        assert sha(ROOT / review['review_path']) == review['sha256']
     write(DEST / 'acceptance.json', dict(generated_utc=now(), passed=True,
         figures1_2_exact_sections=True, sections=7, figure7_reserved=True,
         no_supplement=True, build_input_hashes_verified=True, pdf_pages=len(reader.pages),
         pdf_bounds_and_text_overlap_passed=True, figure3_6_exports_and_readmes_present=True,
         production_noise_seeds=1536, numerical_controls=32, paired_forcing_verified=True,
         raw_heading_histograms=48, all_finite_heading_pairs_retained=True,
-        protected_files_verified_against_base_commit=len(protected)))
+        protected_files_verified_against_base_commit=len(protected),
+        claude_review_hash_verified=review_integrity.exists()))
     print(DEST / 'acceptance.json')
 
 
@@ -406,7 +420,7 @@ deletion. No original scientific outputs were removed.
     if begin in old:
         before, rest = old.split(begin, 1)
         _, after = rest.split(end, 1)
-        path.write_text(before + content + after)
+        path.write_text((before + content + after).rstrip() + '\n')
     else:
         path.write_text(old.rstrip() + '\n\n' + content)
     print(json.dumps(result, indent=2))

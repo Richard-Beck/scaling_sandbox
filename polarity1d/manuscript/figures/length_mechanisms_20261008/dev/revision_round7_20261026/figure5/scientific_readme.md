@@ -4,7 +4,7 @@ At strong input in Goryachev C60, the median |P| is 0.047. The raw phase is ther
 
 ## Raw heading-change method
 
-Every retained compact seed for each displayed condition enters (96–384 seeds). Heading is arg(P). Changes are principal signed differences, so the readout is the shortest wrapped displacement over a lag, not cumulative path length. Physical circumference is averaged between endpoints. There is no |P|, contrast, region-count or track-identity mask. Only nonfinite numerical differences would be excluded, and their counts are exported. Variable physical-width bins are symmetric asinh spaced with scale C×10⁻⁴; centers and bounds are in D_raw_heading_distributions.csv.gz. Density normalization uses all finite pairs and the exact bin widths. Rescaling by √lag changes both coordinates and density. The x-axis symmetric-logarithmic scale preserves signed values and the core.
+Every retained compact seed for each displayed condition enters (96–384 seeds). Heading is arg(P). Changes are principal signed differences, so the readout is the shortest wrapped displacement over a lag, not cumulative path length. Physical circumference is averaged between endpoints. There is no |P|, contrast, region-count or track-identity mask. Only nonfinite numerical differences would be excluded, and their counts are exported. Variable physical-width bins are symmetric asinh spaced with scale C×10⁻⁴; centers and bounds are in D_raw_heading_distributions.csv.gz. Density normalization uses all finite pairs and the exact bin widths. Rescaling by √lag changes both coordinates and density. The linear signed x axis makes the core shape and broad tails visible without the previous logarithmic stretching. All 48 histograms retain every finite pair; no tail was removed to improve visual collapse.
 
 ## Coherence distribution per displayed condition
 
@@ -51,6 +51,18 @@ The following diagnostics use the frozen round6 dominant-track event detector af
 |Goryachev|0.005|60|800|unresolved (zero counted)|0.000|no / unresolved|
 |Goryachev|0.3|20|800|272.6|2.935|yes|
 |Goryachev|0.3|60|800|1090.8|0.733|yes|
+
+## What the raw distributions show
+
+Wave-pinning (weak f = 0.03): the median lag-scaled absolute change grows from about 0.031 to 0.064 at C20 and 0.030 to 0.054 at C60 from τ to 16τ. Its outer width changes less between 4τ and 16τ. There is no full three-lag core collapse.
+
+Holmes (weak f = 0.02): both the scaled core and outer quantiles broaden. The median rises from 0.038 to 0.078 at C20 and 0.054 to 0.096 at C60; the 95th percentile also increases. This panel alone does not resolve a separate relocation tail from the continuously broadening distribution.
+
+Spring (weak f = 0.005): the scaled median increases from 0.0080 to 0.0164 at C1 and 0.0089 to 0.0176 at C3. The outer quantile is nearly stable between 4τ and 16τ, while the core continues to broaden.
+
+Goryachev (weak f = 0.005): at C20, the scaled median remains narrow (0.0177, 0.0198, 0.0137) while the raw probability beyond 1.5 physical units rises from 4% to 13% to 22%. At C60 there is no probability beyond 1.5, median coherence is 0.927 and no takeover is counted. This is consistent with suppression during the observed window, rather than proof that jumps exclusively carry heading loss or a measured shift of the relocation-onset input. No onset-versus-input curve is presented.
+
+At strong f = 0.3, Wave-pinning, Holmes and Spring spread across most of the bounded wrapped-displacement range by 4τ–16τ. Their lag-scaled outer widths then narrow, which reflects bounded angular displacement rather than a Brownian collapse. Goryachev also has broad raw phase changes: C20 approaches the wrapped range by 16τ while C60 continues to spread across lags. The low coherence of strong-input Goryachev C60 prevents identifying those phase changes uniquely as relocations. All statements are descriptive; no pass criterion was imposed. Quantiles and raw fixed-distance tail masses for all 48 displayed histograms are in D_descriptive_lag_quantiles.csv.
 
 ## Drift, α and partial closure
 
@@ -136,3 +148,13 @@ Generated 2026-10-26T14:58:37.682854+00:00. Producer COMPLETE; no timed browser 
 ## Reproduction and provenance
 
 `round7_persistence_20261026.extract()` writes D from frozen compact archives; run it with SLURM for bulk file reads. `round7_persistence_render_20261026.py --figure5` assembles all six panels after the new strong-input campaign analysis completes. Exact compact source paths and hashes are in supporting/metadata/D_compact_sources.csv, indexed by the immutable complete-campaign CSV hash. No dropped round6 panel is reproduced as a supplement.
+
+## Prospective cellular assays and predicted signatures
+
+Apply a weak boundary pulse and track both lateral edges in matched WGD− and WGD+ cells. If input statistics are size independent, the squared WGD+/WGD− ratio of permanent edge displacement per dose predicts the physical drift-diffusivity ratio. Lower common boundary motion in WGD+ would favour Wave-pinning-like drift suppression; similar physical motion with longer heading memory would favour Holmes/Spring-like geometry. Goryachev has a small deterministic edge response but no validated quantitative drift bridge.
+
+Measure raw heading changes at several lags and resolved secondary-region takeovers, reporting coherence alongside both. A narrow high-coherence core with fewer large displacements in WGD+ is consistent with relocation suppression; low-coherence phase changes cannot identify domain jumps. To distinguish Goryachev-like pool depletion from slow drift, combine this with the Figure2 opposite-site first-rise assay: a delayed challenger at the same local input in WGD+ is the predicted depletion signature.
+
+Estimate inactive-pool mobility, for example by FRAP with a diffusion/exchange model, and combine effective diffusivity with perimeter to estimate C/C*. If WGD-associated enlargement moves cells toward the conduction crossover, WGD+ should have smaller edge gain and greater persistence than geometry alone predicts; when C is much smaller than C*, nearly unchanged physical drift and geometric persistence are expected. Mobility/perimeter alone does not establish Goryachev-like competitor suppression; the first-rise assay is also needed.
+
+At strong input, compare full-perimeter Fourier-mode correlations against physical wavenumber, with coherence and activity-field class retained. Increased inactive mobility is predicted to raise the low-wavenumber rates preferentially and reduce the Wave-pinning-like size advantage. The Holmes perturbation reduces its strong-input mode-1 exponent by about 0.08; a substantial mode-1 size effect remains and is unexplained. These tests concern orientation of whole-ring activity imbalance and do not assume a cell-velocity law.
