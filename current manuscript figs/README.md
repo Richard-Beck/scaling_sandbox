@@ -1,3 +1,14 @@
+<!-- round7-current-edition -->
+# Size, conduction and polarity persistence
+
+[**Current outline_v13**](../manuscript_outline/outline_v13.pdf) · [**Figures 1–6 with legends**](../manuscript_outline/revision_round7_20261026/figures1_6_with_legends.pdf) · [**Reader and methods**](../manuscript_outline/revision_round7_20261026/index.html).
+
+Figures 1–2 are unchanged. Figures 3–5 test cytosolic conduction, boundary
+response, drift and heading relocations. Published migration is renumbered
+Figure 6; paired WGD experiments remain reserved as Figure 7.
+
+<!-- round7-current-edition end -->
+
 <!-- round6-current-edition -->
 # Spatial susceptibility and heading persistence
 

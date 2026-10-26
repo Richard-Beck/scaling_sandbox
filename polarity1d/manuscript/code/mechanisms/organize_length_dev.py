@@ -13,6 +13,10 @@ REPORT=ROOT/'figures/length_mechanisms_20261008'
 DEV=REPORT/'dev'
 RECORDS=DEV/'_organization'
 GROUPS={
+ 'revision_round7_20261026/figure3':('figure3_round7_', 'figure3_conduction_20261026'),
+ 'revision_round7_20261026/figure4':('figure4_round7_',),
+ 'revision_round7_20261026/figure5':('figure5_round7_',),
+ 'revision_round7_20261026/figure6':('figure6_round7_', 'figure6B_detail_round7_'),
  'revision_round6_20261023/figure1':('figure1_round6_',),
  'revision_round6_20261023/figure2':('figure2_round6_',),
  'revision_round6_20261023/figure3':('figure3_round6_',),
@@ -98,6 +102,10 @@ TITLES['revision_round6_20261023/figure1']='Figure 1 separate cue, profile and o
 TITLES['revision_round6_20261023/figure2']='Figure 2 separate organization and biosensor panels'
 TITLES['revision_round6_20261023/figure3']='Figure 3 susceptibility maps and spatial sources of drift'
 TITLES['revision_round6_20261023/figure4']='Figure 4 domain diagnostics and Fourier-mode tests'
+TITLES['revision_round7_20261026/figure3']='Figure 3 boundary response and cytosolic conduction'
+TITLES['revision_round7_20261026/figure4']='Figure 4 heading persistence against drift and jump baselines'
+TITLES['revision_round7_20261026/figure5']='Figure 5 drift, relocations and strong-input transport'
+TITLES['revision_round7_20261026/figure6']='Figure 6 preserved migration observations and conditional OU interpretation'
 TITLES['revision_round2_20261022/figure3']='Figure 3 round-2 short-range separation and matched-gap size effects'
 TITLES['revision_round2_20261022/figure4']='Figure 4 round-2 heading decay rates: author-authorized Case A'
 TITLES['figure4_region_model_20261022']='Figure 4 observable-region model: native Wave-pinning pilot'

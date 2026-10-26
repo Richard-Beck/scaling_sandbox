@@ -566,3 +566,24 @@ remain preserved; their dated inventory entries still apply.
 [Machine-readable measurement](reports/round6_storage_20261023.json).
 
 <!-- round6-storage-20261023 end -->
+
+<!-- round7-storage-20261026 begin -->
+
+## Round 7 conduction and heading mechanisms, 26 October 2026
+
+Measured **2026-10-26T15:04:39.361380+00:00** using allocated storage
+(`du -sx -B1`). This targeted non-atomic traversal updates the named groups;
+earlier whole-workspace totals remain historical. Inventory does not authorize
+deletion. No original scientific outputs were removed.
+
+| Path / related group | Measured allocated storage | Purpose and scientific status |
+| --- | ---: | --- |
+| `polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026` | 1.606178 GiB (1,724,620,800 bytes) | Round-7 Figures 3–6, complete conduction and paired strong-input noise experiments, retained restart/frozen sources, compact histories, source CSVs and provenance. Original scientific data preserved. |
+| `manuscript_outline/revision_round7_20261026` | 0.007515 GiB (8,069,120 bytes) | Round-7 request, integrated figure-and-legend PDF, reader, acceptance and review response. |
+| `manuscript_outline/outline_v13.pdf` | 0.006958 GiB (7,471,104 bytes) | Integrated seven-section outline; Figures 1–2 protected, migration renumbered to Figure 6, Figure 7 reserved; no supplement. |
+| `.git` | 3.288239 GiB (3,530,719,232 bytes) | Versioned manuscript source, deliverables, compact campaign evidence and repository history. This is not an independently verified external backup. |
+
+[Machine-readable measurement](reports/round7_storage_20261026.json). The campaign manifests and seed-level status records distinguish execution completion from statistical precision.
+
+<!-- round7-storage-20261026 end -->
+

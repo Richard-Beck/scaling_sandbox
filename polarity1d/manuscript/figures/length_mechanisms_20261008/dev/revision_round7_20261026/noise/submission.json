@@ -1,0 +1,17 @@
+{
+  "created_utc": "2026-10-26T14:49:07.195751+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--job-name=r7_noise",
+    "--qos=xxlarge",
+    "--cpus-per-task=1",
+    "--mem=2G",
+    "--time=02:00:00",
+    "--array=0-1551",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/noise/logs/%A_%a.out",
+    "--error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/noise/logs/%A_%a.err",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/noise/worker.sh"
+  ],
+  "job_id": "21368953"
+}

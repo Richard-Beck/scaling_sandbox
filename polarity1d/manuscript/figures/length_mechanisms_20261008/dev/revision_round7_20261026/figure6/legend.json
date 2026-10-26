@@ -1,0 +1,84 @@
+{
+  "id": "figure6",
+  "title": "Figure 6. Published migration summaries support a persistence hypothesis with conditional OU interpretation",
+  "role": "Existing empirical support, with observed migration summaries kept separate from fitted velocity-memory parameters.",
+  "assets": [
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure6/figure6_round7.png",
+      "caption": "Reassembled Figure 6: original A and C–F numerical evidence, revised MSD/curve-shape panel B.",
+      "page_size": [
+        17.544600694444444,
+        13.157692708333334
+      ],
+      "page_title": "",
+      "minimum_printed_width_inches": 0,
+      "native_pdf_page": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure6/figure6_round7.pdf"
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure6/figure6B_detail_round7.png",
+      "caption": "Figure 6B continued: enlarged detail with explicit raster-sample caveat.",
+      "page_size": [
+        6.9736666666666665,
+        6.021690755208334
+      ],
+      "page_title": "",
+      "minimum_printed_width_inches": 0,
+      "native_pdf_page": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure6/figure6B_detail_round7.pdf"
+    }
+  ],
+  "legend": [
+    "A, Published/digitized enlarged or polyploid-group to reference-group ratios for nine migration summaries, alongside primary Ornstein–Uhlenbeck (OU) fit predictions. Xuan contributes sampled mean speed and population mean-squared displacement (MSD) at the last shared lag, approximately 10.95 h; Hosny summaries are group medians. Mallin central-bar statistic is not specified by the source and retains the historical mean approximation. These distinct source summaries are not interchangeable measures of persistence.",
+    "B, Upper: twelve chosen display samples from each digitized Xuan population MSD curve (small points) and the unchanged fitted analytical OU expectation (solid lines), on logarithmic lag and MSD axes. These are samples of the published raster curves, not recovered experimental lag positions or independent cell observations; the original experimental lag grid is unknown. The open circle identifies the crossover of the full digitized traces at approximately 2.32 h, computed by linear interpolation in native lag and MSD. The open diamond identifies the different fitted OU crossover at approximately 1.11 h. Lower: descriptive slopes of log(MSD) versus log(lag) fitted in six equal log-lag windows of the full digitized curves (points), and matching-window moving OU slopes (solid lines). Each window spans approximately 0.304 decades; both observed and model slopes use the same full window support. Observed raster columns remain correlated and give no biological sample size or confidence interval. These slopes are newly calculated curve-shape summaries, not author-reported local exponents or fitted OU memory times. A constant power-law exponent would appear horizontal; reference values 1 and 2 indicate diffusive and straight-line scaling. The model does not reproduce the complete observed curvature or the observed crossover. The analytical fit, all fitting targets and numerical inputs to A and C–F are unchanged.",
+    "C, Representative Xuan primary-fit model-generated tracks, with sampled speed, total path length and directness (net displacement divided by path length). Both groups use identical spatial scales. The tracks are simulations, not published individual-cell trajectories; a slower sampled trajectory can nevertheless have greater endpoint directness. Dashed chords illustrate the contribution of finite-time displacements.",
+    "D, With reference-group parameters fixed, vary enlarged-group persistence and velocity-noise ratios. Separate surfaces show change in the descriptive data-misfit score and in the total regularized objective; the selected fit and equal-group reference are marked. The heuristic score is not a calibrated likelihood, and the surfaces are not confidence regions.",
+    "E, Primary paired persistence and velocity-noise estimates for Xuan 2018, Mallin 2023, Jemaà 2017, Jemaà 2023 and the Hosny hypoxic baseline. F, Enlarged/reference persistence folds under the primary 10-minute prior, 5- and 20-minute alternatives and stronger/weaker pooling, with the pooled geometric mean. Priors and pooling define conditional sensitivity scenarios, not uncertainty intervals. The Jemaà comparisons constrain speed alone, leaving persistence/noise tradeoffs dependent on hierarchy and priors.",
+    "The fitted population contrasts span stable tetraploids, giant polyploids and treatment-induced polyaneuploid cancer cells (PACCs). The inherited WGD+/WGD− labels in the artwork are comparison shorthand and do not establish matched WGD-only interventions in every study. Hosny observations derive from the recovered preprint; equivalence to the journal version remains unresolved."
+  ],
+  "narrative": [
+    "Xuan combines lower sampled speed (0.64-fold) with greater late-lag population MSD (2.08-fold); Mallin combines shorter path length (0.52-fold) with greater directness (3.12-fold). Persistence-related behaviour therefore deserves analysis separately from speed.",
+    "Hosny baseline PACCs have greater median path length (1.77-fold) and directness (1.67-fold). Signed migration index is a separate directional summary.",
+    "All five primary OU comparisons infer longer velocity memory. The pooled primary persistence fold is about 15.8, and remains above one across the declared prior/pooling scenarios; this is a conditional model result.",
+    "The fit does not reproduce the complete Xuan curve shape within its raster envelope, and data-only sensitivity has rank 18 of 22. Optimization completion does not establish model adequacy or uniquely identified persistence times.",
+    "The observed Xuan curves cross near 2.32 h while the unchanged fitted OU curves cross near 1.11 h. Matched-window slopes make the remaining curve-shape discrepancy visible; fitted persistence is a conditional summary.",
+    "Lower sampled speed can coexist with greater late-lag displacement in the enlarged-group comparison. Its causal connection to polarity mechanisms requires matched activity and migration measurements."
+  ],
+  "measurements": [
+    "The new WGD assay should measure matched trajectories directly, with declared sampling and observation duration, and assess speed, displacement, directness and lag-dependent MSD before considering fitted persistence. An activity-polarity memory measurement would complement these quantities without equating activity and velocity."
+  ],
+  "limitations": [
+    "Neither these heterogeneous group comparisons nor the OU fits establish that enlargement alone causes persistence. Cell identity, induction/treatment and acquisition differences require explicit treatment in the new experiments.",
+    "The requested observed-point/model-line and curve-shape display is implemented. The original experimental lag grid remains unknown; neither display samples nor raster-derived slopes supply independent biological replicates. The observed/model crossover discrepancy remains visible."
+  ],
+  "sources": [
+    {
+      "label": "Refined OU analysis",
+      "path": "wgd_langevin/refined_ou_20261003/README.md"
+    },
+    {
+      "label": "Original panel legend",
+      "path": "wgd_langevin/refined_ou_20261003/figures/main_03_migration_OU_caption.md"
+    },
+    {
+      "label": "Observed folds",
+      "path": "wgd_langevin/refined_ou_20261003/figures/main_03_observation_folds.csv"
+    },
+    {
+      "label": "Fit results and adequacy",
+      "path": "wgd_langevin/refined_ou_20261003/results/RESULTS.md"
+    },
+    {
+      "label": "Hosny sensitivity supplement",
+      "path": "wgd_langevin/refined_ou_20261003/figures/supp_04_Hosny_sensitivity.png"
+    },
+    {
+      "label": "Migration display and preserved-input provenance",
+      "path": "manuscript_outline/assets/migration_v2/provenance.json"
+    },
+    {
+      "label": "Migration display numerical and preservation checks",
+      "path": "manuscript_outline/assets/migration_v2/validation.json"
+    }
+  ],
+  "reader": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure6/scientific_readme.md",
+  "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure6/figure6_round7.pdf"
+}

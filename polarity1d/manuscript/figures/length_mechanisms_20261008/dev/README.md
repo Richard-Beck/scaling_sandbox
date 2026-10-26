@@ -50,5 +50,9 @@ Each folder contains its PNG previews and related supporting vectors, data, capt
 - [Figure 2 separate organization and biosensor panels](revision_round6_20261023/figure2/README.md)
 - [Figure 3 susceptibility maps and spatial sources of drift](revision_round6_20261023/figure3/README.md)
 - [Figure 4 domain diagnostics and Fourier-mode tests](revision_round6_20261023/figure4/README.md)
+- [Figure 3 boundary response and cytosolic conduction](revision_round7_20261026/figure3/README.md)
+- [Figure 4 heading persistence against drift and jump baselines](revision_round7_20261026/figure4/README.md)
+- [Figure 5 drift, relocations and strong-input transport](revision_round7_20261026/figure5/README.md)
+- [Figure 6 preserved migration observations and conditional OU interpretation](revision_round7_20261026/figure6/README.md)
 
 [Reversible cleanup records](_organization/) preserve the original paths and metadata. After regenerating exports, run `python polarity1d/manuscript/code/mechanisms/organize_length_dev.py` from the repository root. Current renderers write directly into these experiment folders; the organizer also collects outputs from frozen older entry points.

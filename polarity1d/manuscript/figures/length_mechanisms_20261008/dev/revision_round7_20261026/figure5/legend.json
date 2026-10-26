@@ -1,0 +1,59 @@
+{
+  "id": "figure5",
+  "title": "Figure 5. Physical drift, raw heading changes and cytosolic transport constrain the persistence mechanism",
+  "role": "Native polarity-heading persistence and mechanistic comparisons",
+  "assets": [
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure5/figure5_main.png",
+      "native_pdf_page": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure5/figure5_main.pdf",
+      "page_size": [
+        16,
+        23.5
+      ],
+      "minimum_printed_width_inches": 16,
+      "page_title": ""
+    }
+  ],
+  "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure5/figure5_main.pdf",
+  "legend": [
+    "Weak-input physical drift is suppressed beyond the geometric baseline in Wave-pinning, while drift predictions fail quantitatively for Goryachev. Raw heading distributions and strong-input patch statistics expose the limits of treating every change as translation of one coherent domain.",
+    "A, Physical drift diffusivity Ds relative to the smallest ring at the same f, against relative circumference. Solid curves and circles are retained native trajectory estimates; dotted curves are the deterministic susceptibility prediction with shared translation and full input covariance. All designed f ≤ 0.01 with multiple-domain fraction ≤ 0.05 enter; color intensity indexes f (10⁻⁴–10⁻²). Vertical bars are retained seed-bootstrap 95% CIs. The geometric null is 1. Goryachev has no qualified drift bridge and is explicitly unavailable here, rather than treated as a drifting domain.",
+    "B, Predicted versus observed local α, pooled over eligible f ≤ 0.01, with a single circle symbol throughout and model color. Prediction comes from deterministic native susceptibility and the same adjacent-size neighborhoods as the observed α; no noisy-data fitting or pooling average is applied. Vertical bars are observed seed-bootstrap 95% CIs; the diagonal is equality. Eligibility requires a defined native mean state, linear-response validation, resolved observed α and neighborhood multiple-domain fraction ≤ 0.05. Goryachev contributes no eligible point, a quantitative failure retained in B_alpha_bridge.csv.",
+    "C, Drift plus counted takeover angular loss divided by observed heading decorrelation, at every designed input and size. For each counted takeover whose angle is unavailable, 1 − cos(Δθ) is bounded independently in [0,2]. Vertical segments span the resulting partial-identification interval, not a confidence interval; circles mark its geometric midpoint when positive finite endpoints exist. Gray band is 0.85–1.15. Open triangles with arrows show one-sided intervals or portions extending past the displayed range. Light to dark denotes C20–C60 (Spring 1–3). Missing observed rates cannot supply a ratio. If drift is missing its nonnegative lower bound can be used, but the upper limit is unbounded.",
+    "D, Raw heading-change probability density at lags τ (blue solid), 4τ (brown dashed) and 16τ (black dotted), with no coherence, contrast or track-identity cut. Weak input near the C20 transition is f = 0.03, 0.02, 0.005 and 0.005 in Wave-pinning, Holmes, Spring and Goryachev; strong input is f = 0.3 for all. Facets separate model, input and C20/C60 (Spring 1/3). Signed Δθ is the principal difference in arg(P), and physical displacement is mean endpoint circumference × Δθ/(2π). Binning is in physical displacement before x and probability density are transformed by 1/√lag and √lag respectively. The signed x axis is symmetric-logarithmic to reveal the narrow core and broad tails; y is logarithmic. τ = 50, Spring 5, in native time units. Zero-count bins are omitted without a pseudocount. All retained 96–384 independent seeds per condition enter. Collapse is descriptive, not a test passed by the data; broad tails can also reflect weak first-mode coherence or overlapping relocations.",
+    "E, Strong native input produces a Wave-pinning patch field with approximately extensive patch count and residual size dependence in local statistics. Top facets show the first 2000 recorded time units after burn-in at input fraction 0.3, C20/C40/C60, seed 0; grayscale is native active concentration from 0 to 1.5. Lower facets show mean patch density (count divided by circumference), mean physical patch width, and RMS physical patch speed at input fractions 0.1 and 0.3. Patches exceed active concentration 0.65 and span at least 10 native grid cells. Speed is centroid displacement divided by the 5-unit frame interval, between mutually best overlapping regions; unmatched and ambiguous comparisons are excluded. Points are means across 64 independent seeds with 95% seed-bootstrap intervals; widths and matched speeds first pool samples within each seed. Checks at thresholds 0.55 and 0.75 retain the observed directions of size dependence and are documented in the scientific readme. No birth or death statistic is inferred.",
+    "F, Faster cytosolic diffusion changes the low-wavenumber Wave-pinning mode rates. The plotted rate γ(q) comes from each seed's normalized autocorrelation of the complex Fourier coefficient aₙ(t), defined below, at the sampled lag nearest correlation 0.5; q = 2πn/C. Modes 1–16 are shown when every seed resolves a rate beyond the 5-unit frame interval. Native inactive diffusivity 10 is solid; fast diffusivity 1000 is dashed; C20/40/60 follow a light-to-dark ramp. Each point is the geometric mean across 64 seeds; shading gives 95% percentile seed-bootstrap intervals. Open upward triangles with arrows mark first-lag resolution bounds. Fast-cytosol runs alter only inactive diffusivity and are mechanism tests. The native-minus-fast mode-1 size exponent is 0.544 [0.500, 0.592] at input fraction 0.1 and 0.438 [0.425, 0.452] at 0.3; brackets are 95% paired-seed bootstrap intervals across the three sizes. The Holmes pilot check gives smaller but resolved differences, 0.081 [0.046, 0.117] and 0.081 [0.076, 0.086], respectively.",
+    "Physical polarity drift, counted track switching, raw activity heading, complex Fourier-mode relaxation and migration velocity memory are distinct quantities. Fast inactive diffusion is a mechanistic perturbation; all native comparisons retain native local kinetics."
+  ],
+  "narrative": [
+    "Wave-pinning drift falls below unchanged-physical-drift geometry and broadly follows deterministic susceptibility. Holmes and Spring sit closer to size-independent physical drift; Goryachev has no qualified drift bridge.",
+    "Raw heading distributions are presented at three lags without a coherence cut. Their interpretation is constrained by broad low-coherence phase changes and by lags that overlap counted relocations.",
+    "Strong-input patch-field and mode-rate experiments test inactive-pool transport without changing the native main-comparison kinetics."
+  ],
+  "measurements": [
+    "Proposed cellular assays measure full-perimeter polarity activity, coherence, boundary displacement and cytosolic-pool mobility in matched WGD− and WGD+ cells. These assays are prospective; no experiment is inferred from the model trajectories."
+  ],
+  "limitations": [
+    "Collapsing lag-rescaled distributions is a descriptive drift signature; a noncollapsing tail is not uniquely a track relocation, especially when |P| is small.",
+    "The largest lag can be comparable with or exceed the typical counted-switch interval. Zero detected switches do not prove a long biological waiting time.",
+    "C contains detector-conditioned counted events and partial-identification intervals; it is not an exhaustive causal decomposition or a confidence bound.",
+    "Native model reference doses, length units and time units are not experimentally calibrated across models."
+  ],
+  "sources": [
+    {
+      "label": "Main source data and definitions",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure5/scientific_readme.md"
+    },
+    {
+      "label": "Exact source hashes and generation time",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure5/supporting/metadata/provenance.json"
+    }
+  ],
+  "equations": [
+    {
+      "number": "5.1",
+      "math": "a_n(t)=\\frac{1}{C}\\int_0^C u(s,t)e^{-i q_n s}\\,\\mathrm{d}s,\\qquad q_n=\\frac{2\\pi n}{C}",
+      "description": "Complex spatial Fourier coefficient of active concentration u on a ring of physical circumference C; n is the integer mode index and qₙ its physical wavenumber."
+    }
+  ]
+}

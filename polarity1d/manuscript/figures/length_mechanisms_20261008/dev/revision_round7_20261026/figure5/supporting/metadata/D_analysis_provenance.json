@@ -1,0 +1,22 @@
+{
+  "generated_utc": "2026-10-26T14:54:28.442837+00:00",
+  "input_sha256": {
+    "polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/results/compact_index.csv": "a8e9364300e8c67254398ad4eb80eece5f67f5af93e50a099bdd0d044066a7b9"
+  },
+  "source_count": 3264,
+  "coherence_gate": "none",
+  "contrast_gate": "none",
+  "heading": "arg(P), signed principal difference in (-pi,pi]",
+  "physical_displacement": "mean endpoint circumference × principal heading difference / (2pi)",
+  "histogram": "600 symmetric asinh-spaced physical displacement bins from -2 nominal C to +2 nominal C (covers instantaneous Spring circumference), asinh scale C*1e-4; transform x by 1/sqrt(lag), density by sqrt(lag)",
+  "lags": "tau,4tau,16tau",
+  "weak_inputs": {
+    "wave_pinning": 0.03,
+    "holmes_model3": 0.02,
+    "spring_ring": 0.005,
+    "goryachev": 0.005
+  },
+  "strong_input": 0.3,
+  "selection": "all retained complete seeds; no seed selection",
+  "nonfinite": "only nonfinite numeric differences excluded; count retained per condition"
+}

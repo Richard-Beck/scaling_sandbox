@@ -1,0 +1,31 @@
+{
+  "generated_utc": "2026-10-26T14:58:37.682854+00:00",
+  "producer_state": "COMPLETE",
+  "production_jobs": 1536,
+  "control_jobs": 32,
+  "seeds_per_condition": 64,
+  "all_jobs_complete": true,
+  "paired_noise_hash_checks": 768,
+  "paired_noise_hashes_identical": true,
+  "source_manifest_sha256": "326709d0efa3e16dd6d00a693699305aa3fd49f2821f2a44c5224bd585b2a514",
+  "worker_sha256": "f4541e07354121b2f770153797741ad0333344979484afdc778be8ff72e7f4ce",
+  "max_relative_pool_error": 2.8725352140155906e-12,
+  "minimum_concentration": 0.0007006025962344739,
+  "inference": "10000 percentile seed-block bootstrap draws; seed block paired across all three sizes and native/fast diffusion; rates geometric-mean across seeds",
+  "rate_definition": "For each seed, uncentered normalized temporal autocorrelation of complex Fourier coefficient, lag nearest0.5 before first crossing; gamma=-log(correlation)/lag. First-lag crossing is marked below frame resolution.",
+  "mode_convention": "a_n=mean_x[u(x,t) exp(-2pi i n x/C)], q=2pi n/C; n1 phase defines heading. Heading ACF uses a1/abs(a1), no coherence cut.",
+  "patch_convention": "Above-threshold contiguous periodic components of at least10cells; width physical arc; speed signed centroid displacement/5 between mutual-best-overlap matches; RMS pooled within seed, then mean across64seeds; ambiguous unmatched changes excluded.",
+  "numerical_control": "Four paired seeds per model and D at C40 f0.1 and0.3 dt0.025 vs0.05; same frozen forcing; physical dx0.05 native periodic finite differences.",
+  "spatial_limitation": "Native dx=.05 retained; no stochastic mesh-refinement campaign was performed. Bootstrap intervals do not include spatial-discretization or estimator systematic uncertainty.",
+  "seed_mode_censoring_counts": {
+    "resolved": 24576
+  },
+  "input_file_hashes": {
+    "inputs/wave_pinning_C20.npz": "1cabdbf7eea83c9948fd7ea24b745072174abe712af96212d6d5942ed2e80763",
+    "inputs/wave_pinning_C40.npz": "83cfbfcbe09748ea48e0ccb5c4c05bb22fad319f692a21d3a23443084e737159",
+    "inputs/wave_pinning_C60.npz": "ae2eb910e28e1945cf6fd6c49e0da79b65d55800d763a54a2072f071b14eb2e5",
+    "inputs/holmes_model3_C20.npz": "dda1972ef1d5187374f019f9f4c97bd5def6185f6761881b68de2e1277d2f9c8",
+    "inputs/holmes_model3_C40.npz": "ce127dc44526d91c01b874462569789d9336a4f6f3190564e517388a5b72696e",
+    "inputs/holmes_model3_C60.npz": "618084daf6b9fbbe4989caf1c23163a6575c968d49fe6e4888f0e693a53c302b"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "figure4",
+  "title": "Figure 4. Larger cells maintain heading longer under fluctuating input",
+  "role": "Native polarity-heading persistence and mechanistic comparisons",
+  "assets": [
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure4/figure4_main.png",
+      "native_pdf_page": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure4/figure4_main.pdf",
+      "page_size": [
+        16,
+        21.5
+      ],
+      "minimum_printed_width_inches": 16,
+      "page_title": ""
+    }
+  ],
+  "main_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure4/figure4_main.pdf",
+  "legend": [
+    "Larger native rings retain heading longer under fluctuating input, with the largest size exponents in the weak-input regime. The baseline examples distinguish geometric persistence from a size-dependent change in physical dynamics.",
+    "A, Synthetic activity kymographs for a single drifting peak, same-rate random relocations and relocations whose rate scales with circumference, at C20 and C60. Position is relative arc length; grayscale denotes activity from 0 (white) to 1 (black). Time increases upward. These pedagogical baselines have no biochemical kinetics.",
+    "B, Heading correlation in the same three baselines, from 1000 seeds; solid and dashed lines indicate C20 and C60, dotted lines the analytic curves. A fixed physical drift diffusivity gives k proportional to C⁻² (α = 2); size-independent jumps give α = 0, and jumps per unit perimeter give α = −1. The same-rate curves coincide.",
+    "C, Native-model heading correlation at common weak f = 0.005 and strong f = 0.3, for C20, C40 and C60 (Spring 1, 2 and 3). Size is a light-to-dark grayscale ramp within each facet. Shading is the 95% confidence interval from 2000 seed-bootstrap resamples of the complete retained native histories, recomputed on a dense early-lag grid. Weak-input facets show 0–320τ; strong-input facets show 0–12τ, Goryachev 0–80τ, to resolve their different correlation scales. τ = 50 native time units, Spring 5. Heading correlation is the mean cosine of the change in arg(P), where P is the first Fourier activity moment divided by total activity. These retained round6 estimates require |P| ≥ 0.1 at both lag endpoints; their coverage is in condition_lag_metrics.csv. They differ from the ungated distributions in Figure5D.",
+    "D, Native Wave-pinning examples at f = 0.005 and 0.3 and C20, C40 and C60, selected as replicate 0 without a seed search. Every panel shows the entire retained post-burn-in interval 16000–32000, on relative arc position. Activity scales are common across sizes at each input; the color bars state the separate weak- and strong-input ranges. Weak input mainly shifts a coherent domain; strong input produces a changing patch field. The kymographs are illustrative, not an event classification.",
+    "E, Local α, the negative fitted slope of log heading-decorrelation rate against log circumference in adjacent-size neighborhoods, against mean input f. Lines are size neighborhoods centered on C20, C30, C40, C50 and C60 (Spring 1, 1.5, 2, 2.5 and 3); light to dark follows size. Vertical bars are seed-bootstrap 95% CIs. Missing estimates interrupt curves. Horizontal guides are α = 2, 0 and −1. Native f multiplies reference input 0.1, 1, 4 and 6.4 in Wave-pinning, Holmes, Spring and Goryachev respectively; doses and clocks are not calibrated across models.",
+    "All simulations reuse the complete, frozen round6 compact campaign (96–384 independent seeds per condition). Local kinetics, basal preparations and solver outputs are unchanged. α and activity-heading persistence are model observables, distinct from migration persistence or fitted OU velocity-memory parameters."
+  ],
+  "narrative": [
+    "Geometry alone increases heading persistence when a domain has unchanged physical drift. Size-independent random jumps do not provide that increase.",
+    "At common weak and strong inputs, the displayed native heading correlations decay more slowly for larger rings, conditional on the stated coherence eligibility.",
+    "Weak-input size exponents are near the drift baseline in Holmes and Spring and exceed it in Wave-pinning where resolved. The advantage narrows as input strengthens; unavailable estimates and their reasons remain in the compact source tables."
+  ],
+  "measurements": [
+    "Proposed cellular assays measure full-perimeter polarity activity, coherence, boundary displacement and cytosolic-pool mobility in matched WGD− and WGD+ cells. These assays are prospective; no experiment is inferred from the model trajectories."
+  ],
+  "limitations": [
+    "The common f values compare model regimes, not matched biochemical receptor stimulation; native clocks and Spring length units remain model specific.",
+    "Autocorrelation in C uses the original |P| ≥ 0.1 endpoint eligibility mask and is conditional on retained coherence; Figure5D exposes raw headings without that mask.",
+    "Kymographs do not establish that every heading change is a discrete relocation. Strong-input patch fields can have small first-mode coherence.",
+    "Seed-bootstrap intervals reflect the simulated seed ensemble and do not calibrate biological variation."
+  ],
+  "sources": [
+    {
+      "label": "Main source data and definitions",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure4/scientific_readme.md"
+    },
+    {
+      "label": "Exact source hashes and generation time",
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure4/supporting/metadata/provenance.json"
+    }
+  ],
+  "equations": []
+}

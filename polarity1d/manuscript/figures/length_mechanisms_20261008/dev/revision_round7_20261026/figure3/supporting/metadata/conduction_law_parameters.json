@@ -1,0 +1,42 @@
+{
+  "models": [
+    {
+      "model": "wave_pinning",
+      "C_star": 76.27832990742951,
+      "theta": 0.3074913982245136,
+      "kappa": 1.2814897940314727,
+      "delta_u": 0.9608498455298515,
+      "lambda_push": 5.304509754547156,
+      "D_native": 10,
+      "fit": "isolated-front prediction 2 D/(kappa delta_u theta(1-theta)); theta from stationary native ring; no ring gain fit"
+    },
+    {
+      "model": "holmes_model3",
+      "C_star": 403.45248735637216,
+      "apparent_native_C_star": 403.45248735637216,
+      "penalty_C_star": 469.0553907681582,
+      "native_inverse_gain_intercept": 2.069887756380536,
+      "native_inverse_gain_slope": 0.0051304374647520535,
+      "beta": 0.10659721854622857,
+      "D_native": 50.0,
+      "fit": "Holmes plotted C*: native inverse-gain intercept/slope over five sizes; diffusivity penalty fit retained separately",
+      "D_reference": 5000.0,
+      "n": 25,
+      "rms_penalty_error": 0.01943248989675628
+    },
+    {
+      "model": "spring_ring",
+      "C_star": 49.00249637375862,
+      "apparent_native_C_star": 142.29936424193147,
+      "penalty_C_star": 49.00249637375862,
+      "native_inverse_gain_intercept": 3.25404090091868,
+      "native_inverse_gain_slope": 0.022867571603386046,
+      "beta": 0.20407123595758503,
+      "D_native": 10.0,
+      "fit": "Spring plotted transport C*: through-origin G(Dmax,C)/G(D,C)-1 against C/D over D>=1; apparent native inverse-gain crossover retained separately",
+      "D_reference": 1000.0,
+      "n": 20,
+      "rms_penalty_error": 0.034153841020945166
+    }
+  ]
+}

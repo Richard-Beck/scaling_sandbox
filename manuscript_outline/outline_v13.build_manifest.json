@@ -1,0 +1,951 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-26T15:02:55+00:00",
+  "document_stage": "Round 7: cytosolic conduction and heading relocations",
+  "title": "Cell enlargement, polarity competition and migration persistence",
+  "pdf": {
+    "path": "manuscript_outline/outline_v13.pdf",
+    "bytes": 6417316,
+    "sha256": "f0bf75732a6145bd1232825317d7d0d15f40f9d5f0b2ce99bf93667425048679",
+    "pages": 29
+  },
+  "inputs": [
+    {
+      "path": "author/vision.md",
+      "bytes": 1450,
+      "sha256": "8bd8f8ac4122decacbd2903e16256a030db5a97f78363d78ed70715251d8f25e",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "docs/tasks/29_10_19_revision_program.md",
+      "bytes": 4324,
+      "sha256": "4454ebe58b6abb20e63cba23d494bb265f679dd27bb9d23401e9d85fc4d11dff",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "docs/tasks/briefs/20261020_figure2_signature_assays.txt",
+      "bytes": 7837,
+      "sha256": "c6457cd52307dac5314a069ea49ad2d4e10a1b20cef6f4c3a553ed093878fd4d",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "docs/tasks/briefs/20261020_figure3_distance_competition.txt",
+      "bytes": 6427,
+      "sha256": "1435a36922571567d8372aa15dc9076bed443e8c7831a6ecbec6650fd3bc93e4",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "docs/tasks/briefs/figure_4.txt",
+      "bytes": 12273,
+      "sha256": "a76c60e07ee3800bff86a085eb613303b4e4440452c2cba6efde611f3a5ebec7",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "literature_review/migration_data/studies.csv",
+      "bytes": 2339,
+      "sha256": "c935bde0ffae2edc8e2d6b2522f00650c373a5bbd8c76b244662414ee8898c18",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "manuscript_outline/PORTABLE_MECHANISM_RENDER.md",
+      "bytes": 3093,
+      "sha256": "e87e72baa05e3233c7d2d9ba0c6d4aac0404870d28a8746f583655de319d638e",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "manuscript_outline/REVISION_NOTES.md",
+      "bytes": 6070,
+      "sha256": "331cfd5311e4f0c2dfae08feaf0fef2f0a5e43b139ed6796f1d556bd97e1410a",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "manuscript_outline/assets/migration_v2/provenance.json",
+      "bytes": 8865,
+      "sha256": "70e6bb83812cb2529c76242e6f2802a7a9ba28aa945b93defbd51cec7cc65618",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "manuscript_outline/assets/migration_v2/validation.json",
+      "bytes": 1692,
+      "sha256": "21ac698d80654b3ab760dd4eddbfbaa4c162dbe9c52a05a31aed71eaf63aad54",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "manuscript_outline/assets/planned_WGD_results.png",
+      "bytes": 217377,
+      "sha256": "d1cd8e512d3ca526c2ce5bd827402561a8e082a676dbe65baa6872601431a061",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        2340,
+        1660
+      ]
+    },
+    {
+      "path": "manuscript_outline/build_figure2_round3_outline_20261022.py",
+      "bytes": 2839,
+      "sha256": "670a130a74ee5d8e753d979275d7466352962af1db75156719565696e0ce48e2",
+      "roles": [
+        "native_figure_page_renderer"
+      ]
+    },
+    {
+      "path": "manuscript_outline/outline_v13.json",
+      "bytes": 55678,
+      "sha256": "550e6312b32bbff4cad11177db7908f1818a7afeb8ecbc5e1cf00771272e8593",
+      "roles": [
+        "document"
+      ]
+    },
+    {
+      "path": "manuscript_outline/revision_round7_20261026/request/brief_round7.md",
+      "bytes": 4831,
+      "sha256": "06e0ca25cd822e8a524b48b82a5bb7985b74d23a5134e4edc3cce36460d836aa",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "manuscript_outline/revision_round7_20261026/request/pilot_analyses_round6.md",
+      "bytes": 17128,
+      "sha256": "f214ff8cfd663de82aac97b9ad91edb1c18d3988fe4b9d0f12f06f8ab5c6ddb0",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "manuscript_outline/revision_round7_20261026/request/target_narrative_round7.md",
+      "bytes": 28478,
+      "sha256": "739de9af88fd8aea7791ae4c402ffb503047d91c2808c82f2386468d666c70f8",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/DEBELLY_BOUNDARIES.md",
+      "bytes": 2915,
+      "sha256": "8157ff0d33e7a12314665a82db605efbe300a55660334a406cfb1bf5359815a0",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/THREE_TESTS.md",
+      "bytes": 10981,
+      "sha256": "3f600ddf28e277791a6c213e0659c5bce2594ea6082a3619fe55d15ab1e17bbc",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/data/derived/length_correlations.csv",
+      "bytes": 2928,
+      "sha256": "014ab5b97222cf5bdc00f07bb71af4e204facda54f612efd2ac2f1acb8172791",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure2/supporting/data/C_replacement_times_all450.csv",
+      "bytes": 46297,
+      "sha256": "ab5f95932abd1db80749ca0ed52245b5f8836deac92b7eade4cbe4958d8538bd",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure2/supporting/data/D_gap1_vs_pulse2_all180.csv",
+      "bytes": 47471,
+      "sha256": "a1e1841e086caf969f5117b758a6321c2baf2b21a1702135d154d47ffe3fad11",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure2/supporting/metadata/debelly_L19_gap16_native_audit.json",
+      "bytes": 2114,
+      "sha256": "f3a9cd43e3cd29bb0ae9f35e756dd3372766894c00fabf15ef5c98840af69a0f",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round3_20261022/figure2/supporting/metadata/supplement_preservation.json",
+      "bytes": 816,
+      "sha256": "f0c9f57a53cdba8804a81059e6c081abe492f6de0d7e15b31925838eb2177785",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure1/figure1_round6.pdf",
+      "bytes": 34673,
+      "sha256": "f852e1fd33b4be64c51b63274acc1649d8679fb66b040b89a6fee3f59cab5da3",
+      "roles": [
+        "native_vector_figure"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure1/figure1_round6.png",
+      "bytes": 279804,
+      "sha256": "bb5473e01178b957ee4fc96b139d540327bb0851da25ce42e82eb91715de1732",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        2596,
+        1914
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure2/figure2_round6.pdf",
+      "bytes": 94011,
+      "sha256": "3cedff51813fef2cd5428a8fb514647f9012e09b4f58363de44b5b126b47e296",
+      "roles": [
+        "native_vector_figure"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure2/figure2_round6.png",
+      "bytes": 731879,
+      "sha256": "ceaa903102eef9b6929c0ea1ef375e7daf55b4066ddbcdc520b9db5f099a06a6",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        2596,
+        3696
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure3/figure3_round7.pdf",
+      "bytes": 148354,
+      "sha256": "6b58622d0f20866b04d50bb610117e565c019fe19b800392e61be5cc686cc1fb",
+      "roles": [
+        "native_vector_figure"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure3/figure3_round7.png",
+      "bytes": 721908,
+      "sha256": "463c620ca10c58d1174adc3b055311e103d5bc36b55c7cae17bebbc9c62a7fcb",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        3600,
+        3200
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure3/scientific_readme.md",
+      "bytes": 5416,
+      "sha256": "fc65b364647d28896a2812882534475992bae4b6147585f1555730734c954e53",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure3/supporting/data/conduction_sweep.csv",
+      "bytes": 42493,
+      "sha256": "58fb2b5031ec0fc49f3eb9098ca2fd0a8d9675ad8c633acd4158a959ab29b585",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure3/supporting/metadata/conduction_law_parameters.json",
+      "bytes": 1571,
+      "sha256": "95ad89c30f7f33d0ba95f6b799035639dcc0ac141de46d92ce8cfc232c59ddaa",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure4/figure4_main.pdf",
+      "bytes": 345775,
+      "sha256": "f9dd4a211835a7fd2ff6eef82d5508557771d0bf4551916ccc4dce0121c7dfc4",
+      "roles": [
+        "native_vector_figure"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure4/figure4_main.png",
+      "bytes": 1092045,
+      "sha256": "b5c3b8bf55cd6d639d3e945905b1a099bb6ef7be88210ca4f53633811f529725",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        3200,
+        4300
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure4/scientific_readme.md",
+      "bytes": 1900,
+      "sha256": "d65f0a3af74070d6f67f3e994349e80245c5c36294b3ee64b4fb757e56e4aa37",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure4/supporting/metadata/provenance.json",
+      "bytes": 9599,
+      "sha256": "0a03f74e7502cd04a7198923952d35c298afe6710561a85182b501aca156c941",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure5/figure5_main.pdf",
+      "bytes": 585494,
+      "sha256": "1e53215ae5acebdc76a8f43d920fce6dcb44897b46374c043e48c5c8c1c437e2",
+      "roles": [
+        "native_vector_figure"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure5/figure5_main.png",
+      "bytes": 1553235,
+      "sha256": "bb735ace1edc6021d39c609bab29d0f40fb61a3bb346efe32a985d1808d42d74",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        3200,
+        4700
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure5/scientific_readme.md",
+      "bytes": 13715,
+      "sha256": "86d5932f56744f3d716d95313e6c021c7a21203217dace98bd2ba2a102ec4026",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure5/supporting/metadata/provenance.json",
+      "bytes": 11940,
+      "sha256": "a5f632e9fdc1071878d22b707430b73e4f815a36e9b6868fe36789e8f4c16734",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure6/figure6B_detail_round7.pdf",
+      "bytes": 24422,
+      "sha256": "38968ca09b02e8e5b2f8c4f233dd1cd25682ee32681d6b302636cc573c2146cf",
+      "roles": [
+        "native_vector_figure"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure6/figure6B_detail_round7.png",
+      "bytes": 175202,
+      "sha256": "6bcbe0461a11eb14dab2edac073750e4d14d2cbc0406e4f6456ad351f22fe1cf",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        1603,
+        1384
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure6/figure6_round7.pdf",
+      "bytes": 87492,
+      "sha256": "28598ef6516a0ab858c08be02ea34e9f3dca17f6d74965c8064ec93e1231f010",
+      "roles": [
+        "native_vector_figure"
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure6/figure6_round7.png",
+      "bytes": 664787,
+      "sha256": "bb65c3e997b91ff6737804d983cf4362d1949962c57e1e68f7cef485bcb9d4b4",
+      "roles": [
+        "figure"
+      ],
+      "pixels": [
+        4044,
+        3026
+      ]
+    },
+    {
+      "path": "polarity1d/manuscript/figures/supplement_width_response.png",
+      "bytes": 566406,
+      "sha256": "ee4802daaa8f257db99e8aceb2fbed359f7b4ecd68420d9dcdb6fb2120819aeb",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "reports/manuscript_checkout_audit_20261017.md",
+      "bytes": 15362,
+      "sha256": "c3918fece01a12da6cfdb399a0dca8e123fecc9e29da593d2cce09e0d3fc9e67",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "reports/manuscript_coherence_review_v1_20261017.md",
+      "bytes": 18555,
+      "sha256": "df63ad5314f30cc80576c46f897661110d8caeca73690014d9a2da0c2cd23a12",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "reports/manuscript_foundation_audit_20261017.md",
+      "bytes": 23313,
+      "sha256": "27282b0005b198ab834cb0983acae5da7ee16173bc67ded04a0d3f089c1b6c3d",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "reports/manuscript_mechanism_intake_20261017.md",
+      "bytes": 28202,
+      "sha256": "ba92c63519efbdc9daa29c0f15a375ca5699b132585e6a992a2df0f746b969d2",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "scripts/build_manuscript_outline.py",
+      "bytes": 24864,
+      "sha256": "ce7c3bea60c2cea1d926e5e9c309ad69d5c8c0236a40f16f6a2329bf19f39bda",
+      "roles": [
+        "renderer"
+      ]
+    },
+    {
+      "path": "scripts/build_manuscript_outline_v2.py",
+      "bytes": 2279,
+      "sha256": "15082f57151c191c26c5c3f085942873fa2909d7659ee2ccd94d2a1eb480bb93",
+      "roles": [
+        "revision_renderer"
+      ]
+    },
+    {
+      "path": "wgd_langevin/refined_ou_20261003/README.md",
+      "bytes": 6651,
+      "sha256": "e308eb1d0b37e3c82057e9b7ba89d39a1527600fff27610810042f4256dbaa42",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "wgd_langevin/refined_ou_20261003/figures/main_03_migration_OU_caption.md",
+      "bytes": 1228,
+      "sha256": "ef57475898e12a0b2099a3805bc291464a633882afdaf78fff93f8bca5460ade",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "wgd_langevin/refined_ou_20261003/figures/main_03_observation_folds.csv",
+      "bytes": 2749,
+      "sha256": "21cc344a74069771765d2a7ea4630cff26698431a10f3c3a3bb61e3301c9a28b",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "wgd_langevin/refined_ou_20261003/figures/supp_04_Hosny_sensitivity.png",
+      "bytes": 824923,
+      "sha256": "9bb0668e0d244e57ac8b2772e323704e0079c2d38b461ecd3eecc06143210baa",
+      "roles": [
+        "source"
+      ]
+    },
+    {
+      "path": "wgd_langevin/refined_ou_20261003/results/RESULTS.md",
+      "bytes": 3588,
+      "sha256": "38e75dc8f887682ad33159bb0b2912445562944bf399580cb437f3b0aea6ce4e",
+      "roles": [
+        "source"
+      ]
+    }
+  ],
+  "page_inventory": [
+    {
+      "number": 1,
+      "kind": "cover",
+      "section_id": null,
+      "title": "Manuscript outline",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 36,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 2,
+      "kind": "cover",
+      "section_id": null,
+      "title": "Manuscript outline",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 22,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 3,
+      "kind": "figure",
+      "section_id": "figure1",
+      "title": "",
+      "size_in": [
+        11.8,
+        8.7
+      ],
+      "text_blocks": 0,
+      "assets": [
+        "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure1/figure1_round6.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 11.8,
+      "native_vector_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure1/figure1_round6.pdf",
+      "native_page_content_preserved": true
+    },
+    {
+      "number": 4,
+      "kind": "figure_notes",
+      "section_id": "figure1",
+      "title": "Figure 1. Enlargement changes the cue duration required for lasting polarity replacement",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 41,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 5,
+      "kind": "figure_notes",
+      "section_id": "figure1",
+      "title": "Figure 1. Enlargement changes the cue duration required for lasting polarity replacement",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 41,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 6,
+      "kind": "figure",
+      "section_id": "figure2",
+      "title": "",
+      "size_in": [
+        11.8,
+        16.799999999999997
+      ],
+      "text_blocks": 0,
+      "assets": [
+        "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure2/figure2_round6.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 11.8,
+      "native_vector_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round6_20261023/figure2/figure2_round6.pdf",
+      "native_page_content_preserved": true
+    },
+    {
+      "number": 7,
+      "kind": "figure_notes",
+      "section_id": "figure2",
+      "title": "Figure 2. Replacement resistance in enlarged cells has distinct size and pulse-memory signatures",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 41,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 8,
+      "kind": "figure_notes",
+      "section_id": "figure2",
+      "title": "Figure 2. Replacement resistance in enlarged cells has distinct size and pulse-memory signatures",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 40,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 9,
+      "kind": "figure_notes",
+      "section_id": "figure2",
+      "title": "Figure 2. Replacement resistance in enlarged cells has distinct size and pulse-memory signatures",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 11,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 10,
+      "kind": "figure",
+      "section_id": "figure3",
+      "title": "",
+      "size_in": [
+        18.0,
+        16.0
+      ],
+      "text_blocks": 0,
+      "assets": [
+        "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure3/figure3_round7.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 18.0,
+      "native_vector_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure3/figure3_round7.pdf",
+      "native_page_content_preserved": true
+    },
+    {
+      "number": 11,
+      "kind": "figure_notes",
+      "section_id": "figure3",
+      "title": "Figure 3. Enlarged rings turn more slowly and respond less to weak boundary input",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 44,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 12,
+      "kind": "figure_notes",
+      "section_id": "figure3",
+      "title": "Figure 3. Enlarged rings turn more slowly and respond less to weak boundary input",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 40,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 13,
+      "kind": "figure_notes",
+      "section_id": "figure3",
+      "title": "Figure 3. Enlarged rings turn more slowly and respond less to weak boundary input",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 13,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 14,
+      "kind": "figure",
+      "section_id": "figure4",
+      "title": "",
+      "size_in": [
+        16.0,
+        21.5
+      ],
+      "text_blocks": 0,
+      "assets": [
+        "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure4/figure4_main.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 16.0,
+      "native_vector_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure4/figure4_main.pdf",
+      "native_page_content_preserved": true
+    },
+    {
+      "number": 15,
+      "kind": "figure_notes",
+      "section_id": "figure4",
+      "title": "Figure 4. Larger cells maintain heading longer under fluctuating input",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 43,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 16,
+      "kind": "figure_notes",
+      "section_id": "figure4",
+      "title": "Figure 4. Larger cells maintain heading longer under fluctuating input",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 35,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 17,
+      "kind": "figure",
+      "section_id": "figure5",
+      "title": "",
+      "size_in": [
+        16.0,
+        23.5
+      ],
+      "text_blocks": 0,
+      "assets": [
+        "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure5/figure5_main.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 16.0,
+      "native_vector_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure5/figure5_main.pdf",
+      "native_page_content_preserved": true
+    },
+    {
+      "number": 18,
+      "kind": "figure_notes",
+      "section_id": "figure5",
+      "title": "Figure 5. Physical drift, raw heading changes and cytosolic transport constrain the persistence mechanism",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 44,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 19,
+      "kind": "figure_notes",
+      "section_id": "figure5",
+      "title": "Figure 5. Physical drift, raw heading changes and cytosolic transport constrain the persistence mechanism",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 44,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 20,
+      "kind": "figure_notes",
+      "section_id": "figure5",
+      "title": "Figure 5. Physical drift, raw heading changes and cytosolic transport constrain the persistence mechanism",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 34,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 21,
+      "kind": "figure",
+      "section_id": "figure6",
+      "title": " · image 1 of 2",
+      "size_in": [
+        17.544600694444444,
+        13.157692708333334
+      ],
+      "text_blocks": 0,
+      "assets": [
+        "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure6/figure6_round7.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 17.544600694444444,
+      "native_vector_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure6/figure6_round7.pdf",
+      "native_page_content_preserved": true
+    },
+    {
+      "number": 22,
+      "kind": "figure",
+      "section_id": "figure6",
+      "title": " · image 2 of 2",
+      "size_in": [
+        6.9736666666666665,
+        6.021690755208334
+      ],
+      "text_blocks": 0,
+      "assets": [
+        "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure6/figure6B_detail_round7.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 6.9736666666666665,
+      "native_vector_pdf": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure6/figure6B_detail_round7.pdf",
+      "native_page_content_preserved": true
+    },
+    {
+      "number": 23,
+      "kind": "figure_notes",
+      "section_id": "figure6",
+      "title": "Figure 6. Published migration summaries support a persistence hypothesis with conditional OU interpretation",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 43,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 24,
+      "kind": "figure_notes",
+      "section_id": "figure6",
+      "title": "Figure 6. Published migration summaries support a persistence hypothesis with conditional OU interpretation",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 47,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 25,
+      "kind": "figure_notes",
+      "section_id": "figure6",
+      "title": "Figure 6. Published migration summaries support a persistence hypothesis with conditional OU interpretation",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 23,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 26,
+      "kind": "figure",
+      "section_id": "figure7",
+      "title": "Figure 7. RESERVED: new WGD motility results",
+      "size_in": [
+        11.8,
+        10.38
+      ],
+      "text_blocks": 5,
+      "assets": [
+        "manuscript_outline/assets/planned_WGD_results.png"
+      ],
+      "bounds_valid": true,
+      "text_overlap_check": "passed",
+      "printed_figure_width_inches": 10.4
+    },
+    {
+      "number": 27,
+      "kind": "figure_notes",
+      "section_id": "figure7",
+      "title": "Figure 7. RESERVED: new WGD motility-assay results",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 42,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 28,
+      "kind": "figure_notes",
+      "section_id": "figure7",
+      "title": "Figure 7. RESERVED: new WGD motility-assay results",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 14,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    },
+    {
+      "number": 29,
+      "kind": "references",
+      "section_id": null,
+      "title": "References and evidence provenance",
+      "size_in": [
+        8.27,
+        11.69
+      ],
+      "text_blocks": 19,
+      "assets": [],
+      "bounds_valid": true,
+      "text_overlap_check": "passed"
+    }
+  ],
+  "validation": {
+    "all_local_sources_present": true,
+    "all_text_within_page_bounds": true,
+    "all_text_nonoverlapping": true,
+    "all_pages_have_extractable_text": true,
+    "uncropped_figures": true,
+    "clickable_source_annotations": 39,
+    "extracted_characters": 55464,
+    "renderer": "matplotlib 3.11.1",
+    "figure_save_dpi": 300
+  }
+}

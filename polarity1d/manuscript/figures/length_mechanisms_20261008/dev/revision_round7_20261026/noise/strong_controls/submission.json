@@ -1,0 +1,16 @@
+{
+  "job_id": "21370532",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--job-name=r7_dtstrong",
+    "--qos=small",
+    "--cpus-per-task=1",
+    "--mem=2G",
+    "--time=00:15:00",
+    "--array=0-15",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/noise/strong_controls/logs/%A_%a.out",
+    "--error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/noise/strong_controls/logs/%A_%a.err",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/figures/length_mechanisms_20261008/dev/revision_round7_20261026/noise/strong_controls/worker.sh"
+  ]
+}
