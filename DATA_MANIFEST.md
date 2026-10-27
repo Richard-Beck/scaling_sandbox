@@ -603,18 +603,18 @@ The first-wave logical Fourier/time allocation is estimated at **40.581 GiB**, a
 
 ## Ring figures R1 and R2, 27 October 2026
 
-Measured **2026-10-27T21:17:30.821112+00:00** with `du -sx -B1`
+Measured **2026-10-27T21:37:06.950730+00:00** with `du -sx -B1`
 (allocated storage; non-atomic traversal). R1 execution is complete, and R2
 producers remain live. Preserve all authoritative scientific records.
 
 | Path / related group | Measured allocated storage | Purpose and scientific importance/status |
 | --- | ---: | --- |
 | `polarity1d/manuscript/data/runs/ring_r1_fast_cytosol_20261027/` | 3,231,989,760 bytes (3.010025 GiB) | 5,760 matched-noise Wave-pinning histories at fast cytosolic diffusivity and 16 native solver checks, exact inputs, immutable sources and per-run integrity/numerical receipts. All 5,776 histories verified complete; compact region/polarity records remain authoritative, with decimated profiles only for seeds 0/1. Allocated storage exceeds the 1.805 GiB logical forecast but remains below the 3.61 GiB reservation. |
-| `polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/` | 539,181,056 bytes (0.502151 GiB) | Running 144-history per-cell supply arm for Wave-pinning and Spring at outer sizes only; shares existing middle sizes. Retains event logs, native-cadence polarity vector, validated active low modes and bounded restart states. Initial forecast 0.719 GiB; all-extension forecast 2.901 GiB, 7.15% of the existing arm's initial Fourier allocation. This is not a final measurement. |
-| `polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/` | 42,035,109,888 bytes (39.148247 GiB) | Read-only source arm for R2. Richard's initial workers and extension controller remain live; its separate producer-maintained inventory above records execution state. No additional output streams or exemplar runs are added to this arm. Preserve the full Fourier records on the HPC. |
-| `polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/` | 32,972,800 bytes (0.030708 GiB) | R1/R2 plotted data, exports, methods, legends and provenance rendered and independently visually reviewed for the current snapshot. Compact deliverables are versioned; bulk trajectories remain on the HPC. |
+| `polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/` | 724,582,400 bytes (0.674820 GiB) | Running 144-history per-cell supply arm for Wave-pinning and Spring at outer sizes only; shares existing middle sizes. Retains event logs, native-cadence polarity vector, validated active low modes and bounded restart states. Initial forecast 0.719 GiB; all-extension forecast 2.901 GiB, 7.15% of the existing arm's initial Fourier allocation. This is not a final measurement. |
+| `polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/` | 42,743,832,576 bytes (39.808296 GiB) | Read-only source arm for R2. Richard's initial workers and extension controller remain live; its separate producer-maintained inventory above records execution state. No additional output streams or exemplar runs are added to this arm. Preserve the full Fourier records on the HPC. |
+| `polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/` | 33,587,200 bytes (0.031281 GiB) | R1/R2 plotted data, exports, methods, legends and provenance rendered and independently visually reviewed for the current snapshot. Compact deliverables are versioned; bulk trajectories remain on the HPC. |
 
-The shared filesystem reports 34,052,181,590,016 free bytes. `quota -vs`
+The shared filesystem reports 34,025,242,099,712 free bytes. `quota -vs`
 returned no personal quota information; filesystem free space is not an
 independent personal-quota measurement. The campaign storage reservations and
 small reduced-record design provide margin against the measured growth.

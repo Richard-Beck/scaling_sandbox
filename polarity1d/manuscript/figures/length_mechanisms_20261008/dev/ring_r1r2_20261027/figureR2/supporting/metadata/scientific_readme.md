@@ -2,7 +2,7 @@
 
 ## Unexpected
 
-46 conditions have incomplete execution; these are marked × pending, not treated as rate censoring. Existing-arm extension checks must finish before this is final inference.
+34 conditions have incomplete execution; these are marked × pending, not treated as rate censoring. Existing-arm extension checks must finish before this is final inference.
 
 4 α estimates are censored; open triangles/arrows preserve one-sided bounds, and paired opposing open triangles/arrows identify two-sided or unbounded slopes. No horizon caps or omitted bounds.
 
@@ -14,9 +14,9 @@ Pilot check Holmes: α = 0.8958, status resolved; earlier check about 0.9. Boots
 
 Pilot check Spring: α = -0.1375, status resolved; earlier check about 0. Bootstrap resolved fraction 1. No parameter or seed was changed.
 
-Wave-pinning per-cell versus per-perimeter α comparison remains pending
+Wave-pinning per-cell minus per-perimeter α ranges from 0.8561 to 1.042 across 3 matched resolved conditions (earlier check about +1)
 
-Spring per-cell versus per-perimeter α comparison remains pending
+Spring per-cell minus per-perimeter α ranges from 0.798 to 1.108 across 5 matched resolved conditions (earlier check about +1)
 
 Existing Spring event times depend on model state through its changing physical circumference and cannot be regenerated exactly from seeds alone. Panel G therefore uses the new per-cell Spring outer sizes only, with the shared centre unavailable; chemical panels use regenerated existing-arm events.
 
@@ -28,9 +28,11 @@ Cadence validation used the 46 completed target-model cohorts available before l
 
 The finite Fourier cutoff produces small negative ringing in reconstructed Goryachev activity (minimum about −0.423). These band-limited reconstruction values are not negative native solver concentrations. Saved Fourier coefficients, including mode zero M₀, remain unchanged, and no reconstruction values are clipped. Its shared C20/C60 grayscale uses an asinh transform with linear width 1 native activity unit, explicitly keyed; neither ring is normalized separately.
 
+An additive post-launch cadence audit checks 49 currently complete existing-arm cohorts at the selected cadences: 49 pass, 0 fail, and 5 cohorts await completion. The frozen prelaunch selection and validation records remain unchanged. Full comparisons are retained in record_cadence_postlaunch_validation.csv; snapshot identities are beside this readme.
+
 ## Key numbers by panel
 
-Data generation time: 2026-10-27T21:10:40.493128+00:00. Current campaign and extension states are retained in provenance.json; each pending condition is explicitly listed in coverage.csv.
+Data generation time: 2026-10-27T21:25:42.357708+00:00. Current campaign and extension states are retained in provenance.json; each pending condition is explicitly listed in coverage.csv.
 
 A: λ₀ = 1/7000; duration 24,000; original sample interval 20; physical peak SD 1.5. C20/C60 widths are 1:3.
 
@@ -42,7 +44,7 @@ D: Whole-profile heading θ = arg P, P = M₁/M₀; endpoint |P| ≥ 0.1; 2000 w
 
 E: 36 model/rate/amplitude combinations; 23 resolved, 9 pending, 4 bounded.
 
-F: 18 model/rate/amplitude combinations; 0 resolved, 18 pending, 0 bounded.
+F: 18 model/rate/amplitude combinations; 8 resolved, 10 pending, 0 bounded.
 
 G Goryachev: 18260 scored event-window pairs across displayed amplitude/size conditions.
 
@@ -50,7 +52,7 @@ G Wave-pinning: 18423 scored event-window pairs across displayed amplitude/size 
 
 G Holmes: 18459 scored event-window pairs across displayed amplitude/size conditions.
 
-G Spring: 3157 scored event-window pairs across displayed amplitude/size conditions.
+G Spring: 6429 scored event-window pairs across displayed amplitude/size conditions.
 
 ## Methods
 
@@ -102,3 +104,6 @@ Rebuild from compact records: python polarity1d/manuscript/code/mechanisms/rebui
 | Spring | per_cell | 1.0 | low | 0.00527997 | 0.0334693 | 0.241731 |
 | Spring | per_cell | 1.0 | medium | 0.0432715 | 0.169049 | 0.488225 |
 | Spring | per_cell | 1.0 | high | 0.182096 | 0.386432 | 0.683897 |
+| Spring | per_cell | 3.0 | low | 0.00326517 | 0.0114775 | 0.064745 |
+| Spring | per_cell | 3.0 | medium | 0.0177009 | 0.0603197 | 0.232154 |
+| Spring | per_cell | 3.0 | high | 0.055372 | 0.164063 | 0.426582 |
