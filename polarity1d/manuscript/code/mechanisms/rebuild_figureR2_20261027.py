@@ -320,14 +320,26 @@ def render():
             if j==0:ax.set_ylabel('Local α')
             else:ax.tick_params(labelleft=False)
     shared_key(outer[3],'Colour: supply arm; guides: α = 2, 0, −1; △ + arrow: bound; × pending',('per perimeter','per cell'))
-    gg=outer[4].subgridspec(1,4,wspace=.42);label(outer[4],'G');events=pd.read_csv(DATA/'G_event_heading_change.csv');rate_table=pd.read_csv(DATA/'mode1_rates.csv')
+    gg=outer[4].subgridspec(1,4,wspace=.42);label(outer[4],'G');events=pd.read_csv(DATA/'G_event_heading_change.csv');rate_table=pd.read_csv(DATA/'mode1_rates.csv');display_segments=[]
     for i,model in enumerate(MODELS):
         ax=axis(gg[i],NAMES[model]);q=events[(events.model==model)&(events.window_frames==5)]
         for level,color in zip(LEVELS,ramp(HUES[model],3)):
             z=q[q.amplitude_level==level].sort_values('mean_physical_C')
-            # The unavailable shared Spring centre remains a visible gap.
-            line=z.set_index('size').reindex([1.,2.,3.]) if model=='spring_ring' else z
-            ax.plot(line.mean_physical_C,line.mean_heading_change,'o-',ms=2.5,color=color,label=level)
+            if model=='spring_ring':
+                ax.plot(z.mean_physical_C,z.mean_heading_change,'o',ms=2.5,color=color,label=level)
+                if {1.,3.}.issubset(set(z['size'])):
+                    endpoints=z.set_index('size').loc[[1.,3.]]
+                    x0,x1=endpoints.mean_physical_C.to_numpy();y0,y1=endpoints.mean_heading_change.to_numpy()
+                    midpoint=(x0+x1)/2;half_gap=.045*(x1-x0)
+                    # These vertices only clip a straight visual connector.
+                    # No centre observation or scientific estimate is added.
+                    for segment_id,(xa,xb) in enumerate(((x0,midpoint-half_gap),(midpoint+half_gap,x1)),1):
+                        ya,yb=np.interp([xa,xb],[x0,x1],[y0,y1])
+                        ax.plot([xa,xb],[ya,yb],'-',color=color,lw=1)
+                        for vertex_id,(x,y) in enumerate(((xa,ya),(xb,yb))):
+                            observed=x==x0 or x==x1
+                            display_segments.append(dict(model=model,arm='per_cell',amplitude_level=level,window_frames=5,segment_id=segment_id,vertex_id=vertex_id,mean_physical_C=x,mean_heading_change=y,vertex_role='observed_endpoint' if observed else 'display_interpolation',source_size=(1. if x==x0 else 3.) if observed else np.nan,source_csv='G_event_heading_change.csv',purpose='Straight connector of measured outer means with missing-centre gap; no centre estimate'))
+            else:ax.plot(z.mean_physical_C,z.mean_heading_change,'o-',ms=2.5,color=color,label=level)
             if len(z):ax.errorbar(z.mean_physical_C,z.mean_heading_change,yerr=[z.mean_heading_change-z.ci_low,z.ci_high-z.mean_heading_change],fmt='none',color=color,lw=.6,capsize=1.4)
         ax.set_xlabel('Mean circumference C');ax.set_ylim(bottom=0)
         known=rate_table[rate_table.model==model].mean_physical_C
@@ -341,6 +353,7 @@ def render():
             note='Per cell\ncentre unavailable'+('\nsize '+', '.join(missing)+' pending' if missing else '')
             ax.text(.55,.95,note,fontsize=5.1,ha='center',va='top',transform=ax.transAxes,bbox=dict(facecolor='white',edgecolor='none',alpha=.9,pad=1))
     shared_key(outer[4],'Colour: event amplitude; low rate; w = 5 original frames',LEVELS)
+    pd.DataFrame(display_segments,columns=['model','arm','amplitude_level','window_frames','segment_id','vertex_id','mean_physical_C','mean_heading_change','vertex_role','source_size','source_csv','purpose']).to_csv(DATA/'G_display_line_segments.csv',index=False)
     save('EF_analytic_guides.csv',[dict(amplitude_fraction=x,alpha=y,label=f'α = {y}') for y in (2,0,-1) for x in (.3,3.)])
     for ax in fig.axes:
         ticks=ax.get_xticklabels()
@@ -415,7 +428,7 @@ def documents():
       '**D.** Heading autocorrelation of the same conditions, pooled over four seeds with |P|≥0.1 at both endpoints and 95% whole-seed bootstrap bands. P=M₁/M₀ defines the whole-profile heading vector; light/dark model-hue shades indicate C20/C60. Dotted and dashed gray guides are the C20 curve and its 1/9 power, respectively. Goryachev C60 retains near-unit correlation while C20 decorrelates; both Wave-pinning sizes approach zero across the displayed early-lag window, below the physical-drift guide.',
       '**E.** Local size exponent α against mean event amplitude/reference, faceted by model for the per-perimeter arm. α is minus the three-size OLS slope of log mode-1 decorrelation rate γ₁ against log actual mean circumference; γ₁ is ln2 divided by the first mode-1 autocorrelation half-height lag. Colour intensity encodes event rate (light low, dark high), and guides are α=2,0,−1. Filled points have resolved rates and 95% whole-seed bootstrap intervals; open triangles and arrows show bounds; paired opposing open triangles/arrows denote two-sided or unbounded slopes; × means execution pending. '+result,
       '**F.** The same exponent against event amplitude compares per-perimeter (light) and per-cell (dark) supply, faceted by Wave-pinning/Spring and event rate; guides and censor symbols match E. Per-cell arrivals use the fixed C40 rate, with shared existing C40 trajectories; for Spring this uses the exact size-2 basal physical circumference and retains the original dynamic-hazard shared centre. '+('; '.join(comparisons)+'.' if comparisons else 'The supply-arm comparison remains pending.'),
-      '**G.** Mean event-associated heading change ⟨1−cosΔθ⟩ against mean physical circumference at low rate, with amplitude encoded light to dark. Δθ compares circular mean headings in the five-original-frame windows immediately before and after each forcing event; bars are 95% whole-seed bootstrap intervals. Chemical models use exact seed-regenerated existing-arm event logs. Spring uses new per-cell outer sizes only because existing Spring event times depend on its evolving circumference; its shared centre is unavailable. Window sensitivities at two and twenty frames appear in the readme. At high amplitude the event-associated change decreases from C20 to C60 in all three chemical models.']
+      '**G.** Mean event-associated heading change ⟨1−cosΔθ⟩ against mean physical circumference at low rate, with amplitude encoded light to dark. Δθ compares circular mean headings in the five-original-frame windows immediately before and after each forcing event; bars are 95% whole-seed bootstrap intervals. Chemical models use exact seed-regenerated existing-arm event logs. Spring uses new per-cell outer sizes only because existing Spring event times depend on its evolving circumference; its shared centre is unavailable. Lines connect measured means; the Spring gap marks its unavailable centre. Window sensitivities at two and twenty frames appear in the readme. At high amplitude the event-associated change decreases from C20 to C60 in all three chemical models.']
     (META/'main_legend.md').write_text('\n\n'.join(legend)+'\n')
     (OUT/'README.md').write_text('# Figure R2\n\n![Figure R2](figureR2_main.png)\n\n[PDF](figureR2_main.pdf) · [SVG](figureR2_main.svg) · [Legend](supporting/metadata/main_legend.md) · [Scientific readme](supporting/metadata/scientific_readme.md) · [Provenance](supporting/metadata/provenance.json)\n')
 
