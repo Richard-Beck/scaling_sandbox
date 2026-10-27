@@ -87,7 +87,7 @@ def run(predecessors):
         summary_path=audit_folder/'summary.json'
         summary=read(summary_path) if summary_path.exists() else {}
         expected_cohorts=sum(c['model'] in ('wave_pinning','spring_ring') for c in read(EXISTING/'manifest.json')['conditions'])
-        cadence_pass=bool(validation.returncode==0 and summary.get('complete') and summary.get('cohorts_checked')==expected_cohorts and not summary.get('failures') and not summary.get('pending_cohorts'))
+        cadence_pass=bool(validation.returncode==0 and summary.get('complete') and summary.get('cohorts_checked')==expected_cohorts and summary.get('frozen_selection_unchanged') and not summary.get('failures') and not summary.get('pending_cohorts'))
         figure=MS/'figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/supporting'
         write(figure/'metadata/record_cadence_finalization.json',dict(generated_utc=now(),passed=cadence_pass,returncode=validation.returncode,expected_cohorts=expected_cohorts,audit=str(audit_folder.relative_to(ROOT)),stderr=validation.stderr[-4000:],policy='Render the complete available figure even when this check fails; record the discrepancy without retuning or silently changing cadence.'))
         for source,target in (('summary.json',figure/'metadata/record_cadence_postlaunch_summary.json'),('snapshot.json',figure/'metadata/record_cadence_postlaunch_snapshot.json'),('cadence.csv',figure/'data/record_cadence_postlaunch_validation.csv')):

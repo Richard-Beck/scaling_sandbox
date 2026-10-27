@@ -376,7 +376,8 @@ def documents():
     cadence_postlaunch=META/'record_cadence_postlaunch_summary.json'
     if cadence_postlaunch.exists():
         audit=C.read(cadence_postlaunch)
-        unexpected.append(f'An additive post-launch cadence audit checks {audit["cohorts_checked"]} currently complete existing-arm cohorts at the unchanged selected cadences: {audit["passes"]} pass, {len(audit["failures"])} fail, and {len(audit["pending_cohorts"])} cohorts await completion. The frozen prelaunch selection and validation records remain unchanged. Full comparisons are retained in record_cadence_postlaunch_validation.csv; snapshot identities are beside this readme.')
+        preservation='The frozen prelaunch selection and validation records remain unchanged.' if audit.get('frozen_selection_unchanged') else 'The frozen-selection preservation check failed and requires review.'
+        unexpected.append(f'An additive post-launch cadence audit checks {audit["cohorts_checked"]} currently complete existing-arm cohorts at the selected cadences: {audit["passes"]} pass, {len(audit["failures"])} fail, and {len(audit["pending_cohorts"])} cohorts await completion. {preservation} Full comparisons are retained in record_cadence_postlaunch_validation.csv; snapshot identities are beside this readme.')
     cadence_final=META/'record_cadence_finalization.json'
     if cadence_final.exists() and not C.read(cadence_final)['passed']:
         unexpected.append('The final complete-grid cadence validation failed or is incomplete. The full available figure is retained; the exact audit, exit status and remaining discrepancy are recorded in record_cadence_finalization.json. No cadence or model parameter was changed to close this gap.')

@@ -18,7 +18,9 @@ def audit(out):
     if out.exists():raise ValueError('Choose a fresh additive audit directory')
     out.mkdir(parents=True)
     original=C.legacy();engine=original.engine();manifest=C.read(C.SOURCE/'manifest.json')
+    sealed=C.verify()
     selection=C.read(C.RUN/'validation/selection.json');pre=pd.read_csv(C.RUN/'validation/cadence.csv')
+    selection_before=C.sha(C.RUN/'validation/selection.json');cadence_before=C.sha(C.RUN/'validation/cadence.csv')
     preconditions=set(pre.condition.astype(int))
     levels=C.read(C.SOURCE/'expected_levels.json');cohorts=[];pending=[]
     for condition in manifest['conditions']:
@@ -65,7 +67,7 @@ def audit(out):
         prelaunch_conditions_not_currently_complete=sorted(preconditions-{r['condition'] for r in rows}),
         pending_cohorts=pending,passes=sum(r['passes'] for r in rows),failures=[r for r in rows if not r['passes']],
         selected_factors=selection['factors'],criterion='Same original half-rate censor status; resolved reduced gamma inside full-record exact four-seed 95% bootstrap CI; noncrossing rate bound preserved to prelaunch rtol .002.',
-        frozen_selection_unchanged=True,simulations_performed=False,source_records_read_only=True,
+        frozen_selection_unchanged=bool(selection==sealed['validation'] and selection_before==C.sha(C.RUN/'validation/selection.json') and cadence_before==C.sha(C.RUN/'validation/cadence.csv')),simulations_performed=False,source_records_read_only=True,
         selection_sha256=C.sha(C.RUN/'validation/selection.json'),prelaunch_cadence_sha256=C.sha(C.RUN/'validation/cadence.csv')))
     print(json.dumps(C.read(out/'summary.json')),flush=True)
 if __name__=='__main__':
