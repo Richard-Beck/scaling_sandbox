@@ -1,0 +1,154 @@
+{
+  "generated_utc": "2026-10-27T21:16:26.880302+00:00",
+  "review_kind": "Fresh-context visual inspection and direct renderer repair",
+  "status": "passed_after_repairs",
+  "scope": "R1 visual quality at 180 mm publication width; independent scientific audit is separate",
+  "first_inspection": "Viewed the existing rendered figureR1_main.png before reading renderer source.",
+  "publication_dimensions_mm": {
+    "width": 180,
+    "height": 262
+  },
+  "artifacts_viewed": [
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR1/figureR1_main.png",
+      "sha256": "bb89ebe8ae63ca4fa3cc5d9c70134cdf3f3388b8ae2b9c71f21863596266e610",
+      "inspection": "Full figure before and after repair; final per-panel crops at export resolution"
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR1/figureR1_main.pdf",
+      "sha256": "94a8a025a3e7b5fda527b61d8955e9ea6cf0f6b3bad37992c2be8b4c12d89b56",
+      "inspection": "Before and after rasterization with pdftoppm; final 150 dpi image at 180 mm page width"
+    },
+    {
+      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR1/figureR1_main.svg",
+      "sha256": "920cde8311a46fc44727024e10d370424e83cc11c2e6d8c97224b366f11c6b64",
+      "inspection": "Final XML dimensions/text check and visual inspection after system librsvg/cairo rasterization"
+    }
+  ],
+  "initial_artifact_sha256": {
+    "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR1/figureR1_main.png": "05ff5d71439a8ed0d7694df0bd42349c630282ae845cf98d80d97ad5676e0960",
+    "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR1/figureR1_main.svg": "198ed3b2fdee617eef6cf74945759de34c169e04b2c7a4684e25380ba6ddce35",
+    "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR1/figureR1_main.pdf": "0fe548bb242e64a4934b45e74c5c770847611237d52cbc925eef1fa9f8f1a234"
+  },
+  "inspection_rasters": [
+    {
+      "source": "figureR1_main.pdf",
+      "temporary_path": "/tmp/r1_after_pdf_180mm.png",
+      "sha256": "f4e6f8b90945b4cfeb2b296a659575149de667baf1832324535dba1b5cc3888e",
+      "pixels": [
+        1063,
+        1548
+      ]
+    },
+    {
+      "source": "figureR1_main.svg",
+      "temporary_path": "/tmp/r1_after_svg_180mm.png",
+      "sha256": "c3bce5a099a760ec6a4c17cda93f97e36f276d11fddab979fb7c94e89a6e556c",
+      "pixels": [
+        1063,
+        1548
+      ]
+    }
+  ],
+  "issues_and_repairs": [
+    {
+      "panel": "F",
+      "issue": "The original horizontal resistors shared vertical rails and a circular bypass, visually communicating parallel branches rather than the requested series paths.",
+      "repair": "Replaced the schematic with a single unbranched closed loop. The across-domain and around-back resistors replace successive upper and lower arcs, with no chord, rails or bypass. A separate outer blue activity band marks the domain; blue edge nodes and the pulse arrow mark its boundaries. Reduced zigzag tooth count and positioned labels away from nodes for print legibility. Updated the schematic-only compact path CSV and generated legend wording."
+    },
+    {
+      "panels": [
+        "D",
+        "H"
+      ],
+      "issue": "The inset keys were the smallest text in the figure (5.4 and 5.1 pt).",
+      "repair": "Increased both inset keys to 5.8 pt and checked that the enlarged keys do not overlap measured curves or confidence intervals."
+    }
+  ],
+  "panel_assessment": {
+    "A": {
+      "status": "pass",
+      "assessment": "C20/C60 widths are proportional to circumference, time runs upward, shared greyscale and activity key are legible; axes and panel letter are clear."
+    },
+    "B": {
+      "status": "pass",
+      "assessment": "Full analytic curves and the light-to-dark size key are legible, with clear axes and no overlap."
+    },
+    "C": {
+      "status": "pass",
+      "assessment": "Both diffusivity facets retain paired C20/C60 kymographs with common time/activity scales, proportional widths, clear facet labels and one unobstructed activity key."
+    },
+    "D": {
+      "status": "pass",
+      "assessment": "Shared x/y scales, both size curves, seed CI bands and labelled dashed guide are visible; enlarged inset key clears the curves."
+    },
+    "E": {
+      "status": "pass",
+      "assessment": "Dose/displacement observations, slope lines and both size markers remain visible; high-dose departures remain on scale."
+    },
+    "F": {
+      "status": "pass",
+      "assessment": "One domain, one edge pulse and the two series resistor segments are visually clear in one integrated ring schematic; all four labels clear the paths, nodes and arrow."
+    },
+    "G": {
+      "status": "pass",
+      "assessment": "All seven diffusivity series and exact-ring points remain on scale; the key explicitly identifies colour as diffusivity, light slow/dark fast, and distinguishes points from law lines."
+    },
+    "H": {
+      "status": "pass",
+      "assessment": "Three input facets share scales; circles/open squares and full CI bars remain distinct, with both guides labelled in the enlarged key. No clipping or overlap."
+    }
+  },
+  "export_checks": {
+    "png": {
+      "dimensions_px": [
+        2125,
+        3094
+      ],
+      "resolution_dpi": 300,
+      "clipping": "No visible clipping"
+    },
+    "pdf": {
+      "pages": 1,
+      "page_points": [
+        510.236,
+        742.677
+      ],
+      "clipping": "No visible clipping in rasterized export"
+    },
+    "svg": {
+      "width": "510.23622pt",
+      "height": "742.677165pt",
+      "viewBox": "0 0 510.23622 742.677165",
+      "panel_letters": "A B C D E F G H",
+      "clipping": "No visible clipping in rasterized export"
+    },
+    "text_geometry": {
+      "canvas_px": [
+        708,
+        1031
+      ],
+      "visible_text_outside_canvas": [],
+      "figure_inches": [
+        7.086614173228347,
+        10.314960629921261
+      ]
+    },
+    "style": "Uniform bold black 10 pt panel letters; plain black facet labels; left/bottom axes; thin lines and small markers; no figure title."
+  },
+  "preservation": {
+    "scientific_estimators_changed": false,
+    "scientific_parameters_changed": false,
+    "scientific_csvs_changed": false,
+    "schematic_csv_changed": true,
+    "extract_or_simulation_run": false,
+    "data_removed_or_cropped_for_appearance": false
+  },
+  "renderer": {
+    "path": "polarity1d/manuscript/code/mechanisms/rebuild_figureR1_20261027.py",
+    "sha256": "6689c4db5937403af67ae34c5bbe4d02cc18a99fd0fce54826bd23f2c9e6baac",
+    "execution": "/home/4473331/.conda/envs/scaling_sandbox/bin/python polarity1d/manuscript/code/mechanisms/rebuild_figureR1_20261027.py"
+  },
+  "unresolved_visual_issues": [],
+  "final_assessment": "Every panel A\u2013H passes visual inspection at 180 mm width in PNG, rasterized PDF and rasterized SVG. Scientific values, estimators and observed departures are preserved."
+}

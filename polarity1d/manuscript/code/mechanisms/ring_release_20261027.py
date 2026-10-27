@@ -81,6 +81,7 @@ def audit():
         required = [folder / f"figure{label}_main.{ext}" for ext in ("png", "pdf", "svg")]
         required += [folder / "supporting/metadata" / name for name in ("main_legend.md", "scientific_readme.md")]
         required += sorted((folder / "supporting/data").glob("*.csv"))
+        required += sorted((folder / "supporting/data").glob("*.csv.gz"))
         if not list((folder / "supporting/data").glob("*.csv")):
             missing.append(str((folder / "supporting/data/*.csv").relative_to(ROOT)))
         for path in required:

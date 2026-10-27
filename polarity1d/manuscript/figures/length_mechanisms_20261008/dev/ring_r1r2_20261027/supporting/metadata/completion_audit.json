@@ -1,0 +1,86 @@
+{
+  "generated_utc": "2026-10-27T21:17:49.605482+00:00",
+  "goal_complete": false,
+  "checkpoint_only": true,
+  "code_commit": "e6330e17a859cd5424be6e9f8be1e8676fd906a0",
+  "requirements": [
+    {
+      "requirement": "Base and branch",
+      "status": "verified",
+      "evidence": "802a0ce ancestor; branch codex/ring-r1r2-20261027"
+    },
+    {
+      "requirement": "R1 A-H and Campaign2",
+      "status": "verified",
+      "evidence": "figureR1 exports, compact tables, producer status5776/5776, solver_check.csv, visual_review.json"
+    },
+    {
+      "requirement": "Closed-form null curves and fixed beta-1 sample path",
+      "status": "verified",
+      "evidence": "scientific_algebra_audit.json, R2 null_provenance.json"
+    },
+    {
+      "requirement": "Existing Campaign3 finishes including extension checks",
+      "status": "pending",
+      "evidence": "squeue array21383081:68RUNNING; controller21384387PENDING"
+    },
+    {
+      "requirement": "New per-cell Campaign3 finishes including extension checks",
+      "status": "pending",
+      "evidence": "squeue array21388800:84RUNNING; controller21388801PENDING"
+    },
+    {
+      "requirement": "Reduced-record validation and storage forecast before launch",
+      "status": "verified",
+      "evidence": "R2 validation selection.json/cadence.csv; modecutoff1; 0.719GiBinitial/2.901GiBcap"
+    },
+    {
+      "requirement": "R2 C-G final compact records",
+      "status": "pending",
+      "evidence": "Current compact snapshot includes 46 execution-pending coverage conditions and 27 pending alpha estimates; refresh after both campaigns COMPLETE"
+    },
+    {
+      "requirement": "Whole-seed bootstrap and bound algebra",
+      "status": "verified_for_available_conditions",
+      "evidence": "EF_whole_seed_bootstrap.csv.gz and scientific_algebra_audit.json"
+    },
+    {
+      "requirement": "Legends/readmes/campaignprovenance",
+      "status": "present_current_snapshot",
+      "evidence": "Both metadata trees; Unexpected and data times stated"
+    },
+    {
+      "requirement": "180mm PNG/PDF/SVG and compact-only rebuild",
+      "status": "verified",
+      "evidence": "release_audit.json and portable_rebuild_audit.json; bothPNGbyteidentical"
+    },
+    {
+      "requirement": "Freshcontext visual inspection and repairs",
+      "status": "verified_current_snapshot",
+      "evidence": "Both visual_review.json; rerunR2reviewafterfinaldatarefresh"
+    },
+    {
+      "requirement": "No changes to Figs1-6/outline",
+      "status": "verified",
+      "evidence": "release_audit.json protected_scope_changes=[]"
+    },
+    {
+      "requirement": "DATA_MANIFEST and RETENTION",
+      "status": "updated_current_measurement",
+      "evidence": "Measuredgroupsandforecast; bulkrecordsstayHPC"
+    },
+    {
+      "requirement": "Final commit and push",
+      "status": "pending_final_campaign_data",
+      "evidence": "Reviewedcheckpointwillbepushed; finalrefreshstillrequired"
+    }
+  ],
+  "final_refresh": {
+    "watcher_job_id": "21391427",
+    "initial_dependencies": [
+      "21384387",
+      "21388801"
+    ],
+    "method": "Dependency-only successor follows actual scheduler handles through extensions; rebuilds R2 only after both campaign states COMPLETE. Does not commit/push or substitute for final visual review."
+  }
+}

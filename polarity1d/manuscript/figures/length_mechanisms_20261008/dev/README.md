@@ -54,5 +54,7 @@ Each folder contains its PNG previews and related supporting vectors, data, capt
 - [Figure 4 heading persistence against drift and jump baselines](revision_round7_20261026/figure4/README.md)
 - [Figure 5 drift, relocations and strong-input transport](revision_round7_20261026/figure5/README.md)
 - [Figure 6 preserved migration observations and conditional OU interpretation](revision_round7_20261026/figure6/README.md)
+- [Figure R1: drift geometry and cytosolic conduction](ring_r1r2_20261027/figureR1/README.md)
+- [Figure R2: event supply and heading decorrelation](ring_r1r2_20261027/figureR2/README.md)
 
 [Reversible cleanup records](_organization/) preserve the original paths and metadata. After regenerating exports, run `python polarity1d/manuscript/code/mechanisms/organize_length_dev.py` from the repository root. Current renderers write directly into these experiment folders; the organizer also collects outputs from frozen older entry points.

@@ -1,0 +1,45 @@
+{
+  "generated_utc": "2026-10-27T21:19:46.727565+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "check": "R1B closed-form drift null",
+      "comparisons": 962,
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "R2B closed-form jump null",
+      "comparisons": 1446,
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "R1G isolated-front prediction with exact-ring theta",
+      "comparisons": 70,
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "R1H closed-form native exponent prediction",
+      "comparisons": 161,
+      "maximum_absolute_error": 3.3306690738754696e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "R2E/F signed OLS rate-bound propagation using actual circumference",
+      "comparisons": 54,
+      "maximum_absolute_error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    }
+  ],
+  "verified_alpha_conditions": 27,
+  "pending_alpha_conditions": 27,
+  "full_campaign_completion_proven": false,
+  "scope": "Independent algebra checks of plotted analytic curves and OLS interval propagation only. Original rate/heading estimators remain unchanged. Pending execution is not censoring and is not validated by this audit."
+}

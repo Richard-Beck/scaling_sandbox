@@ -1,0 +1,23 @@
+{
+  "generated_utc": "2026-10-27T21:00:08.081105+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--partition=red",
+    "--qos=xxlarge",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--mem=2G",
+    "--time=01:00:00",
+    "--array=0-5775",
+    "--job-name=ring_R1",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/ring_r1_fast_cytosol_20261027/logs/%A_%a.out",
+    "--error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/ring_r1_fast_cytosol_20261027/logs/%A_%a.err",
+    "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/ring_r1_fast_cytosol_20261027/worker.sh"
+  ],
+  "returncode": 0,
+  "stdout": "21385341\n",
+  "stderr": "",
+  "one_line_command": "sbatch --parsable --partition=red --qos=xxlarge --ntasks=1 --cpus-per-task=1 --mem=2G --time=01:00:00 --array=0-5775 --job-name=ring_R1 --output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/ring_r1_fast_cytosol_20261027/logs/%A_%a.out --error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/ring_r1_fast_cytosol_20261027/logs/%A_%a.err /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/ring_r1_fast_cytosol_20261027/worker.sh",
+  "qos_justification": "Thousands of independent one-core runs; scheduler controls concurrency; no array throttle"
+}

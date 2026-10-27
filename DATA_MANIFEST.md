@@ -586,3 +586,39 @@ deletion. No original scientific outputs were removed.
 [Machine-readable measurement](reports/round7_storage_20261026.json). The campaign manifests and seed-level status records distinguish execution completion from statistical precision.
 
 <!-- round7-storage-20261026 end -->
+
+<!-- poisson-ring-modes-20261027 begin -->
+
+## Poisson ring Fourier campaign, 27 October 2026
+
+Measured **2026-10-27T20:14:21.109057+00:00** with `du -sx -B1`: **38,280,560,640 allocated bytes (35.651550 GiB)** at `polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/`. Producer state: **RUNNING**. This non-atomic measurement covers current allocation; it is not a final size forecast.
+
+Scientifically authoritative new ring assay: 432 independent histories, 108 conditions and four seeds per condition. Preserve per-seed complex active/inactive Fourier coefficients, exact inputs/frozen sources, bounded continuation checkpoints and scheduler/inference records. No full activity-profile histories are stored. Incomplete execution is distinct from finite-horizon censoring. Inventory does not authorize deletion.
+
+The first-wave logical Fourier/time allocation is estimated at **40.581 GiB**, and the all-conditions extension cap at **162.324 GiB** before small metadata/analysis additions. Actual allocated storage is measured above and updated by the campaign controller and finalizer. [Measurement receipt](polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/results/storage.json).
+
+<!-- poisson-ring-modes-20261027 end -->
+
+<!-- ring-r1r2-20261027 begin -->
+
+## Ring figures R1 and R2, 27 October 2026
+
+Measured **2026-10-27T21:17:30.821112+00:00** with `du -sx -B1`
+(allocated storage; non-atomic traversal). R1 execution is complete, and R2
+producers remain live. Preserve all authoritative scientific records.
+
+| Path / related group | Measured allocated storage | Purpose and scientific importance/status |
+| --- | ---: | --- |
+| `polarity1d/manuscript/data/runs/ring_r1_fast_cytosol_20261027/` | 3,231,989,760 bytes (3.010025 GiB) | 5,760 matched-noise Wave-pinning histories at fast cytosolic diffusivity and 16 native solver checks, exact inputs, immutable sources and per-run integrity/numerical receipts. All 5,776 histories verified complete; compact region/polarity records remain authoritative, with decimated profiles only for seeds 0/1. Allocated storage exceeds the 1.805 GiB logical forecast but remains below the 3.61 GiB reservation. |
+| `polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/` | 539,181,056 bytes (0.502151 GiB) | Running 144-history per-cell supply arm for Wave-pinning and Spring at outer sizes only; shares existing middle sizes. Retains event logs, native-cadence polarity vector, validated active low modes and bounded restart states. Initial forecast 0.719 GiB; all-extension forecast 2.901 GiB, 7.15% of the existing arm's initial Fourier allocation. This is not a final measurement. |
+| `polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/` | 42,035,109,888 bytes (39.148247 GiB) | Read-only source arm for R2. Richard's initial workers and extension controller remain live; its separate producer-maintained inventory above records execution state. No additional output streams or exemplar runs are added to this arm. Preserve the full Fourier records on the HPC. |
+| `polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/` | 32,972,800 bytes (0.030708 GiB) | R1/R2 plotted data, exports, methods, legends and provenance rendered and independently visually reviewed for the current snapshot. Compact deliverables are versioned; bulk trajectories remain on the HPC. |
+
+The shared filesystem reports 34,052,181,590,016 free bytes. `quota -vs`
+returned no personal quota information; filesystem free space is not an
+independent personal-quota measurement. The campaign storage reservations and
+small reduced-record design provide margin against the measured growth.
+[Measurement receipt](polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/supporting/metadata/storage_measurement.json).
+[Retention policy](RETENTION.md#ring-figures-r1-and-r2-27-october-2026).
+
+<!-- ring-r1r2-20261027 end -->

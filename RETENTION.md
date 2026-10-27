@@ -197,3 +197,30 @@ The execution ledger is authoritative for actual removals; the planning
 measurements above are historical. No further deletion is authorized by this inventory.
 
 <!-- figure4-round3-old-native-retirement-20261022 end -->
+
+<!-- ring-r1r2-20261027 begin -->
+
+## Ring figures R1 and R2, 27 October 2026
+
+The R1/R2 brief authorizes two new campaigns without changing native kinetics.
+Preserve the authoritative records on the HPC, with allocated storage measured
+in `DATA_MANIFEST.md`. Neither Git eligibility nor this inventory authorizes
+removal of Richard's existing event campaign or the round-3 compact histories.
+
+| Group | Retain on the HPC | Version in Git |
+| --- | --- | --- |
+| `polarity1d/manuscript/data/runs/ring_r1_fast_cytosol_20261027/` | Every fast-cytosol compact trajectory and 16 native solver checks, exact input states, matched-noise hashes, tracked-region identities, numerical receipts, and decimated profiles for seeds 0/1 only. Full profiles exist transiently in memory for extraction and are not written for other seeds. | Immutable manifest, frozen executable sources, exact five small input states, launch/collection receipts and compact index; no per-seed trajectory archives or logs. |
+| `polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/` | Richard's existing per-perimeter Fourier records and all continuation/checkpoint information, unchanged. No new exemplar runs or output streams are added by the ring-figure task. | Required source/design provenance and frozen inputs; selected compact plotted summaries live in the R2 deliverable. Full Fourier records stay on the HPC. |
+| `polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/` | Event logs, native-cadence polarity vector, active modes 0/1 at validated cadence, Spring circumference, and bounded continuation checkpoints. Middle-size records remain shared references to the existing arm. Keep cadence-validation comparisons and extension decisions. | Frozen code/manifest, source identities, cadence-validation tables and selection, storage forecasts, launch and completion receipts; no copied existing-arm output or bulk trajectory streams. |
+| `polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/` | Same small deliverables as Git. | R1/R2 PNG/PDF/SVG, every plotted value/curve/bound with uncertainty and lag, legends, scientific readmes, campaign provenance, request, storage and independent visual-review receipts. |
+
+The R2 storage plan retains only active modes 0/1 and uses a cadence selected
+against the unchanged full-record mode-1 estimator and its whole-seed bootstrap
+intervals. A separate small native-cadence polarity stream supports the required
+2/5/20-frame event windows. The initial forecast is 0.719 GiB, and the forecast
+with every planned extension is 2.901 GiB, including event-log allowance; this is
+7.15% of the existing arm's initial Fourier allocation. Forecasts are distinct
+from allocated-byte measurements. Existing source data and all plotted bounds
+remain preserved even when checks differ from the brief or a rate is unresolved.
+
+<!-- ring-r1r2-20261027 end -->
