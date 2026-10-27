@@ -5,7 +5,7 @@ Read their status only after a scheduler dependency has completed. A terminal
 execution failure is recorded for attention and never treated as censoring.
 """
 from __future__ import annotations
-import argparse,hashlib,json,os,shlex,subprocess,sys
+import argparse,hashlib,json,os,shlex,shutil,subprocess,sys
 from pathlib import Path
 from datetime import datetime,timezone
 
@@ -16,6 +16,7 @@ PER_CELL=MS/'data/runs/ring_r2_per_cell_20261027'
 FOLDER=PER_CELL/'release_finalization'
 PY='/home/4473331/.conda/envs/scaling_sandbox/bin/python'
 REBUILD=MS/'code/mechanisms/rebuild_figureR2_20261027.py'
+CADENCE_AUDIT=MS/'code/mechanisms/audit_r2_cadence_20261027.py'
 ACTIVE={'PENDING','RUNNING','CONFIGURING','COMPLETING','SUSPENDED','RESIZING','REQUEUED'}
 def now():return datetime.now(timezone.utc).isoformat()
 def read(p):return json.loads(Path(p).read_text())
@@ -77,12 +78,28 @@ def run(predecessors):
     receipt=scheduler(handles+predecessors)
     if all(p['state']=='COMPLETE' for p in producers):
         status('REFRESHING',producers=producers,scheduler=receipt)
+        # Complete-grid validation supplements the immutable prelaunch choice.
+        # It does not change cadence, estimator, inputs, or simulation records.
+        audit_folder=PER_CELL/'validation'/('post_launch_'+datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S_%f'))
+        validation=subprocess.run([PY,'-B',str(CADENCE_AUDIT),'--output',str(audit_folder)],capture_output=True,text=True)
+        (FOLDER/'cadence_stdout.log').write_text(validation.stdout)
+        (FOLDER/'cadence_stderr.log').write_text(validation.stderr)
+        summary_path=audit_folder/'summary.json'
+        summary=read(summary_path) if summary_path.exists() else {}
+        expected_cohorts=sum(c['model'] in ('wave_pinning','spring_ring') for c in read(EXISTING/'manifest.json')['conditions'])
+        cadence_pass=bool(validation.returncode==0 and summary.get('complete') and summary.get('cohorts_checked')==expected_cohorts and not summary.get('failures') and not summary.get('pending_cohorts'))
+        figure=MS/'figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/supporting'
+        write(figure/'metadata/record_cadence_finalization.json',dict(generated_utc=now(),passed=cadence_pass,returncode=validation.returncode,expected_cohorts=expected_cohorts,audit=str(audit_folder.relative_to(ROOT)),stderr=validation.stderr[-4000:],policy='Render the complete available figure even when this check fails; record the discrepancy without retuning or silently changing cadence.'))
+        for source,target in (('summary.json',figure/'metadata/record_cadence_postlaunch_summary.json'),('snapshot.json',figure/'metadata/record_cadence_postlaunch_snapshot.json'),('cadence.csv',figure/'data/record_cadence_postlaunch_validation.csv')):
+            if (audit_folder/source).exists():
+                target.parent.mkdir(parents=True,exist_ok=True)
+                shutil.copy2(audit_folder/source,target)
         result=subprocess.run([PY,'-B',str(REBUILD),'all'],capture_output=True,text=True)
         (FOLDER/'rebuild_stdout.log').write_text(result.stdout);(FOLDER/'rebuild_stderr.log').write_text(result.stderr)
         if result.returncode:
             status('NEEDS_ATTENTION',reason='Compact extraction/rebuild failed',returncode=result.returncode,producers=producers,scheduler=receipt)
             raise RuntimeError('R2 final refresh failed; see release_finalization/rebuild_stderr.log')
-        status('REFRESHED_AWAITING_REVIEW',producers=producers,scheduler=receipt,rebuild_code_sha256=sha(REBUILD),
+        status('REFRESHED_AWAITING_REVIEW',producers=producers,scheduler=receipt,rebuild_code_sha256=sha(REBUILD),cadence_validation_passed=cadence_pass,cadence_audit=str(audit_folder.relative_to(ROOT)),
           provenance=str((MS/'figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/supporting/metadata/provenance.json').relative_to(ROOT)),
           next_step='Independent final-data audit and visual review, followed by root commit/push; this watcher does not commit or publish')
         return

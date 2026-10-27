@@ -373,6 +373,13 @@ def documents():
       'The β = −1 sample paths retain the original round-7 literal Bernoulli arrival transition at interval 20. Panel B is the requested continuous-time analytic exponential, so this tiny finite-step discrepancy is explicit.',
       'Cadence validation used the 46 completed target-model cohorts available before launch, including the shared centre and every rate/amplitude combination at C20. Eight high-rate target-model cohorts were still executing and were not used to choose cadence.',
       'The finite Fourier cutoff produces small negative ringing in reconstructed Goryachev activity (minimum about −0.423). These band-limited reconstruction values are not negative native solver concentrations. Saved Fourier coefficients, including mode zero M₀, remain unchanged, and no reconstruction values are clipped. Its shared C20/C60 grayscale uses an asinh transform with linear width 1 native activity unit, explicitly keyed; neither ring is normalized separately.']
+    cadence_postlaunch=META/'record_cadence_postlaunch_summary.json'
+    if cadence_postlaunch.exists():
+        audit=C.read(cadence_postlaunch)
+        unexpected.append(f'An additive post-launch cadence audit checks {audit["cohorts_checked"]} currently complete existing-arm cohorts at the unchanged selected cadences: {audit["passes"]} pass, {len(audit["failures"])} fail, and {len(audit["pending_cohorts"])} cohorts await completion. The frozen prelaunch selection and validation records remain unchanged. Full comparisons are retained in record_cadence_postlaunch_validation.csv; snapshot identities are beside this readme.')
+    cadence_final=META/'record_cadence_finalization.json'
+    if cadence_final.exists() and not C.read(cadence_final)['passed']:
+        unexpected.append('The final complete-grid cadence validation failed or is incomplete. The full available figure is retained; the exact audit, exit status and remaining discrepancy are recorded in record_cadence_finalization.json. No cadence or model parameter was changed to close this gap.')
     numbers=['A: λ₀ = 1/7000; duration 24,000; original sample interval 20; physical peak SD 1.5. C20/C60 widths are 1:3.','B: Exact continuous-time λ(C) = λ₀(C/40)^β and C(ℓ) = exp[−λ(C)ℓ]. No null ensembles were run.','C: Existing-arm replicate 0 only, reconstructed from all stored active Fourier modes at 240 spatial positions; 321 displayed times. Goryachev low rate/low amplitude; Wave-pinning low rate/medium amplitude.','D: Whole-profile heading θ = arg P, P = M₁/M₀; endpoint |P| ≥ 0.1; 2000 whole-seed bootstrap draws. Guides use the C20 curve directly (dotted) and its 1/9 power (dashed).']
     if len(alpha):
         for panel,arm in (('E','per_perimeter'),('F','per_cell')):
