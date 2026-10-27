@@ -1,0 +1,53 @@
+{
+  "generated_utc": "2026-10-27T23:39:32.922206+00:00",
+  "passed": true,
+  "source_path": "polarity1d/manuscript/code/mechanisms/rebuild_figureR2_20261027.py",
+  "source_sha256": "f2d7667f699b55222cc0b06eda2772a38fd87c20927b0b55fde91da9e2fd4a1a",
+  "renderer_ast_unchanged": true,
+  "lag_grids": [
+    {
+      "frames": 256001,
+      "sampled_duration": 128000.0,
+      "maximum_lag": 64000.0,
+      "lag_nodes": 101,
+      "original_grid_preserved_exactly": true
+    },
+    {
+      "frames": 512001,
+      "sampled_duration": 256000.0,
+      "maximum_lag": 128000.0,
+      "lag_nodes": 108,
+      "original_grid_preserved_exactly": true
+    },
+    {
+      "frames": 1024001,
+      "sampled_duration": 512000.0,
+      "maximum_lag": 256000.0,
+      "lag_nodes": 114,
+      "original_grid_preserved_exactly": true
+    }
+  ],
+  "prose_cases": [
+    {
+      "existing_producer_state": "RUNNING",
+      "new_producer_state": "COMPLETE",
+      "pending_cohorts": 0,
+      "complete_message": false,
+      "unfinished_message": true
+    },
+    {
+      "existing_producer_state": "COMPLETE",
+      "new_producer_state": "COMPLETE",
+      "pending_cohorts": 0,
+      "complete_message": true,
+      "unfinished_message": false
+    },
+    {
+      "both_complete": true,
+      "four_seed_status_pending": true,
+      "incomplete_execution_still_reported": true
+    }
+  ],
+  "simulation_or_extraction_run": false,
+  "scope": "Deterministic boundary checks of lag sampling and snapshot prose only. Original statistical estimators, worker inputs and plotted scientific records remain unchanged."
+}

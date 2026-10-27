@@ -32,6 +32,16 @@ def estimate_text(r):
     if r.status=='upper_bound':return f'α ≤ {r.alpha_upper:.4g}'
     if r.status=='execution_pending':return 'α pending'
     return 'α unbounded'
+def heading_lag_grid(maxlag,cadence=.5):
+    """Keep the initial grid; extend its logarithmic sampling beyond 64,000."""
+    transition=64000.
+    lags=np.unique(np.r_[cadence,np.geomspace(1,min(transition,maxlag),100)]/cadence).astype(int)*cadence
+    if maxlag>transition:
+        ratio=transition**(1/99)
+        extra=transition*ratio**np.arange(1,int(math.ceil(math.log(maxlag/transition)/math.log(ratio)))+1)
+        extra=np.r_[extra[extra<maxlag],maxlag]
+        lags=np.r_[lags,np.unique((extra/cadence).astype(int)*cadence)]
+    return lags
 def latest_level(run,cohort):
     target=int(C.read(run/'expected_levels.json')[str(cohort['slots'][0])])
     for level in range(target,-1,-1):
@@ -116,7 +126,7 @@ def extract():
             # endpoint mask. Its logarithmic display grid spans the record.
             requested=(job['model']=='goryachev' and job['amplitude_level']=='low') or (job['model']=='wave_pinning' and job['amplitude_level']=='medium')
             if arm=='per_perimeter' and requested and job['rate_level']=='low' and job['size'] in (20.,60.):
-                maxlag=min(64000.,rec[0][0][-1]-rec[0][0][0]);lags=np.unique(np.r_[.5,np.geomspace(1,maxlag,100)]/.5).astype(int)*.5
+                maxlag=(min(len(t) for t,P,c in rec)//2)*job['frame_interval'];lags=heading_lag_grid(maxlag,job['frame_interval'])
                 moments=[H.seed_moments(P,abs(P)>=.1,job['frame_interval'],lags) for t,P,c in rec]
                 summary=H.summarize(moments,circles,('R2D',key),lags,lags)
                 for ix,lag in enumerate(lags):
@@ -363,10 +373,14 @@ def render():
 
 def documents():
     setup();rates=pd.read_csv(DATA/'mode1_rates.csv') if (DATA/'mode1_rates.csv').exists() else pd.DataFrame();alpha=pd.read_csv(DATA/'EF_local_alpha.csv') if (DATA/'EF_local_alpha.csv').exists() else pd.DataFrame();cov=pd.read_csv(DATA/'coverage.csv') if (DATA/'coverage.csv').exists() else pd.DataFrame();events=pd.read_csv(DATA/'G_event_heading_change.csv') if (DATA/'G_event_heading_change.csv').exists() else pd.DataFrame()
+    provenance=C.read(META/'provenance.json') if (META/'provenance.json').exists() else {}
+    both_complete=all(provenance.get(key,{}).get('state')=='COMPLETE' for key in ('existing_producer_status','new_producer_status'))
     unexpected=[];comparisons=[]
     if len(cov):
-        pending=cov[cov.complete_seeds<4]
-        unexpected.append(f'{len(pending)} conditions have incomplete execution; these are marked × pending, not treated as rate censoring. Existing-arm extension checks must finish before this is final inference.')
+        pending=cov[(cov.complete_seeds<4)|(cov.status!='complete_cohort')]
+        if len(pending):unexpected.append(f'{len(pending)} conditions have incomplete execution; these are marked × pending, not treated as rate censoring.')
+        if not both_complete:unexpected.append('Campaign execution or extension checks remain unfinished in the extraction provenance; this snapshot is not final inference.')
+        elif not len(pending):unexpected.append('Both campaign producers report COMPLETE and no conditions have incomplete execution; extension checks are complete. Remaining rate bounds represent finite-record censoring.')
     if len(alpha):
         bounded=alpha[~alpha.status.isin(['resolved','execution_pending'])];unexpected.append(f'{len(bounded)} α estimates are censored; open triangles/arrows preserve one-sided bounds, and paired opposing open triangles/arrows identify two-sided or unbounded slopes. No horizon caps or omitted bounds.')
         q=alpha[(alpha.arm=='per_perimeter')&(alpha.rate_level=='low')&(alpha.amplitude_level=='low')]
@@ -390,7 +404,7 @@ def documents():
     if cadence_postlaunch.exists():
         audit=C.read(cadence_postlaunch)
         preservation='The frozen prelaunch selection and validation records remain unchanged.' if audit.get('frozen_selection_unchanged') else 'The frozen-selection preservation check failed and requires review.'
-        unexpected.append(f'An additive post-launch cadence audit checks {audit["cohorts_checked"]} currently complete existing-arm cohorts at the selected cadences: {audit["passes"]} pass, {len(audit["failures"])} fail, and {len(audit["pending_cohorts"])} cohorts await completion. {preservation} Full comparisons are retained in record_cadence_postlaunch_validation.csv; snapshot identities are beside this readme.')
+        unexpected.append(f'A historical additive post-launch cadence audit checked {audit["cohorts_checked"]} complete existing-arm cohorts at the selected cadences: {audit["passes"]} passed, {len(audit["failures"])} failed, and {len(audit["pending_cohorts"])} cohorts were pending at that audit. {preservation} Full comparisons are retained in record_cadence_postlaunch_validation.csv; snapshot identities are beside this readme.')
     cadence_final=META/'record_cadence_finalization.json'
     if cadence_final.exists() and not C.read(cadence_final)['passed']:
         unexpected.append('The final complete-grid cadence validation failed or is incomplete. The full available figure is retained; the exact audit, exit status and remaining discrepancy are recorded in record_cadence_finalization.json. No cadence or model parameter was changed to close this gap.')
@@ -417,7 +431,7 @@ def documents():
             values={int(r.window_frames):r.mean_heading_change for r in g.itertuples(index=False)}
             text+='| '+' | '.join([NAMES[key[0]],key[1],str(key[2]),key[3]]+[f'{values.get(w,float("nan")):.6g}' for w in (2,5,20)])+' |\n'
     (META/'scientific_readme.md').write_text(text)
-    result='Execution and extension checks are still running; pending values are marked and recorded.'
+    result='Both campaigns and their extension checks are complete.' if both_complete else 'Execution and extension checks are still running; pending values are marked and recorded.'
     if len(alpha):
         q=alpha[(alpha.arm=='per_perimeter')&(alpha.rate_level=='low')&(alpha.amplitude_level=='low')]
         result='; '.join(f'{NAMES[r.model]} {estimate_text(r)} ({r.status})' for r in q.itertuples(index=False))+'.'
