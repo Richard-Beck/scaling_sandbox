@@ -1,0 +1,21 @@
+{
+  "generated_utc": "2026-10-27T21:01:28.576126+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--partition=red",
+    "--qos=small",
+    "--cpus-per-task=1",
+    "--mem=4G",
+    "--time=02:00:00",
+    "--job-name=R2_cellcontrol",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/logs/%A_%a.out",
+    "--error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/logs/%A_%a.err",
+    "--dependency=afterany:21388800",
+    "--wrap",
+    "/home/4473331/.conda/envs/scaling_sandbox/bin/python -B /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/frozen_sources/campaign.py control"
+  ],
+  "returncode": 0,
+  "stdout": "21388801\n",
+  "stderr": ""
+}

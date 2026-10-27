@@ -1,0 +1,29 @@
+{
+  "generated_utc": "2026-10-27T21:13:02.176891+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--partition=red",
+    "--qos=small",
+    "--cpus-per-task=1",
+    "--mem=4G",
+    "--time=04:00:00",
+    "--job-name=R2_finalize",
+    "--dependency=afterany:21384387:21388801",
+    "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/release_finalization/%j.out",
+    "--error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/release_finalization/%j.err",
+    "--wrap",
+    "/home/4473331/.conda/envs/scaling_sandbox/bin/python -B /home/4473331/projects/scaling_sandbox/polarity1d/manuscript/code/mechanisms/ring_r2_finalize_20261027.py run --predecessors 21384387,21388801"
+  ],
+  "dependencies": [
+    "21384387",
+    "21388801"
+  ],
+  "returncode": 0,
+  "stdout": "21391427\n",
+  "stderr": "",
+  "entrypoint": "polarity1d/manuscript/code/mechanisms/ring_r2_finalize_20261027.py",
+  "entrypoint_sha256_at_submission": "65de15cf28ba4b85aaef5b0bd1ac755f1767f9f1fc4684f6efce46696d127d51",
+  "source_loading": "Entrypoint and rebuild are loaded from the latest workspace code only when this dependency job starts; frozen simulation workers are unchanged",
+  "job_id": "21391427"
+}

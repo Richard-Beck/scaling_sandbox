@@ -13,6 +13,8 @@ REPORT=ROOT/'figures/length_mechanisms_20261008'
 DEV=REPORT/'dev'
 RECORDS=DEV/'_organization'
 GROUPS={
+ 'ring_r1r2_20261027/figureR1':('figureR1_',),
+ 'ring_r1r2_20261027/figureR2':('figureR2_',),
  'revision_round7_20261026/figure3':('figure3_round7_', 'figure3_conduction_20261026'),
  'revision_round7_20261026/figure4':('figure4_round7_',),
  'revision_round7_20261026/figure5':('figure5_round7_',),
@@ -68,6 +70,8 @@ GROUPS={
 }
 TITLES={'revision_round2_20261022/figure4':'Figure 4 round-2 persistence reanalysis: author-review interim','resting_state':'Native resting state','basal_feedback_controls':'Basal feedback controls','tension_rho_ablation':'Global tension→Rho ablation','beta0_reversal':'Beta=0 reversal','no_protrusion':'Polarization with protrusion disabled','native_reversal':'Native reversal and MCA budgets','L29_fullstate':'L=29 full-state example','figure_x_reversal_overview':'Figure X: reversal overview','figure_z_mca_redistribution':'Figure Z: MCA redistribution distance and speed','deBelly_redraft':'deBelly redraft with Figures X Y and Z'}
 TITLES['mca_threshold_profiles']='Steady MCA profiles near the lower polarity limit'
+TITLES['ring_r1r2_20261027/figureR1']='Figure R1: drift geometry and cytosolic conduction'
+TITLES['ring_r1r2_20261027/figureR2']='Figure R2: event supply and heading decorrelation'
 TITLES['mca_molecular_fates']='MCA molecular residence and first-exit fate'
 TITLES['stimulated_endpoint']='Stimulated-end protrusion and cortical velocity'
 TITLES['reversal_flux_flow']='Reversal MCA flux and cortical-flow snapshots'
@@ -274,7 +278,7 @@ def organize_group(name,dry_run=False):
  readme=folder/'README.md'
  # Revision generators own the scientific message, qualifications and links.
  # Organization must preserve that narrative rather than restore an interim.
- if name.startswith(('revision_round2_20261022/','revision_round3_20261022/','revision_round4_20261023/','revision_round5_20261023/')) and readme.exists():
+ if name.startswith(('revision_round2_20261022/','revision_round3_20261022/','revision_round4_20261023/','revision_round5_20261023/','ring_r1r2_20261027/')) and readme.exists():
   text=readme.read_text()
  index=DEV/'README.md'
  index_before=index.read_text()
@@ -310,6 +314,7 @@ def organize_group(name,dry_run=False):
     declared_hashes+=1
   source_root=REPO
   native_campaign_roots={
+   'ring_r1r2_20261027/figureR1':'ring_r1_fast_cytosol_20261027',
    'revision_round2_20261022/figure2':'signature_holmes_retention_round2_20261022',
    'revision_round3_20261022/figure4':'signature_figure4_round3_compact_20261022',
    'revision_round4_20261023/figure4':'signature_figure4_round3_compact_20261022',
@@ -318,6 +323,11 @@ def organize_group(name,dry_run=False):
    # This retained native manifest declares run-relative frozen sources.
    # Verify its exact identity before resolving those immutable inputs.
    source_root=REPO/'polarity1d/manuscript/data/runs'/native_campaign_roots[name]
+   if sha(source_path(path))!=sha(source_root/'manifest.json'):
+    raise AssertionError((str(path),'native manifest identity mismatch'))
+  if name=='ring_r1r2_20261027/figureR2' and path.name in ('existing_campaign_manifest.json','per_cell_campaign_manifest.json'):
+   campaign_root={'existing_campaign_manifest.json':'poisson_ring_modes_20261027','per_cell_campaign_manifest.json':'ring_r2_per_cell_20261027'}[path.name]
+   source_root=REPO/'polarity1d/manuscript/data/runs'/campaign_root
    if sha(source_path(path))!=sha(source_root/'manifest.json'):
     raise AssertionError((str(path),'native manifest identity mismatch'))
   for relative,digest in manifest.get('source_sha256',{}).items():

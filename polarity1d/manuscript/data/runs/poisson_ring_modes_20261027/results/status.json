@@ -1,0 +1,50 @@
+{
+  "generated_utc": "2026-10-27T20:08:01.067675+00:00",
+  "state": "RUNNING",
+  "run": "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027",
+  "completed": 325,
+  "submission": {
+    "created_utc": "2026-10-27T18:47:14.598107+00:00",
+    "job_id": "21383081",
+    "jobs": 432,
+    "array_throttle": null,
+    "controller_job_id": "21384387",
+    "superseded_controller_job_id": "21383082",
+    "controller_revision_reason": "Scope final output organization to this topic; worker array and immutable simulation inputs unchanged",
+    "node_failure_retries": [
+      {
+        "created_utc": "2026-10-27T19:53:42.808992+00:00",
+        "job_id": "21384035",
+        "slots": [
+          346,
+          349
+        ],
+        "command": [
+          "sbatch",
+          "--parsable",
+          "--partition=red",
+          "--qos=small",
+          "--cpus-per-task=1",
+          "--mem=2G",
+          "--time=24:00:00",
+          "--job-name=poisson_node_retry",
+          "--array=346,349",
+          "--exclude=hpctpa3pc0067",
+          "--export=ALL,POISSON_LEVEL=0",
+          "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/logs/%A_%a.out",
+          "--error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/logs/%A_%a.err",
+          "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/worker.sh"
+        ],
+        "reason": "Original tasks NODE_FAIL on hpctpa3pc0067; identical seeds/input/source; failed node excluded",
+        "controller_job_id": "21383521",
+        "controller_dependency": "afterany:21383081:21384035"
+      }
+    ],
+    "superseded_controllers": [
+      "21383521"
+    ],
+    "compact_archive_check": "compact_statistics/000/validation.json",
+    "compact_archive_source": "postprocessing/archive_v1.freeze.json"
+  },
+  "compact_archive_configured": true
+}
