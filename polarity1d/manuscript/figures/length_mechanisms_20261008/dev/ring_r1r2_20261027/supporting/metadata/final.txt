@@ -1,6 +1,14 @@
-Revision 1 renderer and current figure snapshot prepared.
-Source commit: b1893ec76e9c6519a94915b92406e428b595a3fd
-Remote branch: origin/codex/ring-r1r2-20261027
-Validation: 34 scientific/display checks pass; portable PNG rebuilds byte-identical; PNG and PDF visually inspected.
-Pending: existing event workers and extension checks. Existing finalizer21391427 loads the revised code, rebuilds after both producers COMPLETE, validates, then commits/pushes the final data using the authorized scoped publisher.
-Current finite-record bounds and scientific mismatches are in each scientific_readme.md (Unexpected).
+Revision 1: current figures committed and pushed; final campaign-dependent refresh is queued.
+Branch: origin/codex/ring-r1r2-20261027
+Analysis commit: cce5c128
+Finalization source commit: b1893ec76e9c6519a94915b92406e428b595a3fd
+Figure snapshot commit: 6f2b008e7c04f6b444708677f755e85826580a05
+Verified published checkpoint: cf010ebfce1df5b4fce6a1f028b52eae84f21063
+
+All R1 A–H and R2 A–G panels retained at their original paths, with PNG/PDF/SVG, matching legends and updated Unexpected sections. R1 C–D use all384 saved seeds per size at f=0.01 over16000–32000. R2 G is the signed event-triggered excess against random windows from the same runs, with2000 whole-seed bootstrap draws over w=2–64 original frames.
+
+Validation:34 scientific/display checks passed; all88 event-excess rows and their joint bootstrap intervals reconstructed from seed sufficient statistics; frozen inputs and R1 H/solver evidence unchanged; repeated portable PNG renders byte-identical; PNG and independently rasterized PDF inspected at180mm; local links verified; allocated storage remeasured. Scoped-Git publication preserved unrelated staged/working manifest edits in a separate test repository. A noninteractive push dry-run succeeded under SLURM job21394993.
+
+Remaining: both existing event producers/extension checks are unfinished. Finalizer21391427 follows their controller successors, waits for the existing interim writer, rebuilds R2 after both COMPLETE, runs final-data checks, refreshes inventory, and commits/pushes only the authorized revision paths. The exact code hashes are sealed in revision1_delivery.json. Future failures are recorded as NEEDS_ATTENTION; no simulation is automatically retried or retuned. Until this finishes, R2 is a current-data snapshot and not final campaign inference.
+
+Scientific mismatches, signed/window-dependent event excess, Fourier display clipping, Spring's shared state-dependent centre hazard and finite-record bounds remain documented in scientific_readme.md (Unexpected). The two stale failed-prolog allocations were excluded from the existing controller dependency only after their replacement records were verified complete; no simulation or data was cancelled or removed.
