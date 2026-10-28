@@ -116,6 +116,15 @@ def run(predecessors):
         status('REFRESHED_AWAITING_REVIEW',producers=producers,scheduler=receipt,rebuild_code_sha256=sha(REBUILD),cadence_validation_passed=cadence_pass,cadence_audit=str(audit_folder.relative_to(ROOT)),
           provenance=str((MS/'figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/supporting/metadata/provenance.json').relative_to(ROOT)),
           next_step='Independent final-data audit and visual review, followed by root commit/push; this watcher does not commit or publish')
+        delivery=MS/'figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/supporting/metadata/revision1_delivery.json'
+        if delivery.exists() and read(delivery).get('commit_and_push_authorized'):
+            published=subprocess.run([PY,'-B',str(MS/'code/mechanisms/publish_ring_revision1_20261028.py')],capture_output=True,text=True,cwd=ROOT)
+            (FOLDER/'revision1_publish_stdout.log').write_text(published.stdout)
+            (FOLDER/'revision1_publish_stderr.log').write_text(published.stderr)
+            if published.returncode:
+                status('NEEDS_ATTENTION',reason='Final-data commit/push failed',returncode=published.returncode,producers=producers)
+                raise RuntimeError('Final-data commit/push failed; see revision1_publish_stderr.log')
+            status('COMPLETE_PUSHED',producers=producers,delivery_status=str((delivery.parent/'delivery_status.json').relative_to(ROOT)))
         return
     blockers=[];pending=[]
     for p in producers:
