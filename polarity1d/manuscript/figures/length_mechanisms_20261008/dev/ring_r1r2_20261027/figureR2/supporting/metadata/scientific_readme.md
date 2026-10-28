@@ -2,108 +2,109 @@
 
 ## Unexpected
 
-34 conditions have incomplete execution; these are marked × pending, not treated as rate censoring. Existing-arm extension checks must finish before this is final inference.
+10 conditions have incomplete execution; pending estimates are × on a separate thin band below the α axes, with no assigned α value.
 
-4 α estimates are censored; open triangles/arrows preserve one-sided bounds, and paired opposing open triangles/arrows identify two-sided or unbounded slopes. No horizon caps or omitted bounds.
+Campaign execution or extension checks remain unfinished in the extraction provenance; this snapshot is not final inference. The existing dependency finalizer rebuilds R2 again after both producers finish.
 
-Pilot check Goryachev: α ≥ 3.645, status lower_bound; earlier check above 4. Bootstrap resolved fraction 0. No parameter or seed was changed.
+4 α estimates are censored. Open triangles and arrows preserve one-sided bounds; paired opposing triangles/arrows show two-sided or unbounded slopes.
 
-Pilot check Wave-pinning: α = 1.64, status resolved; earlier check about 1.6. Bootstrap resolved fraction 1. No parameter or seed was changed.
+Pilot check Goryachev: α ≥ 3.645 (lower_bound); earlier check above 4. Bootstrap resolved fraction 0. No parameter or seed was changed.
 
-Pilot check Holmes: α = 0.8958, status resolved; earlier check about 0.9. Bootstrap resolved fraction 1. No parameter or seed was changed.
+Pilot check Wave-pinning: α = 1.64 (resolved); earlier check about 1.6. Bootstrap resolved fraction 1. No parameter or seed was changed.
 
-Pilot check Spring: α = -0.1375, status resolved; earlier check about 0. Bootstrap resolved fraction 1. No parameter or seed was changed.
+Pilot check Holmes: α = 0.8958 (resolved); earlier check about 0.9. Bootstrap resolved fraction 1. No parameter or seed was changed.
 
-Wave-pinning per-cell minus per-perimeter α ranges from 0.8561 to 1.042 across 3 matched resolved conditions (earlier check about +1)
+Pilot check Spring: α = -0.1375 (resolved); earlier check about 0. Bootstrap resolved fraction 1. No parameter or seed was changed.
 
-Spring per-cell minus per-perimeter α ranges from 0.798 to 1.108 across 5 matched resolved conditions (earlier check about +1)
+Wave-pinning per-cell minus per-perimeter α ranges from 0.7211 to 1.042 across 7 matched resolved conditions (earlier check about +1).
 
-Existing Spring event times depend on model state through its changing physical circumference and cannot be regenerated exactly from seeds alone. Panel G therefore uses the new per-cell Spring outer sizes only, with the shared centre unavailable; chemical panels use regenerated existing-arm events.
+Spring per-cell minus per-perimeter α ranges from 0.2705 to 1.108 across 9 matched resolved conditions (earlier check about +1).
 
-Spring fixed per-cell intensity is ρ times the exact basal physical circumference at size 2. The shared centre keeps its original state-dependent per-perimeter hazard, as required by the no-rerun instruction; it is not an exactly constant-intensity centre trajectory.
+Existing Spring event times depend on its changing physical circumference and cannot be regenerated exactly from seeds alone. G therefore retains the logged per-cell outer-size histories for Spring; chemical models use exact regenerated per-perimeter events. Supply arms differ across these model facets.
 
-The β = −1 sample paths retain the original round-7 literal Bernoulli arrival transition at interval 20. Panel B is the requested continuous-time analytic exponential, so this tiny finite-step discrepancy is explicit.
+The shared Spring C40 (size 2) centre retains its original state-dependent per-perimeter hazard. The per-cell outer sizes instead have constant intensity equal to ρ times the exact size-2 basal physical circumference; the centre is not an exactly constant-intensity trajectory.
 
-Cadence validation used the 46 completed target-model cohorts available before launch, including the shared centre and every rate/amplitude combination at C20. Eight high-rate target-model cohorts were still executing and were not used to choose cadence.
+The β = −1 sample paths retain the original literal Bernoulli arrival transition at interval 20, while B shows the requested continuous-time analytic exponential. This finite-step mismatch is retained.
 
-The finite Fourier cutoff produces small negative ringing in reconstructed Goryachev activity (minimum about −0.423). These band-limited reconstruction values are not negative native solver concentrations. Saved Fourier coefficients, including mode zero M₀, remain unchanged, and no reconstruction values are clipped. Its shared C20/C60 grayscale uses an asinh transform with linear width 1 native activity unit, explicitly keyed; neither ring is normalized separately.
+The prelaunch cadence selection used 46 completed target-model cohorts, including the shared centre and every rate/amplitude combination at C20. Eight high-rate target cohorts were still executing and were excluded from that selection.
 
-An additive post-launch cadence audit checks 49 currently complete existing-arm cohorts at the selected cadences: 49 pass, 0 fail, and 5 cohorts await completion. The frozen prelaunch selection and validation records remain unchanged. Full comparisons are retained in record_cadence_postlaunch_validation.csv; snapshot identities are beside this readme.
+Goryachev Fourier reconstruction reaches -0.422766 activity because of its finite mode cutoff. Display values are clipped at zero on the shared linear viridis scale only; signed compact reconstruction data, native Fourier coefficients and all heading calculations remain unchanged.
+
+G Goryachev: large-minus-small event-triggered excess ranges from -0.014276 to -0.000363256 across w=2–64 original frames.
+
+G Wave-pinning: large-minus-small event-triggered excess ranges from -0.338487 to 0.000837668 across w=2–64 original frames; its sign changes with window width.
+
+G Holmes: large-minus-small event-triggered excess ranges from -0.279713 to -0.0306729 across w=2–64 original frames.
+
+G Spring: large-minus-small event-triggered excess ranges from -0.254042 to -0.126403 across w=2–64 original frames.
+
+Two original allocation records remain stuck in failed prolog on hpctpa3pc0067 after successful replacement runs completed. The existing initial controller dependency was repaired to retain every remaining live worker and exclude only those stale records; no simulation or scientific record was cancelled or changed. The exact receipt is scheduler_dependency_repair.json.
+
+The additive cadence audit checked 49 complete target cohorts: 49 passed, 0 failed, and 5 were pending at that audit. Frozen prelaunch selection unchanged: True. Full comparisons remain in record_cadence_postlaunch_validation.csv.
 
 ## Key numbers by panel
 
-Data generation time: 2026-10-27T21:25:42.357708+00:00. Current campaign and extension states are retained in provenance.json; each pending condition is explicitly listed in coverage.csv.
+Data generation time: **2026-10-28T00:32:22.239424+00:00**. Producers complete: **False**. Exact execution/extension status is in provenance.json and coverage.csv.
 
-A: λ₀ = 1/7000; duration 24,000; original sample interval 20; physical peak SD 1.5. C20/C60 widths are 1:3.
+A–B: λ₀=1/7000, duration 24000, original sample interval 20, physical peak SD 1.5. Widths follow C20:C60=1:3. β=0 curves coincide.
 
-B: Exact continuous-time λ(C) = λ₀(C/40)^β and C(ℓ) = exp[−λ(C)ℓ]. No null ensembles were run.
+C: Existing-arm replicate 0 only, all retained active Fourier modes, 240 spatial positions, 321 displayed times. Both models use low rate and low amplitude; no example search or rerun.
 
-C: Existing-arm replicate 0 only, reconstructed from all stored active Fourier modes at 240 spatial positions; 321 displayed times. Goryachev low rate/low amplitude; Wave-pinning low rate/medium amplitude.
+D: Whole-profile heading arg P, P=M₁/M₀, endpoint |P|≥0.1, 2000 whole-seed resamples. Dashed guide is C20 correlation to the power 1/9; shared display lag axis is 0–12000, and full retained-record curves remain in CSV.
 
-D: Whole-profile heading θ = arg P, P = M₁/M₀; endpoint |P| ≥ 0.1; 2000 whole-seed bootstrap draws. Guides use the C20 curve directly (dotted) and its 1/9 power (dashed).
+E: 36 model/rate/amplitude combinations; 24 resolved, 8 pending, 4 bounded.
 
-E: 36 model/rate/amplitude combinations; 23 resolved, 9 pending, 4 bounded.
+F: 18 model/rate/amplitude combinations; 16 resolved, 2 pending, 0 bounded.
 
-F: 18 model/rate/amplitude combinations; 8 resolved, 10 pending, 0 bounded.
+G Goryachev at w=2: 4020 event windows, 402000 random control windows over both outer sizes; four seeds per size.
 
-G Goryachev: 18260 scored event-window pairs across displayed amplitude/size conditions.
+G Wave-pinning at w=2: 4039 event windows, 403900 random control windows over both outer sizes; four seeds per size.
 
-G Wave-pinning: 18423 scored event-window pairs across displayed amplitude/size conditions.
+G Holmes at w=2: 4167 event windows, 416700 random control windows over both outer sizes; four seeds per size.
 
-G Holmes: 18459 scored event-window pairs across displayed amplitude/size conditions.
-
-G Spring: 6429 scored event-window pairs across displayed amplitude/size conditions.
+G Spring at w=2: 2133 event windows, 213300 random control windows over both outer sizes; four seeds per size.
 
 ## Methods
 
-All times, lengths, rates and activities use native units. The models retain their distinct native spatial and temporal scales. Biological migration persistence, conditional OU estimates and these 1D activity-heading readouts are distinct.
+All quantities use native model units. Size represents WGD-associated enlargement. Observed migration summaries, conditional OU velocity persistence and simulated activity-heading persistence remain distinct readouts.
 
-The existing Fourier rate estimator is imported unchanged from the frozen Poisson campaign: uncentered actual-pair-count mode autocorrelation, raw numerators and powers pooled over four seeds, first linearly interpolated half-height crossing. The record extends together for all four seeds when its half-height lag exceeds record/8, through the original fourfold maximum. Original upper/lower rate statuses are retained.
+The frozen Fourier estimator is unchanged: actual-pair-count uncentered mode autocorrelation with raw numerators and powers pooled over four seeds; γ₁ is ln 2 divided by the first linearly interpolated half-height lag. All four seeds extend together when the half-height lag exceeds record/8, through the existing fourfold cap. Original finite-record statuses are preserved.
 
-Mode 1 is sufficient for γ₁ by definition; active mode 0 is retained to compute P. The validation compares cadence strides 1,2,4,8,16,32,64,128 against unchanged full-cadence rates and exact four-seed bootstrap CIs. Selected strides are 64 (Wave-pinning, cadence32) and32 (Spring, cadence1.6). P remains at original cadence .5/.05 to score w=2,5,20 original-frame windows. No inactive modes or full profiles are added to the existing campaign.
+E/F use the negative OLS slope of log γ₁ against log actual mean physical circumference over three sizes. The 2000 bootstrap draws independently resample whole seeds at each size and apply the unchanged rate estimator to pooled numerators. Signed OLS coefficients propagate log-rate intervals into α bounds; bootstrap censoring is retained. Pending symbols have their own band and no numerical α coordinate.
 
-For E/F, α is minus the OLS slope of log γ₁ against log actual mean physical circumference over the three sizes. 2000 whole-seed bootstrap draws independently resample the four seeds at each size. The unchanged mode estimator is applied to each resampled pooled numerator. A censored γ gives its mathematical log-rate interval; signed OLS coefficients propagate it to a one-sided or unbounded α interval. Bootstrap censoring is recorded rather than replaced by a finite rate.
+G retains the original event-window observable. Circular mean headings are computed from the w original stored frames immediately before and after each event, excluding a sample exactly at the centre. Every finite nonzero circular mean enters without a coherence gate. The widths are 2,3,4,6,8,12,16,24,32,48,64 frames. This corresponds to model-specific native times (chemical cadence 0.5; Spring cadence 0.05). Overlapping windows remain eligible.
 
-G compares circular mean headings in [t−w,t) and (t,t+w] around each forcing event using w original stored frames, excluding any sample exactly at the event. Every finite nonzero circular mean enters, without a coherence gate. The reported value is pooled over scorable events; confidence intervals resample whole seeds. Overlapping event windows are retained. Chemical event regeneration uses the three frozen independent SeedSequence streams and checks total event counts against continuation checkpoints.
+For each seed and each width, 100 times as many control centres as scorable events are sampled uniformly from the same run’s fully observed window support. These random windows retain incidental real events and therefore estimate the same-run background, rather than an event-free trajectory. Control timing uses independent deterministic seeds recorded with seed-level event/control sufficient statistics in G_event_heading_change.csv. Neither event timing nor the model trajectory is changed.
 
-R2 kymographs use the first predeclared replicate with no seed search. Fourier reconstruction uses the retained half-cell phase convention directly: the nonnegative-index active coefficients and their conjugate partners reconstruct the spatial signal. Finite retained mode cutoff makes this a band-limited reconstruction, never a rerun. The stored coefficients and their mode-zero contribution are unchanged; small negative reconstructed values are Fourier ringing rather than native concentration negativity. Goryachev uses one shared asinh activity scale with linear width 1; all negative ringing is retained. Nulls and Wave-pinning use linear grayscale. D displays the common unrescaled lag range 0–12,000, with full curves retained in CSV. Its fractional-power guide is undefined at nonpositive measured C20 and those guide values remain missing, with no fitting or smoothing.
+The plotted event-triggered excess is the difference between the pooled event mean and pooled random-window mean:
 
-Rebuild from compact records: python polarity1d/manuscript/code/mechanisms/rebuild_figureR2_20261027.py render. Re-extract immutable HPC evidence under SLURM with the same entry point and command all. Campaign manifests, current producer state and code SHA are in provenance.json.
+$$\mathcal{E}(w)=\left\langle1-\cos\Delta\theta_w\right\rangle_{\mathrm{event}}-\left\langle1-\cos\Delta\theta_w\right\rangle_{\mathrm{random}}.\tag{1}$$
 
-## Event-window sensitivity (readme only)
+Confidence bands are pointwise 95% intervals from 2000 whole-seed bootstrap draws. The same seed multiplicities weight event and random sums/counts, preserving their covariance. They are conditional on the sampled random centres; 100 controls per event reduce timing Monte Carlo variability. Excess remains signed and is an event association, not a causal pathway attribution.
 
-| Model | Arm | Size | Amplitude | w=2 | w=5 | w=20 |
-|---|---|---:|---|---:|---:|---:|
-| Wave-pinning | per_perimeter | 20.0 | low | 8.87775e-05 | 0.000426853 | 0.00484563 |
-| Wave-pinning | per_perimeter | 20.0 | medium | 0.000901231 | 0.00476105 | 0.0582812 |
-| Wave-pinning | per_perimeter | 20.0 | high | 0.00859907 | 0.0391358 | 0.210129 |
-| Wave-pinning | per_perimeter | 40.0 | low | 0.000157552 | 0.000801799 | 0.0053133 |
-| Wave-pinning | per_perimeter | 40.0 | medium | 0.00205921 | 0.0103284 | 0.0455074 |
-| Wave-pinning | per_perimeter | 40.0 | high | 0.0122574 | 0.0372104 | 0.112868 |
-| Wave-pinning | per_perimeter | 60.0 | low | 0.000621346 | 0.000894382 | 0.00293211 |
-| Wave-pinning | per_perimeter | 60.0 | medium | 0.00144549 | 0.00612533 | 0.030799 |
-| Wave-pinning | per_perimeter | 60.0 | high | 0.00955418 | 0.027663 | 0.0907786 |
-| Goryachev | per_perimeter | 20.0 | low | 8.36945e-05 | 0.000329769 | 0.00245571 |
-| Goryachev | per_perimeter | 20.0 | medium | 0.000219661 | 0.000736123 | 0.00633752 |
-| Goryachev | per_perimeter | 20.0 | high | 0.000409129 | 0.000945024 | 0.00644367 |
-| Goryachev | per_perimeter | 40.0 | low | 2.40657e-06 | 8.20203e-06 | 5.36352e-05 |
-| Goryachev | per_perimeter | 40.0 | medium | 1.73346e-05 | 4.56259e-05 | 0.000245444 |
-| Goryachev | per_perimeter | 40.0 | high | 0.000289078 | 0.000463877 | 0.00140404 |
-| Goryachev | per_perimeter | 60.0 | low | 4.88012e-07 | 1.72146e-06 | 1.12351e-05 |
-| Goryachev | per_perimeter | 60.0 | medium | 2.04157e-06 | 5.38683e-06 | 2.66976e-05 |
-| Goryachev | per_perimeter | 60.0 | high | 5.57041e-06 | 1.25545e-05 | 5.45958e-05 |
-| Holmes | per_perimeter | 20.0 | low | 0.00351156 | 0.00682558 | 0.0292989 |
-| Holmes | per_perimeter | 20.0 | medium | 0.0131352 | 0.0425168 | 0.140143 |
-| Holmes | per_perimeter | 20.0 | high | 0.0779848 | 0.19836 | 0.417141 |
-| Holmes | per_perimeter | 40.0 | low | 0.00225396 | 0.00584778 | 0.0240176 |
-| Holmes | per_perimeter | 40.0 | medium | 0.0148695 | 0.0390179 | 0.121432 |
-| Holmes | per_perimeter | 40.0 | high | 0.0598004 | 0.137798 | 0.284145 |
-| Holmes | per_perimeter | 60.0 | low | 0.00157357 | 0.00356458 | 0.012852 |
-| Holmes | per_perimeter | 60.0 | medium | 0.0130569 | 0.0331344 | 0.0879718 |
-| Holmes | per_perimeter | 60.0 | high | 0.0476032 | 0.119417 | 0.240993 |
-| Spring | per_cell | 1.0 | low | 0.00527997 | 0.0334693 | 0.241731 |
-| Spring | per_cell | 1.0 | medium | 0.0432715 | 0.169049 | 0.488225 |
-| Spring | per_cell | 1.0 | high | 0.182096 | 0.386432 | 0.683897 |
-| Spring | per_cell | 3.0 | low | 0.00326517 | 0.0114775 | 0.064745 |
-| Spring | per_cell | 3.0 | medium | 0.0177009 | 0.0603197 | 0.232154 |
-| Spring | per_cell | 3.0 | high | 0.055372 | 0.164063 | 0.426582 |
+Chemical events are regenerated from the three frozen SeedSequence streams, with exact event counts, retained event tails and all RNG states checked against continuation checkpoints. Spring uses its saved per-cell event logs. No new simulation campaign is launched.
+
+One common angular rotation per kymograph pair is determined from the circular mean of the two initial dominant-domain positions. The same angle is applied at every time to both sizes, rounded only to the display grid. Every kymograph uses linear viridis with a colourbar; the same model within the figure shares one activity scale. Negative Fourier ringing is clipped only for display, with signed plotted-source CSVs unchanged. D uses the same low-rate, low-amplitude conditions as C; the fractional-power guide is missing where the measured C20 correlation is nonpositive.
+
+Rebuild portable data with `python polarity1d/manuscript/code/mechanisms/rebuild_figureR2_20261027.py render`. Read immutable HPC evidence under SLURM using command `all`. The existing dependency finalizer loads the revised renderer after both campaigns and their extensions finish. Frozen simulation sources, seeds, dynamics, amplitudes and rate estimators are unchanged.
+
+## Event-triggered excess endpoints
+
+| Model | Size | w (frames) | Event mean | Random mean | Excess | 95% seed CI |
+|---|---:|---:|---:|---:|---:|---|
+| Wave-pinning | 20 | 2 | 0.00859908 | 0.00020381 | 0.00839527 | [0.00695151, 0.00977782] |
+| Wave-pinning | 20 | 64 | 0.518752 | 0.0377593 | 0.480993 | [0.445555, 0.526516] |
+| Wave-pinning | 60 | 2 | 0.00955418 | 0.00032125 | 0.00923293 | [0.00660038, 0.0123401] |
+| Wave-pinning | 60 | 64 | 0.176076 | 0.03357 | 0.142506 | [0.122976, 0.162726] |
+| Goryachev | 20 | 2 | 0.000409135 | 4.05334e-05 | 0.000368602 | [0.00022396, 0.000486171] |
+| Goryachev | 20 | 64 | 0.0318038 | 0.0174249 | 0.0143789 | [0.0125126, 0.0175969] |
+| Goryachev | 60 | 2 | 5.577e-06 | 2.31088e-07 | 5.34591e-06 | [5.03271e-06, 5.68065e-06] |
+| Goryachev | 60 | 64 | 0.000281614 | 0.00017874 | 0.000102874 | [8.94393e-05, 0.000118663] |
+| Holmes | 20 | 2 | 0.0779848 | 0.00056147 | 0.0774234 | [0.0688534, 0.0853973] |
+| Holmes | 20 | 64 | 0.58073 | 0.0350643 | 0.545666 | [0.539738, 0.551774] |
+| Holmes | 60 | 2 | 0.0476032 | 0.000852774 | 0.0467505 | [0.038967, 0.0554462] |
+| Holmes | 60 | 64 | 0.317167 | 0.0512146 | 0.265953 | [0.234243, 0.296606] |
+| Spring | 1 | 2 | 0.182096 | 0.000793813 | 0.181302 | [0.167093, 0.196826] |
+| Spring | 1 | 64 | 0.843508 | 0.0493789 | 0.794129 | [0.774217, 0.815087] |
+| Spring | 3 | 2 | 0.055372 | 0.000472154 | 0.0548998 | [0.0455766, 0.061125] |
+| Spring | 3 | 64 | 0.627837 | 0.0373019 | 0.590535 | [0.570328, 0.611886] |

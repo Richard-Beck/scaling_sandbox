@@ -7,7 +7,7 @@
 
 A–B: Dₛ = 0.002, C20/C60, T = 24000, sample-path cadence 20. Analytic k(C20) = 0.00019739209, k(C60) = 2.1932454e-05; ratio = 9. No null-ensemble simulation was added.
 
-C–D: f = 0.005, post-burn window 16000–32000, observation cadence 5, 384 native seeds per condition. The largest absolute C60 departure from the fast-cytosol fixed-drift guide is 0.00537 over the observed lag grid.
+C–D: f = 0.01, post-burn window 16000–32000, observation cadence 5, 384 native seeds per condition. The largest absolute C60 departure from the fast-cytosol fixed-drift guide is 0.0153 over the observed lag grid.
 
 E: weak-dose slopes C20: G=2.2824821, C60: G=1.5976335. Higher-dose observations remain plotted.
 
@@ -57,6 +57,6 @@ Native Dᵥ=10 is rerun with the same round-7 worker for original replicates 0�
 
 ### Rebuild and provenance
 
-Data generation time: **2026-10-27T21:04:57.744064+00:00**. Producer complete: **True**. Portable rebuild: `polarity1d/manuscript/code/mechanisms/rebuild_figureR1_20261027.py` with no flags. To refresh compact data after campaign completion, run `ring_r1_campaign_20261027.py collect`, then `rebuild_figureR1_20261027.py --extract` under SLURM. Rebuild writes PNG, PDF and SVG at 180 mm width. Extraction hashes, exact source tables, frozen campaign design and submission receipts are beside this file.
+Data generation time: **2026-10-28T00:31:59.601023+00:00**. Producer complete: **True**. Portable rebuild: `polarity1d/manuscript/code/mechanisms/rebuild_figureR1_20261027.py` with no flags. To refresh compact data after campaign completion, run `ring_r1_campaign_20261027.py collect`, then `rebuild_figureR1_20261027.py --extract` under SLURM. Rebuild writes PNG, PDF and SVG at 180 mm width. Extraction hashes, exact source tables, frozen campaign design and submission receipts are beside this file.
 
 Biological scope: size denotes WGD-associated enlargement. These simulated activity-heading and edge-motion readouts remain distinct from measured migration summaries and conditional OU velocity-persistence estimates. No migration-velocity law is assumed.

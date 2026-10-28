@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-10-27T21:04:57.744064+00:00",
+  "generated_utc": "2026-10-28T00:31:59.601023+00:00",
   "producer_status": {
     "generated_utc": "2026-10-27T21:03:57.514738+00:00",
     "complete": true,
@@ -30,5 +30,21 @@
   "prediction": "Closed-form isolated-front law, no gain fitting; row theta from exact ring states; theta linearly interpolated between known C",
   "pulse_slope": "Through-origin least squares over f<=.001, edge dose=50*0.1*f; nonlinear higher doses retained",
   "missing": "Uncompleted campaign conditions marked unavailable, never imputed",
-  "new_profiles_on_disk": false
+  "new_profiles_on_disk": false,
+  "revision1_cd": {
+    "f": 0.01,
+    "post_burn_window": [
+      16000,
+      32000
+    ],
+    "n_seeds_per_condition": 384,
+    "input_sha256": {
+      "polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/workers/c005/seed000/exemplar.npz": "55ceb76b0fa7247ba179419c10acc60de299283eef4f5a96fee703fc8f74cb1d",
+      "polarity1d/manuscript/data/runs/ring_r1_fast_cytosol_20261027/results/3856/exemplar.npz": "a23c882ef485ca97bf0233c3edc816344af3282dc1081a91d000775cb2187177",
+      "polarity1d/manuscript/data/runs/signature_figure4_round3_compact_20261022/workers/c053/seed000/exemplar.npz": "bcb57604c59e82999872a8129eaf6e6e63bffbf2a0afbc58136c95cf15635702",
+      "polarity1d/manuscript/data/runs/ring_r1_fast_cytosol_20261027/results/5392/exemplar.npz": "99371585486344018b6cf403fde61dec5e111d270e6580c32ab747d912af841c"
+    },
+    "code_sha256": "8cd46b794f8dee5588bd539163864eed412a5ff01f51619de6ede4f517f958aa",
+    "scope": "C/D only; H and solver-check records preserved"
+  }
 }

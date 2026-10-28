@@ -1,166 +1,40 @@
 {
-  "reviewed_at_utc": "2026-10-27T21:34:22.647388+00:00",
-  "reviewer": "fresh-context visual_r2 agent",
-  "scope": "Visual inspection and render-only repair of Figure R2, all panels A–G. Scientific extraction, estimators, seeds, mode records and campaign settings unchanged.",
-  "physical_size_mm": {
-    "width": 180,
-    "height": 302.26
-  },
-  "initial_artifact_hashes": {
-    "figureR2_main.png": "b0824c0c3546bddf67d9b01a8c651a1180ad97513184c40b98e0d365f7d187c9",
-    "figureR2_main.pdf": "b1c736421c0f1f78e784872a1602235728b99f1c533dbfe29959b54eaaa0fc7e",
-    "figureR2_main.svg": "9691173efb550c54507e5c552611ebc16fba2221c06f1026d859962229fc8860"
-  },
-  "viewed_artifacts": [
-    {
-      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/figureR2_main.png",
-      "method": "Direct view_image, initial and repaired full-colour PNG; 2125 × 3570 pixels, 300 dpi"
-    },
-    {
-      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/figureR2_main.pdf",
-      "method": "Initial and final PDF rasterized with pdftoppm -scale-to 2200; raster visually inspected, including every panel"
-    },
-    {
-      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/figureR2_main.svg",
-      "method": "SVG XML inspected for text and clip paths; initial source had 225 editable text elements, refreshed final source has 224; no text element has a clip-path; all seven panel letters present."
-    },
-    {
-      "path": "/tmp/r2_final_grayscale.png",
-      "method": "Grayscale diagnostic of final PNG visually inspected for shade separation and guide/marker visibility"
-    },
-    {
-      "path": "/tmp/r2_bound_detail.png",
-      "method": "Enlarged diagnostic crop of Goryachev E bounds visually inspected; open triangles and upward arrows clear"
-    },
-    {
-      "path": "/tmp/r2_codecommit_pdf.png",
-      "method": "Fresh PDF raster from current committed renderer, visually inspected alongside current final PNG after source-hash reconciliation."
-    },
-    {
-      "path": "/tmp/r2_refresh212542_pdf.png",
-      "method": "Refreshed campaign snapshot PDF raster viewed before connector repair; all new F marks and both Spring G outer-size means inspected."
-    },
-    {
-      "path": "/tmp/r2_d238dca2_pdf.png",
-      "method": "Final PDF from committed source d238dca2 rasterized to 2400 pixels and visually inspected panel by panel alongside final PNG."
-    },
-    {
-      "path": "/tmp/r2_d238dca2_FG_gray.png",
-      "method": "Final F/G grayscale diagnostic visually inspected; eight newly resolved per-cell comparisons, uncertainty bars and three Spring G connector ramps remain legible."
-    }
+  "reviewed_at_utc": "2026-10-28T00:48:56.067078+00:00",
+  "reviewer": "Lead agent; no subagents, as configured",
+  "reviewed_formats": [
+    "PNG at full image scale",
+    "PDF rasterized independently with pdftoppm"
   ],
-  "issues_and_fixes": [
-    {
-      "issue": "B and D rightmost tick labels ran beyond page; D also had crowded 10000/12000 ticks after alignment.",
-      "fix": "Reserve 2.5% right page margin, align edge tick labels inward, reduce D ticks to 0/4000/8000/12000."
-    },
-    {
-      "issue": "A facets with and without a colourbar had different kymograph widths.",
-      "fix": "Identical dedicated colourbar column reserved in each facet; exact 20:60 width ratios preserved across all A/C pairs."
-    },
-    {
-      "issue": "Activity scales used very small labels; Goryachev asinh endpoints were not legible in initial figure.",
-      "fix": "Dedicated narrow colourbars, explicit numerical endpoints with larger text, asinh label retained. Shared C20/C60 scale and all negative Fourier ringing preserved."
-    },
-    {
-      "issue": "E/F/G keys shown only in the first model hue and overlapped some E bounds.",
-      "fix": "Neutral light-to-dark shared keys above their panel; E/F define triangle-plus-arrow bound and cross pending symbols. Model-specific hue ramps remain on data."
-    },
-    {
-      "issue": "Gold light-series contrast was weak in print/grayscale.",
-      "fix": "Minimum ramp intensity increased from 0.4 to 0.5; inspected final full grayscale diagnostic."
-    },
-    {
-      "issue": "Bound arrows were short/faint and obscured by E key.",
-      "fix": "Removed overlapping inset legend and explicitly set arrow head scale and zero endpoint shrink. Enlarged visual crop confirms open triangles and arrows."
-    },
-    {
-      "issue": "Spring G annotation covered the upper datum and did not distinguish unavailable centre from pending outer size.",
-      "fix": "Annotation moved to empty central gap and dynamically labels pending outer sizes. Missing centre breaks the Spring line, so no connector implies an available centre. Actual mean circumference remains the data x coordinate; native model ticks are explicit."
-    },
-    {
-      "issue": "After both Spring G outer sizes completed, reindexing the unavailable centre removed all amplitude-series connectors, leaving isolated markers despite the one-line-per-amplitude request.",
-      "fix": "Draw straight thin same-amplitude connectors between measured outer means with a central 9%-of-span gap and no centre point. Export all 12 segment vertices in G_display_line_segments.csv, distinguishing 6 observed endpoints from 6 display-only interpolation vertices; main legend explains measured-means lines and unavailable-centre gap."
-    }
-  ],
-  "panel_assessments": {
-    "A": "Pass. Three beta facets align; C20:C60 widths are exactly 1:3; time upward; supply/success labels legible; shared linear grayscale 0–1 shown.",
-    "B": "Pass. All three analytic facets readable; gray C20/C60 ramp and beta labels clear; 0/12000/24000 lag labels fully within page.",
-    "C": "Pass. Both model conditions legible; pair widths/time windows/scales shared; explicit asinh Goryachev scale −0.423–93.5 and linear Wave-pinning scale 0.15–2.05 readable. Faint C60 Goryachev background is retained evidence under the common scale.",
-    "D": "Pass. Model conditions, size curves, 95% bands, dotted no-size guide and dashed drift guide visible; ticks separated and unclipped. Fractional-power guide gaps at nonpositive C20 are retained.",
-    "E": "Pass for refreshed pending snapshot. Four model facets share amplitude and exponent axes; gray guides recessive; rate shades keyed; four Goryachev lower bounds remain explicit open triangles with upward arrows. Resolved intervals remain finite; pending crosses separate.",
-    "F": "Pass for refreshed pending snapshot. Eight new per-cell comparisons are legible: three low-rate Wave-pinning amplitudes, three low-rate Spring amplitudes, and two medium-rate Spring amplitudes. Both supply arms and uncertainty bars distinguish cleanly in colour and grayscale. Pending high-rate and remaining medium-rate values remain crosses; no censored value replaced by an ordinary point.",
-    "G": "Pass for refreshed pending snapshot. All four native model axes and amplitude ramps clear. Both measured Spring outer sizes and CIs are readable. Three amplitude connectors have narrow central gaps and no centre markers, with the unavailable centre labelled. Connector vertices are exported as display-only interpolation where appropriate; observed endpoint values match the compact scientific means."
-  },
-  "verification": {
-    "command": "/home/4473331/.conda/envs/scaling_sandbox/bin/python polarity1d/manuscript/code/mechanisms/rebuild_figureR2_20261027.py render",
-    "render_exit_status": 0,
-    "svg_viewBox": "0 0 510.23622 856.8",
-    "svg_text_elements": 224,
-    "svg_text_elements_with_clip_path": 0,
-    "coverage_conditions": 144,
-    "coverage_conditions_pending": 34,
-    "alpha_execution_pending": 19,
-    "alpha_bounded": 4,
-    "resolved_alpha_rows": 31,
-    "resolved_alpha_nonfinite_ci_rows": 0,
-    "current_renderer_rerender_exit_status": 0,
-    "new_per_cell_comparisons": 8,
-    "spring_G_display_vertices": 12,
-    "spring_G_observed_endpoints": 6,
-    "spring_G_display_interpolation_vertices": 6,
-    "spring_G_observed_endpoints_match_scientific_csv": true
+  "renderer_code_commit": "9b40f17daa28436a53b8dd961d8721a19d492fa9",
+  "renderer": {
+    "path": "polarity1d/manuscript/code/mechanisms/rebuild_figureR2_20261027.py",
+    "sha256": "2b4afa2e353a1cd2f8d447e9da2b2136360082f988205209c630cc634bb03c31"
   },
   "final_artifacts": [
     {
       "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/figureR2_main.png",
-      "sha256": "31452129df248fc5049d77dbdf7b68c4cdc9edff2804f903f3adc63f05e22ace",
-      "bytes": 685898
+      "sha256": "74562cd8ae58325dff433636ac1cc5cd15c572bedc3453a6afaf6dbb0411b306",
+      "bytes": 689891
     },
     {
       "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/figureR2_main.pdf",
-      "sha256": "7b8c4d6bc52239e300736950c768d751af9f49b8e32fdcd300f598e7283af32c",
-      "bytes": 184168
+      "sha256": "72ffc22f44884012018b99a0d8c9354044e6bb3d9a5b05d3f94d847bc507767e",
+      "bytes": 203252
     },
     {
       "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/figureR2_main.svg",
-      "sha256": "3e4f938888cbd840b07156688dad09c8575697e14b65386acfa1a966b695bc24",
-      "bytes": 397275
+      "sha256": "24d4f573b3cd0f76f1c4d850462e514812896ee9588b01ecd40ebb0dfd7ce494",
+      "bytes": 435946
     }
   ],
-  "renderer": {
-    "path": "polarity1d/manuscript/code/mechanisms/rebuild_figureR2_20261027.py",
-    "sha256": "f9ab1a8f503a70198e2ad594866a38b6eaaff215c477da75ac20666f109ba361",
-    "bytes": 48797
-  },
-  "data_snapshot": [
-    {
-      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/supporting/data/coverage.csv",
-      "sha256": "3c07f6e100cf1b40d99487834bf25810f4f6525915c794f8c7c171e81ba78116",
-      "bytes": 9034
-    },
-    {
-      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/supporting/data/EF_local_alpha.csv",
-      "sha256": "b86d9dfbf122860c5f66be6f607eaa2f88336170b093d760e670b454f23db2dd",
-      "bytes": 11085
-    },
-    {
-      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/supporting/data/G_event_heading_change.csv",
-      "sha256": "f37cf5e8249073091f3053059fdb5cf4eaa57e34158d629a85c8518f21ab52b2",
-      "bytes": 13078
-    },
-    {
-      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/supporting/data/G_display_line_segments.csv",
-      "sha256": "f96f9cfcb683f66bc8cbebcf97f57c00aeff62e6797ca52ea1c5e1fa66607195",
-      "bytes": 2615
-    },
-    {
-      "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/supporting/data/D_heading_acf.csv",
-      "sha256": "383752f1191e1381d2616b0be806aafd268eca6f8bdd22ed82af892978da4373",
-      "bytes": 46314
-    }
+  "checks": [
+    "A: \u03b2 facet headings outside data and shared linear viridis; C20/C60 labels below; B \u03b2=0 explicitly says curves coincide.",
+    "C: Goryachev C60 off seam; shared linear viridis with display-only zero clipping. Wave-pinning low rate/low amplitude. D shares conditions and lag axis, with only dashed drift guide and external key.",
+    "E: black solid/circle, dashed/square, dotted/triangle; bounds kept as open triangles/arrows. Pending \u00d7 occupies a separate thin band, with no \u03b1 coordinate.",
+    "F: black solid/filled per-perimeter versus dashed/open per-cell; shared Spring centre hazard stated in legend.",
+    "G: all four model facets, outer sizes in fixed orange/blue, log w2\u201364 and signed event-minus-random excess with seed bands."
   ],
-  "final_assessment": "Visually satisfactory at 180 mm width for the refreshed explicitly pending campaign snapshot: 31 resolved alpha estimates, four lower bounds, 19 pending alpha conditions. PNG and PDF inspected across A–G; new F comparisons and Spring G connectors/centre gaps checked in colour and grayscale. All 31 resolved alpha confidence intervals are finite. Scientific means unchanged; only connector display interpolation added and explicitly exported. This review applies to the recorded current artifacts and code commit; later data refreshes require review of new marks.",
+  "final_assessment": "Revised layout and current data are visually satisfactory at180mm. Event campaigns/extension checks remain unfinished; final-data numerical/artist checks are scheduled, and no final-data manual visual review is claimed in advance.",
   "review_history": [
     {
       "reviewed_at_utc": "2026-10-27T21:15:10.971018+00:00",
@@ -253,9 +127,50 @@
         "spring_G_display_interpolation_vertices": 6,
         "spring_G_observed_endpoints_match_scientific_csv": true
       }
+    },
+    {
+      "reviewed_at_utc": "2026-10-27T21:34:22.647388+00:00",
+      "final_assessment": "Visually satisfactory at 180 mm width for the refreshed explicitly pending campaign snapshot: 31 resolved alpha estimates, four lower bounds, 19 pending alpha conditions. PNG and PDF inspected across A\u2013G; new F comparisons and Spring G connectors/centre gaps checked in colour and grayscale. All 31 resolved alpha confidence intervals are finite. Scientific means unchanged; only connector display interpolation added and explicitly exported. This review applies to the recorded current artifacts and code commit; later data refreshes require review of new marks.",
+      "renderer_code_commit": "d238dca2bc9764e41f5651d12f937e9f04bc85fb",
+      "final_artifacts": [
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/figureR2_main.png",
+          "sha256": "31452129df248fc5049d77dbdf7b68c4cdc9edff2804f903f3adc63f05e22ace",
+          "bytes": 685898
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/figureR2_main.pdf",
+          "sha256": "7b8c4d6bc52239e300736950c768d751af9f49b8e32fdcd300f598e7283af32c",
+          "bytes": 184168
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/figureR2_main.svg",
+          "sha256": "3e4f938888cbd840b07156688dad09c8575697e14b65386acfa1a966b695bc24",
+          "bytes": 397275
+        }
+      ]
+    },
+    {
+      "reviewed_at_utc": "2026-10-28T00:47:57.302049+00:00",
+      "final_assessment": "Revised layout and current data are visually satisfactory at180mm. Event campaigns/extension checks remain unfinished; final-data numerical/artist checks are scheduled, and no final-data manual visual review is claimed in advance.",
+      "renderer_code_commit": "8f894d4d58ca1ca71880f9b04fcf5c8f19b6309f",
+      "final_artifacts": [
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/figureR2_main.png",
+          "sha256": "74562cd8ae58325dff433636ac1cc5cd15c572bedc3453a6afaf6dbb0411b306",
+          "bytes": 689891
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/figureR2_main.pdf",
+          "sha256": "72ffc22f44884012018b99a0d8c9354044e6bb3d9a5b05d3f94d847bc507767e",
+          "bytes": 203252
+        },
+        {
+          "path": "polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/figureR2_main.svg",
+          "sha256": "24d4f573b3cd0f76f1c4d850462e514812896ee9588b01ecd40ebb0dfd7ce494",
+          "bytes": 435946
+        }
+      ]
     }
-  ],
-  "renderer_code_commit": "d238dca2bc9764e41f5651d12f937e9f04bc85fb",
-  "source_refresh_note": "Campaign snapshot refreshed at 2026-10-27T21:25:42 UTC, yielding eight new per-cell alpha comparisons and both Spring G outer sizes. Latest render is from committed source d238dca2. Following visual review, Spring G has one thin same-amplitude connector between its two observed means, separated by a narrow central gap; there is no centre marker or centre estimate. The 12 display segment vertices are explicitly exported with observed_endpoint/display_interpolation roles. No scientific records or estimators changed. Current PNG, fresh PDF raster and grayscale F/G crop visually inspected.",
-  "previous_snapshot_review_backup": "supporting/metadata/visual_review_before_refresh_20261027T212542.json"
+  ]
 }

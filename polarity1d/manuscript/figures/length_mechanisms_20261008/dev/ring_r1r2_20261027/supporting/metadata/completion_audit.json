@@ -1,87 +1,30 @@
 {
-  "generated_utc": "2026-10-27T21:40:32.049279+00:00",
+  "generated_utc": "2026-10-28T00:49:09.924891+00:00",
   "goal_complete": false,
+  "scientific_work_complete": false,
   "checkpoint_only": true,
-  "code_commit": "d238dca2bc9764e41f5651d12f937e9f04bc85fb",
+  "revision": 1,
   "requirements": [
     {
-      "requirement": "Base and branch",
+      "requirement": "Every R1 A\u2013H / R2 A\u2013G panel retained; requested encodings and estimands",
       "status": "verified",
-      "evidence": "802a0ce ancestor; branch codex/ring-r1r2-20261027"
+      "evidence": "revision1_audit.json; main_legend.md; PNG/PDF/SVG"
     },
     {
-      "requirement": "R1 A-H and Campaign2",
+      "requirement": "No retuning, new simulation campaigns or frozen worker changes",
       "status": "verified",
-      "evidence": "figureR1 exports, compact tables, producer status5776/5776, solver_check.csv, visual_review.json"
+      "evidence": "Only saved compact seeds, Fourier records and event logs reanalysed"
     },
     {
-      "requirement": "Closed-form null curves and fixed beta-1 sample path",
-      "status": "verified",
-      "evidence": "scientific_algebra_audit.json, R2 null_provenance.json"
-    },
-    {
-      "requirement": "Existing Campaign3 finishes including extension checks",
+      "requirement": "Pending event producers and extension checks finish; rebuild again",
       "status": "pending",
-      "evidence": "Live scheduler snapshot: {\"states\": {\"COMPLETING\": 2, \"RUNNING\": 68}, \"observed_rows\": 70}; controller21384387 {\"states\": {\"PENDING\": 1}, \"observed_rows\": 1}"
+      "evidence": "Existing dependency finalizer 21391427 follows controller successors; reads the revised renderer"
     },
     {
-      "requirement": "New per-cell Campaign3 finishes including extension checks",
-      "status": "pending",
-      "evidence": "Live scheduler snapshot: {\"states\": {\"RUNNING\": 43}, \"observed_rows\": 43}; controller21388801 {\"states\": {\"PENDING\": 1}, \"observed_rows\": 1}"
-    },
-    {
-      "requirement": "Reduced-record validation and storage forecast before launch",
-      "status": "verified",
-      "evidence": "Immutable prelaunch46-cohort validation; additive postlaunch49/49 pass with5remaining. Original selection/cadence/manifest/freeze byte-identical to initial committed records."
-    },
-    {
-      "requirement": "R2 C-G final compact records",
-      "status": "pending",
-      "evidence": "Current snapshot: 34 pending coverage conditions and 19 pending alpha estimates; data generated 2026-10-27T21:25:42.357708+00:00. Final refresh still required."
-    },
-    {
-      "requirement": "Whole-seed bootstrap and bound algebra",
-      "status": "verified_for_available_conditions",
-      "evidence": "EF_whole_seed_bootstrap.csv.gz and scientific_algebra_audit.json"
-    },
-    {
-      "requirement": "Legends/readmes/campaignprovenance",
-      "status": "present_current_snapshot",
-      "evidence": "Both metadata trees; Unexpected and data times stated"
-    },
-    {
-      "requirement": "180mm PNG/PDF/SVG and compact-only rebuild",
-      "status": "verified",
-      "evidence": "release_audit.json and portable_rebuild_audit.json; bothPNGbyteidentical"
-    },
-    {
-      "requirement": "Freshcontext visual inspection and repairs",
-      "status": "verified_current_snapshot",
-      "evidence": "R1reviewunchanged; refreshedR2visual_review.json matches current PNG/PDF/SVG and renderer hashes. Final-data review remains required after campaigns finish."
-    },
-    {
-      "requirement": "No changes to Figs1-6/outline",
-      "status": "verified",
-      "evidence": "release_audit.json protected_scope_changes=[]"
-    },
-    {
-      "requirement": "DATA_MANIFEST and RETENTION",
-      "status": "updated_current_measurement",
-      "evidence": "Measuredgroupsandforecast; bulkrecordsstayHPC"
-    },
-    {
-      "requirement": "Final commit and push",
-      "status": "pending_final_campaign_data",
-      "evidence": "Reviewed initial checkpoint and bulk ignore fix pushed; refreshed checkpoint being committed. Final campaign data still pending."
+      "requirement": "Commit and push",
+      "status": "see integration_commit.json and final.txt"
     }
   ],
-  "final_refresh": {
-    "watcher_job_id": "21391427",
-    "initial_dependencies": [
-      "21384387",
-      "21388801"
-    ],
-    "method": "Dependency successors follow actual scheduler handles through extensions; after both COMPLETE, audit all54 existing-arm target cohorts at frozen cadences and rebuild R2 even if cadence audit reports a discrepancy. No commit/push or substitution for root final review."
-  },
-  "runtime_snapshot": "runtime_snapshot.json"
+  "scientific_checks": 34,
+  "scientific_checks_passed": true
 }

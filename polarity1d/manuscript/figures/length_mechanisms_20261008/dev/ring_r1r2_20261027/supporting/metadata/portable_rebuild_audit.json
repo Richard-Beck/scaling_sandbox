@@ -1,25 +1,23 @@
 {
-  "generated_utc": "2026-10-27T23:42:09.711444+00:00",
-  "python": "/home/4473331/.conda/envs/scaling_sandbox/bin/python",
+  "generated_utc": "2026-10-28T00:48:56.067078+00:00",
   "passed": true,
-  "no_campaign_records_in_test_tree": true,
-  "tests": [
-    {
-      "figure": "R1",
-      "returncode": 0,
-      "stdout": "",
-      "stderr": "",
-      "all_exports_present": true,
-      "png_identical_to_workspace": true
+  "environment": "/home/4473331/.conda/envs/scaling_sandbox/bin/python",
+  "source_commit": "9b40f17daa28436a53b8dd961d8721a19d492fa9",
+  "figures": {
+    "R1": {
+      "command": "python polarity1d/manuscript/code/mechanisms/rebuild_figureR1_20261027.py",
+      "exit_status": 0,
+      "compact_records_only": true,
+      "png_sha256": "bfe5d6d8ec789ff53445027cbd94de212b25de1d436c7d30999ec63a873db2c7",
+      "repeat_png_byte_identical": true
     },
-    {
-      "figure": "R2",
-      "returncode": 0,
-      "stdout": "",
-      "stderr": "",
-      "all_exports_present": true,
-      "png_identical_to_workspace": true
+    "R2": {
+      "command": "python polarity1d/manuscript/code/mechanisms/rebuild_figureR2_20261027.py render",
+      "exit_status": 0,
+      "compact_records_only": true,
+      "png_sha256": "74562cd8ae58325dff433636ac1cc5cd15c572bedc3453a6afaf6dbb0411b306",
+      "repeat_png_byte_identical": true
     }
-  ],
-  "method": "Copy executable Python sources and compact deliverables only into a fresh temporary root; remove all figure exports, rebuild R1 and R2, then remove temporary test tree."
+  },
+  "scope": "Both portable renders run successfully; PNG hashes identical over repeated renders. PDF/SVG export bytes may contain fresh generation metadata."
 }
