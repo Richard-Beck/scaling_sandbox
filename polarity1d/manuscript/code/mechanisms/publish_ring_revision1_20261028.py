@@ -74,10 +74,10 @@ def publish():
         complete=json.loads((META/'completion_audit.json').read_text());complete.update(goal_complete=True,checkpoint_only=False,figure_data_commit=artifacts,remote_verified=True);write(META/'completion_audit.json',complete)
         final=f'Revision 1 complete.\nSource commit: {config["source_commit"]}\nFinal figure/data commit: {artifacts}\nRemote branch: origin/{BRANCH}\nValidation: {len(audit["checks"])} scientific/display checks passed; all R1 A–H and R2 A–G panels retained; both event producers and extensions complete; final R2 rebuilt.\nRemaining scientific mismatches and finite-record bounds are reported in each scientific_readme.md (Unexpected). No retuning or new simulation campaign.\n'
         (META/'final.txt').write_text(final)
-        receipts=[str((META/name).relative_to(ROOT)) for name in ('integration_commit.json','completion_audit.json','final.txt')]
+        write(META/'delivery_status.json',dict(generated_utc=now(),state='PUSHED',source_commit=config['source_commit'],figure_data_commit=artifacts,remote_branch='origin/'+BRANCH,remote_verified=True,receipt_commit='See the following delivery-receipt commit in branch history.'))
+        receipts=[str((META/name).relative_to(ROOT)) for name in ('integration_commit.json','completion_audit.json','final.txt','delivery_status.json')]
         receipt_commit=commit_scoped(receipts,'Record verified final ring revision delivery')
         push(receipt_commit)
-        write(META/'delivery_status.json',dict(generated_utc=now(),state='PUSHED',source_commit=config['source_commit'],figure_data_commit=artifacts,receipt_commit=receipt_commit,remote_branch='origin/'+BRANCH,remote_verified=True))
         print(json.dumps(dict(state='PUSHED',figure_data_commit=artifacts,receipt_commit=receipt_commit,branch=BRANCH)))
 if __name__=='__main__':
     try:publish()
