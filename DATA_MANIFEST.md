@@ -603,13 +603,13 @@ The first-wave logical Fourier/time allocation is estimated at **40.581 GiB**, a
 
 ## Ring figures R1 and R2, revision 1
 
-Measured **2026-10-28T00:49:02.804213+00:00** with `du -sx -B1` (allocated storage; non-atomic traversal). R1 is complete; existing event producers/extension checks remain active. Preserve all authoritative scientific records; inventory does not authorize deletion.
+Measured **2026-10-28T00:53:19.134165+00:00** with `du -sx -B1` (allocated storage; non-atomic traversal). R1 is complete; existing event producers/extension checks remain active. Preserve all authoritative scientific records; inventory does not authorize deletion.
 
 | Path / related group | Measured allocated storage | Purpose and scientific importance/status |
 | --- | ---: | --- |
 | `polarity1d/manuscript/data/runs/ring_r1_fast_cytosol_20261027/` | 3,232,014,336 bytes (3.010048 GiB) | Completed 5,760 matched-noise fast-cytosol histories and 16 native solver checks, exact inputs, immutable sources and integrity receipts. Scientifically authoritative compact records; no new simulations in revision 1. |
-| `polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/` | 907,960,320 bytes (0.845604 GiB) | Existing 144-history per-cell event-supply arm, sharing original middle sizes. Native-cadence polarity, event logs, validated low modes and restart evidence are retained. Producer completion is separate from rate censoring. |
-| `polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/` | 46,663,106,560 bytes (43.458405 GiB) | Authoritative original 432-history event campaign, including full retained Fourier records, exact frozen inputs and continuation checkpoints. Its existing extension controller is preserved; revision 1 only reads these data. |
+| `polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/` | 907,862,016 bytes (0.845512 GiB) | Existing 144-history per-cell event-supply arm, sharing original middle sizes. Native-cadence polarity, event logs, validated low modes and restart evidence are retained. Producer completion is separate from rate censoring. |
+| `polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/` | 46,714,994,688 bytes (43.506729 GiB) | Authoritative original 432-history event campaign, including full retained Fourier records, exact frozen inputs and continuation checkpoints. Its existing extension controller is preserved; revision 1 only reads these data. |
 | `polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/` | 44,662,784 bytes (0.041595 GiB) | R1/R2 main PNG/PDF/SVG, complete compact plotted data, revised legends, methods, bootstrap sufficient statistics and integrity receipts. Same figure paths; every original panel retained. |
 
 [Measurement receipt](polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/supporting/metadata/storage_measurement.json) · [Retention policy](RETENTION.md#ring-figures-r1-and-r2-27-october-2026). Existing campaign forecasts remain in their frozen manifests.

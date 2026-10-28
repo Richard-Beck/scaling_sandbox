@@ -1,15 +1,15 @@
 {
-  "generated_utc": "2026-10-28T00:48:56.067078+00:00",
+  "generated_utc": "2026-10-28T00:52:29.600340+00:00",
   "commit_and_push_authorized": true,
   "authorization": "User revision-1 brief explicitly requests in-place revisions, a rebuild after pending event conditions finish, and commit/push on codex/ring-r1r2-20261027.",
-  "source_commit": "9b40f17daa28436a53b8dd961d8721a19d492fa9",
+  "source_commit": "b1893ec76e9c6519a94915b92406e428b595a3fd",
   "code_sha256": {
     "polarity1d/manuscript/code/mechanisms/rebuild_figureR1_20261027.py": "fe5ae7c1ab3c964e25236e5b4832ce492696ac87583a8bab5004475ff7418677",
     "polarity1d/manuscript/code/mechanisms/rebuild_figureR2_20261027.py": "2b4afa2e353a1cd2f8d447e9da2b2136360082f988205209c630cc634bb03c31",
     "polarity1d/manuscript/code/mechanisms/ring_figure_revision1_20261028.py": "faee3d8718be8ad802a28a83b67d7385bfc00ef8f41ec85cd2f8eba12ae6fbb4",
     "polarity1d/manuscript/code/mechanisms/audit_ring_revision1_20261028.py": "1dbef83e81f9c65486d75d63d7af6f6d6cbf6b56f32d17f06047854e85fe2faa",
     "polarity1d/manuscript/code/mechanisms/refresh_ring_release_20261028.py": "ad8a8c25a0cf4567d34375d8875cb0a8b0a757c3932f36fd31ff0e8286d6d418",
-    "polarity1d/manuscript/code/mechanisms/publish_ring_revision1_20261028.py": "a4717f243ab8a3a2a03143907b0cf483c525cf0bcfc446f46f3ea6a08e7b770e",
+    "polarity1d/manuscript/code/mechanisms/publish_ring_revision1_20261028.py": "8177054f05b5301cd652ed9a4b69ae2d444c1774c7d0ea1a0a3f9876df3b4877",
     "polarity1d/manuscript/code/mechanisms/ring_r2_finalize_20261027.py": "65a37cd54e968860b08f0f049746a37cda5a67778f1c50ea074963bfd6908804"
   },
   "expected_branch": "codex/ring-r1r2-20261027",
@@ -23,5 +23,11 @@
     "passed": true,
     "verification": "Temporary independent Git repository: scientific artifact committed; unrelated staged file, staged manifest preamble and unstaged manifest tail preserved byte for byte."
   },
-  "qualification": "Current snapshot is not final campaign inference. The existing dependency finalizer follows extension successors, rebuilds after both COMPLETE, runs all final-data checks, refreshes inventory, and commits/pushes only this revision. Failures are recorded as NEEDS_ATTENTION; no automatic simulation retries."
+  "qualification": "Current snapshot is not final campaign inference. The existing dependency finalizer follows extension successors, rebuilds after both COMPLETE, runs all final-data checks, refreshes inventory, and commits/pushes only this revision. Failures are recorded as NEEDS_ATTENTION; no automatic simulation retries.",
+  "slurm_noninteractive_git_probe": {
+    "job_id": "21394993",
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "result": "Push dry-run to the requested branch succeeded from a separate compute-node allocation with BatchMode=yes."
+  }
 }
