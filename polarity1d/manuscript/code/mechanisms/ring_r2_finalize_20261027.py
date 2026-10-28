@@ -77,6 +77,19 @@ def run(predecessors):
     handles=[j for p in producers for j in p['handles']]
     receipt=scheduler(handles+predecessors)
     if all(p['state']=='COMPLETE' for p in producers):
+        # The frozen per-cell controller also launches an interim R2 rebuild.
+        # Let that writer finish before this final extraction writes the same
+        # compact tables and JSON receipts.
+        interim=PER_CELL/'results/rebuild_submission.json'
+        if interim.exists():
+            submission=read(interim)
+            job=submission.get('stdout','').strip().split(';')[0]
+            if submission.get('returncode')==0 and job.isdigit():
+                observed=scheduler([job])['jobs'][job].get('current')
+                if observed and observed['state'] in ACTIVE:
+                    successor=submit([job])
+                    if successor:status('WAITING_POSTPROCESSING',successor_job_id=successor,dependencies=[job],producers=producers)
+                    return
         status('REFRESHING',producers=producers,scheduler=receipt)
         # Complete-grid validation supplements the immutable prelaunch choice.
         # It does not change cadence, estimator, inputs, or simulation records.
