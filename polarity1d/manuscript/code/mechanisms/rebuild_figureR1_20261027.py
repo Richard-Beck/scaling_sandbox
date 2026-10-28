@@ -7,16 +7,17 @@ from pathlib import Path
 import argparse, hashlib, json, os, shutil, subprocess, sys
 from datetime import datetime, timezone
 for key in ('OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS'):os.environ[key]='1'
+os.environ.setdefault('MPLCONFIGDIR',f'/tmp/ring-r1r2-mpl-{os.getuid()}')
 sys.dont_write_bytecode=True
 import numpy as np
 import pandas as pd
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from matplotlib.colors import to_rgb
 from matplotlib.lines import Line2D
 import figure4_round3_estimators_20261022 as E
 import ring_r1_campaign_20261027 as campaign
+from ring_figure_revision1_20261028 import SIZE_COLORS, pair_rotation, rotate_display
 
 ROOT=campaign.ROOT;CODE=campaign.CODE;BASE=campaign.BASE;RUN=campaign.RUN
 DEV=ROOT/'polarity1d/manuscript/figures/length_mechanisms_20261008/dev'
@@ -32,7 +33,6 @@ def read(p):return pd.read_csv(source(p))
 def write(p,v):campaign.write(p,v)
 def setup():
     for name in ('data','metadata','vectors','viewers'):(OUT/'supporting'/name).mkdir(parents=True,exist_ok=True)
-def shade(x):return np.array(to_rgb(BLUE))*x+1-x
 def markdown_table(frame):
     def cell(v):
         if isinstance(v,(float,np.floating)):
@@ -82,13 +82,14 @@ def summary_rows(s,**base):
 def extract():
     setup();source(RUN/'manifest.json');sources=[]
     for C in (20,60):
-        for prefix in ('A_drift', 'D_wave_pinning_f0.005'):
-            p=source(R7/f'figure4/supporting/data/{prefix}_C{C}.csv.gz')
-            dest=('A_drift' if prefix=='A_drift' else 'C_native')+f'_C{C}.csv.gz';shutil.copy2(p,DATA/dest)
+        p=source(R7/f'figure4/supporting/data/A_drift_C{C}.csv.gz')
+        shutil.copy2(p,DATA/f'A_drift_C{C}.csv.gz')
+    # C/D f=.01 are refreshed directly from the native and Campaign 2
+    # compact seed archives by refresh_cd(), after this all-panel extraction.
     lags=np.linspace(0,24000,481)
     pd.DataFrame([dict(C_label=C,lag=l,Ds=.002,C=np.exp(-(2*np.pi/C)**2*.002*l)) for C in (20,60) for l in lags]).to_csv(DATA/'B_analytic_drift.csv',index=False)
     native=read(R7/'figure4/supporting/data/condition_lag_metrics.csv')
-    native=native[(native.model=='wave_pinning')&np.isclose(native.f,.005)&native.C_label.isin([20,60])].copy();native['D']=10.
+    native=native[(native.model=='wave_pinning')&np.isclose(native.f,.01)&native.C_label.isin([20,60])].copy();native['D']=10.
     acfs=native.to_dict('records')
     native_alpha=read(R7/'figure4/supporting/data/local_alpha.csv')
     native_alpha=native_alpha[(native_alpha.model=='wave_pinning')&native_alpha.f.isin([.003,.005,.01])].copy();native_alpha['D']=10.
@@ -105,7 +106,7 @@ def extract():
                 if len(q):
                     groups[float(C)]=seed_summary(q.compact,('R1fast',f,C));fast_lags.extend(summary_rows(groups[float(C)],D=1000.,f=f,C_label=C))
                     sources.extend(q[['slot','D','C','f','replicate','seed','compact','compact_sha256','native_compact','native_compact_sha256','paired_noise_verified']].to_dict('records'))
-                if f==.005 and C in (20,60) and len(q):
+                if f==.01 and C in (20,60) and len(q):
                     dense=seed_summary(q.compact,('R1fast_dense',f,C),True);acfs.extend(summary_rows(dense,D=1000.,f=f,C_label=C))
                     q0=q[q.replicate==0]
                     if len(q0) and q0.iloc[0].exemplar:
@@ -178,59 +179,98 @@ def letter(fig,spec,label):
 def facet(ax,label):ax.set_title(label,pad=4,color='black')
 def missing(ax,text='Campaign pending'):
     ax.text(.5,.5,text,transform=ax.transAxes,ha='center',va='center',color='.4',size=7)
-def kymo(ax,p,C,kind,vmax=1.,ylabel=False):
+def refresh_cd():
+    """Read existing f=.01 records only; preserve H and the solver check."""
+    setup();index=pd.read_csv(RUN/'results/compact_index.csv')
+    native_index=pd.read_csv(BASE/'results/compact_index.csv');acfs=[];inputs={}
+    for C in (20,60):
+        q=index[(index.D==1000)&np.isclose(index.f,.01)&(index.C==C)].sort_values('replicate')
+        assert len(q)==384
+        acfs.extend(summary_rows(seed_summary(q.compact,('R1fast_dense',.01,C),True),D=1000.,f=.01,C_label=C))
+        nq=native_index[(native_index.model=='wave_pinning')&np.isclose(native_index.fraction,.01)&(native_index['size']==C)].sort_values('replicate')
+        assert len(nq)==384
+        acfs.extend(summary_rows(seed_summary(nq.compact,('R1native_dense',.01,C),True),D=10.,f=.01,C_label=C))
+        for kind,path in (('native',Path(nq.iloc[0].exemplar)),('fast',Path(q.iloc[0].exemplar))):
+            inputs[rel(path)]=sha(path)
+            with np.load(path) as z:
+                t=z['time'];u=z['primary'];x=z['material_positions']
+            assert np.isclose(t[0],16000) and np.isclose(t[-1],32000)
+            pd.DataFrame(dict(time=np.repeat(t,len(x)),relative_arc_position=np.tile(x,len(t)),activity=u.ravel())).to_csv(DATA/f'C_{kind}_C{C}.csv.gz',index=False)
+    d=pd.DataFrame(acfs);d.to_csv(DATA/'D_heading_acf.csv',index=False)
+    guides=[]
+    for r in d[d.C_label==20].itertuples():
+        guides.append(dict(D=r.D,lag=r.lag,C=r.C**(1/9) if r.C>=0 else np.nan,source_C20=r.C,status='defined' if r.C>=0 else 'undefined_negative_C20'))
+    pd.DataFrame(guides).to_csv(DATA/'D_drift_guides.csv',index=False)
+    provenance=json.loads((META/'extraction_provenance.json').read_text())
+    provenance.update(generated_utc=now(),revision1_cd=dict(f=.01,post_burn_window=[16000,32000],n_seeds_per_condition=384,input_sha256=inputs,code_sha256=sha(__file__),scope='C/D only; H and solver-check records preserved'))
+    write(META/'extraction_provenance.json',provenance)
+
+def matrix(path):
+    d=pd.read_csv(path);t=np.sort(d.time.unique());return t,d.activity.to_numpy().reshape(len(t),-1)
+
+def kymo(ax,p,C,kind,vmax=1.,ylabel=False,rotation=0.):
     if p.exists():
-        d=pd.read_csv(p);t=np.sort(d.time.unique());u=d.activity.to_numpy().reshape(len(t),-1)
-        im=ax.imshow(u,origin='lower',extent=[0,C,float(t[0]),float(t[-1])],aspect='auto',cmap='Greys',vmin=0,vmax=vmax,interpolation='nearest',rasterized=True)
+        t,u=matrix(p);u=rotate_display(u,rotation)
+        im=ax.imshow(u,origin='lower',extent=[0,C,float(t[0]),float(t[-1])],aspect='auto',cmap='viridis',vmin=0,vmax=vmax,interpolation='nearest',rasterized=True)
+        # Highlight the periodic display seam when the dominant path crosses it.
+        if np.any(abs(np.diff(np.argmax(u,axis=1)))>u.shape[1]/2):
+            for seam in (0,C):ax.axvline(seam,color='white',ls=':',lw=.5,zorder=4,clip_on=False)
     else:missing(ax);im=None;ax.set_ylim(16000,32000)
     ax.set_xlim(0,C);ax.set_xticks([0,C]);ax.set_xlabel('Arc position');facet(ax,f'C{C}')
     if ylabel:ax.set_ylabel('Time')
     else:ax.tick_params(labelleft=False)
     return im
-def render():
+def render(export=True):
     setup();style();fig=plt.figure(figsize=(180/25.4,262/25.4))
     rows=fig.add_gridspec(5,1,left=.09,right=.96,bottom=.055,top=.97,height_ratios=[1.05,1.75,1.05,1.18,1.20],hspace=.66)
     r0=rows[0].subgridspec(1,2,width_ratios=[1,1],wspace=.40)
     ga=r0[0].subgridspec(1,2,width_ratios=[1,3],wspace=.22);letter(fig,r0[0],'A')
+    rotation=pair_rotation([matrix(DATA/f'A_drift_C{C}.csv.gz')[1] for C in (20,60)])
     for i,C in enumerate((20,60)):
-        ax=fig.add_subplot(ga[i]);im=kymo(ax,DATA/f'A_drift_C{C}.csv.gz',C,'drift',ylabel=i==0);ax.set_yticks([0,12000,24000])
+        ax=fig.add_subplot(ga[i]);im=kymo(ax,DATA/f'A_drift_C{C}.csv.gz',C,'drift',ylabel=i==0,rotation=rotation);ax.set_yticks([0,12000,24000])
     # Shared activity scale is also the null's exact peak amplitude.
     cb=fig.colorbar(im,ax=fig.axes[:2],fraction=.025,pad=.035,ticks=[0,1]);cb.set_label('Activity')
     ax=fig.add_subplot(r0[1]);letter(fig,r0[1],'B');d=pd.read_csv(DATA/'B_analytic_drift.csv')
-    for C,col in ((20,'.65'),(60,'.15')):
+    for C,col in ((20,SIZE_COLORS[20]),(60,SIZE_COLORS[60])):
         q=d[d.C_label==C];ax.plot(q.lag,q.C,color=col,label=f'C{C}')
-    ax.set(xlabel='Lag',ylabel='Heading correlation',ylim=(-.02,1.03),xlim=(0,24000));ax.set_xticks([0,12000,24000]);ax.legend(frameon=False,fontsize=6,title='Size: light → dark',title_fontsize=6)
+    ax.set(xlabel='Lag',ylabel='Heading correlation',ylim=(-.02,1.03),xlim=(0,24000));ax.set_xticks([0,12000,24000]);ax.legend(frameon=False,fontsize=6,title='Size',title_fontsize=6)
     r1=rows[1].subgridspec(1,2,width_ratios=[1.14,.86],wspace=.40);letter(fig,r1[0],'C');letter(fig,r1[1],'D')
     gc=r1[0].subgridspec(2,1,hspace=.55);kaxes=[]
+    wave_vmax=max(matrix(DATA/f'C_{kind}_C{C}.csv.gz')[1].max() for kind in ('native','fast') for C in (20,60))
     for j,D in enumerate((10,1000)):
+        kind='native' if D==10 else 'fast'
+        rotation=pair_rotation([matrix(DATA/f'C_{kind}_C{C}.csv.gz')[1] for C in (20,60)])
         sub=gc[j].subgridspec(1,2,width_ratios=[1,3],wspace=.22)
         for i,C in enumerate((20,60)):
-            ax=fig.add_subplot(sub[i]);kaxes.append(ax);im2=kymo(ax,DATA/f"C_{'native' if D==10 else 'fast'}_C{C}.csv.gz",C,'wave',vmax=1.15,ylabel=i==0)
+            ax=fig.add_subplot(sub[i]);kaxes.append(ax);im2=kymo(ax,DATA/f"C_{'native' if D==10 else 'fast'}_C{C}.csv.gz",C,'wave',vmax=wave_vmax,ylabel=i==0,rotation=rotation)
             ax.set_yticks([16000,24000,32000])
             if j==0:ax.set_xlabel('');ax.tick_params(labelbottom=False)
         pos=gc[j].get_position(fig);fig.text(pos.x0,pos.y1+.022,f'$D_v$ = {D}'+(' (native)' if D==10 else ''),size=7)
     if any(a.images for a in kaxes):
-        im2=next(a.images[0] for a in kaxes if a.images);cb=fig.colorbar(im2,ax=kaxes,fraction=.025,pad=.035,ticks=[0,1.15]);cb.set_label('Activity')
+        im2=next(a.images[0] for a in kaxes if a.images);cb=fig.colorbar(im2,ax=kaxes,fraction=.025,pad=.035,ticks=[0,wave_vmax]);cb.set_label('Activity')
     gd=r1[1].subgridspec(2,1,hspace=.55);d=pd.read_csv(DATA/'D_heading_acf.csv');g=pd.read_csv(DATA/'D_drift_guides.csv')
     for j,D in enumerate((10,1000)):
         ax=fig.add_subplot(gd[j]);facet(ax,f'$D_v$ = {D}')
-        for C,col in ((20,shade(.40)),(60,shade(1.))):
+        for C,col in ((20,SIZE_COLORS[20]),(60,SIZE_COLORS[60])):
             q=d[(d.D==D)&(d.C_label==C)].sort_values('lag');ax.plot(q.lag,q.C,color=col,label=f'C{C}')
             if len(q):ax.fill_between(q.lag,q.C_ci_lower,q.C_ci_upper,color=col,alpha=.13,linewidth=0)
         q=g[g.D==D];ax.plot(q.lag,q.C,'--',color='.5',label='Fixed physical drift')
         if not len(d[d.D==D]):missing(ax)
-        ax.set(ylim=(.6,1.01),xlim=(0,16000),ylabel='Heading correlation');ax.set_xticks([0,8000,16000]);ax.set_xlabel('Lag' if j else '')
+        ax.set(ylim=(-.05,1.01),xlim=(0,16000),ylabel='Heading correlation');ax.set_xticks([0,8000,16000]);ax.set_xlabel('Lag' if j else '')
         if j==0:
-            handles,labels=ax.get_legend_handles_labels();handles.append(Line2D([0],[0],lw=4,color=shade(.6),alpha=.2));labels.append('95% seed CI')
+            handles,labels=ax.get_legend_handles_labels();handles.append(Line2D([0],[0],lw=4,color='.4',alpha=.2));labels.append('95% seed CI')
             ax.legend(handles,labels,frameon=False,fontsize=5.8,loc='lower left',labelspacing=.15)
     r2=rows[2].subgridspec(1,2,wspace=.40);letter(fig,r2[0],'E');letter(fig,r2[1],'F')
-    ax=fig.add_subplot(r2[0]);d=pd.read_csv(DATA/'E_edge_pulse.csv');l=pd.read_csv(DATA/'E_fitted_lines.csv')
-    for C,col in ((20,shade(.40)),(60,shade(1.))):
+    ax=fig.add_subplot(r2[0]);d=pd.read_csv(DATA/'E_edge_pulse.csv');gains=pd.read_csv(DATA/'E_fitted_gain.csv');fit_lines=[]
+    for C,col in ((20,SIZE_COLORS[20]),(60,SIZE_COLORS[60])):
         q=d[d['size']==C];ax.plot(q.dose,q.permanent_displacement,'o',color=col,ms=2.4,label=f'C{C}')
-        q=l[l.C==C];ax.plot(q.dose,q.displacement,color=col,lw=.9)
-    ax.set(xlabel='Edge-pulse dose',ylabel='Permanent displacement',xlim=(0,1.05));ax.legend(frameon=False,fontsize=6,title='Lines: weak-dose slope',title_fontsize=6)
+        doses=np.geomspace(d.dose.min(),d.dose.max(),200);gain=float(gains[gains.C==C].gain.iloc[0]);ax.plot(doses,gain*doses,color=col,lw=.9);fit_lines.extend(dict(C=C,dose=x,displacement=gain*x) for x in doses)
+    if export:pd.DataFrame(fit_lines).to_csv(DATA/'E_fitted_lines.csv',index=False)
+    weak=d[d.amplitude_over_reference<=.001];ax.axvspan(d.dose.min(),weak.dose.max(),color='.5',alpha=.10,lw=0,zorder=0)
+    ax.set_xscale('log');ax.set_yscale('log')
+    ax.set(xlabel='Edge-pulse dose',ylabel='Permanent displacement',xlim=(d.dose.min()*.8,d.dose.max()*1.2));ax.legend(frameon=False,fontsize=6,title='Lines: fitted gain (slope 1)',title_fontsize=6)
     # Schematic geometry is generated on portable rebuild as well as extraction.
-    schematic_paths().to_csv(DATA/'F_schematic_paths.csv',index=False)
+    if export:schematic_paths().to_csv(DATA/'F_schematic_paths.csv',index=False)
     ax=fig.add_subplot(r2[1]);d=pd.read_csv(DATA/'F_schematic_paths.csv')
     for p,q in d.groupby('path',sort=False):
         ax.plot(q.x,q.y,color=BLUE if p=='domain' else '.45',lw=4 if p=='domain' else .9,zorder=2 if p=='domain' else 1)
@@ -240,14 +280,17 @@ def render():
     ax.text(0,1.31,'Domain',ha='center',size=7,color='black')
     ax.text(0,.30,'Across domain',ha='center',size=6.3)
     ax.text(0,-.50,'Around back',ha='center',size=6.3)
+    for start,stop in ((.60*np.pi,.44*np.pi),(1.70*np.pi,1.86*np.pi)):
+        ax.annotate('',xy=(np.cos(stop),np.sin(stop)),xytext=(np.cos(start),np.sin(start)),arrowprops=dict(arrowstyle='->',color='black',lw=.8,connectionstyle='arc3,rad=-.15'),zorder=5)
     ax.set(xlim=(-1.22,1.84),ylim=(-1.13,1.52),aspect='equal');ax.axis('off')
     ax=fig.add_subplot(rows[3]);letter(fig,rows[3],'G');d=pd.read_csv(DATA/'G_conduction_points.csv');l=pd.read_csv(DATA/'G_conduction_law.csv')
     Ds=sorted(d.D.unique())
     for i,D in enumerate(Ds):
-        col=shade(.20+.80*i/(len(Ds)-1));q=d[d.D==D].sort_values('C');ax.plot(q.C,q.gain,'o',color=col,ms=3,label=f'{D:g}')
-        q=l[l.D==D];ax.plot(q.C,q.gain,color=col,lw=.9)
-    ax.set(xlabel='Circumference, C',ylabel='Edge gain, G',xlim=(19,61),ylim=(.45,2.9));ax.set_xticks([20,30,40,50,60])
-    ax.legend(title='$D_v$: light = slow, dark = fast; points: exact ring; lines: isolated-front law',title_fontsize=6,fontsize=6,frameon=False,ncol=7,loc='lower left',bbox_to_anchor=(0,1.02),borderaxespad=0)
+        col='.25';q=d[d.D==D].sort_values('C');ax.plot(q.C,q.gain,'o',color=col,ms=3,label=f'{D:g}')
+        q=l[l.D==D].sort_values('C');ax.plot(q.C,q.gain,color=col,lw=.9)
+        ax.text(60.7,q.gain.iloc[-1],f'{D:g}',color=col,fontsize=6,va='center')
+    ax.set(xlabel='Circumference, C',ylabel='Edge gain, G',xlim=(19,65),ylim=(.45,2.9));ax.set_xticks([20,30,40,50,60])
+    ax.legend(handles=[Line2D([],[],color='.25',marker='o',lw=0,label='Exact ring'),Line2D([],[],color='.25',label='Law')],frameon=False,fontsize=6,ncol=2,loc='lower left');ax.text(1.,1.02,'$D_v$',transform=ax.transAxes,ha='right',fontsize=7)
     gh=rows[4].subgridspec(1,3,wspace=.28);letter(fig,rows[4],'H');d=pd.read_csv(DATA/'H_local_alpha.csv');pred=pd.read_csv(DATA/'H_native_prediction.csv')
     for j,f in enumerate((.003,.005,.01)):
         ax=fig.add_subplot(gh[j]);facet(ax,f'f = {f:g}');ax.axhline(2,color='.70',ls=':',lw=.8,label='Geometric drift: 2')
@@ -256,11 +299,12 @@ def render():
             q=d[(d.D==D)&np.isclose(d.f,f)&(d.status=='resolved')&d.C_label.isin([30,40,50])].sort_values('C_label')
             if len(q):
                 for r in q.itertuples():
-                    ax.errorbar(r.C_label+(-.65 if D==10 else .65),r.alpha,yerr=[[max(0,r.alpha-r.alpha_ci_lower)],[max(0,r.alpha_ci_upper-r.alpha)]],fmt=marker,ms=3,color=shade(.75),mfc='white' if D==1000 else shade(.75),elinewidth=.65,capsize=1.5,label=f'$D_v$ = {D} (95% CI)' if r.Index==q.index[0] else None)
+                    ax.errorbar(r.C_label+(-.65 if D==10 else .65),r.alpha,yerr=[[max(0,r.alpha-r.alpha_ci_lower)],[max(0,r.alpha_ci_upper-r.alpha)]],fmt=marker,ms=3,color='black',mfc='white' if D==1000 else 'black',elinewidth=.65,capsize=1.5,label=f'$D_v$ = {D} (95% CI)' if r.Index==q.index[0] else None)
             if not len(q) and D==1000:ax.text(.5,.08,'Fast cytosol pending',transform=ax.transAxes,ha='center',color='.4',fontsize=5.5)
         ax.set(xlabel='Circumference, C',xlim=(17,63),ylim=(0,5.5),xticks=[20,40,60]);ax.set_ylabel('Local exponent, α' if j==0 else '')
         if j:ax.tick_params(labelleft=False)
         if j==0:ax.legend(frameon=False,fontsize=5.8,loc='upper left',labelspacing=.1)
+    if not export:return fig
     for ext in ('png','pdf','svg'):fig.savefig(OUT/f'figureR1_main.{ext}',dpi=300,facecolor='white')
     plt.close(fig);documents()
 
@@ -279,14 +323,14 @@ def documents():
     result_H=f'Native point estimates span {rng(native.alpha)}.'+(f' Fast-cytosol estimates span {rng(fast.alpha)}.' if len(fast) else ' Fast-cytosol estimates are pending.')
     legend=[
         '# Figure R1. Cytosolic transport suppresses Wave-pinning domain drift beyond the geometric size effect',
-        r'**A.** Drift-null activity kymographs at circumference $C=20$ and $60$, with panel width proportional to circumference, time upward and a shared greyscale (white zero, black one). The fixed physical diffusivity is $D_s=0.002$. A larger ring converts the same physical wandering into smaller heading changes. All quantities in this figure use native units.',
-        r'**B.** Closed-form heading autocorrelation $C(\ell)=\exp[-(2\pi/C)^2D_s\ell]$ for A; light grey is C20 and dark grey C60. The heading-decorrelation rate is $k=-\log C(\ell)/\ell$. The geometric drift null therefore gives a ninefold smaller rate at C60.',
-        r'**C.** Wave-pinning activity at input fraction $f=0.005$ (mean forcing divided by native reference input 0.1), with inactive diffusivity $D_v=10$ (native) or 1000. Each size uses native replicate 0 and the identical frozen Gaussian noise realization across diffusivities; time and activity scales are shared and width is proportional to circumference. '+result_C,
-        r'**D.** Whole-activity heading autocorrelation for C, light blue C20 and dark blue C60, with whole-seed bootstrap 95% bands. Heading is $\arg P$, with $P=M_1/M_0$; eligible endpoints have $|P|\geq0.1$. Dashed grey curves are the size-independent physical-drift guide $C_{20}(\ell)^{(20/60)^2}$. '+result_D,
-        r'**E.** Permanent shared domain displacement against edge-pulse dose (peak amplitude times duration 50), with light blue C20 and dark blue C60. Points are retained deterministic pulses; lines are through-origin fitted weak-dose slopes (input fractions at most 0.001), defining edge gain $G$. The C60 slope is smaller, and higher doses depart below the linear extrapolation.',
-        r'**F.** Ring schematic with one active domain, an edge pulse and the two cytosolic paths between its edges, across the domain and around the back, shown as resistor segments in series around the closed loop. The schematic identifies the two transport distances that enter the conduction law.',
-        r'**G.** Edge gain against circumference for seven inactive diffusivities. Here colour encodes $D_v$, light for slow and dark for fast; points are exact-ring adjoint calculations and lines are $G=(\lambda/2)/(1+C/C^*)$, where $C^*=2D_v/[\kappa\Delta u\,\theta(1-\theta)]$. Isolated-front values of $\kappa$, $\lambda$ and $\Delta u$ are fixed and $\theta$ comes from ring states; nothing is fitted. Native gain falls with size while the $D_v=1000$ C60/C20 gain ratio is '+f'{g60/g20:.4f}.',
-        r'**H.** Local size exponent $\alpha=-d\log k/d\log C$ from the unchanged three-size round-3 estimator, at the three weak inputs available at all five sizes. Estimates are centred at C30, C40 and C50; each uses its three adjacent sizes, so all five sizes contribute. Circles denote native cytosol and open squares fast cytosol, with 95% whole-seed bootstrap intervals; the solid grey line is $\alpha=2+2(C/C^*)/(1+C/C^*)$ at native diffusivity and the dotted guide is 2. Inputs are retained in separate shared-scale facets. '+result_H]
+        r'**A.** Drift-null activity kymographs at circumference $C=20$ and $60$, with panel width proportional to circumference, time upward and a shared linear viridis activity scale with its colourbar. The fixed physical diffusivity is $D_s=0.002$. A larger ring converts the same physical wandering into smaller heading changes. For each size pair, one common angular rotation places the initial dominant domain near mid-panel; the identical angular shift is used for both sizes at all times. Thin dotted seam lines mark any remaining wrap. All quantities in this figure use native units.',
+        r'**B.** Closed-form heading autocorrelation $C(\ell)=\exp[-(2\pi/C)^2D_s\ell]$ for A; orange (#E69F00) is C20 and blue (#0072B2) C60. The heading-decorrelation rate is $k=-\log C(\ell)/\ell$. The geometric drift null therefore gives a ninefold smaller rate at C60.',
+        r'**C.** Wave-pinning activity at input fraction $f=0.01$ (mean forcing divided by native reference input 0.1), with inactive diffusivity $D_v=10$ (native) or 1000. Each size uses native replicate 0 and the identical frozen Gaussian noise realization across diffusivities; the full post-burn window 16000–32000 is shown, time and linear viridis activity scales are shared across both diffusivities and sizes, and width is proportional to circumference. '+result_C,
+        r'**D.** Whole-activity heading autocorrelation for C over the full lag horizon 0–16000, orange C20 and blue C60, with whole-seed bootstrap 95% bands. Heading is $\arg P$, with $P=M_1/M_0$; eligible endpoints have $|P|\geq0.1$. Dashed grey curves are the size-independent physical-drift guide $C_{20}(\ell)^{(20/60)^2}$. '+result_D,
+        r'**E.** Permanent shared domain displacement against edge-pulse dose (peak amplitude times duration 50), with orange C20 and blue C60. Log–log axes retain the full dose grid. Points are retained deterministic pulses; each slope-1 line is its through-origin fitted weak-dose gain (input fractions at most 0.001); light shading marks that fit range, defining edge gain $G$. The C60 slope is smaller, and higher doses depart below the linear extrapolation.',
+        r'**F.** Ring schematic with one active domain, an edge pulse and the two cytosolic paths between its edges, across the domain and around the back, shown as resistor segments in series around the closed loop. Arrows on both arcs show material moving from the far edge to the pushed edge. The schematic identifies the two transport distances that enter the conduction law.',
+        r'**G.** Edge gain against circumference for seven inactive diffusivities. Every series is dark grey and directly labelled at its right end by $D_v$; the small key defines points as exact-ring adjoint calculations and lines as $G=(\lambda/2)/(1+C/C^*)$, where $C^*=2D_v/[\kappa\Delta u\,\theta(1-\theta)]$. Isolated-front values of $\kappa$, $\lambda$ and $\Delta u$ are fixed and $\theta$ comes from ring states; nothing is fitted. Native gain falls with size while the $D_v=1000$ C60/C20 gain ratio is '+f'{g60/g20:.4f}.',
+        r'**H.** Local size exponent $\alpha=-d\log k/d\log C$ from the unchanged three-size round-3 estimator, at the three weak inputs available at all five sizes. Estimates are centred at C30, C40 and C50; each uses its three adjacent sizes, so all five sizes contribute. Black filled circles denote native cytosol ($D_v=10$) and black open squares fast cytosol ($D_v=1000$), with 95% whole-seed bootstrap intervals; the solid grey line is $\alpha=2+2(C/C^*)/(1+C/C^*)$ at native diffusivity and the dotted guide is 2. Inputs are retained in separate shared-scale facets. '+result_H]
     (META/'main_legend.md').write_text('\n\n'.join(legend)+'\n')
     unexpected=[f'The full seven-diffusivity law does not satisfy a universal 10% agreement check: at Dᵥ=2.5 the relative error is {rng(law[law.D==2.5].relative_error*100)}%, and at Dᵥ=5 it is {rng(law[law.D==5].relative_error*100)}%. The native Dᵥ=10 error is {rng(law[law.D==10].relative_error*100)}%; the Dᵥ=1000 error is {rng(law[law.D==1000].relative_error*100)}%. The per-row stationary θ and isolated-front constants were checked; no parameters were changed.']
     for r in solver.itertuples():
@@ -299,7 +343,7 @@ def documents():
     if len(unavailable):unexpected.append(f'{len(unavailable)} local-α estimates are unavailable. Their condition and estimator status are retained in H_local_alpha.csv; missing estimates are not censoring bounds and receive no numeric marker.')
     text=['# Unexpected','',*['- '+s for s in unexpected],'','## Key numbers per panel','',
         'A–B: Dₛ = 0.002, C20/C60, T = 24000, sample-path cadence 20. Analytic k(C20) = '+f'{(2*np.pi/20)**2*.002:.8g}, k(C60) = {(2*np.pi/60)**2*.002:.8g}; ratio = 9. No null-ensemble simulation was added.',
-        '',f'C–D: f = 0.005, post-burn window 16000–32000, observation cadence 5, 384 native seeds per condition. {result_D}',
+        '',f'C–D: f = 0.01, post-burn window 16000–32000, observation cadence 5, 384 native seeds per condition. {result_D}',
         '', 'E: weak-dose slopes '+', '.join(f'C{r.C:g}: G={r.gain:.8g}' for r in gain.itertuples())+'. Higher-dose observations remain plotted.',
         '', 'F: qualitative transport-path schematic; no inferred measurement.',
         '',f'G: exact-ring gain C60/C20 at Dᵥ=1000 = {g60/g20:.8g}; '+', '.join(f'Dᵥ={D:g}: law relative error [{q.relative_error.min():.5g}, {q.relative_error.max():.5g}]' for D,q in law.groupby('D'))+'.',
@@ -317,10 +361,12 @@ def documents():
     code_commit=subprocess.run(['git','log','-1','--format=%H','--',rel(Path(__file__))],cwd=ROOT,text=True,capture_output=True).stdout.strip() or 'not yet committed; integration_commit.json records final code commit'
     outputs={rel(p):sha(p) for p in sorted(DATA.glob('*')) if p.is_file()}
     write(META/'provenance.json',dict(generated_utc=now(),data_generated_utc=provenance['generated_utc'],code_commit=code_commit,
-        code_path=rel(Path(__file__)),code_sha256=sha(Path(__file__)),campaign_manifest=rel(META/'campaign_manifest.json'),
+        code_path=rel(Path(__file__)),code_sha256=sha(Path(__file__)),display_conventions_sha256=sha(CODE/'ring_figure_revision1_20261028.py'),campaign_manifest=rel(META/'campaign_manifest.json'),
         campaign_manifest_sha256=sha(META/'campaign_manifest.json'),output_sha256=outputs,width_mm=180,height_mm=262,
         producer_complete=complete,panels='A B C D E F G H',scope='New R1 only; native Figures 1–6 unchanged'))
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--extract',action='store_true');a=p.parse_args()
-    if a.extract:extract()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--extract',action='store_true');p.add_argument('--refresh-cd',action='store_true');a=p.parse_args()
+    if a.extract:
+        extract();refresh_cd()
+    if a.refresh_cd:refresh_cd()
     render()

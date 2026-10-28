@@ -99,6 +99,20 @@ def run(predecessors):
         if result.returncode:
             status('NEEDS_ATTENTION',reason='Compact extraction/rebuild failed',returncode=result.returncode,producers=producers,scheduler=receipt)
             raise RuntimeError('R2 final refresh failed; see release_finalization/rebuild_stderr.log')
+        # Revision 1: check the revised event-excess algebra and every display
+        # encoding on the final data, then refresh scoped links and inventories.
+        checks=[
+          [PY,'-B',str(MS/'code/mechanisms/audit_ring_revision1_20261028.py'),'--require-complete'],
+          [PY,'-B',str(MS/'code/mechanisms/organize_length_dev.py'),'--group','ring_r1r2_20261027/figureR2'],
+          [PY,'-B',str(MS/'code/mechanisms/refresh_ring_release_20261028.py')]]
+        validation_receipts=[]
+        for command in checks:
+            checked=subprocess.run(command,capture_output=True,text=True,cwd=ROOT)
+            validation_receipts.append(dict(command=command,returncode=checked.returncode,stdout=checked.stdout,stderr=checked.stderr))
+            write(FOLDER/'revision1_validation.json',validation_receipts)
+            if checked.returncode:
+                status('NEEDS_ATTENTION',reason='Revision-1 final-data validation failed',command=command,returncode=checked.returncode,producers=producers,scheduler=receipt)
+                raise RuntimeError('Revision-1 final-data validation failed; see revision1_validation.json')
         status('REFRESHED_AWAITING_REVIEW',producers=producers,scheduler=receipt,rebuild_code_sha256=sha(REBUILD),cadence_validation_passed=cadence_pass,cadence_audit=str(audit_folder.relative_to(ROOT)),
           provenance=str((MS/'figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/supporting/metadata/provenance.json').relative_to(ROOT)),
           next_step='Independent final-data audit and visual review, followed by root commit/push; this watcher does not commit or publish')

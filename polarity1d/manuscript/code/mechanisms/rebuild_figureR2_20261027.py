@@ -9,18 +9,19 @@ import shutil
 from pathlib import Path
 from datetime import datetime,timezone
 for k in ('OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS'):os.environ[k]='1'
+os.environ.setdefault('MPLCONFIGDIR',f'/tmp/ring-r1r2-mpl-{os.getuid()}')
 sys.dont_write_bytecode=True
 import numpy as np
 import pandas as pd
 import ring_r2_campaign_20261027 as C
 import figure4_round3_estimators_20261022 as H
+from ring_figure_revision1_20261028 import SIZE_COLORS, pair_rotation, rotate_display
 
 ROOT=C.ROOT;MS=C.MS;RUN=C.RUN;SOURCE=C.SOURCE;OUT=C.OUT
 DATA=OUT/'supporting/data';META=OUT/'supporting/metadata'
 LEVELS=('low','medium','high')
 MODELS=('goryachev','wave_pinning','holmes_model3','spring_ring')
 NAMES=dict(goryachev='Goryachev',wave_pinning='Wave-pinning',holmes_model3='Holmes',spring_ring='Spring')
-HUES=dict(wave_pinning='#2878b5',holmes_model3='#36944c',spring_ring='#c59a25',goryachev='#c83b3b')
 R7=MS/'figures/length_mechanisms_20261008/dev/revision_round7_20261026/figure4/supporting'
 def setup():
     for p in (DATA,META):p.mkdir(parents=True,exist_ok=True)
@@ -66,19 +67,23 @@ def event_times(job,end):
         if t>end+1e-9:break
         events.append((t,float(marks.exponential(job['amplitude_mean'])),float(pos.uniform())))
     return np.array(events).reshape(-1,3),dict(wait=wait.bit_generator.state,marks=marks.bit_generator.state,positions=pos.bit_generator.state)
+class WindowScorer:
+    """Original circular-window observable, evaluated with prefix sums."""
+    def __init__(self,t,P):
+        self.t=t
+        unit=P/np.maximum(abs(P),1e-30)
+        valid=np.isfinite(unit)
+        self.prefix=np.r_[0j,np.cumsum(np.where(valid,unit,0),dtype=np.complex128)]
+        self.invalid=np.r_[0,np.cumsum(~valid)]
+    def scores(self,centres,w):
+        left=np.searchsorted(self.t,centres,side='left');right=np.searchsorted(self.t,centres,side='right')
+        valid=(left>=w)&(right+w<=len(self.t));left=left[valid];right=right[valid]
+        a=(self.prefix[left]-self.prefix[left-w])/w;b=(self.prefix[right+w]-self.prefix[right])/w
+        valid=(self.invalid[left]==self.invalid[left-w])&(self.invalid[right+w]==self.invalid[right])&(abs(a)>1e-12)&(abs(b)>1e-12)
+        return 1-np.real(b[valid]*a[valid].conjugate())/(abs(a[valid])*abs(b[valid]))
+
 def event_scores(t,P,events,w):
-    unit=P/np.maximum(abs(P),1e-30);vals=[]
-    for event,amplitude,position in events:
-        # Window width is w original saved frames, with an event excluded from
-        # either window if it lies exactly on a saved frame.
-        left=np.searchsorted(t,event,side='left');right=np.searchsorted(t,event,side='right')
-        if left<w or right+w>len(t):continue
-        before=unit[left-w:left];after=unit[right:right+w]
-        if not (np.isfinite(before).all() and np.isfinite(after).all()):continue
-        a=before.mean();b=after.mean()
-        if abs(a)<=1e-12 or abs(b)<=1e-12:continue
-        vals.append(float(1-np.real(b*a.conjugate())/(abs(a)*abs(b))))
-    return np.array(vals)
+    return WindowScorer(t,P).scores(events[:,0],w)
 
 def nulls():
     import figure4_round3_analysis_20261022 as A
@@ -124,7 +129,7 @@ def extract():
             rates.append(dict(arm=arm,model=job['model'],size=job['size'],mean_physical_C=float(circles.mean()),rate_level=job['rate_level'],amplitude_level=job['amplitude_level'],amplitude_mean=job['amplitude_mean'],gamma=g,status=kind,bound=b,gamma_ci_low=lo,gamma_ci_high=hi,ci_low_status=los,ci_high_status=his,analysis_lag=(len(curve)-1)*cadence,crossing_half_lag=math.log(2)/g if g else None,record_duration=job['sample_duration']*2**level,extension_level=level,seeds=4,source_campaign=str(run.relative_to(ROOT))))
             # D uses the existing heading estimator with the original coherence
             # endpoint mask. Its logarithmic display grid spans the record.
-            requested=(job['model']=='goryachev' and job['amplitude_level']=='low') or (job['model']=='wave_pinning' and job['amplitude_level']=='medium')
+            requested=(job['model']=='goryachev' and job['amplitude_level']=='low') or (job['model']=='wave_pinning' and job['amplitude_level']=='low')
             if arm=='per_perimeter' and requested and job['rate_level']=='low' and job['size'] in (20.,60.):
                 maxlag=(min(len(t) for t,P,c in rec)//2)*job['frame_interval'];lags=heading_lag_grid(maxlag,job['frame_interval'])
                 moments=[H.seed_moments(P,abs(P)>=.1,job['frame_interval'],lags) for t,P,c in rec]
@@ -140,10 +145,14 @@ def extract():
                 for ii,jj in enumerate(ix):
                     for jjx,x in enumerate(q*job['size']):rr.append(dict(time=float(tt[jj]-tt[0]),x=float(x),activity=float(field[ii,jjx])))
                 save(f'C_{job["model"]}_C{job["size"]:g}.csv.gz',rr)
-            # Chemical old-arm event times do not depend on state. Spring old
-            # times do, therefore Spring G uses only new per-cell outer sizes.
-            if job['rate_level']=='low' and ((arm=='per_perimeter' and job['model']!='spring_ring') or (arm=='per_cell' and job['model']=='spring_ring')):
-                scores={w:[] for w in (2,5,20)};counts=[]
+            # G uses the existing low-rate, high-amplitude outer-size runs.
+            # Chemical times are regenerated exactly; Spring uses logged
+            # per-cell events because its original perimeter hazard is dynamic.
+            outer=(1.,3.) if job['model']=='spring_ring' else (20.,60.)
+            selected=(job['rate_level']=='low' and job['amplitude_level']=='high' and job['size'] in outer and ((arm=='per_perimeter' and job['model']!='spring_ring') or (arm=='per_cell' and job['model']=='spring_ring')))
+            if selected:
+                windows=(2,3,4,6,8,12,16,24,32,48,64)
+                scores={w:[] for w in windows};controls={w:[] for w in windows};counts=[];control_seeds=[]
                 for si,s in enumerate(cohort['slots']):
                     jj=m['jobs'][s];t,P,circ=rec[si]
                     if arm=='per_cell':
@@ -153,19 +162,29 @@ def extract():
                         regenerated_logs.extend(dict(model=job['model'],size=job['size'],amplitude_level=job['amplitude_level'],replicate=jj['replicate'],seed=jj['seed'],time=float(v[0]),amplitude=float(v[1]),material_position=float(v[2])) for v in events)
                     checkpoint=C.read(C.segment(run,s,level)/'checkpoint.json');counts.append(len(events)==checkpoint['event_count'])
                     if arm=='per_perimeter':
-                        retained=np.array(checkpoint['events'])
-                        tail=events[-len(retained):] if len(retained) else events[:0]
+                        retained=np.array(checkpoint['events']);tail=events[-len(retained):] if len(retained) else events[:0]
                         if len(retained) and not np.allclose(tail,retained,rtol=0,atol=1e-6):raise ValueError('Regenerated event tail differs from native checkpoint')
                         if rng_state!=checkpoint['rng']:raise ValueError('Regenerated RNG states differ from native checkpoint')
                         eventchecks.append(dict(arm=arm,model=job['model'],size=job['size'],amplitude=job['amplitude_level'],slot=s,event_count=len(events),checkpoint_event_count=checkpoint['event_count'],first_generated_event_time=float(events[0,0]) if len(events) else None,last_generated_event_time=float(events[-1,0]) if len(events) else None,checkpoint_last_event_time=float(retained[-1,0]) if len(retained) else None,matching_rng_all_three_streams=True,matching_retained_event_tail=True))
                     events=events[(events[:,0]>t[0])&(events[:,0]<t[-1])]
-                    for w in (2,5,20):scores[w].append(event_scores(t,P,events,w))
-                eventchecks.append(dict(arm=arm,model=job['model'],size=job['size'],amplitude=job['amplitude_level'],all_event_counts_match_checkpoint=all(counts)))
-                weights=np.random.default_rng(H.stable_seed(('R2G',key))).multinomial(4,np.full(4,.25),size=2000)
-                for w in (2,5,20):
+                    scorer=WindowScorer(t,P)
+                    control_seed=H.stable_seed(('R2G-random-windows',key,jj['seed']));control_seeds.append(control_seed)
+                    for w in windows:
+                        observed=scorer.scores(events[:,0],w);scores[w].append(observed)
+                        rng=np.random.default_rng(np.random.SeedSequence([control_seed,w]))
+                        # Uniform timing over the same run and fully observed
+                        # window support. Incidental real events are retained.
+                        random_times=rng.uniform(t[w],t[-w-1],100*len(observed))
+                        controls[w].append(scorer.scores(random_times,w))
+                eventchecks.append(dict(arm=arm,model=job['model'],size=job['size'],amplitude=job['amplitude_level'],all_event_counts_match_checkpoint=all(counts),random_control_seeds=control_seeds,controls_per_event=100,window_frames=list(windows)))
+                weights=np.random.default_rng(H.stable_seed(('R2G-excess',key))).multinomial(4,np.full(4,.25),size=2000)
+                for w in windows:
                     sums=np.array([v.sum() for v in scores[w]]);ns=np.array([len(v) for v in scores[w]])
-                    den=weights@ns;boot=np.divide(weights@sums,den,out=np.full(2000,np.nan),where=den>0);l,h=H.percentile(boot)
-                    eventrows.append(dict(arm=arm,model=job['model'],size=job['size'],mean_physical_C=float(circles.mean()),rate_level='low',amplitude_level=job['amplitude_level'],amplitude_mean=job['amplitude_mean'],window_frames=w,window_native_time=w*job['frame_interval'],mean_heading_change=float(sums.sum()/ns.sum()) if ns.sum() else np.nan,ci_low=l,ci_high=h,scored_events=int(ns.sum()),seeds=4))
+                    rs=np.array([v.sum() for v in controls[w]]);rn=np.array([len(v) for v in controls[w]])
+                    den=weights@ns;rden=weights@rn
+                    boot=np.divide(weights@sums,den,out=np.full(2000,np.nan),where=den>0)-np.divide(weights@rs,rden,out=np.full(2000,np.nan),where=rden>0)
+                    l,h=H.percentile(boot);observed=float(sums.sum()/ns.sum()) if ns.sum() else np.nan;baseline=float(rs.sum()/rn.sum()) if rn.sum() else np.nan
+                    eventrows.append(dict(arm=arm,model=job['model'],size=job['size'],mean_physical_C=float(circles.mean()),rate_level='low',amplitude_level='high',amplitude_mean=job['amplitude_mean'],window_frames=w,window_native_time=w*job['frame_interval'],mean_heading_change=observed,mean_random_heading_change=baseline,excess=observed-baseline,ci_low=l,ci_high=h,scored_events=int(ns.sum()),random_windows=int(rn.sum()),seeds=4,seed_event_sums=json.dumps(sums.tolist()),seed_event_counts=json.dumps(ns.tolist()),seed_random_sums=json.dumps(rs.tolist()),seed_random_counts=json.dumps(rn.tolist()),control_seeds=json.dumps(control_seeds)))
     save('mode1_rates.csv',rates);save('coverage.csv',coverage);save('D_heading_acf.csv',headings);save('G_event_heading_change.csv',eventrows);save('G_regenerated_event_logs.csv.gz',regenerated_logs);C.write(META/'event_regeneration_checks.json',eventchecks)
     alpha=[];bootstrap_rows=[]
     for arm in ('per_perimeter','per_cell'):
@@ -224,225 +243,213 @@ def frame_matrix(path):
         val=next(c for c in ('activity','u','field','value') if c in q.columns);p=q.pivot(index='time',columns='x',values=val);return p.index.to_numpy(),p.columns.to_numpy(),p.to_numpy()
     return q.iloc[:,0].to_numpy(),np.arange(len(q.columns)-1),q.iloc[:,1:].to_numpy()
 
-def render():
+def render(export=True):
     setup();import matplotlib;matplotlib.use('Agg')
     import matplotlib.pyplot as plt
     from matplotlib.lines import Line2D
-    from matplotlib.colors import to_rgb, AsinhNorm
-    from matplotlib.ticker import NullLocator
+    from matplotlib.ticker import NullLocator, ScalarFormatter
     plt.rcParams.update({'font.family':'DejaVu Sans','font.size':6.5,'axes.linewidth':.6,'lines.linewidth':1,'xtick.major.size':2,'ytick.major.size':2,'svg.fonttype':'none','pdf.fonttype':42})
-    fig=plt.figure(figsize=(180/25.4,11.9));outer=fig.add_gridspec(5,1,height_ratios=[2.7,2.8,1.8,2.8,2.0],hspace=.48,left=.085,right=.975,bottom=.04,top=.965)
+    fig=plt.figure(figsize=(180/25.4,11.9))
+    outer=fig.add_gridspec(5,1,height_ratios=[2.7,2.8,2.0,3.0,2.1],hspace=.53,left=.085,right=.975,bottom=.05,top=.955)
     def label(gs,text):
         b=gs.get_position(fig);fig.text(b.x0-.045,b.y1+.008,text,fontweight='bold',fontsize=10,ha='left',va='bottom')
     def axis(gs,title=None):
         ax=fig.add_subplot(gs);ax.spines[['top','right']].set_visible(False)
         if title:ax.set_title(title,fontsize=7,pad=5)
         return ax
-    def ramp(hue,n):
-        rgb=np.array(to_rgb(hue));return [tuple(1-(1-rgb)*v) for v in np.linspace(.5,1,n)]
-    def shared_key(gs,text,names):
+    def key(gs,handles,ncol):
         b=gs.get_position(fig)
-        fig.text(b.x0,b.y1+.030,text,fontsize=5.7)
-        colors=ramp('#333333',len(names))
-        handles=[Line2D([],[],color=color,marker='o',ms=2.2,lw=1,label=name) for name,color in zip(names,colors)]
-        fig.legend(handles=handles,frameon=False,fontsize=5.0,ncol=len(names),loc='lower right',bbox_to_anchor=(b.x1,b.y1+.025),borderaxespad=0,handlelength=1.5,handletextpad=.4,columnspacing=.9)
-    def ky(gs,files,sizes,hue,model=None,showx=True,showtitle=True,colorbar=True):
-        # Reserve the identical colourbar column in every facet, including
-        # facets without a displayed bar, so physical widths stay 1:3.
-        sub=gs.subgridspec(1,3,width_ratios=[*sizes,1.35],wspace=.12);mats=[frame_matrix(p) for p in files];vmax=max(a[2].max() for a in mats);vmin=min(a[2].min() for a in mats) if model else 0.
-        axes=[]
-        for i,((t,x,v),s) in enumerate(zip(mats,sizes)):
-            ax=axis(sub[i]);axes.append(ax)
-            norm=AsinhNorm(linear_width=1.,vmin=vmin,vmax=vmax) if model=='goryachev' else None
-            im=ax.imshow(v,origin='lower',aspect='auto',extent=[0,s,t[0],t[-1]],cmap='Greys',norm=norm,vmin=None if norm else vmin,vmax=None if norm else vmax,rasterized=True)
-            ax.set_ylim(0,min(m[0][-1] for m in mats));ax.set_xticks([0,s]);ax.set_xlabel('Position' if showx else '')
-            if showtitle:ax.set_title(f'C{s:g}',fontsize=6.5,pad=3)
+        fig.legend(handles=handles,frameon=False,fontsize=5.2,ncol=ncol,loc='lower right',bbox_to_anchor=(b.x1,b.y1+.025),borderaxespad=0,handlelength=1.9,handletextpad=.4,columnspacing=.9)
+    def ky(gs,files,sizes,model=None,showx=True,showtitle=True,colorbar=True):
+        sub=gs.subgridspec(1,3,width_ratios=[*sizes,1.35],wspace=.12)
+        mats=[frame_matrix(p) for p in files]
+        rotation=pair_rotation([m[2] for m in mats]);vmax=1. if model is None else max(a[2].max() for a in mats)
+        for i,((t,x,v),size) in enumerate(zip(mats,sizes)):
+            ax=axis(sub[i]);v=rotate_display(v,rotation)
+            # Display clipping only: compact reconstructions and modes stay signed.
+            im=ax.imshow(np.maximum(v,0),origin='lower',aspect='auto',extent=[0,size,t[0],t[-1]],cmap='viridis',vmin=0,vmax=vmax,rasterized=True)
+            ax.set_ylim(0,min(m[0][-1] for m in mats));ax.set_xticks([0,size]);ax.set_xlabel((f'C{size:g} position' if model is None else 'Position') if showx else '')
+            if showtitle:ax.set_title(f'C{size:g}',fontsize=6.5,pad=3)
             if not showx:ax.tick_params(labelbottom=False)
             if i==0:ax.set_ylabel('Time')
             else:ax.tick_params(labelleft=False)
         if colorbar:
-            cb=fig.colorbar(im,cax=fig.add_subplot(sub[2]),ticks=[vmin,vmax]);cb.set_label('Activity (asinh)' if model=='goryachev' else 'Activity',fontsize=5.3,labelpad=1);cb.ax.tick_params(labelsize=5.1,length=1,pad=2);cb.outline.set_linewidth(.35)
-            cb.minorticks_off();cb.set_ticks([vmin,vmax],labels=[f'{vmin:.3g}',f'{vmax:.3g}'])
+            cb=fig.colorbar(im,cax=fig.add_subplot(sub[2]),ticks=[0,vmax]);cb.set_label('Activity',fontsize=5.3,labelpad=1);cb.ax.tick_params(labelsize=5.1,length=1,pad=2);cb.outline.set_linewidth(.35)
+            cb.minorticks_off();cb.set_ticks([0,vmax],labels=['0',f'{vmax:.3g}'])
     top=outer[0].subgridspec(1,2,width_ratios=[1.3,1],wspace=.3);label(top[0],'A');label(top[1],'B')
-    aa=top[0].subgridspec(3,1,hspace=.55);bb=top[1].subgridspec(3,1,hspace=.55);null=pd.read_csv(DATA/'B_null_heading_acf.csv')
+    aa=top[0].subgridspec(3,1,hspace=.65);bb=top[1].subgridspec(3,1,hspace=.65);null=pd.read_csv(DATA/'B_null_heading_acf.csv')
     for row,beta in enumerate((1,0,-1)):
-        ky(aa[row],[DATA/f'A_beta{beta:+d}_C{s}.csv.gz' for s in (20,60)],(20,60),'#555555',showx=row==2,showtitle=row==0,colorbar=row==2)
-        box=aa[row].get_position(fig);supply={1:'Perimeter × constant',0:'Perimeter × 1/C (or cell × constant)',-1:'Perimeter × 1/C²'}[beta]
-        fig.text(box.x0+.005,box.y0+.007,f'β = {beta}: {supply}',fontsize=5.3,bbox=dict(facecolor='white',edgecolor='none',alpha=.85,pad=.5))
-        ax=axis(bb[row],f'β = {beta}');cols=['#aaaaaa','#333333']
-        for color,size in zip(cols,(20,60)):
-            q=null[(null.beta==beta)&(null['size']==size)];ax.plot(q.lag,q.C,color=color,label=f'C{size}')
+        ky(aa[row],[DATA/f'A_beta{beta:+d}_C{s}.csv.gz' for s in (20,60)],(20,60),showx=row==2,showtitle=False,colorbar=row==2)
+        box=aa[row].get_position(fig);fig.text((box.x0+box.x1)/2,box.y1+.006,f'β = {beta}',fontsize=7,ha='center')
+        ax=axis(bb[row],f'β = {beta}'+(' (curves coincide)' if beta==0 else ''))
+        for size in (20,60):
+            q=null[(null.beta==beta)&(null['size']==size)];ax.plot(q.lag,q.C,color=SIZE_COLORS[size],label=f'C{size}',zorder=3 if size==20 else 2)
         ax.set(ylim=(-.03,1.04),xlim=(0,24000),ylabel='C(ℓ)');ax.set_xticks([0,12000,24000]);ax.set_xlabel('Lag ℓ' if row==2 else '');ax.legend(frameon=False,fontsize=5.5,ncol=2,loc='upper right')
         if row<2:ax.tick_params(labelbottom=False)
     second=outer[1].subgridspec(1,2,width_ratios=[1.3,1],wspace=.3);label(second[0],'C');label(second[1],'D');cc=second[0].subgridspec(2,1,hspace=.8);dd=second[1].subgridspec(2,1,hspace=.8)
     heading=pd.read_csv(DATA/'D_heading_acf.csv');guides=[]
     for i,model in enumerate(('goryachev','wave_pinning')):
         files=[DATA/f'C_{model}_C{s}.csv.gz' for s in (20,60)]
-        if all(p.exists() for p in files):ky(cc[i],files,(20,60),HUES[model],model=model,showx=i==1)
-        else:axis(cc[i]).text(.5,.5,'Execution pending',ha='center',transform=fig.axes[-1].transAxes)
-        box=cc[i].get_position(fig);fig.text(box.x0,box.y1+.025,NAMES[model]+('; low rate, low amplitude' if i==0 else '; low rate, medium amplitude'),fontsize=6.3)
-        ax=axis(dd[i],NAMES[model]+'; low rate');cols=ramp(HUES[model],2)
-        for size,color in zip((20,60),cols):
-            q=heading[(heading.model==model)&(heading['size']==size)].sort_values('lag');ax.plot(q.lag,q.C,color=color,label=f'C{size}');ax.fill_between(q.lag,q.C_ci_low,q.C_ci_high,color=color,alpha=.12,linewidth=0)
-        q=heading[(heading.model==model)&(heading['size']==20)].sort_values('lag');positive=q.C.where(q.C>0)
-        for style,power,name in ((':',1.,'No size effect'),('--',(20/60)**2,'Drift null')):
-            values=q.C if power==1 else positive**power
-            ax.plot(q.lag,values,style,color='#777777',linewidth=.8,label=name)
-            guides.extend(dict(model=model,guide=name,lag=l,C=v) for l,v in zip(q.lag,values))
-        ax.set(xlim=(0,12000),ylim=(-.1,1.05),ylabel='C(ℓ)',xlabel='Lag ℓ');ax.set_xticks([0,4000,8000,12000]);ax.legend(frameon=False,fontsize=5.1,ncol=2,loc='upper right');ax.text(.02,.03,'Bands: 95% seed CI',fontsize=5,transform=ax.transAxes)
-    save('D_analytic_guides.csv',guides)
+        if all(p.exists() for p in files):ky(cc[i],files,(20,60),model=model,showx=i==1)
+        else:
+            ax=axis(cc[i]);ax.text(.5,.5,'Execution pending',ha='center',transform=ax.transAxes)
+        box=cc[i].get_position(fig);fig.text(box.x0,box.y1+.025,NAMES[model],fontsize=7)
+        ax=axis(dd[i],NAMES[model])
+        for size in (20,60):
+            color=SIZE_COLORS[size];q=heading[(heading.model==model)&(heading['size']==size)].sort_values('lag');ax.plot(q.lag,q.C,color=color,label=f'C{size}');ax.fill_between(q.lag,q.C_ci_low,q.C_ci_high,color=color,alpha=.12,linewidth=0)
+        q=heading[(heading.model==model)&(heading['size']==20)].sort_values('lag');values=q.C.where(q.C>0)**(1/9)
+        ax.plot(q.lag,values,'--',color='.45',linewidth=.8,label='Drift guide')
+        guides.extend(dict(model=model,guide='Drift null',lag=l,C=v) for l,v in zip(q.lag,values))
+        ax.set(xlim=(0,12000),ylim=(-.1,1.05),ylabel='C(ℓ)',xlabel='Lag ℓ');ax.set_xticks([0,4000,8000,12000])
+        handles,labels=ax.get_legend_handles_labels();handles.append(Line2D([],[],color='.5',lw=4,alpha=.2,label='95% seed CI'))
+        if i==0:key(second[1],handles,2)
+    if export:save('D_analytic_guides.csv',guides)
     alpha=pd.read_csv(DATA/'EF_local_alpha.csv');eg=outer[2].subgridspec(1,4,wspace=.35);label(outer[2],'E')
-    def alpha_plot(ax,q,colors,group,legend=False):
-        for k,(name,col) in enumerate(colors.items()):
-            qq=q[q[group]==name].sort_values('amplitude_fraction');resolved=qq[qq.status=='resolved'];ax.plot(resolved.amplitude_fraction,resolved.alpha,'o-',ms=2.3,color=col,label=name.replace('_',' '))
-            if len(resolved):ax.errorbar(resolved.amplitude_fraction,resolved.alpha,yerr=[resolved.alpha-resolved.alpha_ci_low,resolved.alpha_ci_high-resolved.alpha],fmt='none',color=col,linewidth=.6,capsize=1.4)
+    rate_styles={'low':('-', 'o',True),'medium':('--','s',True),'high':(':','^',True)}
+    arm_styles={'per_perimeter':('-','o',True),'per_cell':('--','o',False)}
+    def alpha_plot(gs,q,styles,group,title,ylabel=False,showxlabel=True):
+        sub=gs.subgridspec(2,1,height_ratios=[1,.11],hspace=.07);ax=axis(sub[0],title);band=axis(sub[1])
+        band.set_facecolor('.96');band.spines[['left','right','top','bottom']].set_visible(False);band.set_yticks([])
+        for k,(name,(style,marker,filled)) in enumerate(styles.items()):
+            qq=q[q[group]==name].sort_values('amplitude_fraction');resolved=qq[qq.status=='resolved']
+            ax.plot(resolved.amplitude_fraction,resolved.alpha,linestyle=style,marker=marker,ms=2.5,color='black',mfc='black' if filled else 'white')
+            if len(resolved):
+                low=np.maximum(0,resolved.alpha-resolved.alpha_ci_low);high=np.maximum(0,resolved.alpha_ci_high-resolved.alpha)
+                ax.errorbar(resolved.amplitude_fraction,resolved.alpha,yerr=[low,high],fmt='none',color='black',linewidth=.6,capsize=1.4)
             for r in qq[qq.status!='resolved'].itertuples(index=False):
-                if r.status=='execution_pending':ax.plot(r.amplitude_fraction,-3.5+k*.35,'x',color=col,ms=3);continue
+                if r.status=='execution_pending':band.plot(r.amplitude_fraction,(k+.5)/len(styles),'x',color='black',ms=3);continue
                 low=getattr(r,'alpha_lower',np.nan);high=getattr(r,'alpha_upper',np.nan)
-                if np.isfinite(low) and not np.isfinite(high):v=low;direction=1;mark='^'
-                elif np.isfinite(high) and not np.isfinite(low):v=high;direction=-1;mark='v'
-                else:
-                    # Two-sided or unbounded slopes are never invented points.
-                    # Paired open triangles show the two interval directions.
-                    if np.isfinite(low) and np.isfinite(high):
-                        ax.vlines(r.amplitude_fraction,low,high,color=col,lw=.6)
-                        endpoints=((low,1,'^'),(high,-1,'v'))
-                    else:endpoints=((-1.,-1,'v'),(1.,1,'^'))
-                    for value,sgn,symbol in endpoints:
-                        ax.plot(r.amplitude_fraction,value,symbol,mfc='white',mec=col,ms=4)
-                        ax.annotate('',xy=(r.amplitude_fraction,value+sgn*.8),xytext=(r.amplitude_fraction,value),arrowprops=dict(arrowstyle='->',color=col,lw=.7,shrinkA=0,shrinkB=0,mutation_scale=5.5))
-                    continue
-                ax.plot(r.amplitude_fraction,v,mark,mfc='white',mec=col,ms=4)
-                if direction:ax.annotate('',xy=(r.amplitude_fraction,v+direction*.8),xytext=(r.amplitude_fraction,v),arrowprops=dict(arrowstyle='->',color=col,lw=.7,shrinkA=0,shrinkB=0,mutation_scale=5.5))
-        for y in (2,0,-1):ax.axhline(y,color='#bbbbbb',lw=.6,ls='--',zorder=0)
-        ax.set_xscale('log');ax.set_xticks([.3,1,3],labels=['0.3','1','3']);ax.xaxis.set_minor_locator(NullLocator());ax.set(xlabel='Amplitude / reference',ylim=(-4,7),xlim=(.26,3.5))
-        if legend:ax.legend(frameon=False,fontsize=5.3,loc='upper left')
-    for i,model in enumerate(MODELS):
-        ax=axis(eg[i],NAMES[model]);alpha_plot(ax,alpha[(alpha.model==model)&(alpha.arm=='per_perimeter')],dict(zip(LEVELS,ramp(HUES[model],3))),'rate_level')
-        if i==0:ax.set_ylabel('Local α')
+                if np.isfinite(low) and not np.isfinite(high):endpoints=((low,1,'^'),)
+                elif np.isfinite(high) and not np.isfinite(low):endpoints=((high,-1,'v'),)
+                elif np.isfinite(low) and np.isfinite(high):
+                    ax.vlines(r.amplitude_fraction,low,high,color='black',lw=.6);endpoints=((low,1,'^'),(high,-1,'v'))
+                else:endpoints=((-1.,-1,'v'),(1.,1,'^'))
+                for value,sgn,symbol in endpoints:
+                    ax.plot(r.amplitude_fraction,value,symbol,color='black',mfc='white',mec='black',ms=4)
+                    ax.annotate('',xy=(r.amplitude_fraction,value+sgn*.8),xytext=(r.amplitude_fraction,value),arrowprops=dict(arrowstyle='->',color='black',lw=.7,shrinkA=0,shrinkB=0,mutation_scale=5.5))
+        for y in (2,0,-1):ax.axhline(y,color='.7',lw=.6,ls='--',zorder=0)
+        for a in (ax,band):
+            a.set_xscale('log');a.set_xlim(.26,3.5);a.set_xticks([.3,1,3],labels=['0.3','1','3']);a.xaxis.set_minor_locator(NullLocator())
+        ax.set(ylim=(-4,7));ax.tick_params(labelbottom=False);band.set_ylim(0,1)
+        if showxlabel:band.set_xlabel('Amplitude / reference',labelpad=1)
+        else:band.tick_params(labelbottom=False)
+        if ylabel:ax.set_ylabel('Local α')
         else:ax.tick_params(labelleft=False)
-    shared_key(outer[2],'Colour: event rate; guides: α = 2, 0, −1; △ + arrow: bound; × pending',LEVELS)
-    fg=outer[3].subgridspec(2,3,wspace=.28,hspace=.65);label(outer[3],'F')
+    for i,model in enumerate(MODELS):
+        alpha_plot(eg[i],alpha[(alpha.model==model)&(alpha.arm=='per_perimeter')],rate_styles,'rate_level',NAMES[model],ylabel=i==0)
+    key(outer[2],[Line2D([],[],color='black',ls=style,marker=marker,ms=3,label=name+' rate') for name,(style,marker,fill) in rate_styles.items()]+[Line2D([],[],color='black',lw=0,marker='^',mfc='white',label='Bound + arrow'),Line2D([],[],color='black',lw=0,marker='x',label='Pending (band)')],5)
+    fg=outer[3].subgridspec(2,3,wspace=.28,hspace=.70);label(outer[3],'F')
     for i,model in enumerate(('wave_pinning','spring_ring')):
         for j,rate in enumerate(LEVELS):
-            ax=axis(fg[i,j],f'{NAMES[model]}; {rate} rate');alpha_plot(ax,alpha[(alpha.model==model)&(alpha.rate_level==rate)],dict(zip(('per_perimeter','per_cell'),ramp(HUES[model],2))),'arm')
-            if i==0:ax.set_xlabel('')
-            if j==0:ax.set_ylabel('Local α')
-            else:ax.tick_params(labelleft=False)
-    shared_key(outer[3],'Colour: supply arm; guides: α = 2, 0, −1; △ + arrow: bound; × pending',('per perimeter','per cell'))
-    gg=outer[4].subgridspec(1,4,wspace=.42);label(outer[4],'G');events=pd.read_csv(DATA/'G_event_heading_change.csv');rate_table=pd.read_csv(DATA/'mode1_rates.csv');display_segments=[]
+            alpha_plot(fg[i,j],alpha[(alpha.model==model)&(alpha.rate_level==rate)],arm_styles,'arm',f'{NAMES[model]}; {rate} rate',ylabel=j==0,showxlabel=i==1)
+    key(outer[3],[Line2D([],[],color='black',ls=style,marker=marker,mfc='black' if filled else 'white',ms=3,label=name.replace('_',' ')) for name,(style,marker,filled) in arm_styles.items()],2)
+    gg=outer[4].subgridspec(1,4,wspace=.42);label(outer[4],'G');events=pd.read_csv(DATA/'G_event_heading_change.csv');display_segments=[]
     for i,model in enumerate(MODELS):
-        ax=axis(gg[i],NAMES[model]);q=events[(events.model==model)&(events.window_frames==5)]
-        for level,color in zip(LEVELS,ramp(HUES[model],3)):
-            z=q[q.amplitude_level==level].sort_values('mean_physical_C')
-            if model=='spring_ring':
-                ax.plot(z.mean_physical_C,z.mean_heading_change,'o',ms=2.5,color=color,label=level)
-                if {1.,3.}.issubset(set(z['size'])):
-                    endpoints=z.set_index('size').loc[[1.,3.]]
-                    x0,x1=endpoints.mean_physical_C.to_numpy();y0,y1=endpoints.mean_heading_change.to_numpy()
-                    midpoint=(x0+x1)/2;half_gap=.045*(x1-x0)
-                    # These vertices only clip a straight visual connector.
-                    # No centre observation or scientific estimate is added.
-                    for segment_id,(xa,xb) in enumerate(((x0,midpoint-half_gap),(midpoint+half_gap,x1)),1):
-                        ya,yb=np.interp([xa,xb],[x0,x1],[y0,y1])
-                        ax.plot([xa,xb],[ya,yb],'-',color=color,lw=1)
-                        for vertex_id,(x,y) in enumerate(((xa,ya),(xb,yb))):
-                            observed=x==x0 or x==x1
-                            display_segments.append(dict(model=model,arm='per_cell',amplitude_level=level,window_frames=5,segment_id=segment_id,vertex_id=vertex_id,mean_physical_C=x,mean_heading_change=y,vertex_role='observed_endpoint' if observed else 'display_interpolation',source_size=(1. if x==x0 else 3.) if observed else np.nan,source_csv='G_event_heading_change.csv',purpose='Straight connector of measured outer means with missing-centre gap; no centre estimate'))
-            else:ax.plot(z.mean_physical_C,z.mean_heading_change,'o-',ms=2.5,color=color,label=level)
-            if len(z):ax.errorbar(z.mean_physical_C,z.mean_heading_change,yerr=[z.mean_heading_change-z.ci_low,z.ci_high-z.mean_heading_change],fmt='none',color=color,lw=.6,capsize=1.4)
-        ax.set_xlabel('Mean circumference C');ax.set_ylim(bottom=0)
-        known=rate_table[rate_table.model==model].mean_physical_C
-        if len(known):
-            low,high=float(known.min()),float(known.max());pad=.08*(high-low);ax.set_xlim(low-pad,high+pad)
-        ax.ticklabel_format(axis='x',useOffset=False,style='plain');ax.xaxis.set_minor_locator(NullLocator())
-        ax.set_xticks([1,2,3] if model=='spring_ring' else [20,40,60])
-        if i==0:ax.set_ylabel('⟨1 − cos Δθ⟩')
-        if model=='spring_ring':
-            missing=[str(int(s)) for s in (1.,3.) if s not in set(q['size'])]
-            note='Per cell\ncentre unavailable'+('\nsize '+', '.join(missing)+' pending' if missing else '')
-            ax.text(.55,.95,note,fontsize=5.1,ha='center',va='top',transform=ax.transAxes,bbox=dict(facecolor='white',edgecolor='none',alpha=.9,pad=1))
-    shared_key(outer[4],'Colour: event amplitude; low rate; w = 5 original frames',LEVELS)
-    pd.DataFrame(display_segments,columns=['model','arm','amplitude_level','window_frames','segment_id','vertex_id','mean_physical_C','mean_heading_change','vertex_role','source_size','source_csv','purpose']).to_csv(DATA/'G_display_line_segments.csv',index=False)
-    save('EF_analytic_guides.csv',[dict(amplitude_fraction=x,alpha=y,label=f'α = {y}') for y in (2,0,-1) for x in (.3,3.)])
-    for ax in fig.axes:
-        ticks=ax.get_xticklabels()
-        if ticks:ticks[0].set_ha('left');ticks[-1].set_ha('right')
+        ax=axis(gg[i],NAMES[model]);q=events[(events.model==model)&(events.amplitude_level=='high')]
+        for size in ((1.,3.) if model=='spring_ring' else (20.,60.)):
+            z=q[q['size']==size].sort_values('window_frames');color=SIZE_COLORS[size]
+            ax.plot(z.window_frames,z.excess,'o-',ms=2.4,color=color,label=f'Spring {size:g}' if model=='spring_ring' else f'C{size:g}')
+            if len(z):
+                ax.fill_between(z.window_frames,z.ci_low,z.ci_high,color=color,alpha=.14,lw=0)
+                for r in z.itertuples():display_segments.append(dict(model=model,size=size,arm=r.arm,amplitude_level='high',window_frames=r.window_frames,excess=r.excess,source_csv='G_event_heading_change.csv'))
+        ax.axhline(0,color='.65',lw=.6);ax.set_xscale('log',base=2);ax.set(xlim=(2,64),xlabel='Window w (frames)');ax.set_xticks([2,4,8,16,32,64],labels=['2','4','8','16','32','64']);ax.xaxis.set_minor_locator(NullLocator());ax.ticklabel_format(axis='y',useOffset=False,style='sci',scilimits=(-2,2))
+        ax.legend(frameon=False,fontsize=5.2,loc='upper left')
+        if i==0:ax.set_ylabel('Event-triggered excess')
+    if export:pd.DataFrame(display_segments).to_csv(DATA/'G_display_line_segments.csv',index=False)
+    if export:save('EF_analytic_guides.csv',[dict(amplitude_fraction=x,alpha=y,label=f'α = {y}') for y in (2,0,-1) for x in (.3,3.)])
+    if not export:return fig
     for ext in ('png','pdf','svg'):fig.savefig(OUT/f'figureR2_main.{ext}',dpi=300)
-    plt.close(fig);documents()
+    plt.close(fig)
+    provenance=C.read(META/'provenance.json');provenance.update(rendered_utc=C.now(),renderer_sha256=C.sha(__file__),display_conventions_sha256=C.sha(MS/'code/mechanisms/ring_figure_revision1_20261028.py'),output_sha256={p.name:C.sha(p) for p in sorted(OUT.glob('figureR2_main.*'))})
+    C.write(META/'provenance.json',provenance);documents()
 
 def documents():
-    setup();rates=pd.read_csv(DATA/'mode1_rates.csv') if (DATA/'mode1_rates.csv').exists() else pd.DataFrame();alpha=pd.read_csv(DATA/'EF_local_alpha.csv') if (DATA/'EF_local_alpha.csv').exists() else pd.DataFrame();cov=pd.read_csv(DATA/'coverage.csv') if (DATA/'coverage.csv').exists() else pd.DataFrame();events=pd.read_csv(DATA/'G_event_heading_change.csv') if (DATA/'G_event_heading_change.csv').exists() else pd.DataFrame()
-    provenance=C.read(META/'provenance.json') if (META/'provenance.json').exists() else {}
+    setup();rates=pd.read_csv(DATA/'mode1_rates.csv');alpha=pd.read_csv(DATA/'EF_local_alpha.csv');cov=pd.read_csv(DATA/'coverage.csv');events=pd.read_csv(DATA/'G_event_heading_change.csv')
+    provenance=C.read(META/'provenance.json')
     both_complete=all(provenance.get(key,{}).get('state')=='COMPLETE' for key in ('existing_producer_status','new_producer_status'))
     unexpected=[];comparisons=[]
-    if len(cov):
-        pending=cov[(cov.complete_seeds<4)|(cov.status!='complete_cohort')]
-        if len(pending):unexpected.append(f'{len(pending)} conditions have incomplete execution; these are marked × pending, not treated as rate censoring.')
-        if not both_complete:unexpected.append('Campaign execution or extension checks remain unfinished in the extraction provenance; this snapshot is not final inference.')
-        elif not len(pending):unexpected.append('Both campaign producers report COMPLETE and no conditions have incomplete execution; extension checks are complete. Remaining rate bounds represent finite-record censoring.')
-    if len(alpha):
-        bounded=alpha[~alpha.status.isin(['resolved','execution_pending'])];unexpected.append(f'{len(bounded)} α estimates are censored; open triangles/arrows preserve one-sided bounds, and paired opposing open triangles/arrows identify two-sided or unbounded slopes. No horizon caps or omitted bounds.')
-        q=alpha[(alpha.arm=='per_perimeter')&(alpha.rate_level=='low')&(alpha.amplitude_level=='low')]
-        expected=dict(goryachev=4.,wave_pinning=1.6,holmes_model3=.9,spring_ring=0.)
-        for r in q.itertuples(index=False):unexpected.append(f'Pilot check {NAMES[r.model]}: {estimate_text(r)}, status {r.status}; earlier check '+('above 4' if r.model=='goryachev' else f'about {expected[r.model]:g}')+f'. Bootstrap resolved fraction {getattr(r,"bootstrap_resolved_fraction",float("nan")):.4g}. No parameter or seed was changed.')
-        for model in ('wave_pinning','spring_ring'):
-            pp=alpha[(alpha.model==model)&(alpha.arm=='per_perimeter')&(alpha.status=='resolved')]
-            pc=alpha[(alpha.model==model)&(alpha.arm=='per_cell')&(alpha.status=='resolved')]
-            matched=pp.merge(pc,on=['model','rate_level','amplitude_level'],suffixes=('_perimeter','_cell'))
-            if len(matched):
-                delta=matched.alpha_cell-matched.alpha_perimeter
-                comparisons.append(f'{NAMES[model]} per-cell minus per-perimeter α ranges from {delta.min():.4g} to {delta.max():.4g} across {len(matched)} matched resolved conditions (earlier check about +1)')
-            else:comparisons.append(f'{NAMES[model]} per-cell versus per-perimeter α comparison remains pending')
-        unexpected.extend(comparisons)
-    unexpected+=['Existing Spring event times depend on model state through its changing physical circumference and cannot be regenerated exactly from seeds alone. Panel G therefore uses the new per-cell Spring outer sizes only, with the shared centre unavailable; chemical panels use regenerated existing-arm events.',
-      'Spring fixed per-cell intensity is ρ times the exact basal physical circumference at size 2. The shared centre keeps its original state-dependent per-perimeter hazard, as required by the no-rerun instruction; it is not an exactly constant-intensity centre trajectory.',
-      'The β = −1 sample paths retain the original round-7 literal Bernoulli arrival transition at interval 20. Panel B is the requested continuous-time analytic exponential, so this tiny finite-step discrepancy is explicit.',
-      'Cadence validation used the 46 completed target-model cohorts available before launch, including the shared centre and every rate/amplitude combination at C20. Eight high-rate target-model cohorts were still executing and were not used to choose cadence.',
-      'The finite Fourier cutoff produces small negative ringing in reconstructed Goryachev activity (minimum about −0.423). These band-limited reconstruction values are not negative native solver concentrations. Saved Fourier coefficients, including mode zero M₀, remain unchanged, and no reconstruction values are clipped. Its shared C20/C60 grayscale uses an asinh transform with linear width 1 native activity unit, explicitly keyed; neither ring is normalized separately.']
+    pending=cov[(cov.complete_seeds<4)|(cov.status!='complete_cohort')]
+    if len(pending):unexpected.append(f'{len(pending)} conditions have incomplete execution; pending estimates are × on a separate thin band below the α axes, with no assigned α value.')
+    if not both_complete:unexpected.append('Campaign execution or extension checks remain unfinished in the extraction provenance; this snapshot is not final inference. The existing dependency finalizer rebuilds R2 again after both producers finish.')
+    elif not len(pending):unexpected.append('Both campaign producers report COMPLETE with no incomplete conditions; extension checks are complete. Remaining bounds represent finite-record censoring.')
+    bounded=alpha[~alpha.status.isin(['resolved','execution_pending'])]
+    unexpected.append(f'{len(bounded)} α estimates are censored. Open triangles and arrows preserve one-sided bounds; paired opposing triangles/arrows show two-sided or unbounded slopes.')
+    q=alpha[(alpha.arm=='per_perimeter')&(alpha.rate_level=='low')&(alpha.amplitude_level=='low')]
+    expected=dict(goryachev=4.,wave_pinning=1.6,holmes_model3=.9,spring_ring=0.)
+    for r in q.itertuples(index=False):
+        unexpected.append(f'Pilot check {NAMES[r.model]}: {estimate_text(r)} ({r.status}); earlier check '+('above 4' if r.model=='goryachev' else f'about {expected[r.model]:g}')+f'. Bootstrap resolved fraction {getattr(r,"bootstrap_resolved_fraction",float("nan")):.4g}. No parameter or seed was changed.')
+    for model in ('wave_pinning','spring_ring'):
+        pp=alpha[(alpha.model==model)&(alpha.arm=='per_perimeter')&(alpha.status=='resolved')];pc=alpha[(alpha.model==model)&(alpha.arm=='per_cell')&(alpha.status=='resolved')]
+        matched=pp.merge(pc,on=['model','rate_level','amplitude_level'],suffixes=('_perimeter','_cell'))
+        if len(matched):
+            delta=matched.alpha_cell-matched.alpha_perimeter
+            comparisons.append(f'{NAMES[model]} per-cell minus per-perimeter α ranges from {delta.min():.4g} to {delta.max():.4g} across {len(matched)} matched resolved conditions (earlier check about +1).')
+    unexpected.extend(comparisons)
+    unexpected.extend([
+        'Existing Spring event times depend on its changing physical circumference and cannot be regenerated exactly from seeds alone. G therefore retains the logged per-cell outer-size histories for Spring; chemical models use exact regenerated per-perimeter events. Supply arms differ across these model facets.',
+        'The shared Spring C40 (size 2) centre retains its original state-dependent per-perimeter hazard. The per-cell outer sizes instead have constant intensity equal to ρ times the exact size-2 basal physical circumference; the centre is not an exactly constant-intensity trajectory.',
+        'The β = −1 sample paths retain the original literal Bernoulli arrival transition at interval 20, while B shows the requested continuous-time analytic exponential. This finite-step mismatch is retained.',
+        'The prelaunch cadence selection used 46 completed target-model cohorts, including the shared centre and every rate/amplitude combination at C20. Eight high-rate target cohorts were still executing and were excluded from that selection.'
+    ])
+    for model in ('goryachev','wave_pinning'):
+        low=min(pd.read_csv(DATA/f'C_{model}_C{s}.csv.gz').activity.min() for s in (20,60))
+        if low<0:unexpected.append(f'{NAMES[model]} Fourier reconstruction reaches {low:.6g} activity because of its finite mode cutoff. Display values are clipped at zero on the shared linear viridis scale only; signed compact reconstruction data, native Fourier coefficients and all heading calculations remain unchanged.')
+    for model in MODELS:
+        q=events[events.model==model];sizes=(1.,3.) if model=='spring_ring' else (20.,60.)
+        lo=q[q['size']==sizes[0]].set_index('window_frames');hi=q[q['size']==sizes[1]].set_index('window_frames')
+        windows=lo.index.intersection(hi.index)
+        if len(windows):
+            delta=hi.loc[windows,'excess']-lo.loc[windows,'excess']
+            unexpected.append(f'G {NAMES[model]}: large-minus-small event-triggered excess ranges from {delta.min():.6g} to {delta.max():.6g} across w=2–64 original frames'+('; its sign changes with window width.' if delta.min()<0<delta.max() else '.'))
+        if len(q) and (q.excess<0).any():unexpected.append(f'G {NAMES[model]} has negative excess at {(q.excess<0).sum()} size/window combinations: random windows have larger mean heading change there. All signed estimates and intervals are retained, without clipping or retuning.')
+        if set(q['size'])!=set(sizes):unexpected.append(f'G {NAMES[model]} outer-size coverage is incomplete; missing histories are not imputed.')
+    if (META/'scheduler_dependency_repair.json').exists():unexpected.append('Two original allocation records remain stuck in failed prolog on hpctpa3pc0067 after successful replacement runs completed. The existing initial controller dependency was repaired to retain every remaining live worker and exclude only those stale records; no simulation or scientific record was cancelled or changed. The exact receipt is scheduler_dependency_repair.json.')
     cadence_postlaunch=META/'record_cadence_postlaunch_summary.json'
     if cadence_postlaunch.exists():
         audit=C.read(cadence_postlaunch)
-        preservation='The frozen prelaunch selection and validation records remain unchanged.' if audit.get('frozen_selection_unchanged') else 'The frozen-selection preservation check failed and requires review.'
-        unexpected.append(f'A historical additive post-launch cadence audit checked {audit["cohorts_checked"]} complete existing-arm cohorts at the selected cadences: {audit["passes"]} passed, {len(audit["failures"])} failed, and {len(audit["pending_cohorts"])} cohorts were pending at that audit. {preservation} Full comparisons are retained in record_cadence_postlaunch_validation.csv; snapshot identities are beside this readme.')
+        unexpected.append(f'The additive cadence audit checked {audit["cohorts_checked"]} complete target cohorts: {audit["passes"]} passed, {len(audit["failures"])} failed, and {len(audit["pending_cohorts"])} were pending at that audit. Frozen prelaunch selection unchanged: {audit.get("frozen_selection_unchanged")}. Full comparisons remain in record_cadence_postlaunch_validation.csv.')
     cadence_final=META/'record_cadence_finalization.json'
-    if cadence_final.exists() and not C.read(cadence_final)['passed']:
-        unexpected.append('The final complete-grid cadence validation failed or is incomplete. The full available figure is retained; the exact audit, exit status and remaining discrepancy are recorded in record_cadence_finalization.json. No cadence or model parameter was changed to close this gap.')
-    numbers=['A: λ₀ = 1/7000; duration 24,000; original sample interval 20; physical peak SD 1.5. C20/C60 widths are 1:3.','B: Exact continuous-time λ(C) = λ₀(C/40)^β and C(ℓ) = exp[−λ(C)ℓ]. No null ensembles were run.','C: Existing-arm replicate 0 only, reconstructed from all stored active Fourier modes at 240 spatial positions; 321 displayed times. Goryachev low rate/low amplitude; Wave-pinning low rate/medium amplitude.','D: Whole-profile heading θ = arg P, P = M₁/M₀; endpoint |P| ≥ 0.1; 2000 whole-seed bootstrap draws. Guides use the C20 curve directly (dotted) and its 1/9 power (dashed).']
-    if len(alpha):
-        for panel,arm in (('E','per_perimeter'),('F','per_cell')):
-            q=alpha[alpha.arm==arm];numbers.append(f'{panel}: {len(q)} model/rate/amplitude combinations; {sum(q.status=="resolved")} resolved, {sum(q.status=="execution_pending")} pending, {sum(~q.status.isin(["resolved","execution_pending"]))} bounded.')
-    if len(events):
-        for model in MODELS:
-            q=events[(events.model==model)&(events.window_frames==5)];numbers.append(f'G {NAMES[model]}: {int(q.scored_events.sum()) if len(q) else 0} scored event-window pairs across displayed amplitude/size conditions.')
-    methods=['All times, lengths, rates and activities use native units. The models retain their distinct native spatial and temporal scales. Biological migration persistence, conditional OU estimates and these 1D activity-heading readouts are distinct.',
-      'The existing Fourier rate estimator is imported unchanged from the frozen Poisson campaign: uncentered actual-pair-count mode autocorrelation, raw numerators and powers pooled over four seeds, first linearly interpolated half-height crossing. The record extends together for all four seeds when its half-height lag exceeds record/8, through the original fourfold maximum. Original upper/lower rate statuses are retained.',
-      'Mode 1 is sufficient for γ₁ by definition; active mode 0 is retained to compute P. The validation compares cadence strides 1,2,4,8,16,32,64,128 against unchanged full-cadence rates and exact four-seed bootstrap CIs. Selected strides are 64 (Wave-pinning, cadence32) and32 (Spring, cadence1.6). P remains at original cadence .5/.05 to score w=2,5,20 original-frame windows. No inactive modes or full profiles are added to the existing campaign.',
-      'For E/F, α is minus the OLS slope of log γ₁ against log actual mean physical circumference over the three sizes. 2000 whole-seed bootstrap draws independently resample the four seeds at each size. The unchanged mode estimator is applied to each resampled pooled numerator. A censored γ gives its mathematical log-rate interval; signed OLS coefficients propagate it to a one-sided or unbounded α interval. Bootstrap censoring is recorded rather than replaced by a finite rate.',
-      'G compares circular mean headings in [t−w,t) and (t,t+w] around each forcing event using w original stored frames, excluding any sample exactly at the event. Every finite nonzero circular mean enters, without a coherence gate. The reported value is pooled over scorable events; confidence intervals resample whole seeds. Overlapping event windows are retained. Chemical event regeneration uses the three frozen independent SeedSequence streams and checks total event counts against continuation checkpoints.',
-      'R2 kymographs use the first predeclared replicate with no seed search. Fourier reconstruction uses the retained half-cell phase convention directly: the nonnegative-index active coefficients and their conjugate partners reconstruct the spatial signal. Finite retained mode cutoff makes this a band-limited reconstruction, never a rerun. The stored coefficients and their mode-zero contribution are unchanged; small negative reconstructed values are Fourier ringing rather than native concentration negativity. Goryachev uses one shared asinh activity scale with linear width 1; all negative ringing is retained. Nulls and Wave-pinning use linear grayscale. D displays the common unrescaled lag range 0–12,000, with full curves retained in CSV. Its fractional-power guide is undefined at nonpositive measured C20 and those guide values remain missing, with no fitting or smoothing.',
-      'Rebuild from compact records: python polarity1d/manuscript/code/mechanisms/rebuild_figureR2_20261027.py render. Re-extract immutable HPC evidence under SLURM with the same entry point and command all. Campaign manifests, current producer state and code SHA are in provenance.json.']
-    generated=C.read(META/'provenance.json').get('generated_utc','unavailable') if (META/'provenance.json').exists() else 'unavailable'
-    numbers.insert(0,f'Data generation time: {generated}. Current campaign and extension states are retained in provenance.json; each pending condition is explicitly listed in coverage.csv.')
-    text='# Figure R2 scientific readme\n\n## Unexpected\n\n'+'\n\n'.join(unexpected)+'\n\n## Key numbers by panel\n\n'+'\n\n'.join(numbers)+'\n\n## Methods\n\n'+'\n\n'.join(methods)+'\n\n## Event-window sensitivity (readme only)\n\n'
-    if len(events):
-        text+='| Model | Arm | Size | Amplitude | w=2 | w=5 | w=20 |\n|---|---|---:|---|---:|---:|---:|\n'
-        for key,g in events.groupby(['model','arm','size','amplitude_level'],sort=False):
-            values={int(r.window_frames):r.mean_heading_change for r in g.itertuples(index=False)}
-            text+='| '+' | '.join([NAMES[key[0]],key[1],str(key[2]),key[3]]+[f'{values.get(w,float("nan")):.6g}' for w in (2,5,20)])+' |\n'
+    if cadence_final.exists() and not C.read(cadence_final)['passed']:unexpected.append('The final complete-grid cadence validation failed or is incomplete; its exact status remains in record_cadence_finalization.json. No cadence or model parameter was changed to close the gap.')
+    numbers=[f'Data generation time: **{provenance["generated_utc"]}**. Producers complete: **{both_complete}**. Exact execution/extension status is in provenance.json and coverage.csv.',
+        'A–B: λ₀=1/7000, duration 24000, original sample interval 20, physical peak SD 1.5. Widths follow C20:C60=1:3. β=0 curves coincide.',
+        'C: Existing-arm replicate 0 only, all retained active Fourier modes, 240 spatial positions, 321 displayed times. Both models use low rate and low amplitude; no example search or rerun.',
+        'D: Whole-profile heading arg P, P=M₁/M₀, endpoint |P|≥0.1, 2000 whole-seed resamples. Dashed guide is C20 correlation to the power 1/9; shared display lag axis is 0–12000, and full retained-record curves remain in CSV.'
+    ]
+    for panel,arm in (('E','per_perimeter'),('F','per_cell')):
+        q=alpha[alpha.arm==arm];numbers.append(f'{panel}: {len(q)} model/rate/amplitude combinations; {sum(q.status=="resolved")} resolved, {sum(q.status=="execution_pending")} pending, {sum(~q.status.isin(["resolved","execution_pending"]))} bounded.')
+    for model in MODELS:
+        q=events[(events.model==model)&(events.window_frames==2)]
+        numbers.append(f'G {NAMES[model]} at w=2: {int(q.scored_events.sum())} event windows, {int(q.random_windows.sum())} random control windows over both outer sizes; four seeds per size.')
+    methods=[
+        'All quantities use native model units. Size represents WGD-associated enlargement. Observed migration summaries, conditional OU velocity persistence and simulated activity-heading persistence remain distinct readouts.',
+        'The frozen Fourier estimator is unchanged: actual-pair-count uncentered mode autocorrelation with raw numerators and powers pooled over four seeds; γ₁ is ln 2 divided by the first linearly interpolated half-height lag. All four seeds extend together when the half-height lag exceeds record/8, through the existing fourfold cap. Original finite-record statuses are preserved.',
+        'E/F use the negative OLS slope of log γ₁ against log actual mean physical circumference over three sizes. The 2000 bootstrap draws independently resample whole seeds at each size and apply the unchanged rate estimator to pooled numerators. Signed OLS coefficients propagate log-rate intervals into α bounds; bootstrap censoring is retained. Pending symbols have their own band and no numerical α coordinate.',
+        'G retains the original event-window observable. Circular mean headings are computed from the w original stored frames immediately before and after each event, excluding a sample exactly at the centre. Every finite nonzero circular mean enters without a coherence gate. The widths are 2,3,4,6,8,12,16,24,32,48,64 frames. This corresponds to model-specific native times (chemical cadence 0.5; Spring cadence 0.05). Overlapping windows remain eligible.',
+        'For each seed and each width, 100 times as many control centres as scorable events are sampled uniformly from the same run’s fully observed window support. These random windows retain incidental real events and therefore estimate the same-run background, rather than an event-free trajectory. Control timing uses independent deterministic seeds recorded with seed-level event/control sufficient statistics in G_event_heading_change.csv. Neither event timing nor the model trajectory is changed.',
+        r'The plotted event-triggered excess is the difference between the pooled event mean and pooled random-window mean:',
+        r'$$\mathcal{E}(w)=\left\langle1-\cos\Delta\theta_w\right\rangle_{\mathrm{event}}-\left\langle1-\cos\Delta\theta_w\right\rangle_{\mathrm{random}}.\tag{1}$$',
+        'Confidence bands are pointwise 95% intervals from 2000 whole-seed bootstrap draws. The same seed multiplicities weight event and random sums/counts, preserving their covariance. They are conditional on the sampled random centres; 100 controls per event reduce timing Monte Carlo variability. Excess remains signed and is an event association, not a causal pathway attribution.',
+        'Chemical events are regenerated from the three frozen SeedSequence streams, with exact event counts, retained event tails and all RNG states checked against continuation checkpoints. Spring uses its saved per-cell event logs. No new simulation campaign is launched.',
+        'One common angular rotation per kymograph pair is determined from the circular mean of the two initial dominant-domain positions. The same angle is applied at every time to both sizes, rounded only to the display grid. Every kymograph uses linear viridis with a colourbar; the same model within the figure shares one activity scale. Negative Fourier ringing is clipped only for display, with signed plotted-source CSVs unchanged. D uses the same low-rate, low-amplitude conditions as C; the fractional-power guide is missing where the measured C20 correlation is nonpositive.',
+        'Rebuild portable data with `python polarity1d/manuscript/code/mechanisms/rebuild_figureR2_20261027.py render`. Read immutable HPC evidence under SLURM using command `all`. The existing dependency finalizer loads the revised renderer after both campaigns and their extensions finish. Frozen simulation sources, seeds, dynamics, amplitudes and rate estimators are unchanged.'
+    ]
+    text='# Figure R2 scientific readme\n\n## Unexpected\n\n'+'\n\n'.join(unexpected)+'\n\n## Key numbers by panel\n\n'+'\n\n'.join(numbers)+'\n\n## Methods\n\n'+'\n\n'.join(methods)+'\n\n## Event-triggered excess endpoints\n\n'
+    text+='| Model | Size | w (frames) | Event mean | Random mean | Excess | 95% seed CI |\n|---|---:|---:|---:|---:|---:|---|\n'
+    for r in events[events.window_frames.isin([2,64])].itertuples(index=False):
+        text+=f'| {NAMES[r.model]} | {r.size:g} | {r.window_frames} | {r.mean_heading_change:.6g} | {r.mean_random_heading_change:.6g} | {r.excess:.6g} | [{r.ci_low:.6g}, {r.ci_high:.6g}] |\n'
     (META/'scientific_readme.md').write_text(text)
-    result='Both campaigns and their extension checks are complete.' if both_complete else 'Execution and extension checks are still running; pending values are marked and recorded.'
-    if len(alpha):
-        q=alpha[(alpha.arm=='per_perimeter')&(alpha.rate_level=='low')&(alpha.amplitude_level=='low')]
-        result='; '.join(f'{NAMES[r.model]} {estimate_text(r)} ({r.status})' for r in q.itertuples(index=False))+'.'
-    legend=['# Jump supply, event response and size-dependent heading memory',
-      '**A.** Jump-null kymographs at C20 and C60, with width proportional to circumference, grayscale activity and time upward, faceted by β. Uniform peak relocations arrive at λ(C)=λ₀(C/40)^β, λ₀=1/7000. β=1 denotes supply per perimeter and constant success; β=0 denotes perimeter supply with success proportional to 1/C, or per-cell supply with constant success; β=−1 denotes perimeter supply with success proportional to 1/C². Quantities use native units. The fixed paths show different size dependence of relocation frequency without changing peak width.',
-      '**B.** Closed-form heading autocorrelation C(ℓ)=exp[−λ(C)ℓ] for the same nulls. Light and dark gray indicate C20 and C60. Larger rings lose heading faster at β=1, equally at β=0 and slower at β=−1.',
-      '**C.** Event-noise kymographs reconstructed from the existing per-perimeter campaign’s stored Fourier modes, using fixed replicate 0: Goryachev at low event rate and low amplitude, and Wave-pinning at low rate and medium amplitude. Each C20/C60 pair shares its activity scale and common sampled time axis; widths follow circumference. Goryachev uses a shared asinh grayscale with linear width 1 activity unit, preserving small negative Fourier ringing; Wave-pinning uses a linear scale. Goryachev retains a stationary C60 peak while C20 relocates; Wave-pinning exhibits moving and deforming activity at both sizes.',
-      '**D.** Heading autocorrelation of the same conditions, pooled over four seeds with |P|≥0.1 at both endpoints and 95% whole-seed bootstrap bands. P=M₁/M₀ defines the whole-profile heading vector; light/dark model-hue shades indicate C20/C60. Dotted and dashed gray guides are the C20 curve and its 1/9 power, respectively. Goryachev C60 retains near-unit correlation while C20 decorrelates; both Wave-pinning sizes approach zero across the displayed early-lag window, below the physical-drift guide.',
-      '**E.** Local size exponent α against mean event amplitude/reference, faceted by model for the per-perimeter arm. α is minus the three-size OLS slope of log mode-1 decorrelation rate γ₁ against log actual mean circumference; γ₁ is ln2 divided by the first mode-1 autocorrelation half-height lag. Colour intensity encodes event rate (light low, dark high), and guides are α=2,0,−1. Filled points have resolved rates and 95% whole-seed bootstrap intervals; open triangles and arrows show bounds; paired opposing open triangles/arrows denote two-sided or unbounded slopes; × means execution pending. '+result,
-      '**F.** The same exponent against event amplitude compares per-perimeter (light) and per-cell (dark) supply, faceted by Wave-pinning/Spring and event rate; guides and censor symbols match E. Per-cell arrivals use the fixed C40 rate, with shared existing C40 trajectories; for Spring this uses the exact size-2 basal physical circumference and retains the original dynamic-hazard shared centre. '+('; '.join(comparisons)+'.' if comparisons else 'The supply-arm comparison remains pending.'),
-      '**G.** Mean event-associated heading change ⟨1−cosΔθ⟩ against mean physical circumference at low rate, with amplitude encoded light to dark. Δθ compares circular mean headings in the five-original-frame windows immediately before and after each forcing event; bars are 95% whole-seed bootstrap intervals. Chemical models use exact seed-regenerated existing-arm event logs. Spring uses new per-cell outer sizes only because existing Spring event times depend on its evolving circumference; its shared centre is unavailable. Lines connect measured means; the Spring gap marks its unavailable centre. Window sensitivities at two and twenty frames appear in the readme. At high amplitude the event-associated change decreases from C20 to C60 in all three chemical models.']
+    result='; '.join(f'{NAMES[r.model]} {estimate_text(r)} ({r.status})' for r in alpha[(alpha.arm=='per_perimeter')&(alpha.rate_level=='low')&(alpha.amplitude_level=='low')].itertuples(index=False))+'.'
+    legend=[
+        '# Jump supply, event response and size-dependent heading memory',
+        '**Encoding.** C20, C40 and C60 use orange #E69F00, green #009E73 and blue #0072B2 respectively; Spring sizes 1,2,3 use the same hues. Model identity is given by facets. Each kymograph uses linear viridis activity with its colourbar; kymographs of the same model share their scale. Every C20/C60 pair receives one common angular rotation to place its initial dominant domain near mid-panel; the same angle is used for both sizes throughout the window.',
+        r'**A.** Jump-null kymographs at C20 and C60 with widths proportional to circumference and time upward. β appears above each facet. Uniform relocations arrive at $\lambda(C)=\lambda_0(C/40)^\beta$, $\lambda_0=1/7000$. β=1 represents perimeter supply and constant success; β=0 perimeter supply with success proportional to 1/C (or per-cell supply with constant success); β=−1 perimeter supply with success proportional to 1/C². All quantities use native units.',
+        r'**B.** Analytic heading correlation $C(\ell)=\exp[-\lambda(C)\ell]$ for A, in the fixed size colours. The β=0 curves coincide; enlargement speeds loss at β=1 and slows it at β=−1.',
+        '**C.** Existing per-perimeter campaign activity reconstructed from stored active Fourier modes at fixed replicate 0. Both Goryachev and Wave-pinning use low rate and low amplitude. Both sizes share one model-specific linear activity scale and sampled time axis. Fourier ringing is clipped at zero for display only; signed reconstruction CSVs and the original Fourier data are unchanged.',
+        r'**D.** Heading correlation for the exact conditions in C, pooled over four seeds, with endpoint $|P|\geq0.1$, $P=M_1/M_0$, and pointwise 95% whole-seed bootstrap bands. Orange is C20 and blue C60. Dashed grey is the fixed-physical-drift guide $C_{20}(\ell)^{1/9}$, undefined at nonpositive C20 correlation. Both facets retain the common lag axis 0–12000; full curves extend to the retained-record horizon in the source CSV.',
+        r'**E.** Local exponent $\alpha$ against event amplitude/reference for per-perimeter supply, faceted by model. It is minus the three-size OLS slope of log mode-1 decorrelation rate against log actual mean circumference. Rates use the first half-height lag. All series are black: low rate solid/circle, medium dashed/square, high dotted/triangle. Filled markers and intervals denote resolved rates with 95% whole-seed uncertainty; open triangles with arrows denote bounds, including opposing arrows for two-sided or unbounded slopes. Pending estimates are × on the thin band below each axis, never at an assigned α. Grey guides are α=2,0,−1. '+result,
+        '**F.** The same exponent compares supply arms, in black: per-perimeter solid with filled circles, per-cell dashed with open circles. Facets identify model and event rate; bounds, pending band, intervals and guides match E. Per-cell outer sizes use the fixed C40 arrival intensity. The shared Spring C40 centre (size 2) keeps its original state-dependent hazard; it is not rerun. '+' '.join(comparisons),
+        r'**G.** Event-triggered excess $\mathcal E(w)$, the event-centred mean of $1-\cos\Delta\theta$ minus its random-window mean in the same runs, versus window width w=2–64 original frames on a log axis. Each Δθ compares the circular mean headings of the w frames immediately before and after a centre; a sample exactly at the centre is excluded. Conditions are low rate/high amplitude. Orange and blue denote C20/C60 (Spring 1/3). Chemical models use per-perimeter events regenerated and verified against checkpoints; Spring uses logged per-cell outer-size events. Each seed contributes 100 uniformly timed controls per scorable event at each w, over the fully observed run support, retaining incidental events. Lines join measured excesses; bands are pointwise 95% whole-seed bootstrap intervals, resampling event and control contributions jointly. Zero means equal event and background averages; signed excess and window-dependent size differences remain visible. No shared-centre value is required.'
+    ]
     (META/'main_legend.md').write_text('\n\n'.join(legend)+'\n')
     (OUT/'README.md').write_text('# Figure R2\n\n![Figure R2](figureR2_main.png)\n\n[PDF](figureR2_main.pdf) · [SVG](figureR2_main.svg) · [Legend](supporting/metadata/main_legend.md) · [Scientific readme](supporting/metadata/scientific_readme.md) · [Provenance](supporting/metadata/provenance.json)\n')
 
