@@ -601,17 +601,18 @@ The first-wave logical Fourier/time allocation is estimated at **40.581 GiB**, a
 
 <!-- ring-r1r2-20261027 begin -->
 
-## Ring figures R1 and R2, revision 1
+## Ring figures R1 and R2, display rebuild
 
-Measured **2026-10-28T00:53:19.134165+00:00** with `du -sx -B1` (allocated storage; non-atomic traversal). R1 is complete; existing event producers/extension checks remain active. Preserve all authoritative scientific records; inventory does not authorize deletion.
+Measured **2026-10-29T21:18:32.715588+00:00** with `du -sx -B1` (allocated storage; non-atomic traversal). Both original event producers are complete. R2's five-round display review has reached its requested cap; remaining print-readability notes are in its review log. Inventory does not authorize deletion of scientific source data.
 
 | Path / related group | Measured allocated storage | Purpose and scientific importance/status |
 | --- | ---: | --- |
-| `polarity1d/manuscript/data/runs/ring_r1_fast_cytosol_20261027/` | 3,232,014,336 bytes (3.010048 GiB) | Completed 5,760 matched-noise fast-cytosol histories and 16 native solver checks, exact inputs, immutable sources and integrity receipts. Scientifically authoritative compact records; no new simulations in revision 1. |
-| `polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/` | 907,862,016 bytes (0.845512 GiB) | Existing 144-history per-cell event-supply arm, sharing original middle sizes. Native-cadence polarity, event logs, validated low modes and restart evidence are retained. Producer completion is separate from rate censoring. |
-| `polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/` | 46,714,994,688 bytes (43.506729 GiB) | Authoritative original 432-history event campaign, including full retained Fourier records, exact frozen inputs and continuation checkpoints. Its existing extension controller is preserved; revision 1 only reads these data. |
-| `polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/` | 44,662,784 bytes (0.041595 GiB) | R1/R2 main PNG/PDF/SVG, complete compact plotted data, revised legends, methods, bootstrap sufficient statistics and integrity receipts. Same figure paths; every original panel retained. |
+| `polarity1d/manuscript/data/runs/ring_r1_fast_cytosol_20261027/` | 3,232,014,336 bytes (3.010048 GiB) | Completed 5,760 matched-noise fast-cytosol histories and 16 native solver checks; authoritative R1 inputs, immutable sources and restart evidence. Read only during the R2 display rebuild. |
+| `polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/` | 915,767,296 bytes (0.852875 GiB) | Completed 144-history per-cell event-supply arm with native headings, validated modes 0/1, circumference and original event logs. Authoritative persistence evidence; no source record changed. |
+| `polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/` | 63,678,742,528 bytes (59.305450 GiB) | Completed original 432-history event campaign and bounded extensions, full retained Fourier records, frozen inputs and continuation checkpoints. Authoritative scientific evidence; read only for the R2 rebuild. |
+| `polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/` | 52,379,648 bytes (0.048782 GiB) | R1 retained; R2 rebuilt in place as six cases with 12 panels, PNG/PDF/SVG, 21 compact CSVs, legend, provenance and five rounds of print-size review. Obsolete R2 exponent/event-analysis/drift-guide products deleted as requested; no supplement created. |
+| `polarity1d/manuscript/data/runs/ring_r2_display_profiles_20261029/` | 9,019,392 bytes (0.008400 GiB) | Minimum display-only Spring per-cell replay: fixed replicate 0 at two sizes, 200 post-burn time units, full native active profiles. Events and headings match originals exactly. Below 2 GiB; retained locally, with portable plotted CSVs and replay receipts in R2. |
 
-[Measurement receipt](polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/supporting/metadata/storage_measurement.json) · [Retention policy](RETENTION.md#ring-figures-r1-and-r2-27-october-2026). Existing campaign forecasts remain in their frozen manifests.
+[Measurement receipt](polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/supporting/metadata/storage_measurement.json) · [R2 readme and Unexpected findings](polarity1d/manuscript/figures/length_mechanisms_20261008/dev/ring_r1r2_20261027/figureR2/README.md) · [Source retention policy](RETENTION.md#ring-figures-r1-and-r2-27-october-2026).
 
 <!-- ring-r1r2-20261027 end -->

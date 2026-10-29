@@ -1,0 +1,221 @@
+{
+  "frozen_manifest": {
+    "created_utc": "2026-10-29T20:59:23.668884+00:00",
+    "jobs": [
+      {
+        "model": "spring_ring",
+        "size": 1.0,
+        "rate_level": "low",
+        "amplitude_level": "high",
+        "rho": 0.01,
+        "amplitude_mean": 12.0,
+        "amplitude_reference_fraction": 3.0,
+        "reference": 4.0,
+        "ell": 0.15,
+        "sigma": 0.10606601717798211,
+        "tau": 5.0,
+        "replicate": 0,
+        "frame_interval": 0.05,
+        "burn": 1600.0,
+        "sample_duration": 200.0,
+        "rtol": 1e-08,
+        "atol": 1e-10,
+        "max_step": 0.1,
+        "maximum_mode": 1,
+        "slot": 0,
+        "condition_index": 20,
+        "seed": 202610271000332,
+        "wall_seconds": 1200.0,
+        "source_slot": 332,
+        "supply_arm": "per_cell",
+        "cell_rate": 0.02044180729509164,
+        "reference_circumference": 2.044180729509164,
+        "mode_stride": 32,
+        "replay_source_slot": 80
+      },
+      {
+        "model": "spring_ring",
+        "size": 3.0,
+        "rate_level": "low",
+        "amplitude_level": "high",
+        "rho": 0.01,
+        "amplitude_mean": 12.0,
+        "amplitude_reference_fraction": 3.0,
+        "reference": 4.0,
+        "ell": 0.15,
+        "sigma": 0.10606601717798211,
+        "tau": 5.0,
+        "replicate": 0,
+        "frame_interval": 0.05,
+        "burn": 1600.0,
+        "sample_duration": 200.0,
+        "rtol": 1e-08,
+        "atol": 1e-10,
+        "max_step": 0.1,
+        "maximum_mode": 1,
+        "slot": 1,
+        "condition_index": 29,
+        "seed": 202610271000404,
+        "wall_seconds": 1200.0,
+        "source_slot": 404,
+        "supply_arm": "per_cell",
+        "cell_rate": 0.02044180729509164,
+        "reference_circumference": 2.044180729509164,
+        "mode_stride": 32,
+        "replay_source_slot": 116
+      }
+    ],
+    "maximum_extension_level": 0,
+    "basals": [
+      {
+        "model": "spring_ring",
+        "size": 1.0,
+        "input": "inputs/spring_ring_C1.npz",
+        "sha256": "65222d754bcb7d891e223f7ae7f9dd39b2b13452480dac2f04c57a0b850233b6"
+      },
+      {
+        "model": "spring_ring",
+        "size": 3.0,
+        "input": "inputs/spring_ring_C3.npz",
+        "sha256": "6d04ce5f267e8dafe79e9de93efc5e35aa42b3c684a9aff6b991b7aeabf01af6"
+      }
+    ],
+    "source_campaign": "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027",
+    "source_manifest_sha256": "e6aab9ff276e0ed09f4571433c3416946bdceaa9f166ebc1b77bb33712c522f4",
+    "source_engine_sha256": "12fba20777f523f221661ce7d4002a3e946edbd2775ab078b953e534c486cbc8",
+    "source_sha256": {
+      "frozen_sources/engine.py": "0e12136f6425edb8195013c29193624d11166f1c9c06dcd2da2fafbfedad33fb",
+      "frozen_sources/replay.py": "d79f104c7ec24094f6b1e71e582302ddcd4e873972ed71fb776a1b4064f444f5"
+    },
+    "output_only_changes": [
+      [
+        "    nm = 2\n",
+        "    nm = 2\n    profiles = np.lib.format.open_memmap(folder / 'u_profiles.npy', mode='w+', dtype='float32', shape=(len(times), n))\n"
+      ],
+      [
+        "            saved[\"u\"][next_sample] = coefficients[0]\n",
+        "            saved[\"u\"][next_sample] = coefficients[0]\n            profiles[next_sample] = fields[0]\n"
+      ],
+      [
+        "    np.save(folder / \"time.npy\", times)\n",
+        "    profiles.flush()\n    np.save(folder / \"time.npy\", times)\n"
+      ]
+    ],
+    "selection": "Fixed source replicate 0 at both outer sizes; mechanically first 200 post-burn native time units; no seed/window search",
+    "changes_to_jobs": "Only local slot, output duration (12800 to 200), wall-clock limit and replay source reference; original .05 cadence retained",
+    "outputs": "u_profiles.npy: frame by native cell-centre, float32 active concentration; original modes0/1, time, circumference and events also retained",
+    "scientific_status": "Display-only replay; original arm remains authoritative for all persistence estimates"
+  },
+  "freeze": {
+    "manifest_sha256": "49cffc14e971806404d3a55cdf89fe55a0aa85741aa9888611d73abd9efe475f"
+  },
+  "submission": {
+    "generated_utc": "2026-10-29T20:59:23.856569+00:00",
+    "command": [
+      "sbatch",
+      "--parsable",
+      "--partition=red",
+      "--qos=small",
+      "--cpus-per-task=1",
+      "--mem=2G",
+      "--time=00:30:00",
+      "--job-name=R2_profiles",
+      "--array=0-1",
+      "--output=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/ring_r2_display_profiles_20261029/logs/%A_%a.out",
+      "--error=/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/ring_r2_display_profiles_20261029/logs/%A_%a.err",
+      "/home/4473331/projects/scaling_sandbox/polarity1d/manuscript/data/runs/ring_r2_display_profiles_20261029/worker.sh"
+    ],
+    "returncode": 0,
+    "stdout": "21412176\n",
+    "stderr": "",
+    "array_throttle": null
+  },
+  "validation": {
+    "generated_utc": "2026-10-29T21:01:04.904480+00:00",
+    "passed": true,
+    "records": [
+      {
+        "size": 1.0,
+        "seed": 202610271000332,
+        "source_slot": 80,
+        "replay_slot": 0,
+        "frames": 4001,
+        "native_cells": 100,
+        "native_interval": [
+          1600.0,
+          1800.0
+        ],
+        "events": 36,
+        "max_event_abs_difference": 0.0,
+        "max_P_abs_difference": 0.0,
+        "max_C_abs_difference": 2.220446049250313e-16,
+        "max_profile_mode_abs_difference": 1.0013580320489268e-07,
+        "numerical_checks": {
+          "minimum_concentration": 0.3366396590517426,
+          "max_relative_pool_error": 2.091660178393795e-13,
+          "events_total": 36,
+          "events_postburn": 3,
+          "cumulative_hazard_postburn": 4.0883614590155375,
+          "empirical_mean_peak": 9.344014507216293,
+          "maximum_peak": 47.818433990016004,
+          "frames": 4001,
+          "modes": 2,
+          "data_bytes": 1728944,
+          "integration_steps": 25304,
+          "nfev": 55866,
+          "njev": 59,
+          "nlu": 3349
+        },
+        "allocated_bytes": 2342912,
+        "output_sha256": {
+          "u_profiles.npy": "b6851bed4d694df58fc0ebb8957f37ebabe9881b7179d679d934a09a16ea6b88",
+          "time.npy": "cf4e1a6e81dec930b71a4b271c79a3381911e5882851b24f9c39eaddf88e1568",
+          "circumference.npy": "80bab39f188dfce9d1ec8679a790d99fb30ee3409263030e4b3597914c443f83",
+          "u_modes.npy": "a09e72268d8bb0ea0d4d9b9895be6e9463c1e9bdd0e870a4b2447e04c697465f"
+        }
+      },
+      {
+        "size": 3.0,
+        "seed": 202610271000404,
+        "source_slot": 116,
+        "replay_slot": 1,
+        "frames": 4001,
+        "native_cells": 300,
+        "native_interval": [
+          1600.0,
+          1800.0
+        ],
+        "events": 39,
+        "max_event_abs_difference": 0.0,
+        "max_P_abs_difference": 0.0,
+        "max_C_abs_difference": 4.440892098500626e-16,
+        "max_profile_mode_abs_difference": 1.0808308914533882e-07,
+        "numerical_checks": {
+          "minimum_concentration": 0.49272425489168986,
+          "max_relative_pool_error": 1.4654943925052066e-14,
+          "events_total": 39,
+          "events_postburn": 8,
+          "cumulative_hazard_postburn": 4.088361459015545,
+          "empirical_mean_peak": 13.48510356541314,
+          "maximum_peak": 61.79351564593719,
+          "frames": 4001,
+          "modes": 2,
+          "data_bytes": 4929744,
+          "integration_steps": 25992,
+          "nfev": 60141,
+          "njev": 59,
+          "nlu": 3469
+        },
+        "allocated_bytes": 6029312,
+        "output_sha256": {
+          "u_profiles.npy": "60aa53081f3371fac5566725c39ebe9ddd241e59a6216f746d5cd57a4fed3f8e",
+          "time.npy": "cf4e1a6e81dec930b71a4b271c79a3381911e5882851b24f9c39eaddf88e1568",
+          "circumference.npy": "39bce653ed09913dee53c4102726d545880c97a8b234782328111db70364647f",
+          "u_modes.npy": "19aa0197723e31ad6dacf6661c918deb274b58218bd945f22be76902d2467191"
+        }
+      }
+    ],
+    "criteria": "All shared events match at absolute1e-7; P rtol2e-5/atol2e-6; C rtol2e-7/atol2e-8; full-profile modes agree with saved modes",
+    "original_records_read_only": true
+  }
+}

@@ -1,0 +1,642 @@
+{
+  "generated_utc": "2026-10-29T21:01:29.270346+00:00",
+  "extraction_code": "polarity1d/manuscript/code/mechanisms/r2_display_statistics_20261029.py",
+  "extraction_code_sha256": "feaffdae4bdfa9f8b63126c33d4775752889f7d3d52197a8785d9eb41d698dd7",
+  "slurm_job_id": "21412185",
+  "conditions": "Low rate, high amplitude; exactly the requested three model/supply cases",
+  "source_records_read_only": true,
+  "inputs": {
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/frozen_sources/production.py": {
+      "sha256": "f264fe5f6aad4ca514d3ba33368f67677095ffe3d60e60ab0c85ce2c7818252e",
+      "bytes": 27050
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/frozen_sources/engine.py": {
+      "sha256": "906191c40d4639833f52d40f8fafc7ad8ac06b1b15e29928d13a499a4a6afa03",
+      "bytes": 26025
+    },
+    "polarity1d/manuscript/code/mechanisms/figure4_round3_estimators_20261022.py": {
+      "sha256": "64991534b66301858c96b97f324064ba567739a3ea3768499ef95f72b2c5a7eb",
+      "bytes": 20103
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/manifest.json": {
+      "sha256": "ba357095e148d7ee60f9929561ab0062dc39d58f57b96d2128f8882fb180996a",
+      "bytes": 302333
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/expected_levels.json": {
+      "sha256": "d0b55734f5c88e4c552b56f0884054cd3a87f9f42d8e97beba5a446461cdbaff",
+      "bytes": 5077
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/116/segments/00/status.json": {
+      "sha256": "fc3bfeef1656b81ba11e159647ab496483b064392cd2a79add79fbae4a04bc50",
+      "bytes": 1643
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/117/segments/00/status.json": {
+      "sha256": "c6b835e7baf993498dc3f758c71aa75c8a3a79d9536dd6f4cea08bb12274cfe4",
+      "bytes": 1646
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/118/segments/00/status.json": {
+      "sha256": "360c61319e5ecd12e1e1abec3066eae4664a1906659a211780a127034210881b",
+      "bytes": 1648
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/119/segments/00/status.json": {
+      "sha256": "e81c04f9a358f28a93a45bbdb3b95dd566ea1727afe3fb02c8aa080e89d7a23d",
+      "bytes": 1648
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/116/segments/00/time.npy": {
+      "sha256": "e716a1325868e911d60ce4c0fdd4f4a1efe94305d6293ef453f2a2c0032749bf",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/152/segments/00/status.json": {
+      "sha256": "fcbb1dbfdfe111c1c62e23fa4da43eddcad5ebb02a7d312b71609eb44eb30e7f",
+      "bytes": 1646
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/153/segments/00/status.json": {
+      "sha256": "1453bc324e1ba1b1bc14daaedb4ab7b8b58e897530a668d68378b673c4eaedcd",
+      "bytes": 1645
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/154/segments/00/status.json": {
+      "sha256": "211e39e7e70ea7b3ea6cf0b9f8fa8adcb7bfa40c22729b7f6392417b7ae24256",
+      "bytes": 1645
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/155/segments/00/status.json": {
+      "sha256": "c5cd60ed77f648c556bffd61a20bd3da7b3c7d1237fc5630d1d4fd32c1c01967",
+      "bytes": 1645
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/152/segments/00/time.npy": {
+      "sha256": "e716a1325868e911d60ce4c0fdd4f4a1efe94305d6293ef453f2a2c0032749bf",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/188/segments/00/status.json": {
+      "sha256": "b34cbdaba0e607d4ee27dba55dc72fe1913e2dfba0a432cbffec66511cb30880",
+      "bytes": 1648
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/188/segments/01/status.json": {
+      "sha256": "6cdbe12c81b0c76299d1a4903ff2a68bf4a37cfa2fb1cb51c988e13bd4bd19cb",
+      "bytes": 1645
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/188/segments/02/status.json": {
+      "sha256": "0d3281eb27e4d15621ef7bf26ce297023266a7aaf3bc8a7c9fc2481aae50b80c",
+      "bytes": 1651
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/189/segments/00/status.json": {
+      "sha256": "a6ac3d1765f515a15bb0c317dddb5e44deacb372cabd2aa1187055606f68aa37",
+      "bytes": 1645
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/189/segments/01/status.json": {
+      "sha256": "545364e676ef987105e36b83495808dacb4ea844acb39f632b408203499b25cf",
+      "bytes": 1647
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/189/segments/02/status.json": {
+      "sha256": "a52faa20ffe596aa39c4e177451000e755df72244de3c9592f8f8ed89583a7a1",
+      "bytes": 1653
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/190/segments/00/status.json": {
+      "sha256": "71c1ea12cb000bb0bc0c5629da43c8d66de4ef5ef276bef0bebb606ed7750d2f",
+      "bytes": 1646
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/190/segments/01/status.json": {
+      "sha256": "2afd7ed005266b10f13687e0d9658a5c204438bb60adcc1bbcad59d8a59e36c9",
+      "bytes": 1647
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/190/segments/02/status.json": {
+      "sha256": "54e869795ddf5ebbfcc1682f8d3ac62e369847d911ff7bae2b5f93ba05e067e4",
+      "bytes": 1652
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/191/segments/00/status.json": {
+      "sha256": "836dadb5968a47816f9af1f978f1e6c17c587e6b58c3188005deef91f80cb179",
+      "bytes": 1645
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/191/segments/01/status.json": {
+      "sha256": "af22128d3de5e75abca3af973c504bd69c0da7aff2fc4fce93175472f36d3b01",
+      "bytes": 1649
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/191/segments/02/status.json": {
+      "sha256": "4bb03916f8803ff09567950c9cd9da73857e1ebbb90eb1f33d933e5d2c885cb6",
+      "bytes": 1653
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/188/segments/00/time.npy": {
+      "sha256": "e716a1325868e911d60ce4c0fdd4f4a1efe94305d6293ef453f2a2c0032749bf",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/188/segments/01/time.npy": {
+      "sha256": "ad2604876867a7fcd0e9807019c2331f2e5fcb960348ea975333857fb6ac99ba",
+      "bytes": 2048128
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/188/segments/02/time.npy": {
+      "sha256": "194a57032b76c45b09953fcd4a463a83704a6ae757294c6cefb57fa095873ee2",
+      "bytes": 4096128
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/116/segments/00/u_modes.npy": {
+      "sha256": "94e5ed4d8ed3e92f629dd96ef78e888055a74ce0277323fa344c883d4498e38d",
+      "bytes": 28672240
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/117/segments/00/u_modes.npy": {
+      "sha256": "61684895fe6bd19177519d55b828ac49f30eaa613e393253a8bfb737fc7a7d39",
+      "bytes": 28672240
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/117/segments/00/time.npy": {
+      "sha256": "e716a1325868e911d60ce4c0fdd4f4a1efe94305d6293ef453f2a2c0032749bf",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/118/segments/00/u_modes.npy": {
+      "sha256": "2af7b6c557c43996ddc0b13451197ad643b19eb71c6e269c4f3f996a9da17dc1",
+      "bytes": 28672240
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/118/segments/00/time.npy": {
+      "sha256": "e716a1325868e911d60ce4c0fdd4f4a1efe94305d6293ef453f2a2c0032749bf",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/119/segments/00/u_modes.npy": {
+      "sha256": "f9d4694a844d477d113cee3be5330c3425bcf9a6b087eb19258a0a42769d5eef",
+      "bytes": 28672240
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/119/segments/00/time.npy": {
+      "sha256": "e716a1325868e911d60ce4c0fdd4f4a1efe94305d6293ef453f2a2c0032749bf",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/152/segments/00/u_modes.npy": {
+      "sha256": "a395be8e9b5a67ae4026e55a2e2491adf895a95614f227e5370187ba4e93798a",
+      "bytes": 55296344
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/153/segments/00/u_modes.npy": {
+      "sha256": "95176f9a11264fbb0df7a6b2213bf51bf1c2509268595fa9119309911492346c",
+      "bytes": 55296344
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/153/segments/00/time.npy": {
+      "sha256": "e716a1325868e911d60ce4c0fdd4f4a1efe94305d6293ef453f2a2c0032749bf",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/154/segments/00/u_modes.npy": {
+      "sha256": "7d0d14263eab92cd15b7fc31e774c771d03e371fc99a70fd1464d1040a30df7c",
+      "bytes": 55296344
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/154/segments/00/time.npy": {
+      "sha256": "e716a1325868e911d60ce4c0fdd4f4a1efe94305d6293ef453f2a2c0032749bf",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/155/segments/00/u_modes.npy": {
+      "sha256": "c5820a87fccfff6ae5feaedb4ae4d32ba86eda248b8c12a13d09b4c33a42f07e",
+      "bytes": 55296344
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/155/segments/00/time.npy": {
+      "sha256": "e716a1325868e911d60ce4c0fdd4f4a1efe94305d6293ef453f2a2c0032749bf",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/188/segments/00/u_modes.npy": {
+      "sha256": "ef404c43657ba6ea4e725a37c505edce7359c6b9b12b4275532287c5c1fbc858",
+      "bytes": 83968456
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/188/segments/01/u_modes.npy": {
+      "sha256": "346b9b346795e9d90470aa721e2c3af5b16232137a06c1613b3faa76cf6efd5c",
+      "bytes": 83968128
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/188/segments/02/u_modes.npy": {
+      "sha256": "c40c14499231fe58f540d31d508760bf236fcb0783803e721a5eb0051ab45ba0",
+      "bytes": 167936128
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/189/segments/00/u_modes.npy": {
+      "sha256": "712b5d75fb2de1c66e7523801374f3516ba36933f91a03c91784ce1d56763d74",
+      "bytes": 83968456
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/189/segments/01/u_modes.npy": {
+      "sha256": "35b73aa1ee6f3275e40c3913acf0bce733cdb5f659164b4b56e64d9198470e33",
+      "bytes": 83968128
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/189/segments/02/u_modes.npy": {
+      "sha256": "e54f56cbdce0fc4979de552355d4ba6291bafdde0182eb5e142d0103505a1efe",
+      "bytes": 167936128
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/189/segments/00/time.npy": {
+      "sha256": "e716a1325868e911d60ce4c0fdd4f4a1efe94305d6293ef453f2a2c0032749bf",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/189/segments/01/time.npy": {
+      "sha256": "ad2604876867a7fcd0e9807019c2331f2e5fcb960348ea975333857fb6ac99ba",
+      "bytes": 2048128
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/189/segments/02/time.npy": {
+      "sha256": "194a57032b76c45b09953fcd4a463a83704a6ae757294c6cefb57fa095873ee2",
+      "bytes": 4096128
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/190/segments/00/u_modes.npy": {
+      "sha256": "faa14a1fdfab61a280f24243ee4cce4ba996a83a3a8462ba38009f5dec9e767b",
+      "bytes": 83968456
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/190/segments/01/u_modes.npy": {
+      "sha256": "213d0511babad50ddbadaaef374b88d5197fce6e0918a03c0dbd955010ea9dee",
+      "bytes": 83968128
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/190/segments/02/u_modes.npy": {
+      "sha256": "7c3afa53bfd9e71fe1b3ae4a5d74564dc691fecef526cfb4059803b8801ce145",
+      "bytes": 167936128
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/190/segments/00/time.npy": {
+      "sha256": "e716a1325868e911d60ce4c0fdd4f4a1efe94305d6293ef453f2a2c0032749bf",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/190/segments/01/time.npy": {
+      "sha256": "ad2604876867a7fcd0e9807019c2331f2e5fcb960348ea975333857fb6ac99ba",
+      "bytes": 2048128
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/190/segments/02/time.npy": {
+      "sha256": "194a57032b76c45b09953fcd4a463a83704a6ae757294c6cefb57fa095873ee2",
+      "bytes": 4096128
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/191/segments/00/u_modes.npy": {
+      "sha256": "66f7b563b81c6d210bba0c957385993f464a8136c82325deb99703e314749c94",
+      "bytes": 83968456
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/191/segments/01/u_modes.npy": {
+      "sha256": "c22a1037497d3b9e9495cbd4aecf02c3054d00bb7ae29e32e74100b59259013f",
+      "bytes": 83968128
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/191/segments/02/u_modes.npy": {
+      "sha256": "eeec1132cb25c3358e3b6a832999ce8ac7b9168946afb177fe59cbee9dc697ea",
+      "bytes": 167936128
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/191/segments/00/time.npy": {
+      "sha256": "e716a1325868e911d60ce4c0fdd4f4a1efe94305d6293ef453f2a2c0032749bf",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/191/segments/01/time.npy": {
+      "sha256": "ad2604876867a7fcd0e9807019c2331f2e5fcb960348ea975333857fb6ac99ba",
+      "bytes": 2048128
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/191/segments/02/time.npy": {
+      "sha256": "194a57032b76c45b09953fcd4a463a83704a6ae757294c6cefb57fa095873ee2",
+      "bytes": 4096128
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/332/segments/00/status.json": {
+      "sha256": "e33956237c1358cd93550c2ab2e191106259a118b2b45eeb3c52430eaae87463",
+      "bytes": 1624
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/333/segments/00/status.json": {
+      "sha256": "d646f1fc2d1e610e039484f501f0eb5e43da0c15a19b6878a51864789f6d7c88",
+      "bytes": 1622
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/334/segments/00/status.json": {
+      "sha256": "c258a70e58b25fbf2037ed29608ec175da6c2503c8539d8d3d3d936851572519",
+      "bytes": 1620
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/335/segments/00/status.json": {
+      "sha256": "7aec4fa69ef94e4571b93d306304ec962cacd291f0ff680fc2c49356cfabf8ea",
+      "bytes": 1623
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/332/segments/00/time.npy": {
+      "sha256": "e03abaff6541bc99453b5b44d8ea66a1c28ae9d71212bc4b18fb5ef084b8ef28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/368/segments/00/status.json": {
+      "sha256": "450c81fbe5793f13c382a423642b32135d063fea6b2e6f157419b5e170c2edb4",
+      "bytes": 1621
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/369/segments/00/status.json": {
+      "sha256": "d6dac74091c6f77d53904361aabce59420abea54a715420e4653e4e3432a31bb",
+      "bytes": 1624
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/370/segments/00/status.json": {
+      "sha256": "46e5d9776f141299e8f60f4b9ddf3f329f8c2122e7f2337a868394b65b84da33",
+      "bytes": 1622
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/371/segments/00/status.json": {
+      "sha256": "54f86d80ca7b46c37e8dd99c0487c3c8d58f5c108d75f14c17f1fe262e77706b",
+      "bytes": 1624
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/368/segments/00/time.npy": {
+      "sha256": "e03abaff6541bc99453b5b44d8ea66a1c28ae9d71212bc4b18fb5ef084b8ef28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/404/segments/00/status.json": {
+      "sha256": "4faebd0d1d553bd4f046c5bb75490bb3050039df470b4cd2ec1519cf2192262d",
+      "bytes": 1621
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/405/segments/00/status.json": {
+      "sha256": "5791f345d6847a5b7c205634b5610dc8041bb8427d0e7b601bc37c9dd1619fb2",
+      "bytes": 1620
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/406/segments/00/status.json": {
+      "sha256": "5a090a55e7cef86ded411d1e4af68bd7013cce226803ae5be4186bafa6d6b0f0",
+      "bytes": 1621
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/407/segments/00/status.json": {
+      "sha256": "95f6b9e13c6a9ec8d427f212f08d168b233e9d18d0bcac728364f5e6016b2a50",
+      "bytes": 1622
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/404/segments/00/time.npy": {
+      "sha256": "e03abaff6541bc99453b5b44d8ea66a1c28ae9d71212bc4b18fb5ef084b8ef28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/332/segments/00/u_modes.npy": {
+      "sha256": "8c38cb55777722c6217b7388f433ea2b146cd87c05715edd2e5b01ffee83fa9c",
+      "bytes": 14336184
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/332/segments/00/circumference.npy": {
+      "sha256": "8bc877fb0d7738530c51499ec978245a86f7baaadaf1a829c09b3af89994af07",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/333/segments/00/u_modes.npy": {
+      "sha256": "46d7257d33203a8ed059fac373f7140641b978db71f3e8ef77b9c889482bbbc7",
+      "bytes": 14336184
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/333/segments/00/time.npy": {
+      "sha256": "e03abaff6541bc99453b5b44d8ea66a1c28ae9d71212bc4b18fb5ef084b8ef28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/333/segments/00/circumference.npy": {
+      "sha256": "30fb305285aaf958facbf0f74e9600913f20cd16b1f2c2fb8d9b9a104e3c62fc",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/334/segments/00/u_modes.npy": {
+      "sha256": "88223ae58847b06026553f7583cb531f50ad6c556811f9db0803956ea77c6cc9",
+      "bytes": 14336184
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/334/segments/00/time.npy": {
+      "sha256": "e03abaff6541bc99453b5b44d8ea66a1c28ae9d71212bc4b18fb5ef084b8ef28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/334/segments/00/circumference.npy": {
+      "sha256": "669ab6a5247edb113c4eaef038118896c87845d8a54c6e3ad6d6d2d1fb7d55e7",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/335/segments/00/u_modes.npy": {
+      "sha256": "07e4c44ca90a531e691e3e94dd4daa3eaac10536c09c4aa829cc50045759cb95",
+      "bytes": 14336184
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/335/segments/00/time.npy": {
+      "sha256": "e03abaff6541bc99453b5b44d8ea66a1c28ae9d71212bc4b18fb5ef084b8ef28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/335/segments/00/circumference.npy": {
+      "sha256": "8b920634c092f6ad0c00283e5ebcc24229186bfaf2dbd761708b5b9084610b44",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/368/segments/00/u_modes.npy": {
+      "sha256": "97b2bd60bb6cbd165a3380f0828b5b34c7a720f40a755e59bf516eb1029b5229",
+      "bytes": 28672240
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/368/segments/00/circumference.npy": {
+      "sha256": "9c8d60437e46df146f82f27aaec3d16d3064d5ecb4aa350f836ea5457488f60f",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/369/segments/00/u_modes.npy": {
+      "sha256": "8b2c8bf381d2b06400202ff43d5e6440257103f1a10d636e4750cdab099db2ed",
+      "bytes": 28672240
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/369/segments/00/time.npy": {
+      "sha256": "e03abaff6541bc99453b5b44d8ea66a1c28ae9d71212bc4b18fb5ef084b8ef28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/369/segments/00/circumference.npy": {
+      "sha256": "0de1d8f9dbf94134de287d57b00aca8b56b0683f1e6c868070a7e7423fc80da7",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/370/segments/00/u_modes.npy": {
+      "sha256": "1fd3cf977909b7afd846a8f03822b1763aeac03a5e40c633f6600849cd03fb7e",
+      "bytes": 28672240
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/370/segments/00/time.npy": {
+      "sha256": "e03abaff6541bc99453b5b44d8ea66a1c28ae9d71212bc4b18fb5ef084b8ef28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/370/segments/00/circumference.npy": {
+      "sha256": "140f81cf711496d684a0663741226e8137a0dc2a3018d19b0b7f88f2784082f4",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/371/segments/00/u_modes.npy": {
+      "sha256": "1c568e553ff97500cf3967cf61004434cc8d15b10f4e7257e962f4185cf546c4",
+      "bytes": 28672240
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/371/segments/00/time.npy": {
+      "sha256": "e03abaff6541bc99453b5b44d8ea66a1c28ae9d71212bc4b18fb5ef084b8ef28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/371/segments/00/circumference.npy": {
+      "sha256": "41a92967a5dd59c49285b9a673007adebbc81fa1a8aa249906fd27d815d3d1b3",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/404/segments/00/u_modes.npy": {
+      "sha256": "f2507a3f94f11ef819dfc1ed1363e1879644d475eca7068bcf544ca066830d89",
+      "bytes": 43008296
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/404/segments/00/circumference.npy": {
+      "sha256": "042c483f96cb12bab6d74381254d9d913c664d11fe3da9e22500f286e38cf0d5",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/405/segments/00/u_modes.npy": {
+      "sha256": "25923518469ee006bea323dc45f7cd0690e6d777e379e2bd654bbd0d9ec650b0",
+      "bytes": 43008296
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/405/segments/00/time.npy": {
+      "sha256": "e03abaff6541bc99453b5b44d8ea66a1c28ae9d71212bc4b18fb5ef084b8ef28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/405/segments/00/circumference.npy": {
+      "sha256": "f5af44b563587cb3a4f67c71d341f041e07ea5fb328db8c93af6ff8bdc3d3d31",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/406/segments/00/u_modes.npy": {
+      "sha256": "5507dd232b899f6d0416c50b33cca4284f6e8be7a3b564e0e08432efc2fafd25",
+      "bytes": 43008296
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/406/segments/00/time.npy": {
+      "sha256": "e03abaff6541bc99453b5b44d8ea66a1c28ae9d71212bc4b18fb5ef084b8ef28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/406/segments/00/circumference.npy": {
+      "sha256": "cf2dbb9b01a7abf047182008b263c6e712658a19a54ef3f469e94923f0d5ad15",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/407/segments/00/u_modes.npy": {
+      "sha256": "304ef8e614e128a5efff4756fbb81d577ace8cb310fb9c37e7a4ea289c7bb0f1",
+      "bytes": 43008296
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/407/segments/00/time.npy": {
+      "sha256": "e03abaff6541bc99453b5b44d8ea66a1c28ae9d71212bc4b18fb5ef084b8ef28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/poisson_ring_modes_20261027/workers/407/segments/00/circumference.npy": {
+      "sha256": "7685ea2084608f665d7a07597695cd1e0190f474142428b2543fc4e7f3df4e0f",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/manifest.json": {
+      "sha256": "e6aab9ff276e0ed09f4571433c3416946bdceaa9f166ebc1b77bb33712c522f4",
+      "bytes": 126008
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/expected_levels.json": {
+      "sha256": "8fd6eddf8a56c6d51975b5471ed8d4a0e4c2ea5adbd0c395edaa325fa9c00cee",
+      "bytes": 1621
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/080/segments/00/status.json": {
+      "sha256": "a2976059d89f6e8e971bfb019a572140d4ffd8eeb76115ae80aee4b9071f2138",
+      "bytes": 1887
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/081/segments/00/status.json": {
+      "sha256": "a3bb838a8f16eb41c4a8b7ab4917fc2a2bb0e614e7591b1d1416789ae0514ce9",
+      "bytes": 1885
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/082/segments/00/status.json": {
+      "sha256": "8c3186afce7f1e1b0299cd4e70726261355007fbbb9a1e2c9df8c09d4b22b38f",
+      "bytes": 1888
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/083/segments/00/status.json": {
+      "sha256": "6fefd9b95fbffc8e3c69c4d7152176ec58ef610d08aee39cb32dfa64533054e9",
+      "bytes": 1889
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/080/segments/00/heading_time.npy": {
+      "sha256": "e03abaff6541bc99453b5b44d8ea66a1c28ae9d71212bc4b18fb5ef084b8ef28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/116/segments/00/status.json": {
+      "sha256": "b113809220671f9e73a5feb325f02ef4075e8666fe261c3a1087361064a3f37f",
+      "bytes": 1887
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/117/segments/00/status.json": {
+      "sha256": "0807003eebc46d80e75b48efaf0d3d99367354ead208f200ac05ca3d97f9579b",
+      "bytes": 1886
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/118/segments/00/status.json": {
+      "sha256": "13c4ab6e200a780b31a201904e63c72961bed1392ce284ecec94d92a09f5295c",
+      "bytes": 1885
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/119/segments/00/status.json": {
+      "sha256": "8ca9cdea6d487a89d3eac549a591127552676bf570cc6c70a5e8dffd81571df0",
+      "bytes": 1887
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/116/segments/00/heading_time.npy": {
+      "sha256": "e03abaff6541bc99453b5b44d8ea66a1c28ae9d71212bc4b18fb5ef084b8ef28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/080/segments/00/u_modes.npy": {
+      "sha256": "1ab46100436ce6e64db8e8324d4da814d1864d1af8424ce9cf39a495a36b13d3",
+      "bytes": 128144
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/080/segments/00/P.npy": {
+      "sha256": "8e5396221e8b6c15e91de2f704b6d33ada538f2ef1c71a0cfe72a92be997e3d1",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/080/segments/00/circumference.npy": {
+      "sha256": "41e802672c5111c8e371fac44b9f58a4a439a625e5b27e126fe4e778068af995",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/081/segments/00/u_modes.npy": {
+      "sha256": "2db837bd0ad8650b83495c37138a10933040630b37d69a77979dee19bb9e4b40",
+      "bytes": 128144
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/081/segments/00/P.npy": {
+      "sha256": "9fe1bac559b7718d5d745814090d119945b189d05afb89a2099e3cc62cc68198",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/081/segments/00/heading_time.npy": {
+      "sha256": "e03abaff6541bc99453b5b44d8ea66a1c28ae9d71212bc4b18fb5ef084b8ef28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/081/segments/00/circumference.npy": {
+      "sha256": "42100087cebbfca68eec7c0e45415857fe6140c60023731cc59f98ab767772e3",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/082/segments/00/u_modes.npy": {
+      "sha256": "da65b10c488416f82360fff13bb9d1ffe6ccd03c24106bd6593ae6140d29d9e5",
+      "bytes": 128144
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/082/segments/00/P.npy": {
+      "sha256": "ac0d863bd7bb626a17077acf258d673e30423c2b184e45dd22516f17bc3239e4",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/082/segments/00/heading_time.npy": {
+      "sha256": "e03abaff6541bc99453b5b44d8ea66a1c28ae9d71212bc4b18fb5ef084b8ef28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/082/segments/00/circumference.npy": {
+      "sha256": "21b9892d9b6b091ff3dbb0a34edc56a1a8e32bc30c000b98b6d0cb1804f8b733",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/083/segments/00/u_modes.npy": {
+      "sha256": "92636fc86805f4074566d1b00d9864bf8039c23c80f63fc528119d50079567ea",
+      "bytes": 128144
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/083/segments/00/P.npy": {
+      "sha256": "64ac02c325b7c3dbbae5a321e8afe5325dd030ef2414fa83b27bc525735e6a8d",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/083/segments/00/heading_time.npy": {
+      "sha256": "e03abaff6541bc99453b5b44d8ea66a1c28ae9d71212bc4b18fb5ef084b8ef28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/083/segments/00/circumference.npy": {
+      "sha256": "08f8d93dbba96cb3396a9e96d9386c70b92e1e850a67fa6a414f6883b4373c05",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/116/segments/00/u_modes.npy": {
+      "sha256": "f4b38a4416f8761d9547cc9cd4ef1961a818eb3a20ce746640f57e4a5bb08e17",
+      "bytes": 128144
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/116/segments/00/P.npy": {
+      "sha256": "42535d02ab843ee06c9b84e565dc6289f1eb84db09db2d37e1ec6db755444b8c",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/116/segments/00/circumference.npy": {
+      "sha256": "17ea5e992a5d249bc5c660f9e0af2d3ec68c2406c54ac7cd7d2424b3162b9db0",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/117/segments/00/u_modes.npy": {
+      "sha256": "d391586cdec0206b3863cf8f470e9dc008831fdb67b044f5edb5b10ab7e87ffa",
+      "bytes": 128144
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/117/segments/00/P.npy": {
+      "sha256": "7eba3f4aeb46222d241c24d414ef7b3a2bfe2d3fe6ddd6c56667133b58a40dc4",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/117/segments/00/heading_time.npy": {
+      "sha256": "e03abaff6541bc99453b5b44d8ea66a1c28ae9d71212bc4b18fb5ef084b8ef28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/117/segments/00/circumference.npy": {
+      "sha256": "a186c738fc7af87f049eb2077397162cdf31eb517a66bcc5a9b918e9f893cd28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/118/segments/00/u_modes.npy": {
+      "sha256": "cdad9ea6fb42d7a0e4cc0102038195e68fb6208b93d68032c9435c6441e308e7",
+      "bytes": 128144
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/118/segments/00/P.npy": {
+      "sha256": "b11d9db282748c20421667c2f5a3be0cf9fdb733562b0c25ed73a7bc4ef3faf9",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/118/segments/00/heading_time.npy": {
+      "sha256": "e03abaff6541bc99453b5b44d8ea66a1c28ae9d71212bc4b18fb5ef084b8ef28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/118/segments/00/circumference.npy": {
+      "sha256": "9e9cabae8511a7466738144cfe113d9f9c9995c012f1e195e3a3936e8844d9aa",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/119/segments/00/u_modes.npy": {
+      "sha256": "1e960722ea89ea72dde57c2628faa8ef0d4a6e7436bc52905a3b4ccab87e7b7b",
+      "bytes": 128144
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/119/segments/00/P.npy": {
+      "sha256": "e0bf7f9311c6d186b0290a10a409ec463934b02aaa37b12ae2846cec7f946e87",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/119/segments/00/heading_time.npy": {
+      "sha256": "e03abaff6541bc99453b5b44d8ea66a1c28ae9d71212bc4b18fb5ef084b8ef28",
+      "bytes": 2048136
+    },
+    "polarity1d/manuscript/data/runs/ring_r2_per_cell_20261027/workers/119/segments/00/circumference.npy": {
+      "sha256": "0e2cbcdda21fa7953e685e4d8eb4c0eff186ce422d86b950646b0ed66a62f6e0",
+      "bytes": 2048136
+    }
+  },
+  "heading": "Original H.seed_moments/summarize; mean cos heading difference; endpoint |P|>=0.1; four seeds; 2000 whole-seed draws; zero-lag correlation identically one",
+  "heading_lags": "Union of161 linear and100 logarithmic lags rounded to native cadence; common full half-record horizon for the outer sizes in each case",
+  "alpha": "Unchanged frozen mode1 raw-pair ACF and first-half-height rate; negative three-size OLS log-rate/log-mean-physical-C slope; unchanged2000 whole-seed bootstrap draw seed/order",
+  "shared_spring_center": "Per-cell arm uses original size2 per-perimeter trajectory, with its state-dependent hazard; outer per-cell trajectories use the fixed size2 basal-circumference rate",
+  "output_sha256": {
+    "model_heading_seed_moments.csv.gz": "755e2c9dfa5c9ac8e5e776c8d377a832d1b58cf8680ef7570697c209bbed7945",
+    "model_records.csv": "1e63a2c9cb5bab6880bb483cc98f153f39daa5c55f06fd4e1d4ea7c6439f4e59",
+    "model_alpha_bootstrap.csv.gz": "c298f14aecd69ee286fdf4b3f378e676d869ff43c8039c0b9c6a8f08863b2e21",
+    "model_rates.csv": "24e43cfa68c143eccf622f726f221ebb0bfae7c06fa9d77a43945777f0f78bb5",
+    "model_alpha.csv": "09452c5844c75f9812fa3faaf802c0fcd86f9bc6dc91d3755ab665c1dc3a61ad",
+    "model_heading.csv": "5c2fc52d8ebd0302bc5dcaa9e0994c19c219abaf4ce6e7f4cab179fa65e37f00"
+  }
+}
